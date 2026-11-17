@@ -5,7 +5,7 @@ description: "Nusuk Design Language: use for any Nusuk concept, deck, design, pr
 
 # Nusuk Design Language (DL) · skill
 
-Version 3.5.0 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.6.0 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 

@@ -6,6 +6,10 @@ A 250 × 330 content or commerce card: a full-bleed photo with a type pill on to
 
 **15 November 2026, evening:** 23 types. Marketplace is four types now — `Marketplace / List` (268), `Marketplace Grid` (189) and both `/ Out of stock`: pass `layout` and `outOfStock`; out of stock replaces the type pill with «نفد من المخزون» (package-out-of-stock) and the action with Notify me («نبهني» in the list, a full-width «نبهني عند التوفر» in the grid). `ADS` is coded as `type: 'ad'`: a photo and a mandatory ad label («إعلان», with `sponsor`). Figma labels the ADS card «اختيارات نسك», which is the editorial-picks label: an ad must say it is an ad (M4, known issue F46). Museum is still not coded (F42).
 
+**17 November 2026, 21:35 ([🃏 Cards › Media Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70306-7276), 24 types):** new **Charity Card** ([node 70695:9609](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70695-9609)): `type: 'charity'`, 386 × 330. The photo fills the card under the fade (white from 11.6% to 72.9%) and a white glow (622 × 429, blur 74); the head holds a White SM chip with a 14 icon at the start (`tag: { label, icon }`, Figma: «حملة رمضان 1448هـ» with `spoon-and-fork`); the details hold the title (Body 1 Regular) and `description` (Notes 2 Light, `text-subtle`), then one row: CircularProgress 44 (`progress`, 0–1, its percentage in the middle), the remaining amount (`remaining: { label, amount }`: label `text-content`, amount Headline 2 Regular in `text-link`), a 20 Pearl line, the collected amount (`collected: { label, amount }`, all `text-note`), 18 apart, and the Add to Cart CTA arrow at the end (`onOpen`, `ctaLabel`). The Marketplace Grid out-of-stock card now shows the Add to Cart CTA Notify me (bell at the end) under the price, as Figma does.
+
+**Charity Card rules.** Every amount and the percentage come from the campaign's live totals, never rounded up; no countdown, no «لم يتبق إلا», no donor names, counts or ranks (M4); the card opens the campaign and the giving happens on its own page, so the act and the payment stay in separate frames (M9S). Figma's label «تم جمع» uses تم, which the writing guide avoids (F109): pass the content owner's wording.
+
 ## Anatomy
 
 - **Card** 250 × 330, `radius-md` 18, `shadow-xs`. Text and layout run right to left.
@@ -49,7 +53,8 @@ A 250 × 330 content or commerce card: a full-bleed photo with a type pill on to
 
 | Prop | Type | Notes |
 |---|---|---|
-| `type` | `'card' \| 'more' \| 'ad'` | `more` renders the "browse more" tile; `ad` the ADS card with its ad label (`adLabel`, `sponsor`, `href`) |
+| `type` | `'card' \| 'more' \| 'ad' \| 'charity'` | `more` renders the "browse more" tile; `ad` the ADS card with its ad label (`adLabel`, `sponsor`, `href`); `charity` the Charity Card (386 wide) |
+| `tag, description, progress, progressText, remaining, collected, onOpen` | Charity Card | `tag: { label, icon }`; `remaining` and `collected`: `{ label, amount }`; `progress` 0–1 |
 | `adLabel, sponsor, href` | `string` | `type: 'ad'` |
 | `notifyLabel, onNotify` | `string, fn` | Out of stock |
 | `outOfStock` | `boolean` | Marketplace out of stock: «نفد من المخزون» pill and Notify me (`notifyLabel`, `onNotify`) |

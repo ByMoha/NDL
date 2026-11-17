@@ -1,0 +1,57 @@
+{
+ "version": "2026-11-17d",
+ "title": "Add to Cart CTA on CTA instances; Media Cards Charity Card",
+ "date": "2026-11-17",
+ "designMd": "3.6.0",
+ "tokens": "3.11",
+ "figma": [
+  "https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70399-6858",
+  "https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70306-7276",
+  "https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70695-9609"
+ ],
+ "components": {
+  "AddToCartCTA": {
+   "changed": {
+    "arrow width": "50 -> 42",
+    "cart width": "50 -> 42",
+    "cart icon": "shopping-basket-01 -> shopping-basket-add-01",
+    "one/many width": "122 -> 138",
+    "one remove icon": "delete-03 -> delete-01",
+    "remove": "trailing delete-03 -> leading shopping-basket-remove-01",
+    "notify-me": "leading notification-01 -> trailing notification-02"
+   },
+   "ios": "NusukButton Secondary XS per status; stepper HStack(spacing: 8) 138 x 30 forced LTR",
+   "android": "NusukButton per status; stepper Row(width 138.dp, spacedBy 8.dp) under LayoutDirection.Ltr"
+  },
+  "MediaCard": {
+   "added": [
+    "type: 'charity'",
+    "tag",
+    "description",
+    "progress",
+    "progressText",
+    "progressLabel",
+    "remaining",
+    "collected",
+    "onOpen"
+   ],
+   "changed": {
+    "grid out of stock": "full-width Button notify -> AddToCartCTA notify-me"
+   }
+  },
+  "Icon": {
+   "added": [
+    "delete-01",
+    "shopping-basket-remove-01",
+    "notification-02",
+    "spoon-and-fork"
+   ]
+  }
+ },
+ "knownIssues": [
+  "F108",
+  "F109",
+  "F110",
+  "F111"
+ ]
+}

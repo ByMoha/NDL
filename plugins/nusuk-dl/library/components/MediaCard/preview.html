@@ -47,7 +47,10 @@
       h('p', { className: 'mc-cap' }, 'Media Cards · 18 types · Solid BG = On (glass details panel)'),
       cards.map(card),
       h('p', { className: 'mc-cap' }, 'Master options · Solid BG = Off (fade) · From–To + discount · rating summary · Athkar note'),
-      extra.map(function (c, i) { return card(c, 'x' + i); })));
+      extra.map(function (c, i) { return card(c, 'x' + i); }),
+      h('p', { className: 'mc-cap' }, 'Charity Card (17 Nov 2026) · Marketplace Grid out of stock (Add to Cart CTA · Notify me)'),
+      h('div', { dir: 'rtl', style: { gridColumn: 'span 2' } }, h(N.MediaCard, { type: 'charity', image: IMG.kaaba, tag: { label: 'حملة رمضان 1448هـ', icon: 'spoon-and-fork' }, title: 'سفرة صائم', description: 'إفطار الصائمين في الحرمين الشريفين', progress: 0.75, remaining: { label: 'المبلغ المتبقي', amount: '1,000' }, collected: { label: 'تم جمع', amount: '3,000' } })),
+      card({ kind: 'marketplace', outOfStock: true, layout: 'grid', surface: 'fade', image: IMG.kaaba, title: 'الهدي', price: '1,000' }, 'oos')));
 </script>
 </body>
 </html>

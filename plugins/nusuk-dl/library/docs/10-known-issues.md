@@ -478,3 +478,11 @@ Read in [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?n
 | F106 | 🧭 Navigation › Circular progress indicator: the 50% variant starts its arc at 12 o'clock and ends the track 15° before it; the 20% and 75% variants start the arc 15° after 12 o'clock and end the track at 12 | Code follows the 20% and 75% variants |
 | F107 | 🎹 Tabs › `_Tab_Master_Status`: with White=On (the Darkmode track) the icon stays `Icons/Black` on Smoke while the label turns white | Code copies it; Figma should use `Icons/white` there |
 
+## Figma round (17 November 2026, 21:35: 🃏 Cards › Add to Cart CTA and Charity Card)
+
+| # | Issue | Rule code follows |
+|---|---|---|
+| F108 | [🃏 Cards › Media Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70306-7276) Marketplace Grid and Grid / out of stock show «الهدي» (Hady) with «خصم 25%» and a struck price | A discount never sits on Hady, Udhiya or any act of worship (M4; PriceOptions rule). The coded previews show Hady without one; replace the example product in Figma |
+| F109 | [Charity Card](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70695-9609): the collected label reads «تم جمع» | The writing guide avoids تم; content passes its own label (for example «جُمع حتى الآن») once the content owner confirms. Previews copy Figma |
+| F110 | Charity Card: the progress instance is the `Progress=50` variant with its text overridden to «75%» and its arc drawn at 75% | Code draws the value it is given (`progress`) and prints its percentage; name the variant for what it shows (as F106) |
+| F111 | Media Cards: Marketplace List / Out of stock overrides the Notify me label to «نبهني» (77 wide); the grid keeps «نبهني عند التوفر» | Code follows each (`notifyLabel` defaults «نبهني» in the list, the full label in the grid); one label for one action would be clearer |

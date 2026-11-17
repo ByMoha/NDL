@@ -891,9 +891,9 @@ button.nk-tb-hello{cursor:pointer}
 .nk-nudge .art .nk-ico,.nk-nudge .art img{width:44px;height:44px}
 .nk-nudge .txt{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nk-nudge.sm{transform:scale(.6);transform-origin:center}
-.nk-atc{display:inline-flex;align-items:center;gap:8px;height:30px;padding-inline-end:12px;border-radius:22px;background:var(--button-secondary-surface);color:var(--text-content);direction:ltr;flex:none}
+.nk-atc{display:inline-flex;align-items:center;gap:8px;width:138px;height:30px;padding-inline-end:12px;box-sizing:border-box;border-radius:22px;background:var(--button-secondary-surface);color:var(--text-content);direction:ltr;flex:none}
 .nk-atc.many{padding-inline:12px}
-.nk-atc output{min-width:24px;padding-inline:4px;text-align:center}
+.nk-atc output{flex:1;min-width:0;padding-inline:4px;text-align:center}
 .nk-atc .q{display:grid;place-items:center;width:16px;height:16px;padding:0;border:0;background:none;color:var(--icons-black);cursor:pointer}
 .nk-atc .q .nk-ico{width:16px;height:16px}
 .nk-popt{display:flex;flex-direction:column;padding-top:8px;color:var(--text-heading)}
@@ -1124,7 +1124,7 @@ button.nk-tb-hello{cursor:pointer}
 .nk-opt-swipe .sw-act.fate{background:var(--button-fate-surface);color:var(--button-fate-content)}
 .nk-opt-swipe .sw-act .nk-ico{width:20px;height:20px}
 .nk-opt-swipe>.nk-opt{position:relative;width:calc(100% - 126px);flex:none}
-.nk-mc .mc-notify{display:flex;padding-top:var(--space-xs)}.nk-mc .mc-notify .nk-btn{flex:1}
+.nk-mc .mc-notify{display:flex;justify-content:flex-end;padding-top:var(--space-xs)}
 .nk-mc.ad .mc-hit{position:absolute;inset:0;border-radius:inherit}
 .nk-mc .mc-type.ad-label{gap:var(--space-xs)}.nk-mc .mc-type .sponsor{color:var(--text-note)}
 .nk-mc .mc-type>.nk-ico{width:12px;height:12px;color:var(--icons-black)}
@@ -1343,3 +1343,21 @@ button.nk-tb-hello{cursor:pointer}
 .nk-popt.v .bottom{flex-direction:column;align-items:flex-start}
 .nk-popt.v .cartw{display:flex;width:100%}.nk-popt.v .cartw>.nk-btn{flex:1}
 
+
+/* Media Cards › Charity Card (17 Nov 2026) */
+.nk-mc.charity{width:386px}
+.nk-mc.charity .mc-glow{left:-18.13%;top:70.3%;width:161.14%;height:130%}
+.nk-mc.charity .mc-tags{justify-content:flex-start}
+.nk-mc.charity .mc-tags .nk-chip{box-shadow:-6px 6px 15px rgba(7,8,8,.05)}
+.nk-mc.charity .mc-details{gap:var(--space-xs);padding:var(--space-lr) var(--space-nr)}
+.nk-mc.charity .ch-content{display:flex;flex-direction:column;gap:var(--space-xxs)}
+.nk-mc.charity .ch-desc{margin:0;color:var(--text-subtle)}
+.nk-mc.charity .ch-row{display:flex;align-items:center;gap:var(--space-xs);padding-top:var(--space-xs)}
+.nk-mc.charity .ch-fin{flex:1;min-width:0;display:flex;align-items:center;gap:var(--space-nr)}
+.nk-mc.charity .ch-fig{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-xxs);white-space:nowrap}
+.nk-mc.charity .ch-fig .lbl{color:var(--text-content)}
+.nk-mc.charity .ch-fig.col,.nk-mc.charity .ch-fig.col .lbl{color:var(--text-note)}
+.nk-mc.charity .ch-fig.rem .ch-amt{color:var(--text-link)}
+.nk-mc.charity .ch-amt{display:inline-flex;align-items:center;gap:var(--space-xxs)}
+.nk-mc.charity .ch-amt .nk-ico{width:16px;height:16px}
+.nk-mc.charity .ch-sep{flex:none;width:1px;height:20px;background:var(--surface-03-pearl)}

@@ -1,15 +1,15 @@
 {
  "release": "2026-11-17",
- "built": "2026-11-17T21:16+03:00",
- "designMd": "DESIGN.md 3.5.0",
+ "built": "2026-11-17T21:40+03:00",
+ "designMd": "DESIGN.md 3.6.0",
  "tokens": "3.11",
- "plugin": "2026.11.172116",
- "checked": 329,
+ "plugin": "2026.11.172140",
+ "checked": 330,
  "files": [
   {
    "file": "DESIGN.md",
-   "bytes": 251270,
-   "sha256": "ca16b1ab7ee210b43f1aabe0e64ed569800ea9a05644bb8f6459d380d92a4e08"
+   "bytes": 253091,
+   "sha256": "ff511dee61c8efb9e31739ac065f6ad05b0ec1707e3d06c9864cc16d911363b9"
   },
   {
    "file": "NusukTokens.kt",
@@ -28,15 +28,15 @@
   },
   {
    "file": "nusuk-dl-developer-handoff.zip",
-   "bytes": 1012981,
-   "sha256": "92eed7f395f10fa41d80c3a3f20ee9c3293f31ba83d0dc0e9bf1a551708e383b",
-   "files": 325
+   "bytes": 1022100,
+   "sha256": "e36a1652f8d7d6efa99ee587c520fed6aa0e51d339e71713d90bf9448bacc54a",
+   "files": 326
   },
   {
    "file": "nusuk-dl.plugin",
-   "bytes": 23756830,
-   "sha256": "5349a9284541f61f504b2180c21c634da1128c8b12059d7dfb672e763dea2080",
-   "files": 501
+   "bytes": 23773979,
+   "sha256": "ca7eb00ccd2a0c987f6df9b20ff6fa677ff8ac7b7feafd4f0ad449bec4ce943b",
+   "files": 502
   },
   {
    "file": "tokens-native.json",

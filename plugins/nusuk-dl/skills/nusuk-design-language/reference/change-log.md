@@ -4,6 +4,33 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 17 November 2026, 21:35 (🃏 Cards: Add to Cart CTA rebuilt on CTA instances; new Charity Card) · DESIGN.md 3.6.0 · tokens 3.11
+
+**Figma:** [🃏 Cards › Add to Cart CTA](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70399-6858) (7 statuses, read 21:33) and [🃏 Cards › Media Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70306-7276) (24 types; [Charity Card](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70695-9609) new).
+
+### Changed: AddToCartCTA
+
+- Every status is an instance of CTA Secondary XS: `arrow` and `cart` 42 (were 50), `cart` icon `shopping-basket-add-01` 18 (was `shopping-basket-01`).
+- `one` and `many` are 138 (were 122) on Glass BG (Secondary surface): `one` holds a destructive icon-only `delete-01` 18 (was `delete-03`), the number fills the middle, plus 16, 12 at the end; `many` 12 a side.
+- `remove`: `shopping-basket-remove-01` 16 now **before** «إزالة» (was a trailing `delete-03`), 70 wide.
+- `notify-me`: `notification-02` 16 now **after** «نبهني عند التوفر» (was a leading `notification-01`), 138 wide. The Marketplace Grid out-of-stock card uses it too.
+- New icons: `delete-01`, `shopping-basket-remove-01`, `notification-02`, `spoon-and-fork`.
+
+### New: MediaCard Charity Card
+
+- `type: 'charity'`, 386 × 330: photo under the fade and glow, a White SM chip with a 14 icon, title and description, then CircularProgress 44, the remaining amount (`text-link`), a 20 Pearl line, the collected amount (`text-note`), 18 apart, and the Add to Cart CTA arrow at the end.
+- Figures are live campaign totals; no countdown, donor names or ranks; giving happens on its own page.
+
+### iOS
+
+- **AddToCart:** `NusukButton` Secondary XS for every status; the stepper an `HStack(spacing: 8)` 138 × 30 pt on the glass fill, forced left to right; remove leading, notify trailing (`notification-02`).
+- **Charity Card:** a `ZStack` of the image, a `LinearGradient` (clear at 0.116, white at 0.729) and a blurred white `Ellipse`; content `VStack(alignment: .leading, spacing: 8)` with padding 26 / 18; the row an `HStack(spacing: 18)` of `NusukCircularProgress` (44 pt), the two amounts and a 1 × 20 Pearl `Rectangle`, then the 42 pt arrow button.
+
+### Android
+
+- **AddToCart:** the `NusukButton` composable for every status; the stepper a `Row(Modifier.width(138.dp), spacedBy(8.dp))` under `LayoutDirection.Ltr`.
+- **Charity Card:** `Box` with `AsyncImage`, a `Brush.verticalGradient(0.116f to Transparent, 0.729f to White)` and a blurred white oval (`Modifier.blur`, Android 12+); the row a `Row(spacedBy(18.dp))` of the circular progress (44 dp), the amounts and a 1 × 20 dp divider, then the 42 dp arrow.
+
 ## 17 November 2026, 21:30 (Header Tabs and TimeSlot rebuilt as replicas; Tab Bar Cart with Count and Payment; Navigation progress re-read; the DL becomes one plugin and a developer handoff) · DESIGN.md 3.5.0 · tokens 3.11
 
 **Figma:** [🎹 Tabs › Header Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2883) (Size × Background, `_Header Tabs` Darkmode, `_Tab_Master_Status`, read 20:52) and [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) (`_Progress Bar`, `.Building Blocks`, Circular progress indicator and Progress, re-read 20:55 after the DL Advisor's third update, and [Tab Bar](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=70301-10665) at 21:12), and [📅 Date & Time › Time slot card](https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU/?node-id=2402-18252) (read 21:10).

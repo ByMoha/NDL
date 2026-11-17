@@ -1,6 +1,6 @@
 # DESIGN.md — Nusuk Design Language
 
-Version 3.5.0 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.6.0 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 
@@ -417,7 +417,7 @@ Load when: choosing or configuring a component. Each component card in the desig
 - **Navigation:** Toolbar (23 types × Darkmode), BottomNav (6 screens, `inner-pages` since 15 Nov), NavTab, Nudge, TabBar (12 action bars; its home types render BottomNav since 17 Nov), HeaderTabs, CountBadge, Pagination, ProgressRing, CircularProgress (new 17 Nov), VerticalStepper, Steps, SectionHeader, SectionTitle, IconBlock, SearchBar, HomeItem, Glass (`kind`: control, field, bar, flat, card), GlassBG (the 12 Glass BG variants with layer switches, 17 Nov).
 - **Overlays:** BottomSheet (Top Action Grabber, Arrow, Static), DirectionSheet, StatusSheet (Bottom Sheet's 7 statuses; 15 of the 19 General Bottom Sheet types as `template`, 17 Nov), ReasonSelection, CollapsedSection.
 - **Feedback:** NoticeBar (CTA, Close, Description; `hug` for NoticeBar Location), Alert (`stacked` = System Update), EmptyState (Full Page, List), SectionError, AppNotification; live activities and Dynamic Island.
-- **Cards:** MemberCard, RequestCard (11 types; Figma has 12 since 11 Nov), OptionCard (13), MediaCard (Figma 23 types; coded with `layout`, `outOfStock` and `type: 'ad'`; Museum not coded: F42; ADS must carry an ad label: F46), AddToCartCTA, PriceOptions, CategoryTile, ProductTile, FaceTile, PlaylistCard, HintWidget.
+- **Cards:** MemberCard, RequestCard (11 types; Figma has 12 since 11 Nov), OptionCard (13), MediaCard (Figma 24 types; coded with `layout`, `outOfStock`, `type: 'ad'` and `type: 'charity'` (Charity Card, 17 Nov); Museum not coded: F42; ADS must carry an ad label: F46), AddToCartCTA, PriceOptions, CategoryTile, ProductTile, FaceTile, PlaylistCard, HintWidget.
 - **Data display:** Avatar, AvatarGroup, RatingBar (Rating Bar and Ratings Box, Mini, Standard; a 1–5 input), ReviewCard, ReviewSummary, FeedbackEmojis, DayPicker, DayTab, TimeSlot, PrayCard, InfoTile.
 - **Travel (17 Nov, from 🏖️ Travel › Travel):** FlightTicket (rebuilt: Full, Mini, Selected, Skeleton), Ribbon, FromTo, DateRange, FeaturedAirport, FeatureBox, VisaUserBlock, HotelCard.
 - **Features:** PaymentDetails, SoundPlayer, ChatMessage, StepCard, QRCodeStatus, DetailsListItem, StartJourney, PrayerLiveActivity, MapPin.
@@ -648,21 +648,21 @@ Figma: 🧭 Navigation › Nudges (Expand On 316 × 58, Off 279 × 58). One anno
 
 **15 November:** Simple list (16 icon before the title, no lead or action), LR Icon (flag tile, no action) and 2 Actions On (the swiped state: Secondary star and Fate delete-03 tiles behind the card). Action Only, Icon with Action, 2 Actions, without Action, Counter, text only, LR Icon with Action, Icon Top, Requirement Item, **Product** (new 10 November: 359 × 66, padding 12 / 18, product picture 42 with a white 1.5 ring, name `body-2-regular`, quantity `body-2-light` such as `1x`). Padding 18, gap 12; title `notes-1-light`, description `body-2-regular`; actions Secondary XS icon-only; Counter stepper 110 × 44 Ivory capsule with a 12 backdrop blur; Icon Top corners 22/18/22/22; Requirement Item padding 12/18 with a 42 Ivory icon circle.
 
-#### AddToCartCTA (new 10 November)
+#### AddToCartCTA (new 10 November; rebuilt 17 November, 21:35)
 
-Figma: 🃏 Cards › Add to Cart CTA. All 30 high, radius 22, built from CTA Secondary XS.
+Figma: [🃏 Cards › Add to Cart CTA](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70399-6858). All 30 high, every status an instance of CTA Secondary XS (no own frame any more), so the widths follow the CTA: icon-only 42, icon side 12, other side 14.
 
 | Status | What it is | Width |
 |---|---|---|
-| `cart` | Icon-only: add to cart | 50 (58 with its trailing space) |
-| `arrow` | Icon-only: open the product | 50 |
-| `one` | Remove (destructive icon-only, 46) · quantity `notes-1-light` · plus 16 | 122 |
-| `many` | Minus 16 · quantity · plus 16, padding 12 | 122 |
-| `Remove` | Destructive Secondary XS with an icon, "إزالة" | 74 |
-| `Notify me` | Secondary XS with a bell, "نبهني عند التوفر" | 142 |
-| `buy` (Figma `Status7`, 17 Nov) | Secondary XS, icon left `shopping-basket-add-01`, "اشتر" | 71 |
+| `arrow` | Icon-only `arrow-left-02` 18: open the product | 42 |
+| `cart` | Icon-only `shopping-basket-add-01` 18: add to cart (was `shopping-basket-01`) | 42 |
+| `buy` (Figma `Status7`) | Icon left `shopping-basket-add-01` 16, «اشتر» | 71 |
+| `one` | Glass BG (Secondary surface) holding a destructive icon-only `delete-01` 18 (was `delete-03`), the quantity `notes-1-light` filling the middle, plus 16; 12 at the end, gap 8 | 138 (was 122) |
+| `many` | Minus 16 · quantity · plus 16, 12 a side, gap 8 | 138 (was 122) |
+| `remove` | Destructive, icon **left** `shopping-basket-remove-01` 16 (was a trailing `delete-03`), «إزالة» | 70 |
+| `notify-me` | «نبهني عند التوفر», then `notification-02` 16 at the **end** (was a leading `notification-01`) | 138 |
 
-The stepper reads left to right in every language (minus, number, plus). The plus and minus are 16 drawn; they answer a 48 touch (DL-20).
+The stepper reads left to right in every language (minus or remove, number, plus). The plus and minus are 16 drawn; they answer a 48 touch (DL-20). Inside a card the control may be stretched (Price Options Vertical, Marketplace Grid); the button keeps its own width at the start of the stretched box.
 
 #### PriceOptions (new 10 November)
 
@@ -673,6 +673,8 @@ Figma: 🃏 Cards › Price Options (the master for price on product cards). "ا
 #### Marketplace media cards (10 November)
 
 Media Cards has 21 types. `Marketplace add to cart` is replaced by **Marketplace / List** (268 × 330, details on `Glass/Full`), **Marketplace / Grid** (189 × 330, image fade, stacked price) and **Marketplace / out of stock** (grid, with Notify me). In code: `layout="list" | "grid"` and `cart="cart" | "notify-me"` on MediaCard. `ADS` (250 × 330: image and the "اختيارات نسك" chip only) is still not coded (K8).
+
+**17 November 2026, 21:35 ([Charity Card](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70695-9609)):** a new type, 386 × 330, for a giving campaign: the photo full bleed under the fade (white from 11.6% to 72.9%, a 622 × 429 white glow blurred 74), a White SM chip with a 14 icon (`spoon-and-fork`) at the start of the head, the title (Body 1 Regular) and description (Notes 2 Light, `text-subtle`), then one row: CircularProgress 44 with its percentage, the remaining amount (label Notes 2 Light `text-content`; riyal 16 and Headline 2 Regular in `text-link`), a 20 Pearl line, the collected amount (all `text-note`), 18 apart, and the Add to Cart CTA arrow at the end. Code: `type: 'charity'` with `tag`, `title`, `description`, `progress`, `remaining`, `collected`, `onOpen`. Rules: every figure is the campaign's real, current total; no countdown, no "only X left", no names or ranks of donors; the giving itself happens on its own page (M9S: the act and the transaction in separate frames). Known issues F108–F111. The Marketplace Grid out-of-stock card now uses the Add to Cart CTA Notify me (bell at the end), as Figma does.
 
 #### Market (🛍️ Market library, new 10 November)
 

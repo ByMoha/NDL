@@ -11,17 +11,34 @@ Contents: AddToCartCTA · Alert · AppNotification · Avatar · AvatarGroup · B
 
 The cart control on product cards and rows: add, a quantity stepper, remove, or notify me.
 
-**Figma source:** 🃏 Cards › Add to Cart CTA (Status: cart, one, many, Remove, Notify me, arrow, Status7). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** [🃏 Cards › Add to Cart CTA](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70399-6858) (Status: arrow, cart, Status7, one, many, Remove, Notify me). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026, 21:35, rebuilt:** every status is now an instance of CTA Secondary XS, so the sizes are the CTA's. `arrow` and `cart` are 42 (cart takes `shopping-basket-add-01` 18); `one` and `many` are 138 on Glass BG, `one` with a destructive icon-only `delete-01` 18; `remove` puts `shopping-basket-remove-01` 16 before «إزالة» (70); `notify-me` puts `notification-02` 16 after «نبهني عند التوفر» (138); `buy` (Status7) is unchanged (71).
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
-| `status` | `'cart' \| 'arrow' \| 'buy' \| 'one' \| 'many' \| 'remove' \| 'notify-me'` | `one` shows remove instead of minus. `buy` is Figma's Status7 (17 November 2026): Secondary XS, icon left `shopping-basket-add-01`, «اشتر» (F99) |
+| `status` | `'cart' \| 'arrow' \| 'buy' \| 'one' \| 'many' \| 'remove' \| 'notify-me'` | `one` shows remove (`delete-01`) instead of minus. `buy` is Figma's Status7: Secondary XS, icon left `shopping-basket-add-01`, «اشتر» (F99) |
 | `count` | `number` | The quantity |
 | `onBuy` | `fn` | `buy`; falls back to `onAdd` |
 | `onAdd / onIncrease / onDecrease / onRemove / onNotify` | `fn` | Actions |
 | `label, removeLabel, increaseLabel, decreaseLabel` | `string` | Accessible names (Arabic by default) |
+
+## Sizes
+
+| Status | Width | Icon |
+|---|---|---|
+| arrow, cart | 42 | `arrow-left-02`, `shopping-basket-add-01` 18 |
+| buy | 71 | `shopping-basket-add-01` 16, leading |
+| one | 138 | `delete-01` 18 in a destructive icon-only button; plus 16 |
+| many | 138 | minus and plus 16 |
+| remove | 70 | `shopping-basket-remove-01` 16, leading |
+| notify-me | 138 | `notification-02` 16, trailing |
+
+## Native
+
+iOS: one `NusukAddToCart` view over `NusukButton` (Secondary XS); the stepper is an `HStack(spacing: 8)` 138 × 30 on the glass fill, `.environment(\.layoutDirection, .leftToRight)`, the number `.frame(maxWidth: .infinity)`. Android: a `Row(Modifier.width(138.dp), horizontalArrangement = spacedBy(8.dp))` inside `CompositionLocalProvider(LocalLayoutDirection provides Ltr)`; announce the new quantity (`stateDescription`).
 
 ## Use
 
@@ -1896,6 +1913,10 @@ A 250 × 330 content or commerce card: a full-bleed photo with a type pill on to
 
 **15 November 2026, evening:** 23 types. Marketplace is four types now — `Marketplace / List` (268), `Marketplace Grid` (189) and both `/ Out of stock`: pass `layout` and `outOfStock`; out of stock replaces the type pill with «نفد من المخزون» (package-out-of-stock) and the action with Notify me («نبهني» in the list, a full-width «نبهني عند التوفر» in the grid). `ADS` is coded as `type: 'ad'`: a photo and a mandatory ad label («إعلان», with `sponsor`). Figma labels the ADS card «اختيارات نسك», which is the editorial-picks label: an ad must say it is an ad (M4, known issue F46). Museum is still not coded (F42).
 
+**17 November 2026, 21:35 ([🃏 Cards › Media Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70306-7276), 24 types):** new **Charity Card** ([node 70695:9609](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70695-9609)): `type: 'charity'`, 386 × 330. The photo fills the card under the fade (white from 11.6% to 72.9%) and a white glow (622 × 429, blur 74); the head holds a White SM chip with a 14 icon at the start (`tag: { label, icon }`, Figma: «حملة رمضان 1448هـ» with `spoon-and-fork`); the details hold the title (Body 1 Regular) and `description` (Notes 2 Light, `text-subtle`), then one row: CircularProgress 44 (`progress`, 0–1, its percentage in the middle), the remaining amount (`remaining: { label, amount }`: label `text-content`, amount Headline 2 Regular in `text-link`), a 20 Pearl line, the collected amount (`collected: { label, amount }`, all `text-note`), 18 apart, and the Add to Cart CTA arrow at the end (`onOpen`, `ctaLabel`). The Marketplace Grid out-of-stock card now shows the Add to Cart CTA Notify me (bell at the end) under the price, as Figma does.
+
+**Charity Card rules.** Every amount and the percentage come from the campaign's live totals, never rounded up; no countdown, no «لم يتبق إلا», no donor names, counts or ranks (M4); the card opens the campaign and the giving happens on its own page, so the act and the payment stay in separate frames (M9S). Figma's label «تم جمع» uses تم, which the writing guide avoids (F109): pass the content owner's wording.
+
 ## Anatomy
 
 - **Card** 250 × 330, `radius-md` 18, `shadow-xs`. Text and layout run right to left.
@@ -1939,7 +1960,8 @@ A 250 × 330 content or commerce card: a full-bleed photo with a type pill on to
 
 | Prop | Type | Notes |
 |---|---|---|
-| `type` | `'card' \| 'more' \| 'ad'` | `more` renders the "browse more" tile; `ad` the ADS card with its ad label (`adLabel`, `sponsor`, `href`) |
+| `type` | `'card' \| 'more' \| 'ad' \| 'charity'` | `more` renders the "browse more" tile; `ad` the ADS card with its ad label (`adLabel`, `sponsor`, `href`); `charity` the Charity Card (386 wide) |
+| `tag, description, progress, progressText, remaining, collected, onOpen` | Charity Card | `tag: { label, icon }`; `remaining` and `collected`: `{ label, amount }`; `progress` 0–1 |
 | `adLabel, sponsor, href` | `string` | `type: 'ad'` |
 | `notifyLabel, onNotify` | `string, fn` | Out of stock |
 | `outOfStock` | `boolean` | Marketplace out of stock: «نفد من المخزون» pill and Notify me (`notifyLabel`, `onNotify`) |
