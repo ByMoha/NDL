@@ -74,7 +74,7 @@ The full text of every contract is on the next page, *Template contracts*.
 
 ## What the examples showed
 
-Reading the flows against the contracts exposed defects in the flows. They are logged in *Known library issues › Flows read against the template contracts* (TC1–TC16), not fixed in the flows.
+Reading the flows against the contracts exposed defects in the flows. They are logged in *Known library issues › Flows read against the template contracts* (TC1–TC16) and *Golf Carts flow read against the template contracts* (TC17–TC21), not fixed in the flows.
 
 ## Choosing a pattern for a space
 

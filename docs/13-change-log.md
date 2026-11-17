@@ -46,6 +46,24 @@ The design system page's own `tokens.css` is rebuilt by the page only when someo
 - **Plurals:** «234 تقييمًا» with `pluralStringResource` (Arabic zero, one, two, few, many, other).
 - **New composables:** SectionError, ReasonSelection, ReviewCard, ReviewSummary.
 
+## 17 November 2026 (Golf Carts flow read against the template contracts) · DESIGN.md 3.2 (unchanged) · tokens 3.10 (unchanged)
+
+**Figma file:** [🚙 Golf Carts](https://www.figma.com/design/s0G2Gga52Tz5GcZayR3jd9/🚙-Golf-Carts?node-id=86028-13834). Nothing in Figma was edited; this release logs a flow read against the existing template contracts, the same exercise that produced TC0–TC16 on 11 November.
+
+Read against `item-details`, `date-slot`, `payment`, `pass-sheet`, `booking-details` and `requests-list`. The date-slot step, the booking page, Confirm and pay's own content and the requests list read clean; five findings are logged as TC17–TC21.
+
+### Changed
+
+- **`10-known-issues.md`.** New section *Golf Carts flow read against the template contracts*, TC17–TC21, continuing the 11 November table with its Figma reference. No contract, component or token changed; each line is an open question for the owning team, same status as TC0–TC16.
+
+### iOS and Android
+
+- **Not applicable.** No token, component or native constant changed; this release touches known-issues documentation only.
+
+### Check before you merge
+
+- TC17–TC21 are logged, not fixed, per the 11 November convention. `templates/contracts/*.json`, `templates/index.json` and `patterns/index.json` are all untouched by this release.
+
 ## 17 November 2026 (Nusuk AI chat on DL 3.10; chat joins the DL skill) · NusukChat 2.8.0
 
 **Read:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 54 variants, 3 masters, unchanged and all mapped) and the library sets it uses: [📻 Switches, Checkbox and Radio › Select Card](https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw?node-id=70416-652), Chips › Size=LR, [⚙️ Foundation › Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296) and Shadows › OS as the AI Tab Bar uses them.
