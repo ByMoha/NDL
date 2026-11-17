@@ -4,6 +4,15 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 17 November 2026, 16:45 (the Nusuk plugin carries the seven Nusuk skills; three downloads on the design system tab) · DESIGN.md 3.3.1
+
+### Changed
+
+- **One plugin, the whole Nusuk set:** `nusuk-dl` now carries `nusuk-design-language`, `nusuk-visual-system` with its 18 artworks, `nusuk-content-writer`, `nusuk-voice-rules`, `nusuk-ux`, `nusuk-dx` and `nusuk-feature-handoff`, versioned and updated together. The six companions are the versions on the DL Advisor's account on 17 November.
+- **The DL skill zip** also carries the content guide (`reference/content-writer/`: voice and tone, writing rules, content types, terminology), the voice rules (`reference/voice-rules.md`) and the colour helper `scripts/match_blue_tone.py`, so a skill uploaded by hand covers content and illustration too.
+- **DL guide, design system tab:** three downloads, the same packages as the Downloads tab: Download everything, Download for developers, Download for designers. The single downloads (the skill, DESIGN.md, patterns and templates) are gone from that tab; "Use it with Claude" starts with the plugin.
+- **Restored:** `15-template-contracts.md`, the full text of the 20 contracts, removed from the design system by a save from its page at 16:22.
+
 ## 17 November 2026, 16:30 (Nusuk AI chat: one bubble per answered question; the DL as a Claude plugin) · DESIGN.md 3.3.1
 
 **Read:** the chat lane's Verify cases (15:28) and the DL Advisor's comment on them: a question and its answer become one bubble once it is answered, as 💬 Chat UI draws the User variants.

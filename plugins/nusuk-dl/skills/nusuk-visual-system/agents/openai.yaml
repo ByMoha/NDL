@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nusuk Visual System"
+  short_description: "NUSUK watercolor illustration and refinement"
+  default_prompt: "Use $nusuk-visual-system to create or refine [concept] using the selected NUSUK artwork library, palette and focal hierarchy."

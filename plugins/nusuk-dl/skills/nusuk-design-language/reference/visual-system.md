@@ -2,7 +2,7 @@
 
 The full account skill `nusuk-visual-system`, included in the Nusuk DL on 14 November 2026 so the illustration rules travel with the DL. It governs watercolour illustrations; product UI stays with the DL tokens and components.
 
-**Files:** `visual-system/approved-set.md` (the 17 selected artworks and the scene guide), `visual-system/colour.md` (colour matching), `visual-system/manifest.json` (exact files and hashes) and `visual-system/images/` (17 artworks and the colour reference, unaltered originals). The images ship only in `nusuk-design-language-with-artworks.zip`; the small zip embedded in the DL guide leaves them out. If `visual-system/images/` is missing in your copy, say that the reference set was not inspected. The helper `scripts/match_blue_tone.py` named in `colour.md` was not supplied with the references and is not in this skill.
+**Files:** `visual-system/approved-set.md` (the 17 selected artworks and the scene guide), `visual-system/colour.md` (colour matching), `visual-system/manifest.json` (exact files and hashes) and `visual-system/images/` (17 artworks and the colour reference, unaltered originals). The images ship only in `nusuk-design-language-with-artworks.zip`; the small zip embedded in the DL guide leaves them out. If `visual-system/images/` is missing in your copy, say that the reference set was not inspected. The helper `scripts/match_blue_tone.py` named in `colour.md` is in this skill's `scripts/` (Python with NumPy and Pillow); use it only for a requested numerical blue-tone correction.
 
 ## Reference standard
 

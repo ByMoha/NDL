@@ -124,13 +124,14 @@ A **template contract** says what one kind of screen may hold: spaces in a fixed
 
 ## 9 · Skills that work with this one
 
-When they are installed, these skills cover what the DL does not; the DL still decides tokens, components, placement and the never-ship list.
+When they are installed, these skills cover what the DL does not; the DL still decides tokens, components, placement and the never-ship list. The `nusuk-dl` plugin installs all of them with this one; this zip also carries the content guide and the voice rules in `reference/`.
 
 | Task | Use with this skill | What it adds |
 |---|---|---|
 | Heuristic evaluation, research plan, behavioural model, metrics | `nusuk-dx` | The DX team's method: S0–S4 and E0–E4, Nielsen and Rams lenses, report template, 3Ms. The DL's WCAG floor (2.2 AA, 48 targets) overrides its older 2.1 / 44 line |
-| Arabic or English copy, notifications, store replies | `nusuk-ux`, `nusuk-voice-rules`, `nusuk-content-writer` | The writing guide in full. M6 › House rules records where they disagreed: adverse outcomes are agentless and never use تم («أُلغي حجزك») |
-| Illustrations and campaign art | `reference/visual-system.md` and `reference/visual-system/` (the full `nusuk-visual-system` skill with its selected artworks, included here) | The watercolour painting language, colour discipline and the create, refine and QA steps (M7) |
+| Arabic or English copy, notifications, store replies | `nusuk-content-writer` (its guide is also in `reference/content-writer/`), `nusuk-voice-rules` (also `reference/voice-rules.md`), `nusuk-ux` | The writing guide in full. M6 › House rules records where they disagreed: adverse outcomes are agentless and never use تم («أُلغي حجزك») |
+| Illustrations and campaign art | `nusuk-visual-system`, also in `reference/visual-system.md` and `reference/visual-system/` with `scripts/match_blue_tone.py` (the artworks are in the with-artworks zip and in the plugin) | The watercolour painting language, colour discipline and the create, refine and QA steps (M7) |
+| A feature from brief to developer handoff | `nusuk-feature-handoff` | Project Canvas, a clickable DL prototype, the gaps questionnaire and the iOS and Android handoff page |
 | Any change in Figma | `figma-use` (with `figma-generate-library` for library work) | The Plugin API rules; never run two Figma calls at once |
 | A full accessibility audit | `accessibility-audit` | The five-layer audit (automated, keyboard, screen reader, visual, flow) behind the M10 floor |
 
@@ -155,6 +156,7 @@ The chat is one aspect of this skill, a **Proposed lane** of the DL built from F
 | `reference/patterns-index.json` | Choosing the layout pattern for a space |
 | `reference/templates-and-patterns.md`, `reference/template-contracts.md` | The method for templates and patterns, and the full text of every contract |
 | `reference/chat/README.md`, `reference/chat/components.md`, `reference/chat/` | The Nusuk AI chat (Proposed lane, NusukChat 2.8.4): how to use it, the 41 exports with their Figma nodes and DL parents, code, proposed tokens, icons and manifest; every card in `reference/chat/cards.md`, every chat migration in `reference/chat/migrations.json`; the rules are DESIGN.md › M9C |
+| `reference/content-writer/README.md`, `reference/content-writer/references/`, `reference/voice-rules.md` | Writing any Nusuk content, Arabic first: the official writing guide (voice and tone, writing rules, content types, terminology) and the microcopy house rules. Use them when `nusuk-content-writer` and `nusuk-voice-rules` are not installed |
 | `reference/known-issues.md` | A value looks wrong: it may be a logged Figma defect that code copies on purpose |
 | `reference/component-inventory.md`, `reference/library.md` | Finding a Figma set, its variants, or a library file key |
 | `reference/native/NusukTokens.swift`, `reference/native/NusukTokens.kt`, `reference/native/tokens-native.json`, `reference/native-handoff.md` | Any iOS or Android work: the tokens as Swift and Kotlin constants, the name map, units and the pull-request checks |
