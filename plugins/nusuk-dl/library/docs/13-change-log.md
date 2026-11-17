@@ -4,6 +4,32 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 17 November 2026, 22:15 (⚙️ Foundation: Shadow/OS effect style; _Glass BG Master background; drop shadows in the native files; direct downloads) · DESIGN.md 3.6.1 · tokens 3.12
+
+**Figma:** [⚙️ Foundation › Effects](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo/?node-id=54003-2344) (`Shadow/OS` new, read 22:00) and [⚙️ Foundation › Glass BG / _Glass BG Master](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296) (read 22:17), with [📻 Selections & Switches › Select Card](https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw).
+
+### Changed: Foundation
+
+- **`Shadow/OS`** is now an effect style: drop −2 0 2, 2 0 2 and 0 0 1 spread 0.5, all #1A1C1F at 5%. The values equal `shadow-os`, which now names the style. Glass BG's Shadows layer (`Shadows / Type=OS`) is bound to it.
+- **_Glass BG Master:** the Shadows layer carries a 1% fill (white; Ink when Dark), luminosity, so Figma draws the shadows of an empty frame. Default Fill, Active Fill and Glass Effect are unchanged. Code draws the shadows directly, so nothing visible changes (F113).
+- **Select Card** uses `shadow-os` on every state (code drew two of the three drops, in Ink) and Active adds `Shadow/XS` (F112).
+- **Tokens 3.12:** every drop shadow (Shadow/XS, SM, LR, XL, UP, OS, the avatar shadow and Shadows/01 to 05) is generated into the native files.
+
+### Changed: downloads
+
+- The developer handoff buttons link to the file on Google Drive, not the folder: the claude.ai frame opens a link from its href and ignored the swap the page made during the click.
+- The plugin (23.7 MB, 21 MB of it the 18 reference paintings) is over the 10 MB the release tools can upload to Drive, and an artifact cannot serve a zip, so its button still opens the Drive folder until the file is placed there.
+
+### iOS
+
+- `NusukShadowLayer` (x, y, blur, spread, colour) and `NusukShadow.xs`, `.sm`, `.lr`, `.xl`, `.up`, `.os`, `.avatar`, `.s01` to `.s05`. Draw with `view.nusukShadow(NusukShadow.os)`: one `.shadow(color:radius:x:y:)` per layer at half the Figma blur; SwiftUI has no spread, so shrink the shape by it where it matters (Shadow/XS, SM, LR, XL use a negative spread).
+- Glass BG before iOS 26 and Select Card: `NusukShadow.os` under the fill.
+
+### Android
+
+- `data class NusukShadowLayer(x, y, blur, spread: Dp, color: Color)` and `NusukShadow.Xs`, `Sm`, `Lr`, `Xl`, `Up`, `Os`, `Avatar`, `S01` to `S05`. Compose 1.9: one `Modifier.dropShadow(shape, Shadow(radius = blur, spread = spread, color = color, offset = DpOffset(x, y)))` per layer.
+- Glass BG (Glass=Off) and Select Card: `NusukShadow.Os` before the fill.
+
 ## 17 November 2026, 21:35 (🃏 Cards: Add to Cart CTA rebuilt on CTA instances; new Charity Card) · DESIGN.md 3.6.0 · tokens 3.11
 
 **Figma:** [🃏 Cards › Add to Cart CTA](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70399-6858) (7 statuses, read 21:33) and [🃏 Cards › Media Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70306-7276) (24 types; [Charity Card](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70695-9609) new).

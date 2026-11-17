@@ -486,3 +486,10 @@ Read in [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?n
 | F109 | [Charity Card](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70695-9609): the collected label reads «تم جمع» | The writing guide avoids تم; content passes its own label (for example «جُمع حتى الآن») once the content owner confirms. Previews copy Figma |
 | F110 | Charity Card: the progress instance is the `Progress=50` variant with its text overridden to «75%» and its arc drawn at 75% | Code draws the value it is given (`progress`) and prints its percentage; name the variant for what it shows (as F106) |
 | F111 | Media Cards: Marketplace List / Out of stock overrides the Notify me label to «نبهني» (77 wide); the grid keeps «نبهني عند التوفر» | Code follows each (`notifyLabel` defaults «نبهني» in the list, the full label in the grid); one label for one action would be clearer |
+
+## Figma round (17 November 2026, 22:15: ⚙️ Foundation › Shadow/OS and _Glass BG Master)
+
+| # | Issue | Rule code follows |
+|---|---|---|
+| F112 | [📻 Selections & Switches › Select Card](https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw): the Shadows layer draws the three OS drops locally instead of the new `Shadow/OS` style, and `_Master Select Card` uses the remote style named Shadow/XS that is −6 6 30 −12 (Disabled), the same name clash as F104 | Code uses `shadow-os` on every state and Foundation's `shadow-xs` on Active. Bind the layer to `Shadow/OS` and relink the master to Foundation's Shadow/XS |
+| F113 | [_Glass BG Master](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296): the Shadows layer gained a 1% fill with a Luminosity blend so Figma renders its drop shadows | No blend modes in code (M8): code and native draw `shadow-os` directly and skip the fill; nothing visible changes |

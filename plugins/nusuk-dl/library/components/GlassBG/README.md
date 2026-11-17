@@ -10,7 +10,7 @@ The glass every floating control sits on: Figma's Glass BG with its 12 variants,
 
 | Layer | Figma | Web |
 |---|---|---|
-| Shadows | `Shadows / Type=OS`: drop −2 0 2, 2 0 2, 0 0 1 spread 0.5, #1A1C1F 5% | `shadow-os` |
+| Shadows | `Shadows / Type=OS`, bound to the effect style `Shadow/OS` since 17 November 2026: drop −2 0 2, 2 0 2, 0 0 1 spread 0.5, #1A1C1F 5%; the layer carries a 1% fill (white, Ink when Dark, luminosity) only so Figma draws the shadows | `shadow-os`; native `NusukShadow.os` / `NusukShadow.Os` |
 | Default Fill | radial from the top centre, radii 113.4% × 50%: white 10% → 50% (Dark: Ink 30% → 80% at 70%) | `glass-fill`, `glass-fill-dark` (raised at the top: refraction evens Figma's fill out) |
 | Active Fill | Highlighted and Active only: gold under a layer blur | child layer `.nk-gl-af` |
 | Glass Effect | GLASS (frost 6 = `Liquid Glass/Frost - Regular`, refraction 0.7, depth 30, dispersion 0.2, light 0.25) + linear-burn and linear-dodge inner shadows | `blur(3px)` + `glass-rim` / `glass-rim-dark` |

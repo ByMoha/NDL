@@ -1,6 +1,6 @@
 # DESIGN.md — Nusuk Design Language
 
-Version 3.6.0 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.6.1 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 
@@ -344,6 +344,7 @@ IBM Plex Sans Arabic (Arabic and Latin; English mode in Figma uses Ping AR + LT)
 | `Shadow/LR` | drop −6 9 30 −9 Graphite 8% | as above |
 | `Shadow/XL` | drop −6 10 40 −6 Ink 10% | as above |
 | `Shadow/UP` | drop 0 −10 30 −10 black 15% (bars that sit on content) | as above |
+| `Shadow/OS` (new 17 Nov 2026) | drop −2 0 2 · 2 0 2 · 0 0 1 spread 0.5, all Graphite 5% | `shadow-os`; the Shadows layer of every Glass BG and of Select Card |
 | `Glass/Top` | inner 0 7 10 Graphite 2% (hard light) · inner 0 1 0 white 50% | inner shadows: Compose `Modifier.innerShadow()`; SwiftUI an inner stroke and gradient overlay |
 | `Glass/Bottom` | inner 0 −10 10 white 40% (hard light) · inner 0 −1 0 white 100% · drop 0 1 2 −1 Graphite 4% | as above |
 | `Glass/Full` | drop 0 1 2 −1 Graphite 4% · inner 0 5 10 Graphite 2% (hard light) · inner 0 1 0 white 50% · GLASS 2, light 0.8 at 150°, refraction 0.4, depth 40, dispersion 0.4 | iOS 26 `glassEffect`; before 26 and on Android `Glass/Andriod Blur` |
@@ -354,7 +355,7 @@ IBM Plex Sans Arabic (Arabic and Latin; English mode in Figma uses Ping AR + LT)
 | `Treatment/Soft Light` | the same values as `Noise/Soft Light` | as above |
 | `Treatment/Top Blur` | layer blur 30 | SwiftUI `.blur(radius:)` at about half the Figma value, Compose `Modifier.blur()` on Android 12+; check against the Figma render |
 
-Glass BG stacks several of these (the layers table below). Noise and Treatment are textures for imagery and hero surfaces: apply one only where the Figma layer uses it, never on text.
+Glass BG stacks several of these (the layers table below). Since tokens 3.12 every drop shadow (Shadow/XS to OS, avatar and the older Shadows/01 to 05) is also generated for iOS and Android as `NusukShadow` layer lists (M11). Noise and Treatment are textures for imagery and hero surfaces: apply one only where the Figma layer uses it, never on text.
 - Borders 1 px Pearl, 1.5 px `surface-longing` for selection, 2 px Ink for focused fields. States: hover .08, pressed .12, disabled .38 (buttons .4).
 - No blend modes in code (Linear Burn in Figma is dropped, L3). Glass BG's linear-burn and linear-dodge rims become normal-blend inset shadows (`glass-rim`), set against Figma's render. Since 17 November (tokens 3.11) the white band at the bottom is softer: 0 −8 10 −4 at 75% (was 0 −6 3 −1 at 90%), at the DL Advisor's request; the Highlighted and Active rims follow.
 
@@ -368,7 +369,7 @@ Glass BG is the surface of every floating control. Variants: **Mode** (Default, 
 
 | Layer | Figma | Web (`tokens.json`) |
 |---|---|---|
-| Shadows | `Shadows / Type=OS`: drop −2 0 2, 2 0 2 and 0 0 1 spread 0.5, Graphite 5% | `shadow-os` |
+| Shadows | `Shadows / Type=OS`, since 17 November 2026 bound to the effect style `Shadow/OS`: drop −2 0 2, 2 0 2 and 0 0 1 spread 0.5, Graphite 5%. The layer now carries a 1% fill (white, Ink when Dark, luminosity) so that Figma draws the shadows of an otherwise empty frame; code and native draw the shadows directly and skip that fill | `shadow-os` |
 | Default Fill | Radial from the top centre, radii 113.4% × 50%. Light: white 10% → 50% (Glass Off 20% → 70%). Dark: Ink 30% → 80% (Glass Off 20% → 70%), paint at 70%. Active: `Surface/Longing` (Dark + Glass Off: `Surface/Illumination`) | `glass-fill` (white 30% → 50% on the web: refraction evens Figma's fill out), `glass-fill-dark` (Ink 44% → 56%), `glass-fill-off`, `glass-fill-off-dark` |
 | Active Fill | Highlighted and Active only. Glass On light: radial clear → Longing (centre 51% / 70%, radii 37% × 33%) under a progressive layer blur 0 → 70. Glass On dark: linear Longing 70% → Ink 0%, layer blur 20, not clipped (a glow past the edge). Glass Off: white 40% (Dark: Ink 40%) + radial white → Longing (Dark: Ink → #67460E) under a progressive blur. Active + Glass Off hides it | `GlassBG` draws it as a child layer |
 | Glass Effect | No fill. GLASS: frost 6 (`Liquid Glass/Frost - Regular`), refraction 0.7, depth 30, dispersion 0.2, light 0.25 at 0°. Inner 0 40 r30 s−40 #E6E6E6 linear burn; inner 0 ±40 r10 s−40 #282828 linear dodge (Dark: #1A1A1A). Hidden when Glass=Off | `blur(3px)` + `glass-rim` / `glass-rim-dark` |
@@ -1596,7 +1597,7 @@ Load when: handing work to iOS or Android, or reviewing native builds.
 - Names are mechanical. The first word is the group, the rest is the member in camelCase (Kotlin constants start with a capital), and a leading number moves to the end: `button-padding-md` → `NusukButton.paddingMd` and `NusukButton.PaddingMd`; `surface-01-white` → `colors.surface.white01`.
 - Colours: `NusukColors.resolve(theme, dark:)` on iOS; `NusukPalettes.resolve(theme, dark)` provided through `LocalNusukColors` on Android.
 - Units: 1 Figma px = 1 pt = 1 dp; text is sp on Android.
-- Not generated: shadows and Glass BG (M8), icons, fonts, and the button heights for Android Expanded windows.
+- Drop shadows are generated since tokens 3.12 (17 November 2026): `NusukShadow.xs` … `NusukShadow.os` on iOS and `NusukShadow.Xs` … `NusukShadow.Os` on Android, each a list of layers (x, y, blur, spread, colour) as Figma draws them; iOS adds `.nusukShadow(_:)`, which draws every layer at half the Figma blur. Not generated: Glass BG and the inset glass recipes (M8), icons, fonts, and the button heights for Android Expanded windows.
 - The files are checked for structure at release, not compiled. Symbol names are proposed until the iOS and Android leads confirm them.
 - Every change-log entry links its Figma file and has an iOS and an Android section (DL-29). The docs page *iOS and Android handoff* holds the unit table, the naming rule and the pull-request checks.
 - Android: Material 3 `Button` keeps a 58 × 40 dp minimum, so the Nusuk button is built on `Surface` or `Box`; `minimumInteractiveComponentSize()` reserves 48 dp in layout (open point in *iOS and Android handoff*).
@@ -1631,10 +1632,10 @@ Load when: handing work to iOS or Android, or reviewing native builds.
 ### Glass BG as Figma builds it (17 November 2026, tokens 3.10)
 
 - **Which glass where:** Glass=On is iOS 26 Liquid Glass (`.glassEffect`); Glass=Off is Android, drawn exactly (M8 › Glass BG). Each control keeps only the layers its Figma instance shows: `control` (toolbar icon blocks, logo, wallet, pills: OS shadows + the glass with a white sheen), `field` (search, Top Tabs, bottom-bar fields, the standalone and current tab: OS shadows + Default Fill + glass), `bar` (the Primary bottom bar: OS shadows + glass), `flat` (Secondary Pages / Tabs: Ivory, no glass), `card` (tiles: white + `Glass/Full`).
-- **OS shadows:** three drop shadows, −2 0 2, 2 0 2 and 0 0 1 spread 0.5, Graphite 5% (`shadow-os`). SwiftUI: three `.shadow(color:radius:x:y:)` at about half the Figma blur. Compose: `Modifier.dropShadow` ×3.
+- **OS shadows:** the effect style `Shadow/OS` (⚙️ Foundation, 17 November 2026): three drop shadows, −2 0 2, 2 0 2 and 0 0 1 spread 0.5, Graphite 5% (`shadow-os`). SwiftUI: `.nusukShadow(NusukShadow.os)` (three `.shadow` calls at half the Figma blur). Compose: `NusukShadow.Os`, one `Modifier.dropShadow` per layer.
 - **Android blur:** Figma background blur 10, about 5 dp in Haze; then `glass-fill-off` and the inner shadow 0 5 10 10 Ink 5%. Before Android 12 there is no blur: draw the fill over white at 85%.
 - **Reduce Transparency:** with iOS `accessibilityReduceTransparency` on, draw an opaque fill (the system glass already does); the web follows `prefers-reduced-transparency`.
-- **Not generated:** the glass gradients and rims are in `tokens.json` (`gradient` group; `shadow-os`, `glass-rim`) but not in `NusukTokens.swift` / `.kt`; `blur-frost` (6) is.
+- **Not generated:** the glass gradients and rims are in `tokens.json` (`gradient` group; `glass-rim`) but not in `NusukTokens.swift` / `.kt`; `shadow-os` is (`NusukShadow.os`, tokens 3.12), and so is `blur-frost` (6).
 ### Selection controls, lists, sheets and steps (14 November 2026, later)
 
 - Selection controls: chosen checkbox and radio `surface-illumination`, switch on `surface-10-ink`; the empty checkbox a 1 pt `surface-longing` line; errors solid `alerts-surface-solid-error` (switch, radio) or a 2 pt `alerts-icons-error` line (checkbox); disabled `surface-03-pearl`. Sizes from `NusukControl` (18 · 18 · 24; switch 32 · 42 · 54). Gold is 2.5:1 on white: ship it only with the label beside it, and watch Q-D01 (F16).

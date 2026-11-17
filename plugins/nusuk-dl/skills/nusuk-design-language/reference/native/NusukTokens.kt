@@ -1,7 +1,7 @@
 // NusukTokens.kt
-// Generated from tokens.json 3.11. Do not edit: change Figma, then the tokens, then run the release.
+// Generated from tokens.json 3.12. Do not edit: change Figma, then the tokens, then run the release.
 // Units: 1 Figma px = 1 dp; text sizes are sp. Lay out with start and end, never left and right.
-// Shadows and Glass BG: DESIGN.md, module M8. Fonts: IBM Plex Sans Arabic, Light and Regular.
+// Drop shadows: NusukShadow. Glass BG and inset glass: DESIGN.md, module M8. Fonts: IBM Plex Sans Arabic, Light and Regular.
 
 package sa.nusuk.designlanguage  // change to your module's package
 
@@ -228,6 +228,27 @@ object NusukType {
     val Notes1Regular = TextStyle(fontSize = 14.sp, lineHeight = 17.92.sp, fontWeight = FontWeight.Normal)  // notes-1-regular
     val Notes2Light = TextStyle(fontSize = 12.sp, lineHeight = 15.36.sp, fontWeight = FontWeight.Light)  // notes-2-light
     val Notes2Regular = TextStyle(fontSize = 12.sp, lineHeight = 15.36.sp, fontWeight = FontWeight.Normal)  // notes-2-regular
+}
+
+/** A drop-shadow layer as Figma draws it: offset, blur and spread in dp, colour with its alpha.
+ *  Compose 1.9: Modifier.dropShadow(shape, Shadow(radius = blur, spread = spread, color = color, offset = DpOffset(x, y))) per layer. */
+@Immutable
+data class NusukShadowLayer(val x: Dp, val y: Dp, val blur: Dp, val spread: Dp, val color: Color)
+
+/** Figma effect styles: Shadow/XS, SM, LR, XL, UP and OS (Foundation), and the older Shadows/01 to 05. */
+object NusukShadow {
+    val S01 = listOf(NusukShadowLayer(0.dp, 1.dp, 2.dp, 0.dp, Color(0x0D000000)))  // shadow-01
+    val S02 = listOf(NusukShadowLayer(0.dp, 2.dp, 4.dp, 0.dp, Color(0x0F000000)))  // shadow-02
+    val S03 = listOf(NusukShadowLayer(0.dp, 4.dp, 8.dp, 0.dp, Color(0x14000000)))  // shadow-03
+    val S04 = listOf(NusukShadowLayer(0.dp, 8.dp, 16.dp, 0.dp, Color(0x1A000000)))  // shadow-04
+    val S05 = listOf(NusukShadowLayer(0.dp, 12.dp, 24.dp, 0.dp, Color(0x1F000000)))  // shadow-05
+    val Xs = listOf(NusukShadowLayer(0.dp, 1.dp, 2.dp, -1.dp, Color(0x0A1A1C1F)))  // shadow-xs
+    val Sm = listOf(NusukShadowLayer(-6.dp, 6.dp, 12.dp, -6.dp, Color(0x0D1A1C1F)))  // shadow-sm
+    val Lr = listOf(NusukShadowLayer(-6.dp, 9.dp, 30.dp, -9.dp, Color(0x141A1C1F)))  // shadow-lr
+    val Xl = listOf(NusukShadowLayer(-6.dp, 10.dp, 40.dp, -6.dp, Color(0x1A070808)))  // shadow-xl
+    val Up = listOf(NusukShadowLayer(0.dp, -10.dp, 30.dp, -10.dp, Color(0x26000000)))  // shadow-up
+    val Avatar = listOf(NusukShadowLayer(-2.dp, 2.dp, 4.dp, -2.dp, Color(0x0D1A1C1F)))  // shadow-avatar
+    val Os = listOf(NusukShadowLayer(-2.dp, 0.dp, 2.dp, 0.dp, Color(0x0D1A1C1F)), NusukShadowLayer(2.dp, 0.dp, 2.dp, 0.dp, Color(0x0D1A1C1F)), NusukShadowLayer(0.dp, 0.dp, 1.dp, 0.5.dp, Color(0x0D1A1C1F)))  // shadow-os
 }
 
 @Immutable

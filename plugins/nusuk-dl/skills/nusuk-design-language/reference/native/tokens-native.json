@@ -1,5 +1,5 @@
 {
- "tokens": "3.11",
+ "tokens": "3.12",
  "units": "1 Figma px = 1 pt (iOS) = 1 dp (Android); text in sp on Android",
  "names": {
   "space-xxs": {
@@ -1185,6 +1185,200 @@
    "weight": 400,
    "kind": "type",
    "kotlin": "NusukType.Notes2Regular"
+  },
+  "shadow-01": {
+   "swift": "NusukShadow.s01",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": 0.0,
+     "y": 1.0,
+     "blur": 2.0,
+     "spread": 0.0,
+     "color": "#0000000D"
+    }
+   ],
+   "kotlin": "NusukShadow.S01"
+  },
+  "shadow-02": {
+   "swift": "NusukShadow.s02",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": 0.0,
+     "y": 2.0,
+     "blur": 4.0,
+     "spread": 0.0,
+     "color": "#0000000F"
+    }
+   ],
+   "kotlin": "NusukShadow.S02"
+  },
+  "shadow-03": {
+   "swift": "NusukShadow.s03",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": 0.0,
+     "y": 4.0,
+     "blur": 8.0,
+     "spread": 0.0,
+     "color": "#00000014"
+    }
+   ],
+   "kotlin": "NusukShadow.S03"
+  },
+  "shadow-04": {
+   "swift": "NusukShadow.s04",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": 0.0,
+     "y": 8.0,
+     "blur": 16.0,
+     "spread": 0.0,
+     "color": "#0000001A"
+    }
+   ],
+   "kotlin": "NusukShadow.S04"
+  },
+  "shadow-05": {
+   "swift": "NusukShadow.s05",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": 0.0,
+     "y": 12.0,
+     "blur": 24.0,
+     "spread": 0.0,
+     "color": "#0000001F"
+    }
+   ],
+   "kotlin": "NusukShadow.S05"
+  },
+  "shadow-xs": {
+   "swift": "NusukShadow.xs",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": 0.0,
+     "y": 1.0,
+     "blur": 2.0,
+     "spread": -1.0,
+     "color": "#1A1C1F0A"
+    }
+   ],
+   "kotlin": "NusukShadow.Xs"
+  },
+  "shadow-sm": {
+   "swift": "NusukShadow.sm",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": -6.0,
+     "y": 6.0,
+     "blur": 12.0,
+     "spread": -6.0,
+     "color": "#1A1C1F0D"
+    }
+   ],
+   "kotlin": "NusukShadow.Sm"
+  },
+  "shadow-lr": {
+   "swift": "NusukShadow.lr",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": -6.0,
+     "y": 9.0,
+     "blur": 30.0,
+     "spread": -9.0,
+     "color": "#1A1C1F14"
+    }
+   ],
+   "kotlin": "NusukShadow.Lr"
+  },
+  "shadow-xl": {
+   "swift": "NusukShadow.xl",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": -6.0,
+     "y": 10.0,
+     "blur": 40.0,
+     "spread": -6.0,
+     "color": "#0708081A"
+    }
+   ],
+   "kotlin": "NusukShadow.Xl"
+  },
+  "shadow-up": {
+   "swift": "NusukShadow.up",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": 0.0,
+     "y": -10.0,
+     "blur": 30.0,
+     "spread": -10.0,
+     "color": "#00000026"
+    }
+   ],
+   "kotlin": "NusukShadow.Up"
+  },
+  "shadow-avatar": {
+   "swift": "NusukShadow.avatar",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": -2.0,
+     "y": 2.0,
+     "blur": 4.0,
+     "spread": -2.0,
+     "color": "#1A1C1F0D"
+    }
+   ],
+   "kotlin": "NusukShadow.Avatar"
+  },
+  "shadow-os": {
+   "swift": "NusukShadow.os",
+   "unit": "pt/dp",
+   "kind": "shadow",
+   "layers": [
+    {
+     "x": -2.0,
+     "y": 0.0,
+     "blur": 2.0,
+     "spread": 0.0,
+     "color": "#1A1C1F0D"
+    },
+    {
+     "x": 2.0,
+     "y": 0.0,
+     "blur": 2.0,
+     "spread": 0.0,
+     "color": "#1A1C1F0D"
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "blur": 1.0,
+     "spread": 0.5,
+     "color": "#1A1C1F0D"
+    }
+   ],
+   "kotlin": "NusukShadow.Os"
   },
   "neutral-10-ink": {
    "swift": "colors.neutral.ink10",

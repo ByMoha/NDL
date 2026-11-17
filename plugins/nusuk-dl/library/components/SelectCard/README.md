@@ -8,6 +8,8 @@ A large selectable card for choosing a journey type or package.
 
 **16 November 2026 (re-read in [📻 Selections & Switches › Select Card](https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw)):** radius 14 (`radius-s`; was 18). Active is `surface-01-white` with a 1 px `surface-02-ivory` line and the OS shadow (−2 / 0 / 2 at 5%, plus a 0.5 spread; no token, F53). Selected stays `surface-shade-5` with a 1 px `surface-illumination` line. Disabled is `surface-02-ivory` with a 1 px `surface-03-pearl` line, full opacity, the description in `text-note`, gap 20. Type follows Figma (Q-D02 answered *keep it*): title 14 (`notes-1-regular`, `text-content`), description 16 (`body-2-regular`, `text-heading`).
 
+**17 November 2026, 22:15 (⚙️ Foundation › Shadow/OS):** the card's Shadows layer is the OS shadow, three drops (−2 0 2, 2 0 2, 0 0 1 spread 0.5, Graphite 5%). Code drew two of them in Ink; it now uses `shadow-os` on every state, and Active adds `Shadow/XS` as the master does. Known issue F112.
+
 ## Props
 
 | Prop | Type | Notes |

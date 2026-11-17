@@ -32,7 +32,7 @@ Values are from the Figma Foundation file and `tokens.json` 3.5. A ✅ means the
 | Line height | 1.28 for every style | 1.28 on iOS 26 and later; system default before | Not reported | Deviation NH07 |
 | Space and size | Layout collection, phone values, including Scale/44 | Same | Not reported | ✅ |
 | Radius | XXS 4 · XS 8 · S 14 · MD 18 · XL 22 · XXL 42 · iOS 54 · Full | Same | Not reported | ✅ |
-| Shadows | Effect styles Shadow/XS, SM, LR, XL, UP; string variables Shadows/01 to 05 | Effect styles only | Not reported | ✅ for native (NH09) |
+| Shadows | Effect styles Shadow/XS, SM, LR, XL, UP and OS (OS new 17 Nov 2026); string variables Shadows/01 to 05. All generated as `NusukShadow` since tokens 3.12 | Effect styles only | Not reported | ✅ for native (NH09) |
 | Glass | Glass/Top, Glass/Bottom, Glass/Full; new 14 November: Glass/Andriod Blur (Figma spelling), the fallback where the native glass material is missing: background blur 10 + inner shadow 0 5, blur 10, spread 10, Ink 5% (`glass-android`). 17 November: Glass BG re-read (Mode × Dark × Glass) with the layers each control keeps; DESIGN.md › M8 › Glass BG has the iOS 26, iOS 18–25 and Android recipes | First three the same; the new one not in the report | Not reported | Check the fallback below iOS 26; build Android controls from the Glass=Off recipe (F74) |
 | Opacity | 7: None 0 · Subtle .04 · Hover .08 · Focus .12 · Disabled .38 · Medium .5 · Strong .9 | 7 | Not reported | ✅ |
 | Border width | 4: None 0 · Thin 1 · Medium 1.5 · Thick 2 | 4 | Not reported | ✅ |
@@ -218,7 +218,7 @@ One ID space for every platform. IDs that start with C, K or N are in Known issu
 | NH06 | Radius of fields, select cards, day tabs and chips | Fields 18, bound to Radius/MD, with `Shadow/XS` (⌨️ Inputs, since 12 November); Select Card 18, bound to Radius/MD (📻 Switches, read 14 November); day tabs 12, no variable; chips capsule | Report says radius changes reach fields and chips | A local 12 for inputs, select cards and day tiles (audit F9, 10 November) | **UX answered (iOS review #4):** inputs 12, select cards 18. Select cards: 18 everywhere. Inputs: Figma has 18, so 18 stays until the design team answers Q-D15 |
 | NH07 | Line height | 1.28 everywhere | iOS 26 and later only | 1.28 × the scaled size (audit F10) | UX confirmed 1.28 and vertical centring (iOS review #7). Accepted while the iOS team finds a fallback for older versions (Q-X06) |
 | NH08 | Layout modes | Phone, tablet, Wide | Phone only | Phone values for now; size classes later (audit F17) | **UX answered (iOS review #10):** iOS ships Phone and Tablet, not Wide (DL-39). The values are data from tokens 3.8: `NusukLayout.phone`, `.tablet`, `.wide` (NH20) |
-| NH09 | Shadows/01 to 05 | String variables, used on the web | Not in iOS | Not reported | Accepted: native uses the effect styles and the recipes in DESIGN.md › M8 |
+| NH09 | Shadows/01 to 05 | String variables, used on the web | Not in iOS | Not reported | Accepted: native uses the effect styles. Since tokens 3.12 every drop shadow, the old five included, is in `NusukTokens.swift` / `.kt` as `NusukShadow` layers |
 | NH10 | Component inventory | 76 component folders | Report lists 51 | Not reported | The 25 newer cards are in section 3. TabBar also holds the action bars (CTAs, cart, filters) that 11 template contracts use; the home bar, TabBar or BottomNav, is open (N14) |
 | NH11 | NoticeBar | Inline in the page, stays until the page changes | Built as Toast | Not reported | If the iOS Toast can sit inline and stay, the mapping holds. If it floats or times out, treat NoticeBar as not built |
 | NH12 | Token names | Generated `NusukTokens.swift` proposes new names | FoundationUI names (`textHeading` and others) | Not reported | FoundationUI names win on iOS. The generated file is a reference for CI diffs, not a dependency; nobody renames |
@@ -340,7 +340,7 @@ There are three brand themes, Quranic Illumination (gold, the default), Dome of 
 | What | Where it is | Why |
 |---|---|---|
 | Motion | Section 2.1 | Not in `tokens.json` yet (section 5, item 12) |
-| Shadows, Glass BG | DESIGN.md › M8, with the iOS and Android recipe | A layered effect has no single constant |
+| Glass BG, inset glass | DESIGN.md › M8, with the iOS and Android recipe | A layered effect with blur and blend has no single constant. Drop shadows are generated (`NusukShadow`, tokens 3.12) |
 | Button heights on Android Expanded windows (54 · 48 · 38 · 26) | DESIGN.md › M9 | Figma Wide mode is not in `tokens.json` yet |
 | Icons | Figma, exported by name (DESIGN.md › M9 › Icons) | Assets, not values |
 | Components | DESIGN.md › M9 and the component cards | The coded components are web (React); native teams build from the spec |

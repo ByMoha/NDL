@@ -1,7 +1,7 @@
 // NusukTokens.swift
-// Generated from tokens.json 3.11. Do not edit: change Figma, then the tokens, then run the release.
+// Generated from tokens.json 3.12. Do not edit: change Figma, then the tokens, then run the release.
 // Units: 1 Figma px = 1 pt. Lay out with leading and trailing, never left and right.
-// Shadows and Glass BG: DESIGN.md, module M8. Fonts: IBM Plex Sans Arabic, Light and Regular.
+// Drop shadows: NusukShadow. Glass BG and inset glass: DESIGN.md, module M8. Fonts: IBM Plex Sans Arabic, Light and Regular.
 
 import SwiftUI
 
@@ -226,6 +226,42 @@ public enum NusukType {
     public static let notes1Regular = NusukTextStyle(size: 14, lineHeight: 17.92, weight: .regular)  // notes-1-regular
     public static let notes2Light = NusukTextStyle(size: 12, lineHeight: 15.36, weight: .light)  // notes-2-light
     public static let notes2Regular = NusukTextStyle(size: 12, lineHeight: 15.36, weight: .regular)  // notes-2-regular
+}
+
+/// A drop-shadow layer as Figma draws it (Effects): offset, blur and spread in pt, colour with its alpha.
+/// SwiftUI .shadow(radius:) takes about half the Figma blur and has no spread: shrink the shape by the spread instead.
+public struct NusukShadowLayer: Sendable {
+    public let x: CGFloat
+    public let y: CGFloat
+    public let blur: CGFloat
+    public let spread: CGFloat
+    public let color: Color
+    public init(x: CGFloat, y: CGFloat, blur: CGFloat, spread: CGFloat, color: Color) {
+        self.x = x; self.y = y; self.blur = blur; self.spread = spread; self.color = color
+    }
+}
+
+/// Figma effect styles: Shadow/XS, SM, LR, XL, UP and OS (Foundation), and the older Shadows/01 to 05.
+public enum NusukShadow {
+    public static let s01: [NusukShadowLayer] = [NusukShadowLayer(x: 0, y: 1, blur: 2, spread: 0, color: nusukHex(0x0000000D))]  // shadow-01
+    public static let s02: [NusukShadowLayer] = [NusukShadowLayer(x: 0, y: 2, blur: 4, spread: 0, color: nusukHex(0x0000000F))]  // shadow-02
+    public static let s03: [NusukShadowLayer] = [NusukShadowLayer(x: 0, y: 4, blur: 8, spread: 0, color: nusukHex(0x00000014))]  // shadow-03
+    public static let s04: [NusukShadowLayer] = [NusukShadowLayer(x: 0, y: 8, blur: 16, spread: 0, color: nusukHex(0x0000001A))]  // shadow-04
+    public static let s05: [NusukShadowLayer] = [NusukShadowLayer(x: 0, y: 12, blur: 24, spread: 0, color: nusukHex(0x0000001F))]  // shadow-05
+    public static let xs: [NusukShadowLayer] = [NusukShadowLayer(x: 0, y: 1, blur: 2, spread: -1, color: nusukHex(0x1A1C1F0A))]  // shadow-xs
+    public static let sm: [NusukShadowLayer] = [NusukShadowLayer(x: -6, y: 6, blur: 12, spread: -6, color: nusukHex(0x1A1C1F0D))]  // shadow-sm
+    public static let lr: [NusukShadowLayer] = [NusukShadowLayer(x: -6, y: 9, blur: 30, spread: -9, color: nusukHex(0x1A1C1F14))]  // shadow-lr
+    public static let xl: [NusukShadowLayer] = [NusukShadowLayer(x: -6, y: 10, blur: 40, spread: -6, color: nusukHex(0x0708081A))]  // shadow-xl
+    public static let up: [NusukShadowLayer] = [NusukShadowLayer(x: 0, y: -10, blur: 30, spread: -10, color: nusukHex(0x00000026))]  // shadow-up
+    public static let avatar: [NusukShadowLayer] = [NusukShadowLayer(x: -2, y: 2, blur: 4, spread: -2, color: nusukHex(0x1A1C1F0D))]  // shadow-avatar
+    public static let os: [NusukShadowLayer] = [NusukShadowLayer(x: -2, y: 0, blur: 2, spread: 0, color: nusukHex(0x1A1C1F0D)), NusukShadowLayer(x: 2, y: 0, blur: 2, spread: 0, color: nusukHex(0x1A1C1F0D)), NusukShadowLayer(x: 0, y: 0, blur: 1, spread: 0.5, color: nusukHex(0x1A1C1F0D))]  // shadow-os
+}
+
+public extension View {
+    /// Draws every layer, bottom first, with the SwiftUI radius at half the Figma blur.
+    func nusukShadow(_ layers: [NusukShadowLayer]) -> some View {
+        layers.reduce(AnyView(self)) { view, l in AnyView(view.shadow(color: l.color, radius: l.blur / 2, x: l.x, y: l.y)) }
+    }
 }
 
 public struct NusukColors: Sendable {

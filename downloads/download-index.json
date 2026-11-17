@@ -1,47 +1,47 @@
 {
  "release": "2026-11-17",
- "built": "2026-11-17T21:40+03:00",
- "designMd": "DESIGN.md 3.6.0",
- "tokens": "3.11",
- "plugin": "2026.11.172140",
- "checked": 330,
+ "built": "2026-11-17T22:22+03:00",
+ "designMd": "DESIGN.md 3.6.1",
+ "tokens": "3.12",
+ "plugin": "2026.11.172222",
+ "checked": 331,
  "files": [
   {
    "file": "DESIGN.md",
-   "bytes": 253091,
-   "sha256": "ff511dee61c8efb9e31739ac065f6ad05b0ec1707e3d06c9864cc16d911363b9"
+   "bytes": 254157,
+   "sha256": "aa3cdff407194d248f2cbcbd27f2cd023700364b12a79f500a182a41903ecd39"
   },
   {
    "file": "NusukTokens.kt",
-   "bytes": 59479,
-   "sha256": "52f23aba5bb0d77edfa5750e5fcb00351c19ff13f4860fedf0bc5e63bdf25010"
+   "bytes": 61285,
+   "sha256": "9cba151d2f9b35e5854a402edead8c8009fd0be4d2e7e08cadf4ef4228a9f081"
   },
   {
    "file": "NusukTokens.swift",
-   "bytes": 68341,
-   "sha256": "a82a63ef205685c7a67e827fe28f6dc84845e19decc484c8adf1c8ed9a931ac0"
+   "bytes": 71303,
+   "sha256": "b1204f8efd5eb03a54af5a9d9087a365fb950fb8054b2400b077e2bb2f010b5f"
   },
   {
    "file": "ios-android-handoff.md",
-   "bytes": 35395,
-   "sha256": "12a47eeb2cd0af7eda1fa113230181de7cb9e9c059d8194a7fa229dad2c90434"
+   "bytes": 35637,
+   "sha256": "c920a9b8d36ce5ca1fc9bc8f4dd0c44665c0cbcfa17d3f53cb0613022af86171"
   },
   {
    "file": "nusuk-dl-developer-handoff.zip",
-   "bytes": 1022100,
-   "sha256": "e36a1652f8d7d6efa99ee587c520fed6aa0e51d339e71713d90bf9448bacc54a",
-   "files": 326
+   "bytes": 1026914,
+   "sha256": "c1bc35bc67b9b24effd07c4fd8ecc42283bf4738959b8d5497f64b39d4ff4365",
+   "files": 327
   },
   {
    "file": "nusuk-dl.plugin",
-   "bytes": 23773979,
-   "sha256": "ca7eb00ccd2a0c987f6df9b20ff6fa677ff8ac7b7feafd4f0ad449bec4ce943b",
-   "files": 502
+   "bytes": 23783033,
+   "sha256": "24a3e18601ac679497391be63c7adcf435078dfd71f9ba4289669da4b4df2e04",
+   "files": 503
   },
   {
    "file": "tokens-native.json",
-   "bytes": 76470,
-   "sha256": "e519bba513fecbafc7c6a2bcf74dee7af366e04fa32abace9405fec80e77fb89"
+   "bytes": 79728,
+   "sha256": "bda6d286aa9a709a5b6a72edce917008ad1e65f97d41c267e86baf526d0e5e7d"
   }
  ]
 }

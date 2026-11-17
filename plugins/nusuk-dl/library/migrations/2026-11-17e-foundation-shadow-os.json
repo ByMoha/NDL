@@ -1,0 +1,45 @@
+{
+ "version": "2026-11-17e",
+ "title": "Foundation Shadow/OS; drop shadows in the native files",
+ "date": "2026-11-17",
+ "designMd": "3.6.1",
+ "tokens": {
+  "changed": {
+   "shadow-os": "usage: names the effect style Shadow/OS (values unchanged)"
+  }
+ },
+ "figma": [
+  "https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo/?node-id=54003-2344",
+  "https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296",
+  "https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw"
+ ],
+ "native": {
+  "added": [
+   "NusukShadowLayer",
+   "NusukShadow (xs, sm, lr, xl, up, os, avatar, s01-s05)",
+   "View.nusukShadow(_:) on iOS"
+  ]
+ },
+ "components": {
+  "SelectCard": {
+   "changed": {
+    "shadow": "2 Ink drops -> shadow-os (3 Graphite drops); Active adds shadow-xs"
+   }
+  },
+  "GlassBG": {
+   "changed": {
+    "Shadows layer": "bound to Shadow/OS; 1% luminosity fill in Figma only"
+   }
+  }
+ },
+ "guide": {
+  "changed": {
+   "handoff buttons": "Drive folder -> the file",
+   "plugin button": "unchanged: the Drive folder (the file is over 10 MB; artifacts do not serve zip)"
+  }
+ },
+ "knownIssues": [
+  "F112",
+  "F113"
+ ]
+}
