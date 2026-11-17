@@ -237,6 +237,15 @@
   "patterns": {
    "composition": "No empty sections: SectionError when a section fails to load"
   },
-  "question": "Q-D37 (reviews space in item-details)"
- }
+  "question": "Q-D37 (reviews space in item-details)",
+  "patternTable": "14-templates-and-patterns.md › Used by: generated from patterns/index.json (derived from the contracts); service-landing commitment-state → notification-slot, featured → hero-row, categories → category-grid; CardsList removed from service-landing › item-rows"
+ },
+ "chat": {
+  "version": "2.8.0",
+  "merged": "migrations/2026-11-17-chat-skill.json and chat/migrations/2026-11-17-nusuk-chat-dl-3-10.json (published by the chat lane on 17 November)",
+  "breaking": "SelCard: radio prop removed"
+ },
+ "stillOpen": [
+  "design system page tokens.css: rebuilt by the page only on a save; values from before tokens 3.7; lacks 28 tokens bundle.css uses (control-*, glass-*, blur-frost, shadow-os)"
+ ]
 }

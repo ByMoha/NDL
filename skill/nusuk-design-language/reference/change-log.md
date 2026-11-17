@@ -23,10 +23,14 @@ Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on A
 - **Patterns and templates:** the contracts name the new cards: cancellation (the reason space is ReasonSelection; the confirmation is StatusSheet `template` refund or wallet-refund), payment (payment-failed, and payment-expired when a hold runs out), address-selection (location, then location-settings), pass-sheet and pass-viewer (SectionError when the pass can't load), request-tracking (CustomerFeedback). Composition: a section that fails to load shows SectionError in its place (M9P rule 7, `patterns/index.json`, `14-templates-and-patterns.md`). A reviews space for item-details is a question, not an edit (Q-D37).
 - **DESIGN.md 3.3:** M9 inventory and the Fate rule; M9P rule 7.
 - **Skill and downloads:** the skill zip holds fewer than 200 files (claude.ai refuses more): the component cards, the chat cards and the migrations travel as one file each. The guide's downloads are three packages, for developers, for designers and everything, each on Google Drive and on GitHub ([ByMoha/NusukDL](https://github.com/ByMoha/NusukDL), team access), which also holds the full DL tree.
+- **Pattern table:** the "Used by" column of *Templates and patterns* is now written from `patterns/index.json`, which is derived from the contracts, and a release stops on any `contract › space` that does not exist. The column still had `commitment-state`, `featured` and `categories` from before the 11 November recheck, and CardsList in `service-landing › item-rows`; the contracts were right.
+- **Chat lane:** NusukChat 2.8.0, which the chat lane published to `chat/` on 17 November (entry below), is merged into this release: DESIGN.md M9C, the skill's §10 and `reference/chat/`, the three packages and the guide carry it. **Breaking for chat code:** SelCard's `radio` prop is gone.
 
 ### Still open
 
 F76–F87 (with F56–F65 from 16 November); questions Q-D33 (Fate and status in General Bottom Sheet), Q-D34 (Force Update and the removed types), Q-D35 (the star feedback sheet), Q-D36 (rating rows in Arabic), Q-D37 (a reviews space in item-details).
+
+The design system page's own `tokens.css` is rebuilt by the page only when someone saves an edit there, so it still has the values from before tokens 3.7 and lacks 28 tokens that `bundle.css` uses (`control-*`, `glass-*`, `blur-frost`, `shadow-os`): on that page the Checkbox, Radio, Switch and Glass previews draw without them. The downloads, the guide and the skill carry the `tokens.css` compiled from `tokens.json` 3.10.
 
 ### iOS
 
@@ -41,6 +45,28 @@ F76–F87 (with F56–F65 from 16 November); questions Q-D33 (Fate and status in
 - **Ratings:** `Icon` of the solid star tinted `surfaceLonging` / `surface03Pearl`; a half star clips with `Modifier.drawWithContent { clipRect(right = size.width / 2) }`, mirrored when `LocalLayoutDirection` is Rtl. The input: five `IconButton`s (48 dp) with `Modifier.semantics { stateDescription = "n من 5" }` in a `selectableGroup()`.
 - **Plurals:** «234 تقييمًا» with `pluralStringResource` (Arabic zero, one, two, few, many, other).
 - **New composables:** SectionError, ReasonSelection, ReviewCard, ReviewSummary.
+
+## 17 November 2026 (Nusuk AI chat on DL 3.10; chat joins the DL skill) · NusukChat 2.8.0
+
+**Read:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 54 variants, 3 masters, unchanged and all mapped) and the library sets it uses: [📻 Switches, Checkbox and Radio › Select Card](https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw?node-id=70416-652), Chips › Size=LR, [⚙️ Foundation › Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296) and Shadows › OS as the AI Tab Bar uses them.
+
+### Changed
+
+- **SelCard** (GenderField, BorderNumber, PassportAttach, LocationGuide) follows DL 3.10 SelectCard: radius 14, Active white + Ivory line + `shadow-os`, title 14 `text-content` over description 16 `text-heading`, icon alone in the top row. New props `desc` and `disabled`; a group is a `radiogroup` of `role=radio` cards. **Breaking:** the `radio` prop and radio dot are gone (Figma has none).
+- **Chips** (suggestions): padding `chip-padding-lr` (14) on the content side and `chip-padding-icon-lr` (12) on the icon side; was 18 / 12.
+- **TabBar** (AI Tab Bar): the input pill and round send and record buttons are Glass BG (Default, Glass On) with Shadows › OS: `glass-fill`, `glass-rim`, `shadow-os`, `blur(blur-frost / 2)`. The Pearl border is gone.
+- **Chat lane loads DL 3.10** bundle and tokens; Alert, Button glass internals and Chip changes come through the bundle. No new token; 0 raw values (audit).
+- **Skill:** the `nusuk-design-language` skill gains a chat row in its module table and §10 *The Nusuk AI chat*; `reference/chat/` now has a usage README and `components.md` (the 41 exports with Figma nodes and DL parents). DESIGN.md M9C records the round.
+
+### iOS
+
+- Select Card: `RoundedRectangle(cornerRadius: 14)`, white fill, 1 pt `surface02Ivory` stroke and the three OS shadows; selected `surfaceShade5` with a 1 pt `surfaceIllumination` stroke. Announce a gender or number-type group as radio buttons (`.accessibilityAddTraits(.isSelected)` on the chosen card).
+- AI Tab Bar input: system Liquid Glass (`.glassEffect(.regular, in: Capsule())`) per the 17 November glass entry; no stroke.
+
+### Android
+
+- Select Card: `RoundedCornerShape(14.dp)`, white, 1 dp Ivory border and the OS drop shadows; group with `Modifier.selectableGroup()` and `Modifier.selectable(role = Role.RadioButton)`.
+- AI Tab Bar input: Glass=Off recipe from the 17 November glass entry (Haze about 3 dp for Figma 6, `glass-fill`, OS shadows); no border.
 
 ## 17 November 2026 (Glass BG as Figma builds it; brand guidelines, November edition) · tokens 3.10
 

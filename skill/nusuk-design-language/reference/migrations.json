@@ -3151,6 +3151,53 @@
    ]
   }
  },
+ "2026-11-17-chat-skill.json": {
+  "date": "2026-11-17",
+  "name": "Nusuk AI chat on DL 3.10; chat joins the DL skill",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+  "chat": {
+   "from": "2.7.0",
+   "to": "2.8.0",
+   "coverage": {
+    "sets": 7,
+    "variants": 54,
+    "masters": 3,
+    "allMapped": true
+   }
+  },
+  "changed": [
+   {
+    "component": "SelCard",
+    "change": "DL 3.10 SelectCard look; title + description; no radio; role=radio in groups; props desc, disabled",
+    "breaking": "prop radio removed"
+   },
+   {
+    "component": "Chips",
+    "change": "padding chip-padding-lr / chip-padding-icon-lr"
+   },
+   {
+    "component": "TabBar",
+    "change": "Glass BG (Default, Glass On) + Shadows/OS on input pill and round buttons; no Pearl border"
+   }
+  ],
+  "tokens": {
+   "version": "3.10",
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "skill": {
+   "added": [
+    "reference/chat/components.md"
+   ],
+   "changed": [
+    "SKILL.md (module row, §10)",
+    "reference/chat/README.md (usage guide)",
+    "DESIGN.md M9C"
+   ]
+  },
+  "detail": "pkg/chat-lane/migrations/2026-11-17-nusuk-chat-dl-3-10.json"
+ },
  "2026-11-17-glass-brand.json": {
   "date": "2026-11-17",
   "title": "Glass BG as Figma builds it; brand guidelines, November edition",
@@ -3545,7 +3592,16 @@
    "patterns": {
     "composition": "No empty sections: SectionError when a section fails to load"
    },
-   "question": "Q-D37 (reviews space in item-details)"
-  }
+   "question": "Q-D37 (reviews space in item-details)",
+   "patternTable": "14-templates-and-patterns.md › Used by: generated from patterns/index.json (derived from the contracts); service-landing commitment-state → notification-slot, featured → hero-row, categories → category-grid; CardsList removed from service-landing › item-rows"
+  },
+  "chat": {
+   "version": "2.8.0",
+   "merged": "migrations/2026-11-17-chat-skill.json and chat/migrations/2026-11-17-nusuk-chat-dl-3-10.json (published by the chat lane on 17 November)",
+   "breaking": "SelCard: radio prop removed"
+  },
+  "stillOpen": [
+   "design system page tokens.css: rebuilt by the page only on a save; values from before tokens 3.7; lacks 28 tokens bundle.css uses (control-*, glass-*, blur-frost, shadow-os)"
+  ]
  }
 }

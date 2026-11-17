@@ -18,6 +18,7 @@ You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, 
 | Any screen, concept or critique | M2 Intent & desire, then the modules below |
 | Colour, type, spacing, radius, effects, glass | M8 Foundations (values come from `tokens.json`) |
 | A component: which one, its states and rules | M9 Components |
+| The Nusuk AI chat: answers, questions, AI tab bar, bot, tickets, hotel and flight cards | M9 Components, then **M9C Nusuk AI chat**, with `reference/chat/` (§10) |
 | Which service shows where, when and for whom; Today; pushes and notifications | M9S Surface allocation (+ Appendices A, B) |
 | A screen of a known kind: landing, list, details, cart, payment, booking step, booking details, pass, sheet | M9S, then **M9T Template contracts** (§8 below), then M9P |
 | A section or a page: what goes where, in what order | M9S, then M9P Patterns & templates |
@@ -133,6 +134,17 @@ When they are installed, these skills cover what the DL does not; the DL still d
 | Any change in Figma | `figma-use` (with `figma-generate-library` for library work) | The Plugin API rules; never run two Figma calls at once |
 | A full accessibility audit | `accessibility-audit` | The five-layer audit (automated, keyboard, screen reader, visual, flow) behind the M10 floor |
 
+## 10 · The Nusuk AI chat (M9C)
+
+The chat is one aspect of this skill, a **Proposed lane** of the DL built from Figma [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 54 variants, 3 masters on 17 Nov 2026). Load it for any chat answer, question, AI tab bar, bot, ticket or chat card.
+
+1. **Classify first (§3).** Chat answers are mostly logistics intents: fast, one step, one primary action. A spiritual question gets a calm text answer with its source; the bot never issues rulings (M4).
+2. **Use a chat export before drawing.** `reference/chat/components.md` lists the 41 exports: 4 are DL components as they are, 23 are variants of DL components (ChatMessage, TextField, SelectCard, Chip, TabBar, FlightTicket, OptionCard) and 14 are new. Configure them; don't restyle them.
+3. **Values come from DL tokens.** The only exceptions are the proposed `chat-*` tokens in `reference/chat/tokens.proposed.json`; never add a raw value.
+4. **One question per bubble.** A question is a Question container with its own primary Button MD; suggestions are Chips (or DL Button MD with `buttons: true`); "Edit answer" sits on the user's answer.
+5. **Load order in code:** `tokens.css` → `bundle.css` → `nk-chat.tokens.css` → `nk-chat.css`, then React 18 → `bundle.js` → `nk-chat.js`. `NusukChat.setLang('en')` for English; Arabic is the default.
+6. **Something new for the chat** follows §4 rule 5: build it locally with DL tokens, label it Proposed, and add it to `manifest.proposed.json` with its Figma node.
+
 ## Also in this skill
 
 | File | Open it when |
@@ -142,7 +154,7 @@ When they are installed, these skills cover what the DL does not; the DL still d
 | `reference/templates/index.json`, `reference/templates/contracts/<id>.json` | Designing or reviewing a screen of a known kind (§8) |
 | `reference/patterns-index.json` | Choosing the layout pattern for a space |
 | `reference/templates-and-patterns.md`, `reference/template-contracts.md` | The method for templates and patterns, and the full text of every contract |
-| `reference/chat/` | The Nusuk AI chat (Proposed lane): code, proposed tokens, icons and manifest; every card in `reference/chat/cards.md`; the rules are DESIGN.md › M9C |
+| `reference/chat/README.md`, `reference/chat/components.md`, `reference/chat/` | The Nusuk AI chat (Proposed lane, NusukChat 2.8.0): how to use it, the 41 exports with their Figma nodes and DL parents, code, proposed tokens, icons and manifest; every card in `reference/chat/cards.md`, every chat migration in `reference/chat/migrations.json`; the rules are DESIGN.md › M9C |
 | `reference/known-issues.md` | A value looks wrong: it may be a logged Figma defect that code copies on purpose |
 | `reference/component-inventory.md`, `reference/library.md` | Finding a Figma set, its variants, or a library file key |
 | `reference/native/NusukTokens.swift`, `reference/native/NusukTokens.kt`, `reference/native/tokens-native.json`, `reference/native-handoff.md` | Any iOS or Android work: the tokens as Swift and Kotlin constants, the name map, units and the pull-request checks |

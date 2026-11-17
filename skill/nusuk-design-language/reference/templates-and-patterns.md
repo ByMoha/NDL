@@ -87,17 +87,17 @@ Reading the flows against the contracts exposed defects in the flows. They are l
 | `pattern` | Component | Bands | Placement | Heavy | Used by (contract › space) |
 |---|---|---|---|---|---|
 | `featured-header` | FeaturedHeader | frame | L1 hero; actions are the P2 stage hub |  | — |
-| `upcoming-requests` | UpcomingRequests | 2 | P1 |  | service-landing › commitment-state |
-| `categories` | Categories | 4, 5, 6 | P1 (4), P2 (5), slot (6) |  | service-landing › categories |
+| `upcoming-requests` | UpcomingRequests | 2 | P1 |  | service-landing › notification-slot |
+| `categories` | Categories | 4, 5, 6 | P1 (4), P2 (5), slot (6) |  | service-landing › category-grid |
 | `category-chips` | CategoryChips | hub | P2 (Faith or content hub) |  | service-search › suggestions |
-| `cards-slider` | CardsSlider | 3, 5, 6 | P1 at the step that needs it (3), P2 (5), slot (6) |  | service-landing › featured; service-landing › item-rows; catalogue-list › item-list; item-details › related; cart › related; service-search › results; booking-details › for-this-journey; booking-details-package › for-this-journey |
+| `cards-slider` | CardsSlider | 3, 5, 6 | P1 at the step that needs it (3), P2 (5), slot (6) |  | service-landing › hero-row; service-landing › item-rows; catalogue-list › item-list; item-details › related; cart › related; service-search › results; booking-details › for-this-journey; booking-details-package › for-this-journey |
 | `playlist` | PlaylistRow | 4 | P1; collapses to the faith strip during a journey |  | — |
 | `list-side-by-side` | ListSideBySide | 4, 5 | P1 (4), P2 (5) |  | — |
-| `leaderboard` | Leaderboard | 3, 5 | P1 | yes | service-landing › featured |
+| `leaderboard` | Leaderboard | 3, 5 | P1 | yes | service-landing › hero-row |
 | `guide` | Guide | 3, 5 | P1 at the step it prepares for |  | — |
 | `services-box` | ServicesBox | hub | P2 stage hub |  | — |
 | `bento-grid` | BentoGrid | 5 | P2 | yes | — |
-| `cards-list` | CardsList | 3, 6 | P1 at a booking step (3), slot (6) |  | service-landing › item-rows; catalogue-list › item-list; service-search › results |
+| `cards-list` | CardsList | 3, 6 | P1 at a booking step (3), slot (6) |  | catalogue-list › item-list; service-search › results |
 
 ## Contract fields
 

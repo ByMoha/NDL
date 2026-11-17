@@ -78,7 +78,7 @@
 
 /* Chips (DL Chips, White, LR, Icon=Right) */
 .nkc-chips { display: flex; flex-wrap: wrap; gap: var(--space-xs); padding-bottom: var(--space-sm); justify-content: flex-start; }
-.nkc-chip { height: var(--chip-height-lr); display: inline-flex; align-items: center; gap: var(--space-xs); padding-inline: var(--space-nr) var(--space-sm); border: 0; border-radius: var(--radius-full); background: var(--alerts-surface-solid-white); color: var(--alerts-text-default); font: var(--nkc-type-notes-1-regular); box-shadow: var(--shadow-sm); cursor: pointer; }
+.nkc-chip { height: var(--chip-height-lr); display: inline-flex; align-items: center; gap: var(--space-xs); padding-inline: var(--chip-padding-lr) var(--chip-padding-icon-lr); border: 0; border-radius: var(--radius-full); background: var(--alerts-surface-solid-white); color: var(--alerts-text-default); font: var(--nkc-type-notes-1-regular); box-shadow: var(--shadow-sm); cursor: pointer; }
 .nkc-chip svg { width: var(--dimension-sm); height: var(--dimension-sm); }
 .nkc-chip[aria-pressed="true"] { background: var(--surface-10-ink); color: var(--surface-01-white); }
 
@@ -131,13 +131,13 @@
 .nkc-tab { display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-xs); width: 100%; }
 .nkc-tab.fade { background: linear-gradient(to top, var(--nkc-fade-tab), transparent); border-radius: var(--radius-md); }
 .nkc-tabrow { display: flex; gap: var(--space-xs); align-items: center; }
-.nkc-input { flex: 1; height: var(--nkc-control-lg); display: flex; align-items: center; gap: var(--space-xs); padding-inline: var(--space-nr) var(--space-xs); border-radius: var(--radius-full); background: linear-gradient(to top, var(--surface-01-white) 12%, transparent 152%); box-shadow: var(--glass-full); border: var(--border-thin) solid var(--surface-03-pearl); }
+.nkc-input { flex: 1; height: var(--nkc-control-lg); display: flex; align-items: center; gap: var(--space-xs); padding-inline: var(--space-nr) var(--space-xs); border-radius: var(--radius-full); background: var(--glass-fill); box-shadow: var(--glass-rim), var(--shadow-os); -webkit-backdrop-filter: blur(calc(var(--blur-frost) / 2)); backdrop-filter: blur(calc(var(--blur-frost) / 2)); border: 0; } /* DL 3.10 Glass BG (Default, Glass On) + Shadows/OS, 17 Nov */
 .nkc-input input { flex: 1; min-width: 0; height: 100%; border: 0; background: none; outline: none; font: var(--nkc-type-body-2-regular); color: var(--inputs-text-default); }
 .nkc-input input::placeholder { color: var(--inputs-text-placeholder); }
 .nkc-input:focus-within { border-color: var(--surface-10-ink); }
 .nkc-tabbtn { width: var(--nkc-control-icon); height: var(--nkc-control-icon); flex: none; border: 0; border-radius: 50%; background: none; color: var(--icons-black); display: grid; place-items: center; cursor: pointer; }
 .nkc-tabbtn:disabled { opacity: var(--opacity-disabled); cursor: default; }
-.nkc-tabbtn.round { width: var(--nkc-control-lg); height: var(--nkc-control-lg); background: var(--surface-01-white); box-shadow: var(--glass-full); border: var(--border-thin) solid var(--surface-03-pearl); }
+.nkc-tabbtn.round { width: var(--nkc-control-lg); height: var(--nkc-control-lg); border-radius: var(--radius-full); background: var(--glass-fill); box-shadow: var(--glass-rim), var(--shadow-os); -webkit-backdrop-filter: blur(calc(var(--blur-frost) / 2)); backdrop-filter: blur(calc(var(--blur-frost) / 2)); border: 0; }
 .nkc-tabbtn.fate { color: var(--alerts-icons-error); }
 .nkc-timer { font: var(--nkc-type-notes-1-regular); direction: ltr; unicode-bidi: isolate; min-width: var(--nkc-control-icon); }
 .nkc-rec { flex: 1; display: flex; align-items: center; gap: var(--scale-02); height: var(--button-height-xs); overflow: hidden; -webkit-mask-image: linear-gradient(to left, var(--neutral-10-ink) 70%, transparent); mask-image: linear-gradient(to left, var(--neutral-10-ink) 70%, transparent); }
@@ -232,7 +232,7 @@
 .nkc-dial-list li:hover, .nkc-dial-list li[aria-selected="true"] { background: var(--surface-02-ivory); }
 
 .nkc-cards2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs); }
-.nkc-selcard { width: auto; min-width: 0; font: inherit; color: var(--text-heading); text-align: start; align-items: stretch; }
+.nkc-selcard { width: auto; min-width: 0; font: inherit; text-align: start; align-items: stretch; }
 .nkc-selcard .top { width: 100%; justify-content: space-between; }
 .nkc-selcard .top { min-height: var(--dimension-md); }
 .nkc-selcard:focus-visible { outline: var(--border-thick) solid var(--surface-10-ink); outline-offset: var(--scale-02); }

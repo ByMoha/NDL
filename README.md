@@ -39,7 +39,7 @@ Figma is the source of truth. This package mirrors the DL library for concepts, 
 | `templates/`, `patterns/` | 20 template contracts, their index, the Rawdah landing templates and the pattern index |
 | `docs/` | Overview, governance, library, inventory, brand, writing, DX practice, behaviour, KPIs, devices and accessibility, known issues, using with Claude, release notes, change log, templates and patterns, template contracts, iOS and Android handoff |
 | `assets/` | Asset notes (Brand, Illustration, Imagery, Logos) and the three Nusuk logo files (SVG) |
-| `migrations/` | Machine-readable changes, 2026-11-05 to 2026-11-17 (27 files) |
+| `migrations/` | Machine-readable changes, 2026-11-05 to 2026-11-17 (28 files) |
 | `CHANGES-2026-11-08.md`, `CHANGES-2026-11-09.md`, `CHANGES-2026-11-10.md`, `CHANGES-2026-11-11.md` | The change sheets of 2026-11-08 to 2026-11-11, for iOS and Android |
 | `nusuk-design-language.zip` | The DL skill for Claude: upload it as it is in Customize › Skills |
 | `vendor/` | React 18.3 production builds (MIT) |

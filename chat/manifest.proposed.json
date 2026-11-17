@@ -4,7 +4,7 @@
  "namespace": "NusukChat",
  "status": "proposed",
  "date": "2026-11-12",
- "updated": "2026-11-14",
+ "updated": "2026-11-17",
  "counts": {
   "variant": 23,
   "new": 14,
@@ -772,7 +772,7 @@
    "status": "variant",
    "dlTarget": "SelectCard",
    "group": "Inputs",
-   "summary": "iconNode (any icon) and radio: false.",
+   "summary": "Figma icon via FigIcon; one label renders as the 16 description line.",
    "figma": {
     "file": "zhcTb4a0XbF3YeYF9XI6zw",
     "library": "📻 Switches, Checkbox, and Radio",
@@ -783,8 +783,8 @@
      "Status=Selected": "70416:657"
     }
    },
-   "props": "icon · title · selected · radio · onClick",
-   "builtWith": "DL classes nk-selcard + nk-radio"
+   "props": "icon · title · desc · selected · disabled · onClick",
+   "builtWith": "DL class nk-selcard (3.10: .cnt .ttl .dsc)"
   },
   {
    "name": "SingleChoose",

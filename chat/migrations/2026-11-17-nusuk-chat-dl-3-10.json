@@ -1,0 +1,20 @@
+{
+ "date": "2026-11-17",
+ "name": "NusukChat 2.8.0: DL 3.10 sync and chat as a skill aspect",
+ "status": "proposed",
+ "chat": {
+  "version": { "from": "2.7.0", "to": "2.8.0" },
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+  "coverage": { "sets": 7, "variants": 54, "masters": 3, "allMapped": true, "added": [], "removed": [] },
+  "changed": [
+   { "component": "SelCard (GenderField, BorderNumber, PassportAttach, LocationGuide)", "figma": "📻 Switches, Checkbox and Radio › Select Card (70416:652)", "change": "Follows DL 3.10 SelectCard: radius-s, Active white + Ivory line + shadow-os, title 14 text-content over description 16 text-heading, icon alone in the top row. Radio removed (Figma has none); groups are role=radiogroup of role=radio. New props desc and disabled." },
+   { "component": "Chips", "figma": "Chips › State=White, Size=LR, Icon=On", "change": "Padding from DL tokens chip-padding-lr (14, content side) and chip-padding-icon-lr (12, icon side); was space-nr 18 / space-sm 12." },
+   { "component": "TabBar", "figma": "AI Tab Bar (80392:4481) › Glass BG (Default, Glass On) + Shadows › OS", "change": "Input pill and round buttons use glass-fill, glass-rim, shadow-os and blur(blur-frost / 2); Pearl border removed." },
+   { "component": "All", "change": "Loads DL 3.10 bundle.js, bundle.css and tokens.css. Alert, Button (glass internals) and Chip changes arrive through the bundle." }
+  ]
+ },
+ "tokens": { "version": "3.10", "added": [], "changed": [], "removed": [], "used": ["chip-padding-lr", "chip-padding-icon-lr", "glass-fill", "glass-rim", "shadow-os", "blur-frost"] },
+ "icons": { "added": [] },
+ "skill": { "package": "downloads/pkg/skill", "added": ["reference/chat/README.md", "reference/chat/components.md"], "changed": ["SKILL.md: chat row in the module table and a Nusuk AI chat section"] },
+ "breaking": [ { "component": "SelCard", "change": "prop radio removed; radio markup no longer rendered" } ]
+}

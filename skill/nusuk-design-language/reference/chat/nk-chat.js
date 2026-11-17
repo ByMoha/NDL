@@ -461,11 +461,11 @@
         p.trail || null),
       p.hint ? h(N.Hint, { type: st === 'error' ? 'error' : 'hint', id: id + 'h' }, p.hint) : null);
   }
-  function SelCard(p) { // DL Select Card markup (nk-selcard) with a Figma icon
+  function SelCard(p) { // DL 3.10 Select Card (nk-selcard): icon alone in the top row, title 14 + description 16, no radio (Figma 16 Nov)
     var sel = !!p.selected;
-    return h('button', { type: 'button', className: 'nk nk-selcard nkc-selcard ' + (sel ? 'selected' : ''), 'aria-pressed': sel, onClick: p.onClick, 'data-figma': p.figma },
-      h('div', { className: 'top' }, FigIcon(p.icon, 24), p.radio === false ? null : h('span', { className: 'nk-radio' + (sel ? ' on' : '') }, h('i'))),
-      h('div', { className: 'body-2-regular' }, p.title));
+    return h('button', { type: 'button', className: 'nk nk-selcard nkc-selcard ' + (sel ? 'selected' : '') + (p.disabled ? ' disabled' : ''), role: p.selected === undefined ? undefined : 'radio', 'aria-checked': p.selected === undefined ? undefined : sel, disabled: !!p.disabled, onClick: p.onClick, 'data-figma': p.figma },
+      h('div', { className: 'top' }, FigIcon(p.icon, 24)),
+      h('div', { className: 'cnt' }, p.desc ? h('span', { className: 'ttl notes-1-regular' }, p.title) : null, h('span', { className: 'dsc body-2-regular' }, p.desc || p.title)));
   }
   function useAnswer(p) { var a = React.useState(p.value || ''), v = a[0], set = a[1]; var e = React.useState(false), err = e[0], setErr = e[1]; return { v: v, set: function (x) { set(x); setErr(false); }, err: err, setErr: setErr }; }
 
@@ -525,8 +525,8 @@
     var valid = kind && /^\d{10}$/.test(a.v);
     return h(Question, Object.assign({ figma: '80607:18463', title: 'زودنا برقم الحدود أو رقم التأشيرة', onBack: p.onBack, onConfirm: function () { if (valid) { if (p.onConfirm) p.onConfirm(label + ': ' + a.v); } else a.setErr(true); } }, BASIC),
       h('div', { className: 'nkc-cards2', role: 'radiogroup', 'aria-label': 'نوع الرقم' },
-        h(SelCard, { figma: '80607:18656', icon: 'airplane-landing-02', title: 'رقم الحدود', radio: false, selected: kind === 'border', onClick: function () { setKind('border'); a.setErr(false); } }),
-        h(SelCard, { figma: '80607:18655', icon: 'audit-01', title: 'رقم التأشيرة', radio: false, selected: kind === 'visa', onClick: function () { setKind('visa'); a.setErr(false); } })),
+        h(SelCard, { figma: '80607:18656', icon: 'airplane-landing-02', title: 'رقم الحدود', selected: kind === 'border', onClick: function () { setKind('border'); a.setErr(false); } }),
+        h(SelCard, { figma: '80607:18655', icon: 'audit-01', title: 'رقم التأشيرة', selected: kind === 'visa', onClick: function () { setKind('visa'); a.setErr(false); } })),
       h(Fld, { figma: '80607:18657', label: kind ? label : 'اختر نوع الرقم أولًا', placeholder: kind ? label : 'اختر نوع الرقم أولًا', inputMode: 'numeric', dir: a.v ? 'ltr' : undefined, value: a.v, state: !kind ? 'disabled' : a.err ? 'error' : undefined, onChange: function (x) { a.set(toLatin(x).replace(/\D/g, '').slice(0, 10)); }, hint: a.err ? (kind ? label + ' مكوّن من 10 أرقام.' : 'اختر رقم الحدود أو رقم التأشيرة.') : null }));
   }
 
@@ -551,8 +551,8 @@
     function pick(mode) { if (mode === 'file' && ref.current && p.realPicker) ref.current.click(); else if (p.onPick) p.onPick(mode, null); }
     return h(Question, Object.assign({ figma: '80607:19234', title: 'زودنا بصورة من جواز السفر', onBack: p.onBack, cta: false }, BASIC),
       h('div', { className: 'nkc-cards2' },
-        h(SelCard, { figma: '80607:19466', icon: 'camera-02', title: 'التقاط صورة', radio: false, onClick: function () { pick('camera'); } }),
-        h(SelCard, { figma: '80607:19465', icon: 'image-02', title: 'إرفاق الصورة', radio: false, onClick: function () { pick('file'); } })),
+        h(SelCard, { figma: '80607:19466', icon: 'camera-02', title: 'التقاط صورة', onClick: function () { pick('camera'); } }),
+        h(SelCard, { figma: '80607:19465', icon: 'image-02', title: 'إرفاق الصورة', onClick: function () { pick('file'); } })),
       h('input', { ref: ref, type: 'file', accept: 'image/*', hidden: true, onChange: function (e) { var f = e.target.files && e.target.files[0]; if (f && p.onPick) p.onPick('file', URL.createObjectURL(f)); } }));
   }
 
@@ -623,8 +623,8 @@
       h('figure', { className: 'nkc-lg-img' }, h('img', { src: p.image || A('ajyad-guide.jpg'), alt: p.imageAlt || 'منطقة العربات الكهربائية في أجياد', loading: 'lazy' })),
       h('p', { className: 'nkc-lg-steps notes-1-regular' }, p.steps || 'توجه إلى (باب 3) أمام فندق الصفوة ← واصل السير حتى مفترق الطريق ← اتجه يمينًا نحو منطقة الفرز والانتظار حتى تصل'),
       h('div', { className: 'nkc-cards2' },
-        h(SelCard, { icon: 'maps', title: 'فتح خرائط نسك', radio: false, onClick: p.onNusukMaps }),
-        h(SelCard, { icon: 'google-maps', title: 'فتح خرائط Google', radio: false, onClick: function () { if (p.onGoogleMaps) p.onGoogleMaps(); else window.open('https://www.google.com/maps/search/?api=1&query=' + q, '_blank', 'noopener'); } })));
+        h(SelCard, { icon: 'maps', title: 'فتح خرائط نسك', onClick: p.onNusukMaps }),
+        h(SelCard, { icon: 'google-maps', title: 'فتح خرائط Google', onClick: function () { if (p.onGoogleMaps) p.onGoogleMaps(); else window.open('https://www.google.com/maps/search/?api=1&query=' + q, '_blank', 'noopener'); } })));
   }
 
   /* Shared filter strip (Input/Type=Select × 3, Filled) used by Hotel Choose and Flights Selection */
@@ -817,14 +817,14 @@
     'BookingTicket': ['new', null, 'Booking_Ticket (4 statuses).'],
     'LogosGroup': ['new', null, 'Logos Group + Logo Icons + City Logo badge as code.'],
     'Fld': ['variant', 'TextField', 'Trailing slot (icon button / action button / logo) and floating label.'],
-    'SelCard': ['variant', 'SelectCard', 'iconNode (any icon) and radio: false.']
+    'SelCard': ['variant', 'SelectCard', 'Figma icon via FigIcon; one label renders as the 16 description line.']
   };
   registry.push(
     { code: 'NusukChat.LogosGroup', lib: '🃏 Cards', file: 'mg7egvNbr2ciMP04Ig2XDl', figma: 'Logos Group · Logo Icons (7 entities) · City Logo (Madinah, Mekkah)', nodes: { 'Logos Group': '70306:7320', 'Logo Icons': '70306:7326', 'City Logo': '70306:7355' }, props: 'items: [{ entity, city? }] · size (32 | 28 | 48)', dl: 'Gradient circles from the Figma fills · inline SVG marks · 4x PNG for raster brand marks' },
     { code: 'NusukChat.Fld', lib: '⌨️ Inputs', file: 'DATayAnynnSQqdJQLAi7DR', figma: 'Input (Type Input, Action · Status Default, Error, Disabled · Filled Off, On)', nodes: { 'Input': '68394:7766', 'Type=Input, Status=Default': '68394:7797', 'Type=Action, Status=Default': '68394:7857' }, props: 'label · placeholder · value · onChange · state · hint · lead · trail · floating · type · inputMode · dir', dl: 'DL classes nk-field / nk-field-box + DL Hint' },
-    { code: 'NusukChat.SelCard', lib: '📻 Switches, Checkbox, and Radio', file: 'zhcTb4a0XbF3YeYF9XI6zw', figma: 'Select Card (Active, Selected, Disabled)', nodes: { 'Select Card': '70416:652', 'Status=Active': '70416:655', 'Status=Selected': '70416:657' }, props: 'icon · title · selected · radio · onClick', dl: 'DL classes nk-selcard + nk-radio' },
+    { code: 'NusukChat.SelCard', lib: '📻 Switches, Checkbox, and Radio', file: 'zhcTb4a0XbF3YeYF9XI6zw', figma: 'Select Card (Active, Selected, Disabled)', nodes: { 'Select Card': '70416:652', 'Status=Active': '70416:655', 'Status=Selected': '70416:657' }, props: 'icon · title · desc · selected · disabled · onClick', dl: 'DL class nk-selcard (3.10: .cnt .ttl .dsc)' },
     { code: 'NusukChat.SingleChoose', figma: 'AI Chat Messages › Style=Single Choose', nodes: { 'Variant': '80626:36740' }, props: 'type · typeIcon · title · options: [{icon, title}] · selected · onConfirm(option, i)', dl: 'Question card · DL Option Cards (Icon with Action) · Alerts/Surface/Success · Buttons Green · DL Button Primary MD' });
   registry.forEach(function (r) { var k = r.code.replace('NusukChat.', ''), d = DL_STATUS[k] || ['new', null, '']; r.status = d[0]; r.dlTarget = d[1]; r.dlNote = d[2]; });
 
-  window.NusukChat = { version: '2.7.0', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Alert: Alert, ErrorMsg: ErrorMsg, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
+  window.NusukChat = { version: '2.8.0', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Alert: Alert, ErrorMsg: ErrorMsg, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
 })();

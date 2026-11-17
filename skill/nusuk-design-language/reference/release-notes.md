@@ -11,7 +11,9 @@ For developers. Figma is the source of truth; `tokens.json` mirrors it. Machine-
 - **Changed:** NoticeBar (`action`, `onClose`, description, `hug`), EmptyState (List card, `secondary`, Headline 1 on the page), Alert (`stacked`), BottomSheet (`topAction`, `overlay`), CustomerFeedback (`scale="stars"`).
 - **New:** SectionError, ReasonSelection, ReviewCard, ReviewSummary; 13 icons.
 - **Downloads:** three packages (developers, designers, everything) on Google Drive and GitHub ([ByMoha/NusukDL](https://github.com/ByMoha/NusukDL), team access); the skill zip holds fewer than 200 files.
-- **Known issues F76–F87;** questions Q-D33 to Q-D37.
+- **Templates and patterns:** the pattern table's "Used by" column is generated from the contracts (three stale space ids fixed).
+- **Chat lane:** NusukChat 2.8.0 on DL 3.10 merged: SelCard is the DL Select Card (breaking: no `radio`), chip padding from the chip tokens, the AI Tab Bar on Glass BG. The skill gains §10 and `reference/chat/components.md`.
+- **Known issues F76–F87;** questions Q-D33 to Q-D37. Still open: the design system page's own `tokens.css` (change log).
 
 ## 17 November 2026 (Glass BG as Figma builds it; brand guidelines, November edition) · tokens 3.10
 

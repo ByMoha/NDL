@@ -1,10 +1,10 @@
 # SelCard  ·  *Proposed*
 
-iconNode (any icon) and radio: false.
+Figma icon via FigIcon; one label renders as the 16 description line.
 
 **Status:** Proposed as a variant / prop of DL **SelectCard**.  
 **Figma source:** 📻 Switches, Checkbox, and Radio › Select Card (Active, Selected, Disabled) — Select Card `70416:652` · Status=Active `70416:655` · Status=Selected `70416:657`.  
-**Code today:** `NusukChat.SelCard` in nk-chat.js (built with: DL classes nk-selcard + nk-radio).
+**Code today:** `NusukChat.SelCard` in nk-chat.js (built with: DL class nk-selcard (3.10: .cnt .ttl .dsc)).
 
 ## Props
 
@@ -12,8 +12,9 @@ iconNode (any icon) and radio: false.
 |---|---|
 | `icon` |  |
 | `title` |  |
+| `desc` |  |
 | `selected` |  |
-| `radio` |  |
+| `disabled` |  |
 | `onClick` |  |
 
 ## Use
