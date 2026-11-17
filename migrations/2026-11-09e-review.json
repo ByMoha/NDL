@@ -1,0 +1,259 @@
+{
+ "date": "2026-11-09",
+ "name": "review",
+ "designMd": "2.2",
+ "figma": {
+  "read": "2026-11-09",
+  "files": [
+   "⚙️ Foundation (in sync)",
+   "🕹️ Buttons",
+   "🍟 Chips",
+   "🃏 Cards",
+   "🧭 Navigation",
+   "📅 Date & Time",
+   "🏖️ Travel"
+  ],
+  "edited": false
+ },
+ "tokens": {
+  "version": "3.3",
+  "added": [
+   "scale-44",
+   "shadow-avatar"
+  ],
+  "changed": [],
+  "note": "shadow-avatar was used by bundle.css but missing from tokens.json; scale-44 mirrors Foundation › Scale/44"
+ },
+ "css": {
+  "focusRing": {
+   "from": "var(--surface-longing)",
+   "to": "var(--surface-10-ink)",
+   "onInk": "var(--surface-01-white) on .nk-cartbar.floating, .nk-journey, .nk-msg.user .bub",
+   "onDark": "var(--text-inverse) on .nk-btn.on-dark, .nk-tb.light, .nk-glass.dark"
+  },
+  "tapPadding": {
+   "how": "::after on each control, position absolute, inset min(0px, (100% - var(--hit, 48px)) / 2)",
+   "hit": {
+    "default": 48,
+    ".nk-tb, .nk-fh .bar": 44
+   },
+   "controls": [
+    ".nk-btn",
+    ".nk-mc .mc-cta",
+    ".nk-mc .mc-play",
+    ".nk-check",
+    ".nk-radio",
+    ".nk-switch",
+    ".nk-hw .cb",
+    ".nk-ib",
+    ".nk-hitem",
+    ".nk-aibtn",
+    ".nk-tb-login",
+    ".nk-fh .rb",
+    ".nk-fh .sp",
+    ".nk-gtabs button",
+    ".nk-htabs button",
+    ".nk-pillbar button",
+    ".nk-mcard-more",
+    ".nk-stepper button",
+    ".nk-day",
+    ".nk-coll summary"
+   ],
+   "layoutChange": false
+  },
+  "invertingContentOnInk": [
+   ".nk-cartbar.floating",
+   ".nk-av.ink",
+   ".nk-tb-login .c"
+  ],
+  "rows": {
+   "overflowY": "hidden on .nk-row, .nk-tb-cats, .nk-gtabs"
+  },
+  "memberCardSwipe": "logical insets; follows direction"
+ },
+ "components": {
+  "TextField": {
+   "added": [
+    "ariaLabel"
+   ],
+   "behaviour": "label -> aria-labelledby, hint -> aria-describedby"
+  },
+  "Hint": {
+   "added": [
+    "id"
+   ]
+  },
+  "Switch": {
+   "added": [
+    "ariaLabel"
+   ]
+  },
+  "Checkbox": {
+   "added": [
+    "ariaLabel"
+   ]
+  },
+  "Radio": {
+   "added": [
+    "ariaLabel"
+   ]
+  },
+  "DropdownItem": {
+   "added": [
+    "ariaLabel",
+    "onChange"
+   ],
+   "behaviour": "selector named by title"
+  },
+  "Toolbar": {
+   "added": [
+    "backLabel",
+    "leadLabel",
+    "trailLabel",
+    "actionLabels",
+    "cartLabel"
+   ]
+  },
+  "IconBlock": {
+   "behaviour": "default names by outcome; unknown icons read 'إجراء n'"
+  },
+  "SearchBar": {
+   "added": [
+    "label"
+   ]
+  },
+  "RatingBar": {
+   "added": [
+    "label"
+   ]
+  },
+  "MemberCard": {
+   "added": [
+    "selectLabel",
+    "moreLabel",
+    "deleteLabel",
+    "starLabel"
+   ]
+  },
+  "OptionCard": {
+   "added": [
+    "moreLabel",
+    "decreaseLabel",
+    "increaseLabel"
+   ]
+  },
+  "TabBar": {
+   "added": [
+    "decreaseLabel",
+    "increaseLabel"
+   ]
+  },
+  "namespace": {
+   "added": [
+    "setLang('ar' | 'en' | null)",
+    "strings"
+   ]
+  },
+  "defaultsChanged": {
+   "TextField action label": [
+    "Verify",
+    "تحقق"
+   ],
+   "accessible names": "English -> Arabic (English with lang=en)"
+  }
+ },
+ "previews": {
+  "lang": "ar on every preview (Cover: en)"
+ },
+ "measured": {
+  "targets": {
+   "controls": 296,
+   "meetRuleBefore": 89,
+   "meetRuleAfter": 293,
+   "under24Before": 27,
+   "under24After": 0,
+   "short": [
+    46,
+    45,
+    33
+   ]
+  },
+  "names": {
+   "controls": 306,
+   "unnamedBefore": 7,
+   "unnamedAfter": 0,
+   "latinOnlyBefore": 64,
+   "latinOnlyAfter": 9
+  },
+  "textContrastPassPercent": {
+   "gold-light": 87.4,
+   "green-light": 89.4,
+   "lavender-light": 89.2,
+   "gold-dark": [
+    96.5,
+    97.1
+   ],
+   "green-dark": [
+    95.2,
+    95.9
+   ],
+   "lavender-dark": [
+    95.2,
+    95.9
+   ],
+   "runsPerTheme": 902
+  },
+  "pixelCompare": {
+   "renders": 288,
+   "identical": 271,
+   "changedAsIntended": 17
+  }
+ },
+ "decisions": [
+  "DL-17",
+  "DL-18",
+  "DL-19",
+  "DL-20",
+  "DL-21",
+  "DL-22",
+  "DL-23"
+ ],
+ "tradeOffs": [
+  "TR-01",
+  "TR-02",
+  "TR-03",
+  "TR-04"
+ ],
+ "knownIssues": {
+  "added": [
+   "C9",
+   "C10",
+   "C11",
+   "C12",
+   "C13",
+   "C14",
+   "B16",
+   "K8",
+   "L10",
+   "L11",
+   "L12",
+   "L13",
+   "DS1",
+   "DS2",
+   "DS3",
+   "DS4"
+  ],
+  "updated": [
+   "C1",
+   "C2",
+   "C3",
+   "B8",
+   "B10",
+   "M1",
+   "CH1",
+   "CH4",
+   "CH5"
+  ]
+ },
+ "native": "CHANGES-2026-11-09.md › Review; DESIGN.md › M11 › Tap padding"
+}

@@ -1,0 +1,85 @@
+{
+ "date": "2026-11-12",
+ "name": "figma-round-inputs-navigation-tracker-chat",
+ "designMd": "2.9",
+ "tokens": {
+  "version": "3.6",
+  "added": [],
+  "changed": [],
+  "removed": [],
+  "figmaNamesRenamed": {
+   "Alerts/Surface/_Solid Info": "Alerts/Surface/Solid Info",
+   "Alerts/Surface/_Solid Success": "Alerts/Surface/Solid Success",
+   "Alerts/Surface/_Solid Warning": "Alerts/Surface/Solid Warning",
+   "Alerts/Surface/_Solid Error": "Alerts/Surface/Solid Error",
+   "Alerts/Surface/_Solid Default": "Alerts/Surface/Solid Default",
+   "Alerts/Icons/_Reject": "Alerts/Icons/Reject",
+   "Alerts/Text/_Reject": "Alerts/Text/Reject"
+  },
+  "note": "Figma names only. Token, CSS, Swift and Kotlin names and every value unchanged."
+ },
+ "components": {
+  "changed": [
+   {
+    "name": "TextField",
+    "change": "Field and OTP radius radius-s (14) → radius-md (18); shadow-xs added; type search and new type counter are capsules (radius-full); label notes-1-regular in inputs-text-placeholder, inset space-nr; Hint icon 16 → 20",
+    "figma": "⌨️ Inputs › Input › Fields (Radius/MD, Shadow/XS)"
+   },
+   {
+    "name": "Hint",
+    "change": "icon 16 → 20 (Dimension/NR)",
+    "figma": "⌨️ Inputs › Hint"
+   },
+   {
+    "name": "Toolbar",
+    "change": "new type booking (Figma Almatar) with BookingPill: route, trip facts, more button; currency button",
+    "figma": "🧭 Navigation › Toolbar › Type=Almatar, _Almatar Booking"
+   },
+   {
+    "name": "VerticalStepper",
+    "change": "rebuilt to Figma: 1.5 Ash rail, 20 Longing Done point with check, breathing Current point, small Next dot, white step card (radius 18, padding 18, shadow-xs) with time, status chips, last update, alert and actions",
+    "figma": "🔦 Tracker › Vertical Stepper Mobile, _Stepper Step Master Mobile, _Stepper Point"
+   },
+   {
+    "name": "Icon",
+    "change": "2 icons added (121 in all): arrow-left-right, more-horizontal",
+    "figma": "🎨 Icons"
+   }
+  ],
+  "added": [],
+  "removed": []
+ },
+ "chat": {
+  "added": [
+   "NusukChat.SingleChoose (Proposed variant of OptionCard) · 80626:36740"
+  ],
+  "changed": [
+   "NusukChat.FlightsSelection now points to 80652:10299"
+  ]
+ },
+ "figma": {
+  "read": [
+   "avzbRTP9CgpbbO8NgU5Ymo",
+   "DATayAnynnSQqdJQLAi7DR",
+   "7qHX6LqdotAU59Jr5UIsfw",
+   "ozi4A2gUbVXbzbUJ3MF4uU",
+   "nj7L8ks27djv1LmxZYFTM8",
+   "b2JRq5iuFo8rvl354ggpjR",
+   "DXi3uVvGMTEdaM7vb2x6Gg"
+  ],
+  "edited": "nothing"
+ },
+ "knownIssues": [
+  "R1",
+  "R2",
+  "R3",
+  "R4",
+  "R5",
+  "R6",
+  "R7"
+ ],
+ "native": {
+  "ios": "Fields: NusukRadius.md and the Shadow/XS recipe; search and counter capsules. Toolbar booking type and the step card are layout, from existing constants.",
+  "android": "Fields: RoundedCornerShape(NusukRadius.Md) plus the Shadow/XS elevation recipe; search and counter CircleShape. No new constants."
+ }
+}

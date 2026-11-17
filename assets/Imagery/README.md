@@ -1,0 +1,1 @@
+Card photos used by the MediaCard previews, rendered from the 🏠 Landing Experience V2 file: the Kaaba crowd (default card image), Saudia flight, Haramain train, Madinah hotel, an author portrait and a 24 px author avatar. They are placeholders for layout and concepts. Production cards take their images from the CMS or the Visual Assets library.

@@ -1,0 +1,18 @@
+<!doctype html>
+<html data-theme="gold-light" lang="ar">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>MemberCard — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<script>
+  var N = window.NusukDL, h = React.createElement;
+  function F(label, el){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6,alignItems:'flex-start'}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr'}},label), el); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment,null,
+  F('Default · Full', h(N.MemberCard,{name:'اسم المستخدم',details:'التفاصيل الإضافية',meta:'العنوان',badge:'absher',action:'Button Text'})),
+  F('Default · Full · Disabled', h(N.MemberCard,{name:'اسم المستخدم',details:'التفاصيل الإضافية',meta:'العنوان',badge:'absher',action:'Button Text',disabled:true})),
+  F('Default · Horizontal (compact)', h('div',{style:{display:'flex',gap:12}},h(N.MemberCard,{layout:'compact',initials:'م',name:'اسم المستخدم',details:'التفاصيل الإضافية'}),h(N.MemberCard,{layout:'compact',initials:'م',name:'اسم المستخدم',details:'التفاصيل الإضافية',disabled:true}))),
+  F('Actionable · Swaped', h(N.MemberCard,{name:'اسم المستخدم',details:'التفاصيل الإضافية',meta:'العنوان',actionable:true,swiped:true})),
+  F('Actionable', h(N.MemberCard,{name:'اسم المستخدم',details:'التفاصيل الإضافية',meta:'العنوان',actionable:true})),
+  F('Selection · On / Off', h('div',{style:{display:'flex',flexDirection:'column',gap:12,width:386}},h(N.MemberCard,{name:'اسم المستخدم',details:'التفاصيل الإضافية',meta:'العنوان',selectable:true,selected:true}),h(N.MemberCard,{name:'اسم المستخدم',details:'التفاصيل الإضافية',meta:'العنوان',selectable:true})))));
+</script>
+</body>
+</html>

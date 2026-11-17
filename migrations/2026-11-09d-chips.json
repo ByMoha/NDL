@@ -1,0 +1,26 @@
+{
+ "date": "2026-11-09",
+ "name": "chips",
+ "figma": { "file": "🍟 Chips (VVGHy0fAHuPqL6dhBD5Ai6)", "collection": "_Chips Setup", "modes": ["XS", "SM", "MD", "LR"], "read": "2026-11-09" },
+ "tokens": { "version": "3.2", "changed": [], "note": "Chip sizes live in the Chips file's own collection, not in Foundation; they are component values, documented in DESIGN.md M9 and here." },
+ "components": {
+  "Chip": {
+   "sizes": {
+    "xs": { "height": [16, 18], "text": [8, 10], "padding": [10, 12], "paddingIconSide": [10, 10], "gap": [2, 4], "icon": [10, 12] },
+    "sm": { "height": [18, 20], "text": [10, 12], "padding": [12, 14], "paddingIconSide": [12, 12], "gap": [4, 4], "icon": [12, 14] },
+    "md": { "height": [20, 24], "text": [12, 12], "padding": [14, 14], "paddingIconSide": [12, 12], "gap": [6, 4], "icon": [16, 14] },
+    "lr": { "height": [24, 28], "text": [12, 14], "padding": [16, 16], "paddingIconSide": [12, 14], "gap": [6, 6], "icon": [16, 16] }
+   },
+   "format": "[before, after] in px",
+   "label": "wrapped in .lbl, padding-bottom 2 (Figma Text frame)"
+  },
+  "StatusChip": { "from": "16 high, text 8, padding 10", "to": "Chip XS" },
+  "RequestCard": { "upcomingTag": { "from": "size sm forced to 16", "to": "size xs" }, "hajjHeight": [183, 185] },
+  "MediaCard": { "selected": { "from": "16 high, text 8, padding 8/10, gap 2", "to": "18 high, text 10, padding 10/12, gap 4" }, "tags": { "from": "16 high, text 8, padding 10, gap 2", "to": "18 high, text 10, padding 12, gap 4" } },
+  "MemberCard": { "meta": { "from": "16 high, text 8, gap 2", "to": "18 high, text 10, gap 4" } },
+  "HintWidget": { "link": "48 target via invisible padding" },
+  "Toolbar": { "chips": "LR 28 and MD 24 (Navigation file not yet updated)" },
+  "DayTab": { "today": "XS 18 (Date & Time file not yet updated)" }
+ },
+ "figmaIssues": ["CH1", "CH2", "CH3", "CH4", "CH5"]
+}

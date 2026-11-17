@@ -1,0 +1,105 @@
+{
+ "date": "2026-11-09",
+ "tokens": {
+  "version": "3.1",
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "components": {
+  "added": [
+   "SectionTitle",
+   "CategoryTile",
+   "ProductTile",
+   "FaceTile",
+   "PlaylistCard",
+   "HintWidget",
+   "Categories",
+   "CategoryChips",
+   "CardsSlider",
+   "PlaylistRow",
+   "ListSideBySide",
+   "Leaderboard",
+   "Guide",
+   "ServicesBox",
+   "BentoGrid",
+   "CardsList",
+   "UpcomingRequests",
+   "FeaturedHeader",
+   "Page"
+  ],
+  "changed": [
+   {
+    "name": "MediaCard",
+    "change": "`height` prop; `width`/`height` accept numbers or CSS lengths"
+   },
+   {
+    "name": "SoundPlayer",
+    "change": "play icon is the Figma `play` icon"
+   }
+  ]
+ },
+ "icons": {
+  "added": [
+   "customer-service-01",
+   "dua",
+   "golf-cart",
+   "haji",
+   "id",
+   "kaaba-01",
+   "madinah-city",
+   "play",
+   "quote-up",
+   "quran-01",
+   "sujood"
+  ]
+ },
+ "templates": {
+  "added": [
+   "rawdah-landing",
+   "rawdah-landing-full"
+  ],
+  "file": "templates/rawdah-landing.json",
+  "note": "Sections tagged with band, placement and dna; Figma order inverts bands (PT9)"
+ },
+ "section_model": {
+  "pattern": "featured-header | upcoming-requests | categories | category-chips | cards-slider | playlist | list-side-by-side | leaderboard | guide | services-box | bento-grid | cards-list",
+  "title": "string?",
+  "tag": "string? (#stream)",
+  "actionLabel": "string?",
+  "items": "array",
+  "layout": "row | grid (cards-slider)",
+  "variant": "card | plain (guide)",
+  "band": "1–6 | frame | hub",
+  "placement": "P1 | P2 | slot",
+  "dna": "Core | Supportive | Extra mile | Ancillary",
+  "states": "[pre-desire | evolving | journey]?",
+  "withheld": "[I | C | D | O]?",
+  "suppress": "sacred?"
+ },
+ "figma": {
+  "cards": "mg7egvNbr2ciMP04Ig2XDl",
+  "landing": "9qmiMkJqcEMFY8vbxhcP6r",
+  "rawdah_short": "18147:16034",
+  "rawdah_full": "18147:15994"
+ },
+ "docs": {
+  "added": [
+   "DESIGN.md (one file: root, 15 modules incl. M9S Surface allocation, Appendix A services, Appendix B atlas)"
+  ]
+ },
+ "known_issues": {
+  "added": [
+   "PT1",
+   "PT2",
+   "PT3",
+   "PT4",
+   "PT5",
+   "PT6",
+   "PT7",
+   "PT8",
+   "PT9"
+  ],
+  "note": "Pattern issues are PT-numbered so they never read as placement levels P0–P5"
+ }
+}

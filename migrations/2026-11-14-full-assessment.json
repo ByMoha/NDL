@@ -1,0 +1,112 @@
+{
+ "date": "2026-11-14",
+ "name": "full-assessment-selection-lists-sheets-steps-widgets",
+ "designMd": "3.0",
+ "tokens": {
+  "version": "3.7",
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "components": {
+  "changed": [
+   {
+    "name": "Switch",
+    "change": "size sm|md|lr; MD 42x21 knob 24x18; on surface-10-ink; error solid alerts-surface-solid-error; disabled surface-03-pearl track, surface-04-mist knob",
+    "figma": "📻 Switches › Switch on _Switch Icon Master"
+   },
+   {
+    "name": "Checkbox",
+    "change": "size sm|md|lr (18, 18, 24); empty 1px surface-longing line; chosen surface-illumination with white tick-02; error 2px alerts-icons-error line; disabled surface-03-pearl",
+    "figma": "📻 Switches › Checkbox, Checkbox Icon Master"
+   },
+   {
+    "name": "Radio",
+    "change": "size sm|md|lr; off surface-04-mist; chosen surface-illumination; centre white rounded square 10 (13 at LR), radius 4, shadow-avatar; error solid red; disabled Pearl with Ivory centre (Mist when chosen)",
+    "figma": "📻 Switches › Radio on _Radio Icon Master"
+   },
+   {
+    "name": "SelectCard",
+    "change": "Active Ivory + 1px Pearl; Selected surface-shade-5 + 1px surface-illumination; Disabled content 70%, gap 20, shadow-avatar; width 308, padding 18, radius 18",
+    "figma": "📻 Switches › Select Card on _Master Select Card"
+   },
+   {
+    "name": "DropdownItem",
+    "change": "gap 18; details notes-2-light 4 below; avatar sm 42; flag 20x15; icon 20; radio/checkbox rows are the control with checkmark-circle-02 / checkmark-square-02 in icons-longing when chosen; toggle = Switch md; download = download-04; new props src, downloadLabel",
+    "figma": "⬇️ Dropdown list › Dropdown item on _Dropdown item list/On"
+   },
+   {
+    "name": "BottomSheet, DirectionSheet, StatusSheet",
+    "change": "radius 42 42 54 54 (radius-ios); box-shadow glass-full (was shadow-05); DirectionSheet content padding 32 26 48, options gap 0 with 4 above and below",
+    "figma": "🧭 Navigation › Bottom Sheet BG, Direction Sheet"
+   },
+   {
+    "name": "Steps",
+    "change": "rebuilt: start-aligned columns, 20px point (prev Ink dot, current stage icon + glow, next Smoke ring), 1px line (Slate behind, Mist fading ahead), notes-1-regular labels, next at 40%, details on current; steps accept {title, details, icon}",
+    "figma": "🔦 Tracker › Steps on _Step Master"
+   },
+   {
+    "name": "StartJourney",
+    "change": "rebuilt with size sm|xs|lr, journey, items, title, onSelect, onMore; subtitle and iconName ignored",
+    "figma": "🎫 Widgets › Start Journey, Start Journey Animated"
+   },
+   {
+    "name": "AvatarGroup",
+    "change": "preset travel|travel-active, sizes, caption; overlap 9 with white ring when sized",
+    "figma": "🏖️ Travel › User Group"
+   }
+  ],
+  "added": [],
+  "removed": []
+ },
+ "icons": {
+  "added": [
+   "checkmark-circle-02",
+   "checkmark-square-02",
+   "download-04",
+   "package-search",
+   "package-receive",
+   "delivery-truck-02",
+   "package-out-of-stock",
+   "delivery-view-01",
+   "money-exchange-01"
+  ],
+  "reexported": [
+   "package-moving",
+   "safe-delivery-01"
+  ],
+  "total": 142
+ },
+ "strings": {
+  "added": [
+   "download",
+   "startJourney",
+   "newJourney",
+   "umrah",
+   "hajj",
+   "rawdah"
+  ]
+ },
+ "knownIssues": [
+  "F16",
+  "F17",
+  "F18",
+  "F19",
+  "F20",
+  "F21",
+  "F22",
+  "F23",
+  "F24",
+  "F25"
+ ],
+ "breaking": [
+  {
+   "name": "StartJourney",
+   "what": "The Ink card is gone; pass size and journey. subtitle and iconName no longer render."
+  },
+  {
+   "name": "Steps",
+   "what": "New look; string steps still work."
+  }
+ ]
+}

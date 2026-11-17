@@ -1,0 +1,100 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "cost-sheet",
+ "name": "Cost breakdown sheet",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "overlay",
+ "appLevel": "L4",
+ "band": {
+  "value": 2,
+  "rule": "Commitment state: never suppressed."
+ },
+ "job": "The amounts of one request, readable in a glance.",
+ "useFor": "Showing the amounts of a paid request.",
+ "notFor": "Paying (use Payment) or tracking (use Request tracking).",
+ "spaces": [
+  {
+   "id": "page-behind",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "The request page under overlay-backdrop."
+   ],
+   "forbidden": [
+    "Opening from a page that is not the request."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "breakdown",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "BottomSheet with PaymentDetails and DetailsListItem rows."
+   ],
+   "forbidden": [
+    "Offers.",
+    "Editable amounts.",
+    "A blessing on a receipt (M6)."
+   ],
+   "patterns": [],
+   "components": [
+    "BottomSheet",
+    "DetailsListItem",
+    "PaymentDetails"
+   ]
+  },
+  {
+   "id": "sheet-action",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "One Secondary: download or share."
+   ],
+   "forbidden": [
+    "More than one action.",
+    "A Primary that restarts a purchase."
+   ],
+   "patterns": [],
+   "components": []
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "Totals match the payment exactly.",
+  "Digits 0 to 9, amounts with the currency sign, numbers isolated in Arabic text (M6).",
+  "The sheet traps focus and returns it on close (M10).",
+  "Tax and invoice numbers can be copied.",
+  "One action only."
+ ],
+ "allocation": {
+  "App level": "L4 · the artefact inside the request.",
+  "Band": "Band 2, commitment state."
+ },
+ "measure": {
+  "success": "Requests to support for an invoice or a receipt",
+  "guardrails": "disputes per 1,000 transactions"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:6022"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Service": "Marketplace · DNA Supportive."
+  },
+  "notes": [],
+  "inTheFlowToday": "",
+  "sourceFrames": []
+ },
+ "was": "invoice-sheet"
+}

@@ -1,0 +1,169 @@
+{
+ "date": "2026-11-15",
+ "title": "DL Manager's update of nine files (evening)",
+ "tokens": {
+  "chip-padding-xs": [
+   "12px",
+   "8px"
+  ],
+  "chip-padding-sm": [
+   "14px",
+   "10px"
+  ],
+  "chip-padding-md": [
+   "14px",
+   "12px"
+  ],
+  "chip-padding-lr": [
+   "16px",
+   "14px"
+  ],
+  "chip-padding-icon-xs": [
+   "10px",
+   "6px"
+  ],
+  "chip-padding-icon-sm": [
+   "12px",
+   "8px"
+  ],
+  "chip-padding-icon-md": [
+   "12px",
+   "10px"
+  ],
+  "chip-padding-icon-lr": [
+   "14px",
+   "12px"
+  ]
+ },
+ "figma": {
+  "nav": "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw",
+  "sw": "https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw",
+  "dd": "https://www.figma.com/design/wLDgE56pPpJnaZ3eZOjHco",
+  "tabs": "https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY",
+  "chips": "https://www.figma.com/design/VVGHy0fAHuPqL6dhBD5Ai6",
+  "cards": "https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl",
+  "btn": "https://www.figma.com/design/AXEkdklBHSQDssRmOFMTve",
+  "travel": "https://www.figma.com/design/ozi4A2gUbVXbzbUJ3MF4uU",
+  "dt": "https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU"
+ },
+ "componentsChanged": [
+  "HeaderTabs",
+  "DayTab",
+  "TimeSlot",
+  "PrayCard",
+  "InfoTile",
+  "QRCodeStatus",
+  "Toolbar",
+  "BottomNav",
+  "TabBar",
+  "OptionCard",
+  "MediaCard",
+  "Chip"
+ ],
+ "breaking": [
+  {
+   "component": "OptionCard",
+   "prop": "type",
+   "from": "lr-icon (meant LR Icon with Action)",
+   "to": "lr-icon = LR Icon without action; use lr-icon-with-action"
+  },
+  {
+   "component": "HeaderTabs",
+   "prop": "background",
+   "from": "false = glass toolbar tabs",
+   "to": "false = bare track; use light for the glass tabs"
+  },
+  {
+   "component": "QRCodeStatus",
+   "change": "200 × 200 and new overlays; labels مستخدمة، انتهت، مُلغاة، تحديث"
+  },
+  {
+   "component": "Toolbar",
+   "type": "Secondary Pages / Search",
+   "change": "title row + search row (was one row); the one-row search is Secondary Pages / Full Search"
+  }
+ ],
+ "added": {
+  "Toolbar.type": [
+   "Secondary Pages / Full Search"
+  ],
+  "BottomNav.screen": [
+   "inner-pages"
+  ],
+  "OptionCard.type": [
+   "simple-list",
+   "lr-icon",
+   "2-actions-on"
+  ],
+  "MediaCard": [
+   "type: ad",
+   "outOfStock"
+  ],
+  "DayTab": [
+   "availability",
+   "iconName"
+  ],
+  "TimeSlot": [
+   "markers",
+   "period"
+  ],
+  "PrayCard": [
+   "gender"
+  ],
+  "InfoTile": [
+   "iconName",
+   "unit"
+  ],
+  "QRCodeStatus": [
+   "onRetry",
+   "retryLabel",
+   "logo"
+  ],
+  "icons": [
+   "zap",
+   "salah",
+   "moon-01",
+   "unavailable",
+   "sun-03",
+   "sunrise",
+   "muslim",
+   "exchange-01"
+  ]
+ },
+ "deprecated": {
+  "TabBar.type": [
+   "habits (Figma removed Habits)"
+  ]
+ },
+ "knownIssues": {
+  "closed": [
+   "N4",
+   "N7",
+   "N12",
+   "N18",
+   "N22",
+   "B5",
+   "B11",
+   "B13",
+   "B17",
+   "B18",
+   "CH4"
+  ],
+  "partly": [
+   "N5",
+   "N15"
+  ],
+  "new": [
+   "F46",
+   "F47",
+   "F48",
+   "F49",
+   "F50",
+   "F51"
+  ]
+ },
+ "unpublished": [
+  "Navigation",
+  "Travel"
+ ]
+}

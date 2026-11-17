@@ -1,0 +1,105 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "payment",
+ "name": "Payment",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-17",
+ "kind": "page",
+ "appLevel": "L3",
+ "band": {
+  "value": null,
+  "rule": "Takes the band of the service that uses it; commitment state inside it is band 2."
+ },
+ "job": "Pay with nothing else on the page.",
+ "useFor": "Paying for a cart or a booking.",
+ "notFor": "Showing an invoice (use the cost breakdown sheet) or confirming a free request.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Secondary Pages / No Actions; Toolbar · Timer only when inventory is truly held (OR-08)."
+   ],
+   "forbidden": [
+    "A timer when nothing is held.",
+    "Red or ticking seconds.",
+    "Any action that leaves the payment by accident."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "payment",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "The payment widget; PaymentDetails; official Apple Pay and wallet artwork."
+   ],
+   "forbidden": [
+    "Offers, cross-sell or any band-6 content.",
+    "Pre-ticked consent or a saved card without consent.",
+    "Add-ons.",
+    "Rebuilt wallet buttons."
+   ],
+   "patterns": [],
+   "components": [
+    "PaymentDetails"
+   ]
+  },
+  {
+   "id": "bottom",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "TabBar · Empty.",
+    "The pay action lives in the widget."
+   ],
+   "forbidden": [
+    "A second Primary."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "A hold timer appears only when inventory is held: lenient, with the reason stated, no ticking clock (OR-08, M4).",
+  "Failure opens StatusSheet · template payment-failed (General Bottom Sheet › Payment Failed), with a route to support; a hold that runs out opens template payment-expired (Payment session expired).",
+  "The amount equals the total shown at the step before. Nothing is added here (M4).",
+  "Digits 0 to 9; no blessing on receipts or errors (M6).",
+  "Ask for nothing the person already gave in this journey (M10)."
+ ],
+ "allocation": {
+  "App level": "L3 · the transaction. Zero competing elements.",
+  "Interrupts": "Payment failed is T1 commitment state: it passes every suppression window.",
+  "Support": "Support is P5: one tap away on failure, never hidden by the payment flow."
+ },
+ "measure": {
+  "success": "Payment success rate",
+  "guardrails": "payment failure and hold expiry"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:4992"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Inherits": "Marketplace: DNA Supportive · band 6 · interrupts for offers are T3 · suppressed in sacred windows."
+  },
+  "notes": [],
+  "inTheFlowToday": "The page uses Toolbar · Timer; confirm that stock is really held. The widget is a private component (_Payment widget Master).",
+  "sourceFrames": []
+ }
+}

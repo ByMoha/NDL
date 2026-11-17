@@ -1,0 +1,20 @@
+{
+ "date": "2026-11-09",
+ "name": "light previews",
+ "tokens": { "version": "3.2", "changed": [] },
+ "components": {
+  "changed": [
+   { "name": "HeaderTabs", "prop": "onChange", "type": "(index: number) => void", "note": "new, optional; tabs stay uncontrolled, active is the starting tab" },
+   { "name": "Toolbar", "part": "glass tabs (top-tabs, inner with-tabs)", "note": "pass-through onChange; no visual change" },
+   { "name": "TabBar", "part": "Nusuk AI shimmer (.nk-aibtn .nudge)", "from": "nk-nudge 3s linear infinite", "to": "nk-nudge 3s linear 1", "note": "plays once when shown; replay only for a new reason" }
+  ]
+ },
+ "rules": {
+  "added": [
+   { "module": "M8 Motion", "rule": "No resting loops: an attention cue plays once, under 5 s, and replays only for a new reason; only a wait indicator may loop, and only while the wait lasts." },
+   { "module": "M10 Text and motion", "rule": "Motion that starts by itself stops within 5 s (WCAG 2.2.2, level A)." }
+  ]
+ },
+ "previews": { "Toolbar": "24 types in four groups shown one at a time (card 1120 x 960, was 2200 high)" },
+ "figma": { "issues": ["N13: Nusuk AI shimmer has no motion spec in the Navigation file"] }
+}

@@ -1,0 +1,161 @@
+{
+ "date": "2026-11-15",
+ "name": "trackers-replica-alert-icons",
+ "designMd": "3.1",
+ "tokens": {
+  "version": "3.8",
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "figma": {
+  "read": "every DL file after the library publish, 14 Nov 2026 from 22:40 (+03:00)",
+  "tracker": "https://www.figma.com/design/nj7L8ks27djv1LmxZYFTM8/?node-id=2402-18252",
+  "alerts": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o/?node-id=68392-32017",
+  "icons": "https://www.figma.com/design/DXi3uVvGMTEdaM7vb2x6Gg"
+ },
+ "components": {
+  "VerticalStepper": {
+   "rebuilt": true,
+   "props": {
+    "added": [
+     "step: 'start'|'middle'|'last' (default: first start, final last, rest middle)",
+     "ariaLabel"
+    ],
+    "changed": [
+     "status chips default state 'pending' (was 'gold')",
+     "state 'current' renders no rail and a full-width card (Figma F33)"
+    ]
+   },
+   "spec": {
+    "rail": 20,
+    "gapToCard": 12,
+    "columnPadding": "8 above and below; start none below; last none above",
+    "lines": "1.5 surface-06-ash; top 18; start hides bottom; last hides top and adds 18 above",
+    "points": {
+     "done": "20 surface-longing + white check 8.367x6",
+     "next": "10 icons-longing dot",
+     "current": "none"
+    },
+    "card": {
+     "radius": 18,
+     "padding": 18,
+     "gap": 18,
+     "shadow": "0 1px 2px rgba(7,8,8,.03) (Figma New/XS, F35)"
+    }
+   }
+  },
+  "Steps": {
+   "rebuilt": true,
+   "props": {
+    "added": [
+     "steps[].state: 'prev'|'current'|'next'"
+    ]
+   },
+   "spec": {
+    "startPadding": 18,
+    "pointGap": 18,
+    "label": "18 start, 32 end, gap 4",
+    "lines": {
+     "prev": "surface-07-slate",
+     "current": "surface-07-slate → clear at 75.93%",
+     "next": "surface-04-mist → clear at 75.93%"
+    },
+    "glow": "34x34 at -7, opacity .6; ellipse 27.07x26.09 surface-illumination→surface-shade-5 blur 10.89; breathes once 4s to 13.22 surface-shade-3 blur 9.58"
+   }
+  },
+  "Alert": {
+   "rebuilt": true,
+   "props": {
+    "added": [
+     "icon",
+     "primary",
+     "onPrimary",
+     "secondary",
+     "onSecondary",
+     "onClose"
+    ],
+    "kept": [
+     "action (= secondary, Ghost SM)"
+    ]
+   },
+   "breaking": [
+    "primary type is neutral (alerts-*-default, icon icons-black), was gold",
+    "message notes-1-light text-heading (was notes-1-regular text-subtle)",
+    "action renders Ghost SM (was Secondary XS)"
+   ]
+  },
+  "Icon": {
+   "changed": [
+    "checkmark-circle-02 is the Stroke Standard glyph (was the solid glyph)"
+   ],
+   "added": [
+    "checkmark-circle-02-solid"
+   ]
+  },
+  "DropdownItem": {
+   "changed": [
+    "radio selector uses checkmark-circle-02-solid (same look as before)"
+   ]
+  }
+ },
+ "strings": {
+  "added": {
+   "stepDone": {
+    "ar": "، مكتملة",
+    "en": ", completed"
+   },
+   "stepNext": {
+    "ar": "، قادمة",
+    "en": ", upcoming"
+   }
+  }
+ },
+ "figmaFixed": {
+  "icons": {
+   "what": "8 variants wrapped nested Hugeicons Pro – V.2 instances whose masters use the Hugeicons 'Dark' style; layers now drawn in the file (Icons/Black), Change Log section added",
+   "variants": [
+    "message-incoming-01 Duotone Rounded",
+    "pointing-left-01 Stroke/Solid Standard",
+    "pointing-left-02 Stroke/Solid Standard",
+    "pointing-right-01 Stroke/Solid Standard",
+    "pointing-right-02 Solid Standard"
+   ],
+   "userAction": "publish Icons, accept updates, remove Hugeicons Pro from Manage libraries",
+   "alsoFixed15Nov": [
+    "label 'story' (Nusuk Icons › Others, 66569:423): text style 'Text md/Regular' from an unreachable library (listed as Missing library with its Themes and Spacing collections) detached; label unchanged (IBM Plex Sans Arabic Regular 16/24)",
+    "patio Duotone Rounded (64404:78346): layout-grid style 'Grid' from a non-Foundation library detached; its 4 grids kept"
+   ],
+   "scan": "all 5 pages, ~265,000 layers incl. hidden: no styles left, only Foundation variables, no layer uses 'Dark'"
+  }
+ },
+ "knownIssues": {
+  "added": [
+   "F33",
+   "F34",
+   "F35",
+   "F36",
+   "F37",
+   "F38",
+   "F39",
+   "F40",
+   "F41",
+   "F42",
+   "F43",
+   "F44",
+   "F45"
+  ],
+  "closed": [
+   "F7",
+   "CH3"
+  ]
+ },
+ "breaking": [
+  "Alert primary type look",
+  "Alert message weight and colour",
+  "Alert action button kind and size",
+  "VerticalStepper chip default state",
+  "VerticalStepper default rail per position",
+  "Icon checkmark-circle-02 glyph"
+ ]
+}

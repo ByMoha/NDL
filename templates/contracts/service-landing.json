@@ -1,0 +1,195 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "service-landing",
+ "name": "Service landing",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "page",
+ "appLevel": "L2",
+ "band": {
+  "value": null,
+  "rule": "Takes the band of the service that uses it; commitment state inside it is band 2."
+ },
+ "job": "The front page of a service that offers a catalogue. It lets a person find an item by search, by category or by theme.",
+ "useFor": "A service that sells a catalogue with several categories, when the person arrives from Home services, the Market tab or a deep link without an item in mind, and needs search, categories and curated rows on one page.",
+ "notFor": "A service with one item or one flow (start at item details or the first step of that flow); a person who already picked a category or typed a query (use Market category or Search results); a person in a sacred window, where the service is suppressed and this page is never linked from a ritual screen; content that is not for sale, such as articles or guides, which belong to a content landing.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Landings / Search, over Header Effect · Stage 1.",
+    "The search placeholder names what can be searched; search lives here only."
+   ],
+   "forbidden": [
+    "A second search entry or extra toolbar actions."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "notification-slot",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "Notification Slots · Collapsed Off, or the upcoming-requests pattern when it carries the person’s own request state.",
+    "States one fact and offers one action."
+   ],
+   "forbidden": [
+    "Pressing on stock or deadlines.",
+    "With nothing to say, the slot collapses and leaves no gap; it is never left empty with a gap."
+   ],
+   "patterns": [
+    "upcoming-requests"
+   ],
+   "components": [
+    "Notification Slots"
+   ]
+  },
+  {
+   "id": "hero-row",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "optional, 1–5",
+   "allowed": [
+    "The leaderboard or cards-slider pattern, shown as Media Cards · ADS, 343 × 364, scrolls sideways.",
+    "Curated collections or real campaigns; a campaign that ends states its date in words."
+   ],
+   "forbidden": [
+    "A timer on a campaign end date.",
+    "The اختيارات نسك curation mark used for anything Nusuk does not actually curate."
+   ],
+   "patterns": [
+    "cards-slider",
+    "leaderboard"
+   ],
+   "components": []
+  },
+  {
+   "id": "category-grid",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "The categories pattern, shown as Categories · Status On, 386 wide.",
+    "Every top-level category in a stable sequence, named in 1 or 2 words; the chevron expands the grid in place."
+   ],
+   "forbidden": [
+    "Prices or counts on the tiles.",
+    "A sequence that changes between visits."
+   ],
+   "patterns": [
+    "categories"
+   ],
+   "components": []
+  },
+  {
+   "id": "item-rows",
+   "n": 4,
+   "fixed": false,
+   "cardinality": "repeat, 2–4",
+   "allowed": [
+    "A local row card (radius 18) with a Secondary XS icon-only control, then the cards-slider pattern of MediaCard, 170 × 248.",
+    "One theme per row named in 2 or 3 words, 3 to 8 items, one card variant per row, and a More card at the end; the arrow opens the full collection."
+   ],
+   "forbidden": [
+    "Two rows of the same item type back to back (M9P rule 6) unless an exception is recorded.",
+    "A hand-built row header."
+   ],
+   "patterns": [
+    "cards-slider"
+   ],
+   "components": [
+    "MediaCard"
+   ]
+  },
+  {
+   "id": "cross-sell",
+   "n": 5,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "One promotional block, after the item rows."
+   ],
+   "forbidden": [
+    "More than one.",
+    "A position above the item rows or the categories."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "promises",
+   "n": 6,
+   "fixed": false,
+   "cardinality": "optional, 2–3",
+   "allowed": [
+    "SectionTitle with 2 or 3 informative cards (delivery threshold, delivery days, returns) from the service configuration."
+   ],
+   "forbidden": [
+    "A %s placeholder typed into the design.",
+    "A claim the service cannot keep."
+   ],
+   "patterns": [],
+   "components": [
+    "SectionTitle"
+   ]
+  },
+  {
+   "id": "bottom-navigation",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Fixed to the bottom; the cart pill shows the total and the item count.",
+    "Content keeps 170 of bottom padding so the last card clears the bar."
+   ],
+   "forbidden": [
+    "The older Tab Bar together with BottomNav."
+   ],
+   "patterns": [],
+   "components": []
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "No countdowns, no \"limited time\", no \"before stock runs out\"; a real end date is written as a date (M4).",
+  "A discount shows the old price and the real reduction.",
+  "اختيارات نسك marks curation and nothing else; a paid placement is labelled as an ad.",
+  "Nothing is added to the cart for the person, and nothing is pre-selected.",
+  "Row titles name an occasion or a need in 2 or 3 words, with no emoji; the row arrow answers a 48 target even though it is drawn at 50 × 30.",
+  "Item photos carry the item name as alt text; a sideways row announces its position (2 of 6) and gives a way to the full list without swiping."
+ ],
+ "allocation": {
+  "App level": "L2 · a service page. Reached from Home services, the Market tab and deep links.",
+  "Allocation": "DNA Supportive · tier T3 · resting placement P2 · render band 6.",
+  "Suppression": "suppress: sacred. The page and its entry points are hidden while the person is in a sacred window.",
+  "Withheld": "Pay controls are withheld (P0) for Dependents and Organised groups; browsing stays open."
+ },
+ "measure": {
+  "success": "Share of sessions that reach an item page, time to the first item view, completed requests per weekly active user",
+  "guardrails": "notification opt-out, complaints per 1,000 requests, refunds marked not as described"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70407:33"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Inherits": "Marketplace: DNA Supportive · band 6 · interrupts for offers are T3 · suppressed in sacred windows."
+  },
+  "notes": [],
+  "inTheFlowToday": "The notification slot in the flow reads \"⚡️ أكمل الطلب قبل نفاذ المخزون\" with the chip \"لديك منتجات في السلة 🛍️\": urgency wording and an emoji: this template shows the neutral library default instead. The ADS cards in the flow carry \"لفترة محدودة\", a running countdown and \"وفّر 30%\"; left out here pending a decision. The product row header is a local frame repeated in every row, proposed as a DL pattern (product-row). Media Cards · ADS and Categories live in 🛍️ Market and are not DL cards yet; Categories shares its name with the DL categories row. The flow uses Tab Bar while the DL now has BottomNav; one has to be chosen. Chips in the flow use Ping AR + LT at 10 px and prices use Saans TRIAL; product type is meant to be IBM Plex Sans Arabic at 12 px or more. The section header ships with placeholder content in its left slot, emptied here.",
+  "sourceFrames": []
+ },
+ "was": "market-landing"
+}

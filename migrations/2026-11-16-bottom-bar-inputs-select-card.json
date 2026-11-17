@@ -1,0 +1,80 @@
+{
+ "date": "2026-11-16",
+ "title": "Bottom bar, inputs, select card",
+ "tokens": {},
+ "figma": {
+  "nav": "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw",
+  "inputs": "https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR",
+  "sw": "https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw"
+ },
+ "components": {
+  "FileUploader": {
+   "added": [
+    "status",
+    "loadingLabel",
+    "error",
+    "errorText",
+    "removeLabel",
+    "onUpload",
+    "onView",
+    "onRemove"
+   ],
+   "changed": {
+    "hint": "string | false",
+    "look": "78 high, radius-md, solid surface-03-pearl line, Secondary XS icon buttons; no dashed line or progress bar",
+    "defaults": "Arabic"
+   }
+  },
+  "SelectCard": {
+   "changed": {
+    "radius": [
+     "radius-md",
+     "radius-s"
+    ],
+    "active": "surface-01-white + surface-02-ivory line + OS shadow",
+    "disabled": "surface-02-ivory + surface-03-pearl line, opacity 1",
+    "title": [
+     "body-2-regular 16",
+     "notes-1-regular 14 text-content"
+    ],
+    "description": [
+     "notes-1-regular 14",
+     "body-2-regular 16 text-heading"
+    ]
+   }
+  },
+  "TabBar": {
+   "added": [
+    "text",
+    "terms",
+    "termsHref",
+    "onTerms",
+    "side",
+    "onPrimary",
+    "onSecondary"
+   ]
+  },
+  "Toolbar": {
+   "changed": {
+    "process progress": "90x20, 3px straight Pearl track, 3px wavy Longing active (was 70x8 grey wave with gold gradient)"
+   }
+  }
+ },
+ "icons": {
+  "added": [
+   "upload-04"
+  ]
+ },
+ "knownIssues": {
+  "closed": [
+   "F17",
+   "F47 (Navigation)"
+  ],
+  "new": [
+   "F52",
+   "F53",
+   "F54",
+   "F55"
+  ]
+ }
+}

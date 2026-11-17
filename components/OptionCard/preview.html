@@ -1,0 +1,12 @@
+<!doctype html>
+<html data-theme="gold-light" lang="ar">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>OptionCard — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<script>
+  var N = window.NusukDL, h = React.createElement;
+  function F(label, el){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6,alignItems:'flex-start'}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr'}},label), el); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(359px,1fr))',gap:12}},F('Icon with Action', h(N.OptionCard,{type:'icon-with-action'})),F('Action Only', h(N.OptionCard,{type:'action-only'})),F('LR Icon with Action', h(N.OptionCard,{type:'lr-icon-with-action',flag:'🇸🇦'})),F('Icon Top', h(N.OptionCard,{type:'icon-top'})),F('without Action', h(N.OptionCard,{type:'without-action'})),F('text only', h(N.OptionCard,{type:'text-only'})),F('2 Actions', h(N.OptionCard,{type:'2-actions'})),F('Counter', h(N.OptionCard,{type:'counter'})),F('Requirement Item', h(N.OptionCard,{type:'requirement-item',description:'تأشيرة سارية.'})),F('Product', h(N.OptionCard,{type:'product',description:'اسم المنتج',quantity:'1x'}))));
+</script>
+</body>
+</html>

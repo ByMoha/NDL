@@ -1,0 +1,135 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "add-on-task",
+ "name": "Add-on task",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "task",
+ "appLevel": "L3",
+ "band": {
+  "value": null,
+  "rule": "Takes the band of the service that uses it; commitment state inside it is band 2."
+ },
+ "job": "Choose an optional extra, personalise it and add it to the request.",
+ "useFor": "Adding one optional, personalised extra to a request.",
+ "notFor": "An extra that is a service of its own.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Modal / Default (title and close)."
+   ],
+   "forbidden": [
+    "Extra actions."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "option-picker",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "A row of options with Pagination."
+   ],
+   "forbidden": [
+    "An option selected in advance when a paid one exists.",
+    "Mystery or random options."
+   ],
+   "patterns": [],
+   "components": [
+    "Pagination"
+   ]
+  },
+  {
+   "id": "price",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "The price, or a plain statement that it is free."
+   ],
+   "forbidden": [
+    "A [price] placeholder.",
+    "A free label that hides a fee."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "personalise",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "TextField: Input (to), Text Area (message), Action."
+   ],
+   "forbidden": [
+    "A message written for the person and sent without review.",
+    "An ayah or hadith without its source."
+   ],
+   "patterns": [],
+   "components": [
+    "TextField"
+   ]
+  },
+  {
+   "id": "action-bar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "TabBar action bar · Actions with one Primary."
+   ],
+   "forbidden": [
+    "A disabled Primary that hides validation."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "One register per block: the message has no price; the price has no blessing (M2, M6).",
+  "Quote and cite any religious text; ﷺ in full (M6).",
+  "The preview shows exactly what will be delivered.",
+  "The Primary stays enabled; errors appear at the field.",
+  "No placeholder ships (M6)."
+ ],
+ "allocation": {
+  "App level": "L3 · a task. Entry from its add-on widget only.",
+  "Realm": "Emotional when the extra is for someone else: keep the personal block free of prices."
+ },
+ "measure": {
+  "success": "Extras added per request",
+  "guardrails": "requests edited to remove the extra"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:5888"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Inherits": "Marketplace: DNA Supportive · band 6 · interrupts for offers are T3 · suppressed in sacred windows."
+  },
+  "notes": [
+   "In the example the extra is a greeting card: a row of card designs, then To and the message, entered from the Gifting widget.",
+   "Not for Celebration Cards after a journey: that is a different service."
+  ],
+  "inTheFlowToday": "Screens carry the [price] placeholder and three different layouts of the same step.",
+  "sourceFrames": []
+ },
+ "was": "gift-card"
+}

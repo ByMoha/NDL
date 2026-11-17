@@ -1,0 +1,134 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "address-selection",
+ "name": "Address selection",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-17",
+ "kind": "task",
+ "appLevel": "L3",
+ "band": {
+  "value": null,
+  "rule": "Takes the band of the service that uses it; commitment state inside it is band 2."
+ },
+ "job": "Choose a saved place or add a new one.",
+ "useFor": "Selecting or adding an address during a transaction.",
+ "notFor": "Managing the profile address book.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Modal / Default (title and close)."
+   ],
+   "forbidden": [
+    "Closing that discards typed input without a warning."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "saved",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "optional, 0–n",
+   "allowed": [
+    "SelectCard or Radio rows for saved addresses, at least 48 high."
+   ],
+   "forbidden": [
+    "An address selected in advance that the person did not choose before."
+   ],
+   "patterns": [],
+   "components": [
+    "Radio",
+    "SelectCard"
+   ]
+  },
+  {
+   "id": "locate",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "A map with MapPin; StatusSheet · template location for the permission, location-settings after a refusal."
+   ],
+   "forbidden": [
+    "A permission request with no stated reason.",
+    "A map as the only way to enter an address."
+   ],
+   "patterns": [],
+   "components": [
+    "MapPin",
+    "StatusSheet"
+   ]
+  },
+  {
+   "id": "details",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "required for a new address",
+   "allowed": [
+    "TextField: Input, Select, Mobile; Hint for errors."
+   ],
+   "forbidden": [
+    "A placeholder as the only label.",
+    "Asking again for data already given (M10)."
+   ],
+   "patterns": [],
+   "components": [
+    "Hint",
+    "TextField"
+   ]
+  },
+  {
+   "id": "action-bar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "One Primary that confirms the address."
+   ],
+   "forbidden": [
+    "A disabled Primary that hides validation."
+   ],
+   "patterns": [],
+   "components": []
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "Errors name the field and how to fix it, next to the field (M6, M10).",
+  "The Primary stays enabled; on tap it shows what is missing.",
+  "Phone numbers and postcodes in digits 0 to 9, left to right inside Arabic (M6).",
+  "Location is asked once, with its reason.",
+  "A service limit (area not served) is stated here, not discovered at payment."
+ ],
+ "allocation": {
+  "App level": "L3 · a task inside a transaction step. No entry of its own.",
+  "Withheld": "P0 for Dependents and Organised groups, with the transaction."
+ },
+ "measure": {
+  "success": "Address step completion",
+  "guardrails": "form error loops"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:5629"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Inherits": "Marketplace: DNA Supportive · band 6 · interrupts for offers are T3 · suppressed in sacred windows."
+  },
+  "notes": [],
+  "inTheFlowToday": "Built from Auxiliary Task (X) Only; the confirm action is disabled until the form is valid.",
+  "sourceFrames": []
+ },
+ "was": "address"
+}

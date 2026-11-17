@@ -1,0 +1,17 @@
+<!doctype html>
+<html data-theme="gold-light" lang="ar">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>Steps — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<script>
+  /* 🔦 Tracker › Steps, re-read 14 November 2026: all eight Status variants with the Figma text, verbatim (copy review is parked). */
+  var N = window.NusukDL, h = React.createElement;
+  var order = [['تم إستلام الطلب', 'تأكيد الطلب والمنتجات.', 'package-search'], ['تحهيز الطلب', 'نجمع ونغلف طلبك للشحن.', 'package-receive'], ['تم شحن الطلب', 'في الطريق لنقطة التوزيع.', 'package-moving'], ['جاري التوصيل', 'الرياض، حي الورود.', 'delivery-truck-02'], ['تم التوصيل', 'بتاريخ ⁦%s⁩', 'safe-delivery-01']];
+  var cancel = [['طلب الإلغاء', 'وصف المرحلة', 'package-out-of-stock'], ['تحت المعالجة', 'وصف المرحلة', 'delivery-view-01'], ['جاري استرداد المبلغ', 'بحد أقصى 30 يوم عمل.', 'money-exchange-01']];
+  var row = function (status, list, cur) { return h('section', { style: { display: 'flex', flexDirection: 'column', gap: 8 } }, h('div', { className: 'notes-2-regular', dir: 'ltr', style: { color: 'var(--text-note)', textAlign: 'right' } }, 'Status = ' + status), h(N.Steps, { ariaLabel: status, current: cur, steps: list.map(function (s) { return { title: s[0], details: s[1], icon: s[2] }; }) })); };
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { display: 'flex', flexDirection: 'column', gap: 24 } },
+    row('OrderReview', order, 0), row('OrderPreparation', order, 1), row('OrderShipped', order, 2), row('OutForDelivery', order, 3), row('Delivered', order, 4),
+    row('CancellationRequested', cancel, 0), row('CancellationProcessing', cancel, 1), row('RefundInProgress', cancel, 2)));
+</script>
+</body>
+</html>

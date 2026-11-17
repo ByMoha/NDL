@@ -1,0 +1,76 @@
+{
+ "date": "2026-11-09",
+ "name": "button sizes",
+ "tokens": {
+  "version": "3.2",
+  "changed": [
+   {
+    "name": "button-height-lr",
+    "from": "54px",
+    "to": "48px",
+    "wide": "54px",
+    "figma": "Buttons/LR → Scale/48 (Wide Scale/54)"
+   },
+   {
+    "name": "button-height-md",
+    "from": "48px",
+    "to": "44px",
+    "wide": "48px",
+    "figma": "Buttons/MD → Scale/44 (Wide Scale/48)"
+   },
+   {
+    "name": "button-height-sm",
+    "from": "38px",
+    "to": "38px",
+    "wide": "38px",
+    "figma": "Buttons/SM → Scale/38"
+   },
+   {
+    "name": "button-height-xs",
+    "from": "26px",
+    "to": "30px",
+    "wide": "26px",
+    "figma": "Buttons/XS → Scale/30 (Wide Scale/26)"
+   }
+  ],
+  "added": [],
+  "removed": []
+ },
+ "components": {
+  "changed": [
+   {
+    "name": "Button",
+    "change": "heights follow the new tokens"
+   },
+   {
+    "name": "Toolbar",
+    "change": "row, IconBlock, icon buttons (44 × 38), SearchBar, DatePill and landing logo follow button-height-md (44); one-row toolbar 80 + status bar"
+   },
+   {
+    "name": "TabBar",
+    "change": "CTAs inside action bars follow the new heights"
+   },
+   {
+    "name": "SectionTitle, RequestCard, MediaCard and every XS CTA",
+    "change": "XS 30: section titles with an arrow +4, request cards +4 to +8 (Upcoming Requests section +12)"
+   }
+  ]
+ },
+ "figma": {
+  "foundation": "avzbRTP9CgpbbO8NgU5Ymo › Layout › Buttons/*",
+  "buttons": "AXEkdklBHSQDssRmOFMTve › CTA 66401:160",
+  "navigation": "7qHX6LqdotAU59Jr5UIsfw › _Icon Block 69954:8987, _Search-bar 68495:334895, _DatePicker 69957:20155, _Nusuk AI 68743:6601"
+ },
+ "known_issues": {
+  "added": [
+   "N9",
+   "N10",
+   "N11",
+   "N12"
+  ]
+ },
+ "native": {
+  "ios": "iPhone: NusukButton heights 48 / 44 / 38 / 30 (iPad is not listed in the store). Outside the top bar, contentShape gives MD, SM and XS a 48 pt target.",
+  "android": "By window size class: Compact and Medium 48 / 44 / 38 / 30, Expanded 54 / 48 / 38 / 26. Modifier.minimumInteractiveComponentSize() keeps the 48 dp target."
+ }
+}

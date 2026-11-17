@@ -1,0 +1,113 @@
+{
+ "date": "2026-11-11",
+ "name": "template-contracts",
+ "designMd": "2.5",
+ "tokens": {
+  "version": "3.4",
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "components": {
+  "added": [],
+  "changed": []
+ },
+ "templates": {
+  "contractsAdded": [
+   "service-landing",
+   "catalogue-list",
+   "item-details",
+   "cart",
+   "payment",
+   "request-tracking",
+   "requests-list",
+   "service-search",
+   "service-support",
+   "address-selection",
+   "cancellation",
+   "add-on-task",
+   "cost-sheet",
+   "media-viewer",
+   "date-period",
+   "date-slot",
+   "booking-details",
+   "booking-details-package",
+   "pass-sheet",
+   "pass-viewer"
+  ],
+  "index": "templates/index.json",
+  "folder": "templates/contracts/",
+  "schema": "Nusuk DL template contract v1",
+  "status": "draft",
+  "renamed": {
+   "market-landing": "service-landing",
+   "market-category": "catalogue-list",
+   "product-details": "item-details",
+   "order-tracking": "request-tracking",
+   "requests": "requests-list",
+   "search": "service-search",
+   "support-center": "service-support",
+   "address": "address-selection",
+   "cancel-order": "cancellation",
+   "gift-card": "add-on-task",
+   "invoice-sheet": "cost-sheet",
+   "image-viewer": "media-viewer",
+   "slot-period": "date-period",
+   "slot-exact": "date-slot"
+  },
+  "pageModels": "unchanged (templates/rawdah-landing.json)"
+ },
+ "patterns": {
+  "index": "patterns/index.json",
+  "added": [],
+  "note": "Index of the twelve coded patterns with bands, placement and the contract spaces that accept them"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "read": [
+   "JICYiAc17iP7JgCE366XCc (Marketplace)",
+   "XyVWgqJb7gWcNRlnwmnYow (Umrah Permits)",
+   "OHOmsyMC66YmN80rdwduQJ (Rawdah)",
+   "9Xgo9wPf09wMU2lsK4lzlD (Hajj 27)"
+  ],
+  "edited": "documentation sections only; no library component or variable edited"
+ },
+ "docs": {
+  "added": [
+   "14-templates-and-patterns.md",
+   "DESIGN.md › M9T"
+  ],
+  "changed": [
+   "README.md",
+   "11-using-with-claude.md",
+   "10-known-issues.md",
+   "12-release-notes.md",
+   "13-change-log.md"
+  ]
+ },
+ "knownIssues": {
+  "added": [
+   "TC1",
+   "TC2",
+   "TC3",
+   "TC4",
+   "TC5",
+   "TC6",
+   "TC7",
+   "TC8",
+   "TC9",
+   "TC10",
+   "TC11",
+   "TC12",
+   "TC13",
+   "TC14",
+   "TC15",
+   "TC16"
+  ]
+ },
+ "decisions": [
+  "DL-27",
+  "DL-28"
+ ]
+}

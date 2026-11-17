@@ -1,0 +1,445 @@
+{
+ "$schema": "Nusuk DL template index v1",
+ "updated": "2026-11-11",
+ "note": "A contract says what a kind of screen may hold. A page model (e.g. rawdah-landing.json) is one page built to a contract. Read the index, pick by job, then read the one contract.",
+ "count": 20,
+ "pageModels": [
+  {
+   "id": "rawdah-landing",
+   "file": "templates/rawdah-landing.json",
+   "contract": null,
+   "note": "Destination landing; no contract yet"
+  },
+  {
+   "id": "rawdah-landing-full",
+   "file": "templates/rawdah-landing.json",
+   "contract": null
+  }
+ ],
+ "templates": [
+  {
+   "id": "service-landing",
+   "name": "Service landing",
+   "kind": "page",
+   "appLevel": "L2",
+   "band": "service",
+   "job": "The front page of a service that offers a catalogue. It lets a person find an item by search, by category or by theme.",
+   "useFor": "A service that sells a catalogue with several categories, when the person arrives from Home services, the Market tab or a deep link without an item in mind, and needs search, categories and curated rows on one page.",
+   "notFor": "A service with one item or one flow (start at item details or the first step of that flow); a person who already picked a category or typed a query (use Market category or Search results); a person in a sacred window, where the service is suppressed and this page is never linked from a ritual screen; content that is not for sale, such as articles or guides, which belong to a content landing.",
+   "spaces": [
+    "notification-slot",
+    "hero-row",
+    "category-grid",
+    "item-rows",
+    "cross-sell",
+    "promises"
+   ],
+   "states": [],
+   "file": "templates/contracts/service-landing.json",
+   "figmaSection": "70407:33",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "catalogue-list",
+   "name": "Catalogue list",
+   "kind": "page",
+   "appLevel": "L2",
+   "band": "service",
+   "job": "Every item of one category, as a grid or a list, with the running selection always in reach.",
+   "useFor": "One flat list of one kind of item — the items of a category, a collection or a brand — reached from the landing or a themed row’s arrow, for comparing by photo and price (grid) or by longer names and detail (list).",
+   "notFor": "A typed query (use Search results, which adds the query, the filters and a no-results state); a list that mixes kinds such as items with articles or services (use a landing with rows); a category that would hold only 1 or 2 items (show them in a landing row instead of a near-empty page); a person in a sacred window, where the page is suppressed with the rest of the service.",
+   "spaces": [
+    "item-list",
+    "card-action"
+   ],
+   "states": [],
+   "file": "templates/contracts/catalogue-list.json",
+   "figmaSection": "70412:1873",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "item-details",
+   "name": "Item details",
+   "kind": "page",
+   "appLevel": "L3",
+   "band": "service",
+   "job": "Everything needed to decide on one item: media, name and provider, description, options, then one action that adds or books it.",
+   "useFor": "One item that needs more than its card can hold — several photos, a description, options such as size or colour — opened from a card, a search result, a notification or a shared link, going into a cart to be paid for later with other items.",
+   "notFor": "A booking with a date, a slot or a permit (use the booking flow, where availability and holds follow other rules); an item with no options and nothing more to say than its card (let the card add it directly); an item with a flow of its own, such as an add-on task (start that flow instead); a person in a sacred window, where the page is suppressed with the rest of the service.",
+   "spaces": [
+    "gallery",
+    "identity",
+    "description",
+    "options",
+    "related"
+   ],
+   "states": [],
+   "file": "templates/contracts/item-details.json",
+   "figmaSection": "70417:3281",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "cart",
+   "name": "Cart",
+   "kind": "page",
+   "appLevel": "L3",
+   "band": "service",
+   "job": "Review what was chosen, where it goes and what it costs, then move to payment.",
+   "useFor": "The step between choosing items and paying for them.",
+   "notFor": "A single-item purchase with its own flow, or a booking.",
+   "spaces": [
+    "items",
+    "delivery",
+    "cross-sell",
+    "related"
+   ],
+   "states": [],
+   "file": "templates/contracts/cart.json",
+   "figmaSection": "70427:4826",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "payment",
+   "name": "Payment",
+   "kind": "page",
+   "appLevel": "L3",
+   "band": "service",
+   "job": "Pay with nothing else on the page.",
+   "useFor": "Paying for a cart or a booking.",
+   "notFor": "Showing an invoice (use the cost breakdown sheet) or confirming a free request.",
+   "spaces": [
+    "payment"
+   ],
+   "states": [],
+   "file": "templates/contracts/payment.json",
+   "figmaSection": "70427:4992",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "request-tracking",
+   "name": "Request tracking",
+   "kind": "page",
+   "appLevel": "L3",
+   "band": 2,
+   "job": "Where a request is now, what happens next, and how to get help.",
+   "useFor": "One request after payment: in progress, fulfilled or cancelled.",
+   "notFor": "The list of all requests (use Requests list).",
+   "spaces": [
+    "notice",
+    "tracker",
+    "help",
+    "summary"
+   ],
+   "states": [],
+   "file": "templates/contracts/request-tracking.json",
+   "figmaSection": "70427:5086",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "requests-list",
+   "name": "Requests list",
+   "kind": "page",
+   "appLevel": "L2",
+   "band": 2,
+   "job": "Every request of the person in one service, current and past.",
+   "useFor": "Finding a request and opening its tracking page.",
+   "notFor": "Today or a landing: there, use upcoming-requests with the next requests only.",
+   "spaces": [
+    "request-list"
+   ],
+   "states": [],
+   "file": "templates/contracts/requests-list.json",
+   "figmaSection": "70427:5258",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "service-search",
+   "name": "Search in a service",
+   "kind": "page",
+   "appLevel": "L2",
+   "band": "service",
+   "job": "Find an item by name inside a service.",
+   "useFor": "A person who knows what they want.",
+   "notFor": "Browsing with no query (use the landing).",
+   "spaces": [
+    "suggestions",
+    "results"
+   ],
+   "states": [],
+   "file": "templates/contracts/service-search.json",
+   "figmaSection": "70427:5370",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "service-support",
+   "name": "Help and support",
+   "kind": "page",
+   "appLevel": "L2",
+   "band": 1,
+   "job": "Answers and a way to reach a person, from inside a service.",
+   "useFor": "Help with a request or with the service.",
+   "notFor": "Marketing content or FAQs that sell.",
+   "spaces": [
+    "topics",
+    "ask-ai",
+    "contact"
+   ],
+   "states": [],
+   "file": "templates/contracts/service-support.json",
+   "figmaSection": "70427:5490",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "address-selection",
+   "name": "Address selection",
+   "kind": "task",
+   "appLevel": "L3",
+   "band": "service",
+   "job": "Choose a saved place or add a new one.",
+   "useFor": "Selecting or adding an address during a transaction.",
+   "notFor": "Managing the profile address book.",
+   "spaces": [
+    "saved",
+    "locate",
+    "details"
+   ],
+   "states": [],
+   "file": "templates/contracts/address-selection.json",
+   "figmaSection": "70427:5629",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "cancellation",
+   "name": "Cancellation",
+   "kind": "task",
+   "appLevel": "L3",
+   "band": 2,
+   "job": "Cancel a request with a clear reason and a clear refund.",
+   "useFor": "Cancelling a paid request that can still be cancelled.",
+   "notFor": "Returns after fulfilment, or removing an item from a cart.",
+   "spaces": [
+    "reason",
+    "refund"
+   ],
+   "states": [],
+   "file": "templates/contracts/cancellation.json",
+   "figmaSection": "70427:5761",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "add-on-task",
+   "name": "Add-on task",
+   "kind": "task",
+   "appLevel": "L3",
+   "band": "service",
+   "job": "Choose an optional extra, personalise it and add it to the request.",
+   "useFor": "Adding one optional, personalised extra to a request.",
+   "notFor": "An extra that is a service of its own.",
+   "spaces": [
+    "option-picker",
+    "price",
+    "personalise"
+   ],
+   "states": [],
+   "file": "templates/contracts/add-on-task.json",
+   "figmaSection": "70427:5888",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "cost-sheet",
+   "name": "Cost breakdown sheet",
+   "kind": "overlay",
+   "appLevel": "L4",
+   "band": 2,
+   "job": "The amounts of one request, readable in a glance.",
+   "useFor": "Showing the amounts of a paid request.",
+   "notFor": "Paying (use Payment) or tracking (use Request tracking).",
+   "spaces": [
+    "breakdown"
+   ],
+   "states": [],
+   "file": "templates/contracts/cost-sheet.json",
+   "figmaSection": "70427:6022",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "media-viewer",
+   "name": "Media viewer",
+   "kind": "overlay",
+   "appLevel": "L4",
+   "band": "service",
+   "job": "Look closely at the media of one item.",
+   "useFor": "Zooming into the media of an item.",
+   "notFor": "Content galleries or live streams.",
+   "spaces": [
+    "image"
+   ],
+   "states": [],
+   "file": "templates/contracts/media-viewer.json",
+   "figmaSection": "70427:6107",
+   "example": "Marketplace",
+   "status": "draft"
+  },
+  {
+   "id": "date-period",
+   "name": "Date and time · day and period",
+   "kind": "step",
+   "appLevel": "L3",
+   "band": 3,
+   "job": "Choose a day and a broad part of the day, for a service where the booking is valid all day. One step of a booking; nothing else from the booking lives here.",
+   "useFor": "A service where the person commits to a day and a broad arrival window.",
+   "notFor": "Exact timed entry (use Date and time · day and exact slot). Stay or travel dates (range pickers).",
+   "spaces": [
+    "month",
+    "days",
+    "expectation",
+    "periods"
+   ],
+   "states": [],
+   "file": "templates/contracts/date-period.json",
+   "figmaSection": "70438:7701",
+   "example": "Umrah Permits",
+   "status": "draft"
+  },
+  {
+   "id": "date-slot",
+   "name": "Date and time · day and exact slot",
+   "kind": "step",
+   "appLevel": "L3",
+   "band": 3,
+   "job": "Choose a day, a part of the day and an exact time, with optional groups of times by audience. One step of a booking; nothing else from the booking lives here.",
+   "useFor": "Timed entry with limited capacity per slot, with or without separate groups.",
+   "notFor": "Day-level bookings (use Date and time · day and period). Prayer times display (PrayCard on Today).",
+   "spaces": [
+    "date",
+    "periods",
+    "expectation",
+    "slots"
+   ],
+   "states": [],
+   "file": "templates/contracts/date-slot.json",
+   "figmaSection": "70438:7874",
+   "example": "Rawdah Permits",
+   "status": "draft"
+  },
+  {
+   "id": "booking-details",
+   "name": "Booking details",
+   "kind": "page",
+   "appLevel": "L3",
+   "band": 2,
+   "job": "One booking after it is made: when it is, where it stands now, who it covers and how to open each pass. The same page serves the booking through its whole life; the state changes the content, not the layout.",
+   "useFor": "Any single booking, permit or reservation with a time and one or more people.",
+   "notFor": "A package made of several bookings (use Booking details · package). The step that creates the booking.",
+   "spaces": [
+    "summary",
+    "people-and-passes",
+    "manage",
+    "for-this-journey"
+   ],
+   "states": [
+    "confirmed",
+    "day-of-visit",
+    "completed",
+    "cancelled",
+    "missed"
+   ],
+   "file": "templates/contracts/booking-details.json",
+   "figmaSection": "70448:13459",
+   "example": "Umrah Permits",
+   "status": "draft"
+  },
+  {
+   "id": "booking-details-package",
+   "name": "Booking details · package",
+   "kind": "page",
+   "appLevel": "L3",
+   "band": 2,
+   "job": "A booking made of several parts with one provider: where the whole stands, who is in it, what is confirmed, what is still asked of the person, and the money.",
+   "useFor": "Packages and journeys with several people, several parts and invoices.",
+   "notFor": "A single visit or permit (use Booking details).",
+   "spaces": [
+    "provider-and-status",
+    "people",
+    "confirmed-parts",
+    "open-question",
+    "money",
+    "for-this-journey",
+    "history",
+    "leave"
+   ],
+   "states": [
+    "processing",
+    "issued",
+    "part-cancelled",
+    "cancelled"
+   ],
+   "file": "templates/contracts/booking-details-package.json",
+   "figmaSection": "70448:13643",
+   "example": "Domestic Hajj",
+   "status": "draft"
+  },
+  {
+   "id": "pass-sheet",
+   "name": "Pass sheet",
+   "kind": "overlay",
+   "appLevel": "L4",
+   "band": 2,
+   "job": "The pass of one person, opened over the booking: whether it is valid, whose it is, and the code to show at the gate.",
+   "useFor": "Any pass, permit or ticket shown to a person or a scanner.",
+   "notFor": "A pass that is itself a full card with photo (use Pass viewer).",
+   "spaces": [
+    "validity",
+    "holder",
+    "code",
+    "keep"
+   ],
+   "states": [
+    "active",
+    "not-yet-active",
+    "used-expired-cancelled",
+    "could-not-load"
+   ],
+   "file": "templates/contracts/pass-sheet.json",
+   "figmaSection": "70448:13911",
+   "example": "Umrah Permits",
+   "status": "draft"
+  },
+  {
+   "id": "pass-viewer",
+   "name": "Pass viewer",
+   "kind": "overlay",
+   "appLevel": "L4",
+   "band": 2,
+   "job": "A pass that is an identity card: shown full screen, on its own, for inspection.",
+   "useFor": "Official cards with photo that are inspected by a person as well as scanned.",
+   "notFor": "Simple code passes (use Pass sheet).",
+   "spaces": [
+    "pass"
+   ],
+   "states": [
+    "issued",
+    "not-issued-yet",
+    "could-not-load",
+    "revoked-or-expired"
+   ],
+   "file": "templates/contracts/pass-viewer.json",
+   "figmaSection": "70448:14061",
+   "example": "Hajj permit",
+   "status": "draft"
+  }
+ ]
+}

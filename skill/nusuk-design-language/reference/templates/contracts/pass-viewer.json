@@ -1,0 +1,123 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "pass-viewer",
+ "name": "Pass viewer",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-17",
+ "kind": "overlay",
+ "appLevel": "L4",
+ "band": {
+  "value": 2,
+  "rule": "Commitment state: never suppressed."
+ },
+ "job": "A pass that is an identity card: shown full screen, on its own, for inspection.",
+ "useFor": "Official cards with photo that are inspected by a person as well as scanned.",
+ "notFor": "Simple code passes (use Pass sheet).",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Modal / Default: title, a chip for the season or validity period, close."
+   ],
+   "forbidden": [
+    "Back plus close together.",
+    "Actions that leave the pass by accident."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "pass",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "The official card component as issued: authority marks, photo, name in both scripts, nationality, document number, code, pass number, provider."
+   ],
+   "forbidden": [
+    "Restyling or reordering the official card.",
+    "Raw placeholders.",
+    "A photo that is not the holder.",
+    "Offers."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "bottom",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Empty."
+   ],
+   "forbidden": [
+    "Any action bar."
+   ],
+   "patterns": [],
+   "components": []
+  }
+ ],
+ "states": [
+  {
+   "id": "issued",
+   "changes": "The card."
+  },
+  {
+   "id": "not-issued-yet",
+   "changes": "No card; the status and when to expect it."
+  },
+  {
+   "id": "could-not-load",
+   "changes": "The last saved card if there is one, a retry (SectionError) and a way to get help."
+  },
+  {
+   "id": "revoked-or-expired",
+   "changes": "No code; the status in words."
+  }
+ ],
+ "interaction": [],
+ "rules": [
+  "The card is the only content.",
+  "The background never competes with the card.",
+  "Authority marks are used as supplied.",
+  "Works offline once issued.",
+  "Digits 0–9 in every language."
+ ],
+ "allocation": {
+  "App level": "L4 · an artefact. Opened from booking details and from Today when it is needed.",
+  "Band": "Band 2; band 1 at a checkpoint. Promoted to P1 at the moment of use.",
+  "Offline": "Available offline once issued.",
+  "Withheld": "Each person sees their own card; an organiser sees those of the group."
+ },
+ "measure": {
+  "success": "Card opened when needed without retry",
+  "guardrails": "load failures, support contacts about the card"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70448:14061"
+ },
+ "example": {
+  "service": "Hajj permit",
+  "allocation": {
+   "Service": "Hajj ID · DNA Core · P5 permanent, P1 at its steps."
+  },
+  "notes": [
+   "The card in the example is the library component named \"Hajj Landing Update\"."
+  ],
+  "inTheFlowToday": "The card carries \"version number %s\". A state frame is named \"Field\".",
+  "sourceFrames": [
+   "9Xgo9wPf09wMU2lsK4lzlD · 23178:16229",
+   "9Xgo9wPf09wMU2lsK4lzlD · 23213:33038",
+   "9Xgo9wPf09wMU2lsK4lzlD · 23213:33302"
+  ]
+ }
+}

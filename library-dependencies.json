@@ -1,0 +1,753 @@
+{
+ "generated": "2026-11-15",
+ "source": "Plugin scan of every DL file (remote instances → library), 15 Nov 01:45, plus edges seen in Manage libraries › Updates during the publish pass",
+ "rule": "After you publish a library, open every file in its usedBy list, accept the update, and publish that file too if it now shows changes. Repeat until every file shows No updates and No changes.",
+ "publishOrder": [
+  [
+   "Foundation",
+   "Icons",
+   "Avatar",
+   "Switches",
+   "Tabs",
+   "Chips"
+  ],
+  [
+   "Buttons",
+   "Animation"
+  ],
+  [
+   "Status Handlers",
+   "Inputs",
+   "Navigation",
+   "Cards",
+   "Notifications",
+   "Misc",
+   "Widgets",
+   "Rating",
+   "Dropdown",
+   "Modals",
+   "Chat UI",
+   "Map",
+   "Travel",
+   "Visual Assets"
+  ],
+  [
+   "Payment",
+   "Media",
+   "Tracker",
+   "Market",
+   "Date & Time"
+  ],
+  [
+   "Templates-Patterns",
+   "Hajj Theme",
+   "App Assets",
+   "Nusuk Companion"
+  ]
+ ],
+ "cycles": [
+  "Foundation ↔ Visual Assets / Animation (documentation pages)",
+  "Buttons ↔ Animation (Loading Icon / CTA)",
+  "Inputs ↔ Navigation (File Uploader Sheet / Direction Sheet)",
+  "Cards ↔ Misc ↔ Chat UI ↔ Widgets",
+  "Navigation ↔ Cards ↔ Status Handlers ↔ Dropdown ↔ Modals"
+ ],
+ "notPublishedLibraries": [
+  "Nusuk Companion",
+  "App Assets",
+  "Hajj Theme",
+  "Templates-Patterns"
+ ],
+ "files": {
+  "Animation": {
+   "key": "LbeMBujAsmfjZ4NCezrY1b",
+   "url": "https://www.figma.com/design/LbeMBujAsmfjZ4NCezrY1b",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Foundation",
+    "Icons",
+    "Misc",
+    "Travel"
+   ],
+   "usedBy": [
+    "App Assets",
+    "Buttons",
+    "Foundation"
+   ],
+   "publishedLibrary": true
+  },
+  "App Assets": {
+   "key": "ZLn4yMbCy0tKYEiYut8ePG",
+   "url": "https://www.figma.com/design/ZLn4yMbCy0tKYEiYut8ePG",
+   "uses": [
+    "Animation",
+    "Foundation",
+    "Media",
+    "Misc",
+    "Payment",
+    "Travel"
+   ],
+   "usedBy": [],
+   "publishedLibrary": false
+  },
+  "Avatar": {
+   "key": "doe7J5GzfjwD9ysWHZuVIG",
+   "url": "https://www.figma.com/design/doe7J5GzfjwD9ysWHZuVIG",
+   "uses": [
+    "Foundation",
+    "Icons"
+   ],
+   "usedBy": [
+    "Animation",
+    "Cards",
+    "Chat UI",
+    "Dropdown",
+    "Inputs",
+    "Market",
+    "Media",
+    "Navigation",
+    "Notifications",
+    "Rating",
+    "Templates-Patterns",
+    "Travel"
+   ],
+   "publishedLibrary": true
+  },
+  "Buttons": {
+   "key": "AXEkdklBHSQDssRmOFMTve",
+   "url": "https://www.figma.com/design/AXEkdklBHSQDssRmOFMTve",
+   "uses": [
+    "Animation",
+    "Foundation",
+    "Icons"
+   ],
+   "usedBy": [
+    "Animation",
+    "Cards",
+    "Chat UI",
+    "Date & Time",
+    "Dropdown",
+    "Inputs",
+    "Map",
+    "Market",
+    "Media",
+    "Misc",
+    "Modals",
+    "Navigation",
+    "Notifications",
+    "Payment",
+    "Rating",
+    "Status Handlers",
+    "Templates-Patterns",
+    "Tracker",
+    "Travel",
+    "Visual Assets",
+    "Widgets"
+   ],
+   "publishedLibrary": true
+  },
+  "Cards": {
+   "key": "mg7egvNbr2ciMP04Ig2XDl",
+   "url": "https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Misc",
+    "Navigation",
+    "Notifications",
+    "Status Handlers",
+    "Switches"
+   ],
+   "usedBy": [
+    "Chat UI",
+    "Market",
+    "Media",
+    "Navigation",
+    "Notifications",
+    "Payment",
+    "Status Handlers",
+    "Templates-Patterns",
+    "Travel",
+    "Visual Assets",
+    "Widgets"
+   ],
+   "publishedLibrary": true
+  },
+  "Chat UI": {
+   "key": "b2JRq5iuFo8rvl354ggpjR",
+   "url": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Cards",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Inputs",
+    "Navigation",
+    "Nusuk Companion",
+    "Status Handlers",
+    "Travel"
+   ],
+   "usedBy": [
+    "Misc",
+    "Widgets"
+   ],
+   "publishedLibrary": true
+  },
+  "Chips": {
+   "key": "VVGHy0fAHuPqL6dhBD5Ai6",
+   "url": "https://www.figma.com/design/VVGHy0fAHuPqL6dhBD5Ai6",
+   "uses": [
+    "Foundation",
+    "Icons"
+   ],
+   "usedBy": [
+    "Cards",
+    "Chat UI",
+    "Date & Time",
+    "Dropdown",
+    "Market",
+    "Media",
+    "Misc",
+    "Navigation",
+    "Payment",
+    "Rating",
+    "Status Handlers",
+    "Templates-Patterns",
+    "Tracker",
+    "Travel",
+    "Widgets"
+   ],
+   "publishedLibrary": true
+  },
+  "Date & Time": {
+   "key": "A7Jna80Khqc6WMQicRfLwU",
+   "url": "https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU",
+   "uses": [
+    "Buttons",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Misc",
+    "Status Handlers",
+    "Tabs"
+   ],
+   "usedBy": [
+    "Templates-Patterns"
+   ],
+   "publishedLibrary": true
+  },
+  "Dropdown": {
+   "key": "wLDgE56pPpJnaZ3eZOjHco",
+   "url": "https://www.figma.com/design/wLDgE56pPpJnaZ3eZOjHco",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Navigation",
+    "Status Handlers",
+    "Switches"
+   ],
+   "usedBy": [
+    "Media",
+    "Navigation",
+    "Status Handlers",
+    "Templates-Patterns"
+   ],
+   "publishedLibrary": true
+  },
+  "Foundation": {
+   "key": "avzbRTP9CgpbbO8NgU5Ymo",
+   "url": "https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo",
+   "uses": [
+    "Animation",
+    "Visual Assets"
+   ],
+   "usedBy": [
+    "Animation",
+    "App Assets",
+    "Avatar",
+    "Buttons",
+    "Cards",
+    "Chat UI",
+    "Chips",
+    "Date & Time",
+    "Dropdown",
+    "Hajj Theme",
+    "Icons",
+    "Inputs",
+    "Map",
+    "Market",
+    "Misc",
+    "Modals",
+    "Navigation",
+    "Notifications",
+    "Nusuk Companion",
+    "Payment",
+    "Rating",
+    "Status Handlers",
+    "Switches",
+    "Tabs",
+    "Templates-Patterns",
+    "Tracker",
+    "Travel",
+    "Visual Assets",
+    "Widgets"
+   ],
+   "publishedLibrary": true
+  },
+  "Hajj Theme": {
+   "key": "GwFyE2OmFO43W4wTQVSypb",
+   "url": "https://www.figma.com/design/GwFyE2OmFO43W4wTQVSypb",
+   "uses": [
+    "Foundation"
+   ],
+   "usedBy": [],
+   "publishedLibrary": false
+  },
+  "Icons": {
+   "key": "DXi3uVvGMTEdaM7vb2x6Gg",
+   "url": "https://www.figma.com/design/DXi3uVvGMTEdaM7vb2x6Gg",
+   "uses": [
+    "Foundation"
+   ],
+   "usedBy": [
+    "Animation",
+    "Avatar",
+    "Buttons",
+    "Cards",
+    "Chat UI",
+    "Chips",
+    "Date & Time",
+    "Dropdown",
+    "Inputs",
+    "Map",
+    "Market",
+    "Media",
+    "Misc",
+    "Modals",
+    "Navigation",
+    "Notifications",
+    "Payment",
+    "Rating",
+    "Status Handlers",
+    "Switches",
+    "Tabs",
+    "Templates-Patterns",
+    "Tracker",
+    "Travel",
+    "Visual Assets",
+    "Widgets"
+   ],
+   "publishedLibrary": true
+  },
+  "Inputs": {
+   "key": "DATayAnynnSQqdJQLAi7DR",
+   "url": "https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Foundation",
+    "Icons",
+    "Navigation",
+    "Switches"
+   ],
+   "usedBy": [
+    "Chat UI",
+    "Market",
+    "Navigation",
+    "Payment",
+    "Rating",
+    "Status Handlers",
+    "Templates-Patterns"
+   ],
+   "publishedLibrary": true
+  },
+  "Map": {
+   "key": "b2qV49cswRJHHiXMzJhaxz",
+   "url": "https://www.figma.com/design/b2qV49cswRJHHiXMzJhaxz",
+   "uses": [
+    "Buttons",
+    "Foundation",
+    "Icons",
+    "Navigation"
+   ],
+   "usedBy": [
+    "Templates-Patterns",
+    "Travel"
+   ],
+   "publishedLibrary": true
+  },
+  "Market": {
+   "key": "5X9RDeo33hZFEhtjVUYr5c",
+   "url": "https://www.figma.com/design/5X9RDeo33hZFEhtjVUYr5c",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Cards",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Inputs",
+    "Switches",
+    "Tabs",
+    "Tracker"
+   ],
+   "usedBy": [
+    "Templates-Patterns"
+   ],
+   "publishedLibrary": true
+  },
+  "Media": {
+   "key": "H7XuGETBwnvlKavVamZXWt",
+   "url": "https://www.figma.com/design/H7XuGETBwnvlKavVamZXWt",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Cards",
+    "Chips",
+    "Dropdown",
+    "Icons",
+    "Misc",
+    "Navigation",
+    "Status Handlers",
+    "Visual Assets"
+   ],
+   "usedBy": [
+    "App Assets",
+    "Templates-Patterns"
+   ],
+   "publishedLibrary": true
+  },
+  "Misc": {
+   "key": "ZpduRx4IDZO8eLHTq9nXbj",
+   "url": "https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj",
+   "uses": [
+    "Buttons",
+    "Chat UI",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Navigation",
+    "Notifications",
+    "Nusuk Companion",
+    "Tabs"
+   ],
+   "usedBy": [
+    "Animation",
+    "App Assets",
+    "Cards",
+    "Date & Time",
+    "Media",
+    "Payment",
+    "Rating",
+    "Templates-Patterns",
+    "Travel",
+    "Visual Assets",
+    "Widgets"
+   ],
+   "publishedLibrary": true
+  },
+  "Modals": {
+   "key": "amc1XbBjs5YtztnLxoKvh6",
+   "url": "https://www.figma.com/design/amc1XbBjs5YtztnLxoKvh6",
+   "uses": [
+    "Buttons",
+    "Foundation",
+    "Icons",
+    "Navigation"
+   ],
+   "usedBy": [
+    "Status Handlers",
+    "Templates-Patterns",
+    "Travel"
+   ],
+   "publishedLibrary": true
+  },
+  "Navigation": {
+   "key": "7qHX6LqdotAU59Jr5UIsfw",
+   "url": "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Cards",
+    "Chips",
+    "Dropdown",
+    "Foundation",
+    "Icons",
+    "Inputs",
+    "Status Handlers",
+    "Switches",
+    "Tabs",
+    "Widgets"
+   ],
+   "usedBy": [
+    "Cards",
+    "Chat UI",
+    "Dropdown",
+    "Inputs",
+    "Map",
+    "Media",
+    "Misc",
+    "Modals",
+    "Payment",
+    "Rating",
+    "Status Handlers",
+    "Templates-Patterns",
+    "Travel"
+   ],
+   "publishedLibrary": true
+  },
+  "Notifications": {
+   "key": "WAFzcSl4nXiU0nYqNrMYx1",
+   "url": "https://www.figma.com/design/WAFzcSl4nXiU0nYqNrMYx1",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Cards",
+    "Foundation",
+    "Icons"
+   ],
+   "usedBy": [
+    "Cards",
+    "Misc",
+    "Rating",
+    "Templates-Patterns",
+    "Travel",
+    "Visual Assets",
+    "Widgets"
+   ],
+   "publishedLibrary": true
+  },
+  "Nusuk Companion": {
+   "key": "YGxfKOOJZt2WjLGE0AaAnZ",
+   "url": "https://www.figma.com/design/YGxfKOOJZt2WjLGE0AaAnZ",
+   "uses": [
+    "Foundation"
+   ],
+   "usedBy": [
+    "Chat UI",
+    "Misc",
+    "Widgets"
+   ],
+   "publishedLibrary": false
+  },
+  "Payment": {
+   "key": "dDCL4mpAsg5Juht7XBAHEF",
+   "url": "https://www.figma.com/design/dDCL4mpAsg5Juht7XBAHEF",
+   "uses": [
+    "Buttons",
+    "Cards",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Inputs",
+    "Misc",
+    "Navigation",
+    "Switches",
+    "Tabs"
+   ],
+   "usedBy": [
+    "App Assets",
+    "Templates-Patterns"
+   ],
+   "publishedLibrary": true
+  },
+  "Rating": {
+   "key": "aBwaxX7ipeurOVoQXNC2Kl",
+   "url": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Inputs",
+    "Misc",
+    "Navigation",
+    "Notifications",
+    "Status Handlers"
+   ],
+   "usedBy": [
+    "Travel"
+   ],
+   "publishedLibrary": true
+  },
+  "Status Handlers": {
+   "key": "9yOrGPTn04ZTx3uiDZ5d9o",
+   "url": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o",
+   "uses": [
+    "Buttons",
+    "Cards",
+    "Chips",
+    "Dropdown",
+    "Foundation",
+    "Icons",
+    "Inputs",
+    "Modals",
+    "Navigation"
+   ],
+   "usedBy": [
+    "Cards",
+    "Chat UI",
+    "Date & Time",
+    "Dropdown",
+    "Media",
+    "Navigation",
+    "Rating",
+    "Templates-Patterns",
+    "Tracker"
+   ],
+   "publishedLibrary": true
+  },
+  "Switches": {
+   "key": "zhcTb4a0XbF3YeYF9XI6zw",
+   "url": "https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw",
+   "uses": [
+    "Foundation",
+    "Icons"
+   ],
+   "usedBy": [
+    "Cards",
+    "Dropdown",
+    "Inputs",
+    "Market",
+    "Navigation",
+    "Payment"
+   ],
+   "publishedLibrary": true
+  },
+  "Tabs": {
+   "key": "t4vGzLmqSgIwWuQPrsRyFY",
+   "url": "https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY",
+   "uses": [
+    "Foundation",
+    "Icons"
+   ],
+   "usedBy": [
+    "Date & Time",
+    "Market",
+    "Misc",
+    "Navigation",
+    "Payment",
+    "Travel"
+   ],
+   "publishedLibrary": true
+  },
+  "Templates-Patterns": {
+   "key": "fIjmiUpwy5UE9KJ9aXfhrn",
+   "url": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Cards",
+    "Chips",
+    "Date & Time",
+    "Dropdown",
+    "Foundation",
+    "Icons",
+    "Inputs",
+    "Map",
+    "Market",
+    "Media",
+    "Misc",
+    "Modals",
+    "Navigation",
+    "Notifications",
+    "Payment",
+    "Status Handlers",
+    "Travel",
+    "Widgets"
+   ],
+   "usedBy": [],
+   "publishedLibrary": false
+  },
+  "Tracker": {
+   "key": "nj7L8ks27djv1LmxZYFTM8",
+   "url": "https://www.figma.com/design/nj7L8ks27djv1LmxZYFTM8",
+   "uses": [
+    "Buttons",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Status Handlers"
+   ],
+   "usedBy": [
+    "Market"
+   ],
+   "publishedLibrary": true
+  },
+  "Travel": {
+   "key": "ozi4A2gUbVXbzbUJ3MF4uU",
+   "url": "https://www.figma.com/design/ozi4A2gUbVXbzbUJ3MF4uU",
+   "uses": [
+    "Avatar",
+    "Buttons",
+    "Cards",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Map",
+    "Misc",
+    "Modals",
+    "Navigation",
+    "Notifications",
+    "Rating",
+    "Tabs",
+    "Visual Assets"
+   ],
+   "usedBy": [
+    "Animation",
+    "App Assets",
+    "Chat UI",
+    "Templates-Patterns"
+   ],
+   "publishedLibrary": true
+  },
+  "Visual Assets": {
+   "key": "6YBEtoYMDXV7PQ2cWjfgbN",
+   "url": "https://www.figma.com/design/6YBEtoYMDXV7PQ2cWjfgbN",
+   "uses": [
+    "Buttons",
+    "Cards",
+    "Foundation",
+    "Icons",
+    "Misc",
+    "Notifications"
+   ],
+   "usedBy": [
+    "Foundation",
+    "Media",
+    "Travel"
+   ],
+   "publishedLibrary": true
+  },
+  "Widgets": {
+   "key": "VMlLoRqMJLSCKW2Fl2THrS",
+   "url": "https://www.figma.com/design/VMlLoRqMJLSCKW2Fl2THrS",
+   "uses": [
+    "Buttons",
+    "Cards",
+    "Chat UI",
+    "Chips",
+    "Foundation",
+    "Icons",
+    "Misc",
+    "Notifications",
+    "Nusuk Companion"
+   ],
+   "usedBy": [
+    "Navigation",
+    "Templates-Patterns"
+   ],
+   "publishedLibrary": true
+  }
+ }
+}

@@ -1,0 +1,177 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "date-slot",
+ "name": "Date and time · day and exact slot",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "step",
+ "appLevel": "L3",
+ "band": {
+  "value": 3,
+  "rule": "Journey step: demotes when the step closes."
+ },
+ "job": "Choose a day, a part of the day and an exact time, with optional groups of times by audience. One step of a booking; nothing else from the booking lives here.",
+ "useFor": "Timed entry with limited capacity per slot, with or without separate groups.",
+ "notFor": "Day-level bookings (use Date and time · day and period). Prayer times display (PrayCard on Today).",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Companion MGM: who the booking is for, edit the party, close."
+   ],
+   "forbidden": [
+    "Toolbar · Timer when no place is held.",
+    "Hiding who the booking is for."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "date",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "Full date title with previous day and next day.",
+    "The title opens Sheet - Calendar."
+   ],
+   "forbidden": [
+    "Days outside the bookable window.",
+    "Digits other than 0–9."
+   ],
+   "patterns": [],
+   "components": [
+    "Sheet - Calendar"
+   ]
+  },
+  {
+   "id": "periods",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "Pray Card row: Selected On or Off, one On at a time.",
+    "Audience icons only together with a text label."
+   ],
+   "forbidden": [
+    "Icons alone to name an audience.",
+    "Prayer times presented as bookable times.",
+    "A period with no slots shown as available."
+   ],
+   "patterns": [],
+   "components": [
+    "PrayCard"
+   ]
+  },
+  {
+   "id": "expectation",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "Headers · 04 Legend: one line that names the window."
+   ],
+   "forbidden": [
+    "Offers or any band-6 content.",
+    "More than one notice."
+   ],
+   "patterns": [],
+   "components": [
+    "SectionHeader"
+   ]
+  },
+  {
+   "id": "slots",
+   "n": 4,
+   "fixed": false,
+   "cardinality": "required, 1–2 groups",
+   "allowed": [
+    "A headline per group and Time slot card in three columns: Default, Selected, Disabled; Available soon with its icon and a stated meaning."
+   ],
+   "forbidden": [
+    "A slot chosen in advance.",
+    "Selecting in two groups at once.",
+    "Icons in a slot corner with no stated meaning.",
+    "Invented \"few left\" states."
+   ],
+   "patterns": [],
+   "components": [
+    "TimeSlot"
+   ]
+  },
+  {
+   "id": "action-bar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "TabBar action bar · Actions: one line that repeats the chosen day and time, and one Primary that names the outcome."
+   ],
+   "forbidden": [
+    "A disabled Primary as the only feedback.",
+    "Raw placeholders such as %s.",
+    "A second Primary."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [],
+ "interaction": [
+  "Open on the first day that has places; no time is chosen for the person.",
+  "The month or date title opens Sheet - Calendar. Its Primary applies the day, Ghost closes it and keeps the current day.",
+  "Changing the day clears the chosen time and reloads the list; a day with nothing shows EmptyState and points to another day.",
+  "Changing the period keeps the day and reloads the slot groups.",
+  "Choosing a slot selects it alone across all groups; the card shows Selected and the action bar repeats day and time in words.",
+  "The Primary continues to the summary of the booking."
+ ],
+ "rules": [
+  "The chosen slot is visible on the slot itself, not only in the action bar.",
+  "Disabled means full or closed; \"Available soon\" has a stated meaning and a time when known.",
+  "Groups follow the party in the toolbar; a group that does not apply is not shown.",
+  "The main action stays enabled; on tap it says what is missing (M10).",
+  "Slot targets are 48 dp high or more; digits 0–9; Arabic and English both checked."
+ ],
+ "allocation": {
+  "App level": "L3 · a configuration step inside a booking. Opened from the service page, never from Today.",
+  "Band": "Band 3, the journey step.",
+  "Scarcity": "Only when slots are truly limited: then a full or soon-open slot is stated plainly. It is information, never pressure.",
+  "Withheld": "Booking control for Dependents and Organised groups is P0: they see the booked time, not this picker."
+ },
+ "measure": {
+  "success": "Step completion and time to choose",
+  "guardrails": "changes after confirmation, cancellations, taps on disabled slots"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70438:7874"
+ },
+ "example": {
+  "service": "Rawdah Permits",
+  "allocation": {
+   "Service": "Rawdah Permits · DNA Core. Resting P3, raised to P1 at M1.2 (genuine scarcity, genuine push, T1).",
+   "Scarcity": "Real: slots are limited."
+  },
+  "notes": [
+   "Built on Visit Details Master with Tabs off and List on, wrapped in a local component (Rawdah Visit Details).",
+   "Groups in the example: times for men and times for women.",
+   "Window line in the example: from midnight to Fajr."
+  ],
+  "inTheFlowToday": "The \"Slot Selected\" screen shows no selected slot; only the action bar changes. The calendar sheet shows red dots under days with no stated meaning. The hint line carries %s. The main action is disabled until a slot is chosen. The sheet frame is named \"Select data sheet\".",
+  "sourceFrames": [
+   "OHOmsyMC66YmN80rdwduQJ · 76464:223349",
+   "OHOmsyMC66YmN80rdwduQJ · 76464:227638",
+   "OHOmsyMC66YmN80rdwduQJ · 84346:100900"
+  ]
+ },
+ "was": "slot-exact"
+}

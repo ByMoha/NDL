@@ -1,0 +1,12 @@
+<!doctype html>
+<html data-theme="gold-light" lang="ar">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>RequestCard — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<script>
+  var N = window.NusukDL, h = React.createElement;
+  function F(label, el){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6,alignItems:'flex-start'}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr'}},label), el); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(387px,1fr))',gap:18}},F('hajj', h(N.RequestCard,{type:'hajj'})),F('umrah', h(N.RequestCard,{type:'umrah'})),F('umrah-package', h(N.RequestCard,{type:'umrah-package'})),F('rawdah', h(N.RequestCard,{type:'rawdah'})),F('electric-cart', h(N.RequestCard,{type:'electric-cart'})),F('hair-cut', h(N.RequestCard,{type:'hair-cut'})),F('hhr', h(N.RequestCard,{type:'hhr'})),F('flight', h(N.RequestCard,{type:'flight'})),F('hotel', h(N.RequestCard,{type:'hotel'})),F('ticket', h(N.RequestCard,{type:'ticket'})),F('marketplace', h(N.RequestCard,{type:'marketplace'})),F('Empty state', h(N.RequestCard,{empty:{icon:'umrah',label:'لا توجد مواعيد عمرة نشطة.',action:'احجز موعدًا'}})),F('With notice', h(N.RequestCard,{type:'umrah',notice:'Alert'}))));
+</script>
+</body>
+</html>

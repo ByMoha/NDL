@@ -1,0 +1,122 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "catalogue-list",
+ "name": "Catalogue list",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "page",
+ "appLevel": "L2",
+ "band": {
+  "value": null,
+  "rule": "Takes the band of the service that uses it; commitment state inside it is band 2."
+ },
+ "job": "Every item of one category, as a grid or a list, with the running selection always in reach.",
+ "useFor": "One flat list of one kind of item — the items of a category, a collection or a brand — reached from the landing or a themed row’s arrow, for comparing by photo and price (grid) or by longer names and detail (list).",
+ "notFor": "A typed query (use Search results, which adds the query, the filters and a no-results state); a list that mixes kinds such as items with articles or services (use a landing with rows); a category that would hold only 1 or 2 items (show them in a landing row instead of a near-empty page); a person in a sacred window, where the page is suppressed with the rest of the service.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Secondary Pages / Default, with the view toggle opposite the back button: grid first, list second, the active view carrying the highlight and remembered for the next category."
+   ],
+   "forbidden": [
+    "A title that is not exactly the landing tile’s name.",
+    "Extra toolbar actions."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "item-list",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "The cards-slider pattern in grid layout, or cards-list in list layout: Media Cards · Marketplace / Grid, 189 × 248, 2 per row, or Marketplace / List, 386 × 210, 1 per row.",
+    "One card type per view and the same order in both views; the type pill is hidden because the page title already names the category."
+   ],
+   "forbidden": [
+    "Mixed card types in one view.",
+    "A different sequence between grid and list.",
+    "The action made by hiding layers instead of the card’s own status."
+   ],
+   "patterns": [
+    "cards-slider",
+    "cards-list"
+   ],
+   "components": []
+  },
+  {
+   "id": "card-action",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "fixed, per card",
+   "allowed": [
+    "Price Options → Add to Cart CTA · Status cart, one, arrow or Notify me.",
+    "Add puts one in the cart without leaving the page, and the stepper then replaces the button; an item with options shows the arrow and opens item details."
+   ],
+   "forbidden": [
+    "An out-of-stock item that loses its price.",
+    "A stepper that overflows the card."
+   ],
+   "patterns": [],
+   "components": [
+    "Button"
+   ]
+  },
+  {
+   "id": "bottom-navigation",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Tab Bar · Floating Cart, present on every catalogue page; empty it shows the label and 0.00, with items it shows thumbnails, the count and the total."
+   ],
+   "forbidden": [
+    "A hand-drawn cart bar in place of the library component."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "Out of stock is stated on the card before the tap, never discovered at checkout.",
+  "No \"only N left\" on cards; a stock count belongs to item details, and only when it is true.",
+  "Notify me sends one notification when the item returns, and nothing else.",
+  "The default sequence is the catalogue’s own; a paid position is labelled as an ad.",
+  "A two-line name must not push the price out of the card, and the price is never truncated; the two view-toggle buttons carry spoken labels and the selected state is exposed to screen readers, not shown by the highlight alone."
+ ],
+ "allocation": {
+  "Withheld": "For Dependents and Organised groups the add and pay controls are withheld (P0); cards stay readable, the action is not shown."
+ },
+ "measure": {
+  "success": "Adds per listing view, share of sessions that add 2 items or more, listing to item-page rate",
+  "guardrails": "removals right after an add (accidental adds), Notify me requests that never receive a notification, complaints per 1,000 requests"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70412:1873"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Inherits": "Marketplace: DNA Supportive · band 6 · interrupts for offers are T3 · suppressed in sacred windows.",
+   "App level": "L3 · inside the Marketplace. Reached from a category tile, a row arrow or a deep link; not a destination from Home."
+  },
+  "notes": [],
+  "inTheFlowToday": "The view toggle is hand-built inside the toolbar: two actions hidden, one shown, two icons swapped with layer overrides; it needs a toolbar type of its own. The type pill is hidden with a layer override on every card; Media Cards needs a property for it. The in-cart stepper overflows a 189 card at library defaults, corrected here with layout overrides repeated from the flow; the fix belongs in Price Options. List cards in the flow still use the earlier card structure; the library now uses Price Options, and this template follows the library. Every card shows a \"starting from\" label, including items with one price. The empty-state title in the flow is misspelled and the body has a double space; both are corrected here, though the state still offers no next step. The empty screen in the flow draws its own cart bar instead of Tab Bar · Floating Cart Empty; replaced here. The floating cart variants are set to RTL Off on Arabic screens; an RTL On variant needs confirming.",
+  "sourceFrames": []
+ },
+ "was": "market-category"
+}

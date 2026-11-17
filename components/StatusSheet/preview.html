@@ -1,0 +1,23 @@
+<!doctype html>
+<html data-theme="gold-light">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>StatusSheet — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<script>
+  /* ‼️ Status Handlers › Bottom Sheet and General Bottom Sheet, read 17 November 2026: four General Bottom Sheet types as templates. */
+  var N = window.NusukDL, h = React.createElement;
+  var box = function (k, el) { return h('div', { key: k, style: { width: 402, flex: 'none' } }, el); };
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'flex-end' } },
+    box(1, h(N.StatusSheet, { template: 'calendar' })),
+    box(2, h(N.StatusSheet, { template: 'location-settings', subject: 'الروضة الشريفة' })),
+    box(3, h(N.StatusSheet, { template: 'delete', subject: 'مها أحمد' })),
+    box(4, h(N.StatusSheet, { template: 'payment-failed' })),
+    box(5, h(N.StatusSheet, { template: 'refund' }, h('div', { style: { display: 'flex', flexDirection: 'column', gap: 12 } },
+      h('p', { className: 'body-2-light', style: { margin: 0 } }, 'حدّد الطريقة الأنسب لاسترجاع أموالك'),
+      h('div', { style: { display: 'flex', gap: 12 } },
+        h(N.SelectCard, { status: 'active', iconName: 'credit-card', title: 'لبطاقتك المنتهية بـ 1234', description: '14 إلى 30 يوم عمل' }),
+        h(N.SelectCard, { status: 'selected', iconName: 'wallet-01', title: 'رصيد في محفظة نسك', description: 'استرجاع لحظي' }))))),
+    box(6, h(N.StatusSheet, { status: 'success', title: 'تأكّد حجزك', body: 'أرسلنا تفاصيل الحجز إلى بريدك وإلى صفحة الحجوزات.', primary: 'عرض الحجز', secondary: 'إغلاق', previous: 'تفاصيل الحجز' }))));
+</script>
+</body>
+</html>

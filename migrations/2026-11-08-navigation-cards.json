@@ -1,0 +1,190 @@
+{
+ "date": "2026-11-08",
+ "tokens": {
+  "version": 3,
+  "changed": [
+   {
+    "token": "hero-light",
+    "fontSize": {
+     "from": "64px",
+     "to": "48px"
+    }
+   },
+   {
+    "token": "hero-regular",
+    "fontSize": {
+     "from": "64px",
+     "to": "48px"
+    }
+   }
+  ]
+ },
+ "components": {
+  "Toolbar": {
+   "props": {
+    "type": {
+     "added": [
+      "landing",
+      "back",
+      "search",
+      "top-tabs",
+      "companion",
+      "nusuk-ai",
+      "process",
+      "profile",
+      "date-picker",
+      "timer",
+      "market-landing",
+      "market-category",
+      "market-product"
+     ],
+     "kept": [
+      "primary",
+      "inner",
+      "close"
+     ]
+    },
+    "status": "added",
+    "light": "added (dark kept as alias)",
+    "subtitle": "removed"
+   }
+  },
+  "TabBar": {
+   "props": {
+    "type": "added (Figma Active names)",
+    "items": "kept; default icons are now hajj, palm, madinah, store-03"
+   }
+  },
+  "RequestCard": {
+   "props": {
+    "reference": "removed",
+    "subtitle": "removed",
+    "rows": "removed (use date/time)",
+    "action": "removed (open button is built in)",
+    "type": "added",
+    "upcoming": "added",
+    "tag": "added",
+    "service": "added",
+    "date": "added",
+    "time": "added",
+    "footer": "added",
+    "empty": "added",
+    "notice": "added"
+   }
+  },
+  "MemberCard": {
+   "props": {
+    "meta": "added",
+    "badge": "added",
+    "layout": "added",
+    "actionable": "added",
+    "swiped": "added",
+    "people": "added"
+   }
+  },
+  "OptionCard": {
+   "props": {
+    "type": {
+     "renamed": {
+      "icon-action": "icon-with-action",
+      "two-actions": "2-actions"
+     },
+     "added": [
+      "lr-icon-with-action",
+      "without-action",
+      "requirement-item"
+     ]
+    },
+    "status": "added",
+    "flag": "added"
+   }
+  },
+  "Avatar": {
+   "sizes": {
+    "xs": 24,
+    "sm": {
+     "from": 32,
+     "to": 42
+    },
+    "md": {
+     "from": 38,
+     "to": 56
+    },
+    "lg": {
+     "from": 54,
+     "to": 72
+    },
+    "xl": {
+     "from": 72,
+     "to": 100
+    }
+   },
+   "state": {
+    "negative": {
+     "from": "error red",
+     "to": "white"
+    },
+    "positive": {
+     "from": "ivory",
+     "to": "ivory"
+    }
+   },
+   "px": "added"
+  },
+  "Chip": {
+   "heights": {
+    "xs": {
+     "from": 24,
+     "to": 16
+    },
+    "sm": {
+     "from": 24,
+     "to": 18
+    },
+    "md": {
+     "from": 32,
+     "to": 20
+    },
+    "lr": {
+     "from": 32,
+     "to": 24
+    }
+   }
+  },
+  "Pagination": {
+   "size": "added",
+   "progress": "added",
+   "inactiveOpacity": {
+    "from": 0.4,
+    "to": 1
+   }
+  },
+  "Button": {
+   "ghostFateUnderline": {
+    "from": true,
+    "to": false
+   },
+   "loadingOpacity": {
+    "primary": {
+     "from": 0.4,
+     "to": 1
+    },
+    "secondary": {
+     "from": 0.4,
+     "to": 1
+    },
+    "ghost": 0.4
+   },
+   "spinnerSize": "icon-only size per size"
+  }
+ },
+ "new": [
+  "DirectionSheet",
+  "HomeItem",
+  "IconBlock",
+  "SearchBar",
+  "StatusBar",
+  "HomeIndicator",
+  "Glass"
+ ]
+}

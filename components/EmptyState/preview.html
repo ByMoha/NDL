@@ -1,0 +1,17 @@
+<!doctype html>
+<html data-theme="gold-light">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>EmptyState — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<script>
+  /* ‼️ Status Handlers › Empty Status, read 17 November 2026: Icon and Visual, Full Page and List */
+  var N = window.NusukDL, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'flex-start' } },
+    h('div', { style: { width: 386 } }, h(N.EmptyState, { iconName: 'calendar-04', title: 'لا توجد حجوزات بعد', body: 'ابدأ رحلتك واحجز زيارتك الأولى.', action: 'احجز زيارتك', secondary: 'استكشف الخدمات' })),
+    h('div', { style: { width: 386 } }, h(N.EmptyState, { iconName: 'no-internet', title: 'لا يوجد اتصال بالإنترنت', body: 'فضلًا تحقق من اتصالك وحاول مجددًا', action: 'حاول مرة أخرى' })),
+    h('div', { style: { width: 438, display: 'flex', flexDirection: 'column', gap: 16 } },
+      h(N.EmptyState, { location: 'list', title: 'لا توجد إشعارات', body: 'ستظهر هنا تذكيرات حجوزاتك.', action: 'إعدادات الإشعارات', secondary: 'إغلاق' }),
+      h(N.EmptyState, { location: 'list', type: 'visual', title: 'لا توجد حجوزات سابقة', body: 'ستظهر هنا زياراتك بعد إتمامها.', action: 'احجز زيارتك' }))));
+</script>
+</body>
+</html>

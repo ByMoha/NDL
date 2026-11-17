@@ -1,0 +1,155 @@
+{
+ "date": "2026-11-17",
+ "title": "Glass BG as Figma builds it; brand guidelines, November edition",
+ "tokens": {
+  "version": "3.10",
+  "added": [
+   "shadow-os",
+   "glass-rim",
+   "glass-rim-dark",
+   "blur-frost",
+   "glass-fill",
+   "glass-fill-dark",
+   "glass-fill-off",
+   "glass-fill-off-dark",
+   "glass-sheen"
+  ],
+  "newGroup": "gradient",
+  "changed": {},
+  "notes": {
+   "blur-*": "values unchanged (Figma radius); CSS blur is half: blur(calc(var(--blur-md) / 2))"
+  }
+ },
+ "figma": {
+  "glassBG": "https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296",
+  "glassBGMaster": "https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65640-511",
+  "navigation": "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw",
+  "menuReference": "https://www.figma.com/design/UjJF6sOV5ZGK4X6HuxsQ3g/?node-id=7399-21005"
+ },
+ "css": {
+  ".nk-glass": {
+   "changed": "rebuilt from Glass BG layers via --gl-sh, --gl-df, --gl-se, --gl-fx, --gl-fr",
+   "removed": [
+    "white 62%→34% fill",
+    "inset white outline",
+    "saturate(1.4)"
+   ],
+   "recipes": [
+    "control",
+    "field (default)",
+    "bar",
+    "flat",
+    "card"
+   ],
+   "modifiers": [
+    "dark",
+    "off",
+    "[data-glass=off] ancestor",
+    "hl",
+    "act",
+    "layered",
+    "no-sh",
+    "no-df",
+    "no-fx",
+    "sheen"
+   ]
+  },
+  ".nk-gsurf": {
+   "changed": "solid surface-01-white + glass-full (was see-through radial + 2px blur)"
+  },
+  ".nk-ntab.on": {
+   "changed": "field glass via .nk-glass (no own blur)"
+  },
+  ".nk-btn.glass": {
+   "changed": "backdrop blur 5px (was 10px)"
+  },
+  ".nk-mc .mc-details, .nk-nudge": {
+   "changed": "backdrop blur 1px (was 2px)"
+  },
+  ".nk-fh .sp": {
+   "removed": "private white 75%→22% gradient"
+  }
+ },
+ "components": {
+  "Glass": {
+   "added": [
+    "kind",
+    "glass"
+   ]
+  },
+  "GlassBG": {
+   "new": true,
+   "props": [
+    "mode",
+    "dark",
+    "glass",
+    "kind",
+    "shadows",
+    "fill",
+    "effect",
+    "sheen",
+    "activeFill",
+    "size",
+    "width",
+    "height",
+    "radius",
+    "as",
+    "attrs",
+    "role",
+    "ariaLabel",
+    "className",
+    "style",
+    "children"
+   ]
+  },
+  "Toolbar": {
+   "added": [
+    "glass"
+   ],
+   "changed": {
+    "controls": "control glass",
+    "search, top tabs": "field glass",
+    "Secondary Pages / Tabs": "flat track"
+   }
+  },
+  "BottomNav": {
+   "added": [
+    "glass"
+   ],
+   "changed": {
+    "Primary bar": "bar glass (no fill)",
+    "other bars, standalone, current tab": "field glass"
+   }
+  },
+  "IconBlock": {
+   "added": [
+    "glass"
+   ]
+  },
+  "SearchBar": {
+   "added": [
+    "glass"
+   ]
+  },
+  "CategoryTile": {
+   "changed": {
+    "surface": "white + Glass/Full"
+   }
+  },
+  "FeaturedHeader": {
+   "changed": {
+    "buttons": "control glass"
+   }
+  }
+ },
+ "docs": [
+  "04-brand.md (November edition, Art direction)",
+  "DESIGN.md 3.2: M7, M8 › Glass BG, M9, M11",
+  "10-known-issues.md F66–F75, BR1–BR3",
+  "assets: Brand (39 pages), Illustration (9), Art (10, new), Applications (7, new)"
+ ],
+ "questions": [
+  "Q-D29 Android controls on Glass=Off",
+  "Q-D30 logo size and container in the toolbar"
+ ]
+}

@@ -1,0 +1,160 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "request-tracking",
+ "name": "Request tracking",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-17",
+ "kind": "page",
+ "appLevel": "L3",
+ "band": {
+  "value": 2,
+  "rule": "Commitment state: never suppressed."
+ },
+ "job": "Where a request is now, what happens next, and how to get help.",
+ "useFor": "One request after payment: in progress, fulfilled or cancelled.",
+ "notFor": "The list of all requests (use Requests list).",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Secondary Pages / Default, with the request title."
+   ],
+   "forbidden": [
+    "Catalogue actions (search, cart) that pull away from the request."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "notice",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "Notification Slots, NoticeBar or Alert for a change the person must know."
+   ],
+   "forbidden": [
+    "Promotions.",
+    "A rating or CSAT prompt before the request reaches a stable outcome."
+   ],
+   "patterns": [],
+   "components": [
+    "Alert",
+    "NoticeBar",
+    "Notification Slots"
+   ]
+  },
+  {
+   "id": "tracker",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1–n",
+   "allowed": [
+    "A tracker per part of the request, the basic information block (details, or cancellation), and StatusChip."
+   ],
+   "forbidden": [
+    "A status that is not in the StatusChip set.",
+    "Cross-sell between parts."
+   ],
+   "patterns": [],
+   "components": [
+    "Chip",
+    "StatusChip"
+   ]
+  },
+  {
+   "id": "help",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "SectionTitle with Collapsed Section answers and one Secondary CTA to support."
+   ],
+   "forbidden": [
+    "Hiding or removing support: it is P5."
+   ],
+   "patterns": [],
+   "components": [
+    "Button",
+    "CollapsedSection",
+    "SectionTitle"
+   ]
+  },
+  {
+   "id": "summary",
+   "n": 4,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "SectionTitle (Collaps) with one OptionCard row per item; PaymentDetails (Price, or Refund)."
+   ],
+   "forbidden": [
+    "Upsell.",
+    "Editable prices.",
+    "A cancel action styled as Primary."
+   ],
+   "patterns": [],
+   "components": [
+    "OptionCard",
+    "PaymentDetails"
+   ]
+  },
+  {
+   "id": "bottom",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "TabBar · Empty."
+   ],
+   "forbidden": [
+    "A floating selection bar."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "State before tasks: the tracker sits above help and the summary (bands never invert).",
+  "Cancel is a destructive Secondary (Fate), never the Primary.",
+  "Ask for a rating only after a stable outcome, once (M5, OR-07): CustomerFeedback in a BottomSheet (faces; stars for an order).",
+  "Support is reachable within two taps in every state (M9S P5).",
+  "Dates and amounts in digits 0 to 9 (M6)."
+ ],
+ "allocation": {
+  "App level": "L3 · the request page.",
+  "Band and tier": "Band 2, commitment state. Its notifications are T1 and pass every suppression window. This page is not suppressed in sacred windows; the service landing is.",
+  "Withheld": "Dependents and Organised groups see status only: no cancel or change controls."
+ },
+ "measure": {
+  "success": "Tickets per 1,000 requests and reopen within 48 hours",
+  "guardrails": "notification opt-out for T1"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:5086"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Service": "Marketplace · DNA Supportive."
+  },
+  "notes": [
+   "tracker: Shippment Tracker · Package and Order Basic Information from 🛍️ Market; summary rows are OptionCard · Product."
+  ],
+  "inTheFlowToday": "A CSAT prompt sits on the tracking screen; two status labels are misspelled; the frame also shows SIM and eSIM trackers, which are out of scope here.",
+  "sourceFrames": []
+ },
+ "was": "order-tracking"
+}

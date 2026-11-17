@@ -1,0 +1,1 @@
+Pages from the Nusuk Brand Guidelines (November 2026 edition, refreshed 17 November 2026): the illustration style, the 24-subject library in four pages, the gold and green colour applications, the five formats and how to create a new illustration with the Nusuk visual system skill. The selected artworks themselves ship in the with-artworks zip (visual-system/images/).

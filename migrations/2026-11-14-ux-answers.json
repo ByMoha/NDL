@@ -1,0 +1,143 @@
+{
+ "date": "2026-11-14",
+ "name": "ux-answers-layout-modes-chat-ui",
+ "designMd": "3.0",
+ "tokens": {
+  "version": "3.8",
+  "added": [],
+  "changed": [
+   {
+    "name": "glass-full",
+    "from": "inset 0 5px 10px rgba(26,28,31,0.03)",
+    "to": "inset 0 5px 10px rgba(26,28,31,0.02)",
+    "figma": "⚙️ Foundation › effect style Glass/Full (inner shadow 2%)"
+   }
+  ],
+  "removed": [],
+  "note": "19 spacing, dimension and button-height tokens gain `modes` {phone, tablet, wide} from Foundation › Layout; `value` stays the phone value"
+ },
+ "components": {
+  "changed": [
+   {
+    "name": "Avatar",
+    "change": "initials shrink to fit: 4 px a side up to 42, 8 px from 56; floor 9 px; never clipped",
+    "figma": "UX answer to the iOS review #2"
+   },
+   {
+    "name": "StatusChip",
+    "change": "order-delivered reads «تم التوصيل» as in Figma (was «تم التوصيل في %s», which drew the raw token)",
+    "figma": "🃏 Cards › Request Card Status › Status=Order Delivered"
+   }
+  ]
+ },
+ "native": {
+  "added": [
+   "NusukLayout (Swift struct .phone/.tablet/.wide)",
+   "NusukLayout (Kotlin data class Phone/Tablet/Wide) + LocalNusukLayout"
+  ]
+ },
+ "figmaChangedByDlTeam": {
+  "file": "💬 Chat UI (b2JRq5iuFo8rvl354ggpjR)",
+  "published": false,
+  "changes": [
+   "33 bindings from non-DL variables to Foundation (Border/Medium, Space/XXS, Radius/Full, Text/Heading)",
+   "AI Chat Messages › Style=Pasport renamed Style=Passport (node 80607:18228)",
+   "decorative ✈️ removed from _Booking_Ticket Matser title (80632:38078)",
+   "change-log entry 14 Nov"
+  ]
+ },
+ "decisions": [
+  "DL-35 (proposed)",
+  "DL-36",
+  "DL-37",
+  "DL-38",
+  "DL-39",
+  "DL-40",
+  "DL-41 (proposed)",
+  "TR-05"
+ ],
+ "questions": {
+  "design": [
+   "Q-D14",
+   "Q-D15",
+   "Q-D16",
+   "Q-D17",
+   "Q-D18",
+   "Q-D19",
+   "Q-D20",
+   "Q-D21"
+  ],
+  "development": [
+   "Q-X17",
+   "Q-X18",
+   "Q-X19",
+   "Q-X20",
+   "Q-X21",
+   "Q-X22",
+   "Q-X23",
+   "Q-X24",
+   "Q-X25",
+   "Q-X26",
+   "Q-X27"
+  ],
+  "page": "https://claude.ai/artifact/9KcxfMFYRKP3wwrn8n2NaS",
+  "sheet": "https://claude.ai/artifact/X98C7uwN3N2KQ4e6GuL8Ah"
+ },
+ "knownIssues": {
+  "added": [
+   "F26",
+   "F27",
+   "F28",
+   "F29",
+   "F30"
+  ],
+  "updated": [
+   "AI1",
+   "AI2",
+   "AI4",
+   "AI5",
+   "AI8",
+   "C12",
+   "R8",
+   "F11",
+   "F22",
+   "F27",
+   "N21"
+  ]
+ },
+ "breaking": [],
+ "docs": {
+  "M8": "all 16 effect styles with values, Noise/* and Treatment/* added"
+ },
+ "copy": {
+  "sheetTab": "https://claude.ai/artifact/X98C7uwN3N2KQ4e6GuL8Ah#sheet-sht_7ts5pqkfnf.0",
+  "rows": 97,
+  "toChange": 78,
+  "meetsGuide": 19,
+  "dlStringsFixed": [
+   "nk-chat IBAN check: تحقّقنا من الآيبان",
+   "nk-chat Rawdah ticket label: عرض حجز الروضة الشريفة",
+   "pattern samples: ماء زمزم",
+   "RequestCard sim preset: [اسم الشركة] - [اسم الباقة]"
+  ],
+  "plurals": "zero, one, two, few, many, other (Android <plurals>, iOS String Catalog)"
+ },
+ "health": {
+  "page": "https://claude.ai/artifact/ANTJvsayyQ8md1qK32vAL8",
+  "parity": {
+   "checks": 8,
+   "compared": 3524,
+   "differ": 0
+  },
+  "contrast": {
+   "pairs": 17,
+   "failToday": 16,
+   "fixedByProposal": 14
+  },
+  "unpublishedSets": {
+   "sets": 61,
+   "files": 14,
+   "readAt": "2026-11-14T07:58+03:00"
+  }
+ }
+}

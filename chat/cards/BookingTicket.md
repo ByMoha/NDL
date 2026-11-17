@@ -1,0 +1,32 @@
+# BookingTicket  ·  *Proposed*
+
+Booking_Ticket (4 statuses).
+
+**Status:** Proposed as a new DL component.  
+**Figma source:** 💬 Chat UI › Booking_Ticket — Umrah Packages `80632:38115` · Flight Ticket `80632:38117` · Rawdah Permit `80632:38119` · Train `80632:38121` · Master `80632:38068`.  
+**Code today:** `NusukChat.BookingTicket` in nk-chat.js (built with: Nusuk Bot 36 · DL Chips (pending/success/default) · NusukChat.LogosGroup (code) · CTA Primary SM icon-only arrow-left-02).
+
+## Props
+
+| Prop | Notes |
+|---|---|
+| `status` | "umrah"\|"flight"\|"rawdah"\|"train" |
+| `onOpen` |  |
+
+## Use
+
+- Inside Nusuk AI chat answers, in the bubble or question card it is shown in today.
+
+## Don't
+
+- Do not restyle: colour, type, radius and spacing come from DL tokens and the proposed `chat-*` tokens.
+- Do not use outside chat until the DL review confirms the scope.
+
+## Accessibility
+
+- Arabic first, mirrored with logical properties; numbers isolated in RTL.
+- Focus ring: border-thick ink with the proposed focus offset; targets ≥ 44 px (48 for primary actions).
+
+## You provide
+
+The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.

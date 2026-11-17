@@ -1,0 +1,28 @@
+<!doctype html>
+<html data-theme="gold-light" lang="ar">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>TabBar — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<script>
+  var N = window.NusukDL, h = React.createElement;
+  function F(label, el, dark){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:402,maxWidth:'100%',borderRadius:18,overflow:'hidden',background:dark?'linear-gradient(160deg,#5b4a35,#1d1a17 60%,#070808)':'var(--surface-screen-bk)',outline:'1px solid var(--surface-03-pearl)'}}, el)); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(402px,1fr))',gap:18,justifyItems:'start'}},
+  F('Landing (Today)', h(N.TabBar,{type:'landing'})),
+  F('Journey', h(N.TabBar,{type:'journey'})),
+  F('Content', h(N.TabBar,{type:'content'})),
+  F('Market', h(N.TabBar,{type:'market'})),
+  F('Actions', h(N.TabBar,{type:'actions',title:'Title',primary:'Button Text',secondary:'Button Text'})),
+  F('Action & Input', h(N.TabBar,{type:'action-input',title:'Title',primary:'Button Text'})),
+  F('Loading', h(N.TabBar,{type:'loading',title:'Title'})),
+  F('Filters', h(N.TabBar,{type:'filters'})),
+  F('Content Share', h(N.TabBar,{type:'content-share'})),
+  F('Habits', h(N.TabBar,{type:'habits',progress:.44})),
+  F('Floating Cart Empty', h(N.TabBar,{type:'floating-cart-empty'})),
+  F('Floating Cart', h(N.TabBar,{type:'floating-cart',title:'هناك 4 منتجات',total:'432.22',people:['م','س','ع'],more:'+2'})),
+  F('with Price', h(N.TabBar,{type:'with-price',title:'Title'})),
+  F('Cart', h(N.TabBar,{type:'cart',title:'Title',primary:'أضف للسلة'})),
+  F('Floating Profile', h(N.TabBar,{type:'floating-profile',title:'أنت, و 3 أخرون'})),
+  F('Empty · Screen Controller', h(N.TabBar,{type:'empty'}))));
+</script>
+</body>
+</html>

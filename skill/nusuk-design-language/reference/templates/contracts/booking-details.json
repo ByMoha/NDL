@@ -1,0 +1,193 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "booking-details",
+ "name": "Booking details",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "page",
+ "appLevel": "L3",
+ "band": {
+  "value": 2,
+  "rule": "Commitment state: never suppressed."
+ },
+ "job": "One booking after it is made: when it is, where it stands now, who it covers and how to open each pass. The same page serves the booking through its whole life; the state changes the content, not the layout.",
+ "useFor": "Any single booking, permit or reservation with a time and one or more people.",
+ "notFor": "A package made of several bookings (use Booking details · package). The step that creates the booking.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Secondary Pages / Default: back, the service name as title, support."
+   ],
+   "forbidden": [
+    "A title that changes with the state.",
+    "Search.",
+    "A timer."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "summary",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "Day and date, one status line in plain words, and at most one action that fits the state (CTA · Primary MD)."
+   ],
+   "forbidden": [
+    "Two actions.",
+    "Emoji as decoration.",
+    "Raw placeholders.",
+    "Urgency wording about an approaching time."
+   ],
+   "patterns": [],
+   "components": [
+    "Button"
+   ]
+  },
+  {
+   "id": "people-and-passes",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1–n",
+   "allowed": [
+    "Headers · 04 Legend, then MemberCard per person: name, identifiers, and either a CTA · Secondary XS that opens the pass or a StatusChip."
+   ],
+   "forbidden": [
+    "Hand-built person cards.",
+    "A pass action on a cancelled or missed booking.",
+    "Full ID numbers shown to people other than the holder or the booker."
+   ],
+   "patterns": [],
+   "components": [
+    "Button",
+    "Chip",
+    "SectionHeader",
+    "MemberCard",
+    "StatusChip"
+   ]
+  },
+  {
+   "id": "manage",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "One CTA with Fate for cancel, or one Secondary for change, only while the service allows it."
+   ],
+   "forbidden": [
+    "A cancel action after the visit.",
+    "Cancel styled as the main action.",
+    "Cancelling without a confirmation step."
+   ],
+   "patterns": [],
+   "components": [
+    "Button"
+   ]
+  },
+  {
+   "id": "for-this-journey",
+   "n": 4,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "SectionTitle with cards-slider: guidance first (MediaCard · Article), then at most one paid service (MediaCard · Ticket)."
+   ],
+   "forbidden": [
+    "A position above spaces 1 to 3.",
+    "Paid cards on a cancelled or missed booking.",
+    "Paid cards inside a suppression window.",
+    "Prices without currency and what they cover."
+   ],
+   "patterns": [
+    "cards-slider"
+   ],
+   "components": [
+    "MediaCard",
+    "SectionTitle"
+   ]
+  },
+  {
+   "id": "bottom",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Tab Bar · Empty."
+   ],
+   "forbidden": [
+    "A sticky action bar: the page is a status page, not a step."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [
+  {
+   "id": "confirmed",
+   "changes": "Summary: the chosen time. People: open pass. Manage: cancel or change."
+  },
+  {
+   "id": "day-of-visit",
+   "changes": "Summary: a calm line and one helpful action (guide, directions). People: open pass. Manage: cancel while allowed."
+  },
+  {
+   "id": "completed",
+   "changes": "Summary: a closing line and, where it exists, one action for the record (certificate). People: no pass action. No manage."
+  },
+  {
+   "id": "cancelled",
+   "changes": "Summary: the original time. People: Cancelled chip, per person when only some were cancelled. No manage. No paid cards."
+  },
+  {
+   "id": "missed",
+   "changes": "Its own state and chip, not Cancelled. Summary says what happens next and whether a new booking is possible."
+  }
+ ],
+ "interaction": [],
+ "rules": [
+  "One layout for every state; only the content of spaces 1 to 4 changes.",
+  "The status is said in words and with a chip, never by colour alone.",
+  "Completion is acknowledged calmly: no celebration, no score, no emoji; faith wording only in its natural place.",
+  "Passes open in one tap and work offline once issued.",
+  "Digits 0–9; dates in one format across the page; Arabic and English both checked."
+ ],
+ "allocation": {
+  "App level": "L3 · reached from the request card on Today, from Requests, and from the notification.",
+  "Band": "Band 2, commitment state. T1 when the time is near.",
+  "Suppression": "The page itself is never suppressed. Space 4 follows the commercial rules: withheld in sacred windows.",
+  "Withheld": "Dependents see their own pass and the time; manage (space 3) belongs to the booker or the organiser."
+ },
+ "measure": {
+  "success": "Pass opened before the visit; visits kept",
+  "guardrails": "cancellations, missed visits, support contacts from this page"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70448:13459"
+ },
+ "example": {
+  "service": "Umrah Permits",
+  "allocation": {
+   "Service": "Umrah Permits · DNA Core. Its booking state is commitment state: band 2, T1 when the time is near."
+  },
+  "notes": [],
+  "inTheFlowToday": "The toolbar title changes by state. Person cards are hand-built, not MemberCard. The status line carries an emoji and a raw %s. \"Visit Missed\" shows a Cancelled chip and sits under \"Cancel by user\". The same action is worded two ways across screens. Frames are named \"Compeleted\".",
+  "sourceFrames": [
+   "XyVWgqJb7gWcNRlnwmnYow · 10034:12591",
+   "XyVWgqJb7gWcNRlnwmnYow · 10143:6519",
+   "XyVWgqJb7gWcNRlnwmnYow · 10143:7739",
+   "XyVWgqJb7gWcNRlnwmnYow · 10009:4694"
+  ]
+ }
+}

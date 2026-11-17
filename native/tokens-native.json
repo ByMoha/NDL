@@ -1,0 +1,3178 @@
+{
+ "tokens": "3.10",
+ "units": "1 Figma px = 1 pt (iOS) = 1 dp (Android); text in sp on Android",
+ "names": {
+  "space-xxs": {
+   "swift": "NusukSpace.xxs",
+   "value": 4.0,
+   "unit": "pt/dp",
+   "kind": "space",
+   "modes": {
+    "phone": 4.0,
+    "tablet": 8.0,
+    "wide": 8.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.spaceXxs",
+   "kotlin": "NusukSpace.Xxs",
+   "kotlinLayout": "NusukLayout.<Mode>.spaceXxs"
+  },
+  "space-xs": {
+   "swift": "NusukSpace.xs",
+   "value": 8.0,
+   "unit": "pt/dp",
+   "kind": "space",
+   "kotlin": "NusukSpace.Xs"
+  },
+  "space-sm": {
+   "swift": "NusukSpace.sm",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "space",
+   "modes": {
+    "phone": 12.0,
+    "tablet": 16.0,
+    "wide": 16.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.spaceSm",
+   "kotlin": "NusukSpace.Sm",
+   "kotlinLayout": "NusukLayout.<Mode>.spaceSm"
+  },
+  "space-nr": {
+   "swift": "NusukSpace.nr",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "space",
+   "modes": {
+    "phone": 18.0,
+    "tablet": 20.0,
+    "wide": 20.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.spaceNr",
+   "kotlin": "NusukSpace.Nr",
+   "kotlinLayout": "NusukLayout.<Mode>.spaceNr"
+  },
+  "space-md": {
+   "swift": "NusukSpace.md",
+   "value": 20.0,
+   "unit": "pt/dp",
+   "kind": "space",
+   "modes": {
+    "phone": 20.0,
+    "tablet": 24.0,
+    "wide": 24.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.spaceMd",
+   "kotlin": "NusukSpace.Md",
+   "kotlinLayout": "NusukLayout.<Mode>.spaceMd"
+  },
+  "space-lr": {
+   "swift": "NusukSpace.lr",
+   "value": 26.0,
+   "unit": "pt/dp",
+   "kind": "space",
+   "modes": {
+    "phone": 26.0,
+    "tablet": 32.0,
+    "wide": 32.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.spaceLr",
+   "kotlin": "NusukSpace.Lr",
+   "kotlinLayout": "NusukLayout.<Mode>.spaceLr"
+  },
+  "space-xl": {
+   "swift": "NusukSpace.xl",
+   "value": 32.0,
+   "unit": "pt/dp",
+   "kind": "space",
+   "modes": {
+    "phone": 32.0,
+    "tablet": 48.0,
+    "wide": 48.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.spaceXl",
+   "kotlin": "NusukSpace.Xl",
+   "kotlinLayout": "NusukLayout.<Mode>.spaceXl"
+  },
+  "space-xxl": {
+   "swift": "NusukSpace.xxl",
+   "value": 48.0,
+   "unit": "pt/dp",
+   "kind": "space",
+   "modes": {
+    "phone": 48.0,
+    "tablet": 48.0,
+    "wide": 64.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.spaceXxl",
+   "kotlin": "NusukSpace.Xxl",
+   "kotlinLayout": "NusukLayout.<Mode>.spaceXxl"
+  },
+  "dimension-xxs": {
+   "swift": "NusukDimension.xxs",
+   "value": 8.0,
+   "unit": "pt/dp",
+   "kind": "dimension",
+   "modes": {
+    "phone": 8.0,
+    "tablet": 12.0,
+    "wide": 12.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.dimensionXxs",
+   "kotlin": "NusukDimension.Xxs",
+   "kotlinLayout": "NusukLayout.<Mode>.dimensionXxs"
+  },
+  "dimension-xs": {
+   "swift": "NusukDimension.xs",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "dimension",
+   "kotlin": "NusukDimension.Xs"
+  },
+  "dimension-sm": {
+   "swift": "NusukDimension.sm",
+   "value": 16.0,
+   "unit": "pt/dp",
+   "kind": "dimension",
+   "kotlin": "NusukDimension.Sm"
+  },
+  "dimension-nr": {
+   "swift": "NusukDimension.nr",
+   "value": 20.0,
+   "unit": "pt/dp",
+   "kind": "dimension",
+   "kotlin": "NusukDimension.Nr"
+  },
+  "dimension-md": {
+   "swift": "NusukDimension.md",
+   "value": 24.0,
+   "unit": "pt/dp",
+   "kind": "dimension",
+   "kotlin": "NusukDimension.Md"
+  },
+  "dimension-lr": {
+   "swift": "NusukDimension.lr",
+   "value": 38.0,
+   "unit": "pt/dp",
+   "kind": "dimension",
+   "kotlin": "NusukDimension.Lr"
+  },
+  "dimension-xl": {
+   "swift": "NusukDimension.xl",
+   "value": 54.0,
+   "unit": "pt/dp",
+   "kind": "dimension",
+   "kotlin": "NusukDimension.Xl"
+  },
+  "button-height-xs": {
+   "swift": "NusukButton.heightXs",
+   "value": 30.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "modes": {
+    "phone": 30.0,
+    "tablet": 30.0,
+    "wide": 26.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.buttonHeightXs",
+   "kotlin": "NusukButton.HeightXs",
+   "kotlinLayout": "NusukLayout.<Mode>.buttonHeightXs"
+  },
+  "button-height-sm": {
+   "swift": "NusukButton.heightSm",
+   "value": 38.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.HeightSm"
+  },
+  "button-height-md": {
+   "swift": "NusukButton.heightMd",
+   "value": 44.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "modes": {
+    "phone": 44.0,
+    "tablet": 44.0,
+    "wide": 48.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.buttonHeightMd",
+   "kotlin": "NusukButton.HeightMd",
+   "kotlinLayout": "NusukLayout.<Mode>.buttonHeightMd"
+  },
+  "button-height-lr": {
+   "swift": "NusukButton.heightLr",
+   "value": 48.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "modes": {
+    "phone": 48.0,
+    "tablet": 48.0,
+    "wide": 54.0
+   },
+   "swiftLayout": "NusukLayout.<mode>.buttonHeightLr",
+   "kotlin": "NusukButton.HeightLr",
+   "kotlinLayout": "NusukLayout.<Mode>.buttonHeightLr"
+  },
+  "button-padding-xs": {
+   "swift": "NusukButton.paddingXs",
+   "value": 14.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.PaddingXs"
+  },
+  "button-padding-sm": {
+   "swift": "NusukButton.paddingSm",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.PaddingSm"
+  },
+  "button-padding-md": {
+   "swift": "NusukButton.paddingMd",
+   "value": 22.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.PaddingMd"
+  },
+  "button-padding-lr": {
+   "swift": "NusukButton.paddingLr",
+   "value": 28.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.PaddingLr"
+  },
+  "button-padding-icon-xs": {
+   "swift": "NusukButton.paddingIconXs",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.PaddingIconXs"
+  },
+  "button-padding-icon-sm": {
+   "swift": "NusukButton.paddingIconSm",
+   "value": 16.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.PaddingIconSm"
+  },
+  "button-padding-icon-md": {
+   "swift": "NusukButton.paddingIconMd",
+   "value": 20.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.PaddingIconMd"
+  },
+  "button-padding-icon-lr": {
+   "swift": "NusukButton.paddingIconLr",
+   "value": 24.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.PaddingIconLr"
+  },
+  "button-gap-xs": {
+   "swift": "NusukButton.gapXs",
+   "value": 4.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.GapXs"
+  },
+  "button-gap": {
+   "swift": "NusukButton.gap",
+   "value": 8.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.Gap"
+  },
+  "button-icon-xs": {
+   "swift": "NusukButton.iconXs",
+   "value": 16.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.IconXs"
+  },
+  "button-icon-sm": {
+   "swift": "NusukButton.iconSm",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.IconSm"
+  },
+  "button-icon-md": {
+   "swift": "NusukButton.iconMd",
+   "value": 20.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.IconMd"
+  },
+  "button-icon-only-xs": {
+   "swift": "NusukButton.iconOnlyXs",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.IconOnlyXs"
+  },
+  "button-icon-only-sm": {
+   "swift": "NusukButton.iconOnlySm",
+   "value": 24.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.IconOnlySm"
+  },
+  "button-icon-only-md": {
+   "swift": "NusukButton.iconOnlyMd",
+   "value": 26.0,
+   "unit": "pt/dp",
+   "kind": "button",
+   "kotlin": "NusukButton.IconOnlyMd"
+  },
+  "tag-height-sm": {
+   "swift": "NusukTag.heightSm",
+   "value": 24.0,
+   "unit": "pt/dp",
+   "kind": "tag",
+   "kotlin": "NusukTag.HeightSm"
+  },
+  "tag-height-lr": {
+   "swift": "NusukTag.heightLr",
+   "value": 32.0,
+   "unit": "pt/dp",
+   "kind": "tag",
+   "kotlin": "NusukTag.HeightLr"
+  },
+  "chip-height-xs": {
+   "swift": "NusukChip.heightXs",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.HeightXs"
+  },
+  "chip-height-sm": {
+   "swift": "NusukChip.heightSm",
+   "value": 20.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.HeightSm"
+  },
+  "chip-height-md": {
+   "swift": "NusukChip.heightMd",
+   "value": 24.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.HeightMd"
+  },
+  "chip-height-lr": {
+   "swift": "NusukChip.heightLr",
+   "value": 28.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.HeightLr"
+  },
+  "chip-padding-xs": {
+   "swift": "NusukChip.paddingXs",
+   "value": 8.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.PaddingXs"
+  },
+  "chip-padding-sm": {
+   "swift": "NusukChip.paddingSm",
+   "value": 10.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.PaddingSm"
+  },
+  "chip-padding-md": {
+   "swift": "NusukChip.paddingMd",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.PaddingMd"
+  },
+  "chip-padding-lr": {
+   "swift": "NusukChip.paddingLr",
+   "value": 14.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.PaddingLr"
+  },
+  "chip-padding-icon-xs": {
+   "swift": "NusukChip.paddingIconXs",
+   "value": 6.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.PaddingIconXs"
+  },
+  "chip-padding-icon-sm": {
+   "swift": "NusukChip.paddingIconSm",
+   "value": 8.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.PaddingIconSm"
+  },
+  "chip-padding-icon-md": {
+   "swift": "NusukChip.paddingIconMd",
+   "value": 10.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.PaddingIconMd"
+  },
+  "chip-padding-icon-lr": {
+   "swift": "NusukChip.paddingIconLr",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.PaddingIconLr"
+  },
+  "chip-icon-xs": {
+   "swift": "NusukChip.iconXs",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.IconXs"
+  },
+  "chip-icon-sm": {
+   "swift": "NusukChip.iconSm",
+   "value": 14.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.IconSm"
+  },
+  "chip-icon-md": {
+   "swift": "NusukChip.iconMd",
+   "value": 14.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.IconMd"
+  },
+  "chip-icon-lr": {
+   "swift": "NusukChip.iconLr",
+   "value": 16.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.IconLr"
+  },
+  "chip-gap-xs": {
+   "swift": "NusukChip.gapXs",
+   "value": 4.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.GapXs"
+  },
+  "chip-gap-sm": {
+   "swift": "NusukChip.gapSm",
+   "value": 4.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.GapSm"
+  },
+  "chip-gap-md": {
+   "swift": "NusukChip.gapMd",
+   "value": 4.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.GapMd"
+  },
+  "chip-gap-lr": {
+   "swift": "NusukChip.gapLr",
+   "value": 6.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.GapLr"
+  },
+  "chip-font-xs": {
+   "swift": "NusukChip.fontXs",
+   "value": 10.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.FontXs"
+  },
+  "chip-font-sm": {
+   "swift": "NusukChip.fontSm",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.FontSm"
+  },
+  "chip-font-md": {
+   "swift": "NusukChip.fontMd",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.FontMd"
+  },
+  "chip-font-lr": {
+   "swift": "NusukChip.fontLr",
+   "value": 14.0,
+   "unit": "pt/dp",
+   "kind": "chip",
+   "kotlin": "NusukChip.FontLr"
+  },
+  "control-icon-sm": {
+   "swift": "NusukControl.iconSm",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.IconSm"
+  },
+  "control-icon-md": {
+   "swift": "NusukControl.iconMd",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.IconMd"
+  },
+  "control-icon-lr": {
+   "swift": "NusukControl.iconLr",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.IconLr"
+  },
+  "control-checkbox-sm": {
+   "swift": "NusukControl.checkboxSm",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.CheckboxSm"
+  },
+  "control-checkbox-md": {
+   "swift": "NusukControl.checkboxMd",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.CheckboxMd"
+  },
+  "control-checkbox-lr": {
+   "swift": "NusukControl.checkboxLr",
+   "value": 24.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.CheckboxLr"
+  },
+  "control-radio-sm": {
+   "swift": "NusukControl.radioSm",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.RadioSm"
+  },
+  "control-radio-md": {
+   "swift": "NusukControl.radioMd",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.RadioMd"
+  },
+  "control-radio-lr": {
+   "swift": "NusukControl.radioLr",
+   "value": 24.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.RadioLr"
+  },
+  "control-toggle-sm": {
+   "swift": "NusukControl.toggleSm",
+   "value": 32.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.ToggleSm"
+  },
+  "control-toggle-md": {
+   "swift": "NusukControl.toggleMd",
+   "value": 42.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.ToggleMd"
+  },
+  "control-toggle-lr": {
+   "swift": "NusukControl.toggleLr",
+   "value": 54.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.ToggleLr"
+  },
+  "control-toggle-icon-sm": {
+   "swift": "NusukControl.toggleIconSm",
+   "value": 16.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.ToggleIconSm"
+  },
+  "control-toggle-icon-md": {
+   "swift": "NusukControl.toggleIconMd",
+   "value": 24.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.ToggleIconMd"
+  },
+  "control-toggle-icon-lr": {
+   "swift": "NusukControl.toggleIconLr",
+   "value": 32.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.ToggleIconLr"
+  },
+  "control-gap-sm": {
+   "swift": "NusukControl.gapSm",
+   "value": 8.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.GapSm"
+  },
+  "control-gap-md": {
+   "swift": "NusukControl.gapMd",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.GapMd"
+  },
+  "control-gap-lr": {
+   "swift": "NusukControl.gapLr",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.GapLr"
+  },
+  "control-text-sm": {
+   "swift": "NusukControl.textSm",
+   "value": 14.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.TextSm"
+  },
+  "control-text-md": {
+   "swift": "NusukControl.textMd",
+   "value": 16.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.TextMd"
+  },
+  "control-text-lr": {
+   "swift": "NusukControl.textLr",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "control",
+   "kotlin": "NusukControl.TextLr"
+  },
+  "radius-xxs": {
+   "swift": "NusukRadius.xxs",
+   "value": 4.0,
+   "unit": "pt/dp",
+   "kind": "radius",
+   "kotlin": "NusukRadius.Xxs"
+  },
+  "radius-xs": {
+   "swift": "NusukRadius.xs",
+   "value": 8.0,
+   "unit": "pt/dp",
+   "kind": "radius",
+   "kotlin": "NusukRadius.Xs"
+  },
+  "radius-s": {
+   "swift": "NusukRadius.s",
+   "value": 14.0,
+   "unit": "pt/dp",
+   "kind": "radius",
+   "kotlin": "NusukRadius.S"
+  },
+  "radius-md": {
+   "swift": "NusukRadius.md",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "radius",
+   "kotlin": "NusukRadius.Md"
+  },
+  "radius-xl": {
+   "swift": "NusukRadius.xl",
+   "value": 22.0,
+   "unit": "pt/dp",
+   "kind": "radius",
+   "kotlin": "NusukRadius.Xl"
+  },
+  "radius-xxl": {
+   "swift": "NusukRadius.xxl",
+   "value": 42.0,
+   "unit": "pt/dp",
+   "kind": "radius",
+   "kotlin": "NusukRadius.Xxl"
+  },
+  "radius-ios": {
+   "swift": "NusukRadius.ios",
+   "value": 54.0,
+   "unit": "pt/dp",
+   "kind": "radius",
+   "kotlin": "NusukRadius.Ios"
+  },
+  "radius-full": {
+   "swift": "NusukRadius.full",
+   "value": 1000.0,
+   "unit": "pt/dp",
+   "kind": "radius",
+   "kotlin": "NusukRadius.Full"
+  },
+  "border-thin": {
+   "swift": "NusukBorder.thin",
+   "value": 1.0,
+   "unit": "pt/dp",
+   "kind": "border",
+   "kotlin": "NusukBorder.Thin"
+  },
+  "border-medium": {
+   "swift": "NusukBorder.medium",
+   "value": 1.5,
+   "unit": "pt/dp",
+   "kind": "border",
+   "kotlin": "NusukBorder.Medium"
+  },
+  "border-thick": {
+   "swift": "NusukBorder.thick",
+   "value": 2.0,
+   "unit": "pt/dp",
+   "kind": "border",
+   "kotlin": "NusukBorder.Thick"
+  },
+  "border-none": {
+   "swift": "NusukBorder.none",
+   "value": 0.0,
+   "unit": "pt/dp",
+   "kind": "border",
+   "kotlin": "NusukBorder.None"
+  },
+  "blur-sm": {
+   "swift": "NusukBlur.sm",
+   "value": 2.0,
+   "unit": "pt/dp",
+   "kind": "blur",
+   "kotlin": "NusukBlur.Sm"
+  },
+  "blur-md": {
+   "swift": "NusukBlur.md",
+   "value": 10.0,
+   "unit": "pt/dp",
+   "kind": "blur",
+   "kotlin": "NusukBlur.Md"
+  },
+  "blur-lr": {
+   "swift": "NusukBlur.lr",
+   "value": 20.0,
+   "unit": "pt/dp",
+   "kind": "blur",
+   "kotlin": "NusukBlur.Lr"
+  },
+  "blur-frost": {
+   "swift": "NusukBlur.frost",
+   "value": 6.0,
+   "unit": "pt/dp",
+   "kind": "blur",
+   "kotlin": "NusukBlur.Frost"
+  },
+  "scale-02": {
+   "swift": "NusukScale.s02",
+   "value": 2.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S02"
+  },
+  "scale-04": {
+   "swift": "NusukScale.s04",
+   "value": 4.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S04"
+  },
+  "scale-06": {
+   "swift": "NusukScale.s06",
+   "value": 6.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S06"
+  },
+  "scale-08": {
+   "swift": "NusukScale.s08",
+   "value": 8.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S08"
+  },
+  "scale-10": {
+   "swift": "NusukScale.s10",
+   "value": 10.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S10"
+  },
+  "scale-12": {
+   "swift": "NusukScale.s12",
+   "value": 12.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S12"
+  },
+  "scale-14": {
+   "swift": "NusukScale.s14",
+   "value": 14.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S14"
+  },
+  "scale-16": {
+   "swift": "NusukScale.s16",
+   "value": 16.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S16"
+  },
+  "scale-18": {
+   "swift": "NusukScale.s18",
+   "value": 18.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S18"
+  },
+  "scale-20": {
+   "swift": "NusukScale.s20",
+   "value": 20.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S20"
+  },
+  "scale-22": {
+   "swift": "NusukScale.s22",
+   "value": 22.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S22"
+  },
+  "scale-24": {
+   "swift": "NusukScale.s24",
+   "value": 24.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S24"
+  },
+  "scale-26": {
+   "swift": "NusukScale.s26",
+   "value": 26.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S26"
+  },
+  "scale-28": {
+   "swift": "NusukScale.s28",
+   "value": 28.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S28"
+  },
+  "scale-30": {
+   "swift": "NusukScale.s30",
+   "value": 30.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S30"
+  },
+  "scale-32": {
+   "swift": "NusukScale.s32",
+   "value": 32.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S32"
+  },
+  "scale-34": {
+   "swift": "NusukScale.s34",
+   "value": 34.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S34"
+  },
+  "scale-36": {
+   "swift": "NusukScale.s36",
+   "value": 36.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S36"
+  },
+  "scale-38": {
+   "swift": "NusukScale.s38",
+   "value": 38.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S38"
+  },
+  "scale-42": {
+   "swift": "NusukScale.s42",
+   "value": 42.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S42"
+  },
+  "scale-44": {
+   "swift": "NusukScale.s44",
+   "value": 44.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S44"
+  },
+  "scale-46": {
+   "swift": "NusukScale.s46",
+   "value": 46.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S46"
+  },
+  "scale-48": {
+   "swift": "NusukScale.s48",
+   "value": 48.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S48"
+  },
+  "scale-50": {
+   "swift": "NusukScale.s50",
+   "value": 50.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S50"
+  },
+  "scale-54": {
+   "swift": "NusukScale.s54",
+   "value": 54.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S54"
+  },
+  "scale-64": {
+   "swift": "NusukScale.s64",
+   "value": 64.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S64"
+  },
+  "scale-96": {
+   "swift": "NusukScale.s96",
+   "value": 96.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S96"
+  },
+  "scale-112": {
+   "swift": "NusukScale.s112",
+   "value": 112.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S112"
+  },
+  "scale-128": {
+   "swift": "NusukScale.s128",
+   "value": 128.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S128"
+  },
+  "scale-160": {
+   "swift": "NusukScale.s160",
+   "value": 160.0,
+   "unit": "pt/dp",
+   "kind": "scale",
+   "kotlin": "NusukScale.S160"
+  },
+  "opacity-subtle": {
+   "swift": "NusukOpacity.subtle",
+   "value": 0.04,
+   "unit": "ratio",
+   "kind": "opacity",
+   "kotlin": "NusukOpacity.Subtle"
+  },
+  "opacity-hover": {
+   "swift": "NusukOpacity.hover",
+   "value": 0.08,
+   "unit": "ratio",
+   "kind": "opacity",
+   "kotlin": "NusukOpacity.Hover"
+  },
+  "opacity-focus": {
+   "swift": "NusukOpacity.focus",
+   "value": 0.12,
+   "unit": "ratio",
+   "kind": "opacity",
+   "kotlin": "NusukOpacity.Focus"
+  },
+  "opacity-disabled": {
+   "swift": "NusukOpacity.disabled",
+   "value": 0.38,
+   "unit": "ratio",
+   "kind": "opacity",
+   "kotlin": "NusukOpacity.Disabled"
+  },
+  "opacity-medium": {
+   "swift": "NusukOpacity.medium",
+   "value": 0.5,
+   "unit": "ratio",
+   "kind": "opacity",
+   "kotlin": "NusukOpacity.Medium"
+  },
+  "opacity-strong": {
+   "swift": "NusukOpacity.strong",
+   "value": 0.9,
+   "unit": "ratio",
+   "kind": "opacity",
+   "kotlin": "NusukOpacity.Strong"
+  },
+  "opacity-none": {
+   "swift": "NusukOpacity.none",
+   "value": 0.0,
+   "unit": "ratio",
+   "kind": "opacity",
+   "kotlin": "NusukOpacity.None"
+  },
+  "hero-light": {
+   "swift": "NusukType.heroLight",
+   "value": 48.0,
+   "unit": "pt/sp",
+   "lineHeight": 61.44,
+   "weight": 300,
+   "kind": "type",
+   "kotlin": "NusukType.HeroLight"
+  },
+  "hero-regular": {
+   "swift": "NusukType.heroRegular",
+   "value": 48.0,
+   "unit": "pt/sp",
+   "lineHeight": 61.44,
+   "weight": 400,
+   "kind": "type",
+   "kotlin": "NusukType.HeroRegular"
+  },
+  "display-1-light": {
+   "swift": "NusukType.display1Light",
+   "value": 32.0,
+   "unit": "pt/sp",
+   "lineHeight": 40.96,
+   "weight": 300,
+   "kind": "type",
+   "kotlin": "NusukType.Display1Light"
+  },
+  "display-1-regular": {
+   "swift": "NusukType.display1Regular",
+   "value": 32.0,
+   "unit": "pt/sp",
+   "lineHeight": 40.96,
+   "weight": 400,
+   "kind": "type",
+   "kotlin": "NusukType.Display1Regular"
+  },
+  "display-2-light": {
+   "swift": "NusukType.display2Light",
+   "value": 28.0,
+   "unit": "pt/sp",
+   "lineHeight": 35.84,
+   "weight": 300,
+   "kind": "type",
+   "kotlin": "NusukType.Display2Light"
+  },
+  "display-2-regular": {
+   "swift": "NusukType.display2Regular",
+   "value": 28.0,
+   "unit": "pt/sp",
+   "lineHeight": 35.84,
+   "weight": 400,
+   "kind": "type",
+   "kotlin": "NusukType.Display2Regular"
+  },
+  "headline-1-light": {
+   "swift": "NusukType.headline1Light",
+   "value": 24.0,
+   "unit": "pt/sp",
+   "lineHeight": 30.72,
+   "weight": 300,
+   "kind": "type",
+   "kotlin": "NusukType.Headline1Light"
+  },
+  "headline-1-regular": {
+   "swift": "NusukType.headline1Regular",
+   "value": 24.0,
+   "unit": "pt/sp",
+   "lineHeight": 30.72,
+   "weight": 400,
+   "kind": "type",
+   "kotlin": "NusukType.Headline1Regular"
+  },
+  "headline-2-light": {
+   "swift": "NusukType.headline2Light",
+   "value": 20.0,
+   "unit": "pt/sp",
+   "lineHeight": 25.6,
+   "weight": 300,
+   "kind": "type",
+   "kotlin": "NusukType.Headline2Light"
+  },
+  "headline-2-regular": {
+   "swift": "NusukType.headline2Regular",
+   "value": 20.0,
+   "unit": "pt/sp",
+   "lineHeight": 25.6,
+   "weight": 400,
+   "kind": "type",
+   "kotlin": "NusukType.Headline2Regular"
+  },
+  "body-1-light": {
+   "swift": "NusukType.body1Light",
+   "value": 18.0,
+   "unit": "pt/sp",
+   "lineHeight": 23.04,
+   "weight": 300,
+   "kind": "type",
+   "kotlin": "NusukType.Body1Light"
+  },
+  "body-1-regular": {
+   "swift": "NusukType.body1Regular",
+   "value": 18.0,
+   "unit": "pt/sp",
+   "lineHeight": 23.04,
+   "weight": 400,
+   "kind": "type",
+   "kotlin": "NusukType.Body1Regular"
+  },
+  "body-2-light": {
+   "swift": "NusukType.body2Light",
+   "value": 16.0,
+   "unit": "pt/sp",
+   "lineHeight": 20.48,
+   "weight": 300,
+   "kind": "type",
+   "kotlin": "NusukType.Body2Light"
+  },
+  "body-2-regular": {
+   "swift": "NusukType.body2Regular",
+   "value": 16.0,
+   "unit": "pt/sp",
+   "lineHeight": 20.48,
+   "weight": 400,
+   "kind": "type",
+   "kotlin": "NusukType.Body2Regular"
+  },
+  "notes-1-light": {
+   "swift": "NusukType.notes1Light",
+   "value": 14.0,
+   "unit": "pt/sp",
+   "lineHeight": 17.92,
+   "weight": 300,
+   "kind": "type",
+   "kotlin": "NusukType.Notes1Light"
+  },
+  "notes-1-regular": {
+   "swift": "NusukType.notes1Regular",
+   "value": 14.0,
+   "unit": "pt/sp",
+   "lineHeight": 17.92,
+   "weight": 400,
+   "kind": "type",
+   "kotlin": "NusukType.Notes1Regular"
+  },
+  "notes-2-light": {
+   "swift": "NusukType.notes2Light",
+   "value": 12.0,
+   "unit": "pt/sp",
+   "lineHeight": 15.36,
+   "weight": 300,
+   "kind": "type",
+   "kotlin": "NusukType.Notes2Light"
+  },
+  "notes-2-regular": {
+   "swift": "NusukType.notes2Regular",
+   "value": 12.0,
+   "unit": "pt/sp",
+   "lineHeight": 15.36,
+   "weight": 400,
+   "kind": "type",
+   "kotlin": "NusukType.Notes2Regular"
+  },
+  "neutral-10-ink": {
+   "swift": "colors.neutral.ink10",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#070808",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#070808",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.neutral.ink10"
+  },
+  "neutral-09-graphite": {
+   "swift": "colors.neutral.graphite09",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#0B0D0E",
+    "gold-dark": "#F5F5F5",
+    "green-light": "#0B0D0E",
+    "green-dark": "#F5F5F5",
+    "lavender-light": "#0B0D0E",
+    "lavender-dark": "#F5F5F5"
+   },
+   "kotlin": "colors.neutral.graphite09"
+  },
+  "neutral-08-charcoal": {
+   "swift": "colors.neutral.charcoal08",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#171A1C",
+    "gold-dark": "#E5E5E6",
+    "green-light": "#171A1C",
+    "green-dark": "#E5E5E6",
+    "lavender-light": "#171A1C",
+    "lavender-dark": "#E5E5E6"
+   },
+   "kotlin": "colors.neutral.charcoal08"
+  },
+  "neutral-07-slate": {
+   "swift": "colors.neutral.slate07",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#303336",
+    "gold-dark": "#CBCCCD",
+    "green-light": "#303336",
+    "green-dark": "#CBCCCD",
+    "lavender-light": "#303336",
+    "lavender-dark": "#CBCCCD"
+   },
+   "kotlin": "colors.neutral.slate07"
+  },
+  "neutral-06-ash": {
+   "swift": "colors.neutral.ash06",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#636669",
+    "gold-dark": "#97999B",
+    "green-light": "#636669",
+    "green-dark": "#97999B",
+    "lavender-light": "#636669",
+    "lavender-dark": "#97999B"
+   },
+   "kotlin": "colors.neutral.ash06"
+  },
+  "neutral-05-smoke": {
+   "swift": "colors.neutral.smoke05",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#97999B",
+    "gold-dark": "#636669",
+    "green-light": "#97999B",
+    "green-dark": "#636669",
+    "lavender-light": "#97999B",
+    "lavender-dark": "#636669"
+   },
+   "kotlin": "colors.neutral.smoke05"
+  },
+  "neutral-04-mist": {
+   "swift": "colors.neutral.mist04",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#CBCCCD",
+    "gold-dark": "#303336",
+    "green-light": "#CBCCCD",
+    "green-dark": "#303336",
+    "lavender-light": "#CBCCCD",
+    "lavender-dark": "#303336"
+   },
+   "kotlin": "colors.neutral.mist04"
+  },
+  "neutral-03-pearl": {
+   "swift": "colors.neutral.pearl03",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#E5E5E6",
+    "gold-dark": "#171A1C",
+    "green-light": "#E5E5E6",
+    "green-dark": "#171A1C",
+    "lavender-light": "#E5E5E6",
+    "lavender-dark": "#171A1C"
+   },
+   "kotlin": "colors.neutral.pearl03"
+  },
+  "neutral-02-ivory": {
+   "swift": "colors.neutral.ivory02",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F5F5F5",
+    "gold-dark": "#111315",
+    "green-light": "#F5F5F5",
+    "green-dark": "#111315",
+    "lavender-light": "#F5F5F5",
+    "lavender-dark": "#111315"
+   },
+   "kotlin": "colors.neutral.ivory02"
+  },
+  "neutral-01-white": {
+   "swift": "colors.neutral.white01",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#111315",
+    "green-light": "#FFFFFF",
+    "green-dark": "#070808",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#070808"
+   },
+   "kotlin": "colors.neutral.white01"
+  },
+  "text-heading": {
+   "swift": "colors.text.heading",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#070808",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#070808",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.text.heading"
+  },
+  "text-content": {
+   "swift": "colors.text.content",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#070808",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#070808",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.text.content"
+  },
+  "text-subtle": {
+   "swift": "colors.text.subtle",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#303336",
+    "gold-dark": "#CBCCCD",
+    "green-light": "#303336",
+    "green-dark": "#CBCCCD",
+    "lavender-light": "#303336",
+    "lavender-dark": "#CBCCCD"
+   },
+   "kotlin": "colors.text.subtle"
+  },
+  "text-note": {
+   "swift": "colors.text.note",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#636669",
+    "gold-dark": "#97999B",
+    "green-light": "#636669",
+    "green-dark": "#97999B",
+    "lavender-light": "#636669",
+    "lavender-dark": "#97999B"
+   },
+   "kotlin": "colors.text.note"
+  },
+  "text-link": {
+   "swift": "colors.text.link",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#D99726",
+    "gold-dark": "#F5B13D",
+    "green-light": "#1A4C27",
+    "green-dark": "#61D17D",
+    "lavender-light": "#7F26D9",
+    "lavender-dark": "#B26DF8"
+   },
+   "kotlin": "colors.text.link"
+  },
+  "text-inverse": {
+   "swift": "colors.text.inverse",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#FFFFFF",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.text.inverse"
+  },
+  "surface-illumination": {
+   "swift": "colors.surface.illumination",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#D99726",
+    "gold-dark": "#F5B13D",
+    "green-light": "#1A4C27",
+    "green-dark": "#61D17D",
+    "lavender-light": "#7F26D9",
+    "lavender-dark": "#B26DF8"
+   },
+   "kotlin": "colors.surface.illumination"
+  },
+  "surface-longing": {
+   "swift": "colors.surface.longing",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F5B13D",
+    "gold-dark": "#D99726",
+    "green-light": "#288A42",
+    "green-dark": "#1A4C27",
+    "lavender-light": "#993DF5",
+    "lavender-dark": "#7F26D9"
+   },
+   "kotlin": "colors.surface.longing"
+  },
+  "surface-shade-1": {
+   "swift": "colors.surface.shade1",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F7C56E",
+    "gold-dark": "#925F07",
+    "green-light": "#61D17D",
+    "green-dark": "#2E9E4A",
+    "lavender-light": "#B26DF8",
+    "lavender-dark": "#4D0792"
+   },
+   "kotlin": "colors.surface.shade1"
+  },
+  "surface-shade-2": {
+   "swift": "colors.surface.shade2",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FAD89E",
+    "gold-dark": "#613F05",
+    "green-light": "#88DD9D",
+    "green-dark": "#0A5C1F",
+    "lavender-light": "#CC9EFA",
+    "lavender-dark": "#330561"
+   },
+   "kotlin": "colors.surface.shade2"
+  },
+  "surface-shade-3": {
+   "swift": "colors.surface.shade3",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#EBD4AD",
+    "gold-dark": "#523B14",
+    "green-light": "#8CD99F",
+    "green-dark": "#125422",
+    "lavender-light": "#CCADEB",
+    "lavender-dark": "#331452"
+   },
+   "kotlin": "colors.surface.shade3"
+  },
+  "surface-shade-4": {
+   "swift": "colors.surface.shade4",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FAEBD1",
+    "gold-dark": "#5C3E0A",
+    "green-light": "#99E5AD",
+    "green-dark": "#1A4D26",
+    "lavender-light": "#E5D1FA",
+    "lavender-dark": "#330A5C"
+   },
+   "kotlin": "colors.surface.shade4"
+  },
+  "surface-shade-5": {
+   "swift": "colors.surface.shade5",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FBF5E9",
+    "gold-dark": "#412D0B",
+    "green-light": "#E4FBEA",
+    "green-dark": "#0D3F1A",
+    "lavender-light": "#F2E9FB",
+    "lavender-dark": "#260B41"
+   },
+   "kotlin": "colors.surface.shade5"
+  },
+  "surface-shade-6": {
+   "swift": "colors.surface.shade6",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FDFBF6",
+    "gold-dark": "#342409",
+    "green-light": "#F6FEFA",
+    "green-dark": "#083613",
+    "lavender-light": "#FAF6FD",
+    "lavender-dark": "#1F0934"
+   },
+   "kotlin": "colors.surface.shade6"
+  },
+  "surface-screen-bk": {
+   "swift": "colors.surface.screenBk",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F1F3F4",
+    "gold-dark": "#070808",
+    "green-light": "#F1F3F4",
+    "green-dark": "#070808",
+    "lavender-light": "#F1F3F4",
+    "lavender-dark": "#070808"
+   },
+   "kotlin": "colors.surface.screenBk"
+  },
+  "surface-10-ink": {
+   "swift": "colors.surface.ink10",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#070808",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#070808",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.surface.ink10"
+  },
+  "surface-09-graphite": {
+   "swift": "colors.surface.graphite09",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#0B0D0E",
+    "gold-dark": "#F5F5F5",
+    "green-light": "#0B0D0E",
+    "green-dark": "#F5F5F5",
+    "lavender-light": "#0B0D0E",
+    "lavender-dark": "#F5F5F5"
+   },
+   "kotlin": "colors.surface.graphite09"
+  },
+  "surface-08-charcoal": {
+   "swift": "colors.surface.charcoal08",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#171A1C",
+    "gold-dark": "#E5E5E6",
+    "green-light": "#171A1C",
+    "green-dark": "#E5E5E6",
+    "lavender-light": "#171A1C",
+    "lavender-dark": "#E5E5E6"
+   },
+   "kotlin": "colors.surface.charcoal08"
+  },
+  "surface-07-slate": {
+   "swift": "colors.surface.slate07",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#303336",
+    "gold-dark": "#CBCCCD",
+    "green-light": "#303336",
+    "green-dark": "#CBCCCD",
+    "lavender-light": "#303336",
+    "lavender-dark": "#CBCCCD"
+   },
+   "kotlin": "colors.surface.slate07"
+  },
+  "surface-06-ash": {
+   "swift": "colors.surface.ash06",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#636669",
+    "gold-dark": "#97999B",
+    "green-light": "#636669",
+    "green-dark": "#97999B",
+    "lavender-light": "#636669",
+    "lavender-dark": "#97999B"
+   },
+   "kotlin": "colors.surface.ash06"
+  },
+  "surface-05-smoke": {
+   "swift": "colors.surface.smoke05",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#97999B",
+    "gold-dark": "#636669",
+    "green-light": "#97999B",
+    "green-dark": "#636669",
+    "lavender-light": "#97999B",
+    "lavender-dark": "#636669"
+   },
+   "kotlin": "colors.surface.smoke05"
+  },
+  "surface-04-mist": {
+   "swift": "colors.surface.mist04",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#CBCCCD",
+    "gold-dark": "#303336",
+    "green-light": "#CBCCCD",
+    "green-dark": "#303336",
+    "lavender-light": "#CBCCCD",
+    "lavender-dark": "#303336"
+   },
+   "kotlin": "colors.surface.mist04"
+  },
+  "surface-03-pearl": {
+   "swift": "colors.surface.pearl03",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#E5E5E6",
+    "gold-dark": "#171A1C",
+    "green-light": "#E5E5E6",
+    "green-dark": "#171A1C",
+    "lavender-light": "#E5E5E6",
+    "lavender-dark": "#171A1C"
+   },
+   "kotlin": "colors.surface.pearl03"
+  },
+  "surface-02-ivory": {
+   "swift": "colors.surface.ivory02",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F5F5F5",
+    "gold-dark": "#111315",
+    "green-light": "#F5F5F5",
+    "green-dark": "#111315",
+    "lavender-light": "#F5F5F5",
+    "lavender-dark": "#111315"
+   },
+   "kotlin": "colors.surface.ivory02"
+  },
+  "surface-01-white": {
+   "swift": "colors.surface.white01",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#111315",
+    "green-light": "#FFFFFF",
+    "green-dark": "#070808",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#070808"
+   },
+   "kotlin": "colors.surface.white01"
+  },
+  "surface-white-shine": {
+   "swift": "colors.surface.whiteShine",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#2B2E31",
+    "green-light": "#FFFFFF",
+    "green-dark": "#2B2E31",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#2B2E31"
+   },
+   "kotlin": "colors.surface.whiteShine"
+  },
+  "surface-light-shine": {
+   "swift": "colors.surface.lightShine",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FCFCFD",
+    "gold-dark": "#3E4247",
+    "green-light": "#FCFCFD",
+    "green-dark": "#3E4247",
+    "lavender-light": "#FCFCFD",
+    "lavender-dark": "#3E4247"
+   },
+   "kotlin": "colors.surface.lightShine"
+  },
+  "icons-illumination": {
+   "swift": "colors.icons.illumination",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#D99726",
+    "gold-dark": "#F5B13D",
+    "green-light": "#1A4C27",
+    "green-dark": "#61D17D",
+    "lavender-light": "#7F26D9",
+    "lavender-dark": "#B26DF8"
+   },
+   "kotlin": "colors.icons.illumination"
+  },
+  "icons-longing": {
+   "swift": "colors.icons.longing",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F5B13D",
+    "gold-dark": "#D99726",
+    "green-light": "#288A42",
+    "green-dark": "#1A4C27",
+    "lavender-light": "#993DF5",
+    "lavender-dark": "#7F26D9"
+   },
+   "kotlin": "colors.icons.longing"
+  },
+  "icons-white": {
+   "swift": "colors.icons.white",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#FFFFFF",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.icons.white"
+  },
+  "icons-black": {
+   "swift": "colors.icons.black",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#070808",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#070808",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.icons.black"
+  },
+  "icons-gray": {
+   "swift": "colors.icons.gray",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#636669",
+    "gold-dark": "#97999B",
+    "green-light": "#636669",
+    "green-dark": "#97999B",
+    "lavender-light": "#636669",
+    "lavender-dark": "#97999B"
+   },
+   "kotlin": "colors.icons.gray"
+  },
+  "icons-background": {
+   "swift": "colors.icons.background",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FBF5E9",
+    "gold-dark": "#412D0B",
+    "green-light": "#E4FBEA",
+    "green-dark": "#0D3F1A",
+    "lavender-light": "#F2E9FB",
+    "lavender-dark": "#260B41"
+   },
+   "kotlin": "colors.icons.background"
+  },
+  "alerts-surface-info": {
+   "swift": "colors.alerts.surfaceInfo",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#E4F1F8",
+    "gold-dark": "#0C273B",
+    "green-light": "#E4F1F8",
+    "green-dark": "#1F6699",
+    "lavender-light": "#E4F1F8",
+    "lavender-dark": "#1F6699"
+   },
+   "kotlin": "colors.alerts.surfaceInfo"
+  },
+  "alerts-surface-success": {
+   "swift": "colors.alerts.surfaceSuccess",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F0FFF5",
+    "gold-dark": "#0C3B10",
+    "green-light": "#F0FFF5",
+    "green-dark": "#198022",
+    "lavender-light": "#F0FFF5",
+    "lavender-dark": "#198022"
+   },
+   "kotlin": "colors.alerts.surfaceSuccess"
+  },
+  "alerts-surface-warning": {
+   "swift": "colors.alerts.surfaceWarning",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFF1E4",
+    "gold-dark": "#3A2208",
+    "green-light": "#FFF1E4",
+    "green-dark": "#3A2208",
+    "lavender-light": "#FFF1E4",
+    "lavender-dark": "#3A2208"
+   },
+   "kotlin": "colors.alerts.surfaceWarning"
+  },
+  "alerts-surface-error": {
+   "swift": "colors.alerts.surfaceError",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFF2F1",
+    "gold-dark": "#992720",
+    "green-light": "#FFF2F1",
+    "green-dark": "#992720",
+    "lavender-light": "#FFF2F1",
+    "lavender-dark": "#992720"
+   },
+   "kotlin": "colors.alerts.surfaceError"
+  },
+  "alerts-surface-default": {
+   "swift": "colors.alerts.surfaceDefault",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F5F5F5",
+    "gold-dark": "#111315",
+    "green-light": "#F5F5F5",
+    "green-dark": "#111315",
+    "lavender-light": "#F5F5F5",
+    "lavender-dark": "#111315"
+   },
+   "kotlin": "colors.alerts.surfaceDefault"
+  },
+  "alerts-surface-gold": {
+   "swift": "colors.alerts.surfaceGold",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FBF5E9",
+    "gold-dark": "#412D0B",
+    "green-light": "#E4FBEA",
+    "green-dark": "#61D17D",
+    "lavender-light": "#F2E9FB",
+    "lavender-dark": "#B26DF8"
+   },
+   "kotlin": "colors.alerts.surfaceGold"
+  },
+  "alerts-surface-solid-info": {
+   "swift": "colors.alerts.surfaceSolidInfo",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#118CE4",
+    "gold-dark": "#E4F1F8",
+    "green-light": "#118CE4",
+    "green-dark": "#E4F1F8",
+    "lavender-light": "#118CE4",
+    "lavender-dark": "#E4F1F8"
+   },
+   "kotlin": "colors.alerts.surfaceSolidInfo"
+  },
+  "alerts-surface-solid-success": {
+   "swift": "colors.alerts.surfaceSolidSuccess",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#5DB364",
+    "gold-dark": "#ECFDF3",
+    "green-light": "#5DB364",
+    "green-dark": "#ECFDF3",
+    "lavender-light": "#5DB364",
+    "lavender-dark": "#ECFDF3"
+   },
+   "kotlin": "colors.alerts.surfaceSolidSuccess"
+  },
+  "alerts-surface-solid-warning": {
+   "swift": "colors.alerts.surfaceSolidWarning",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF6D01",
+    "gold-dark": "#F79009",
+    "green-light": "#FF6D01",
+    "green-dark": "#F79009",
+    "lavender-light": "#FF6D01",
+    "lavender-dark": "#F79009"
+   },
+   "kotlin": "colors.alerts.surfaceSolidWarning"
+  },
+  "alerts-surface-solid-error": {
+   "swift": "colors.alerts.surfaceSolidError",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF4136",
+    "gold-dark": "#FEF3F2",
+    "green-light": "#FF4136",
+    "green-dark": "#FEF3F2",
+    "lavender-light": "#FF4136",
+    "lavender-dark": "#FEF3F2"
+   },
+   "kotlin": "colors.alerts.surfaceSolidError"
+  },
+  "alerts-surface-solid-default": {
+   "swift": "colors.alerts.surfaceSolidDefault",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#303336",
+    "gold-dark": "#CBCCCD",
+    "green-light": "#303336",
+    "green-dark": "#CBCCCD",
+    "lavender-light": "#303336",
+    "lavender-dark": "#CBCCCD"
+   },
+   "kotlin": "colors.alerts.surfaceSolidDefault"
+  },
+  "alerts-icons-default": {
+   "swift": "colors.alerts.iconsDefault",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#303336",
+    "gold-dark": "#CBCCCD",
+    "green-light": "#303336",
+    "green-dark": "#CBCCCD",
+    "lavender-light": "#303336",
+    "lavender-dark": "#CBCCCD"
+   },
+   "kotlin": "colors.alerts.iconsDefault"
+  },
+  "alerts-icons-white": {
+   "swift": "colors.alerts.iconsWhite",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#111315",
+    "green-light": "#FFFFFF",
+    "green-dark": "#070808",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#070808"
+   },
+   "kotlin": "colors.alerts.iconsWhite"
+  },
+  "alerts-icons-gold": {
+   "swift": "colors.alerts.iconsGold",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#D99726",
+    "gold-dark": "#F5B13D",
+    "green-light": "#1A4C27",
+    "green-dark": "#0D3F1A",
+    "lavender-light": "#7F26D9",
+    "lavender-dark": "#260B41"
+   },
+   "kotlin": "colors.alerts.iconsGold"
+  },
+  "alerts-surface-solid-gold": {
+   "swift": "colors.alerts.surfaceSolidGold",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#D99726",
+    "gold-dark": "#F5B13D",
+    "green-light": "#1A4C27",
+    "green-dark": "#0D3F1A",
+    "lavender-light": "#7F26D9",
+    "lavender-dark": "#260B41"
+   },
+   "kotlin": "colors.alerts.surfaceSolidGold"
+  },
+  "alerts-surface-solid-white": {
+   "swift": "colors.alerts.surfaceSolidWhite",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#111315",
+    "green-light": "#FFFFFF",
+    "green-dark": "#070808",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#070808"
+   },
+   "kotlin": "colors.alerts.surfaceSolidWhite"
+  },
+  "alerts-icons-info": {
+   "swift": "colors.alerts.iconsInfo",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#118CE4",
+    "gold-dark": "#E4F1F8",
+    "green-light": "#118CE4",
+    "green-dark": "#E4F1F8",
+    "lavender-light": "#118CE4",
+    "lavender-dark": "#E4F1F8"
+   },
+   "kotlin": "colors.alerts.iconsInfo"
+  },
+  "alerts-icons-success": {
+   "swift": "colors.alerts.iconsSuccess",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#5DB364",
+    "gold-dark": "#ECFDF3",
+    "green-light": "#5DB364",
+    "green-dark": "#ECFDF3",
+    "lavender-light": "#5DB364",
+    "lavender-dark": "#ECFDF3"
+   },
+   "kotlin": "colors.alerts.iconsSuccess"
+  },
+  "alerts-text-default": {
+   "swift": "colors.alerts.textDefault",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#303336",
+    "gold-dark": "#CBCCCD",
+    "green-light": "#303336",
+    "green-dark": "#CBCCCD",
+    "lavender-light": "#303336",
+    "lavender-dark": "#CBCCCD"
+   },
+   "kotlin": "colors.alerts.textDefault"
+  },
+  "alerts-text-white": {
+   "swift": "colors.alerts.textWhite",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#FFFFFF",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.alerts.textWhite"
+  },
+  "alerts-icons-warning": {
+   "swift": "colors.alerts.iconsWarning",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF6D01",
+    "gold-dark": "#F79009",
+    "green-light": "#FF6D01",
+    "green-dark": "#F79009",
+    "lavender-light": "#FF6D01",
+    "lavender-dark": "#F79009"
+   },
+   "kotlin": "colors.alerts.iconsWarning"
+  },
+  "alerts-text-gold": {
+   "swift": "colors.alerts.textGold",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#D99726",
+    "gold-dark": "#F5B13D",
+    "green-light": "#1A4C27",
+    "green-dark": "#0D3F1A",
+    "lavender-light": "#7F26D9",
+    "lavender-dark": "#260B41"
+   },
+   "kotlin": "colors.alerts.textGold"
+  },
+  "alerts-icons-error": {
+   "swift": "colors.alerts.iconsError",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF4136",
+    "gold-dark": "#FEF3F2",
+    "green-light": "#FF4136",
+    "green-dark": "#FEF3F2",
+    "lavender-light": "#FF4136",
+    "lavender-dark": "#FEF3F2"
+   },
+   "kotlin": "colors.alerts.iconsError"
+  },
+  "alerts-icons-reject": {
+   "swift": "colors.alerts.iconsReject",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#171A1C",
+    "gold-dark": "#E5E5E6",
+    "green-light": "#171A1C",
+    "green-dark": "#E5E5E6",
+    "lavender-light": "#171A1C",
+    "lavender-dark": "#E5E5E6"
+   },
+   "kotlin": "colors.alerts.iconsReject"
+  },
+  "alerts-text-info": {
+   "swift": "colors.alerts.textInfo",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#118CE4",
+    "gold-dark": "#E4F1F8",
+    "green-light": "#118CE4",
+    "green-dark": "#E4F1F8",
+    "lavender-light": "#118CE4",
+    "lavender-dark": "#E4F1F8"
+   },
+   "kotlin": "colors.alerts.textInfo"
+  },
+  "alerts-text-success": {
+   "swift": "colors.alerts.textSuccess",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#5DB364",
+    "gold-dark": "#ECFDF3",
+    "green-light": "#5DB364",
+    "green-dark": "#ECFDF3",
+    "lavender-light": "#5DB364",
+    "lavender-dark": "#ECFDF3"
+   },
+   "kotlin": "colors.alerts.textSuccess"
+  },
+  "alerts-text-warning": {
+   "swift": "colors.alerts.textWarning",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF6D01",
+    "gold-dark": "#F79009",
+    "green-light": "#FF6D01",
+    "green-dark": "#F79009",
+    "lavender-light": "#FF6D01",
+    "lavender-dark": "#F79009"
+   },
+   "kotlin": "colors.alerts.textWarning"
+  },
+  "alerts-text-error": {
+   "swift": "colors.alerts.textError",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF4136",
+    "gold-dark": "#FEF3F2",
+    "green-light": "#FF4136",
+    "green-dark": "#FEF3F2",
+    "lavender-light": "#FF4136",
+    "lavender-dark": "#FEF3F2"
+   },
+   "kotlin": "colors.alerts.textError"
+  },
+  "alerts-text-reject": {
+   "swift": "colors.alerts.textReject",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#171A1C",
+    "gold-dark": "#E5E5E6",
+    "green-light": "#171A1C",
+    "green-dark": "#E5E5E6",
+    "lavender-light": "#171A1C",
+    "lavender-dark": "#E5E5E6"
+   },
+   "kotlin": "colors.alerts.textReject"
+  },
+  "inputs-surface-default": {
+   "swift": "colors.inputs.surfaceDefault",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#111315",
+    "green-light": "#FFFFFF",
+    "green-dark": "#070808",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#070808"
+   },
+   "kotlin": "colors.inputs.surfaceDefault"
+  },
+  "inputs-surface-disabled": {
+   "swift": "colors.inputs.surfaceDisabled",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#E5E5E6",
+    "gold-dark": "#171A1C",
+    "green-light": "#E5E5E6",
+    "green-dark": "#171A1C",
+    "lavender-light": "#CBCCCD",
+    "lavender-dark": "#303336"
+   },
+   "kotlin": "colors.inputs.surfaceDisabled"
+  },
+  "inputs-surface-success": {
+   "swift": "colors.inputs.surfaceSuccess",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F0FFF5",
+    "gold-dark": "#0C3B10",
+    "green-light": "#F0FFF5",
+    "green-dark": "#198022",
+    "lavender-light": "#F0FFF5",
+    "lavender-dark": "#198022"
+   },
+   "kotlin": "colors.inputs.surfaceSuccess"
+  },
+  "inputs-surface-error": {
+   "swift": "colors.inputs.surfaceError",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFF2F1",
+    "gold-dark": "#992720",
+    "green-light": "#FFF2F1",
+    "green-dark": "#992720",
+    "lavender-light": "#FFF2F1",
+    "lavender-dark": "#992720"
+   },
+   "kotlin": "colors.inputs.surfaceError"
+  },
+  "inputs-icons-default": {
+   "swift": "colors.inputs.iconsDefault",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#171A1C",
+    "gold-dark": "#E5E5E6",
+    "green-light": "#171A1C",
+    "green-dark": "#E5E5E6",
+    "lavender-light": "#171A1C",
+    "lavender-dark": "#E5E5E6"
+   },
+   "kotlin": "colors.inputs.iconsDefault"
+  },
+  "inputs-icons-disabled": {
+   "swift": "colors.inputs.iconsDisabled",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#97999B",
+    "gold-dark": "#636669",
+    "green-light": "#97999B",
+    "green-dark": "#636669",
+    "lavender-light": "#97999B",
+    "lavender-dark": "#636669"
+   },
+   "kotlin": "colors.inputs.iconsDisabled"
+  },
+  "inputs-icons-success": {
+   "swift": "colors.inputs.iconsSuccess",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#5DB364",
+    "gold-dark": "#ECFDF3",
+    "green-light": "#5DB364",
+    "green-dark": "#ECFDF3",
+    "lavender-light": "#5DB364",
+    "lavender-dark": "#ECFDF3"
+   },
+   "kotlin": "colors.inputs.iconsSuccess"
+  },
+  "inputs-icons-error": {
+   "swift": "colors.inputs.iconsError",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF4136",
+    "gold-dark": "#FEF3F2",
+    "green-light": "#FF4136",
+    "green-dark": "#FEF3F2",
+    "lavender-light": "#FF4136",
+    "lavender-dark": "#FEF3F2"
+   },
+   "kotlin": "colors.inputs.iconsError"
+  },
+  "inputs-text-default": {
+   "swift": "colors.inputs.textDefault",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#070808",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#070808",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.inputs.textDefault"
+  },
+  "inputs-text-placeholder": {
+   "swift": "colors.inputs.textPlaceholder",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#636669",
+    "gold-dark": "#97999B",
+    "green-light": "#636669",
+    "green-dark": "#97999B",
+    "lavender-light": "#636669",
+    "lavender-dark": "#97999B"
+   },
+   "kotlin": "colors.inputs.textPlaceholder"
+  },
+  "inputs-text-disabled": {
+   "swift": "colors.inputs.textDisabled",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#636669",
+    "gold-dark": "#97999B",
+    "green-light": "#636669",
+    "green-dark": "#97999B",
+    "lavender-light": "#636669",
+    "lavender-dark": "#97999B"
+   },
+   "kotlin": "colors.inputs.textDisabled"
+  },
+  "inputs-text-success": {
+   "swift": "colors.inputs.textSuccess",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#5DB364",
+    "gold-dark": "#ECFDF3",
+    "green-light": "#5DB364",
+    "green-dark": "#ECFDF3",
+    "lavender-light": "#5DB364",
+    "lavender-dark": "#ECFDF3"
+   },
+   "kotlin": "colors.inputs.textSuccess"
+  },
+  "inputs-text-error": {
+   "swift": "colors.inputs.textError",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF4136",
+    "gold-dark": "#FEF3F2",
+    "green-light": "#FF4136",
+    "green-dark": "#FEF3F2",
+    "lavender-light": "#FF4136",
+    "lavender-dark": "#FEF3F2"
+   },
+   "kotlin": "colors.inputs.textError"
+  },
+  "quran-background": {
+   "swift": "colors.quran.background",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFBF7",
+    "gold-dark": "#FFFBF7",
+    "green-light": "#FFFBF7",
+    "green-dark": "#FFFBF7",
+    "lavender-light": "#FFFBF7",
+    "lavender-dark": "#FFFBF7"
+   },
+   "kotlin": "colors.quran.background"
+  },
+  "quran-emerald": {
+   "swift": "colors.quran.emerald",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#1C664B",
+    "gold-dark": "#1C664B",
+    "green-light": "#1C664B",
+    "green-dark": "#1C664B",
+    "lavender-light": "#1C664B",
+    "lavender-dark": "#1C664B"
+   },
+   "kotlin": "colors.quran.emerald"
+  },
+  "quran-emerald-shade": {
+   "swift": "colors.quran.emeraldShade",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#E4FBEA",
+    "gold-dark": "#E4FBEA",
+    "green-light": "#E4FBEA",
+    "green-dark": "#E4FBEA",
+    "lavender-light": "#E4FBEA",
+    "lavender-dark": "#E4FBEA"
+   },
+   "kotlin": "colors.quran.emeraldShade"
+  },
+  "quran-crimson": {
+   "swift": "colors.quran.crimson",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#D50B3A",
+    "gold-dark": "#D50B3A",
+    "green-light": "#D50B3A",
+    "green-dark": "#D50B3A",
+    "lavender-light": "#D50B3A",
+    "lavender-dark": "#D50B3A"
+   },
+   "kotlin": "colors.quran.crimson"
+  },
+  "quran-crimson-shade": {
+   "swift": "colors.quran.crimsonShade",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FCE4E9",
+    "gold-dark": "#FCE4E9",
+    "green-light": "#FCE4E9",
+    "green-dark": "#FCE4E9",
+    "lavender-light": "#FCE4E9",
+    "lavender-dark": "#FCE4E9"
+   },
+   "kotlin": "colors.quran.crimsonShade"
+  },
+  "quran-saffron": {
+   "swift": "colors.quran.saffron",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#D99726",
+    "gold-dark": "#D99726",
+    "green-light": "#D99726",
+    "green-dark": "#D99726",
+    "lavender-light": "#D99726",
+    "lavender-dark": "#D99726"
+   },
+   "kotlin": "colors.quran.saffron"
+  },
+  "quran-saffron-shade": {
+   "swift": "colors.quran.saffronShade",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FAF3E5",
+    "gold-dark": "#FAF3E5",
+    "green-light": "#FAF3E5",
+    "green-dark": "#FAF3E5",
+    "lavender-light": "#FAF3E5",
+    "lavender-dark": "#FAF3E5"
+   },
+   "kotlin": "colors.quran.saffronShade"
+  },
+  "quran-amethyst": {
+   "swift": "colors.quran.amethyst",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#7F26D9",
+    "gold-dark": "#7F26D9",
+    "green-light": "#7F26D9",
+    "green-dark": "#7F26D9",
+    "lavender-light": "#7F26D9",
+    "lavender-dark": "#7F26D9"
+   },
+   "kotlin": "colors.quran.amethyst"
+  },
+  "quran-amethyst-shade": {
+   "swift": "colors.quran.amethystShade",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F0E5FA",
+    "gold-dark": "#F0E5FA",
+    "green-light": "#F0E5FA",
+    "green-dark": "#F0E5FA",
+    "lavender-light": "#F0E5FA",
+    "lavender-dark": "#F0E5FA"
+   },
+   "kotlin": "colors.quran.amethystShade"
+  },
+  "quran-olive": {
+   "swift": "colors.quran.olive",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#8B8714",
+    "gold-dark": "#8B8714",
+    "green-light": "#8B8714",
+    "green-dark": "#8B8714",
+    "lavender-light": "#8B8714",
+    "lavender-dark": "#8B8714"
+   },
+   "kotlin": "colors.quran.olive"
+  },
+  "quran-olive-shade": {
+   "swift": "colors.quran.oliveShade",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F5F5EA",
+    "gold-dark": "#F5F5EA",
+    "green-light": "#F5F5EA",
+    "green-dark": "#F5F5EA",
+    "lavender-light": "#F5F5EA",
+    "lavender-dark": "#F5F5EA"
+   },
+   "kotlin": "colors.quran.oliveShade"
+  },
+  "quran-teal": {
+   "swift": "colors.quran.teal",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#1C424A",
+    "gold-dark": "#1C424A",
+    "green-light": "#1C424A",
+    "green-dark": "#1C424A",
+    "lavender-light": "#1C424A",
+    "lavender-dark": "#1C424A"
+   },
+   "kotlin": "colors.quran.teal"
+  },
+  "quran-teal-shade": {
+   "swift": "colors.quran.tealShade",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#E9F4F7",
+    "gold-dark": "#E9F4F7",
+    "green-light": "#E9F4F7",
+    "green-dark": "#E9F4F7",
+    "lavender-light": "#E9F4F7",
+    "lavender-dark": "#E9F4F7"
+   },
+   "kotlin": "colors.quran.tealShade"
+  },
+  "quran-umber": {
+   "swift": "colors.quran.umber",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#573D1C",
+    "gold-dark": "#573D1C",
+    "green-light": "#573D1C",
+    "green-dark": "#573D1C",
+    "lavender-light": "#573D1C",
+    "lavender-dark": "#573D1C"
+   },
+   "kotlin": "colors.quran.umber"
+  },
+  "quran-umber-shade": {
+   "swift": "colors.quran.umberShade",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F8F1E7",
+    "gold-dark": "#F8F1E7",
+    "green-light": "#F8F1E7",
+    "green-dark": "#F8F1E7",
+    "lavender-light": "#F8F1E7",
+    "lavender-dark": "#F8F1E7"
+   },
+   "kotlin": "colors.quran.umberShade"
+  },
+  "quran-lavender": {
+   "swift": "colors.quran.lavender",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#C3B6D7",
+    "gold-dark": "#C3B6D7",
+    "green-light": "#C3B6D7",
+    "green-dark": "#C3B6D7",
+    "lavender-light": "#C3B6D7",
+    "lavender-dark": "#C3B6D7"
+   },
+   "kotlin": "colors.quran.lavender"
+  },
+  "quran-citrine": {
+   "swift": "colors.quran.citrine",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#D2CF84",
+    "gold-dark": "#D2CF84",
+    "green-light": "#D2CF84",
+    "green-dark": "#D2CF84",
+    "lavender-light": "#D2CF84",
+    "lavender-dark": "#D2CF84"
+   },
+   "kotlin": "colors.quran.citrine"
+  },
+  "quran-sky": {
+   "swift": "colors.quran.sky",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#ABC2D7",
+    "gold-dark": "#ABC2D7",
+    "green-light": "#ABC2D7",
+    "green-dark": "#ABC2D7",
+    "lavender-light": "#ABC2D7",
+    "lavender-dark": "#ABC2D7"
+   },
+   "kotlin": "colors.quran.sky"
+  },
+  "quran-mint": {
+   "swift": "colors.quran.mint",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#B2D4B6",
+    "gold-dark": "#B2D4B6",
+    "green-light": "#B2D4B6",
+    "green-dark": "#B2D4B6",
+    "lavender-light": "#B2D4B6",
+    "lavender-dark": "#B2D4B6"
+   },
+   "kotlin": "colors.quran.mint"
+  },
+  "quran-peach": {
+   "swift": "colors.quran.peach",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F2A577",
+    "gold-dark": "#F2A577",
+    "green-light": "#F2A577",
+    "green-dark": "#F2A577",
+    "lavender-light": "#F2A577",
+    "lavender-dark": "#F2A577"
+   },
+   "kotlin": "colors.quran.peach"
+  },
+  "quran-rose": {
+   "swift": "colors.quran.rose",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#DDA8A5",
+    "gold-dark": "#DDA8A5",
+    "green-light": "#DDA8A5",
+    "green-dark": "#DDA8A5",
+    "lavender-light": "#DDA8A5",
+    "lavender-dark": "#DDA8A5"
+   },
+   "kotlin": "colors.quran.rose"
+  },
+  "quran-sand": {
+   "swift": "colors.quran.sand",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#DEB899",
+    "gold-dark": "#DEB899",
+    "green-light": "#DEB899",
+    "green-dark": "#DEB899",
+    "lavender-light": "#DEB899",
+    "lavender-dark": "#DEB899"
+   },
+   "kotlin": "colors.quran.sand"
+  },
+  "quran-orchid": {
+   "swift": "colors.quran.orchid",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#DCB3CA",
+    "gold-dark": "#DCB3CA",
+    "green-light": "#DCB3CA",
+    "green-dark": "#DCB3CA",
+    "lavender-light": "#DCB3CA",
+    "lavender-dark": "#DCB3CA"
+   },
+   "kotlin": "colors.quran.orchid"
+  },
+  "quran-fog": {
+   "swift": "colors.quran.fog",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#B5C0CD",
+    "gold-dark": "#B5C0CD",
+    "green-light": "#B5C0CD",
+    "green-dark": "#B5C0CD",
+    "lavender-light": "#B5C0CD",
+    "lavender-dark": "#B5C0CD"
+   },
+   "kotlin": "colors.quran.fog"
+  },
+  "quran-stroke": {
+   "swift": "colors.quran.stroke",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#07080826",
+    "gold-dark": "#07080826",
+    "green-light": "#07080826",
+    "green-dark": "#07080826",
+    "lavender-light": "#07080826",
+    "lavender-dark": "#07080826"
+   },
+   "kotlin": "colors.quran.stroke"
+  },
+  "button-primary-surface": {
+   "swift": "colors.button.primarySurface",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#070808",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#070808",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.button.primarySurface"
+  },
+  "button-primary-content": {
+   "swift": "colors.button.primaryContent",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#FFFFFF",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.button.primaryContent"
+  },
+  "button-secondary-surface": {
+   "swift": "colors.button.secondarySurface",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F5F5F5B3",
+    "gold-dark": "#111315B3",
+    "green-light": "#F5F5F5B3",
+    "green-dark": "#111315B3",
+    "lavender-light": "#F5F5F5B3",
+    "lavender-dark": "#111315B3"
+   },
+   "kotlin": "colors.button.secondarySurface"
+  },
+  "button-secondary-content": {
+   "swift": "colors.button.secondaryContent",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#070808",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#070808",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.button.secondaryContent"
+  },
+  "button-ghost-surface": {
+   "swift": "colors.button.ghostSurface",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF00",
+    "gold-dark": "#FFFFFF00",
+    "green-light": "#FFFFFF00",
+    "green-dark": "#FFFFFF00",
+    "lavender-light": "#FFFFFF00",
+    "lavender-dark": "#FFFFFF00"
+   },
+   "kotlin": "colors.button.ghostSurface"
+  },
+  "button-ghost-content": {
+   "swift": "colors.button.ghostContent",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#070808",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#070808",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.button.ghostContent"
+  },
+  "button-fate-surface": {
+   "swift": "colors.button.fateSurface",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF41361A",
+    "gold-dark": "#FEF3F21A",
+    "green-light": "#FF41361A",
+    "green-dark": "#FEF3F21A",
+    "lavender-light": "#FF41361A",
+    "lavender-dark": "#FEF3F21A"
+   },
+   "kotlin": "colors.button.fateSurface"
+  },
+  "button-fate-content": {
+   "swift": "colors.button.fateContent",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF4136",
+    "gold-dark": "#FEF3F2",
+    "green-light": "#FF4136",
+    "green-dark": "#FEF3F2",
+    "lavender-light": "#FF4136",
+    "lavender-dark": "#FEF3F2"
+   },
+   "kotlin": "colors.button.fateContent"
+  },
+  "button-primary-surface-on-dark": {
+   "swift": "colors.button.primarySurfaceOnDark",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#111315",
+    "green-light": "#FFFFFF",
+    "green-dark": "#070808",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#070808"
+   },
+   "kotlin": "colors.button.primarySurfaceOnDark"
+  },
+  "button-primary-content-on-dark": {
+   "swift": "colors.button.primaryContentOnDark",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#070808",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#070808",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.button.primaryContentOnDark"
+  },
+  "button-secondary-surface-on-dark": {
+   "swift": "colors.button.secondarySurfaceOnDark",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#303336B3",
+    "gold-dark": "#CBCCCDB3",
+    "green-light": "#303336B3",
+    "green-dark": "#CBCCCDB3",
+    "lavender-light": "#303336B3",
+    "lavender-dark": "#CBCCCDB3"
+   },
+   "kotlin": "colors.button.secondarySurfaceOnDark"
+  },
+  "button-secondary-content-on-dark": {
+   "swift": "colors.button.secondaryContentOnDark",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#FFFFFF",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.button.secondaryContentOnDark"
+  },
+  "button-ghost-content-on-dark": {
+   "swift": "colors.button.ghostContentOnDark",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#FFFFFF",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.button.ghostContentOnDark"
+  },
+  "button-fate-surface-on-dark": {
+   "swift": "colors.button.fateSurfaceOnDark",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FF4136",
+    "gold-dark": "#FEF3F2",
+    "green-light": "#FF4136",
+    "green-dark": "#FEF3F2",
+    "lavender-light": "#FF4136",
+    "lavender-dark": "#FEF3F2"
+   },
+   "kotlin": "colors.button.fateSurfaceOnDark"
+  },
+  "button-fate-content-on-dark": {
+   "swift": "colors.button.fateContentOnDark",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFF2F1",
+    "gold-dark": "#992720",
+    "green-light": "#FFF2F1",
+    "green-dark": "#992720",
+    "lavender-light": "#FFF2F1",
+    "lavender-dark": "#992720"
+   },
+   "kotlin": "colors.button.fateContentOnDark"
+  },
+  "button-green-surface": {
+   "swift": "colors.button.greenSurface",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#5DB364",
+    "gold-dark": "#ECFDF3",
+    "green-light": "#5DB364",
+    "green-dark": "#ECFDF3",
+    "lavender-light": "#5DB364",
+    "lavender-dark": "#ECFDF3"
+   },
+   "kotlin": "colors.button.greenSurface"
+  },
+  "button-green-content": {
+   "swift": "colors.button.greenContent",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#FFFFFF",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.button.greenContent"
+  },
+  "button-green-secondary-surface": {
+   "swift": "colors.button.greenSecondarySurface",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#F0FFF5",
+    "gold-dark": "#0C3B10",
+    "green-light": "#F0FFF5",
+    "green-dark": "#198022",
+    "lavender-light": "#F0FFF5",
+    "lavender-dark": "#198022"
+   },
+   "kotlin": "colors.button.greenSecondarySurface"
+  },
+  "button-green-secondary-content": {
+   "swift": "colors.button.greenSecondaryContent",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#5DB364",
+    "gold-dark": "#ECFDF3",
+    "green-light": "#5DB364",
+    "green-dark": "#ECFDF3",
+    "lavender-light": "#5DB364",
+    "lavender-dark": "#ECFDF3"
+   },
+   "kotlin": "colors.button.greenSecondaryContent"
+  },
+  "button-green-ghost-content": {
+   "swift": "colors.button.greenGhostContent",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#5DB364",
+    "gold-dark": "#ECFDF3",
+    "green-light": "#5DB364",
+    "green-dark": "#ECFDF3",
+    "lavender-light": "#5DB364",
+    "lavender-dark": "#ECFDF3"
+   },
+   "kotlin": "colors.button.greenGhostContent"
+  },
+  "overlay-backdrop": {
+   "swift": "colors.overlay.backdrop",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#00000080",
+    "gold-dark": "#00000080",
+    "green-light": "#00000080",
+    "green-dark": "#00000080",
+    "lavender-light": "#00000080",
+    "lavender-dark": "#00000080"
+   },
+   "kotlin": "colors.overlay.backdrop"
+  },
+  "overlay-soft": {
+   "swift": "colors.overlay.soft",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#0000001F",
+    "gold-dark": "#0000001F",
+    "green-light": "#0000001F",
+    "green-dark": "#0000001F",
+    "lavender-light": "#0000001F",
+    "lavender-dark": "#0000001F"
+   },
+   "kotlin": "colors.overlay.soft"
+  },
+  "brand-quranic-illumination": {
+   "swift": "colors.brand.quranicIllumination",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#EAB355",
+    "gold-dark": "#EAB355",
+    "green-light": "#EAB355",
+    "green-dark": "#EAB355",
+    "lavender-light": "#EAB355",
+    "lavender-dark": "#EAB355"
+   },
+   "kotlin": "colors.brand.quranicIllumination"
+  },
+  "brand-kiswah-reverence": {
+   "swift": "colors.brand.kiswahReverence",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#070808",
+    "gold-dark": "#070808",
+    "green-light": "#070808",
+    "green-dark": "#070808",
+    "lavender-light": "#070808",
+    "lavender-dark": "#070808"
+   },
+   "kotlin": "colors.brand.kiswahReverence"
+  },
+  "brand-dome-of-prophet": {
+   "swift": "colors.brand.domeOfProphet",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#47874A",
+    "gold-dark": "#47874A",
+    "green-light": "#47874A",
+    "green-dark": "#47874A",
+    "lavender-light": "#47874A",
+    "lavender-dark": "#47874A"
+   },
+   "kotlin": "colors.brand.domeOfProphet"
+  },
+  "brand-serene-light": {
+   "swift": "colors.brand.sereneLight",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#FFFFFF",
+    "gold-dark": "#FFFFFF",
+    "green-light": "#FFFFFF",
+    "green-dark": "#FFFFFF",
+    "lavender-light": "#FFFFFF",
+    "lavender-dark": "#FFFFFF"
+   },
+   "kotlin": "colors.brand.sereneLight"
+  },
+  "brand-deep-blue": {
+   "swift": "colors.brand.deepBlue",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#16125F",
+    "gold-dark": "#16125F",
+    "green-light": "#16125F",
+    "green-dark": "#16125F",
+    "lavender-light": "#16125F",
+    "lavender-dark": "#16125F"
+   },
+   "kotlin": "colors.brand.deepBlue"
+  },
+  "brand-sacred-teal": {
+   "swift": "colors.brand.sacredTeal",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#3B8C87",
+    "gold-dark": "#3B8C87",
+    "green-light": "#3B8C87",
+    "green-dark": "#3B8C87",
+    "lavender-light": "#3B8C87",
+    "lavender-dark": "#3B8C87"
+   },
+   "kotlin": "colors.brand.sacredTeal"
+  },
+  "brand-sunset-lilac": {
+   "swift": "colors.brand.sunsetLilac",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#9C7BC9",
+    "gold-dark": "#9C7BC9",
+    "green-light": "#9C7BC9",
+    "green-dark": "#9C7BC9",
+    "lavender-light": "#9C7BC9",
+    "lavender-dark": "#9C7BC9"
+   },
+   "kotlin": "colors.brand.sunsetLilac"
+  },
+  "brand-desert-rose": {
+   "swift": "colors.brand.desertRose",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#C97B84",
+    "gold-dark": "#C97B84",
+    "green-light": "#C97B84",
+    "green-dark": "#C97B84",
+    "lavender-light": "#C97B84",
+    "lavender-dark": "#C97B84"
+   },
+   "kotlin": "colors.brand.desertRose"
+  },
+  "brand-stone-sand": {
+   "swift": "colors.brand.stoneSand",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#B8AA96",
+    "gold-dark": "#B8AA96",
+    "green-light": "#B8AA96",
+    "green-dark": "#B8AA96",
+    "lavender-light": "#B8AA96",
+    "lavender-dark": "#B8AA96"
+   },
+   "kotlin": "colors.brand.stoneSand"
+  },
+  "brand-earth-terracotta": {
+   "swift": "colors.brand.earthTerracotta",
+   "unit": "colour",
+   "kind": "colour",
+   "values": {
+    "gold-light": "#C1624C",
+    "gold-dark": "#C1624C",
+    "green-light": "#C1624C",
+    "green-dark": "#C1624C",
+    "lavender-light": "#C1624C",
+    "lavender-dark": "#C1624C"
+   },
+   "kotlin": "colors.brand.earthTerracotta"
+  }
+ }
+}

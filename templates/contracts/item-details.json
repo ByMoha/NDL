@@ -1,0 +1,165 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "item-details",
+ "name": "Item details",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "page",
+ "appLevel": "L3",
+ "band": {
+  "value": null,
+  "rule": "Takes the band of the service that uses it; commitment state inside it is band 2."
+ },
+ "job": "Everything needed to decide on one item: media, name and provider, description, options, then one action that adds or books it.",
+ "useFor": "One item that needs more than its card can hold — several photos, a description, options such as size or colour — opened from a card, a search result, a notification or a shared link, going into a cart to be paid for later with other items.",
+ "notFor": "A booking with a date, a slot or a permit (use the booking flow, where availability and holds follow other rules); an item with no options and nothing more to say than its card (let the card add it directly); an item with a flow of its own, such as an add-on task (start that flow instead); a person in a sacred window, where the page is suppressed with the rest of the service.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Marketplace Prodcut: back, one title and the cart with its count."
+   ],
+   "forbidden": [
+    "A title that mixes the item name and its category; the flow does this and needs a decision."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "gallery",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1–8",
+   "allowed": [
+    "Product Photo · Status On, 340 × 328, with a peek of the next photo, and Pagination.",
+    "The first photo is the one used on cards; with a single photo, pagination is hidden."
+   ],
+   "forbidden": [
+    "Imagery that is not the item for sale."
+   ],
+   "patterns": [],
+   "components": [
+    "Pagination"
+   ]
+  },
+  {
+   "id": "identity",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "Product Header: provider or brand, item name, share, and a verified mark shown only when it is true."
+   ],
+   "forbidden": [
+    "A verified mark shown when it is not earned; that is a disguised ad (M4)."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "description",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "Product Info · State Product Description: what it is, what is included, size or weight, origin — facts first, in 3 lines before the text expands."
+   ],
+   "forbidden": [
+    "Claims before facts.",
+    "Placeholder text."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "options",
+   "n": 4,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "Proposed · product-options, a local component with no library home yet: one row per option, with a label and chips.",
+    "Nothing is selected in advance unless there is only one choice; an unavailable option stays visible and marked, not removed."
+   ],
+   "forbidden": [
+    "An option selected in advance when more than one exists.",
+    "An unavailable option hidden instead of marked."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "related",
+   "n": 5,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "The cards-slider pattern: SectionTitle then a MediaCard row of items from the same category or bought together, after the details."
+   ],
+   "forbidden": [
+    "A position between the options and the action.",
+    "An item that is not actually related; a sponsored item not labelled as an ad."
+   ],
+   "patterns": [
+    "cards-slider"
+   ],
+   "components": [
+    "MediaCard",
+    "SectionTitle"
+   ]
+  },
+  {
+   "id": "action-bar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Quantity, total and one Primary action that names the outcome; the action stays enabled, and on tap it moves to a missing option and says what to choose."
+   ],
+   "forbidden": [
+    "A disabled Primary used to hide validation.",
+    "A total that is not the price paid."
+   ],
+   "patterns": [],
+   "components": []
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "No \"selling fast\" and no timers; a low stock count is stated once, as a fact, and only when it is real.",
+  "The price shown is the price paid; taxes and fees are visible before the cart, not after.",
+  "The verified mark is earned, never decorative; a related item is actually related, and a sponsored one is labelled as an ad.",
+  "Notify me sends one message when the item returns, and nothing else.",
+  "Photos carry alt text that describes the item; the gallery announces its position and the dots are never the only cue.",
+  "A selected option is exposed to screen readers and never shown by colour alone; colour options also show the colour name."
+ ],
+ "allocation": {
+  "Withheld": "For Dependents and Organised groups the action bar is withheld (P0); the page stays readable."
+ },
+ "measure": {
+  "success": "Adds per item view, option errors per add, time from opening to adding",
+  "guardrails": "refunds marked not as described, removals from the cart, complaints per 1,000 requests"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70417:3281"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Inherits": "Marketplace: DNA Supportive · band 6 · interrupts for offers are T3 · suppressed in sacred windows.",
+   "App level": "L4 detail · inside the Marketplace. Reached from cards, search, notifications and shared links."
+  },
+  "notes": [],
+  "inTheFlowToday": "The main action is disabled in the flow when an option is missing and when the item is out of stock; the DL rule is not to disable the main action to hide validation, so it is shown enabled here instead. Both hints in the flow open with a warning emoji, and one has a spelling error; rewritten here. Product Size Options (size and colour) is a local component with no library home, used four times, shown here as a Proposed block. The toolbar type is published as \"Marketplace Prodcut\" (a spelling slip) and needs two layer overrides to match the design: a dark status bar and a hidden action block. Product Info is published with a state named forTesting, and its tabs are hidden with a layer override. The toolbar title and the item name differ in the flow; deciding whether the toolbar shows the category or the item is still open. Out of stock reuses the cart bar with its quantity and total; it needs a bar of its own with Notify me only. The photo fade and the header panel are local shapes with hard-coded gradients. The verified mark’s text is 8 px in the library, below the 12 px floor; logged.",
+  "sourceFrames": []
+ },
+ "was": "product-details"
+}

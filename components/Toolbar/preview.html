@@ -1,0 +1,52 @@
+<!doctype html>
+<html data-theme="gold-light" lang="ar">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>Toolbar — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage col" dir="rtl" style="min-height:100vh;box-sizing:border-box"></div>
+<script>
+  var N = window.NusukDL, h = React.createElement;
+  function F(label, el, dark){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:402,maxWidth:'100%',borderRadius:18,overflow:'hidden',background:dark?'linear-gradient(160deg,#5b4a35,#1d1a17 60%,#070808)':'var(--surface-screen-bk)',outline:'1px solid var(--surface-03-pearl)'}}, el)); }
+  var GROUPS = [
+    ['Landings & primary', function(){ return [
+      F('Landings / LoggedIn', h(N.Toolbar,{type:'Landings / LoggedIn',statusBar:true,wallet:'100'})),
+      F('Landings / Guest', h(N.Toolbar,{type:'Landings / Guest',statusBar:true})),
+      F('Landings / Search', h(N.Toolbar,{type:'Landings / Search',statusBar:true,wallet:'100'})),
+      F('Primary Pages / Default', h(N.Toolbar,{type:'Primary Pages / Default',statusBar:true})),
+      F('Primary Pages / Search', h(N.Toolbar,{type:'Primary Pages / Search',title:'العنوان',statusBar:true})),
+      F('Primary Pages / Tabs', h(N.Toolbar,{type:'Primary Pages / Tabs',title:'العنوان',statusBar:true})),
+      F('Profile', h(N.Toolbar,{type:'Profile',statusBar:true}))]; }],
+    ['Secondary & modal', function(){ return [
+      F('Secondary Pages / Default', h(N.Toolbar,{type:'Secondary Pages / Default',title:'العنوان',statusBar:true})),
+      F('Secondary Pages / No Actions', h(N.Toolbar,{type:'Secondary Pages / No Actions',title:'العنوان',statusBar:true})),
+      F('Secondary Pages / Search', h(N.Toolbar,{type:'Secondary Pages / Search',statusBar:true})),
+      F('Secondary Pages / Tabs', h(N.Toolbar,{type:'Secondary Pages / Tabs',title:'العنوان',tabs:['عنوان','عنوان','عنوان','عنوان','عنوان'],activeTab:1,statusBar:true})),
+      F('Modal / Default', h(N.Toolbar,{type:'Modal / Default',title:'العنوان',chip:'العنوان',statusBar:true})),
+      F('Modal / Search', h(N.Toolbar,{type:'Modal / Search',statusBar:true})),
+      F('Marketplace Prodcut', h(N.Toolbar,{type:'Marketplace Prodcut',title:'اسم المنتج',statusBar:true}))]; }],
+    ['Tools', function(){ return [
+      F('TopTabs', h(N.Toolbar,{type:'TopTabs',statusBar:true})),
+      F('Companion MGM', h(N.Toolbar,{type:'Companion MGM',statusBar:true})),
+      F('Nusuk AI', h(N.Toolbar,{type:'Nusuk AI',statusBar:true})),
+      F('Process', h(N.Toolbar,{type:'Process',progress:.3,statusBar:true})),
+      F('DatePicker&Close', h(N.Toolbar,{type:'DatePicker&Close',statusBar:true})),
+      F('Timer', h(N.Toolbar,{type:'Timer',title:'العنوان',statusBar:true}))]; }],
+    ['Darkmode', function(){ return [
+      F('Darkmode · Secondary Pages / Default', h(N.Toolbar,{type:'Secondary Pages / Default',title:'العنوان',darkmode:true,statusBar:true}), true),
+      F('Darkmode · Primary Pages / Search', h(N.Toolbar,{type:'Primary Pages / Search',title:'العنوان',darkmode:true,statusBar:true}), true),
+      F('Darkmode · Landings / LoggedIn', h(N.Toolbar,{type:'Landings / LoggedIn',darkmode:true,statusBar:true}), true),
+      F('Darkmode · DatePicker&Close', h(N.Toolbar,{type:'DatePicker&Close',darkmode:true,statusBar:true}), true)]; }]
+  ];
+  // 20 types in four groups; one group renders at a time so the card stays light (each toolbar carries glass controls).
+  function App(){
+    var s = React.useState(0), g = GROUPS[s[0]];
+    return h('div',{style:{display:'grid',gap:18,alignContent:'start',width:'100%'}},
+      h('div',{dir:'ltr',style:{display:'flex',alignItems:'center',gap:12,flexWrap:'wrap'}},
+        h(N.HeaderTabs,{tabs:GROUPS.map(function(x){ return {label:x[0],count:x[1]().length}; }),active:0,onChange:s[1]}),
+        h('span',{className:'notes-2-regular',style:{color:'var(--text-note)'}},'20 types · Figma Navigation › Toolbar')),
+      h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(402px,1fr))',gap:18,justifyItems:'start'}},
+        g[1]().map(function(el,i){ return React.cloneElement(el,{key:g[0]+i}); })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

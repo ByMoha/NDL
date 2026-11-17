@@ -1,0 +1,3551 @@
+{
+ "2026-11-05-buttons.json": {
+  "release": "2026-11-05",
+  "title": "Buttons tokens move from Foundation to 🕹️ Buttons › Buttons Colors",
+  "removed": [
+   {
+    "figma": "Buttons/Surface/Primary",
+    "cssVar": "--buttons-surface-primary",
+    "replaceInButton": "--button-primary-surface",
+    "replaceElsewhere": "--surface-10-ink",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Text/Primary",
+    "cssVar": "--buttons-text-primary",
+    "replaceInButton": "--button-primary-content",
+    "replaceElsewhere": "--surface-01-white",
+    "identicalValues": false,
+    "note": "In a button, dark themes are now #FFFFFF (C7). Elsewhere identical."
+   },
+   {
+    "figma": "Buttons/Icons/Primary",
+    "cssVar": "--buttons-icons-primary",
+    "replaceInButton": "--button-primary-content",
+    "replaceElsewhere": "--icons-white",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Surface/Reject",
+    "cssVar": "--buttons-surface-reject",
+    "replaceInButton": "--button-secondary-surface",
+    "replaceElsewhere": "--surface-02-ivory",
+    "identicalValues": false,
+    "note": "In a button the fill is now 70% opacity. Elsewhere identical."
+   },
+   {
+    "figma": "Buttons/Text/Reject",
+    "cssVar": "--buttons-text-reject",
+    "replaceInButton": "--button-secondary-content",
+    "replaceElsewhere": "--text-heading",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Icons/Reject",
+    "cssVar": "--buttons-icons-reject",
+    "replaceInButton": "--button-secondary-content",
+    "replaceElsewhere": "--alerts-icons-reject",
+    "identicalValues": false,
+    "note": "Elsewhere identical. In a button the icon now matches the label: #171A1C → #070808 (dark #E5E5E6 → #FFFFFF)."
+   },
+   {
+    "figma": "Buttons/Surface/Error",
+    "cssVar": "--buttons-surface-error",
+    "replaceInButton": "--button-fate-surface",
+    "replaceElsewhere": "--alerts-surface-error",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Text/Error",
+    "cssVar": "--buttons-text-error",
+    "replaceInButton": "--button-fate-content",
+    "replaceElsewhere": "--alerts-text-error",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Icons/Error",
+    "cssVar": "--buttons-icons-error",
+    "replaceInButton": "--button-fate-content",
+    "replaceElsewhere": "--alerts-icons-error",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Surface/_Info",
+    "cssVar": "--buttons-surface-info",
+    "replaceInButton": null,
+    "replaceElsewhere": "--alerts-surface-info",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Text/_Info",
+    "cssVar": "--buttons-text-info",
+    "replaceInButton": null,
+    "replaceElsewhere": "--alerts-text-info",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Icons/_Info",
+    "cssVar": "--buttons-icons-info",
+    "replaceInButton": null,
+    "replaceElsewhere": "--alerts-icons-info",
+    "identicalValues": false,
+    "note": "green-dark changes #118CE4 → #E4F1F8."
+   },
+   {
+    "figma": "Buttons/Surface/_Success",
+    "cssVar": "--buttons-surface-success",
+    "replaceInButton": null,
+    "replaceElsewhere": "--alerts-surface-success",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Text/_Success",
+    "cssVar": "--buttons-text-success",
+    "replaceInButton": null,
+    "replaceElsewhere": "--alerts-text-success",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Icons/_Success",
+    "cssVar": "--buttons-icons-success",
+    "replaceInButton": null,
+    "replaceElsewhere": "--alerts-icons-success",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Surface/_Warning",
+    "cssVar": "--buttons-surface-warning",
+    "replaceInButton": null,
+    "replaceElsewhere": "--alerts-surface-warning",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Text/_Warning",
+    "cssVar": "--buttons-text-warning",
+    "replaceInButton": null,
+    "replaceElsewhere": "--alerts-text-warning",
+    "identicalValues": true
+   },
+   {
+    "figma": "Buttons/Icons/_Warning",
+    "cssVar": "--buttons-icons-warning",
+    "replaceInButton": null,
+    "replaceElsewhere": "--alerts-icons-warning",
+    "identicalValues": true
+   }
+  ],
+  "added": [
+   "--button-primary-surface",
+   "--button-primary-content",
+   "--button-secondary-surface",
+   "--button-secondary-content",
+   "--button-ghost-surface",
+   "--button-ghost-content",
+   "--button-fate-surface",
+   "--button-fate-content",
+   "--button-primary-surface-on-dark",
+   "--button-primary-content-on-dark",
+   "--button-secondary-surface-on-dark",
+   "--button-secondary-content-on-dark",
+   "--button-ghost-content-on-dark",
+   "--button-fate-surface-on-dark",
+   "--button-fate-content-on-dark"
+  ]
+ },
+ "2026-11-08-navigation-cards.json": {
+  "date": "2026-11-08",
+  "tokens": {
+   "version": 3,
+   "changed": [
+    {
+     "token": "hero-light",
+     "fontSize": {
+      "from": "64px",
+      "to": "48px"
+     }
+    },
+    {
+     "token": "hero-regular",
+     "fontSize": {
+      "from": "64px",
+      "to": "48px"
+     }
+    }
+   ]
+  },
+  "components": {
+   "Toolbar": {
+    "props": {
+     "type": {
+      "added": [
+       "landing",
+       "back",
+       "search",
+       "top-tabs",
+       "companion",
+       "nusuk-ai",
+       "process",
+       "profile",
+       "date-picker",
+       "timer",
+       "market-landing",
+       "market-category",
+       "market-product"
+      ],
+      "kept": [
+       "primary",
+       "inner",
+       "close"
+      ]
+     },
+     "status": "added",
+     "light": "added (dark kept as alias)",
+     "subtitle": "removed"
+    }
+   },
+   "TabBar": {
+    "props": {
+     "type": "added (Figma Active names)",
+     "items": "kept; default icons are now hajj, palm, madinah, store-03"
+    }
+   },
+   "RequestCard": {
+    "props": {
+     "reference": "removed",
+     "subtitle": "removed",
+     "rows": "removed (use date/time)",
+     "action": "removed (open button is built in)",
+     "type": "added",
+     "upcoming": "added",
+     "tag": "added",
+     "service": "added",
+     "date": "added",
+     "time": "added",
+     "footer": "added",
+     "empty": "added",
+     "notice": "added"
+    }
+   },
+   "MemberCard": {
+    "props": {
+     "meta": "added",
+     "badge": "added",
+     "layout": "added",
+     "actionable": "added",
+     "swiped": "added",
+     "people": "added"
+    }
+   },
+   "OptionCard": {
+    "props": {
+     "type": {
+      "renamed": {
+       "icon-action": "icon-with-action",
+       "two-actions": "2-actions"
+      },
+      "added": [
+       "lr-icon-with-action",
+       "without-action",
+       "requirement-item"
+      ]
+     },
+     "status": "added",
+     "flag": "added"
+    }
+   },
+   "Avatar": {
+    "sizes": {
+     "xs": 24,
+     "sm": {
+      "from": 32,
+      "to": 42
+     },
+     "md": {
+      "from": 38,
+      "to": 56
+     },
+     "lg": {
+      "from": 54,
+      "to": 72
+     },
+     "xl": {
+      "from": 72,
+      "to": 100
+     }
+    },
+    "state": {
+     "negative": {
+      "from": "error red",
+      "to": "white"
+     },
+     "positive": {
+      "from": "ivory",
+      "to": "ivory"
+     }
+    },
+    "px": "added"
+   },
+   "Chip": {
+    "heights": {
+     "xs": {
+      "from": 24,
+      "to": 16
+     },
+     "sm": {
+      "from": 24,
+      "to": 18
+     },
+     "md": {
+      "from": 32,
+      "to": 20
+     },
+     "lr": {
+      "from": 32,
+      "to": 24
+     }
+    }
+   },
+   "Pagination": {
+    "size": "added",
+    "progress": "added",
+    "inactiveOpacity": {
+     "from": 0.4,
+     "to": 1
+    }
+   },
+   "Button": {
+    "ghostFateUnderline": {
+     "from": true,
+     "to": false
+    },
+    "loadingOpacity": {
+     "primary": {
+      "from": 0.4,
+      "to": 1
+     },
+     "secondary": {
+      "from": 0.4,
+      "to": 1
+     },
+     "ghost": 0.4
+    },
+    "spinnerSize": "icon-only size per size"
+   }
+  },
+  "new": [
+   "DirectionSheet",
+   "HomeItem",
+   "IconBlock",
+   "SearchBar",
+   "StatusBar",
+   "HomeIndicator",
+   "Glass"
+  ]
+ },
+ "2026-11-08b-buttons-cards.json": {
+  "date": "2026-11-08",
+  "time": "17:20 (+03)",
+  "supersedes_part_of": "2026-11-08-navigation-cards.json",
+  "tokens": {
+   "version": "3.1",
+   "added": [
+    {
+     "token": "button-green-surface",
+     "figma": "Buttons Colors › Green › Default Surface → Alerts/Surface/_Solid Success",
+     "light": "#5db364",
+     "dark": "#ecfdf3"
+    },
+    {
+     "token": "button-green-content",
+     "figma": "Buttons Colors › Green › Default Content → Text/Inverse",
+     "light": "#ffffff",
+     "dark": "#ffffff"
+    },
+    {
+     "token": "button-green-secondary-surface",
+     "figma": "Buttons Colors › Green › Secondary Surface → Alerts/Surface/Success",
+     "light": "#f0fff5",
+     "dark": {
+      "gold-dark": "#0c3b10",
+      "green-dark": "#198022",
+      "lavender-dark": "#198022"
+     }
+    },
+    {
+     "token": "button-green-secondary-content",
+     "figma": "Buttons Colors › Green › Secondary Content → Alerts/Surface/_Solid Success",
+     "light": "#5db364",
+     "dark": "#ecfdf3"
+    },
+    {
+     "token": "button-green-ghost-content",
+     "figma": "Buttons Colors › Green › Ghost Content → Alerts/Text/Success",
+     "light": "#5db364",
+     "dark": "#ecfdf3"
+    }
+   ],
+   "changed": [],
+   "removed": []
+  },
+  "components": {
+   "Button": {
+    "props": {
+     "tone": "added: 'default' | 'green' (Figma _Button Trail Green Default / Green Ghost)"
+    },
+    "rendering": {
+     "ghost+fate label": {
+      "from": "no underline",
+      "to": "underlined (Regular/Body/Two + UNDERLINE)"
+     },
+     "fate+icon right padding-inline-end": {
+      "from": "button-padding-*",
+      "to": "button-padding-icon-* (26/24/20/14)"
+     },
+     "fate+icon-only and fate loading padding-inline": {
+      "from": "button-padding-* (32/30/22/16)",
+      "to": "button-padding-icon-* (26/24/20/14); widths 78/74/64/46"
+     }
+    }
+   },
+   "RequestCard": {
+    "presets": {
+     "electric-cart.tagIcon": {
+      "from": "cart",
+      "to": "umrah"
+     },
+     "sim.tagIcon": {
+      "from": "simcard-02",
+      "to": "smart-phone-04"
+     },
+     "marketplace.footIcon": {
+      "from": "package",
+      "to": "package-moving"
+     },
+     "marketplace.people": {
+      "from": [
+       "م",
+       "",
+       ""
+      ],
+      "to": [
+       "+2",
+       "picture",
+       "picture"
+      ]
+     }
+    },
+    "rendering": {
+     "footer avatar": "white inside ring 1.5px",
+     "order avatars": "Positive (Ivory) + white inside ring 1.4px"
+    }
+   },
+   "MemberCard": {
+    "rendering": {
+     "avatar shadow": {
+      "from": "-6 6 12 -6 #1a1c1f 5%",
+      "to": "-6 6 30 -12 #070808 5% (_Card Avatar)"
+     }
+    }
+   },
+   "AvatarGroup": {
+    "props": {
+     "state": "added; people[].state added"
+    }
+   }
+  },
+  "foundation": {
+   "glassBG": "re-read 17:18, identical to the morning read; full recipe in CHANGES-2026-11-08.md"
+  }
+ },
+ "2026-11-09-patterns-templates.json": {
+  "date": "2026-11-09",
+  "tokens": {
+   "version": "3.1",
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "components": {
+   "added": [
+    "SectionTitle",
+    "CategoryTile",
+    "ProductTile",
+    "FaceTile",
+    "PlaylistCard",
+    "HintWidget",
+    "Categories",
+    "CategoryChips",
+    "CardsSlider",
+    "PlaylistRow",
+    "ListSideBySide",
+    "Leaderboard",
+    "Guide",
+    "ServicesBox",
+    "BentoGrid",
+    "CardsList",
+    "UpcomingRequests",
+    "FeaturedHeader",
+    "Page"
+   ],
+   "changed": [
+    {
+     "name": "MediaCard",
+     "change": "`height` prop; `width`/`height` accept numbers or CSS lengths"
+    },
+    {
+     "name": "SoundPlayer",
+     "change": "play icon is the Figma `play` icon"
+    }
+   ]
+  },
+  "icons": {
+   "added": [
+    "customer-service-01",
+    "dua",
+    "golf-cart",
+    "haji",
+    "id",
+    "kaaba-01",
+    "madinah-city",
+    "play",
+    "quote-up",
+    "quran-01",
+    "sujood"
+   ]
+  },
+  "templates": {
+   "added": [
+    "rawdah-landing",
+    "rawdah-landing-full"
+   ],
+   "file": "templates/rawdah-landing.json",
+   "note": "Sections tagged with band, placement and dna; Figma order inverts bands (PT9)"
+  },
+  "section_model": {
+   "pattern": "featured-header | upcoming-requests | categories | category-chips | cards-slider | playlist | list-side-by-side | leaderboard | guide | services-box | bento-grid | cards-list",
+   "title": "string?",
+   "tag": "string? (#stream)",
+   "actionLabel": "string?",
+   "items": "array",
+   "layout": "row | grid (cards-slider)",
+   "variant": "card | plain (guide)",
+   "band": "1–6 | frame | hub",
+   "placement": "P1 | P2 | slot",
+   "dna": "Core | Supportive | Extra mile | Ancillary",
+   "states": "[pre-desire | evolving | journey]?",
+   "withheld": "[I | C | D | O]?",
+   "suppress": "sacred?"
+  },
+  "figma": {
+   "cards": "mg7egvNbr2ciMP04Ig2XDl",
+   "landing": "9qmiMkJqcEMFY8vbxhcP6r",
+   "rawdah_short": "18147:16034",
+   "rawdah_full": "18147:15994"
+  },
+  "docs": {
+   "added": [
+    "DESIGN.md (one file: root, 15 modules incl. M9S Surface allocation, Appendix A services, Appendix B atlas)"
+   ]
+  },
+  "known_issues": {
+   "added": [
+    "PT1",
+    "PT2",
+    "PT3",
+    "PT4",
+    "PT5",
+    "PT6",
+    "PT7",
+    "PT8",
+    "PT9"
+   ],
+   "note": "Pattern issues are PT-numbered so they never read as placement levels P0–P5"
+  }
+ },
+ "2026-11-09b-button-sizes.json": {
+  "date": "2026-11-09",
+  "name": "button sizes",
+  "tokens": {
+   "version": "3.2",
+   "changed": [
+    {
+     "name": "button-height-lr",
+     "from": "54px",
+     "to": "48px",
+     "wide": "54px",
+     "figma": "Buttons/LR → Scale/48 (Wide Scale/54)"
+    },
+    {
+     "name": "button-height-md",
+     "from": "48px",
+     "to": "44px",
+     "wide": "48px",
+     "figma": "Buttons/MD → Scale/44 (Wide Scale/48)"
+    },
+    {
+     "name": "button-height-sm",
+     "from": "38px",
+     "to": "38px",
+     "wide": "38px",
+     "figma": "Buttons/SM → Scale/38"
+    },
+    {
+     "name": "button-height-xs",
+     "from": "26px",
+     "to": "30px",
+     "wide": "26px",
+     "figma": "Buttons/XS → Scale/30 (Wide Scale/26)"
+    }
+   ],
+   "added": [],
+   "removed": []
+  },
+  "components": {
+   "changed": [
+    {
+     "name": "Button",
+     "change": "heights follow the new tokens"
+    },
+    {
+     "name": "Toolbar",
+     "change": "row, IconBlock, icon buttons (44 × 38), SearchBar, DatePill and landing logo follow button-height-md (44); one-row toolbar 80 + status bar"
+    },
+    {
+     "name": "TabBar",
+     "change": "CTAs inside action bars follow the new heights"
+    },
+    {
+     "name": "SectionTitle, RequestCard, MediaCard and every XS CTA",
+     "change": "XS 30: section titles with an arrow +4, request cards +4 to +8 (Upcoming Requests section +12)"
+    }
+   ]
+  },
+  "figma": {
+   "foundation": "avzbRTP9CgpbbO8NgU5Ymo › Layout › Buttons/*",
+   "buttons": "AXEkdklBHSQDssRmOFMTve › CTA 66401:160",
+   "navigation": "7qHX6LqdotAU59Jr5UIsfw › _Icon Block 69954:8987, _Search-bar 68495:334895, _DatePicker 69957:20155, _Nusuk AI 68743:6601"
+  },
+  "known_issues": {
+   "added": [
+    "N9",
+    "N10",
+    "N11",
+    "N12"
+   ]
+  },
+  "native": {
+   "ios": "iPhone: NusukButton heights 48 / 44 / 38 / 30 (iPad is not listed in the store). Outside the top bar, contentShape gives MD, SM and XS a 48 pt target.",
+   "android": "By window size class: Compact and Medium 48 / 44 / 38 / 30, Expanded 54 / 48 / 38 / 26. Modifier.minimumInteractiveComponentSize() keeps the 48 dp target."
+  }
+ },
+ "2026-11-09c-light-previews.json": {
+  "date": "2026-11-09",
+  "name": "light previews",
+  "tokens": {
+   "version": "3.2",
+   "changed": []
+  },
+  "components": {
+   "changed": [
+    {
+     "name": "HeaderTabs",
+     "prop": "onChange",
+     "type": "(index: number) => void",
+     "note": "new, optional; tabs stay uncontrolled, active is the starting tab"
+    },
+    {
+     "name": "Toolbar",
+     "part": "glass tabs (top-tabs, inner with-tabs)",
+     "note": "pass-through onChange; no visual change"
+    },
+    {
+     "name": "TabBar",
+     "part": "Nusuk AI shimmer (.nk-aibtn .nudge)",
+     "from": "nk-nudge 3s linear infinite",
+     "to": "nk-nudge 3s linear 1",
+     "note": "plays once when shown; replay only for a new reason"
+    }
+   ]
+  },
+  "rules": {
+   "added": [
+    {
+     "module": "M8 Motion",
+     "rule": "No resting loops: an attention cue plays once, under 5 s, and replays only for a new reason; only a wait indicator may loop, and only while the wait lasts."
+    },
+    {
+     "module": "M10 Text and motion",
+     "rule": "Motion that starts by itself stops within 5 s (WCAG 2.2.2, level A)."
+    }
+   ]
+  },
+  "previews": {
+   "Toolbar": "24 types in four groups shown one at a time (card 1120 x 960, was 2200 high)"
+  },
+  "figma": {
+   "issues": [
+    "N13: Nusuk AI shimmer has no motion spec in the Navigation file"
+   ]
+  }
+ },
+ "2026-11-09d-chips.json": {
+  "date": "2026-11-09",
+  "name": "chips",
+  "figma": {
+   "file": "🍟 Chips (VVGHy0fAHuPqL6dhBD5Ai6)",
+   "collection": "_Chips Setup",
+   "modes": [
+    "XS",
+    "SM",
+    "MD",
+    "LR"
+   ],
+   "read": "2026-11-09"
+  },
+  "tokens": {
+   "version": "3.2",
+   "changed": [],
+   "note": "Chip sizes live in the Chips file's own collection, not in Foundation; they are component values, documented in DESIGN.md M9 and here."
+  },
+  "components": {
+   "Chip": {
+    "sizes": {
+     "xs": {
+      "height": [
+       16,
+       18
+      ],
+      "text": [
+       8,
+       10
+      ],
+      "padding": [
+       10,
+       12
+      ],
+      "paddingIconSide": [
+       10,
+       10
+      ],
+      "gap": [
+       2,
+       4
+      ],
+      "icon": [
+       10,
+       12
+      ]
+     },
+     "sm": {
+      "height": [
+       18,
+       20
+      ],
+      "text": [
+       10,
+       12
+      ],
+      "padding": [
+       12,
+       14
+      ],
+      "paddingIconSide": [
+       12,
+       12
+      ],
+      "gap": [
+       4,
+       4
+      ],
+      "icon": [
+       12,
+       14
+      ]
+     },
+     "md": {
+      "height": [
+       20,
+       24
+      ],
+      "text": [
+       12,
+       12
+      ],
+      "padding": [
+       14,
+       14
+      ],
+      "paddingIconSide": [
+       12,
+       12
+      ],
+      "gap": [
+       6,
+       4
+      ],
+      "icon": [
+       16,
+       14
+      ]
+     },
+     "lr": {
+      "height": [
+       24,
+       28
+      ],
+      "text": [
+       12,
+       14
+      ],
+      "padding": [
+       16,
+       16
+      ],
+      "paddingIconSide": [
+       12,
+       14
+      ],
+      "gap": [
+       6,
+       6
+      ],
+      "icon": [
+       16,
+       16
+      ]
+     }
+    },
+    "format": "[before, after] in px",
+    "label": "wrapped in .lbl, padding-bottom 2 (Figma Text frame)"
+   },
+   "StatusChip": {
+    "from": "16 high, text 8, padding 10",
+    "to": "Chip XS"
+   },
+   "RequestCard": {
+    "upcomingTag": {
+     "from": "size sm forced to 16",
+     "to": "size xs"
+    },
+    "hajjHeight": [
+     183,
+     185
+    ]
+   },
+   "MediaCard": {
+    "selected": {
+     "from": "16 high, text 8, padding 8/10, gap 2",
+     "to": "18 high, text 10, padding 10/12, gap 4"
+    },
+    "tags": {
+     "from": "16 high, text 8, padding 10, gap 2",
+     "to": "18 high, text 10, padding 12, gap 4"
+    }
+   },
+   "MemberCard": {
+    "meta": {
+     "from": "16 high, text 8, gap 2",
+     "to": "18 high, text 10, gap 4"
+    }
+   },
+   "HintWidget": {
+    "link": "48 target via invisible padding"
+   },
+   "Toolbar": {
+    "chips": "LR 28 and MD 24 (Navigation file not yet updated)"
+   },
+   "DayTab": {
+    "today": "XS 18 (Date & Time file not yet updated)"
+   }
+  },
+  "figmaIssues": [
+   "CH1",
+   "CH2",
+   "CH3",
+   "CH4",
+   "CH5"
+  ]
+ },
+ "2026-11-09e-review.json": {
+  "date": "2026-11-09",
+  "name": "review",
+  "designMd": "2.2",
+  "figma": {
+   "read": "2026-11-09",
+   "files": [
+    "⚙️ Foundation (in sync)",
+    "🕹️ Buttons",
+    "🍟 Chips",
+    "🃏 Cards",
+    "🧭 Navigation",
+    "📅 Date & Time",
+    "🏖️ Travel"
+   ],
+   "edited": false
+  },
+  "tokens": {
+   "version": "3.3",
+   "added": [
+    "scale-44",
+    "shadow-avatar"
+   ],
+   "changed": [],
+   "note": "shadow-avatar was used by bundle.css but missing from tokens.json; scale-44 mirrors Foundation › Scale/44"
+  },
+  "css": {
+   "focusRing": {
+    "from": "var(--surface-longing)",
+    "to": "var(--surface-10-ink)",
+    "onInk": "var(--surface-01-white) on .nk-cartbar.floating, .nk-journey, .nk-msg.user .bub",
+    "onDark": "var(--text-inverse) on .nk-btn.on-dark, .nk-tb.light, .nk-glass.dark"
+   },
+   "tapPadding": {
+    "how": "::after on each control, position absolute, inset min(0px, (100% - var(--hit, 48px)) / 2)",
+    "hit": {
+     "default": 48,
+     ".nk-tb, .nk-fh .bar": 44
+    },
+    "controls": [
+     ".nk-btn",
+     ".nk-mc .mc-cta",
+     ".nk-mc .mc-play",
+     ".nk-check",
+     ".nk-radio",
+     ".nk-switch",
+     ".nk-hw .cb",
+     ".nk-ib",
+     ".nk-hitem",
+     ".nk-aibtn",
+     ".nk-tb-login",
+     ".nk-fh .rb",
+     ".nk-fh .sp",
+     ".nk-gtabs button",
+     ".nk-htabs button",
+     ".nk-pillbar button",
+     ".nk-mcard-more",
+     ".nk-stepper button",
+     ".nk-day",
+     ".nk-coll summary"
+    ],
+    "layoutChange": false
+   },
+   "invertingContentOnInk": [
+    ".nk-cartbar.floating",
+    ".nk-av.ink",
+    ".nk-tb-login .c"
+   ],
+   "rows": {
+    "overflowY": "hidden on .nk-row, .nk-tb-cats, .nk-gtabs"
+   },
+   "memberCardSwipe": "logical insets; follows direction"
+  },
+  "components": {
+   "TextField": {
+    "added": [
+     "ariaLabel"
+    ],
+    "behaviour": "label -> aria-labelledby, hint -> aria-describedby"
+   },
+   "Hint": {
+    "added": [
+     "id"
+    ]
+   },
+   "Switch": {
+    "added": [
+     "ariaLabel"
+    ]
+   },
+   "Checkbox": {
+    "added": [
+     "ariaLabel"
+    ]
+   },
+   "Radio": {
+    "added": [
+     "ariaLabel"
+    ]
+   },
+   "DropdownItem": {
+    "added": [
+     "ariaLabel",
+     "onChange"
+    ],
+    "behaviour": "selector named by title"
+   },
+   "Toolbar": {
+    "added": [
+     "backLabel",
+     "leadLabel",
+     "trailLabel",
+     "actionLabels",
+     "cartLabel"
+    ]
+   },
+   "IconBlock": {
+    "behaviour": "default names by outcome; unknown icons read 'إجراء n'"
+   },
+   "SearchBar": {
+    "added": [
+     "label"
+    ]
+   },
+   "RatingBar": {
+    "added": [
+     "label"
+    ]
+   },
+   "MemberCard": {
+    "added": [
+     "selectLabel",
+     "moreLabel",
+     "deleteLabel",
+     "starLabel"
+    ]
+   },
+   "OptionCard": {
+    "added": [
+     "moreLabel",
+     "decreaseLabel",
+     "increaseLabel"
+    ]
+   },
+   "TabBar": {
+    "added": [
+     "decreaseLabel",
+     "increaseLabel"
+    ]
+   },
+   "namespace": {
+    "added": [
+     "setLang('ar' | 'en' | null)",
+     "strings"
+    ]
+   },
+   "defaultsChanged": {
+    "TextField action label": [
+     "Verify",
+     "تحقق"
+    ],
+    "accessible names": "English -> Arabic (English with lang=en)"
+   }
+  },
+  "previews": {
+   "lang": "ar on every preview (Cover: en)"
+  },
+  "measured": {
+   "targets": {
+    "controls": 296,
+    "meetRuleBefore": 89,
+    "meetRuleAfter": 293,
+    "under24Before": 27,
+    "under24After": 0,
+    "short": [
+     46,
+     45,
+     33
+    ]
+   },
+   "names": {
+    "controls": 306,
+    "unnamedBefore": 7,
+    "unnamedAfter": 0,
+    "latinOnlyBefore": 64,
+    "latinOnlyAfter": 9
+   },
+   "textContrastPassPercent": {
+    "gold-light": 87.4,
+    "green-light": 89.4,
+    "lavender-light": 89.2,
+    "gold-dark": [
+     96.5,
+     97.1
+    ],
+    "green-dark": [
+     95.2,
+     95.9
+    ],
+    "lavender-dark": [
+     95.2,
+     95.9
+    ],
+    "runsPerTheme": 902
+   },
+   "pixelCompare": {
+    "renders": 288,
+    "identical": 271,
+    "changedAsIntended": 17
+   }
+  },
+  "decisions": [
+   "DL-17",
+   "DL-18",
+   "DL-19",
+   "DL-20",
+   "DL-21",
+   "DL-22",
+   "DL-23"
+  ],
+  "tradeOffs": [
+   "TR-01",
+   "TR-02",
+   "TR-03",
+   "TR-04"
+  ],
+  "knownIssues": {
+   "added": [
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "B16",
+    "K8",
+    "L10",
+    "L11",
+    "L12",
+    "L13",
+    "DS1",
+    "DS2",
+    "DS3",
+    "DS4"
+   ],
+   "updated": [
+    "C1",
+    "C2",
+    "C3",
+    "B8",
+    "B10",
+    "M1",
+    "CH1",
+    "CH4",
+    "CH5"
+   ]
+  },
+  "native": "CHANGES-2026-11-09.md › Review; DESIGN.md › M11 › Tap padding"
+ },
+ "2026-11-10-buttons-navigation-cards-market.json": {
+  "date": "2026-11-10",
+  "name": "buttons-navigation-cards-market",
+  "designMd": "2.3",
+  "figma": {
+   "read": "2026-11-10",
+   "files": [
+    "🕹️ Buttons",
+    "🧭 Navigation",
+    "🃏 Cards",
+    "⚙️ Foundation (in sync)",
+    "🛍️ Market (new, 5X9RDeo33hZFEhtjVUYr5c)"
+   ],
+   "edited": "library updates accepted in 8 files (237 instances); no component or variable edited"
+  },
+  "tokens": {
+   "version": "3.4",
+   "added": [],
+   "changed": [],
+   "note": "button-padding-icon-* now applies to every filled button with a left or right icon"
+  },
+  "css": {
+   "buttonPadding": {
+    "selectorsFrom": ".nk-btn.fate.icon-left / .icon-right",
+    "selectorsTo": ".nk-btn.icon-left / .icon-right",
+    "values": {
+     "iconSide": {
+      "lr": 26,
+      "md": 24,
+      "sm": 20,
+      "xs": 14
+     },
+     "otherSide": {
+      "lr": 32,
+      "md": 30,
+      "sm": 22,
+      "xs": 16
+     }
+    }
+   },
+   "added": [
+    ".nk-bnav",
+    ".nk-ntab",
+    ".nk-nudge",
+    ".nk-atc",
+    ".nk-popt",
+    ".nk-tb-hello",
+    ".nk-opt.product",
+    ".nk-mc.list",
+    ".nk-mc.grid"
+   ]
+  },
+  "components": {
+   "added": [
+    "BottomNav",
+    "NavTab",
+    "Nudge",
+    "AddToCartCTA",
+    "PriceOptions"
+   ],
+   "changed": {
+    "Toolbar": {
+     "types": 20,
+     "prop": {
+      "from": "light",
+      "to": "darkmode"
+     },
+     "typeMap": {
+      "landing": "Landings / LoggedIn",
+      "landing+no-account": "Landings / Guest",
+      "primary": "Primary Pages / Default",
+      "primary+with-search": "Primary Pages / Search",
+      "inner": "Secondary Pages / Default",
+      "back": "Secondary Pages / No Actions",
+      "search+leading-trailing": "Secondary Pages / Search",
+      "inner+with-tabs": "Secondary Pages / Tabs",
+      "close": "Modal / Default",
+      "search": "Modal / Search",
+      "market-product": "Marketplace Prodcut"
+     },
+     "new": [
+      "Landings / Search",
+      "Primary Pages / Tabs"
+     ]
+    },
+    "OptionCard": {
+     "addedTypes": [
+      "product"
+     ]
+    },
+    "MediaCard": {
+     "addedProps": [
+      "layout",
+      "cart",
+      "cartProps"
+     ]
+    },
+    "Button": {
+     "note": "icon-side padding for all filled kinds"
+    }
+   },
+   "deprecated": {
+    "Toolbar.type": [
+     "market-landing",
+     "market-category"
+    ],
+    "Toolbar.status": "all values",
+    "RequestCard.type": [
+     "sim"
+    ]
+   },
+   "removeIn": "the release after next"
+  },
+  "icons": {
+   "added": [
+    "user-circle",
+    "nusuk",
+    "route-02",
+    "airplane-02",
+    "live-streaming-02",
+    "notification-01",
+    "arrow-left-01"
+   ]
+  },
+  "audit": {
+   "pixelIdentical": "262 of 292",
+   "targets": {
+    "controls": 356,
+    "48+": 317,
+    "44 top bar": 23,
+    "under24": 0
+   },
+   "names": {
+    "interactive": 366,
+    "unnamed": 0
+   },
+   "contrastPass": {
+    "gold-light": 88.0,
+    "green-light": 89.9,
+    "lavender-light": 89.8,
+    "gold-dark": 96.9,
+    "green-dark": 96.0,
+    "lavender-dark": 96.0
+   }
+  },
+  "knownIssues": {
+   "added": [
+    "B17",
+    "B18",
+    "B19",
+    "N14",
+    "N15",
+    "N16",
+    "N17",
+    "N18",
+    "N19",
+    "N20",
+    "N21",
+    "N22",
+    "K9",
+    "K10",
+    "K11",
+    "K12",
+    "K13",
+    "MK1",
+    "MK2",
+    "MK3",
+    "MK4",
+    "MK5",
+    "MK6",
+    "MK7",
+    "MK8",
+    "N23"
+   ]
+  }
+ },
+ "2026-11-11-button-padding.json": {
+  "date": "2026-11-11",
+  "name": "button padding",
+  "tokens": {
+   "version": "3.5",
+   "changed": [
+    {
+     "name": "button-padding-xs",
+     "from": "16px",
+     "to": "14px",
+     "figma": "Buttons Setup/Glob Whitespace (XS) → Scale/14",
+     "ios": "NusukButton.paddingXs",
+     "android": "NusukButton.PaddingXs",
+     "fromPtDp": 16.0,
+     "toPtDp": 14.0
+    },
+    {
+     "name": "button-padding-sm",
+     "from": "22px",
+     "to": "18px",
+     "figma": "Buttons Setup/Glob Whitespace (SM) → Scale/18",
+     "ios": "NusukButton.paddingSm",
+     "android": "NusukButton.PaddingSm",
+     "fromPtDp": 22.0,
+     "toPtDp": 18.0
+    },
+    {
+     "name": "button-padding-md",
+     "from": "30px",
+     "to": "22px",
+     "figma": "Buttons Setup/Glob Whitespace (MD) → Scale/22",
+     "ios": "NusukButton.paddingMd",
+     "android": "NusukButton.PaddingMd",
+     "fromPtDp": 30.0,
+     "toPtDp": 22.0
+    },
+    {
+     "name": "button-padding-lr",
+     "from": "32px",
+     "to": "28px",
+     "figma": "Buttons Setup/Glob Whitespace (LR) → Scale/28",
+     "ios": "NusukButton.paddingLr",
+     "android": "NusukButton.PaddingLr",
+     "fromPtDp": 32.0,
+     "toPtDp": 28.0
+    },
+    {
+     "name": "button-padding-icon-xs",
+     "from": "14px",
+     "to": "12px",
+     "figma": "Buttons Setup/Icon-Side Whitespace (XS) → Scale/12",
+     "ios": "NusukButton.paddingIconXs",
+     "android": "NusukButton.PaddingIconXs",
+     "fromPtDp": 14.0,
+     "toPtDp": 12.0
+    },
+    {
+     "name": "button-padding-icon-sm",
+     "from": "20px",
+     "to": "16px",
+     "figma": "Buttons Setup/Icon-Side Whitespace (SM) → Scale/16",
+     "ios": "NusukButton.paddingIconSm",
+     "android": "NusukButton.PaddingIconSm",
+     "fromPtDp": 20.0,
+     "toPtDp": 16.0
+    },
+    {
+     "name": "button-padding-icon-md",
+     "from": "24px",
+     "to": "20px",
+     "figma": "Buttons Setup/Icon-Side Whitespace (MD) → Scale/20",
+     "ios": "NusukButton.paddingIconMd",
+     "android": "NusukButton.PaddingIconMd",
+     "fromPtDp": 24.0,
+     "toPtDp": 20.0
+    },
+    {
+     "name": "button-padding-icon-lr",
+     "from": "26px",
+     "to": "24px",
+     "figma": "Buttons Setup/Icon-Side Whitespace (LR) → Scale/24",
+     "ios": "NusukButton.paddingIconLr",
+     "android": "NusukButton.PaddingIconLr",
+     "fromPtDp": 26.0,
+     "toPtDp": 24.0
+    }
+   ],
+   "added": [],
+   "removed": []
+  },
+  "components": {
+   "changed": [
+    {
+     "name": "Button",
+     "change": "Icon-only and loading buttons use button-padding-icon-* on both sides, destructive or not. Before: button-padding-* unless destructive.",
+     "widths": {
+      "lr": {
+       "from": 90,
+       "to": 74
+      },
+      "md": {
+       "from": 86,
+       "to": 66
+      },
+      "sm": {
+       "from": 68,
+       "to": 56
+      },
+      "xs": {
+       "from": 50,
+       "to": 42
+      }
+     },
+     "props": "unchanged"
+    }
+   ],
+   "added": [],
+   "removed": []
+  },
+  "native": {
+   "units": "pt on iOS, dp on Android",
+   "files": [
+    "native/NusukTokens.swift",
+    "native/NusukTokens.kt",
+    "native/tokens-native.json"
+   ]
+  },
+  "figma": "https://www.figma.com/design/AXEkdklBHSQDssRmOFMTve"
+ },
+ "2026-11-11-figma-round-chat.json": {
+  "date": "2026-11-11",
+  "name": "figma-round-chat",
+  "designMd": "2.8",
+  "tokens": {
+   "version": "3.6",
+   "added": [
+    "chip-height-xs",
+    "chip-height-sm",
+    "chip-height-md",
+    "chip-height-lr",
+    "chip-padding-xs",
+    "chip-padding-sm",
+    "chip-padding-md",
+    "chip-padding-lr",
+    "chip-padding-icon-xs",
+    "chip-padding-icon-sm",
+    "chip-padding-icon-md",
+    "chip-padding-icon-lr",
+    "chip-icon-xs",
+    "chip-icon-sm",
+    "chip-icon-md",
+    "chip-icon-lr",
+    "chip-gap-xs",
+    "chip-gap-sm",
+    "chip-gap-md",
+    "chip-gap-lr",
+    "chip-font-xs",
+    "chip-font-sm",
+    "chip-font-md",
+    "chip-font-lr",
+    "control-icon-sm",
+    "control-icon-md",
+    "control-icon-lr",
+    "control-checkbox-sm",
+    "control-checkbox-md",
+    "control-checkbox-lr",
+    "control-radio-sm",
+    "control-radio-md",
+    "control-radio-lr",
+    "control-toggle-sm",
+    "control-toggle-md",
+    "control-toggle-lr",
+    "control-toggle-icon-sm",
+    "control-toggle-icon-md",
+    "control-toggle-icon-lr",
+    "control-gap-sm",
+    "control-gap-md",
+    "control-gap-lr",
+    "control-text-sm",
+    "control-text-md",
+    "control-text-lr",
+    "opacity-none",
+    "border-none",
+    "glass-bottom"
+   ],
+   "changed": [],
+   "removed": []
+  },
+  "components": {
+   "changed": [
+    {
+     "name": "TextField",
+     "change": "radius 12 → radius-s (14), from ⌨️ Inputs › Input"
+    },
+    {
+     "name": "Hint",
+     "change": "type 'success' added, icon clapping-02"
+    },
+    {
+     "name": "Icon",
+     "change": "18 icons added (119)"
+    }
+   ],
+   "added": []
+  },
+  "proposed": {
+   "lane": "chat/",
+   "components": 40,
+   "readyForReview": [
+    "Fld",
+    "Chips",
+    "AddedNationalities",
+    "FlightTicketFull",
+    "LogosGroup",
+    "Bot",
+    "BotNote",
+    "SkipNafath",
+    "NationalityRow"
+   ],
+   "tokensProposed": 31,
+   "tokensNowDL": [
+    "scale-02",
+    "scale-10",
+    "scale-26",
+    "scale-32",
+    "scale-42",
+    "scale-46",
+    "chip-height-lr",
+    "control-checkbox-sm",
+    "control-icon-sm",
+    "button-icon-only-xs",
+    "brand-kiswah-reverence"
+   ]
+  },
+  "figma": {
+   "read": [
+    "avzbRTP9CgpbbO8NgU5Ymo",
+    "AXEkdklBHSQDssRmOFMTve",
+    "DATayAnynnSQqdJQLAi7DR",
+    "wLDgE56pPpJnaZ3eZOjHco",
+    "VVGHy0fAHuPqL6dhBD5Ai6",
+    "zhcTb4a0XbF3YeYF9XI6zw",
+    "t4vGzLmqSgIwWuQPrsRyFY",
+    "7qHX6LqdotAU59Jr5UIsfw",
+    "amc1XbBjs5YtztnLxoKvh6",
+    "WAFzcSl4nXiU0nYqNrMYx1",
+    "9yOrGPTn04ZTx3uiDZ5d9o",
+    "mg7egvNbr2ciMP04Ig2XDl",
+    "5X9RDeo33hZFEhtjVUYr5c",
+    "doe7J5GzfjwD9ysWHZuVIG",
+    "A7Jna80Khqc6WMQicRfLwU",
+    "aBwaxX7ipeurOVoQXNC2Kl",
+    "VMlLoRqMJLSCKW2Fl2THrS",
+    "nj7L8ks27djv1LmxZYFTM8",
+    "ZpduRx4IDZO8eLHTq9nXbj",
+    "dDCL4mpAsg5Juht7XBAHEF",
+    "H7XuGETBwnvlKavVamZXWt",
+    "b2JRq5iuFo8rvl354ggpjR",
+    "b2qV49cswRJHHiXMzJhaxz",
+    "ozi4A2gUbVXbzbUJ3MF4uU",
+    "YGxfKOOJZt2WjLGE0AaAnZ",
+    "DXi3uVvGMTEdaM7vb2x6Gg",
+    "6YBEtoYMDXV7PQ2cWjfgbN",
+    "ZLn4yMbCy0tKYEiYut8ePG",
+    "LbeMBujAsmfjZ4NCezrY1b",
+    "GwFyE2OmFO43W4wTQVSypb"
+   ],
+   "edited": "none"
+  },
+  "knownIssues": [
+   "FR1",
+   "FR2",
+   "FR3",
+   "FR4",
+   "FR5",
+   "FR6",
+   "FR7",
+   "AI1",
+   "AI2",
+   "AI3",
+   "AI4",
+   "AI5",
+   "AI6",
+   "AI7",
+   "AI8"
+  ],
+  "decisions": [
+   "DL-30"
+  ]
+ },
+ "2026-11-11-template-contracts-recheck.json": {
+  "date": "2026-11-11",
+  "name": "template-contracts-recheck",
+  "designMd": "2.7.2",
+  "tokens": {
+   "version": "3.5",
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "components": {
+   "added": [],
+   "changed": []
+  },
+  "templates": {
+   "contractsCorrected": [
+    "service-landing",
+    "catalogue-list",
+    "item-details"
+   ],
+   "index": "templates/index.json",
+   "folder": "templates/contracts/",
+   "schema": "Nusuk DL template contract v1",
+   "status": "draft",
+   "spaceIdsRenamed": {
+    "service-landing": {
+     "commitment-state": "notification-slot",
+     "featured": "hero-row",
+     "categories": "category-grid"
+    }
+   },
+   "spacesAdded": {
+    "catalogue-list": [
+     "card-action"
+    ]
+   },
+   "note": "Fidelity correction: these three contracts had been hand-paraphrased from the original 10 Nov Figma build-script documentation instead of mechanically extracted like the other 17, and had lost real content, including two trust findings already excluded from the template but missing from its record. Rebuilt mechanically from landingB.js, categoryB.js and productB.js; nothing silently dropped. The other 17 contracts are unchanged."
+  },
+  "patterns": {
+   "index": "patterns/index.json",
+   "usedByCorrected": [
+    "upcoming-requests",
+    "categories",
+    "cards-slider",
+    "leaderboard",
+    "cards-list"
+   ],
+   "note": "usedBy updated to the corrected space ids; one stale cross-reference removed (service-landing › item-rows no longer claims cards-list)."
+  },
+  "figma": {
+   "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+   "page": "✨ Templates",
+   "read": [
+    "JICYiAc17iP7JgCE366XCc (Marketplace)"
+   ],
+   "edited": "documentation sections only; no library component or variable edited"
+  },
+  "docs": {
+   "changed": [
+    "15-template-contracts.md",
+    "13-change-log.md",
+    "12-release-notes.md",
+    "README.md",
+    "design-system.json"
+   ]
+  },
+  "knownIssues": {
+   "note": "No new TC items; this corrects the record of the originals, it does not change what the template contracts allow or forbid."
+  },
+  "decisions": []
+ },
+ "2026-11-11-template-contracts.json": {
+  "date": "2026-11-11",
+  "name": "template-contracts",
+  "designMd": "2.5",
+  "tokens": {
+   "version": "3.4",
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "components": {
+   "added": [],
+   "changed": []
+  },
+  "templates": {
+   "contractsAdded": [
+    "service-landing",
+    "catalogue-list",
+    "item-details",
+    "cart",
+    "payment",
+    "request-tracking",
+    "requests-list",
+    "service-search",
+    "service-support",
+    "address-selection",
+    "cancellation",
+    "add-on-task",
+    "cost-sheet",
+    "media-viewer",
+    "date-period",
+    "date-slot",
+    "booking-details",
+    "booking-details-package",
+    "pass-sheet",
+    "pass-viewer"
+   ],
+   "index": "templates/index.json",
+   "folder": "templates/contracts/",
+   "schema": "Nusuk DL template contract v1",
+   "status": "draft",
+   "renamed": {
+    "market-landing": "service-landing",
+    "market-category": "catalogue-list",
+    "product-details": "item-details",
+    "order-tracking": "request-tracking",
+    "requests": "requests-list",
+    "search": "service-search",
+    "support-center": "service-support",
+    "address": "address-selection",
+    "cancel-order": "cancellation",
+    "gift-card": "add-on-task",
+    "invoice-sheet": "cost-sheet",
+    "image-viewer": "media-viewer",
+    "slot-period": "date-period",
+    "slot-exact": "date-slot"
+   },
+   "pageModels": "unchanged (templates/rawdah-landing.json)"
+  },
+  "patterns": {
+   "index": "patterns/index.json",
+   "added": [],
+   "note": "Index of the twelve coded patterns with bands, placement and the contract spaces that accept them"
+  },
+  "figma": {
+   "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+   "page": "✨ Templates",
+   "read": [
+    "JICYiAc17iP7JgCE366XCc (Marketplace)",
+    "XyVWgqJb7gWcNRlnwmnYow (Umrah Permits)",
+    "OHOmsyMC66YmN80rdwduQJ (Rawdah)",
+    "9Xgo9wPf09wMU2lsK4lzlD (Hajj 27)"
+   ],
+   "edited": "documentation sections only; no library component or variable edited"
+  },
+  "docs": {
+   "added": [
+    "14-templates-and-patterns.md",
+    "DESIGN.md › M9T"
+   ],
+   "changed": [
+    "README.md",
+    "11-using-with-claude.md",
+    "10-known-issues.md",
+    "12-release-notes.md",
+    "13-change-log.md"
+   ]
+  },
+  "knownIssues": {
+   "added": [
+    "TC1",
+    "TC2",
+    "TC3",
+    "TC4",
+    "TC5",
+    "TC6",
+    "TC7",
+    "TC8",
+    "TC9",
+    "TC10",
+    "TC11",
+    "TC12",
+    "TC13",
+    "TC14",
+    "TC15",
+    "TC16"
+   ]
+  },
+  "decisions": [
+   "DL-27",
+   "DL-28"
+  ]
+ },
+ "2026-11-12-figma-round.json": {
+  "date": "2026-11-12",
+  "name": "figma-round-inputs-navigation-tracker-chat",
+  "designMd": "2.9",
+  "tokens": {
+   "version": "3.6",
+   "added": [],
+   "changed": [],
+   "removed": [],
+   "figmaNamesRenamed": {
+    "Alerts/Surface/_Solid Info": "Alerts/Surface/Solid Info",
+    "Alerts/Surface/_Solid Success": "Alerts/Surface/Solid Success",
+    "Alerts/Surface/_Solid Warning": "Alerts/Surface/Solid Warning",
+    "Alerts/Surface/_Solid Error": "Alerts/Surface/Solid Error",
+    "Alerts/Surface/_Solid Default": "Alerts/Surface/Solid Default",
+    "Alerts/Icons/_Reject": "Alerts/Icons/Reject",
+    "Alerts/Text/_Reject": "Alerts/Text/Reject"
+   },
+   "note": "Figma names only. Token, CSS, Swift and Kotlin names and every value unchanged."
+  },
+  "components": {
+   "changed": [
+    {
+     "name": "TextField",
+     "change": "Field and OTP radius radius-s (14) → radius-md (18); shadow-xs added; type search and new type counter are capsules (radius-full); label notes-1-regular in inputs-text-placeholder, inset space-nr; Hint icon 16 → 20",
+     "figma": "⌨️ Inputs › Input › Fields (Radius/MD, Shadow/XS)"
+    },
+    {
+     "name": "Hint",
+     "change": "icon 16 → 20 (Dimension/NR)",
+     "figma": "⌨️ Inputs › Hint"
+    },
+    {
+     "name": "Toolbar",
+     "change": "new type booking (Figma Almatar) with BookingPill: route, trip facts, more button; currency button",
+     "figma": "🧭 Navigation › Toolbar › Type=Almatar, _Almatar Booking"
+    },
+    {
+     "name": "VerticalStepper",
+     "change": "rebuilt to Figma: 1.5 Ash rail, 20 Longing Done point with check, breathing Current point, small Next dot, white step card (radius 18, padding 18, shadow-xs) with time, status chips, last update, alert and actions",
+     "figma": "🔦 Tracker › Vertical Stepper Mobile, _Stepper Step Master Mobile, _Stepper Point"
+    },
+    {
+     "name": "Icon",
+     "change": "2 icons added (121 in all): arrow-left-right, more-horizontal",
+     "figma": "🎨 Icons"
+    }
+   ],
+   "added": [],
+   "removed": []
+  },
+  "chat": {
+   "added": [
+    "NusukChat.SingleChoose (Proposed variant of OptionCard) · 80626:36740"
+   ],
+   "changed": [
+    "NusukChat.FlightsSelection now points to 80652:10299"
+   ]
+  },
+  "figma": {
+   "read": [
+    "avzbRTP9CgpbbO8NgU5Ymo",
+    "DATayAnynnSQqdJQLAi7DR",
+    "7qHX6LqdotAU59Jr5UIsfw",
+    "ozi4A2gUbVXbzbUJ3MF4uU",
+    "nj7L8ks27djv1LmxZYFTM8",
+    "b2JRq5iuFo8rvl354ggpjR",
+    "DXi3uVvGMTEdaM7vb2x6Gg"
+   ],
+   "edited": "nothing"
+  },
+  "knownIssues": [
+   "R1",
+   "R2",
+   "R3",
+   "R4",
+   "R5",
+   "R6",
+   "R7"
+  ],
+  "native": {
+   "ios": "Fields: NusukRadius.md and the Shadow/XS recipe; search and counter capsules. Toolbar booking type and the step card are layout, from existing constants.",
+   "android": "Fields: RoundedCornerShape(NusukRadius.Md) plus the Shadow/XS elevation recipe; search and counter CircleShape. No new constants."
+  }
+ },
+ "2026-11-14-chat-lane-downloads.json": {
+  "date": "2026-11-14",
+  "name": "chat-lane-links-downloads",
+  "designMd": "3.0",
+  "tokens": {
+   "version": "3.8",
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "chat": {
+   "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+   "coverage": {
+    "sets": 7,
+    "variants": 54,
+    "masters": 3,
+    "allMapped": true
+   },
+   "links": [
+    {
+     "component": "MobileField",
+     "from": "AI Chat Messages › Style=Password ⚠ (is Mobile)",
+     "to": "AI Chat Messages › Style=Mobile",
+     "file": "b2JRq5iuFo8rvl354ggpjR",
+     "nodes": {
+      "Variant": "80607:17062"
+     }
+    },
+    {
+     "component": "Fld",
+     "fromNodes": [
+      "68416:142451",
+      "68416:149469"
+     ],
+     "library": "⌨️ Inputs",
+     "file": "DATayAnynnSQqdJQLAi7DR",
+     "nodes": {
+      "Input": "68394:7766",
+      "Type=Input, Status=Default": "68394:7797",
+      "Type=Action, Status=Default": "68394:7857"
+     }
+    },
+    {
+     "component": "SelCard",
+     "fromNodes": [
+      "70416:1255 (an instance)"
+     ],
+     "library": "📻 Switches, Checkbox, and Radio",
+     "file": "zhcTb4a0XbF3YeYF9XI6zw",
+     "nodes": {
+      "Select Card": "70416:652",
+      "Status=Active": "70416:655",
+      "Status=Selected": "70416:657"
+     }
+    },
+    {
+     "component": "LogosGroup",
+     "fromNodes": [
+      "80632:38074 (an instance)",
+      "637:23249…637:23267 and 637:23223 (instance paths)"
+     ],
+     "library": "🃏 Cards",
+     "file": "mg7egvNbr2ciMP04Ig2XDl",
+     "nodes": {
+      "Logos Group": "70306:7320",
+      "Logo Icons": "70306:7326",
+      "City Logo": "70306:7355"
+     }
+    },
+    {
+     "component": "FlightTicketFull",
+     "fromNodes": [
+      "_Master_Flight Ticket (a name)"
+     ],
+     "library": "🏖️ Travel",
+     "file": "ozi4A2gUbVXbzbUJ3MF4uU",
+     "nodes": {
+      "Flight Ticket": "70393:18670",
+      "Selected=Off, Version=Full": "70393:18671",
+      "Selected=On, Version=Full": "70393:18673",
+      "Selected=Skeleton, Version=Full": "70393:18675",
+      "_Master_Flight Ticket": "70393:18605"
+     }
+    },
+    {
+     "component": "TabBar",
+     "added": {
+      "_AI Tab Bar Master": "80392:4168"
+     }
+    }
+   ],
+   "manifest": {
+    "added": [
+     "updated",
+     "components[].figma.library"
+    ],
+    "changed": [
+     "components[].figma.file is the file that holds the nodes"
+    ]
+   },
+   "proposedTokens": {
+    "count": 43,
+    "added": [
+     {
+      "name": "chat-type-display-1-light",
+      "css": "--nkc-type-display-1-light",
+      "value": "300 32px/1.28 var(--font-sans)",
+      "equals": "= DL .display-1-light (300 32px/1.28)."
+     },
+     {
+      "name": "chat-type-display-2-light",
+      "css": "--nkc-type-display-2-light",
+      "value": "300 28px/1.28 var(--font-sans)",
+      "equals": "= DL .display-2-light (300 28px/1.28)."
+     },
+     {
+      "name": "chat-type-headline-1-regular",
+      "css": "--nkc-type-headline-1-regular",
+      "value": "400 24px/1.28 var(--font-sans)",
+      "equals": "= DL .headline-1-regular (400 24px/1.28)."
+     },
+     {
+      "name": "chat-type-headline-2-regular",
+      "css": "--nkc-type-headline-2-regular",
+      "value": "400 20px/1.28 var(--font-sans)",
+      "equals": "= DL .headline-2-regular (400 20px/1.28)."
+     },
+     {
+      "name": "chat-type-body-1-light",
+      "css": "--nkc-type-body-1-light",
+      "value": "300 18px/1.28 var(--font-sans)",
+      "equals": "= DL .body-1-light (300 18px/1.28)."
+     },
+     {
+      "name": "chat-type-body-1-regular",
+      "css": "--nkc-type-body-1-regular",
+      "value": "400 18px/1.28 var(--font-sans)",
+      "equals": "= DL .body-1-regular (400 18px/1.28)."
+     },
+     {
+      "name": "chat-type-body-2-light",
+      "css": "--nkc-type-body-2-light",
+      "value": "300 16px/1.28 var(--font-sans)",
+      "equals": "= DL .body-2-light (300 16px/1.28)."
+     },
+     {
+      "name": "chat-type-body-2-regular",
+      "css": "--nkc-type-body-2-regular",
+      "value": "400 16px/1.28 var(--font-sans)",
+      "equals": "= DL .body-2-regular (400 16px/1.28)."
+     },
+     {
+      "name": "chat-type-notes-1-light",
+      "css": "--nkc-type-notes-1-light",
+      "value": "300 14px/1.28 var(--font-sans)",
+      "equals": "= DL .notes-1-light (300 14px/1.28)."
+     },
+     {
+      "name": "chat-type-notes-1-regular",
+      "css": "--nkc-type-notes-1-regular",
+      "value": "400 14px/1.28 var(--font-sans)",
+      "equals": "= DL .notes-1-regular (400 14px/1.28)."
+     },
+     {
+      "name": "chat-type-notes-2-light",
+      "css": "--nkc-type-notes-2-light",
+      "value": "300 12px/1.28 var(--font-sans)",
+      "equals": "= DL .notes-2-light (300 12px/1.28)."
+     },
+     {
+      "name": "chat-type-notes-2-regular",
+      "css": "--nkc-type-notes-2-regular",
+      "value": "400 12px/1.28 var(--font-sans)",
+      "equals": "= DL .notes-2-regular (400 12px/1.28)."
+     }
+    ]
+   },
+   "cssRenamed": {
+    "from": "--text-<style>-<weight> (font shorthands)",
+    "to": "--nkc-type-<style>-<weight>",
+    "files": [
+     "chat/nk-chat.css"
+    ],
+    "definedIn": "chat/nk-chat.tokens.css"
+   },
+   "gallery": "loads the DL tokens.css 3.8 and bundle (was a tokens.css older than 3.8)"
+  },
+  "downloads": {
+   "added": [
+    "nusuk-dl-chat-lane.zip",
+    "nusuk-dl-logos.zip",
+    "starter.html",
+    "download-index.json"
+   ],
+   "changed": [
+    "nusuk-dl-documents.zip: + change sheets, asset notes",
+    "nusuk-dl-coded.zip: previews, README and index rebuilt every release; + assets/ (notes, logos)"
+   ],
+   "gate": "release.py stops when a DL file is not downloadable at its current version"
+  },
+  "questions": {
+   "removed": [
+    "Q-D05",
+    "AI5",
+    "R8",
+    "F11",
+    "Arabic copy tab"
+   ],
+   "moved": {
+    "L2": "Design (content) → Design"
+   },
+   "added": [
+    "F31",
+    "F32"
+   ]
+  },
+  "knownIssues": {
+   "added": [
+    "F31",
+    "F32"
+   ],
+   "changed": [
+    "F30 parked",
+    "AI5, R8, F11, F22, F27 and N21 no longer point to the Arabic copy tab"
+   ]
+  },
+  "breaking": [
+   "chat/nk-chat.css reads --nkc-type-* instead of --text-<style>-<weight>: load chat/nk-chat.tokens.css (it defines them)"
+  ]
+ },
+ "2026-11-14-designmd-3-0-1.json": {
+  "date": "2026-11-14",
+  "name": "designmd-3-0-1-chat-counts",
+  "designMd": "3.0.1",
+  "tokens": {
+   "version": "3.8",
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "chat": {
+   "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+   "read": {
+    "sets": 7,
+    "variants": 54,
+    "masters": 3,
+    "aiChatMessagesVariants": 24
+   },
+   "version": {
+    "from": "2.5.0",
+    "to": "2.6.6",
+    "where": [
+     "chat/nk-chat.js window.NusukChat.version",
+     "the chat gallery header"
+    ]
+   },
+   "counts": {
+    "exports": 41,
+    "dl": 4,
+    "variants": 23,
+    "variantsOf": [
+     "ChatMessage",
+     "TextField",
+     "SelectCard",
+     "Chip",
+     "TabBar",
+     "FlightTicket",
+     "OptionCard"
+    ],
+    "new": 14,
+    "proposedValuesInStylesheet": 35,
+    "proposedTokens": 43,
+    "typeAliases": 12
+   }
+  },
+  "designMdChanged": [
+   "M9 › Inventory › Nusuk AI chat: 41 exports, 23 variants of 7 DL components, 35 proposed values in the stylesheet and 43 in tokens.proposed.json (was 40, 22 of 6, 31); NusukChat 2.6.6",
+   "M9C: NusukChat 2.6.6 (was 2.5.0); SingleChoose added to the Figma source table (OptionCard, AI Chat Messages › Style=Single Choose)"
+  ],
+  "project": {
+   "replaced": [
+    "claude/template-contracts.md: was the text of 11 November, morning, from before that evening's fidelity correction of service-landing, catalogue-list and item-details"
+   ],
+   "stagedEveryRelease": [
+    "claude/DESIGN.md",
+    "claude/template-contracts.md"
+   ]
+  },
+  "knownIssues": {
+   "changed": [
+    "F32: the private master is named _Booking_Ticket Matser"
+   ]
+  },
+  "breaking": []
+ },
+ "2026-11-14-figma-round.json": {
+  "date": "2026-11-14",
+  "name": "figma-round-foundation-buttons-navigation-inputs-chips-cards",
+  "designMd": "3.0",
+  "tokens": {
+   "version": "3.7",
+   "added": [
+    {
+     "name": "glass-android",
+     "value": "inset 0 5px 10px 10px rgba(7,8,8,0.05)",
+     "figma": "⚙️ Foundation › effect style Glass/Andriod Blur (background blur 10 + inner shadow)",
+     "pairWith": "backdrop-filter: blur(var(--blur-md))"
+    }
+   ],
+   "changed": [
+    {
+     "name": "button-fate-surface",
+     "from": {
+      "light": "#fff2f1",
+      "dark": "#992720"
+     },
+     "to": {
+      "light": "#ff41361a",
+      "dark": "#fef3f21a"
+     },
+     "figma": "🕹️ Buttons Colors › Fate Surface → Alerts/Surface/Solid Error at 10%"
+    },
+    {
+     "name": "button-secondary-surface-on-dark",
+     "from": {
+      "light": "#303336",
+      "dark": "#cbcccd"
+     },
+     "to": {
+      "light": "#303336b3",
+      "dark": "#cbcccdb3"
+     },
+     "figma": "🕹️ Buttons Colors › Secondary Surface (Dark) → Surface/07 Slate at 70%"
+    }
+   ],
+   "removed": []
+  },
+  "components": {
+   "changed": [
+    {
+     "name": "Button",
+     "change": "icon 'both' + trailingIconName; price; mark ('apple-pay','nafath','absher'); glass; tone green with secondary; onDark with fate ghost and green ghost",
+     "figma": "🕹️ Buttons › _Button_Master Of Masters, _Button Trail"
+    },
+    {
+     "name": "BottomNav",
+     "change": "screens from Tab Bar › Active Landing/Travel/Content/Market/Cart +; bar 95, gap 20, white haze; current tab icons-illumination + text-link (Light) + glows; tabs renamed; screen 'travel' (alias 'journey'); SM/XS 48",
+     "figma": "🧭 Navigation › Tab Bar on _BottomTab master and _Tab"
+    },
+    {
+     "name": "NavTab",
+     "change": "current: icon icons-illumination, label text-link at weight 300, longing glow",
+     "figma": "🧭 Navigation › _Tab Style=Current"
+    },
+    {
+     "name": "Toolbar",
+     "change": "types 'Primary Pages / URLs' (alias of 'Primary Pages / Tabs') and 'Primary Pages / Title' (status with-title); category buttons min 119; Landings / Search row gap 18",
+     "figma": "🧭 Navigation › Toolbar (22 types)"
+    },
+    {
+     "name": "TextField",
+     "change": "types 'multi-select' (values, placeholders, fieldLabels) and 'avatar' (avatar, initials); error and disabled use inputs-surface-default; disabled border surface-04-mist",
+     "figma": "⌨️ Inputs › Input (12 types × Status × Filled)"
+    },
+    {
+     "name": "StatusChip",
+     "change": "status 'approved' (success, مقبول, document-validation)",
+     "figma": "🃏 Cards › Request Card Status (47)"
+    },
+    {
+     "name": "HintWidget",
+     "change": "direction 'logo' (logo, logoAlt): 234 × 212, padding 26/20, gap 18, title body-1-regular, details notes-1-regular",
+     "figma": "🃏 Cards › Hints Widget Direction4"
+    }
+   ],
+   "added": [],
+   "removed": []
+  },
+  "icons": {
+   "added": [
+    "search-list-01",
+    "search-list-01-solid",
+    "car-02",
+    "car-02-solid",
+    "infinity-01",
+    "infinity-01-solid",
+    "play-list",
+    "play-list-solid",
+    "book-open-02",
+    "book-open-02-solid",
+    "airplane-02-solid",
+    "document-validation"
+   ],
+   "total": 133
+  },
+  "figmaRemoved": [
+   "🧭 Navigation › Buttom Navigation",
+   "Home Item",
+   "Marketplace Cart",
+   "Tab (replaced by _Tab)",
+   "🛍️ Market › Breathing Effect"
+  ],
+  "knownIssues": "F1–F15 (10-known-issues.md)",
+  "breaking": []
+ },
+ "2026-11-14-full-assessment.json": {
+  "date": "2026-11-14",
+  "name": "full-assessment-selection-lists-sheets-steps-widgets",
+  "designMd": "3.0",
+  "tokens": {
+   "version": "3.7",
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "components": {
+   "changed": [
+    {
+     "name": "Switch",
+     "change": "size sm|md|lr; MD 42x21 knob 24x18; on surface-10-ink; error solid alerts-surface-solid-error; disabled surface-03-pearl track, surface-04-mist knob",
+     "figma": "📻 Switches › Switch on _Switch Icon Master"
+    },
+    {
+     "name": "Checkbox",
+     "change": "size sm|md|lr (18, 18, 24); empty 1px surface-longing line; chosen surface-illumination with white tick-02; error 2px alerts-icons-error line; disabled surface-03-pearl",
+     "figma": "📻 Switches › Checkbox, Checkbox Icon Master"
+    },
+    {
+     "name": "Radio",
+     "change": "size sm|md|lr; off surface-04-mist; chosen surface-illumination; centre white rounded square 10 (13 at LR), radius 4, shadow-avatar; error solid red; disabled Pearl with Ivory centre (Mist when chosen)",
+     "figma": "📻 Switches › Radio on _Radio Icon Master"
+    },
+    {
+     "name": "SelectCard",
+     "change": "Active Ivory + 1px Pearl; Selected surface-shade-5 + 1px surface-illumination; Disabled content 70%, gap 20, shadow-avatar; width 308, padding 18, radius 18",
+     "figma": "📻 Switches › Select Card on _Master Select Card"
+    },
+    {
+     "name": "DropdownItem",
+     "change": "gap 18; details notes-2-light 4 below; avatar sm 42; flag 20x15; icon 20; radio/checkbox rows are the control with checkmark-circle-02 / checkmark-square-02 in icons-longing when chosen; toggle = Switch md; download = download-04; new props src, downloadLabel",
+     "figma": "⬇️ Dropdown list › Dropdown item on _Dropdown item list/On"
+    },
+    {
+     "name": "BottomSheet, DirectionSheet, StatusSheet",
+     "change": "radius 42 42 54 54 (radius-ios); box-shadow glass-full (was shadow-05); DirectionSheet content padding 32 26 48, options gap 0 with 4 above and below",
+     "figma": "🧭 Navigation › Bottom Sheet BG, Direction Sheet"
+    },
+    {
+     "name": "Steps",
+     "change": "rebuilt: start-aligned columns, 20px point (prev Ink dot, current stage icon + glow, next Smoke ring), 1px line (Slate behind, Mist fading ahead), notes-1-regular labels, next at 40%, details on current; steps accept {title, details, icon}",
+     "figma": "🔦 Tracker › Steps on _Step Master"
+    },
+    {
+     "name": "StartJourney",
+     "change": "rebuilt with size sm|xs|lr, journey, items, title, onSelect, onMore; subtitle and iconName ignored",
+     "figma": "🎫 Widgets › Start Journey, Start Journey Animated"
+    },
+    {
+     "name": "AvatarGroup",
+     "change": "preset travel|travel-active, sizes, caption; overlap 9 with white ring when sized",
+     "figma": "🏖️ Travel › User Group"
+    }
+   ],
+   "added": [],
+   "removed": []
+  },
+  "icons": {
+   "added": [
+    "checkmark-circle-02",
+    "checkmark-square-02",
+    "download-04",
+    "package-search",
+    "package-receive",
+    "delivery-truck-02",
+    "package-out-of-stock",
+    "delivery-view-01",
+    "money-exchange-01"
+   ],
+   "reexported": [
+    "package-moving",
+    "safe-delivery-01"
+   ],
+   "total": 142
+  },
+  "strings": {
+   "added": [
+    "download",
+    "startJourney",
+    "newJourney",
+    "umrah",
+    "hajj",
+    "rawdah"
+   ]
+  },
+  "knownIssues": [
+   "F16",
+   "F17",
+   "F18",
+   "F19",
+   "F20",
+   "F21",
+   "F22",
+   "F23",
+   "F24",
+   "F25"
+  ],
+  "breaking": [
+   {
+    "name": "StartJourney",
+    "what": "The Ink card is gone; pass size and journey. subtitle and iconName no longer render."
+   },
+   {
+    "name": "Steps",
+    "what": "New look; string steps still work."
+   }
+  ]
+ },
+ "2026-11-14-ux-answers.json": {
+  "date": "2026-11-14",
+  "name": "ux-answers-layout-modes-chat-ui",
+  "designMd": "3.0",
+  "tokens": {
+   "version": "3.8",
+   "added": [],
+   "changed": [
+    {
+     "name": "glass-full",
+     "from": "inset 0 5px 10px rgba(26,28,31,0.03)",
+     "to": "inset 0 5px 10px rgba(26,28,31,0.02)",
+     "figma": "⚙️ Foundation › effect style Glass/Full (inner shadow 2%)"
+    }
+   ],
+   "removed": [],
+   "note": "19 spacing, dimension and button-height tokens gain `modes` {phone, tablet, wide} from Foundation › Layout; `value` stays the phone value"
+  },
+  "components": {
+   "changed": [
+    {
+     "name": "Avatar",
+     "change": "initials shrink to fit: 4 px a side up to 42, 8 px from 56; floor 9 px; never clipped",
+     "figma": "UX answer to the iOS review #2"
+    },
+    {
+     "name": "StatusChip",
+     "change": "order-delivered reads «تم التوصيل» as in Figma (was «تم التوصيل في %s», which drew the raw token)",
+     "figma": "🃏 Cards › Request Card Status › Status=Order Delivered"
+    }
+   ]
+  },
+  "native": {
+   "added": [
+    "NusukLayout (Swift struct .phone/.tablet/.wide)",
+    "NusukLayout (Kotlin data class Phone/Tablet/Wide) + LocalNusukLayout"
+   ]
+  },
+  "figmaChangedByDlTeam": {
+   "file": "💬 Chat UI (b2JRq5iuFo8rvl354ggpjR)",
+   "published": false,
+   "changes": [
+    "33 bindings from non-DL variables to Foundation (Border/Medium, Space/XXS, Radius/Full, Text/Heading)",
+    "AI Chat Messages › Style=Pasport renamed Style=Passport (node 80607:18228)",
+    "decorative ✈️ removed from _Booking_Ticket Matser title (80632:38078)",
+    "change-log entry 14 Nov"
+   ]
+  },
+  "decisions": [
+   "DL-35 (proposed)",
+   "DL-36",
+   "DL-37",
+   "DL-38",
+   "DL-39",
+   "DL-40",
+   "DL-41 (proposed)",
+   "TR-05"
+  ],
+  "questions": {
+   "design": [
+    "Q-D14",
+    "Q-D15",
+    "Q-D16",
+    "Q-D17",
+    "Q-D18",
+    "Q-D19",
+    "Q-D20",
+    "Q-D21"
+   ],
+   "development": [
+    "Q-X17",
+    "Q-X18",
+    "Q-X19",
+    "Q-X20",
+    "Q-X21",
+    "Q-X22",
+    "Q-X23",
+    "Q-X24",
+    "Q-X25",
+    "Q-X26",
+    "Q-X27"
+   ],
+   "page": "https://claude.ai/artifact/9KcxfMFYRKP3wwrn8n2NaS",
+   "sheet": "https://claude.ai/artifact/X98C7uwN3N2KQ4e6GuL8Ah"
+  },
+  "knownIssues": {
+   "added": [
+    "F26",
+    "F27",
+    "F28",
+    "F29",
+    "F30"
+   ],
+   "updated": [
+    "AI1",
+    "AI2",
+    "AI4",
+    "AI5",
+    "AI8",
+    "C12",
+    "R8",
+    "F11",
+    "F22",
+    "F27",
+    "N21"
+   ]
+  },
+  "breaking": [],
+  "docs": {
+   "M8": "all 16 effect styles with values, Noise/* and Treatment/* added"
+  },
+  "copy": {
+   "sheetTab": "https://claude.ai/artifact/X98C7uwN3N2KQ4e6GuL8Ah#sheet-sht_7ts5pqkfnf.0",
+   "rows": 97,
+   "toChange": 78,
+   "meetsGuide": 19,
+   "dlStringsFixed": [
+    "nk-chat IBAN check: تحقّقنا من الآيبان",
+    "nk-chat Rawdah ticket label: عرض حجز الروضة الشريفة",
+    "pattern samples: ماء زمزم",
+    "RequestCard sim preset: [اسم الشركة] - [اسم الباقة]"
+   ],
+   "plurals": "zero, one, two, few, many, other (Android <plurals>, iOS String Catalog)"
+  },
+  "health": {
+   "page": "https://claude.ai/artifact/ANTJvsayyQ8md1qK32vAL8",
+   "parity": {
+    "checks": 8,
+    "compared": 3524,
+    "differ": 0
+   },
+   "contrast": {
+    "pairs": 17,
+    "failToday": 16,
+    "fixedByProposal": 14
+   },
+   "unpublishedSets": {
+    "sets": 61,
+    "files": 14,
+    "readAt": "2026-11-14T07:58+03:00"
+   }
+  }
+ },
+ "2026-11-15-chat-figma-round.json": {
+  "date": "2026-11-15",
+  "name": "chat-figma-round-nusukchat-2-7-0",
+  "designMd": "3.0.1",
+  "tokens": {
+   "version": "3.8",
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "checked": {
+   "foundation": {
+    "file": "https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo",
+    "collections": [
+     "Colors (Quranic Illumination, Dome of the Prophet, Court Fabrics)",
+     "Layout (Mobile)"
+    ],
+    "differences": 0
+   },
+   "buttons": {
+    "file": "https://www.figma.com/design/AXEkdklBHSQDssRmOFMTve",
+    "collections": [
+     "Buttons Setup (XS, SM, MD, LR)"
+    ],
+    "differences": 0
+   }
+  },
+  "chat": {
+   "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+   "version": {
+    "from": "2.6.6",
+    "to": "2.7.0"
+   },
+   "coverage": {
+    "sets": 7,
+    "variants": 54,
+    "masters": 3,
+    "allMapped": true
+   },
+   "changed": [
+    {
+     "component": "FlightsSelection",
+     "node": "80652:10299",
+     "change": "show-all ghost button: عرض كافة الرحلات المتاحة"
+    },
+    {
+     "component": "SingleChoose",
+     "node": "80626:36740",
+     "change": "option lead icon alert-circle (DL)"
+    },
+    {
+     "component": "Chips, ErrorMsg",
+     "change": "prop buttons (DL Button MD) and kind"
+    },
+    {
+     "component": "all",
+     "change": "NusukChat.setLang / lang: English labels"
+    }
+   ],
+   "files": [
+    "chat/nk-chat.js",
+    "chat/manifest.proposed.json",
+    "chat/cards/Chips.md",
+    "chat/cards/ErrorMsg.md",
+    "chat/migrations/2026-11-15-nusuk-chat-figma-round.json"
+   ]
+  },
+  "knownIssues": {
+   "resolvable": [
+    "F32 (Booking_Ticket header Nusuk Bot, _Eyes and City Logo are library instances again; the master's name is still spelled _Booking_Ticket Matser)"
+   ]
+  },
+  "breaking": []
+ },
+ "2026-11-15-evening-round.json": {
+  "date": "2026-11-15",
+  "title": "DL Manager's update of nine files (evening)",
+  "tokens": {
+   "chip-padding-xs": [
+    "12px",
+    "8px"
+   ],
+   "chip-padding-sm": [
+    "14px",
+    "10px"
+   ],
+   "chip-padding-md": [
+    "14px",
+    "12px"
+   ],
+   "chip-padding-lr": [
+    "16px",
+    "14px"
+   ],
+   "chip-padding-icon-xs": [
+    "10px",
+    "6px"
+   ],
+   "chip-padding-icon-sm": [
+    "12px",
+    "8px"
+   ],
+   "chip-padding-icon-md": [
+    "12px",
+    "10px"
+   ],
+   "chip-padding-icon-lr": [
+    "14px",
+    "12px"
+   ]
+  },
+  "figma": {
+   "nav": "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw",
+   "sw": "https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw",
+   "dd": "https://www.figma.com/design/wLDgE56pPpJnaZ3eZOjHco",
+   "tabs": "https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY",
+   "chips": "https://www.figma.com/design/VVGHy0fAHuPqL6dhBD5Ai6",
+   "cards": "https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl",
+   "btn": "https://www.figma.com/design/AXEkdklBHSQDssRmOFMTve",
+   "travel": "https://www.figma.com/design/ozi4A2gUbVXbzbUJ3MF4uU",
+   "dt": "https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU"
+  },
+  "componentsChanged": [
+   "HeaderTabs",
+   "DayTab",
+   "TimeSlot",
+   "PrayCard",
+   "InfoTile",
+   "QRCodeStatus",
+   "Toolbar",
+   "BottomNav",
+   "TabBar",
+   "OptionCard",
+   "MediaCard",
+   "Chip"
+  ],
+  "breaking": [
+   {
+    "component": "OptionCard",
+    "prop": "type",
+    "from": "lr-icon (meant LR Icon with Action)",
+    "to": "lr-icon = LR Icon without action; use lr-icon-with-action"
+   },
+   {
+    "component": "HeaderTabs",
+    "prop": "background",
+    "from": "false = glass toolbar tabs",
+    "to": "false = bare track; use light for the glass tabs"
+   },
+   {
+    "component": "QRCodeStatus",
+    "change": "200 × 200 and new overlays; labels مستخدمة، انتهت، مُلغاة، تحديث"
+   },
+   {
+    "component": "Toolbar",
+    "type": "Secondary Pages / Search",
+    "change": "title row + search row (was one row); the one-row search is Secondary Pages / Full Search"
+   }
+  ],
+  "added": {
+   "Toolbar.type": [
+    "Secondary Pages / Full Search"
+   ],
+   "BottomNav.screen": [
+    "inner-pages"
+   ],
+   "OptionCard.type": [
+    "simple-list",
+    "lr-icon",
+    "2-actions-on"
+   ],
+   "MediaCard": [
+    "type: ad",
+    "outOfStock"
+   ],
+   "DayTab": [
+    "availability",
+    "iconName"
+   ],
+   "TimeSlot": [
+    "markers",
+    "period"
+   ],
+   "PrayCard": [
+    "gender"
+   ],
+   "InfoTile": [
+    "iconName",
+    "unit"
+   ],
+   "QRCodeStatus": [
+    "onRetry",
+    "retryLabel",
+    "logo"
+   ],
+   "icons": [
+    "zap",
+    "salah",
+    "moon-01",
+    "unavailable",
+    "sun-03",
+    "sunrise",
+    "muslim",
+    "exchange-01"
+   ]
+  },
+  "deprecated": {
+   "TabBar.type": [
+    "habits (Figma removed Habits)"
+   ]
+  },
+  "knownIssues": {
+   "closed": [
+    "N4",
+    "N7",
+    "N12",
+    "N18",
+    "N22",
+    "B5",
+    "B11",
+    "B13",
+    "B17",
+    "B18",
+    "CH4"
+   ],
+   "partly": [
+    "N5",
+    "N15"
+   ],
+   "new": [
+    "F46",
+    "F47",
+    "F48",
+    "F49",
+    "F50",
+    "F51"
+   ]
+  },
+  "unpublished": [
+   "Navigation",
+   "Travel"
+  ]
+ },
+ "2026-11-15-publish-pass.json": {
+  "date": "2026-11-15",
+  "title": "Publish pass: every DL library published, every update accepted",
+  "tokens": "3.8 unchanged",
+  "componentsChanged": [],
+  "published": [
+   "Buttons",
+   "Foundation",
+   "Avatar",
+   "Status Handlers",
+   "Inputs",
+   "Navigation",
+   "Cards",
+   "Notifications",
+   "Misc",
+   "Widgets",
+   "Rating & CSAT",
+   "Dropdown list",
+   "Modals & Sheets",
+   "Chat UI",
+   "Map",
+   "Travel",
+   "Payment",
+   "Media",
+   "Animation",
+   "Tracker",
+   "Market",
+   "Date & Time"
+  ],
+  "noPublishNeeded": [
+   "Icons",
+   "Visual Assets",
+   "Switches",
+   "Tabs",
+   "Chips"
+  ],
+  "updatesAcceptedOnly": [
+   "Templates & Patterns",
+   "Hajj Theme",
+   "App Assets",
+   "Nusuk Companion"
+  ],
+  "rounds": 5,
+  "dependencies": "library-dependencies.json",
+  "knownIssues": {
+   "F45": "mostly closed"
+  },
+  "ios": "No value change; re-read screens measured before this pass.",
+  "android": "No value change; re-read screens measured before this pass."
+ },
+ "2026-11-15-trackers-replica.json": {
+  "date": "2026-11-15",
+  "name": "trackers-replica-alert-icons",
+  "designMd": "3.1",
+  "tokens": {
+   "version": "3.8",
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "figma": {
+   "read": "every DL file after the library publish, 14 Nov 2026 from 22:40 (+03:00)",
+   "tracker": "https://www.figma.com/design/nj7L8ks27djv1LmxZYFTM8/?node-id=2402-18252",
+   "alerts": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o/?node-id=68392-32017",
+   "icons": "https://www.figma.com/design/DXi3uVvGMTEdaM7vb2x6Gg"
+  },
+  "components": {
+   "VerticalStepper": {
+    "rebuilt": true,
+    "props": {
+     "added": [
+      "step: 'start'|'middle'|'last' (default: first start, final last, rest middle)",
+      "ariaLabel"
+     ],
+     "changed": [
+      "status chips default state 'pending' (was 'gold')",
+      "state 'current' renders no rail and a full-width card (Figma F33)"
+     ]
+    },
+    "spec": {
+     "rail": 20,
+     "gapToCard": 12,
+     "columnPadding": "8 above and below; start none below; last none above",
+     "lines": "1.5 surface-06-ash; top 18; start hides bottom; last hides top and adds 18 above",
+     "points": {
+      "done": "20 surface-longing + white check 8.367x6",
+      "next": "10 icons-longing dot",
+      "current": "none"
+     },
+     "card": {
+      "radius": 18,
+      "padding": 18,
+      "gap": 18,
+      "shadow": "0 1px 2px rgba(7,8,8,.03) (Figma New/XS, F35)"
+     }
+    }
+   },
+   "Steps": {
+    "rebuilt": true,
+    "props": {
+     "added": [
+      "steps[].state: 'prev'|'current'|'next'"
+     ]
+    },
+    "spec": {
+     "startPadding": 18,
+     "pointGap": 18,
+     "label": "18 start, 32 end, gap 4",
+     "lines": {
+      "prev": "surface-07-slate",
+      "current": "surface-07-slate → clear at 75.93%",
+      "next": "surface-04-mist → clear at 75.93%"
+     },
+     "glow": "34x34 at -7, opacity .6; ellipse 27.07x26.09 surface-illumination→surface-shade-5 blur 10.89; breathes once 4s to 13.22 surface-shade-3 blur 9.58"
+    }
+   },
+   "Alert": {
+    "rebuilt": true,
+    "props": {
+     "added": [
+      "icon",
+      "primary",
+      "onPrimary",
+      "secondary",
+      "onSecondary",
+      "onClose"
+     ],
+     "kept": [
+      "action (= secondary, Ghost SM)"
+     ]
+    },
+    "breaking": [
+     "primary type is neutral (alerts-*-default, icon icons-black), was gold",
+     "message notes-1-light text-heading (was notes-1-regular text-subtle)",
+     "action renders Ghost SM (was Secondary XS)"
+    ]
+   },
+   "Icon": {
+    "changed": [
+     "checkmark-circle-02 is the Stroke Standard glyph (was the solid glyph)"
+    ],
+    "added": [
+     "checkmark-circle-02-solid"
+    ]
+   },
+   "DropdownItem": {
+    "changed": [
+     "radio selector uses checkmark-circle-02-solid (same look as before)"
+    ]
+   }
+  },
+  "strings": {
+   "added": {
+    "stepDone": {
+     "ar": "، مكتملة",
+     "en": ", completed"
+    },
+    "stepNext": {
+     "ar": "، قادمة",
+     "en": ", upcoming"
+    }
+   }
+  },
+  "figmaFixed": {
+   "icons": {
+    "what": "8 variants wrapped nested Hugeicons Pro – V.2 instances whose masters use the Hugeicons 'Dark' style; layers now drawn in the file (Icons/Black), Change Log section added",
+    "variants": [
+     "message-incoming-01 Duotone Rounded",
+     "pointing-left-01 Stroke/Solid Standard",
+     "pointing-left-02 Stroke/Solid Standard",
+     "pointing-right-01 Stroke/Solid Standard",
+     "pointing-right-02 Solid Standard"
+    ],
+    "userAction": "publish Icons, accept updates, remove Hugeicons Pro from Manage libraries",
+    "alsoFixed15Nov": [
+     "label 'story' (Nusuk Icons › Others, 66569:423): text style 'Text md/Regular' from an unreachable library (listed as Missing library with its Themes and Spacing collections) detached; label unchanged (IBM Plex Sans Arabic Regular 16/24)",
+     "patio Duotone Rounded (64404:78346): layout-grid style 'Grid' from a non-Foundation library detached; its 4 grids kept"
+    ],
+    "scan": "all 5 pages, ~265,000 layers incl. hidden: no styles left, only Foundation variables, no layer uses 'Dark'"
+   }
+  },
+  "knownIssues": {
+   "added": [
+    "F33",
+    "F34",
+    "F35",
+    "F36",
+    "F37",
+    "F38",
+    "F39",
+    "F40",
+    "F41",
+    "F42",
+    "F43",
+    "F44",
+    "F45"
+   ],
+   "closed": [
+    "F7",
+    "CH3"
+   ]
+  },
+  "breaking": [
+   "Alert primary type look",
+   "Alert message weight and colour",
+   "Alert action button kind and size",
+   "VerticalStepper chip default state",
+   "VerticalStepper default rail per position",
+   "Icon checkmark-circle-02 glyph"
+  ]
+ },
+ "2026-11-16-bottom-bar-inputs-select-card.json": {
+  "date": "2026-11-16",
+  "title": "Bottom bar, inputs, select card",
+  "tokens": {},
+  "figma": {
+   "nav": "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw",
+   "inputs": "https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR",
+   "sw": "https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw"
+  },
+  "components": {
+   "FileUploader": {
+    "added": [
+     "status",
+     "loadingLabel",
+     "error",
+     "errorText",
+     "removeLabel",
+     "onUpload",
+     "onView",
+     "onRemove"
+    ],
+    "changed": {
+     "hint": "string | false",
+     "look": "78 high, radius-md, solid surface-03-pearl line, Secondary XS icon buttons; no dashed line or progress bar",
+     "defaults": "Arabic"
+    }
+   },
+   "SelectCard": {
+    "changed": {
+     "radius": [
+      "radius-md",
+      "radius-s"
+     ],
+     "active": "surface-01-white + surface-02-ivory line + OS shadow",
+     "disabled": "surface-02-ivory + surface-03-pearl line, opacity 1",
+     "title": [
+      "body-2-regular 16",
+      "notes-1-regular 14 text-content"
+     ],
+     "description": [
+      "notes-1-regular 14",
+      "body-2-regular 16 text-heading"
+     ]
+    }
+   },
+   "TabBar": {
+    "added": [
+     "text",
+     "terms",
+     "termsHref",
+     "onTerms",
+     "side",
+     "onPrimary",
+     "onSecondary"
+    ]
+   },
+   "Toolbar": {
+    "changed": {
+     "process progress": "90x20, 3px straight Pearl track, 3px wavy Longing active (was 70x8 grey wave with gold gradient)"
+    }
+   }
+  },
+  "icons": {
+   "added": [
+    "upload-04"
+   ]
+  },
+  "knownIssues": {
+   "closed": [
+    "F17",
+    "F47 (Navigation)"
+   ],
+   "new": [
+    "F52",
+    "F53",
+    "F54",
+    "F55"
+   ]
+  }
+ },
+ "2026-11-16-csat-nps.json": {
+  "date": "2026-11-16",
+  "title": "CSAT and NPS",
+  "tokens": {},
+  "figma": {
+   "rating": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl",
+   "customerFeedback": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76392-4735",
+   "emojis": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76392-4837",
+   "smiles": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76645-2305",
+   "mobile": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76392-4868",
+   "npsSurvey": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76591-3962"
+  },
+  "components": {
+   "FeedbackEmojis": {
+    "added": [
+     "onChange",
+     "labels",
+     "showLabel",
+     "size"
+    ],
+    "changed": {
+     "look": "59 Quran-palette circles with Smiles mouths; others 40% after a pick; picked name under it (was Ivory tiles with line faces)",
+     "order": "left to right, very dissatisfied to very satisfied, in both languages"
+    }
+   },
+   "NpsScale": {
+    "new": true,
+    "props": [
+     "question",
+     "from",
+     "value",
+     "onChange",
+     "lowLabel",
+     "highLabel"
+    ]
+   },
+   "CustomerFeedback": {
+    "new": true,
+    "props": [
+     "service",
+     "title",
+     "subtitle",
+     "icon",
+     "iconName",
+     "emoji",
+     "csat",
+     "step",
+     "question",
+     "labels",
+     "value",
+     "onChange",
+     "nps",
+     "npsQuestion",
+     "npsFrom",
+     "npsValue",
+     "onNps",
+     "reasons",
+     "reasonsTitle",
+     "selectedReasons",
+     "onReasons",
+     "textArea",
+     "textLabel",
+     "textPlaceholder",
+     "text",
+     "rateLabel",
+     "nextLabel",
+     "shareLabel",
+     "onSubmit",
+     "later",
+     "laterLabel",
+     "onLater"
+    ]
+   }
+  },
+  "knownIssues": {
+   "new": [
+    "F56",
+    "F57",
+    "F58",
+    "F59",
+    "F60",
+    "F61",
+    "F62",
+    "F63",
+    "F64",
+    "F65"
+   ]
+  },
+  "questions": {
+   "new": [
+    "Q-D25",
+    "Q-D26",
+    "Q-D27",
+    "Q-D28"
+   ]
+  }
+ },
+ "2026-11-17-glass-brand.json": {
+  "date": "2026-11-17",
+  "title": "Glass BG as Figma builds it; brand guidelines, November edition",
+  "tokens": {
+   "version": "3.10",
+   "added": [
+    "shadow-os",
+    "glass-rim",
+    "glass-rim-dark",
+    "blur-frost",
+    "glass-fill",
+    "glass-fill-dark",
+    "glass-fill-off",
+    "glass-fill-off-dark",
+    "glass-sheen"
+   ],
+   "newGroup": "gradient",
+   "changed": {},
+   "notes": {
+    "blur-*": "values unchanged (Figma radius); CSS blur is half: blur(calc(var(--blur-md) / 2))"
+   }
+  },
+  "figma": {
+   "glassBG": "https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296",
+   "glassBGMaster": "https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65640-511",
+   "navigation": "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw",
+   "menuReference": "https://www.figma.com/design/UjJF6sOV5ZGK4X6HuxsQ3g/?node-id=7399-21005"
+  },
+  "css": {
+   ".nk-glass": {
+    "changed": "rebuilt from Glass BG layers via --gl-sh, --gl-df, --gl-se, --gl-fx, --gl-fr",
+    "removed": [
+     "white 62%→34% fill",
+     "inset white outline",
+     "saturate(1.4)"
+    ],
+    "recipes": [
+     "control",
+     "field (default)",
+     "bar",
+     "flat",
+     "card"
+    ],
+    "modifiers": [
+     "dark",
+     "off",
+     "[data-glass=off] ancestor",
+     "hl",
+     "act",
+     "layered",
+     "no-sh",
+     "no-df",
+     "no-fx",
+     "sheen"
+    ]
+   },
+   ".nk-gsurf": {
+    "changed": "solid surface-01-white + glass-full (was see-through radial + 2px blur)"
+   },
+   ".nk-ntab.on": {
+    "changed": "field glass via .nk-glass (no own blur)"
+   },
+   ".nk-btn.glass": {
+    "changed": "backdrop blur 5px (was 10px)"
+   },
+   ".nk-mc .mc-details, .nk-nudge": {
+    "changed": "backdrop blur 1px (was 2px)"
+   },
+   ".nk-fh .sp": {
+    "removed": "private white 75%→22% gradient"
+   }
+  },
+  "components": {
+   "Glass": {
+    "added": [
+     "kind",
+     "glass"
+    ]
+   },
+   "GlassBG": {
+    "new": true,
+    "props": [
+     "mode",
+     "dark",
+     "glass",
+     "kind",
+     "shadows",
+     "fill",
+     "effect",
+     "sheen",
+     "activeFill",
+     "size",
+     "width",
+     "height",
+     "radius",
+     "as",
+     "attrs",
+     "role",
+     "ariaLabel",
+     "className",
+     "style",
+     "children"
+    ]
+   },
+   "Toolbar": {
+    "added": [
+     "glass"
+    ],
+    "changed": {
+     "controls": "control glass",
+     "search, top tabs": "field glass",
+     "Secondary Pages / Tabs": "flat track"
+    }
+   },
+   "BottomNav": {
+    "added": [
+     "glass"
+    ],
+    "changed": {
+     "Primary bar": "bar glass (no fill)",
+     "other bars, standalone, current tab": "field glass"
+    }
+   },
+   "IconBlock": {
+    "added": [
+     "glass"
+    ]
+   },
+   "SearchBar": {
+    "added": [
+     "glass"
+    ]
+   },
+   "CategoryTile": {
+    "changed": {
+     "surface": "white + Glass/Full"
+    }
+   },
+   "FeaturedHeader": {
+    "changed": {
+     "buttons": "control glass"
+    }
+   }
+  },
+  "docs": [
+   "04-brand.md (November edition, Art direction)",
+   "DESIGN.md 3.2: M7, M8 › Glass BG, M9, M11",
+   "10-known-issues.md F66–F75, BR1–BR3",
+   "assets: Brand (39 pages), Illustration (9), Art (10, new), Applications (7, new)"
+  ],
+  "questions": [
+   "Q-D29 Android controls on Glass=Off",
+   "Q-D30 logo size and container in the toolbar"
+  ]
+ },
+ "2026-11-17-status-rating.json": {
+  "date": "2026-11-17",
+  "title": "Status Handlers and Rating & CSAT (afternoon); slim skill zip; three downloads",
+  "tokens": {
+   "version": "3.10",
+   "changed": {}
+  },
+  "designMd": "3.3",
+  "figma": {
+   "statusHandlers": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o",
+   "ratingCsat": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl",
+   "bottomSheet": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32059",
+   "generalBottomSheet": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32076",
+   "sectionError": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68545-4963",
+   "reasonSelection": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32655",
+   "ratingBar": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76392-4805",
+   "productReviewCard": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76404-3197",
+   "totalReviewCard": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76427-1177",
+   "customerFeedbackBottomSheet": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76404-3106"
+  },
+  "components": {
+   "StatusSheet": {
+    "changed": "rebuilt: headline-1-regular title, body-2-light text-content description, Primary MD over Ghost MD (hug), 72/38 icon, padding 32/18/48 gap 26, Overlay/Soft, brand = alerts gold",
+    "added": [
+     "template",
+     "subject",
+     "image",
+     "imageAlt",
+     "imageWidth",
+     "chip",
+     "chipIcon",
+     "instruction",
+     "children",
+     "terms",
+     "previous",
+     "fate",
+     "secondaryFate",
+     "primaryIcon",
+     "icon",
+     "iconName",
+     "force",
+     "topAction",
+     "arrow",
+     "arrowLabel",
+     "onArrow",
+     "onPrimary",
+     "onSecondary"
+    ],
+    "statusAdded": [
+     "image"
+    ],
+    "templates": [
+     "error",
+     "download-failed",
+     "unsaved-changes",
+     "delete",
+     "location",
+     "location-settings",
+     "calendar",
+     "calendar-settings",
+     "notifications",
+     "refund",
+     "wallet-refund",
+     "priority",
+     "payment-failed",
+     "payment-expired",
+     "update"
+    ],
+    "visual": true
+   },
+   "BottomSheet": {
+    "added": [
+     "topAction",
+     "arrow",
+     "arrowLabel",
+     "onArrow",
+     "overlay"
+    ],
+    "changed": "grabber 5 from the top of its 26 band"
+   },
+   "NoticeBar": {
+    "added": [
+     "action",
+     "onAction",
+     "onClose",
+     "description",
+     "iconName",
+     "hug"
+    ],
+    "changed": "Figma glyph per colour; description alerts-icons-reject, 26 in; Shadow/XS as drawn"
+   },
+   "Alert": {
+    "added": [
+     "stacked"
+    ]
+   },
+   "EmptyState": {
+    "added": [
+     "location",
+     "secondary",
+     "onAction",
+     "onSecondary",
+     "icon",
+     "titleTag"
+    ],
+    "changed": "page: headline-1-regular, body-2-light text-content, glyph 38 in 68, Primary MD over Ghost MD; list card",
+    "visual": true
+   },
+   "RatingBar": {
+    "added": [
+     "variant",
+     "size",
+     "count",
+     "showCount",
+     "onChange"
+    ],
+    "changed": "solid stars icons-longing on surface-03-pearl, gap 0, 16/20/24, half stars from the reading start",
+    "visual": true
+   },
+   "CustomerFeedback": {
+    "added": [
+     "scale"
+    ]
+   },
+   "SectionError": {
+    "new": true
+   },
+   "ReasonSelection": {
+    "new": true
+   },
+   "ReviewCard": {
+    "new": true
+   },
+   "ReviewSummary": {
+    "new": true
+   }
+  },
+  "css": {
+   "added": [
+    ".nk-sheet-wrap.soft",
+    ".nk-sheet.status",
+    ".nk-sheet .grab.arrow",
+    ".prev-step",
+    ".nk-notice.hug",
+    ".nk-notice .x",
+    ".nk-alert.stacked",
+    ".nk-empty.list",
+    ".nk-sec-err",
+    ".nk-reasons",
+    ".nk-ratings.mini|.standard|.box",
+    ".nk-rate.input",
+    ".nk-review",
+    ".nk-review-sum"
+   ],
+   "changed": [
+    ".nk-sheet-wrap (column)",
+    ".nk-sheet .grab",
+    ".nk-notice",
+    ".nk-empty",
+    ".nk-rate"
+   ]
+  },
+  "icons": {
+   "added": [
+    "alert-01",
+    "information-circle",
+    "file-not-found",
+    "no-internet",
+    "notification-square",
+    "cancel-circle-half-dot",
+    "settings-02",
+    "credit-card",
+    "wallet-01",
+    "multiplication-sign",
+    "arrow-up-01",
+    "package-open",
+    "star-solid"
+   ]
+  },
+  "knownIssues": [
+   "F76",
+   "F77",
+   "F78",
+   "F79",
+   "F80",
+   "F81",
+   "F82",
+   "F83",
+   "F84",
+   "F85",
+   "F86",
+   "F87"
+  ],
+  "questions": [
+   "Q-D33",
+   "Q-D34",
+   "Q-D35",
+   "Q-D36",
+   "Q-D37"
+  ],
+  "skill": {
+   "maxFiles": 200,
+   "joined": [
+    "reference/components.md",
+    "reference/chat/cards.md",
+    "reference/chat/migrations.json",
+    "reference/migrations.json"
+   ],
+   "removed": [
+    "reference/components/",
+    "reference/chat/cards/",
+    "reference/chat/migrations/",
+    "reference/migrations/"
+   ]
+  },
+  "downloads": {
+   "packages": [
+    "nusuk-dl-developers.zip",
+    "nusuk-dl-designers.zip",
+    "nusuk-dl-all.zip"
+   ],
+   "hosts": [
+    "Google Drive",
+    "GitHub ByMoha/NusukDL (releases/latest)"
+   ],
+   "removed": "single-file downloads in the guide"
+  },
+  "templates": {
+   "contracts": {
+    "cancellation": "reason space = ReasonSelection; Overlays: StatusSheet template refund or wallet-refund",
+    "payment": "rules[1]: StatusSheet template payment-failed; payment-expired when a hold runs out",
+    "address-selection": "locate: StatusSheet template location, location-settings",
+    "pass-sheet": "could-not-load: SectionError",
+    "pass-viewer": "could-not-load: SectionError",
+    "request-tracking": "rules[2]: CustomerFeedback in a BottomSheet"
+   },
+   "patterns": {
+    "composition": "No empty sections: SectionError when a section fails to load"
+   },
+   "question": "Q-D37 (reviews space in item-details)"
+  }
+ }
+}

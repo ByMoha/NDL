@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="gold-light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nusuk DL starter</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="bundle.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="bundle.js"></script>
+</head>
+<body style="margin:0;background:var(--surface-screen-bk)">
+<div id="root" class="nk" style="max-width:402px;margin:0 auto"></div>
+<script>
+  var N = window.NusukDL, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h(N.Toolbar, { type: 'Secondary Pages / Default', title: 'العنوان' }),
+    h('div', { style: { padding: 18 } }, h(N.Button, { kind: 'primary', size: 'lr', full: true }, 'متابعة')),
+    h(N.BottomNav, { screen: 'landing' })));
+</script>
+</body>
+</html>

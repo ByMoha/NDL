@@ -1,0 +1,153 @@
+{
+ "release": "2026-11-05",
+ "title": "Buttons tokens move from Foundation to 🕹️ Buttons › Buttons Colors",
+ "removed": [
+  {
+   "figma": "Buttons/Surface/Primary",
+   "cssVar": "--buttons-surface-primary",
+   "replaceInButton": "--button-primary-surface",
+   "replaceElsewhere": "--surface-10-ink",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Text/Primary",
+   "cssVar": "--buttons-text-primary",
+   "replaceInButton": "--button-primary-content",
+   "replaceElsewhere": "--surface-01-white",
+   "identicalValues": false,
+   "note": "In a button, dark themes are now #FFFFFF (C7). Elsewhere identical."
+  },
+  {
+   "figma": "Buttons/Icons/Primary",
+   "cssVar": "--buttons-icons-primary",
+   "replaceInButton": "--button-primary-content",
+   "replaceElsewhere": "--icons-white",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Surface/Reject",
+   "cssVar": "--buttons-surface-reject",
+   "replaceInButton": "--button-secondary-surface",
+   "replaceElsewhere": "--surface-02-ivory",
+   "identicalValues": false,
+   "note": "In a button the fill is now 70% opacity. Elsewhere identical."
+  },
+  {
+   "figma": "Buttons/Text/Reject",
+   "cssVar": "--buttons-text-reject",
+   "replaceInButton": "--button-secondary-content",
+   "replaceElsewhere": "--text-heading",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Icons/Reject",
+   "cssVar": "--buttons-icons-reject",
+   "replaceInButton": "--button-secondary-content",
+   "replaceElsewhere": "--alerts-icons-reject",
+   "identicalValues": false,
+   "note": "Elsewhere identical. In a button the icon now matches the label: #171A1C → #070808 (dark #E5E5E6 → #FFFFFF)."
+  },
+  {
+   "figma": "Buttons/Surface/Error",
+   "cssVar": "--buttons-surface-error",
+   "replaceInButton": "--button-fate-surface",
+   "replaceElsewhere": "--alerts-surface-error",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Text/Error",
+   "cssVar": "--buttons-text-error",
+   "replaceInButton": "--button-fate-content",
+   "replaceElsewhere": "--alerts-text-error",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Icons/Error",
+   "cssVar": "--buttons-icons-error",
+   "replaceInButton": "--button-fate-content",
+   "replaceElsewhere": "--alerts-icons-error",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Surface/_Info",
+   "cssVar": "--buttons-surface-info",
+   "replaceInButton": null,
+   "replaceElsewhere": "--alerts-surface-info",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Text/_Info",
+   "cssVar": "--buttons-text-info",
+   "replaceInButton": null,
+   "replaceElsewhere": "--alerts-text-info",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Icons/_Info",
+   "cssVar": "--buttons-icons-info",
+   "replaceInButton": null,
+   "replaceElsewhere": "--alerts-icons-info",
+   "identicalValues": false,
+   "note": "green-dark changes #118CE4 → #E4F1F8."
+  },
+  {
+   "figma": "Buttons/Surface/_Success",
+   "cssVar": "--buttons-surface-success",
+   "replaceInButton": null,
+   "replaceElsewhere": "--alerts-surface-success",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Text/_Success",
+   "cssVar": "--buttons-text-success",
+   "replaceInButton": null,
+   "replaceElsewhere": "--alerts-text-success",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Icons/_Success",
+   "cssVar": "--buttons-icons-success",
+   "replaceInButton": null,
+   "replaceElsewhere": "--alerts-icons-success",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Surface/_Warning",
+   "cssVar": "--buttons-surface-warning",
+   "replaceInButton": null,
+   "replaceElsewhere": "--alerts-surface-warning",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Text/_Warning",
+   "cssVar": "--buttons-text-warning",
+   "replaceInButton": null,
+   "replaceElsewhere": "--alerts-text-warning",
+   "identicalValues": true
+  },
+  {
+   "figma": "Buttons/Icons/_Warning",
+   "cssVar": "--buttons-icons-warning",
+   "replaceInButton": null,
+   "replaceElsewhere": "--alerts-icons-warning",
+   "identicalValues": true
+  }
+ ],
+ "added": [
+  "--button-primary-surface",
+  "--button-primary-content",
+  "--button-secondary-surface",
+  "--button-secondary-content",
+  "--button-ghost-surface",
+  "--button-ghost-content",
+  "--button-fate-surface",
+  "--button-fate-content",
+  "--button-primary-surface-on-dark",
+  "--button-primary-content-on-dark",
+  "--button-secondary-surface-on-dark",
+  "--button-secondary-content-on-dark",
+  "--button-ghost-content-on-dark",
+  "--button-fate-surface-on-dark",
+  "--button-fate-content-on-dark"
+ ]
+}

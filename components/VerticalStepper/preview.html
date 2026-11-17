@@ -1,0 +1,24 @@
+<!doctype html>
+<html data-theme="gold-light" lang="ar">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>VerticalStepper — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<script>
+  /* 🔦 Tracker › Vertical Stepper Mobile, re-read 14 November 2026: the nine variants (State × Step) in the order of the Figma set, 24 apart,
+     with the Figma text verbatim; then _Stepper Step Master Mobile with every part on (Alerts, CTAs). */
+  var N = window.NusukDL, h = React.createElement;
+  var a = function (t) { return h('span', { dir: 'auto' }, t); };
+  var step = function (state, pos) { return { state: state, step: pos, title: a('Step Title'), time: a('12 Dec 2022 - 10:10 AM'), description: a('Nusuk provides, free of charge, the service of transporting the vehicle to the periodic inspection.'), status: 'العنوان', lastUpdate: a('Last update: 14 Dec 2022, 10:10 AM') }; };
+  var variants = [];
+  ['done', 'current', 'next'].forEach(function (st) { ['start', 'middle', 'last'].forEach(function (pos) {
+    variants.push(h(N.VerticalStepper, { key: st + pos, ariaLabel: 'State=' + st + ', Step=' + pos, steps: [step(st, pos)] }));
+  }); });
+  var master = Object.assign(step('done', 'middle'), {
+    alert: h(N.Alert, { type: 'error', icon: false, title: a('Message') }, a('Text is a major channel for users to understand application content and complete their work.')),
+    actions: [h(N.Button, { key: 'p', kind: 'primary', size: 'sm' }, a('Button Text')), h(N.Button, { key: 's', kind: 'secondary', size: 'sm' }, a('Button Text'))]
+  });
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 439 } },
+    variants, h(N.VerticalStepper, { ariaLabel: '_Stepper Step Master Mobile', steps: [master] })));
+</script>
+</body>
+</html>

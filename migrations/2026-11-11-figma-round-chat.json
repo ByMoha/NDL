@@ -1,0 +1,161 @@
+{
+ "date": "2026-11-11",
+ "name": "figma-round-chat",
+ "designMd": "2.8",
+ "tokens": {
+  "version": "3.6",
+  "added": [
+   "chip-height-xs",
+   "chip-height-sm",
+   "chip-height-md",
+   "chip-height-lr",
+   "chip-padding-xs",
+   "chip-padding-sm",
+   "chip-padding-md",
+   "chip-padding-lr",
+   "chip-padding-icon-xs",
+   "chip-padding-icon-sm",
+   "chip-padding-icon-md",
+   "chip-padding-icon-lr",
+   "chip-icon-xs",
+   "chip-icon-sm",
+   "chip-icon-md",
+   "chip-icon-lr",
+   "chip-gap-xs",
+   "chip-gap-sm",
+   "chip-gap-md",
+   "chip-gap-lr",
+   "chip-font-xs",
+   "chip-font-sm",
+   "chip-font-md",
+   "chip-font-lr",
+   "control-icon-sm",
+   "control-icon-md",
+   "control-icon-lr",
+   "control-checkbox-sm",
+   "control-checkbox-md",
+   "control-checkbox-lr",
+   "control-radio-sm",
+   "control-radio-md",
+   "control-radio-lr",
+   "control-toggle-sm",
+   "control-toggle-md",
+   "control-toggle-lr",
+   "control-toggle-icon-sm",
+   "control-toggle-icon-md",
+   "control-toggle-icon-lr",
+   "control-gap-sm",
+   "control-gap-md",
+   "control-gap-lr",
+   "control-text-sm",
+   "control-text-md",
+   "control-text-lr",
+   "opacity-none",
+   "border-none",
+   "glass-bottom"
+  ],
+  "changed": [],
+  "removed": []
+ },
+ "components": {
+  "changed": [
+   {
+    "name": "TextField",
+    "change": "radius 12 → radius-s (14), from ⌨️ Inputs › Input"
+   },
+   {
+    "name": "Hint",
+    "change": "type 'success' added, icon clapping-02"
+   },
+   {
+    "name": "Icon",
+    "change": "18 icons added (119)"
+   }
+  ],
+  "added": []
+ },
+ "proposed": {
+  "lane": "chat/",
+  "components": 40,
+  "readyForReview": [
+   "Fld",
+   "Chips",
+   "AddedNationalities",
+   "FlightTicketFull",
+   "LogosGroup",
+   "Bot",
+   "BotNote",
+   "SkipNafath",
+   "NationalityRow"
+  ],
+  "tokensProposed": 31,
+  "tokensNowDL": [
+   "scale-02",
+   "scale-10",
+   "scale-26",
+   "scale-32",
+   "scale-42",
+   "scale-46",
+   "chip-height-lr",
+   "control-checkbox-sm",
+   "control-icon-sm",
+   "button-icon-only-xs",
+   "brand-kiswah-reverence"
+  ]
+ },
+ "figma": {
+  "read": [
+   "avzbRTP9CgpbbO8NgU5Ymo",
+   "AXEkdklBHSQDssRmOFMTve",
+   "DATayAnynnSQqdJQLAi7DR",
+   "wLDgE56pPpJnaZ3eZOjHco",
+   "VVGHy0fAHuPqL6dhBD5Ai6",
+   "zhcTb4a0XbF3YeYF9XI6zw",
+   "t4vGzLmqSgIwWuQPrsRyFY",
+   "7qHX6LqdotAU59Jr5UIsfw",
+   "amc1XbBjs5YtztnLxoKvh6",
+   "WAFzcSl4nXiU0nYqNrMYx1",
+   "9yOrGPTn04ZTx3uiDZ5d9o",
+   "mg7egvNbr2ciMP04Ig2XDl",
+   "5X9RDeo33hZFEhtjVUYr5c",
+   "doe7J5GzfjwD9ysWHZuVIG",
+   "A7Jna80Khqc6WMQicRfLwU",
+   "aBwaxX7ipeurOVoQXNC2Kl",
+   "VMlLoRqMJLSCKW2Fl2THrS",
+   "nj7L8ks27djv1LmxZYFTM8",
+   "ZpduRx4IDZO8eLHTq9nXbj",
+   "dDCL4mpAsg5Juht7XBAHEF",
+   "H7XuGETBwnvlKavVamZXWt",
+   "b2JRq5iuFo8rvl354ggpjR",
+   "b2qV49cswRJHHiXMzJhaxz",
+   "ozi4A2gUbVXbzbUJ3MF4uU",
+   "YGxfKOOJZt2WjLGE0AaAnZ",
+   "DXi3uVvGMTEdaM7vb2x6Gg",
+   "6YBEtoYMDXV7PQ2cWjfgbN",
+   "ZLn4yMbCy0tKYEiYut8ePG",
+   "LbeMBujAsmfjZ4NCezrY1b",
+   "GwFyE2OmFO43W4wTQVSypb"
+  ],
+  "edited": "none"
+ },
+ "knownIssues": [
+  "FR1",
+  "FR2",
+  "FR3",
+  "FR4",
+  "FR5",
+  "FR6",
+  "FR7",
+  "AI1",
+  "AI2",
+  "AI3",
+  "AI4",
+  "AI5",
+  "AI6",
+  "AI7",
+  "AI8"
+ ],
+ "decisions": [
+  "DL-30"
+ ]
+}

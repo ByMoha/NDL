@@ -1,0 +1,250 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "booking-details-package",
+ "name": "Booking details · package",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "page",
+ "appLevel": "L3",
+ "band": {
+  "value": 2,
+  "rule": "Commitment state: never suppressed."
+ },
+ "job": "A booking made of several parts with one provider: where the whole stands, who is in it, what is confirmed, what is still asked of the person, and the money.",
+ "useFor": "Packages and journeys with several people, several parts and invoices.",
+ "notFor": "A single visit or permit (use Booking details).",
+ "spaces": [
+  {
+   "id": "hero-and-toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Featured BG with Toolbar · Secondary Pages / Default: back, title, support."
+   ],
+   "forbidden": [
+    "A hero that carries text or status.",
+    "Promotional imagery."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar",
+    "Featured BG"
+   ]
+  },
+  {
+   "id": "provider-and-status",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "Provider name and link, package attributes as Chips, and one StatusChip for the whole booking."
+   ],
+   "forbidden": [
+    "More than one status for the whole.",
+    "A pending status with no next step explained."
+   ],
+   "patterns": [],
+   "components": [
+    "Chip",
+    "StatusChip"
+   ]
+  },
+  {
+   "id": "people",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1–n",
+   "allowed": [
+    "SectionTitle (Collaps), then a card per person with eligibility as a Chip; \"You\" marked."
+   ],
+   "forbidden": [
+    "Health or disability details visible to other members.",
+    "Hand-built cards where MemberCard fits."
+   ],
+   "patterns": [],
+   "components": [
+    "Chip",
+    "SectionTitle"
+   ]
+  },
+  {
+   "id": "confirmed-parts",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "optional, 0–n",
+   "allowed": [
+    "SectionTitle (Collaps), then a RequestCard or ticket per confirmed part (flight, stay, transport)."
+   ],
+   "forbidden": [
+    "Offers mixed into confirmed parts.",
+    "Parts with raw placeholders."
+   ],
+   "patterns": [],
+   "components": [
+    "RequestCard",
+    "SectionTitle"
+   ]
+  },
+  {
+   "id": "open-question",
+   "n": 4,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "One question the service still needs, answered in place; once answered it becomes a line with an edit action."
+   ],
+   "forbidden": [
+    "More than one open question at a time.",
+    "A question that moves position after it is answered."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "money",
+   "n": 5,
+   "fixed": false,
+   "cardinality": "required, 1–2",
+   "allowed": [
+    "PaymentDetails per invoice with its status, and the refund account with an edit action."
+   ],
+   "forbidden": [
+    "A total that differs from what was paid.",
+    "An account number inside an Alert.",
+    "Mixed date formats."
+   ],
+   "patterns": [],
+   "components": [
+    "PaymentDetails"
+   ]
+  },
+  {
+   "id": "for-this-journey",
+   "n": 6,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "SectionTitle with cards-slider, below the money."
+   ],
+   "forbidden": [
+    "A position above spaces 1 to 5.",
+    "A booking form inside this page.",
+    "Paid cards in a suppression window."
+   ],
+   "patterns": [
+    "cards-slider"
+   ],
+   "components": [
+    "SectionTitle"
+   ]
+  },
+  {
+   "id": "history",
+   "n": 7,
+   "fixed": false,
+   "cardinality": "optional, 0–n",
+   "allowed": [
+    "Cancelled or refunded parts with StatusChip (Cancelled, Refunded)."
+   ],
+   "forbidden": [
+    "History above confirmed parts."
+   ],
+   "patterns": [],
+   "components": [
+    "Chip",
+    "StatusChip"
+   ]
+  },
+  {
+   "id": "leave",
+   "n": 8,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "One quiet block that explains what cancelling involves and one CTA with Fate."
+   ],
+   "forbidden": [
+    "Alert · Error for something that is not an error.",
+    "Cancel after the service has started."
+   ],
+   "patterns": [],
+   "components": [
+    "Button"
+   ]
+  },
+  {
+   "id": "bottom",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Tab Bar · Empty."
+   ],
+   "forbidden": [
+    "A sticky action bar."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [
+  {
+   "id": "processing",
+   "changes": "Status: in progress, with what happens next. Open question may show. No confirmed parts yet."
+  },
+  {
+   "id": "issued",
+   "changes": "Status: issued. Confirmed parts listed. Each person can open their pass."
+  },
+  {
+   "id": "part-cancelled",
+   "changes": "History lists the cancelled part with its refund status; the whole keeps its status."
+  },
+  {
+   "id": "cancelled",
+   "changes": "Status: cancelled. Money shows the refund. No offers, no leave block."
+  }
+ ],
+ "interaction": [],
+ "rules": [
+  "The order of spaces is the same in every state; a space is shown or hidden, never moved.",
+  "One status for the whole booking at the top; parts carry their own.",
+  "What the person owes or is owed is stated once, in the money space.",
+  "Offers never sit above status, people, confirmed parts or money.",
+  "Digits 0–9; one date format; no raw placeholders; Arabic and English both checked."
+ ],
+ "allocation": {
+  "App level": "L3 · reached from the request card on Today and from Requests.",
+  "Band": "Band 2, commitment state.",
+  "Suppression": "The page is never suppressed. Space 6 is withheld in sacred windows.",
+  "Withheld": "Money, leave and the open question belong to the booker; other members see status, their own card and confirmed parts."
+ },
+ "measure": {
+  "success": "Open questions answered; passes opened",
+  "guardrails": "cancellations, refund complaints per 1,000, support contacts from this page"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70448:13643"
+ },
+ "example": {
+  "service": "Domestic Hajj",
+  "allocation": {
+   "Service": "Domestic Hajj (Local Hajj Flow) · DNA Core. Its booking state is commitment state: band 2.",
+   "Suppression": "Hajj: from Ihram to Tahalol."
+  },
+  "notes": [
+   "\"Offers below the money and never while processing\" is a proposal in this contract; DESIGN.md does not state it in those words."
+  ],
+  "inTheFlowToday": "The sections change order between \"Issuing\" and \"Issued\". A flight booking form and paid cards sit above the bank account and invoices while permits are still being issued. The refund account number sits in an Alert. Cancel uses an error alert. Two date formats on one page. Several lines carry %s; a section title carries an emoji.",
+  "sourceFrames": [
+   "9Xgo9wPf09wMU2lsK4lzlD · 23156:34386",
+   "9Xgo9wPf09wMU2lsK4lzlD · 23163:13432"
+  ]
+ }
+}

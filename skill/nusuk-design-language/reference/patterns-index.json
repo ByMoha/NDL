@@ -1,0 +1,309 @@
+{
+ "$schema": "Nusuk DL pattern index v1",
+ "updated": "2026-11-17",
+ "note": "A pattern is a CMS section (header + layout + items) and is what fills a space of a template contract. Full specs: the component card and DESIGN.md › M9P.",
+ "composition": [
+  "Bands top-down, never inverted",
+  "One heavy pattern each per page (leaderboard, bento-grid); never two rows of the same item type back to back",
+  "One kind per row",
+  "No empty sections: a section with nothing is removed; a section whose data fails to load shows SectionError in its place, and the page keeps working",
+  "Change sections, not styles"
+ ],
+ "patterns": [
+  {
+   "key": "featured-header",
+   "component": "FeaturedHeader",
+   "card": "components/FeaturedHeader/README.md",
+   "what": "The top of a destination landing: photo, search bar, title and four quick actions.",
+   "bands": [
+    "frame"
+   ],
+   "placement": "L1 hero; actions are the P2 stage hub",
+   "dna": [],
+   "mindset": "Actions follow the phase; a booking action is withheld for D and O",
+   "heavy": false,
+   "usedBy": []
+  },
+  {
+   "key": "upcoming-requests",
+   "component": "UpcomingRequests",
+   "card": "components/UpcomingRequests/README.md",
+   "what": "The person's next bookings at the top of a landing page.",
+   "bands": [
+    2
+   ],
+   "placement": "P1",
+   "dna": [
+    "Core",
+    "Supportive"
+   ],
+   "mindset": "State for everyone; controls (cancel, change) only for I and C",
+   "heavy": false,
+   "usedBy": [
+    "service-landing › notification-slot"
+   ]
+  },
+  {
+   "key": "categories",
+   "component": "Categories",
+   "card": "components/Categories/README.md",
+   "what": "A section with a row of tiles that scrolls sideways: categories, products or faces.",
+   "bands": [
+    4,
+    5,
+    6
+   ],
+   "placement": "P1 (4), P2 (5), slot (6)",
+   "dna": [
+    "Any; Ancillary only as band 6"
+   ],
+   "mindset": "Products never in pre-desire or sacred windows",
+   "heavy": false,
+   "usedBy": [
+    "service-landing › category-grid"
+   ]
+  },
+  {
+   "key": "category-chips",
+   "component": "CategoryChips",
+   "card": "components/CategoryChips/README.md",
+   "what": "A section of topic chips that wrap.",
+   "bands": [
+    "hub"
+   ],
+   "placement": "P2 (Faith or content hub)",
+   "dna": [
+    "Core",
+    "Supportive"
+   ],
+   "mindset": "All",
+   "heavy": false,
+   "usedBy": [
+    "service-search › suggestions"
+   ]
+  },
+  {
+   "key": "cards-slider",
+   "component": "CardsSlider",
+   "card": "components/CardsSlider/README.md",
+   "what": "A row of media cards that scrolls sideways; layout grid gives the 2 × 2 grid.",
+   "bands": [
+    3,
+    5,
+    6
+   ],
+   "placement": "P1 at the step that needs it (3), P2 (5), slot (6)",
+   "dna": [
+    "Supportive",
+    "Extra mile",
+    "Ancillary only as 6"
+   ],
+   "mindset": "Booking cards withheld for D and O",
+   "heavy": false,
+   "usedBy": [
+    "service-landing › hero-row",
+    "service-landing › item-rows",
+    "catalogue-list › item-list",
+    "item-details › related",
+    "cart › related",
+    "service-search › results",
+    "booking-details › for-this-journey",
+    "booking-details-package › for-this-journey"
+   ]
+  },
+  {
+   "key": "playlist",
+   "component": "PlaylistRow",
+   "card": "components/PlaylistRow/README.md",
+   "what": "A row of vertical playlist cards.",
+   "bands": [
+    4
+   ],
+   "placement": "P1; collapses to the faith strip during a journey",
+   "dna": [
+    "Core"
+   ],
+   "mindset": "All",
+   "heavy": false,
+   "usedBy": []
+  },
+  {
+   "key": "list-side-by-side",
+   "component": "ListSideBySide",
+   "card": "components/ListSideBySide/README.md",
+   "what": "Pages of two horizontal playlist cards that scroll sideways.",
+   "bands": [
+    4,
+    5
+   ],
+   "placement": "P1 (4), P2 (5)",
+   "dna": [
+    "Core",
+    "Supportive"
+   ],
+   "mindset": "All",
+   "heavy": false,
+   "usedBy": []
+  },
+  {
+   "key": "leaderboard",
+   "component": "Leaderboard",
+   "card": "components/Leaderboard/README.md",
+   "what": "One featured media card, full width. A layout, never a ranking.",
+   "bands": [
+    3,
+    5
+   ],
+   "placement": "P1",
+   "dna": [
+    "Supportive",
+    "Extra mile"
+   ],
+   "mindset": "One featured card; never a ranking",
+   "heavy": true,
+   "usedBy": [
+    "service-landing › hero-row"
+   ]
+  },
+  {
+   "key": "guide",
+   "component": "Guide",
+   "card": "components/Guide/README.md",
+   "what": "A preparation guide: hint widgets that scroll sideways with page dots.",
+   "bands": [
+    3,
+    5
+   ],
+   "placement": "P1 at the step it prepares for",
+   "dna": [
+    "Core",
+    "Supportive"
+   ],
+   "mindset": "Ticks private; shown to D as preparation, not tasks",
+   "heavy": false,
+   "usedBy": []
+  },
+  {
+   "key": "services-box",
+   "component": "ServicesBox",
+   "card": "components/ServicesBox/README.md",
+   "what": "A tinted box with a 4-column grid of service tiles: a stage hub.",
+   "bands": [
+    "hub"
+   ],
+   "placement": "P2 stage hub",
+   "dna": [
+    "Core",
+    "Supportive"
+   ],
+   "mindset": "Phase-scoped, 4–8 tiles",
+   "heavy": false,
+   "usedBy": []
+  },
+  {
+   "key": "bento-grid",
+   "component": "BentoGrid",
+   "card": "components/BentoGrid/README.md",
+   "what": "A mixed grid of four media cards and an optional \"Show more\".",
+   "bands": [
+    5
+   ],
+   "placement": "P2",
+   "dna": [
+    "Supportive",
+    "Extra mile"
+   ],
+   "mindset": "Content only; never offers in pre-desire",
+   "heavy": true,
+   "usedBy": []
+  },
+  {
+   "key": "cards-list",
+   "component": "CardsList",
+   "card": "components/CardsList/README.md",
+   "what": "Stacked full-width media cards with an optional \"Show more\".",
+   "bands": [
+    3,
+    6
+   ],
+   "placement": "P1 at a booking step (3), slot (6)",
+   "dna": [
+    "Supportive",
+    "Ancillary only as 6"
+   ],
+   "mindset": "Booking cards withheld for D and O",
+   "heavy": false,
+   "usedBy": [
+    "catalogue-list › item-list",
+    "service-search › results"
+   ]
+  }
+ ],
+ "toCome": [
+  {
+   "name": "Today card",
+   "bandPlacement": "1–3, P1",
+   "status": "Proposed"
+  },
+  {
+   "name": "Faith strip",
+   "bandPlacement": "4, P1 (collapsed)",
+   "status": "Proposed"
+  },
+  {
+   "name": "Credential takeover",
+   "bandPlacement": "2, P1",
+   "status": "Proposed"
+  },
+  {
+   "name": "Rite screen",
+   "bandPlacement": "1, P1",
+   "status": "Proposed"
+  },
+  {
+   "name": "Stage hub",
+   "bandPlacement": "hub, P2",
+   "status": "Proposed"
+  },
+  {
+   "name": "Commercial slot",
+   "bandPlacement": "6, slot",
+   "status": "Proposed"
+  },
+  {
+   "name": "Waiting state",
+   "bandPlacement": "3, P1",
+   "status": "Proposed"
+  },
+  {
+   "name": "Party status",
+   "bandPlacement": "2–3, P1",
+   "status": "Proposed"
+  },
+  {
+   "name": "Following state",
+   "bandPlacement": "3, P1",
+   "status": "Proposed"
+  },
+  {
+   "name": "Preference input",
+   "bandPlacement": "3, P1",
+   "status": "Proposed"
+  },
+  {
+   "name": "Meaning section",
+   "bandPlacement": "5, P1 in pre-desire",
+   "status": "Proposed"
+  },
+  {
+   "name": "Live stream",
+   "bandPlacement": "4–5, P1",
+   "status": "Proposed"
+  },
+  {
+   "name": "Quote widget",
+   "bandPlacement": "5, P1 or P2",
+   "status": "Proposed"
+  }
+ ]
+}

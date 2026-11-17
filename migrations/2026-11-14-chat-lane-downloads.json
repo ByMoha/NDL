@@ -1,0 +1,230 @@
+{
+ "date": "2026-11-14",
+ "name": "chat-lane-links-downloads",
+ "designMd": "3.0",
+ "tokens": {
+  "version": "3.8",
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "chat": {
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+  "coverage": {
+   "sets": 7,
+   "variants": 54,
+   "masters": 3,
+   "allMapped": true
+  },
+  "links": [
+   {
+    "component": "MobileField",
+    "from": "AI Chat Messages › Style=Password ⚠ (is Mobile)",
+    "to": "AI Chat Messages › Style=Mobile",
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "nodes": {
+     "Variant": "80607:17062"
+    }
+   },
+   {
+    "component": "Fld",
+    "fromNodes": [
+     "68416:142451",
+     "68416:149469"
+    ],
+    "library": "⌨️ Inputs",
+    "file": "DATayAnynnSQqdJQLAi7DR",
+    "nodes": {
+     "Input": "68394:7766",
+     "Type=Input, Status=Default": "68394:7797",
+     "Type=Action, Status=Default": "68394:7857"
+    }
+   },
+   {
+    "component": "SelCard",
+    "fromNodes": [
+     "70416:1255 (an instance)"
+    ],
+    "library": "📻 Switches, Checkbox, and Radio",
+    "file": "zhcTb4a0XbF3YeYF9XI6zw",
+    "nodes": {
+     "Select Card": "70416:652",
+     "Status=Active": "70416:655",
+     "Status=Selected": "70416:657"
+    }
+   },
+   {
+    "component": "LogosGroup",
+    "fromNodes": [
+     "80632:38074 (an instance)",
+     "637:23249…637:23267 and 637:23223 (instance paths)"
+    ],
+    "library": "🃏 Cards",
+    "file": "mg7egvNbr2ciMP04Ig2XDl",
+    "nodes": {
+     "Logos Group": "70306:7320",
+     "Logo Icons": "70306:7326",
+     "City Logo": "70306:7355"
+    }
+   },
+   {
+    "component": "FlightTicketFull",
+    "fromNodes": [
+     "_Master_Flight Ticket (a name)"
+    ],
+    "library": "🏖️ Travel",
+    "file": "ozi4A2gUbVXbzbUJ3MF4uU",
+    "nodes": {
+     "Flight Ticket": "70393:18670",
+     "Selected=Off, Version=Full": "70393:18671",
+     "Selected=On, Version=Full": "70393:18673",
+     "Selected=Skeleton, Version=Full": "70393:18675",
+     "_Master_Flight Ticket": "70393:18605"
+    }
+   },
+   {
+    "component": "TabBar",
+    "added": {
+     "_AI Tab Bar Master": "80392:4168"
+    }
+   }
+  ],
+  "manifest": {
+   "added": [
+    "updated",
+    "components[].figma.library"
+   ],
+   "changed": [
+    "components[].figma.file is the file that holds the nodes"
+   ]
+  },
+  "proposedTokens": {
+   "count": 43,
+   "added": [
+    {
+     "name": "chat-type-display-1-light",
+     "css": "--nkc-type-display-1-light",
+     "value": "300 32px/1.28 var(--font-sans)",
+     "equals": "= DL .display-1-light (300 32px/1.28)."
+    },
+    {
+     "name": "chat-type-display-2-light",
+     "css": "--nkc-type-display-2-light",
+     "value": "300 28px/1.28 var(--font-sans)",
+     "equals": "= DL .display-2-light (300 28px/1.28)."
+    },
+    {
+     "name": "chat-type-headline-1-regular",
+     "css": "--nkc-type-headline-1-regular",
+     "value": "400 24px/1.28 var(--font-sans)",
+     "equals": "= DL .headline-1-regular (400 24px/1.28)."
+    },
+    {
+     "name": "chat-type-headline-2-regular",
+     "css": "--nkc-type-headline-2-regular",
+     "value": "400 20px/1.28 var(--font-sans)",
+     "equals": "= DL .headline-2-regular (400 20px/1.28)."
+    },
+    {
+     "name": "chat-type-body-1-light",
+     "css": "--nkc-type-body-1-light",
+     "value": "300 18px/1.28 var(--font-sans)",
+     "equals": "= DL .body-1-light (300 18px/1.28)."
+    },
+    {
+     "name": "chat-type-body-1-regular",
+     "css": "--nkc-type-body-1-regular",
+     "value": "400 18px/1.28 var(--font-sans)",
+     "equals": "= DL .body-1-regular (400 18px/1.28)."
+    },
+    {
+     "name": "chat-type-body-2-light",
+     "css": "--nkc-type-body-2-light",
+     "value": "300 16px/1.28 var(--font-sans)",
+     "equals": "= DL .body-2-light (300 16px/1.28)."
+    },
+    {
+     "name": "chat-type-body-2-regular",
+     "css": "--nkc-type-body-2-regular",
+     "value": "400 16px/1.28 var(--font-sans)",
+     "equals": "= DL .body-2-regular (400 16px/1.28)."
+    },
+    {
+     "name": "chat-type-notes-1-light",
+     "css": "--nkc-type-notes-1-light",
+     "value": "300 14px/1.28 var(--font-sans)",
+     "equals": "= DL .notes-1-light (300 14px/1.28)."
+    },
+    {
+     "name": "chat-type-notes-1-regular",
+     "css": "--nkc-type-notes-1-regular",
+     "value": "400 14px/1.28 var(--font-sans)",
+     "equals": "= DL .notes-1-regular (400 14px/1.28)."
+    },
+    {
+     "name": "chat-type-notes-2-light",
+     "css": "--nkc-type-notes-2-light",
+     "value": "300 12px/1.28 var(--font-sans)",
+     "equals": "= DL .notes-2-light (300 12px/1.28)."
+    },
+    {
+     "name": "chat-type-notes-2-regular",
+     "css": "--nkc-type-notes-2-regular",
+     "value": "400 12px/1.28 var(--font-sans)",
+     "equals": "= DL .notes-2-regular (400 12px/1.28)."
+    }
+   ]
+  },
+  "cssRenamed": {
+   "from": "--text-<style>-<weight> (font shorthands)",
+   "to": "--nkc-type-<style>-<weight>",
+   "files": [
+    "chat/nk-chat.css"
+   ],
+   "definedIn": "chat/nk-chat.tokens.css"
+  },
+  "gallery": "loads the DL tokens.css 3.8 and bundle (was a tokens.css older than 3.8)"
+ },
+ "downloads": {
+  "added": [
+   "nusuk-dl-chat-lane.zip",
+   "nusuk-dl-logos.zip",
+   "starter.html",
+   "download-index.json"
+  ],
+  "changed": [
+   "nusuk-dl-documents.zip: + change sheets, asset notes",
+   "nusuk-dl-coded.zip: previews, README and index rebuilt every release; + assets/ (notes, logos)"
+  ],
+  "gate": "release.py stops when a DL file is not downloadable at its current version"
+ },
+ "questions": {
+  "removed": [
+   "Q-D05",
+   "AI5",
+   "R8",
+   "F11",
+   "Arabic copy tab"
+  ],
+  "moved": {
+   "L2": "Design (content) → Design"
+  },
+  "added": [
+   "F31",
+   "F32"
+  ]
+ },
+ "knownIssues": {
+  "added": [
+   "F31",
+   "F32"
+  ],
+  "changed": [
+   "F30 parked",
+   "AI5, R8, F11, F22, F27 and N21 no longer point to the Arabic copy tab"
+  ]
+ },
+ "breaking": [
+  "chat/nk-chat.css reads --nkc-type-* instead of --text-<style>-<weight>: load chat/nk-chat.tokens.css (it defines them)"
+ ]
+}

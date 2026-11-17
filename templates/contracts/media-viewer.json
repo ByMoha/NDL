@@ -1,0 +1,97 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "media-viewer",
+ "name": "Media viewer",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "overlay",
+ "appLevel": "L4",
+ "band": {
+  "value": null,
+  "rule": "Takes the band of the service that uses it; commitment state inside it is band 2."
+ },
+ "job": "Look closely at the media of one item.",
+ "useFor": "Zooming into the media of an item.",
+ "notFor": "Content galleries or live streams.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Close, on dark glass (Darkmode On)."
+   ],
+   "forbidden": [
+    "Cart or buy actions on top of the photo."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "image",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1–8",
+   "allowed": [
+    "Image Gallery (single or multiple images) with Pagination."
+   ],
+   "forbidden": [
+    "Text or badges over the photo.",
+    "Video that autoplays.",
+    "Ads between photos."
+   ],
+   "patterns": [],
+   "components": [
+    "Pagination"
+   ]
+  },
+  {
+   "id": "bottom",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Nothing, or the position (2 of 5)."
+   ],
+   "forbidden": [
+    "Promotions."
+   ],
+   "patterns": [],
+   "components": []
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "Each photo has alt text that describes the item.",
+  "Position is announced, not shown by dots alone.",
+  "Close returns to the same photo on the item page.",
+  "Pinch and double tap zoom; a button offers the same.",
+  "Nothing plays by itself."
+ ],
+ "allocation": {
+  "App level": "L4 · detail of the item page.",
+  "Motion": "Swipe has a tap alternative; reduced motion is respected (M10)."
+ },
+ "measure": {
+  "success": "Item views that open the viewer",
+  "guardrails": "refunds marked not as described"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:6107"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Inherits": "Marketplace: DNA Supportive · band 6 · interrupts for offers are T3 · suppressed in sacred windows."
+  },
+  "notes": [],
+  "inTheFlowToday": "",
+  "sourceFrames": []
+ },
+ "was": "image-viewer"
+}

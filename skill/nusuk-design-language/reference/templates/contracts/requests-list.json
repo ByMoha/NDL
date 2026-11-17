@@ -1,0 +1,106 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "requests-list",
+ "name": "Requests list",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "page",
+ "appLevel": "L2",
+ "band": {
+  "value": 2,
+  "rule": "Commitment state: never suppressed."
+ },
+ "job": "Every request of the person in one service, current and past.",
+ "useFor": "Finding a request and opening its tracking page.",
+ "notFor": "Today or a landing: there, use upcoming-requests with the next requests only.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Secondary Pages / Tabs (current, past)."
+   ],
+   "forbidden": [
+    "More than two or three tabs.",
+    "Filters that hide an active request."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "request-list",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "RequestCard of the service; RequestCard empty state or EmptyState when there is none."
+   ],
+   "forbidden": [
+    "Offers or ads between cards.",
+    "A blank area.",
+    "Statuses outside the StatusChip set."
+   ],
+   "patterns": [],
+   "components": [
+    "EmptyState",
+    "RequestCard"
+   ]
+  },
+  {
+   "id": "bottom",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "TabBar · Empty."
+   ],
+   "forbidden": [
+    "A floating selection bar."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "Newest first; active requests before past ones.",
+  "One card type in the list (M9P rule 8).",
+  "The empty state says what will appear here and leads to the service.",
+  "The whole card opens the request; the arrow is not the only target (M10).",
+  "No commerce in this list."
+ ],
+ "allocation": {
+  "App level": "L2 · a list.",
+  "Band": "Band 2, commitment state. Not suppressed in sacred windows.",
+  "Withheld": "Status for everyone; controls only for Independents and Caregivers."
+ },
+ "measure": {
+  "success": "Time to find a request",
+  "guardrails": "support tickets asking where a request is"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:5258"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Service": "Marketplace · DNA Supportive."
+  },
+  "notes": [
+   "request-list: RequestCard · marketplace."
+  ],
+  "inTheFlowToday": "",
+  "sourceFrames": []
+ },
+ "was": "requests"
+}

@@ -1,0 +1,157 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "cart",
+ "name": "Cart",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "page",
+ "appLevel": "L3",
+ "band": {
+  "value": null,
+  "rule": "Takes the band of the service that uses it; commitment state inside it is band 2."
+ },
+ "job": "Review what was chosen, where it goes and what it costs, then move to payment.",
+ "useFor": "The step between choosing items and paying for them.",
+ "notFor": "A single-item purchase with its own flow, or a booking.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Modal / Default (title and close)."
+   ],
+   "forbidden": [
+    "A back stack that loses the cart.",
+    "Extra actions."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "items",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1–n",
+   "allowed": [
+    "One row per chosen item with its quantity control and its states: default, removing, unavailable, cannot be delivered, low availability (live data only)."
+   ],
+   "forbidden": [
+    "Items the person did not add.",
+    "A hold timer when nothing is held."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "delivery",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "Select Location / widget; with no address, a title and one CTA that adds one."
+   ],
+   "forbidden": [
+    "A paid delivery option selected in advance.",
+    "A disabled checkout as the only sign that an address is missing."
+   ],
+   "patterns": [],
+   "components": [
+    "Button"
+   ]
+  },
+  {
+   "id": "cross-sell",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "One promotional block for an optional extra."
+   ],
+   "forbidden": [
+    "Pre-selected add-ons."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "related",
+   "n": 4,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "SectionTitle with cards-slider (row) and one MediaCard type."
+   ],
+   "forbidden": [
+    "A position above the items.",
+    "\"Frequently bought together\"."
+   ],
+   "patterns": [
+    "cards-slider"
+   ],
+   "components": [
+    "MediaCard",
+    "SectionTitle"
+   ]
+  },
+  {
+   "id": "action-bar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "TabBar action bar · Actions: the total and one Primary."
+   ],
+   "forbidden": [
+    "A disabled Primary that hides validation.",
+    "A fee that first appears on the payment page."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "The total shown here is the total paid: delivery, taxes and fees included (M4).",
+  "Removing an item uses the destructive AddToCartCTA and can be undone.",
+  "Availability messages come from live data only (M4).",
+  "One Primary that names the outcome, always enabled; on tap it says what is missing (M10).",
+  "Cross-sell and related rows sit below the items and the delivery choice."
+ ],
+ "allocation": {
+  "App level": "L3 · a transaction step. Opened from the cart bar, never from Today.",
+  "Withheld": "The whole page is P0 for Dependents and Organised groups.",
+  "Empty": "EmptyState, full page, replaces spaces 1 to 4 and offers a way back to the service."
+ },
+ "measure": {
+  "success": "Cart to payment start",
+  "guardrails": "removals, cancellations after payment"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:4826"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Inherits": "Marketplace: DNA Supportive · band 6 · interrupts for offers are T3 · suppressed in sacred windows."
+  },
+  "notes": [
+   "items: Less Available without live stock, or on Udhiya or Hady.",
+   "cross-sell: Gifting from 🛍️ Market.",
+   "cross-sell: Any upsell when the cart holds Udhiya or Hady.",
+   "related: Udhiya or Hady carts.",
+   "items: Product Item (Default, Remove Product, Off, cann't delever, Less Available) from 🛍️ Market."
+  ],
+  "inTheFlowToday": "The main action is disabled when there is no address and when the cart is empty; \"only N left\" shows without a stated threshold.",
+  "sourceFrames": []
+ }
+}

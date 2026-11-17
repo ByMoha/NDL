@@ -1,0 +1,17 @@
+<!doctype html>
+<html data-theme="gold-light">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>Alert — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<script>
+  /* ‼️ Status Handlers › Alerts, re-read 14 November 2026: the five Type variants as in Figma (Icon, Heading and Below Buttons on, Close off), text verbatim;
+     `stacked` is `_Alert` Type=System Update (re-read 17 November 2026). */
+  var N = window.NusukDL, h = React.createElement;
+  var a = function (t) { return h('span', { dir: 'auto' }, t); };
+  var msg = 'Text is a major channel for users to understand application content and complete their work.';
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { style: { display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 620 } },
+    ['info', 'warning', 'success', 'error', 'primary'].map(function (t) { return h(N.Alert, { key: t, type: t, title: a('Message'), primary: a('Button Text'), secondary: a('Button Text') }, a(msg)); }),
+    h(N.Alert, { key: 'su', type: 'primary', stacked: true, title: 'يتوفر إصدار جديد', primary: 'حدّث الآن', secondary: 'لاحقًا', onClose: function () {} }, 'أضفنا تحسينات مهمة إلى نسك. حدّث التطبيق لتصلك أحدث الخدمات.')));
+</script>
+</body>
+</html>

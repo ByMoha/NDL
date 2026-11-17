@@ -1,0 +1,123 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "service-search",
+ "name": "Search in a service",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "page",
+ "appLevel": "L2",
+ "band": {
+  "value": null,
+  "rule": "Takes the band of the service that uses it; commitment state inside it is band 2."
+ },
+ "job": "Find an item by name inside a service.",
+ "useFor": "A person who knows what they want.",
+ "notFor": "Browsing with no query (use the landing).",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Modal / Search or Secondary Pages / Search."
+   ],
+   "forbidden": [
+    "A placeholder that does not say what can be searched."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "suggestions",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "category-chips; recent searches of this person."
+   ],
+   "forbidden": [
+    "Trending or sponsored terms without a label.",
+    "Other people's searches."
+   ],
+   "patterns": [
+    "category-chips"
+   ],
+   "components": []
+  },
+  {
+   "id": "results",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "cards-slider (grid) or cards-list with one MediaCard type; EmptyState for no results."
+   ],
+   "forbidden": [
+    "Sponsored results without an ad label.",
+    "Ranking by commercial arrangement.",
+    "A blank area for no results."
+   ],
+   "patterns": [
+    "cards-slider",
+    "cards-list"
+   ],
+   "components": [
+    "EmptyState"
+   ]
+  },
+  {
+   "id": "bottom-navigation",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "BottomNav for the service."
+   ],
+   "forbidden": [
+    "The older Tab Bar together with BottomNav."
+   ],
+   "patterns": [],
+   "components": [
+    "BottomNav"
+   ]
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "Three states: before typing, results, no results.",
+  "No results says so, keeps the query and offers the categories.",
+  "Results use one card type so prices compare (M9P rule 8).",
+  "A paid position is labelled as an ad (M4).",
+  "The field keeps focus and the keyboard never covers the first result."
+ ],
+ "allocation": {
+  "App level": "L2 · search is the P3 route: where an item rests until a step promotes it.",
+  "Signal": "Search fallback rate per service is the metric that judges any demotion (M9S)."
+ },
+ "measure": {
+  "success": "Searches that end in an item view",
+  "guardrails": "searches with no results"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:5370"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Inherits": "Marketplace: DNA Supportive · band 6 · interrupts for offers are T3 · suppressed in sacred windows."
+  },
+  "notes": [
+   "Bottom navigation: BottomNav together with the older Tab Bar (N14)."
+  ],
+  "inTheFlowToday": "All three search states are built from List Screen · Empty State.",
+  "sourceFrames": []
+ },
+ "was": "search"
+}

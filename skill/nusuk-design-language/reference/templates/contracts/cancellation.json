@@ -1,0 +1,121 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "cancellation",
+ "name": "Cancellation",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-17",
+ "kind": "task",
+ "appLevel": "L3",
+ "band": {
+  "value": 2,
+  "rule": "Commitment state: never suppressed."
+ },
+ "job": "Cancel a request with a clear reason and a clear refund.",
+ "useFor": "Cancelling a paid request that can still be cancelled.",
+ "notFor": "Returns after fulfilment, or removing an item from a cart.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Modal / Default (title and close)."
+   ],
+   "forbidden": [
+    "A title borrowed from another service."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "reason",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "ReasonSelection (‼️ Status Handlers › Reason Selection): one card row per reason, at least 48 high; «أسباب أخرى» opens the Text Area."
+   ],
+   "forbidden": [
+    "A reason selected in advance.",
+    "Offers to stay.",
+    "Guilt or loss framing."
+   ],
+   "patterns": [],
+   "components": [
+    "ReasonSelection"
+   ]
+  },
+  {
+   "id": "refund",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "PaymentDetails · Refund: amount, method and time."
+   ],
+   "forbidden": [
+    "A refund amount that changes after confirmation.",
+    "Fees that were not stated before."
+   ],
+   "patterns": [],
+   "components": [
+    "PaymentDetails"
+   ]
+  },
+  {
+   "id": "action-bar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "One destructive Secondary (Fate) that names the outcome."
+   ],
+   "forbidden": [
+    "A Primary for the destructive action.",
+    "\"Confirm\" or \"OK\" as the label."
+   ],
+   "patterns": [],
+   "components": []
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "Say what happens to the money before the person confirms.",
+  "The destructive action is never the Primary (M9 Buttons).",
+  "No retention tricks: no offers, no loss framing (M4).",
+  "The sheet traps focus and returns it on close (M10).",
+  "After cancelling, the request shows Cancelled with its refund state."
+ ],
+ "allocation": {
+  "App level": "L3 · a task, then a confirmation sheet and a notice.",
+  "Band and tier": "Band 2, commitment state. The result is a T1 notice.",
+  "Overlays": "Confirmation: StatusSheet · template refund (the refund method in its slot) or wallet-refund, Fate on the cancel action only. Result: NoticeBar · Success, then back to the request.",
+  "Withheld": "P0 for Dependents and Organised groups."
+ },
+ "measure": {
+  "success": "Cancellations completed without a ticket",
+  "guardrails": "refund disputes"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:5761"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Service": "Marketplace · DNA Supportive."
+  },
+  "notes": [
+   "Overlays: the example confirms with StatusSheet · template wallet-refund (General Bottom Sheet › Wallet Refund)."
+  ],
+  "inTheFlowToday": "The confirm action is a Primary, and the sheet title names electric cart tickets.",
+  "sourceFrames": []
+ },
+ "was": "cancel-order"
+}

@@ -1,0 +1,115 @@
+{
+ "date": "2026-11-08",
+ "time": "17:20 (+03)",
+ "supersedes_part_of": "2026-11-08-navigation-cards.json",
+ "tokens": {
+  "version": "3.1",
+  "added": [
+   {
+    "token": "button-green-surface",
+    "figma": "Buttons Colors › Green › Default Surface → Alerts/Surface/_Solid Success",
+    "light": "#5db364",
+    "dark": "#ecfdf3"
+   },
+   {
+    "token": "button-green-content",
+    "figma": "Buttons Colors › Green › Default Content → Text/Inverse",
+    "light": "#ffffff",
+    "dark": "#ffffff"
+   },
+   {
+    "token": "button-green-secondary-surface",
+    "figma": "Buttons Colors › Green › Secondary Surface → Alerts/Surface/Success",
+    "light": "#f0fff5",
+    "dark": {
+     "gold-dark": "#0c3b10",
+     "green-dark": "#198022",
+     "lavender-dark": "#198022"
+    }
+   },
+   {
+    "token": "button-green-secondary-content",
+    "figma": "Buttons Colors › Green › Secondary Content → Alerts/Surface/_Solid Success",
+    "light": "#5db364",
+    "dark": "#ecfdf3"
+   },
+   {
+    "token": "button-green-ghost-content",
+    "figma": "Buttons Colors › Green › Ghost Content → Alerts/Text/Success",
+    "light": "#5db364",
+    "dark": "#ecfdf3"
+   }
+  ],
+  "changed": [],
+  "removed": []
+ },
+ "components": {
+  "Button": {
+   "props": {
+    "tone": "added: 'default' | 'green' (Figma _Button Trail Green Default / Green Ghost)"
+   },
+   "rendering": {
+    "ghost+fate label": {
+     "from": "no underline",
+     "to": "underlined (Regular/Body/Two + UNDERLINE)"
+    },
+    "fate+icon right padding-inline-end": {
+     "from": "button-padding-*",
+     "to": "button-padding-icon-* (26/24/20/14)"
+    },
+    "fate+icon-only and fate loading padding-inline": {
+     "from": "button-padding-* (32/30/22/16)",
+     "to": "button-padding-icon-* (26/24/20/14); widths 78/74/64/46"
+    }
+   }
+  },
+  "RequestCard": {
+   "presets": {
+    "electric-cart.tagIcon": {
+     "from": "cart",
+     "to": "umrah"
+    },
+    "sim.tagIcon": {
+     "from": "simcard-02",
+     "to": "smart-phone-04"
+    },
+    "marketplace.footIcon": {
+     "from": "package",
+     "to": "package-moving"
+    },
+    "marketplace.people": {
+     "from": [
+      "م",
+      "",
+      ""
+     ],
+     "to": [
+      "+2",
+      "picture",
+      "picture"
+     ]
+    }
+   },
+   "rendering": {
+    "footer avatar": "white inside ring 1.5px",
+    "order avatars": "Positive (Ivory) + white inside ring 1.4px"
+   }
+  },
+  "MemberCard": {
+   "rendering": {
+    "avatar shadow": {
+     "from": "-6 6 12 -6 #1a1c1f 5%",
+     "to": "-6 6 30 -12 #070808 5% (_Card Avatar)"
+    }
+   }
+  },
+  "AvatarGroup": {
+   "props": {
+    "state": "added; people[].state added"
+   }
+  }
+ },
+ "foundation": {
+  "glassBG": "re-read 17:18, identical to the morning read; full recipe in CHANGES-2026-11-08.md"
+ }
+}

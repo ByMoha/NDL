@@ -1,0 +1,110 @@
+{
+ "date": "2026-11-14",
+ "name": "figma-round-foundation-buttons-navigation-inputs-chips-cards",
+ "designMd": "3.0",
+ "tokens": {
+  "version": "3.7",
+  "added": [
+   {
+    "name": "glass-android",
+    "value": "inset 0 5px 10px 10px rgba(7,8,8,0.05)",
+    "figma": "⚙️ Foundation › effect style Glass/Andriod Blur (background blur 10 + inner shadow)",
+    "pairWith": "backdrop-filter: blur(var(--blur-md))"
+   }
+  ],
+  "changed": [
+   {
+    "name": "button-fate-surface",
+    "from": {
+     "light": "#fff2f1",
+     "dark": "#992720"
+    },
+    "to": {
+     "light": "#ff41361a",
+     "dark": "#fef3f21a"
+    },
+    "figma": "🕹️ Buttons Colors › Fate Surface → Alerts/Surface/Solid Error at 10%"
+   },
+   {
+    "name": "button-secondary-surface-on-dark",
+    "from": {
+     "light": "#303336",
+     "dark": "#cbcccd"
+    },
+    "to": {
+     "light": "#303336b3",
+     "dark": "#cbcccdb3"
+    },
+    "figma": "🕹️ Buttons Colors › Secondary Surface (Dark) → Surface/07 Slate at 70%"
+   }
+  ],
+  "removed": []
+ },
+ "components": {
+  "changed": [
+   {
+    "name": "Button",
+    "change": "icon 'both' + trailingIconName; price; mark ('apple-pay','nafath','absher'); glass; tone green with secondary; onDark with fate ghost and green ghost",
+    "figma": "🕹️ Buttons › _Button_Master Of Masters, _Button Trail"
+   },
+   {
+    "name": "BottomNav",
+    "change": "screens from Tab Bar › Active Landing/Travel/Content/Market/Cart +; bar 95, gap 20, white haze; current tab icons-illumination + text-link (Light) + glows; tabs renamed; screen 'travel' (alias 'journey'); SM/XS 48",
+    "figma": "🧭 Navigation › Tab Bar on _BottomTab master and _Tab"
+   },
+   {
+    "name": "NavTab",
+    "change": "current: icon icons-illumination, label text-link at weight 300, longing glow",
+    "figma": "🧭 Navigation › _Tab Style=Current"
+   },
+   {
+    "name": "Toolbar",
+    "change": "types 'Primary Pages / URLs' (alias of 'Primary Pages / Tabs') and 'Primary Pages / Title' (status with-title); category buttons min 119; Landings / Search row gap 18",
+    "figma": "🧭 Navigation › Toolbar (22 types)"
+   },
+   {
+    "name": "TextField",
+    "change": "types 'multi-select' (values, placeholders, fieldLabels) and 'avatar' (avatar, initials); error and disabled use inputs-surface-default; disabled border surface-04-mist",
+    "figma": "⌨️ Inputs › Input (12 types × Status × Filled)"
+   },
+   {
+    "name": "StatusChip",
+    "change": "status 'approved' (success, مقبول, document-validation)",
+    "figma": "🃏 Cards › Request Card Status (47)"
+   },
+   {
+    "name": "HintWidget",
+    "change": "direction 'logo' (logo, logoAlt): 234 × 212, padding 26/20, gap 18, title body-1-regular, details notes-1-regular",
+    "figma": "🃏 Cards › Hints Widget Direction4"
+   }
+  ],
+  "added": [],
+  "removed": []
+ },
+ "icons": {
+  "added": [
+   "search-list-01",
+   "search-list-01-solid",
+   "car-02",
+   "car-02-solid",
+   "infinity-01",
+   "infinity-01-solid",
+   "play-list",
+   "play-list-solid",
+   "book-open-02",
+   "book-open-02-solid",
+   "airplane-02-solid",
+   "document-validation"
+  ],
+  "total": 133
+ },
+ "figmaRemoved": [
+  "🧭 Navigation › Buttom Navigation",
+  "Home Item",
+  "Marketplace Cart",
+  "Tab (replaced by _Tab)",
+  "🛍️ Market › Breathing Effect"
+ ],
+ "knownIssues": "F1–F15 (10-known-issues.md)",
+ "breaking": []
+}

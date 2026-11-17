@@ -1,0 +1,416 @@
+{
+ "date": "2026-11-12",
+ "name": "NusukChat proposal (Nusuk AI chat, registration, travel cards)",
+ "status": "proposed",
+ "tokens": {
+  "version": "3.5 + proposal",
+  "changed": [],
+  "added": [
+   {
+    "name": "chat-indicator-xs",
+    "value": "5px",
+    "usage": "Typing dots, home indicator height. Figma: _Chat Container Master › Status=Loading."
+   },
+   {
+    "name": "chat-timeline-dot",
+    "value": "9px",
+    "figma": "80632:38068",
+    "usage": "Booking_Ticket timeline origin dot (80632:38068)."
+   },
+   {
+    "name": "chat-badge-sm",
+    "value": "15px",
+    "figma": "637:23223",
+    "usage": "City Logo badge on Logos Group (637:23223); flag in nationality row."
+   },
+   {
+    "name": "chat-control-icon",
+    "value": "40px",
+    "usage": "Tab-bar icon buttons, favourite toggle, record timer."
+   },
+   {
+    "name": "chat-control-lg",
+    "value": "56px",
+    "usage": "Round send/record button, tab-bar input height, Booking_Ticket CTA width."
+   },
+   {
+    "name": "chat-input-height",
+    "value": "62px",
+    "usage": "OTP box height. DL TextField is 62px but exposes no token."
+   },
+   {
+    "name": "chat-ticket-endpoint-min",
+    "value": "72px",
+    "usage": "Flight Ticket Full: min width of origin/destination column."
+   },
+   {
+    "name": "chat-logos-group-width",
+    "value": "76px",
+    "usage": "Logos Group, 3 airline marks at 28px with 8px overlap."
+   },
+   {
+    "name": "chat-scan-size",
+    "value": "86px",
+    "figma": "80607:20843",
+    "usage": "Scan Photo / Status=00 (80607:20843)."
+   },
+   {
+    "name": "chat-ticket-top-min",
+    "value": "100px",
+    "figma": "80632:38068",
+    "usage": "Booking_Ticket header min height (80632:38068)."
+   },
+   {
+    "name": "chat-dial-width",
+    "value": "115px",
+    "figma": "80607:17346",
+    "usage": "Input/Type=Mobile country-code part (80607:17346)."
+   },
+   {
+    "name": "chat-home-indicator-width",
+    "value": "134px",
+    "usage": "Device home indicator in the playground frame."
+   },
+   {
+    "name": "chat-menu-min-width",
+    "value": "140px",
+    "usage": "Country-code dropdown list."
+   },
+   {
+    "name": "chat-hotel-card-width",
+    "value": "316px",
+    "figma": "80625:21403",
+    "usage": "Hotel Offer card (80625:21403): 300px media + 8px inset each side."
+   },
+   {
+    "name": "chat-ticket-max-width",
+    "value": "530px",
+    "figma": "80632:38114",
+    "usage": "Booking_Ticket (80632:38114)."
+   },
+   {
+    "name": "chat-avatar-glyph",
+    "value": "12.7px",
+    "usage": "User glyph inside the 24px chat avatar."
+   },
+   {
+    "name": "chat-bot-makkah-a",
+    "value": "#F5B13D",
+    "figma": "80559:28820",
+    "usage": "Nusuk Bot · Location=Makkah gradient start (80559:28820). = Brand Gold family; fixed so the bot keeps its identity in green/lavender themes."
+   },
+   {
+    "name": "chat-bot-makkah-b",
+    "value": "#FAEBD1",
+    "usage": "… gradient end."
+   },
+   {
+    "name": "chat-bot-makkah-glow-color",
+    "value": "rgba(245, 177, 61, .55)",
+    "usage": "Drop shadow, 22px at 80px."
+   },
+   {
+    "name": "chat-bot-madinah-a",
+    "value": "#288A42",
+    "figma": "80559:28823",
+    "usage": "Nusuk Bot · Location=Madina radial start (80559:28823). = Brand Dome green family."
+   },
+   {
+    "name": "chat-bot-madinah-b",
+    "value": "#E0FAD1",
+    "usage": "… radial end."
+   },
+   {
+    "name": "chat-bot-madinah-glow-color",
+    "value": "rgba(40, 138, 66, .4)",
+    "usage": ""
+   },
+   {
+    "name": "chat-note-tint-madinah",
+    "value": "#E4FBEA",
+    "valueDark": "#0C3B10",
+    "figma": "80559:28810",
+    "usage": "Nusuk Bot Messages · Madinah insight tint (80559:28810). Closest DL: alerts-surface-success #F0FFF5."
+   },
+   {
+    "name": "chat-city-madinah",
+    "value": "#288A42",
+    "figma": "637:23223",
+    "usage": "City Logo/City=Madinah (637:23223)."
+   },
+   {
+    "name": "chat-city-madinah-b",
+    "value": "#61D17D",
+    "usage": "Logo Icons/Entity=Madinah gradient end."
+   },
+   {
+    "name": "chat-fade-tab",
+    "value": "rgba(0, 0, 0, .05)",
+    "valueDark": "rgba(255, 255, 255, .05)",
+    "figma": "80392:4168",
+    "usage": "AI Tab Bar fade above the bar (80392:4168)."
+   },
+   {
+    "name": "chat-logo-inner-shadow",
+    "value": "inset 0 6px 10px rgba(0, 0, 0, .15)",
+    "usage": "Logo Icons inner shadow (Figma drop shadow, erode 6.67, y -6.67)."
+   },
+   {
+    "name": "chat-shadow-on-image",
+    "value": "drop-shadow(0 1px 2px rgba(0, 0, 0, .35))",
+    "usage": "Icons placed on photos (favourite heart)."
+   },
+   {
+    "name": "chat-scan-face",
+    "value": "#EBD4AD",
+    "usage": "Scan Photo face fill start."
+   },
+   {
+    "name": "chat-scan-glow",
+    "value": "drop-shadow(0 0 5px rgba(245, 177, 61, .9)) drop-shadow(0 0 10px rgba(245, 177, 61, .6))",
+    "usage": "Scan Photo corner glow (two Figma drop shadows, 10.5 / 21)."
+   },
+   {
+    "name": "chat-scan-line-glow",
+    "value": "drop-shadow(0 0 5px rgba(245, 177, 61, .9))",
+    "usage": ""
+   }
+  ],
+  "removed": []
+ },
+ "icons": {
+  "added": [
+   "mail-at-sign-01",
+   "security-password",
+   "view",
+   "hijab",
+   "camera-02",
+   "audit-01",
+   "image-02",
+   "identification",
+   "rajhi",
+   "maps",
+   "google-maps",
+   "user-group-02",
+   "favourite",
+   "man-woman",
+   "door-02",
+   "arrow-expand-02",
+   "fire-03",
+   "nusuk-mark"
+  ]
+ },
+ "components": {
+  "changed": [
+   {
+    "name": "ChatMessage",
+    "change": "Message: Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk Bot avatar."
+   },
+   {
+    "name": "ChatMessage",
+    "change": "Text: Answer text with question echo and “تعديل الإجابة”."
+   },
+   {
+    "name": "ChatMessage",
+    "change": "Voice: Voice message (waveform + duration)."
+   },
+   {
+    "name": "Chip",
+    "change": "Chips: Answer chips: Chip White LR with arrow-left-02, as a group."
+   },
+   {
+    "name": "ChatMessage",
+    "change": "ErrorMsg: Error message = DL Alert (error) + recovery chips."
+   },
+   {
+    "name": "ChatMessage",
+    "change": "DaysAnswer: Date answer."
+   },
+   {
+    "name": "ChatMessage",
+    "change": "SlotsAnswer: Date + time answer."
+   },
+   {
+    "name": "ChatMessage",
+    "change": "Loading: Typing / loading state."
+   },
+   {
+    "name": "TabBar",
+    "change": "TabBar: AI Tab Bar: 7 statuses (default, limit, recording, recorded, text, responding, typing)."
+   },
+   {
+    "name": "TextField",
+    "change": "NationalitySearch: Search with flag result list (TextField Search + DropdownItem flag)."
+   },
+   {
+    "name": "Chip",
+    "change": "AddedNationalities: Removable chips with flags (Button Secondary XS icon-left today)."
+   },
+   {
+    "name": "TextField",
+    "change": "Otp: TextField OTP + ResendTimer inside the Question card."
+   },
+   {
+    "name": "TextField",
+    "change": "PasswordField: Password with rules inside the field and the view toggle (F24)."
+   },
+   {
+    "name": "TextField",
+    "change": "MobileField: Mobile: country code 115 + number (TextField Mobile)."
+   },
+   {
+    "name": "SelectCard",
+    "change": "GenderField: Select Card with custom icon (hijab / haji)."
+   },
+   {
+    "name": "TextField",
+    "change": "PassportNumber: TextField Input with a trailing camera action."
+   },
+   {
+    "name": "SelectCard",
+    "change": "BorderNumber: Select Card without radio + dependent input."
+   },
+   {
+    "name": "TextField",
+    "change": "IbanField: TextField Action (verify) + Filled-Disabled bank row with logo."
+   },
+   {
+    "name": "SelectCard",
+    "change": "PassportAttach: Select Card without radio as the answer (no CTA)."
+   },
+   {
+    "name": "FlightTicket",
+    "change": "FlightTicketFull: Version=Full: countries, flags, duration arc, tags, ribbon, airline group, seats, per-traveller price."
+   },
+   {
+    "name": "TextField",
+    "change": "Fld: Trailing slot (icon button / action button / logo) and floating label."
+   },
+   {
+    "name": "SelectCard",
+    "change": "SelCard: iconNode (any icon) and radio: false."
+   },
+   {
+    "name": "OptionCard",
+    "change": "SingleChoose: Option Cards (Icon with Action) as one radio group; the chosen card takes Alerts/Surface/Success and a green action (12 Nov 2026)."
+   }
+  ],
+  "added": [
+   {
+    "name": "Question",
+    "group": "Nusuk AI",
+    "figma": {
+     "_Chat Container": "80453:2664"
+    }
+   },
+   {
+    "name": "Days",
+    "group": "Nusuk AI",
+    "figma": {
+     "User=Nusuk": "80587:9465"
+    }
+   },
+   {
+    "name": "Slots",
+    "group": "Nusuk AI",
+    "figma": {
+     "User=Nusuk": "80593:6839"
+    }
+   },
+   {
+    "name": "NafathAnswer",
+    "group": "Inputs",
+    "figma": {
+     "Instance on canvas": "80473:2474",
+     "Component": "80473:2443"
+    }
+   },
+   {
+    "name": "BotNote",
+    "group": "Nusuk AI",
+    "figma": {
+     "Default (Makkah insight)": "80559:28807",
+     "Variant3 (Madinah insight)": "80559:28810",
+     "Variant2 (Makkah pill)": "80559:28813",
+     "Variant4 (Madinah pill)": "80559:28816"
+    }
+   },
+   {
+    "name": "Bot",
+    "group": "Nusuk AI",
+    "figma": {
+     "Location=Makkah": "80559:28820",
+     "Location=Madina": "80559:28823",
+     "_Eyes (7 frames)": "80559:28826"
+    }
+   },
+   {
+    "name": "PassportPreview",
+    "group": "Inputs",
+    "figma": {
+     "Variant": "80607:19494",
+     "Image": "80607:19720"
+    }
+   },
+   {
+    "name": "Liveness",
+    "group": "Inputs",
+    "figma": {
+     "Variant": "80607:20622",
+     "Scan Photo/Status=00": "80607:20843",
+     "Hint Warning": "80607:20846"
+    }
+   },
+   {
+    "name": "LocationGuide",
+    "group": "Cards",
+    "figma": {
+     "Variant": "80622:21047"
+    }
+   },
+   {
+    "name": "HotelChoose",
+    "group": "Cards",
+    "figma": {
+     "Variant": "80625:21403"
+    }
+   },
+   {
+    "name": "HotelCard",
+    "group": "Cards",
+    "figma": {
+     "In variant": "80625:21403"
+    }
+   },
+   {
+    "name": "FlightsSelection",
+    "group": "Cards",
+    "figma": {
+     "Variant": "80652:10299"
+    }
+   },
+   {
+    "name": "BookingTicket",
+    "group": "Cards",
+    "figma": {
+     "Umrah Packages": "80632:38115",
+     "Flight Ticket": "80632:38117",
+     "Rawdah Permit": "80632:38119",
+     "Train": "80632:38121",
+     "Master": "80632:38068"
+    }
+   },
+   {
+    "name": "LogosGroup",
+    "group": "Cards",
+    "figma": {
+     "Logos Group": "80632:38074 (in master)",
+     "Logo Icons": "637:23249…637:23267",
+     "City Logo": "637:23223"
+    }
+   }
+  ],
+  "removed": []
+ },
+ "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR"
+}

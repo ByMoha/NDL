@@ -1,0 +1,170 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "pass-sheet",
+ "name": "Pass sheet",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-17",
+ "kind": "overlay",
+ "appLevel": "L4",
+ "band": {
+  "value": 2,
+  "rule": "Commitment state: never suppressed."
+ },
+ "job": "The pass of one person, opened over the booking: whether it is valid, whose it is, and the code to show at the gate.",
+ "useFor": "Any pass, permit or ticket shown to a person or a scanner.",
+ "notFor": "A pass that is itself a full card with photo (use Pass viewer).",
+ "spaces": [
+  {
+   "id": "page-behind",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "The booking page under overlay-backdrop."
+   ],
+   "forbidden": [
+    "Opening as a new page that loses the booking."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "validity",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "One StatusChip in words: active, not yet active, used, expired, cancelled."
+   ],
+   "forbidden": [
+    "A valid-looking code with a non-valid status.",
+    "Colour as the only signal."
+   ],
+   "patterns": [],
+   "components": [
+    "Chip",
+    "StatusChip"
+   ]
+  },
+  {
+   "id": "holder",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "Name and the identifiers the gate checks."
+   ],
+   "forbidden": [
+    "Identifiers the gate does not need."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "code",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "QRCodeStatus at a size that scans, with an optional label for the pass type and its meaning one tap away."
+   ],
+   "forbidden": [
+    "A label with no stated meaning.",
+    "A code that needs the network to render.",
+    "Anything animated over the code."
+   ],
+   "patterns": [],
+   "components": [
+    "QRCodeStatus"
+   ]
+  },
+  {
+   "id": "keep",
+   "n": 4,
+   "fixed": false,
+   "cardinality": "optional, 0–2",
+   "allowed": [
+    "Share, and add to wallet with the official wallet artwork."
+   ],
+   "forbidden": [
+    "Share on a pass that is not valid.",
+    "Rebuilt wallet buttons."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "close",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "CTA · Ghost: close."
+   ],
+   "forbidden": [
+    "A Primary.",
+    "Offers."
+   ],
+   "patterns": [],
+   "components": [
+    "Button"
+   ]
+  }
+ ],
+ "states": [
+  {
+   "id": "active",
+   "changes": "Code shown, keep actions on."
+  },
+  {
+   "id": "not-yet-active",
+   "changes": "Code shown or held back by service rule; the time it becomes active is stated."
+  },
+  {
+   "id": "used-expired-cancelled",
+   "changes": "No code; the status and what to do next."
+  },
+  {
+   "id": "could-not-load",
+   "changes": "The last saved pass if there is one, and a retry (SectionError); never an empty sheet."
+  }
+ ],
+ "interaction": [],
+ "rules": [
+  "Validity is the first thing read.",
+  "Nothing commercial on this sheet.",
+  "The code is never cropped, dimmed or covered.",
+  "Works offline once issued.",
+  "Digits 0–9; Arabic and English both checked."
+ ],
+ "allocation": {
+  "App level": "L4 · an artefact. Opened from the person card, from the request card on Today, and from the notification.",
+  "Band": "Band 2; band 1 at the gate. Promoted to P1 at the moment of use.",
+  "Offline": "Available offline once issued; brightness raised while open.",
+  "Withheld": "A person opens only their own pass, or those of people they booked for."
+ },
+ "measure": {
+  "success": "Pass opened at the gate without retry",
+  "guardrails": "load failures, gate rejections reported"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70448:13911"
+ },
+ "example": {
+  "service": "Umrah Permits",
+  "allocation": {
+   "Service": "Umrah Permits · DNA Core."
+  },
+  "notes": [
+   "Built on Bottom Sheet · Status=Default with QR Code · Type=Prioirty."
+  ],
+  "inTheFlowToday": "The code carries a \"privilege card\" label with an info icon and no stated meaning on the sheet.",
+  "sourceFrames": [
+   "XyVWgqJb7gWcNRlnwmnYow · 10167:18235",
+   "XyVWgqJb7gWcNRlnwmnYow · 10205:8496"
+  ]
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "date": "2026-11-11",
+ "name": "template-contracts-recheck",
+ "designMd": "2.7.2",
+ "tokens": {
+  "version": "3.5",
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "components": {
+  "added": [],
+  "changed": []
+ },
+ "templates": {
+  "contractsCorrected": [
+   "service-landing",
+   "catalogue-list",
+   "item-details"
+  ],
+  "index": "templates/index.json",
+  "folder": "templates/contracts/",
+  "schema": "Nusuk DL template contract v1",
+  "status": "draft",
+  "spaceIdsRenamed": {
+   "service-landing": {
+    "commitment-state": "notification-slot",
+    "featured": "hero-row",
+    "categories": "category-grid"
+   }
+  },
+  "spacesAdded": {
+   "catalogue-list": [
+    "card-action"
+   ]
+  },
+  "note": "Fidelity correction: these three contracts had been hand-paraphrased from the original 10 Nov Figma build-script documentation instead of mechanically extracted like the other 17, and had lost real content, including two trust findings already excluded from the template but missing from its record. Rebuilt mechanically from landingB.js, categoryB.js and productB.js; nothing silently dropped. The other 17 contracts are unchanged."
+ },
+ "patterns": {
+  "index": "patterns/index.json",
+  "usedByCorrected": [
+   "upcoming-requests",
+   "categories",
+   "cards-slider",
+   "leaderboard",
+   "cards-list"
+  ],
+  "note": "usedBy updated to the corrected space ids; one stale cross-reference removed (service-landing › item-rows no longer claims cards-list)."
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "read": [
+   "JICYiAc17iP7JgCE366XCc (Marketplace)"
+  ],
+  "edited": "documentation sections only; no library component or variable edited"
+ },
+ "docs": {
+  "changed": [
+   "15-template-contracts.md",
+   "13-change-log.md",
+   "12-release-notes.md",
+   "README.md",
+   "design-system.json"
+  ]
+ },
+ "knownIssues": {
+  "note": "No new TC items; this corrects the record of the originals, it does not change what the template contracts allow or forbid."
+ },
+ "decisions": []
+}

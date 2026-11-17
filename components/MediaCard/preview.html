@@ -1,0 +1,53 @@
+<!doctype html>
+<html data-theme="gold-light" lang="ar">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>MediaCard — preview</title>
+<style>
+  body{margin:0}
+  .mc-grid{display:grid;grid-template-columns:repeat(4,250px);gap:28px;align-items:start}
+  .mc-cap{grid-column:1/-1;margin:12px 0 -12px;font:400 12px/1.28 var(--font-sans);color:var(--text-note);text-align:left}
+</style>
+</head>
+<body>
+<div id="root" class="nk nk-stage" dir="ltr"></div>
+<script>
+  var N = window.NusukDL, h = React.createElement;
+  var IMG = { kaaba: '/_blob/056290d598d40c8dc04d9a883be81b1e', flight: '/_blob/c69f688c9837bed962b103719ad1e621', train: '/_blob/34e2e989786aff4d3ab2c4c1876b9012', hotel: '/_blob/28784457627d57233ccdc73ce8663a09', author: '/_blob/034436d628f5f0cde2a21341bc0a3eae', avatar: '/_blob/a7e57d04f9bca8ef39b79dcab2c36aff' };
+  var T2 = ['غرفة خاصة', 'فطور'];
+  var cards = [
+    { kind: 'article', image: IMG.kaaba, title: 'إقامة مميزة في المدينة المنورة', meta: '5 دقائق قراءة' },
+    { play: true, image: IMG.kaaba, title: 'نصائح طبية لعمرة رمضان', meta: '#الصحة', cta: false },
+    { kind: 'sound', image: IMG.kaaba, title: 'تسجيل نادر بصوت الشيخ محمد جبريل', author: { name: 'عبدالله محمد', avatar: IMG.avatar } },
+    { play: true, image: IMG.kaaba, title: 'تسجيل خطبة يوم عرفة', meta: '#الفيديو', cta: false },
+    { kind: 'image', image: IMG.kaaba, title: 'خلفيات موسم الحج', meta: '#خلفيات' },
+    { kind: 'attraction', selected: true, image: IMG.kaaba, title: 'افضل معالم تاريخية في جدة', price: '1,000' },
+    { kind: 'activity', selected: true, image: IMG.kaaba, title: 'فعالية يوم الطفل', rating: 4, tags: T2, price: '1,000' },
+    { kind: 'restaurant', image: IMG.kaaba, title: 'مطعم المجلس الخليجى', rating: 4, tags: ['المطبخ السعودي'] },
+    { kind: 'package', image: IMG.kaaba, title: 'باقة 7 أيام المميزة', rating: 4, tags: T2, price: '1,000', cta: false },
+    { kind: 'flight', image: IMG.flight, title: 'رحلات مميزة إلى مكة المكرمة', price: '1,000' },
+    { kind: 'train', image: IMG.train, title: 'رحلات مميزة إلى مكة المكرمة', price: '1,000' },
+    { kind: 'hotel', image: IMG.hotel, title: 'إقامة مميزة في المدينة المنورة', rating: 4, tags: T2, price: '1,000' },
+    { live: true, play: true, image: IMG.kaaba, title: 'خطبة الجمعة من مكة المكرمة', meta: 'الحرم المكى', metaIcon: 'hajjService', cta: false },
+    { kind: 'marketplace', layout: 'list', cart: 'cart', image: IMG.kaaba, title: 'الهدي', price: '1,000' },
+    { kind: 'marketplace', layout: 'grid', cart: 'cart', surface: 'fade', image: IMG.kaaba, title: 'الهدي', price: '1,000' },
+    { kind: 'marketplace', kindLabel: 'غير متوفر', layout: 'grid', cart: 'notify-me', surface: 'fade', image: IMG.kaaba, title: 'الهدي', price: '1,000' },
+    { type: 'more' },
+    { kind: 'ticket', kindLabel: 'متحف برج الساعة', image: IMG.kaaba, title: 'التذكرة المميزة', rating: 4, tags: ['اطلالة بانورامية'], meta: '#الصحة', price: '1,000' },
+    { kind: 'athkar', image: IMG.kaaba, title: 'أذكار الصباح', meta: '#الصحة' },
+    { image: IMG.author, imageAlt: 'الشيخ أ.د. ماهر المعيقلي', title: 'الشيخ أ.د. ماهر المعيقلي', meta: '#الصحة', cta: false }
+  ];
+  var extra = [
+    { surface: 'fade', kind: 'hotel', image: IMG.hotel, title: 'إقامة مميزة في المدينة المنورة', rating: 4, tags: T2, price: '1,000' },
+    { kind: 'flight', image: IMG.flight, title: 'رحلات مميزة', fromTo: ['جدة', 'القاهرة'], price: '750', discount: { label: 'خصم 25%', was: '1,000' } },
+    { kind: 'hotel', image: IMG.hotel, title: 'فندق قريب من الحرم', reviews: { count: '335 تقييم', score: '5' }, price: '1,000' },
+    { kind: 'athkar', image: IMG.kaaba, title: 'أذكار المساء', note: 'من بعد العصر حتى المغرب.', cta: false }
+  ];
+  function card(c, i) { return h('div', { key: i, dir: 'rtl' }, h(N.MediaCard, c)); }
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'mc-grid' },
+      h('p', { className: 'mc-cap' }, 'Media Cards · 18 types · Solid BG = On (glass details panel)'),
+      cards.map(card),
+      h('p', { className: 'mc-cap' }, 'Master options · Solid BG = Off (fade) · From–To + discount · rating summary · Athkar note'),
+      extra.map(function (c, i) { return card(c, 'x' + i); })));
+</script>
+</body>
+</html>

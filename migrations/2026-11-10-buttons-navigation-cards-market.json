@@ -1,0 +1,176 @@
+{
+ "date": "2026-11-10",
+ "name": "buttons-navigation-cards-market",
+ "designMd": "2.3",
+ "figma": {
+  "read": "2026-11-10",
+  "files": [
+   "🕹️ Buttons",
+   "🧭 Navigation",
+   "🃏 Cards",
+   "⚙️ Foundation (in sync)",
+   "🛍️ Market (new, 5X9RDeo33hZFEhtjVUYr5c)"
+  ],
+  "edited": "library updates accepted in 8 files (237 instances); no component or variable edited"
+ },
+ "tokens": {
+  "version": "3.4",
+  "added": [],
+  "changed": [],
+  "note": "button-padding-icon-* now applies to every filled button with a left or right icon"
+ },
+ "css": {
+  "buttonPadding": {
+   "selectorsFrom": ".nk-btn.fate.icon-left / .icon-right",
+   "selectorsTo": ".nk-btn.icon-left / .icon-right",
+   "values": {
+    "iconSide": {
+     "lr": 26,
+     "md": 24,
+     "sm": 20,
+     "xs": 14
+    },
+    "otherSide": {
+     "lr": 32,
+     "md": 30,
+     "sm": 22,
+     "xs": 16
+    }
+   }
+  },
+  "added": [
+   ".nk-bnav",
+   ".nk-ntab",
+   ".nk-nudge",
+   ".nk-atc",
+   ".nk-popt",
+   ".nk-tb-hello",
+   ".nk-opt.product",
+   ".nk-mc.list",
+   ".nk-mc.grid"
+  ]
+ },
+ "components": {
+  "added": [
+   "BottomNav",
+   "NavTab",
+   "Nudge",
+   "AddToCartCTA",
+   "PriceOptions"
+  ],
+  "changed": {
+   "Toolbar": {
+    "types": 20,
+    "prop": {
+     "from": "light",
+     "to": "darkmode"
+    },
+    "typeMap": {
+     "landing": "Landings / LoggedIn",
+     "landing+no-account": "Landings / Guest",
+     "primary": "Primary Pages / Default",
+     "primary+with-search": "Primary Pages / Search",
+     "inner": "Secondary Pages / Default",
+     "back": "Secondary Pages / No Actions",
+     "search+leading-trailing": "Secondary Pages / Search",
+     "inner+with-tabs": "Secondary Pages / Tabs",
+     "close": "Modal / Default",
+     "search": "Modal / Search",
+     "market-product": "Marketplace Prodcut"
+    },
+    "new": [
+     "Landings / Search",
+     "Primary Pages / Tabs"
+    ]
+   },
+   "OptionCard": {
+    "addedTypes": [
+     "product"
+    ]
+   },
+   "MediaCard": {
+    "addedProps": [
+     "layout",
+     "cart",
+     "cartProps"
+    ]
+   },
+   "Button": {
+    "note": "icon-side padding for all filled kinds"
+   }
+  },
+  "deprecated": {
+   "Toolbar.type": [
+    "market-landing",
+    "market-category"
+   ],
+   "Toolbar.status": "all values",
+   "RequestCard.type": [
+    "sim"
+   ]
+  },
+  "removeIn": "the release after next"
+ },
+ "icons": {
+  "added": [
+   "user-circle",
+   "nusuk",
+   "route-02",
+   "airplane-02",
+   "live-streaming-02",
+   "notification-01",
+   "arrow-left-01"
+  ]
+ },
+ "audit": {
+  "pixelIdentical": "262 of 292",
+  "targets": {
+   "controls": 356,
+   "48+": 317,
+   "44 top bar": 23,
+   "under24": 0
+  },
+  "names": {
+   "interactive": 366,
+   "unnamed": 0
+  },
+  "contrastPass": {
+   "gold-light": 88.0,
+   "green-light": 89.9,
+   "lavender-light": 89.8,
+   "gold-dark": 96.9,
+   "green-dark": 96.0,
+   "lavender-dark": 96.0
+  }
+ },
+ "knownIssues": {
+  "added": [
+   "B17",
+   "B18",
+   "B19",
+   "N14",
+   "N15",
+   "N16",
+   "N17",
+   "N18",
+   "N19",
+   "N20",
+   "N21",
+   "N22",
+   "K9",
+   "K10",
+   "K11",
+   "K12",
+   "K13",
+   "MK1",
+   "MK2",
+   "MK3",
+   "MK4",
+   "MK5",
+   "MK6",
+   "MK7",
+   "MK8",
+   "N23"
+  ]
+ }
+}

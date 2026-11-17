@@ -1,0 +1,182 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "date-period",
+ "name": "Date and time · day and period",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "step",
+ "appLevel": "L3",
+ "band": {
+  "value": 3,
+  "rule": "Journey step: demotes when the step closes."
+ },
+ "job": "Choose a day and a broad part of the day, for a service where the booking is valid all day. One step of a booking; nothing else from the booking lives here.",
+ "useFor": "A service where the person commits to a day and a broad arrival window.",
+ "notFor": "Exact timed entry (use Date and time · day and exact slot). Stay or travel dates (range pickers).",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Companion MGM: who the booking is for, edit the party, close."
+   ],
+   "forbidden": [
+    "Toolbar · Timer when no place is held.",
+    "Hiding who the booking is for."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "month",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "Month title with previous and next.",
+    "The title opens Sheet - Calendar."
+   ],
+   "forbidden": [
+    "Months outside the bookable window.",
+    "A month that disagrees with the selected day.",
+    "Digits other than 0–9."
+   ],
+   "patterns": [],
+   "components": [
+    "Sheet - Calendar"
+   ]
+  },
+  {
+   "id": "days",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "DayTab: Default, Selected, Today tag, Unavailable.",
+    "A real marker with its meaning stated."
+   ],
+   "forbidden": [
+    "Markers without a stated meaning.",
+    "Colour as the only sign of availability.",
+    "\"Filling fast\" tags not driven by live capacity."
+   ],
+   "patterns": [],
+   "components": [
+    "DayTab"
+   ]
+  },
+  {
+   "id": "expectation",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "Headers · 04 Legend: the section title and one line that sets expectations."
+   ],
+   "forbidden": [
+    "Offers or any band-6 content.",
+    "More than one notice.",
+    "Blessings or faith copy mixed into logistics."
+   ],
+   "patterns": [],
+   "components": [
+    "SectionHeader"
+   ]
+  },
+  {
+   "id": "periods",
+   "n": 4,
+   "fixed": false,
+   "cardinality": "required, 1–n",
+   "allowed": [
+    "Time slot card as a full-width option: Default, Selected, Disabled.",
+    "Tags Crowd, Prayer, Available soon, Instant only from live data.",
+    "EmptyState replaces the list when the day has nothing."
+   ],
+   "forbidden": [
+    "A period chosen in advance.",
+    "Crowd or \"last places\" tags without live data.",
+    "Countdowns.",
+    "Hiding unavailable periods without saying why."
+   ],
+   "patterns": [],
+   "components": [
+    "EmptyState",
+    "TimeSlot"
+   ]
+  },
+  {
+   "id": "action-bar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "TabBar action bar · Actions: one line that repeats the chosen day and time, and one Primary that names the outcome."
+   ],
+   "forbidden": [
+    "A disabled Primary as the only feedback.",
+    "Raw placeholders such as %s.",
+    "A second Primary."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [],
+ "interaction": [
+  "Open on the first day that has places; no time is chosen for the person.",
+  "The month or date title opens Sheet - Calendar. Its Primary applies the day, Ghost closes it and keeps the current day.",
+  "Changing the day clears the chosen time and reloads the list; a day with nothing shows EmptyState and points to another day.",
+  "Choosing a period selects it alone; the option shows Selected and the action bar repeats day and period in words.",
+  "The Primary continues to the summary, which repeats the day and the preferred time before anything is confirmed."
+ ],
+ "rules": [
+  "One selection at a time; a selected option never relies on colour alone.",
+  "Availability comes from the live service; the screen never invents demand (M4).",
+  "The main action stays enabled; on tap it says what is missing (M10).",
+  "Digits 0–9 in every language; day names and dates agree across header, tabs and title.",
+  "Arabic and English are both checked: mirrored arrows, isolated numbers."
+ ],
+ "allocation": {
+  "App level": "L3 · a configuration step inside a booking. Opened from the service page, never from Today.",
+  "Band": "Band 3, the journey step.",
+  "Scarcity": "Only when places are truly limited: then availability is stated plainly. It is information, never pressure.",
+  "Withheld": "Dependents give constraints and do not see a date picker; booking control for Dependents and Organised groups is P0."
+ },
+ "measure": {
+  "success": "Step completion and time to choose",
+  "guardrails": "changes after confirmation, cancellations, share of days opened with no places"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70438:7701"
+ },
+ "example": {
+  "service": "Umrah Permits",
+  "allocation": {
+   "Service": "Umrah Permits · DNA Core. Resting P3, raised to P1 at steps 2.2, 5.4 and L1.2.",
+   "Scarcity": "Real: places are limited.",
+   "Withheld": "Dependents at L1.3 and 2.6 give constraints."
+  },
+  "notes": [
+   "Built on Visit Details Master with Tabs on and List on.",
+   "Expectation line in the example: the permit is valid all day; arrival time is guidance.",
+   "Day marker in the example: a Ramadan night."
+  ],
+  "inTheFlowToday": "The month header reads June 2025 while the date title reads 22 June 2026, and the day tab says Saturday 22 while the title says Sunday 22. Hint lines still carry %s. The main action is disabled until a time is chosen.",
+  "sourceFrames": [
+   "XyVWgqJb7gWcNRlnwmnYow · 10274:8717",
+   "XyVWgqJb7gWcNRlnwmnYow · 8673:54939",
+   "XyVWgqJb7gWcNRlnwmnYow · 8699:42965"
+  ]
+ },
+ "was": "slot-period"
+}

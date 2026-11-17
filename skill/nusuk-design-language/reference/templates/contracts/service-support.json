@@ -1,0 +1,135 @@
+{
+ "$schema": "Nusuk DL template contract v1 (see 14-templates-and-patterns.md; DESIGN.md › M9T)",
+ "id": "service-support",
+ "name": "Help and support",
+ "status": "draft",
+ "version": "0.1",
+ "updated": "2026-11-11",
+ "kind": "page",
+ "appLevel": "L2",
+ "band": {
+  "value": 1,
+  "rule": "Ritual and safety: never suppressed, P5."
+ },
+ "job": "Answers and a way to reach a person, from inside a service.",
+ "useFor": "Help with a request or with the service.",
+ "notFor": "Marketing content or FAQs that sell.",
+ "spaces": [
+  {
+   "id": "toolbar",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "Toolbar · Secondary Pages / Default."
+   ],
+   "forbidden": [
+    "Deprecated toolbar types."
+   ],
+   "patterns": [],
+   "components": [
+    "Toolbar"
+   ]
+  },
+  {
+   "id": "topics",
+   "n": 1,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "SectionTitle with Collapsed Section or DropdownItem lists, grouped by topic."
+   ],
+   "forbidden": [
+    "Offers.",
+    "Topics that end without an answer or a next step."
+   ],
+   "patterns": [],
+   "components": [
+    "CollapsedSection",
+    "DropdownItem",
+    "SectionTitle"
+   ]
+  },
+  {
+   "id": "ask-ai",
+   "n": 2,
+   "fixed": false,
+   "cardinality": "optional, 0–1",
+   "allowed": [
+    "Try Nusuk AI · Menu."
+   ],
+   "forbidden": [
+    "AI that issues religious rulings or invents service facts (M4)."
+   ],
+   "patterns": [],
+   "components": []
+  },
+  {
+   "id": "contact",
+   "n": 3,
+   "fixed": false,
+   "cardinality": "required, 1",
+   "allowed": [
+    "One CTA to a person: chat, call or ticket."
+   ],
+   "forbidden": [
+    "Burying contact behind the AI or behind several screens."
+   ],
+   "patterns": [],
+   "components": [
+    "Button"
+   ]
+  },
+  {
+   "id": "bottom",
+   "n": null,
+   "fixed": true,
+   "cardinality": "fixed",
+   "allowed": [
+    "TabBar · Empty."
+   ],
+   "forbidden": [
+    "A floating selection bar."
+   ],
+   "patterns": [],
+   "components": [
+    "TabBar"
+   ]
+  }
+ ],
+ "states": [],
+ "interaction": [],
+ "rules": [
+  "Help sits in the same place on every screen (M10).",
+  "A person is always reachable; AI is one of the routes, not a gate.",
+  "Answers are short, with one next step.",
+  "No commerce on this page.",
+  "An open ticket shows its state at the top."
+ ],
+ "allocation": {
+  "App level": "L2 · a service page.",
+  "Placement": "Reachable within two taps from every screen, in every state. Nothing suppresses it: not ihram, not Arafah, not a payment flow.",
+  "Band and tier": "Band 1 · T1."
+ },
+ "measure": {
+  "success": "Time to first response and time to resolution",
+  "guardrails": "reopen within 48 hours"
+ },
+ "figma": {
+  "file": "fIjmiUpwy5UE9KJ9aXfhrn",
+  "page": "✨ Templates",
+  "section": "70427:5490"
+ },
+ "example": {
+  "service": "Marketplace",
+  "allocation": {
+   "Service": "Support Center · DNA Supportive · P5 permanent."
+  },
+  "notes": [
+   "Toolbar: The MarketPlace Landing type (deprecated; the flow uses it)."
+  ],
+  "inTheFlowToday": "Topic lists are a component named List Products.",
+  "sourceFrames": []
+ },
+ "was": "support-center"
+}

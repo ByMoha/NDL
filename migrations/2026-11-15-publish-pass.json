@@ -1,0 +1,50 @@
+{
+ "date": "2026-11-15",
+ "title": "Publish pass: every DL library published, every update accepted",
+ "tokens": "3.8 unchanged",
+ "componentsChanged": [],
+ "published": [
+  "Buttons",
+  "Foundation",
+  "Avatar",
+  "Status Handlers",
+  "Inputs",
+  "Navigation",
+  "Cards",
+  "Notifications",
+  "Misc",
+  "Widgets",
+  "Rating & CSAT",
+  "Dropdown list",
+  "Modals & Sheets",
+  "Chat UI",
+  "Map",
+  "Travel",
+  "Payment",
+  "Media",
+  "Animation",
+  "Tracker",
+  "Market",
+  "Date & Time"
+ ],
+ "noPublishNeeded": [
+  "Icons",
+  "Visual Assets",
+  "Switches",
+  "Tabs",
+  "Chips"
+ ],
+ "updatesAcceptedOnly": [
+  "Templates & Patterns",
+  "Hajj Theme",
+  "App Assets",
+  "Nusuk Companion"
+ ],
+ "rounds": 5,
+ "dependencies": "library-dependencies.json",
+ "knownIssues": {
+  "F45": "mostly closed"
+ },
+ "ios": "No value change; re-read screens measured before this pass.",
+ "android": "No value change; re-read screens measured before this pass."
+}

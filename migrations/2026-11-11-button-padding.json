@@ -1,0 +1,129 @@
+{
+ "date": "2026-11-11",
+ "name": "button padding",
+ "tokens": {
+  "version": "3.5",
+  "changed": [
+   {
+    "name": "button-padding-xs",
+    "from": "16px",
+    "to": "14px",
+    "figma": "Buttons Setup/Glob Whitespace (XS) → Scale/14",
+    "ios": "NusukButton.paddingXs",
+    "android": "NusukButton.PaddingXs",
+    "fromPtDp": 16.0,
+    "toPtDp": 14.0
+   },
+   {
+    "name": "button-padding-sm",
+    "from": "22px",
+    "to": "18px",
+    "figma": "Buttons Setup/Glob Whitespace (SM) → Scale/18",
+    "ios": "NusukButton.paddingSm",
+    "android": "NusukButton.PaddingSm",
+    "fromPtDp": 22.0,
+    "toPtDp": 18.0
+   },
+   {
+    "name": "button-padding-md",
+    "from": "30px",
+    "to": "22px",
+    "figma": "Buttons Setup/Glob Whitespace (MD) → Scale/22",
+    "ios": "NusukButton.paddingMd",
+    "android": "NusukButton.PaddingMd",
+    "fromPtDp": 30.0,
+    "toPtDp": 22.0
+   },
+   {
+    "name": "button-padding-lr",
+    "from": "32px",
+    "to": "28px",
+    "figma": "Buttons Setup/Glob Whitespace (LR) → Scale/28",
+    "ios": "NusukButton.paddingLr",
+    "android": "NusukButton.PaddingLr",
+    "fromPtDp": 32.0,
+    "toPtDp": 28.0
+   },
+   {
+    "name": "button-padding-icon-xs",
+    "from": "14px",
+    "to": "12px",
+    "figma": "Buttons Setup/Icon-Side Whitespace (XS) → Scale/12",
+    "ios": "NusukButton.paddingIconXs",
+    "android": "NusukButton.PaddingIconXs",
+    "fromPtDp": 14.0,
+    "toPtDp": 12.0
+   },
+   {
+    "name": "button-padding-icon-sm",
+    "from": "20px",
+    "to": "16px",
+    "figma": "Buttons Setup/Icon-Side Whitespace (SM) → Scale/16",
+    "ios": "NusukButton.paddingIconSm",
+    "android": "NusukButton.PaddingIconSm",
+    "fromPtDp": 20.0,
+    "toPtDp": 16.0
+   },
+   {
+    "name": "button-padding-icon-md",
+    "from": "24px",
+    "to": "20px",
+    "figma": "Buttons Setup/Icon-Side Whitespace (MD) → Scale/20",
+    "ios": "NusukButton.paddingIconMd",
+    "android": "NusukButton.PaddingIconMd",
+    "fromPtDp": 24.0,
+    "toPtDp": 20.0
+   },
+   {
+    "name": "button-padding-icon-lr",
+    "from": "26px",
+    "to": "24px",
+    "figma": "Buttons Setup/Icon-Side Whitespace (LR) → Scale/24",
+    "ios": "NusukButton.paddingIconLr",
+    "android": "NusukButton.PaddingIconLr",
+    "fromPtDp": 26.0,
+    "toPtDp": 24.0
+   }
+  ],
+  "added": [],
+  "removed": []
+ },
+ "components": {
+  "changed": [
+   {
+    "name": "Button",
+    "change": "Icon-only and loading buttons use button-padding-icon-* on both sides, destructive or not. Before: button-padding-* unless destructive.",
+    "widths": {
+     "lr": {
+      "from": 90,
+      "to": 74
+     },
+     "md": {
+      "from": 86,
+      "to": 66
+     },
+     "sm": {
+      "from": 68,
+      "to": 56
+     },
+     "xs": {
+      "from": 50,
+      "to": 42
+     }
+    },
+    "props": "unchanged"
+   }
+  ],
+  "added": [],
+  "removed": []
+ },
+ "native": {
+  "units": "pt on iOS, dp on Android",
+  "files": [
+   "native/NusukTokens.swift",
+   "native/NusukTokens.kt",
+   "native/tokens-native.json"
+  ]
+ },
+ "figma": "https://www.figma.com/design/AXEkdklBHSQDssRmOFMTve"
+}

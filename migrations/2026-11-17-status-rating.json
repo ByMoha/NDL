@@ -1,0 +1,242 @@
+{
+ "date": "2026-11-17",
+ "title": "Status Handlers and Rating & CSAT (afternoon); slim skill zip; three downloads",
+ "tokens": {
+  "version": "3.10",
+  "changed": {}
+ },
+ "designMd": "3.3",
+ "figma": {
+  "statusHandlers": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o",
+  "ratingCsat": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl",
+  "bottomSheet": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32059",
+  "generalBottomSheet": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32076",
+  "sectionError": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68545-4963",
+  "reasonSelection": "https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32655",
+  "ratingBar": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76392-4805",
+  "productReviewCard": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76404-3197",
+  "totalReviewCard": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76427-1177",
+  "customerFeedbackBottomSheet": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76404-3106"
+ },
+ "components": {
+  "StatusSheet": {
+   "changed": "rebuilt: headline-1-regular title, body-2-light text-content description, Primary MD over Ghost MD (hug), 72/38 icon, padding 32/18/48 gap 26, Overlay/Soft, brand = alerts gold",
+   "added": [
+    "template",
+    "subject",
+    "image",
+    "imageAlt",
+    "imageWidth",
+    "chip",
+    "chipIcon",
+    "instruction",
+    "children",
+    "terms",
+    "previous",
+    "fate",
+    "secondaryFate",
+    "primaryIcon",
+    "icon",
+    "iconName",
+    "force",
+    "topAction",
+    "arrow",
+    "arrowLabel",
+    "onArrow",
+    "onPrimary",
+    "onSecondary"
+   ],
+   "statusAdded": [
+    "image"
+   ],
+   "templates": [
+    "error",
+    "download-failed",
+    "unsaved-changes",
+    "delete",
+    "location",
+    "location-settings",
+    "calendar",
+    "calendar-settings",
+    "notifications",
+    "refund",
+    "wallet-refund",
+    "priority",
+    "payment-failed",
+    "payment-expired",
+    "update"
+   ],
+   "visual": true
+  },
+  "BottomSheet": {
+   "added": [
+    "topAction",
+    "arrow",
+    "arrowLabel",
+    "onArrow",
+    "overlay"
+   ],
+   "changed": "grabber 5 from the top of its 26 band"
+  },
+  "NoticeBar": {
+   "added": [
+    "action",
+    "onAction",
+    "onClose",
+    "description",
+    "iconName",
+    "hug"
+   ],
+   "changed": "Figma glyph per colour; description alerts-icons-reject, 26 in; Shadow/XS as drawn"
+  },
+  "Alert": {
+   "added": [
+    "stacked"
+   ]
+  },
+  "EmptyState": {
+   "added": [
+    "location",
+    "secondary",
+    "onAction",
+    "onSecondary",
+    "icon",
+    "titleTag"
+   ],
+   "changed": "page: headline-1-regular, body-2-light text-content, glyph 38 in 68, Primary MD over Ghost MD; list card",
+   "visual": true
+  },
+  "RatingBar": {
+   "added": [
+    "variant",
+    "size",
+    "count",
+    "showCount",
+    "onChange"
+   ],
+   "changed": "solid stars icons-longing on surface-03-pearl, gap 0, 16/20/24, half stars from the reading start",
+   "visual": true
+  },
+  "CustomerFeedback": {
+   "added": [
+    "scale"
+   ]
+  },
+  "SectionError": {
+   "new": true
+  },
+  "ReasonSelection": {
+   "new": true
+  },
+  "ReviewCard": {
+   "new": true
+  },
+  "ReviewSummary": {
+   "new": true
+  }
+ },
+ "css": {
+  "added": [
+   ".nk-sheet-wrap.soft",
+   ".nk-sheet.status",
+   ".nk-sheet .grab.arrow",
+   ".prev-step",
+   ".nk-notice.hug",
+   ".nk-notice .x",
+   ".nk-alert.stacked",
+   ".nk-empty.list",
+   ".nk-sec-err",
+   ".nk-reasons",
+   ".nk-ratings.mini|.standard|.box",
+   ".nk-rate.input",
+   ".nk-review",
+   ".nk-review-sum"
+  ],
+  "changed": [
+   ".nk-sheet-wrap (column)",
+   ".nk-sheet .grab",
+   ".nk-notice",
+   ".nk-empty",
+   ".nk-rate"
+  ]
+ },
+ "icons": {
+  "added": [
+   "alert-01",
+   "information-circle",
+   "file-not-found",
+   "no-internet",
+   "notification-square",
+   "cancel-circle-half-dot",
+   "settings-02",
+   "credit-card",
+   "wallet-01",
+   "multiplication-sign",
+   "arrow-up-01",
+   "package-open",
+   "star-solid"
+  ]
+ },
+ "knownIssues": [
+  "F76",
+  "F77",
+  "F78",
+  "F79",
+  "F80",
+  "F81",
+  "F82",
+  "F83",
+  "F84",
+  "F85",
+  "F86",
+  "F87"
+ ],
+ "questions": [
+  "Q-D33",
+  "Q-D34",
+  "Q-D35",
+  "Q-D36",
+  "Q-D37"
+ ],
+ "skill": {
+  "maxFiles": 200,
+  "joined": [
+   "reference/components.md",
+   "reference/chat/cards.md",
+   "reference/chat/migrations.json",
+   "reference/migrations.json"
+  ],
+  "removed": [
+   "reference/components/",
+   "reference/chat/cards/",
+   "reference/chat/migrations/",
+   "reference/migrations/"
+  ]
+ },
+ "downloads": {
+  "packages": [
+   "nusuk-dl-developers.zip",
+   "nusuk-dl-designers.zip",
+   "nusuk-dl-all.zip"
+  ],
+  "hosts": [
+   "Google Drive",
+   "GitHub ByMoha/NusukDL (releases/latest)"
+  ],
+  "removed": "single-file downloads in the guide"
+ },
+ "templates": {
+  "contracts": {
+   "cancellation": "reason space = ReasonSelection; Overlays: StatusSheet template refund or wallet-refund",
+   "payment": "rules[1]: StatusSheet template payment-failed; payment-expired when a hold runs out",
+   "address-selection": "locate: StatusSheet template location, location-settings",
+   "pass-sheet": "could-not-load: SectionError",
+   "pass-viewer": "could-not-load: SectionError",
+   "request-tracking": "rules[2]: CustomerFeedback in a BottomSheet"
+  },
+  "patterns": {
+   "composition": "No empty sections: SectionError when a section fails to load"
+  },
+  "question": "Q-D37 (reviews space in item-details)"
+ }
+}

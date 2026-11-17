@@ -1,0 +1,65 @@
+{
+ "date": "2026-11-14",
+ "name": "designmd-3-0-1-chat-counts",
+ "designMd": "3.0.1",
+ "tokens": {
+  "version": "3.8",
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "chat": {
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+  "read": {
+   "sets": 7,
+   "variants": 54,
+   "masters": 3,
+   "aiChatMessagesVariants": 24
+  },
+  "version": {
+   "from": "2.5.0",
+   "to": "2.6.6",
+   "where": [
+    "chat/nk-chat.js window.NusukChat.version",
+    "the chat gallery header"
+   ]
+  },
+  "counts": {
+   "exports": 41,
+   "dl": 4,
+   "variants": 23,
+   "variantsOf": [
+    "ChatMessage",
+    "TextField",
+    "SelectCard",
+    "Chip",
+    "TabBar",
+    "FlightTicket",
+    "OptionCard"
+   ],
+   "new": 14,
+   "proposedValuesInStylesheet": 35,
+   "proposedTokens": 43,
+   "typeAliases": 12
+  }
+ },
+ "designMdChanged": [
+  "M9 › Inventory › Nusuk AI chat: 41 exports, 23 variants of 7 DL components, 35 proposed values in the stylesheet and 43 in tokens.proposed.json (was 40, 22 of 6, 31); NusukChat 2.6.6",
+  "M9C: NusukChat 2.6.6 (was 2.5.0); SingleChoose added to the Figma source table (OptionCard, AI Chat Messages › Style=Single Choose)"
+ ],
+ "project": {
+  "replaced": [
+   "claude/template-contracts.md: was the text of 11 November, morning, from before that evening's fidelity correction of service-landing, catalogue-list and item-details"
+  ],
+  "stagedEveryRelease": [
+   "claude/DESIGN.md",
+   "claude/template-contracts.md"
+  ]
+ },
+ "knownIssues": {
+  "changed": [
+   "F32: the private master is named _Booking_Ticket Matser"
+  ]
+ },
+ "breaking": []
+}

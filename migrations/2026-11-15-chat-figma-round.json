@@ -1,0 +1,24 @@
+{
+ "date": "2026-11-15",
+ "name": "chat-figma-round-nusukchat-2-7-0",
+ "designMd": "3.0.1",
+ "tokens": { "version": "3.8", "added": [], "changed": [], "removed": [] },
+ "checked": {
+  "foundation": { "file": "https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo", "collections": ["Colors (Quranic Illumination, Dome of the Prophet, Court Fabrics)", "Layout (Mobile)"], "differences": 0 },
+  "buttons": { "file": "https://www.figma.com/design/AXEkdklBHSQDssRmOFMTve", "collections": ["Buttons Setup (XS, SM, MD, LR)"], "differences": 0 }
+ },
+ "chat": {
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+  "version": { "from": "2.6.6", "to": "2.7.0" },
+  "coverage": { "sets": 7, "variants": 54, "masters": 3, "allMapped": true },
+  "changed": [
+   { "component": "FlightsSelection", "node": "80652:10299", "change": "show-all ghost button: عرض كافة الرحلات المتاحة" },
+   { "component": "SingleChoose", "node": "80626:36740", "change": "option lead icon alert-circle (DL)" },
+   { "component": "Chips, ErrorMsg", "change": "prop buttons (DL Button MD) and kind" },
+   { "component": "all", "change": "NusukChat.setLang / lang: English labels" }
+  ],
+  "files": ["chat/nk-chat.js", "chat/manifest.proposed.json", "chat/cards/Chips.md", "chat/cards/ErrorMsg.md", "chat/migrations/2026-11-15-nusuk-chat-figma-round.json"]
+ },
+ "knownIssues": { "resolvable": ["F32 (Booking_Ticket header Nusuk Bot, _Eyes and City Logo are library instances again; the master's name is still spelled _Booking_Ticket Matser)"] },
+ "breaking": []
+}

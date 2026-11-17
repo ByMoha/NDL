@@ -1,0 +1,658 @@
+{
+ "$schema": "Nusuk DL page template v1.1 (CMS section model with placement: band, placement, dna, states, withheld, suppress; see DESIGN.md › M9S, M9P)",
+ "read": "2026-11-09",
+ "templates": {
+  "rawdah-landing": {
+   "name": "Rawdah Landing",
+   "figma": "🏠 Landing Experience V2 › CMS › Rawdah Landing (18147:16034)",
+   "sections": [
+    {
+     "pattern": "featured-header",
+     "band": "frame",
+     "title": "مكة المكرمة",
+     "searchLabel": "تبحث عن",
+     "actions": [
+      {
+       "label": "المطوف\nالرقمي",
+       "iconName": "umrah"
+      },
+      {
+       "label": "تصريح\nالعمرة",
+       "iconName": "kaaba-01"
+      },
+      {
+       "label": "صلاة\nالحطيم",
+       "iconName": "sujood"
+      },
+      {
+       "label": "العربات\nالكهربائية",
+       "iconName": "golf-cart"
+      }
+     ]
+    },
+    {
+     "pattern": "upcoming-requests",
+     "band": 2,
+     "placement": "P1",
+     "dna": "Core",
+     "title": "الحجوزات القادمة",
+     "actionLabel": "عرض الكل",
+     "items": [
+      {
+       "type": "rawdah",
+       "status": "",
+       "service": ""
+      },
+      {
+       "type": "hair-cut",
+       "status": "",
+       "service": ""
+      }
+     ]
+    },
+    {
+     "pattern": "categories",
+     "band": 6,
+     "placement": "slot",
+     "dna": "Extra mile",
+     "suppress": "sacred",
+     "states": [
+      "evolving",
+      "journey"
+     ],
+     "title": "وجهات مميزة",
+     "items": [
+      {
+       "type": "product",
+       "label": "مياه زمزم"
+      },
+      {
+       "type": "product",
+       "label": "تذكارات"
+      },
+      {
+       "type": "product",
+       "label": "التمور"
+      },
+      {
+       "type": "product",
+       "label": "تذكارات"
+      },
+      {
+       "type": "product",
+       "label": "التمور"
+      },
+      {
+       "type": "product",
+       "label": "تذكارات"
+      }
+     ]
+    },
+    {
+     "pattern": "categories",
+     "band": 4,
+     "placement": "P1",
+     "dna": "Core",
+     "title": "وجهات مميزة",
+     "items": [
+      {
+       "type": "face",
+       "color": "mint",
+       "backColor": "peach"
+      }
+     ]
+    },
+    {
+     "pattern": "cards-slider",
+     "band": 3,
+     "placement": "P1",
+     "dna": "Supportive",
+     "withheld": [
+      "D",
+      "O"
+     ],
+     "title": "وجهات مميزة",
+     "tag": "#المحتوى",
+     "items": [
+      {
+       "kind": "train",
+       "title": "رحلات مميزة إلى المدينة المنور من مكة المكرمة",
+       "price": "1,000"
+      },
+      {
+       "kind": "hotel",
+       "title": "إقامة مميزة في المدينة المنورة",
+       "rating": 4,
+       "tags": [
+        "غرفة خاصة",
+        "فطور"
+       ],
+       "price": "1,000"
+      },
+      {
+       "kind": "flight",
+       "title": "رحلات مميزة إلى مكة المكرمة",
+       "price": "1,000"
+      }
+     ]
+    },
+    {
+     "pattern": "guide",
+     "band": 3,
+     "placement": "P1",
+     "dna": "Core",
+     "title": "كن مستعد لزيارة الروضة",
+     "items": [
+      {
+       "tone": "teal",
+       "title": "الهوية الوطنية",
+       "details": "تاريخ انتهاء الهوية/الإقامة بعد نهاية شهر ذي الحجة.",
+       "action": "العنوان"
+      },
+      {
+       "tone": "saffron",
+       "title": "الهوية الوطنية",
+       "details": "تاريخ انتهاء الهوية/الإقامة بعد نهاية شهر ذي الحجة.",
+       "action": "العنوان"
+      },
+      {
+       "tone": "amethyst",
+       "title": "الهوية الوطنية",
+       "details": "تاريخ انتهاء الهوية/الإقامة بعد نهاية شهر ذي الحجة.",
+       "action": "العنوان"
+      },
+      {
+       "tone": "olive",
+       "title": "الهوية الوطنية",
+       "details": "تاريخ انتهاء الهوية/الإقامة بعد نهاية شهر ذي الحجة.",
+       "action": "العنوان"
+      }
+     ],
+     "dots": 6
+    },
+    {
+     "pattern": "services-box",
+     "band": "hub",
+     "placement": "P2",
+     "dna": "Core",
+     "title": "خدمات مميزة",
+     "items": [
+      {
+       "label": "المطوف\nالرقمي",
+       "iconName": "umrah"
+      },
+      {
+       "label": "تصريح\nالعمرة",
+       "iconName": "kaaba-01"
+      },
+      {
+       "label": "صلاة\nالحطيم",
+       "iconName": "sujood"
+      },
+      {
+       "label": "العربات\nالكهربائية",
+       "iconName": "golf-cart"
+      },
+      {
+       "label": "المطوف\nالرقمي",
+       "iconName": "umrah"
+      },
+      {
+       "label": "تصريح\nالعمرة",
+       "iconName": "kaaba-01"
+      },
+      {
+       "label": "صلاة\nالحطيم",
+       "iconName": "sujood"
+      },
+      {
+       "label": "العربات\nالكهربائية",
+       "iconName": "golf-cart"
+      }
+     ]
+    },
+    {
+     "pattern": "cards-list",
+     "band": 3,
+     "placement": "P1",
+     "dna": "Supportive",
+     "withheld": [
+      "D",
+      "O"
+     ],
+     "title": "وجهات مميزة",
+     "items": [
+      {
+       "kind": "flight",
+       "title": "رحلات مميزة إلى مكة المكرمة",
+       "price": "1,000"
+      },
+      {
+       "kind": "hotel",
+       "title": "إقامة مميزة في المدينة المنورة",
+       "rating": 4,
+       "tags": [
+        "غرفة خاصة",
+        "فطور"
+       ],
+       "price": "1,000"
+      },
+      {
+       "kind": "train",
+       "title": "رحلات مميزة إلى المدينة المنور من مكة المكرمة",
+       "price": "1,000"
+      }
+     ]
+    }
+   ]
+  },
+  "rawdah-landing-full": {
+   "name": "Rawdah Landing (all sections)",
+   "figma": "🏠 Landing Experience V2 › CMS › Rawdah Landing (18147:15994)",
+   "sections": [
+    {
+     "pattern": "featured-header",
+     "band": "frame",
+     "title": "مكة المكرمة",
+     "searchLabel": "تبحث عن",
+     "actions": [
+      {
+       "label": "المطوف\nالرقمي",
+       "iconName": "umrah"
+      },
+      {
+       "label": "تصريح\nالعمرة",
+       "iconName": "kaaba-01"
+      },
+      {
+       "label": "صلاة\nالحطيم",
+       "iconName": "sujood"
+      },
+      {
+       "label": "العربات\nالكهربائية",
+       "iconName": "golf-cart"
+      }
+     ]
+    },
+    {
+     "pattern": "upcoming-requests",
+     "band": 2,
+     "placement": "P1",
+     "dna": "Core",
+     "title": "الحجوزات القادمة",
+     "actionLabel": "عرض الكل",
+     "items": [
+      {
+       "type": "rawdah",
+       "status": "",
+       "service": ""
+      },
+      {
+       "type": "hair-cut",
+       "status": "",
+       "service": ""
+      }
+     ]
+    },
+    {
+     "pattern": "categories",
+     "band": 6,
+     "placement": "slot",
+     "dna": "Extra mile",
+     "suppress": "sacred",
+     "states": [
+      "evolving",
+      "journey"
+     ],
+     "title": "وجهات مميزة",
+     "items": [
+      {
+       "type": "product",
+       "label": "مياه زمزم"
+      },
+      {
+       "type": "product",
+       "label": "تذكارات"
+      },
+      {
+       "type": "product",
+       "label": "التمور"
+      },
+      {
+       "type": "product",
+       "label": "تذكارات"
+      }
+     ]
+    },
+    {
+     "pattern": "cards-slider",
+     "band": 3,
+     "placement": "P1",
+     "dna": "Supportive",
+     "withheld": [
+      "D",
+      "O"
+     ],
+     "title": "وجهات مميزة",
+     "tag": "#المحتوى",
+     "items": [
+      {
+       "kind": "train",
+       "title": "رحلات مميزة إلى المدينة المنور من مكة المكرمة",
+       "price": "1,000"
+      },
+      {
+       "kind": "hotel",
+       "title": "إقامة مميزة في المدينة المنورة",
+       "rating": 4,
+       "tags": [
+        "غرفة خاصة",
+        "فطور"
+       ],
+       "price": "1,000"
+      },
+      {
+       "kind": "flight",
+       "title": "رحلات مميزة إلى مكة المكرمة",
+       "price": "1,000"
+      }
+     ]
+    },
+    {
+     "pattern": "cards-slider",
+     "layout": "grid",
+     "band": 5,
+     "placement": "P2",
+     "dna": "Supportive",
+     "title": "تسجيلات مميزة",
+     "tag": "#المرئيات",
+     "items": [
+      {
+       "kind": "video",
+       "title": "تسجيل خطبة يوم عرفة",
+       "meta": "#الفيديو",
+       "play": true,
+       "cta": false,
+       "selected": false
+      },
+      {
+       "kind": "video",
+       "title": "تسجيل خطبة يوم عرفة",
+       "meta": "#الفيديو",
+       "play": true,
+       "cta": false,
+       "selected": false
+      },
+      {
+       "kind": "video",
+       "title": "تسجيل خطبة يوم عرفة",
+       "meta": "#الفيديو",
+       "play": true,
+       "cta": false,
+       "selected": false
+      },
+      {
+       "kind": "video",
+       "title": "تسجيل خطبة يوم عرفة",
+       "meta": "#الفيديو",
+       "play": true,
+       "cta": false,
+       "selected": false
+      }
+     ]
+    },
+    {
+     "pattern": "category-chips",
+     "band": "hub",
+     "placement": "P2",
+     "dna": "Core",
+     "title": "وجهات مميزة",
+     "items": [
+      {
+       "label": "الأدعية",
+       "iconName": "dua"
+      },
+      {
+       "label": "ادلة المناسك",
+       "iconName": "haji"
+      },
+      {
+       "label": "تلاوات مختارة",
+       "iconName": "play"
+      },
+      {
+       "label": "السيرة النبوية",
+       "iconName": "madinah-city"
+      },
+      {
+       "label": "القرآن الكريم",
+       "iconName": "quran-01"
+      }
+     ]
+    },
+    {
+     "pattern": "guide",
+     "band": 3,
+     "placement": "P1",
+     "dna": "Core",
+     "title": "إستعد لرحلة العمرة",
+     "items": [
+      {
+       "tone": "teal",
+       "title": "الهوية الوطنية",
+       "details": "تاريخ انتهاء الهوية/الإقامة بعد نهاية شهر ذي الحجة.",
+       "action": "العنوان"
+      },
+      {
+       "tone": "saffron",
+       "title": "الهوية الوطنية",
+       "details": "تاريخ انتهاء الهوية/الإقامة بعد نهاية شهر ذي الحجة.",
+       "action": "العنوان"
+      },
+      {
+       "tone": "amethyst",
+       "title": "الهوية الوطنية",
+       "details": "تاريخ انتهاء الهوية/الإقامة بعد نهاية شهر ذي الحجة.",
+       "action": "العنوان"
+      },
+      {
+       "tone": "olive",
+       "title": "الهوية الوطنية",
+       "details": "تاريخ انتهاء الهوية/الإقامة بعد نهاية شهر ذي الحجة.",
+       "action": "العنوان"
+      }
+     ],
+     "dots": 6
+    },
+    {
+     "pattern": "playlist",
+     "band": 4,
+     "placement": "P1",
+     "dna": "Core",
+     "title": "القرآن الكريم مُرتل",
+     "tag": "#الصوتيات",
+     "items": [
+      {
+       "title": "الشيخ أ.د. ماهر المعيقلي",
+       "subtitle": "#الصحة",
+       "color": "mint",
+       "backColor": "lavender"
+      },
+      {
+       "title": "الشيخ أ.د. ماهر المعيقلي",
+       "subtitle": "#الصحة",
+       "color": "mint",
+       "backColor": "lavender"
+      },
+      {
+       "title": "الشيخ أ.د. ماهر المعيقلي",
+       "subtitle": "#الصحة",
+       "color": "mint",
+       "backColor": "lavender"
+      },
+      {
+       "title": "الشيخ أ.د. ماهر المعيقلي",
+       "subtitle": "#الصحة",
+       "color": "mint",
+       "backColor": "lavender",
+       "group": false
+      }
+     ]
+    },
+    {
+     "pattern": "bento-grid",
+     "band": 5,
+     "placement": "P2",
+     "dna": "Supportive",
+     "title": "محتوى مميز",
+     "tag": "#المحتوى",
+     "items": [
+      {
+       "kind": "flight",
+       "title": "رحلات مميزة إلى مكة المكرمة",
+       "price": "1,000"
+      },
+      {
+       "kind": "flight",
+       "title": "رحلات مميزة إلى مكة المكرمة",
+       "price": "1,000"
+      },
+      {
+       "kind": "flight",
+       "title": "رحلات مميزة إلى مكة المكرمة",
+       "price": "1,000"
+      },
+      {
+       "kind": "flight",
+       "title": "رحلات مميزة إلى مكة المكرمة",
+       "price": "1,000"
+      }
+     ]
+    },
+    {
+     "pattern": "services-box",
+     "band": "hub",
+     "placement": "P2",
+     "dna": "Core",
+     "title": "خدمات مميزة",
+     "items": [
+      {
+       "label": "المطوف\nالرقمي",
+       "iconName": "umrah"
+      },
+      {
+       "label": "تصريح\nالعمرة",
+       "iconName": "kaaba-01"
+      },
+      {
+       "label": "صلاة\nالحطيم",
+       "iconName": "sujood"
+      },
+      {
+       "label": "العربات\nالكهربائية",
+       "iconName": "golf-cart"
+      },
+      {
+       "label": "المطوف\nالرقمي",
+       "iconName": "umrah"
+      },
+      {
+       "label": "تصريح\nالعمرة",
+       "iconName": "kaaba-01"
+      },
+      {
+       "label": "صلاة\nالحطيم",
+       "iconName": "sujood"
+      },
+      {
+       "label": "العربات\nالكهربائية",
+       "iconName": "golf-cart"
+      }
+     ]
+    },
+    {
+     "pattern": "list-side-by-side",
+     "band": 4,
+     "placement": "P1",
+     "dna": "Core",
+     "title": "القرآن الكريم مُرتل",
+     "tag": "#الصوتيات",
+     "items": [
+      {
+       "duration": "30 د",
+       "title": "الشيخ أ.د. ماهر المعيقلي",
+       "subtitle": "#الصحة",
+       "color": "mint",
+       "backColor": "lavender"
+      },
+      {
+       "duration": "30 د",
+       "title": "الشيخ أ.د. ماهر المعيقلي",
+       "subtitle": "#الصحة",
+       "color": "mint",
+       "backColor": "lavender"
+      },
+      {
+       "duration": "30 د",
+       "title": "الشيخ أ.د. ماهر المعيقلي",
+       "subtitle": "#الصحة",
+       "color": "mint",
+       "backColor": "lavender"
+      },
+      {
+       "duration": "30 د",
+       "title": "الشيخ أ.د. ماهر المعيقلي",
+       "subtitle": "#الصحة",
+       "color": "mint",
+       "backColor": "lavender"
+      }
+     ]
+    },
+    {
+     "pattern": "cards-list",
+     "band": 3,
+     "placement": "P1",
+     "dna": "Supportive",
+     "withheld": [
+      "D",
+      "O"
+     ],
+     "title": "وجهات مميزة",
+     "items": [
+      {
+       "kind": "flight",
+       "title": "رحلات مميزة إلى مكة المكرمة",
+       "price": "1,000"
+      },
+      {
+       "kind": "hotel",
+       "title": "إقامة مميزة في المدينة المنورة",
+       "rating": 4,
+       "tags": [
+        "غرفة خاصة",
+        "فطور"
+       ],
+       "price": "1,000"
+      },
+      {
+       "kind": "train",
+       "title": "رحلات مميزة إلى المدينة المنور من مكة المكرمة",
+       "price": "1,000"
+      }
+     ]
+    },
+    {
+     "pattern": "leaderboard",
+     "band": 3,
+     "placement": "P1",
+     "dna": "Supportive",
+     "item": {
+      "kind": "train",
+      "title": "رحلات مميزة إلى المدينة المنور من مكة المكرمة",
+      "price": "1,000"
+     }
+    }
+   ]
+  }
+ }
+}

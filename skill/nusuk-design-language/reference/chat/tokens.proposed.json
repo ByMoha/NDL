@@ -1,0 +1,323 @@
+{
+ "name": "Nusuk DL · NusukChat proposed tokens",
+ "basedOn": "Nusuk Design Language tokens 3.5",
+ "date": "2026-11-12",
+ "status": "proposed",
+ "note": "Every value used by NusukChat that has no DL token. All other values in nk-chat.css are DL tokens. proposedDLName drops the nkc- prefix; the DL Manager picks the final name.",
+ "tokens": [
+  {
+   "name": "nkc-indicator-xs",
+   "proposedDLName": "chat-indicator-xs",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "5px",
+   "usage": "Typing dots, home indicator height. Figma: _Chat Container Master › Status=Loading."
+  },
+  {
+   "name": "nkc-timeline-dot",
+   "proposedDLName": "chat-timeline-dot",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "9px",
+   "usage": "Booking_Ticket timeline origin dot (80632:38068).",
+   "figma": "80632:38068"
+  },
+  {
+   "name": "nkc-badge-sm",
+   "proposedDLName": "chat-badge-sm",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "15px",
+   "usage": "City Logo badge on Logos Group (🃏 Cards › City Logo 70306:7355); flag in nationality row."
+  },
+  {
+   "name": "nkc-control-icon",
+   "proposedDLName": "chat-control-icon",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "40px",
+   "usage": "Tab-bar icon buttons, favourite toggle, record timer."
+  },
+  {
+   "name": "nkc-control-lg",
+   "proposedDLName": "chat-control-lg",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "56px",
+   "usage": "Round send/record button, tab-bar input height, Booking_Ticket CTA width."
+  },
+  {
+   "name": "nkc-input-height",
+   "proposedDLName": "chat-input-height",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "62px",
+   "usage": "OTP box height. DL TextField is 62px but exposes no token."
+  },
+  {
+   "name": "nkc-ticket-endpoint-min",
+   "proposedDLName": "chat-ticket-endpoint-min",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "72px",
+   "usage": "Flight Ticket Full: min width of origin/destination column."
+  },
+  {
+   "name": "nkc-logos-group-width",
+   "proposedDLName": "chat-logos-group-width",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "76px",
+   "usage": "Logos Group, 3 airline marks at 28px with 8px overlap."
+  },
+  {
+   "name": "nkc-scan-size",
+   "proposedDLName": "chat-scan-size",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "86px",
+   "usage": "Scan Photo / Status=00 (80607:20843).",
+   "figma": "80607:20843"
+  },
+  {
+   "name": "nkc-ticket-top-min",
+   "proposedDLName": "chat-ticket-top-min",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "100px",
+   "usage": "Booking_Ticket header min height (80632:38068).",
+   "figma": "80632:38068"
+  },
+  {
+   "name": "nkc-dial-width",
+   "proposedDLName": "chat-dial-width",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "115px",
+   "usage": "Input/Type=Mobile country-code part (80607:17346).",
+   "figma": "80607:17346"
+  },
+  {
+   "name": "nkc-home-indicator-width",
+   "proposedDLName": "chat-home-indicator-width",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "134px",
+   "usage": "Device home indicator in the playground frame."
+  },
+  {
+   "name": "nkc-menu-min-width",
+   "proposedDLName": "chat-menu-min-width",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "140px",
+   "usage": "Country-code dropdown list."
+  },
+  {
+   "name": "nkc-hotel-card-width",
+   "proposedDLName": "chat-hotel-card-width",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "316px",
+   "usage": "Hotel Offer card (80625:21403): 300px media + 8px inset each side.",
+   "figma": "80625:21403"
+  },
+  {
+   "name": "nkc-ticket-max-width",
+   "proposedDLName": "chat-ticket-max-width",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "530px",
+   "usage": "Booking_Ticket (80632:38114).",
+   "figma": "80632:38114"
+  },
+  {
+   "name": "nkc-avatar-glyph",
+   "proposedDLName": "chat-avatar-glyph",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "12.7px",
+   "usage": "User glyph inside the 24px chat avatar."
+  },
+  {
+   "name": "nkc-type-display-1-light",
+   "proposedDLName": "chat-type-display-1-light",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "300 32px/1.28 var(--font-sans)",
+   "usage": "= DL .display-1-light (300 32px/1.28)."
+  },
+  {
+   "name": "nkc-type-display-2-light",
+   "proposedDLName": "chat-type-display-2-light",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "300 28px/1.28 var(--font-sans)",
+   "usage": "= DL .display-2-light (300 28px/1.28)."
+  },
+  {
+   "name": "nkc-type-headline-1-regular",
+   "proposedDLName": "chat-type-headline-1-regular",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "400 24px/1.28 var(--font-sans)",
+   "usage": "= DL .headline-1-regular (400 24px/1.28)."
+  },
+  {
+   "name": "nkc-type-headline-2-regular",
+   "proposedDLName": "chat-type-headline-2-regular",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "400 20px/1.28 var(--font-sans)",
+   "usage": "= DL .headline-2-regular (400 20px/1.28)."
+  },
+  {
+   "name": "nkc-type-body-1-light",
+   "proposedDLName": "chat-type-body-1-light",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "300 18px/1.28 var(--font-sans)",
+   "usage": "= DL .body-1-light (300 18px/1.28)."
+  },
+  {
+   "name": "nkc-type-body-1-regular",
+   "proposedDLName": "chat-type-body-1-regular",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "400 18px/1.28 var(--font-sans)",
+   "usage": "= DL .body-1-regular (400 18px/1.28)."
+  },
+  {
+   "name": "nkc-type-body-2-light",
+   "proposedDLName": "chat-type-body-2-light",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "300 16px/1.28 var(--font-sans)",
+   "usage": "= DL .body-2-light (300 16px/1.28)."
+  },
+  {
+   "name": "nkc-type-body-2-regular",
+   "proposedDLName": "chat-type-body-2-regular",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "400 16px/1.28 var(--font-sans)",
+   "usage": "= DL .body-2-regular (400 16px/1.28)."
+  },
+  {
+   "name": "nkc-type-notes-1-light",
+   "proposedDLName": "chat-type-notes-1-light",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "300 14px/1.28 var(--font-sans)",
+   "usage": "= DL .notes-1-light (300 14px/1.28)."
+  },
+  {
+   "name": "nkc-type-notes-1-regular",
+   "proposedDLName": "chat-type-notes-1-regular",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "400 14px/1.28 var(--font-sans)",
+   "usage": "= DL .notes-1-regular (400 14px/1.28)."
+  },
+  {
+   "name": "nkc-type-notes-2-light",
+   "proposedDLName": "chat-type-notes-2-light",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "300 12px/1.28 var(--font-sans)",
+   "usage": "= DL .notes-2-light (300 12px/1.28)."
+  },
+  {
+   "name": "nkc-type-notes-2-regular",
+   "proposedDLName": "chat-type-notes-2-regular",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "400 12px/1.28 var(--font-sans)",
+   "usage": "= DL .notes-2-regular (400 12px/1.28)."
+  },
+  {
+   "name": "nkc-bot-makkah-a",
+   "proposedDLName": "chat-bot-makkah-a",
+   "group": "Colour: Nusuk Bot (brand, fixed across themes)",
+   "value": "#F5B13D",
+   "usage": "Nusuk Bot · Location=Makkah gradient start (80559:28820). = Brand Gold family; fixed so the bot keeps its identity in green/lavender themes.",
+   "figma": "80559:28820"
+  },
+  {
+   "name": "nkc-bot-makkah-b",
+   "proposedDLName": "chat-bot-makkah-b",
+   "group": "Colour: Nusuk Bot (brand, fixed across themes)",
+   "value": "#FAEBD1",
+   "usage": "… gradient end."
+  },
+  {
+   "name": "nkc-bot-makkah-glow-color",
+   "proposedDLName": "chat-bot-makkah-glow-color",
+   "group": "Colour: Nusuk Bot (brand, fixed across themes)",
+   "value": "rgba(245, 177, 61, .55)",
+   "usage": "Drop shadow, 22px at 80px."
+  },
+  {
+   "name": "nkc-bot-madinah-a",
+   "proposedDLName": "chat-bot-madinah-a",
+   "group": "Colour: Nusuk Bot (brand, fixed across themes)",
+   "value": "#288A42",
+   "usage": "Nusuk Bot · Location=Madina radial start (80559:28823). = Brand Dome green family.",
+   "figma": "80559:28823"
+  },
+  {
+   "name": "nkc-bot-madinah-b",
+   "proposedDLName": "chat-bot-madinah-b",
+   "group": "Colour: Nusuk Bot (brand, fixed across themes)",
+   "value": "#E0FAD1",
+   "usage": "… radial end."
+  },
+  {
+   "name": "nkc-bot-madinah-glow-color",
+   "proposedDLName": "chat-bot-madinah-glow-color",
+   "group": "Colour: Nusuk Bot (brand, fixed across themes)",
+   "value": "rgba(40, 138, 66, .4)",
+   "usage": ""
+  },
+  {
+   "name": "nkc-note-tint-madinah",
+   "proposedDLName": "chat-note-tint-madinah",
+   "group": "Colour: Nusuk Bot (brand, fixed across themes)",
+   "value": "#E4FBEA",
+   "usage": "Nusuk Bot Messages · Madinah insight tint (80559:28810). Closest DL: alerts-surface-success #F0FFF5.",
+   "valueDark": "#0C3B10",
+   "figma": "80559:28810"
+  },
+  {
+   "name": "nkc-city-madinah",
+   "proposedDLName": "chat-city-madinah",
+   "group": "Colour: city badges (Logos Group)",
+   "value": "#288A42",
+   "usage": "City Logo/City=Madinah (637:23223).",
+   "figma": "637:23223"
+  },
+  {
+   "name": "nkc-city-madinah-b",
+   "proposedDLName": "chat-city-madinah-b",
+   "group": "Colour: city badges (Logos Group)",
+   "value": "#61D17D",
+   "usage": "Logo Icons/Entity=Madinah gradient end."
+  },
+  {
+   "name": "nkc-fade-tab",
+   "proposedDLName": "chat-fade-tab",
+   "group": "Effects",
+   "value": "rgba(0, 0, 0, .05)",
+   "usage": "AI Tab Bar fade above the bar (80392:4168).",
+   "valueDark": "rgba(255, 255, 255, .05)",
+   "figma": "80392:4168"
+  },
+  {
+   "name": "nkc-logo-inner-shadow",
+   "proposedDLName": "chat-logo-inner-shadow",
+   "group": "Effects",
+   "value": "inset 0 6px 10px rgba(0, 0, 0, .15)",
+   "usage": "Logo Icons inner shadow (Figma drop shadow, erode 6.67, y -6.67)."
+  },
+  {
+   "name": "nkc-shadow-on-image",
+   "proposedDLName": "chat-shadow-on-image",
+   "group": "Effects",
+   "value": "drop-shadow(0 1px 2px rgba(0, 0, 0, .35))",
+   "usage": "Icons placed on photos (favourite heart)."
+  },
+  {
+   "name": "nkc-scan-face",
+   "proposedDLName": "chat-scan-face",
+   "group": "Effects",
+   "value": "#EBD4AD",
+   "usage": "Scan Photo face fill start."
+  },
+  {
+   "name": "nkc-scan-glow",
+   "proposedDLName": "chat-scan-glow",
+   "group": "Effects",
+   "value": "drop-shadow(0 0 5px rgba(245, 177, 61, .9)) drop-shadow(0 0 10px rgba(245, 177, 61, .6))",
+   "usage": "Scan Photo corner glow (two Figma drop shadows, 10.5 / 21)."
+  },
+  {
+   "name": "nkc-scan-line-glow",
+   "proposedDLName": "chat-scan-line-glow",
+   "group": "Effects",
+   "value": "drop-shadow(0 0 5px rgba(245, 177, 61, .9))",
+   "usage": ""
+  }
+ ]
+}

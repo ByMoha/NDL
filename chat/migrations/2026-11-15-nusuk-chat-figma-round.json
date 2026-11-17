@@ -1,0 +1,20 @@
+{
+ "date": "2026-11-15",
+ "name": "NusukChat 2.7.0: Figma round and English mode",
+ "status": "proposed",
+ "chat": {
+  "version": { "from": "2.6.6", "to": "2.7.0" },
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+  "coverage": { "sets": 7, "variants": 54, "masters": 3, "allMapped": true, "added": [], "removed": [] },
+  "changed": [
+   { "component": "FlightsSelection", "figma": "AI Chat Messages › Style=Flights Selection (80652:10299)", "change": "Ghost button label: عرض كافة التذاكر → عرض كافة الرحلات المتاحة" },
+   { "component": "SingleChoose", "figma": "AI Chat Messages › Style=Single Choose (80626:36740)", "change": "Option cards lead with DL icon alert-circle (was support)" },
+   { "component": "BookingTicket", "figma": "Booking_Ticket (80632:38114)", "change": "Header Nusuk Bot, _Eyes and City Logo are library instances again; DL known issue F32 (unpublished components) can close" },
+   { "component": "Chips, ErrorMsg", "change": "New prop buttons: true renders each suggestion as DL Button MD (kind primary by default, prop kind), leading arrow-left-02 in Arabic and arrow-right-02 in English. Default rendering unchanged." },
+   { "component": "All", "change": "NusukChat.setLang('en' | 'ar') and NusukChat.lang(): built-in labels in English (Edit answer, copy and vote labels, typing indicator, Question type and CTA defaults, Tab Bar placeholder, limit text and button labels, Try again). Arabic stays the default." }
+  ]
+ },
+ "tokens": { "version": "3.8", "added": [], "changed": [], "removed": [], "checked": "⚙️ Foundation Colors (3 light modes), Layout (Mobile), 🕹️ Buttons Setup: 0 differences with tokens.css 3.8" },
+ "icons": { "added": [] },
+ "breaking": []
+}

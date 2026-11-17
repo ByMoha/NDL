@@ -1,0 +1,808 @@
+{
+ "manifestVersion": 3,
+ "name": "NusukChat → Nusuk Design Language",
+ "namespace": "NusukChat",
+ "status": "proposed",
+ "date": "2026-11-12",
+ "updated": "2026-11-14",
+ "counts": {
+  "variant": 23,
+  "new": 14,
+  "dl": 4
+ },
+ "components": [
+  {
+   "name": "Message",
+   "code": "NusukChat.Message",
+   "status": "variant",
+   "dlTarget": "ChatMessage",
+   "group": "Nusuk AI",
+   "summary": "Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk Bot avatar.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "_Chat Container Master",
+    "nodes": {
+     "Status=Chat, Type=Nusuk/BG": "80451:18764",
+     "Status=Chat, Type=Nusuk/Transprent": "80578:5431",
+     "Status=Chat, Type=User/BG": "80451:18765",
+     "Status=Chat, Type=User/Transprent": "80578:5289"
+    }
+   },
+   "props": "from: \"nusuk\"|\"user\" · bg: boolean · question?: string · actions?: boolean · time?: string · footer?: false",
+   "builtWith": "tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/sm · DL Avatar (XS, Ink)"
+  },
+  {
+   "name": "Question",
+   "code": "NusukChat.Question",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Nusuk AI",
+   "summary": "Chat question card: type row, title, description, back, content slot, one Primary CTA.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "_Chat Container",
+    "nodes": {
+     "_Chat Container": "80453:2664"
+    }
+   },
+   "props": "type · typeIcon · title · desc? · onBack? · children (Content slot) · cta · ctaState · onConfirm",
+   "builtWith": "DL Button (Primary, MD, icon right tick-02) · _Button Trail (back) · DL TextField in slot"
+  },
+  {
+   "name": "Text",
+   "code": "NusukChat.Text",
+   "status": "variant",
+   "dlTarget": "ChatMessage",
+   "group": "Nusuk AI",
+   "summary": "Answer text with question echo and “تعديل الإجابة”.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Text",
+    "nodes": {
+     "User=User": "80392:4524",
+     "User=Nusuk": "80601:9158"
+    }
+   },
+   "props": "from · text · question? · editable? · onEdit?",
+   "builtWith": "Light/Body/One · _Button Trail + edit-02 · Footer actions copy-01 / thumbs-up / thumbs-down"
+  },
+  {
+   "name": "Voice",
+   "code": "NusukChat.Voice",
+   "status": "variant",
+   "dlTarget": "ChatMessage",
+   "group": "Nusuk AI",
+   "summary": "Voice message (waveform + duration).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Voice",
+    "nodes": {
+     "User=User": "80392:4534",
+     "User=Nusuk": "80601:9269"
+    }
+   },
+   "props": "from · duration · progress · question?",
+   "builtWith": "surface-illumination waveform · surface-10-ink play"
+  },
+  {
+   "name": "Chips",
+   "code": "NusukChat.Chips",
+   "status": "variant",
+   "dlTarget": "Chip",
+   "group": "Nusuk AI",
+   "summary": "Answer chips: Chip White LR with arrow-left-02, as a group.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Default",
+    "nodes": {
+     "User=Nusuk": "80392:4581"
+    }
+   },
+   "props": "items: string[] · onPick(text, i) · question? · buttons? (render each as DL Button MD, 15 Nov 2026) · kind? (primary | secondary, with buttons)",
+   "builtWith": "DL Chips (State=White, Size=LR, Icon=Right, arrow-left-02) · Content No BG; with buttons: DL Button MD, leading arrow-left-02 (Arabic) / arrow-right-02 (English)"
+  },
+  {
+   "name": "ErrorMsg",
+   "code": "NusukChat.ErrorMsg",
+   "status": "variant",
+   "dlTarget": "ChatMessage",
+   "group": "Nusuk AI",
+   "summary": "Error message = DL Alert (error) + recovery chips.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Error",
+    "nodes": {
+     "User=Nusuk": "80392:4595"
+    }
+   },
+   "props": "text · items (recovery chips) · onPick · buttons? · kind?",
+   "builtWith": "DL _Alert (Error, alert-02) + DL Chips (or DL Button MD with buttons)"
+  },
+  {
+   "name": "Days",
+   "code": "NusukChat.Days",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Nusuk AI",
+   "summary": "Question card + DL DayPicker month grid.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Days",
+    "nodes": {
+     "User=Nusuk": "80587:9465"
+    }
+   },
+   "props": "monthLabel · year · today · selected · moons[] · onConfirm(day)",
+   "builtWith": "DL Day Picker (state × availability) · Months_Interaction · DL Button"
+  },
+  {
+   "name": "DaysAnswer",
+   "code": "NusukChat.DaysAnswer",
+   "status": "variant",
+   "dlTarget": "ChatMessage",
+   "group": "Nusuk AI",
+   "summary": "Date answer.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Days",
+    "nodes": {
+     "User=User": "80601:3360"
+    }
+   },
+   "props": "date · question? · onEdit",
+   "builtWith": "Light/Display/Two"
+  },
+  {
+   "name": "Slots",
+   "code": "NusukChat.Slots",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Nusuk AI",
+   "summary": "Question card + DL PrayCard + DL TimeSlot groups.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Slots",
+    "nodes": {
+     "User=Nusuk": "80593:6839"
+    }
+   },
+   "props": "prayer · slot · onConfirm(time)",
+   "builtWith": "DL Pray Card · DL Time slot card · muslim icon"
+  },
+  {
+   "name": "SlotsAnswer",
+   "code": "NusukChat.SlotsAnswer",
+   "status": "variant",
+   "dlTarget": "ChatMessage",
+   "group": "Nusuk AI",
+   "summary": "Date + time answer.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Slots",
+    "nodes": {
+     "User=User": "80601:5538"
+    }
+   },
+   "props": "date · time · question? · onEdit",
+   "builtWith": "Light/Display/One for time"
+  },
+  {
+   "name": "Loading",
+   "code": "NusukChat.Loading",
+   "status": "variant",
+   "dlTarget": "ChatMessage",
+   "group": "Nusuk AI",
+   "summary": "Typing / loading state.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "_Chat Container Master › Status=Loading",
+    "nodes": {
+     "Type=Nusuk": "80451:18763",
+     "Type=User": "80501:2248"
+    }
+   },
+   "props": "from",
+   "builtWith": "icons-black dots"
+  },
+  {
+   "name": "TabBar",
+   "code": "NusukChat.TabBar",
+   "status": "variant",
+   "dlTarget": "TabBar",
+   "group": "Nusuk AI",
+   "summary": "AI Tab Bar: 7 statuses (default, limit, recording, recorded, text, responding, typing).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Tab Bar",
+    "nodes": {
+     "_AI Tab Bar Master": "80392:4168",
+     "default": "80392:4482",
+     "limit": "80392:4484",
+     "recording": "80392:4486",
+     "recorded": "80392:4488",
+     "text": "80392:4490",
+     "responding": "80392:4492",
+     "typing": "80392:4494"
+    }
+   },
+   "props": "status · value · placeholder · limitText · onSend({type,text|duration}) · onStop · respondOnSend",
+   "builtWith": "glass-full · radius-full · DL Icon mic / send / pause / delete-03"
+  },
+  {
+   "name": "NafathAnswer",
+   "code": "NusukChat.NafathAnswer",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Inputs",
+   "summary": "Nafath sign-in answer pill with the Nafath logo.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "Answers / Property 1=Nafath",
+    "nodes": {
+     "Instance on canvas": "80473:2474",
+     "Component": "80473:2443"
+    }
+   },
+   "props": "label · onClick",
+   "builtWith": "buttons/surface/reject (ivory) pill 48 · Regular/Body/Two · Nafath logo (exact SVG)"
+  },
+  {
+   "name": "SkipNafath",
+   "code": "NusukChat.SkipNafath",
+   "status": "dl",
+   "dlTarget": "Button",
+   "group": "Inputs",
+   "summary": "DL Button Ghost SM, full width.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "CTA Kind=Ghost Size=SM",
+    "nodes": {
+     "Instance": "80476:1823"
+    }
+   },
+   "props": "label · onClick",
+   "builtWith": "DL Button ghost SM (full width)"
+  },
+  {
+   "name": "NationalitySearch",
+   "code": "NusukChat.NationalitySearch",
+   "status": "variant",
+   "dlTarget": "TextField",
+   "group": "Inputs",
+   "summary": "Search with flag result list (TextField Search + DropdownItem flag).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "Answers / Property 1=Nationality Search",
+    "nodes": {
+     "Instance": "80473:2515",
+     "Component": "80473:2457"
+    }
+   },
+   "props": "placeholder · exclude[] · onPick(code)",
+   "builtWith": "ivory pill 48 · DL Icon global / search-01 · flag list"
+  },
+  {
+   "name": "AddedNationalities",
+   "code": "NusukChat.AddedNationalities",
+   "status": "variant",
+   "dlTarget": "Chip",
+   "group": "Inputs",
+   "summary": "Removable chips with flags (Button Secondary XS icon-left today).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "Name + Nationalities",
+    "nodes": {
+     "Label": "80470:16139",
+     "Chips": "80470:16140"
+    }
+   },
+   "props": "items: code[] · onRemove(code)",
+   "builtWith": "CTA Secondary XS Icon=Left (cancel-circle) · _Button Trail Leading · Flags Small"
+  },
+  {
+   "name": "NationalityRow",
+   "code": "NusukChat.NationalityRow",
+   "status": "dl",
+   "dlTarget": "Button",
+   "group": "Inputs",
+   "summary": "DL Button Secondary MD, full width, flag in the label.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "CTA Kind=Secondary Size=MD Icon=Left",
+    "nodes": {
+     "Instance A": "80473:1614",
+     "Instance B": "80474:1433"
+    }
+   },
+   "props": "code · label · onClick",
+   "builtWith": "Secondary MD 44 full width + flag"
+  },
+  {
+   "name": "Otp",
+   "code": "NusukChat.Otp",
+   "status": "variant",
+   "dlTarget": "TextField",
+   "group": "Inputs",
+   "summary": "TextField OTP + ResendTimer inside the Question card.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › User=Nusuk, Style=Confirmation (OTP · email)",
+    "nodes": {
+     "Variant": "80607:11146"
+    }
+   },
+   "props": "email · length (4) · seconds (59) · onConfirm(code) · onEditEmail",
+   "builtWith": "Question card · _Button Trail “تعديل” · OTP fields 62h radius-s · time-04 timer · DL Button Primary"
+  },
+  {
+   "name": "PackageCard",
+   "code": "NusukChat.PackageCard",
+   "status": "dl",
+   "dlTarget": "MediaCard",
+   "group": "Cards",
+   "summary": "DL MediaCard kind hajj, fade, price + AddToCart.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "Media Cards / Type=Flight (chat)",
+    "nodes": {
+     "Saudi": "80477:4939",
+     "Morocco": "80477:4940",
+     "France": "80477:4941"
+    }
+   },
+   "props": "image (CMS) · flag · best · from · title · desc · price · onAdd",
+   "builtWith": "DL MediaCard (kind hajj, surface fade, selected = خيارك الأفضل, price + AddToCart). Swapped in on Moha’s request (comment, 11 Nov) to follow the new DL Media Cards"
+  },
+  {
+   "name": "Packages",
+   "code": "NusukChat.Packages",
+   "status": "dl",
+   "dlTarget": "MediaCard",
+   "group": "Cards",
+   "summary": "DL MediaCard rail + DL Pagination.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "Hajj Packgaes + Pagination",
+    "nodes": {
+     "Carousel": "80477:11127",
+     "Pagination": "80478:12232"
+    }
+   },
+   "props": "items · onAdd",
+   "builtWith": "300-wide cards, 8 gap, scroll-snap · DL Pagination"
+  },
+  {
+   "name": "BotNote",
+   "code": "NusukChat.BotNote",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Nusuk AI",
+   "summary": "Nusuk Bot message (insight / pill) with gradient text.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "Nusuk Bot Messages",
+    "nodes": {
+     "Default (Makkah insight)": "80559:28807",
+     "Variant3 (Madinah insight)": "80559:28810",
+     "Variant2 (Makkah pill)": "80559:28813",
+     "Variant4 (Madinah pill)": "80559:28816"
+    }
+   },
+   "props": "location · variant: \"insight\"|\"pill\" · text · motion",
+   "builtWith": "Light/Body/Two gradient text (black → text-link | alerts-text-success → #666) · Regular/Notes/One · pill tint shade-5 gold / #E4FBEA green"
+  },
+  {
+   "name": "Bot",
+   "code": "NusukChat.Bot",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Nusuk AI",
+   "summary": "Nusuk Bot avatar, Makkah / Madinah, live eyes. Figma section is “Beta – Do Not Use” (F1).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "Nusuk Bot · _Eyes",
+    "nodes": {
+     "Location=Makkah": "80559:28820",
+     "Location=Madina": "80559:28823",
+     "_Eyes (7 frames)": "80559:28826"
+    }
+   },
+   "props": "location: \"makkah\"|\"madinah\" · size (24) · motion: \"live\" (default: follows pointer, idle glances + blinks) | \"prototype\" | \"sequence\" | \"static\" · frame (static) · mirror · label",
+   "builtWith": "Gold body = surface-longing → surface-shade-4 (gold) · green body #288A42 → #E0FAD1 (not DL tokens) · glow + 4px layer blur · ⚠ section \"Beta – Do Not Use\""
+  },
+  {
+   "name": "PasswordField",
+   "code": "NusukChat.PasswordField",
+   "status": "variant",
+   "dlTarget": "TextField",
+   "group": "Inputs",
+   "summary": "Password with rules inside the field and the view toggle (F24).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Password",
+    "nodes": {
+     "Variant": "80607:16432",
+     "Input/Type=Password": "80607:16851"
+    }
+   },
+   "props": "onConfirm(password) · onBack",
+   "builtWith": "nk-field-box (192h) · view (Figma icon) · 5 rules with DL check · DL Button Primary MD"
+  },
+  {
+   "name": "MobileField",
+   "code": "NusukChat.MobileField",
+   "status": "variant",
+   "dlTarget": "TextField",
+   "group": "Inputs",
+   "summary": "Mobile: country code 115 + number (TextField Mobile).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Mobile",
+    "nodes": {
+     "Variant": "80607:17062",
+     "Input/Type=Mobile": "80607:17346"
+    }
+   },
+   "props": "onConfirm(\"+966 05…\") · onBack",
+   "builtWith": "country code select 115 + input 357 · DL Flag · arrow-down-01"
+  },
+  {
+   "name": "GenderField",
+   "code": "NusukChat.GenderField",
+   "status": "variant",
+   "dlTarget": "SelectCard",
+   "group": "Inputs",
+   "summary": "Select Card with custom icon (hijab / haji).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Gender",
+    "nodes": {
+     "Variant": "80607:17682",
+     "أنثى": "80607:18050",
+     "ذكر": "80607:18051"
+    }
+   },
+   "props": "value · onConfirm(value)",
+   "builtWith": "DL Select Card (Active / Selected) · hijab, haji"
+  },
+  {
+   "name": "PassportNumber",
+   "code": "NusukChat.PassportNumber",
+   "status": "variant",
+   "dlTarget": "TextField",
+   "group": "Inputs",
+   "summary": "TextField Input with a trailing camera action.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Passport (renamed from Pasport on 14 November 2026)",
+    "nodes": {
+     "Variant": "80607:18228",
+     "Input": "80607:18418"
+    }
+   },
+   "props": "onConfirm(number) · onScan",
+   "builtWith": "nk-field-box · camera-02 trailing"
+  },
+  {
+   "name": "BorderNumber",
+   "code": "NusukChat.BorderNumber",
+   "status": "variant",
+   "dlTarget": "SelectCard",
+   "group": "Inputs",
+   "summary": "Select Card without radio + dependent input.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Border Number",
+    "nodes": {
+     "Variant": "80607:18463",
+     "رقم التأشيرة": "80607:18655",
+     "رقم الحدود": "80607:18656",
+     "Input": "80607:18657"
+    }
+   },
+   "props": "kind: \"border\"|\"visa\" · onConfirm",
+   "builtWith": "DL Select Card (no radio) · audit-01 · airplane-landing-02 · input label “رقم %s”"
+  },
+  {
+   "name": "IbanField",
+   "code": "NusukChat.IbanField",
+   "status": "variant",
+   "dlTarget": "TextField",
+   "group": "Inputs",
+   "summary": "TextField Action (verify) + Filled-Disabled bank row with logo.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=IBAN",
+    "nodes": {
+     "Variant": "80607:18703",
+     "Name": "80607:19076",
+     "IBAN (Action)": "80607:19077",
+     "Bank (Disabled)": "80607:19078"
+    }
+   },
+   "props": "name · iban · verified · onConfirm",
+   "builtWith": "Input Filled · Input Action + Secondary SM “تحقّق” · Input Filled Disabled + rajhi"
+  },
+  {
+   "name": "PassportAttach",
+   "code": "NusukChat.PassportAttach",
+   "status": "variant",
+   "dlTarget": "SelectCard",
+   "group": "Inputs",
+   "summary": "Select Card without radio as the answer (no CTA).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Passport Attach",
+    "nodes": {
+     "Variant": "80607:19234",
+     "إرفاق الصورة": "80607:19465",
+     "التقاط صورة": "80607:19466"
+    }
+   },
+   "props": "onPick(mode, url) · realPicker",
+   "builtWith": "DL Select Card × 2 · image-02 · camera-02 · no CTA"
+  },
+  {
+   "name": "PassportPreview",
+   "code": "NusukChat.PassportPreview",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Inputs",
+   "summary": "Document preview + Secondary SM / Primary SM.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Passport Preview",
+    "nodes": {
+     "Variant": "80607:19494",
+     "Image": "80607:19720"
+    }
+   },
+   "props": "src · onEdit · onConfirm",
+   "builtWith": "image radius-xs · DL Button Secondary SM + Primary SM (tick-02)"
+  },
+  {
+   "name": "Liveness",
+   "code": "NusukChat.Liveness",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Inputs",
+   "summary": "Scan Photo + copy + DL Hint warning + CTA.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=FaceScan",
+    "nodes": {
+     "Variant": "80607:20622",
+     "Scan Photo/Status=00": "80607:20843",
+     "Hint Warning": "80607:20846"
+    }
+   },
+   "props": "status: \"idle\"|\"scanning\"|\"done\" · onDone",
+   "builtWith": "Scan Photo · Body 1 · DL Hint Warning · DL Button Primary MD + identification"
+  },
+  {
+   "name": "LocationGuide",
+   "code": "NusukChat.LocationGuide",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Cards",
+   "summary": "Photo + steps + open-maps select cards.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Location Guide",
+    "nodes": {
+     "Variant": "80622:21047"
+    }
+   },
+   "props": "title · image · steps · query · onNusukMaps · onGoogleMaps",
+   "builtWith": "Nusuk/BG container · image radius-md · Notes 1 steps · DL Select Card × 2 (maps, google maps)"
+  },
+  {
+   "name": "HotelChoose",
+   "code": "NusukChat.HotelChoose",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Cards",
+   "summary": "Filters + Hotel Offer rail + CTA.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Hotel Choose",
+    "nodes": {
+     "Variant": "80625:21403"
+    }
+   },
+   "props": "title · filters[] · hotels[] · urgency (bool) · onEditFilter · onConfirm(hotel)",
+   "builtWith": "Nusuk/Transparent · Input Select × 3 (Filled) · Hotel Offer cards on scroll-snap rail · DL Chips gold/white/error · footer actions"
+  },
+  {
+   "name": "HotelCard",
+   "code": "NusukChat.HotelCard",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Cards",
+   "summary": "“Hotel Offer”: no DL equivalent (MediaCard has no specs row or nights).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "Hotel Offer",
+    "nodes": {
+     "In variant": "80625:21403"
+    }
+   },
+   "props": "hotel · selected · urgency · onSelect",
+   "builtWith": "Media Cards/Image=01 · Like Icon · star · Hajj Service · door-02 · bed-double · man-woman · fire-03 · riyal"
+  },
+  {
+   "name": "FlightsSelection",
+   "code": "NusukChat.FlightsSelection",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Cards",
+   "summary": "Filters + Flight Ticket (Full) list + show all.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Flights Selection",
+    "nodes": {
+     "Variant": "80652:10299"
+    }
+   },
+   "props": "title · filters[] · flights[] · urgency · onConfirm(flight)",
+   "builtWith": "Flight Ticket (Version=Full) × 3 · Ribbon · CTA Ghost MD (arrow-expand-02) · Primary MD"
+  },
+  {
+   "name": "FlightTicketFull",
+   "code": "NusukChat.FlightTicketFull",
+   "status": "variant",
+   "dlTarget": "FlightTicket",
+   "group": "Cards",
+   "summary": "Version=Full: countries, flags, duration arc, tags, ribbon, airline group, seats, per-traveller price.",
+   "figma": {
+    "file": "ozi4A2gUbVXbzbUJ3MF4uU",
+    "library": "🏖️ Travel",
+    "component": "Flight Ticket › Version=Full (Selected Off, On, Skeleton)",
+    "nodes": {
+     "Flight Ticket": "70393:18670",
+     "Selected=Off, Version=Full": "70393:18671",
+     "Selected=On, Version=Full": "70393:18673",
+     "Selected=Skeleton, Version=Full": "70393:18675",
+     "_Master_Flight Ticket": "70393:18605"
+    }
+   },
+   "props": "flight · selected · urgency · onSelect",
+   "builtWith": "DL FlightTicket is the compact version; this is the Full version, as the chat file uses it"
+  },
+  {
+   "name": "BookingTicket",
+   "code": "NusukChat.BookingTicket",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Cards",
+   "summary": "Booking_Ticket (4 statuses).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "Booking_Ticket",
+    "nodes": {
+     "Umrah Packages": "80632:38115",
+     "Flight Ticket": "80632:38117",
+     "Rawdah Permit": "80632:38119",
+     "Train": "80632:38121",
+     "Master": "80632:38068"
+    }
+   },
+   "props": "status: \"umrah\"|\"flight\"|\"rawdah\"|\"train\" · onOpen",
+   "builtWith": "Nusuk Bot 36 · DL Chips (pending/success/default) · NusukChat.LogosGroup (code) · CTA Primary SM icon-only arrow-left-02"
+  },
+  {
+   "name": "LogosGroup",
+   "code": "NusukChat.LogosGroup",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Cards",
+   "summary": "Logos Group + Logo Icons + City Logo badge as code.",
+   "figma": {
+    "file": "mg7egvNbr2ciMP04Ig2XDl",
+    "library": "🃏 Cards",
+    "component": "Logos Group · Logo Icons (7 entities) · City Logo (Madinah, Mekkah)",
+    "nodes": {
+     "Logos Group": "70306:7320",
+     "Logo Icons": "70306:7326",
+     "City Logo": "70306:7355"
+    }
+   },
+   "props": "items: [{ entity, city? }] · size (32 | 28 | 48)",
+   "builtWith": "Gradient circles from the Figma fills · inline SVG marks · 4x PNG for raster brand marks"
+  },
+  {
+   "name": "Fld",
+   "code": "NusukChat.Fld",
+   "status": "variant",
+   "dlTarget": "TextField",
+   "group": "Inputs",
+   "summary": "Trailing slot (icon button / action button / logo) and floating label.",
+   "figma": {
+    "file": "DATayAnynnSQqdJQLAi7DR",
+    "library": "⌨️ Inputs",
+    "component": "Input (Type Input, Action · Status Default, Error, Disabled · Filled Off, On)",
+    "nodes": {
+     "Input": "68394:7766",
+     "Type=Input, Status=Default": "68394:7797",
+     "Type=Action, Status=Default": "68394:7857"
+    }
+   },
+   "props": "label · placeholder · value · onChange · state · hint · lead · trail · floating · type · inputMode · dir",
+   "builtWith": "DL classes nk-field / nk-field-box + DL Hint"
+  },
+  {
+   "name": "SelCard",
+   "code": "NusukChat.SelCard",
+   "status": "variant",
+   "dlTarget": "SelectCard",
+   "group": "Inputs",
+   "summary": "iconNode (any icon) and radio: false.",
+   "figma": {
+    "file": "zhcTb4a0XbF3YeYF9XI6zw",
+    "library": "📻 Switches, Checkbox, and Radio",
+    "component": "Select Card (Active, Selected, Disabled)",
+    "nodes": {
+     "Select Card": "70416:652",
+     "Status=Active": "70416:655",
+     "Status=Selected": "70416:657"
+    }
+   },
+   "props": "icon · title · selected · radio · onClick",
+   "builtWith": "DL classes nk-selcard + nk-radio"
+  },
+  {
+   "name": "SingleChoose",
+   "code": "NusukChat.SingleChoose",
+   "status": "variant",
+   "dlTarget": "OptionCard",
+   "group": "Nusuk AI",
+   "summary": "Option Cards (Icon with Action) as one radio group; the chosen card takes Alerts/Surface/Success and a green action (12 Nov 2026).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Single Choose",
+    "nodes": {
+     "Variant": "80626:36740"
+    }
+   },
+   "props": "type · typeIcon · title · options: [{icon, title}] · selected · onConfirm(option, i)",
+   "builtWith": "Question card · DL Option Cards (Icon with Action) · Alerts/Surface/Success · Buttons Green · DL Button Primary MD"
+  }
+ ]
+}

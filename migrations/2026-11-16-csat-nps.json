@@ -1,0 +1,97 @@
+{
+ "date": "2026-11-16",
+ "title": "CSAT and NPS",
+ "tokens": {},
+ "figma": {
+  "rating": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl",
+  "customerFeedback": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76392-4735",
+  "emojis": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76392-4837",
+  "smiles": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76645-2305",
+  "mobile": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76392-4868",
+  "npsSurvey": "https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76591-3962"
+ },
+ "components": {
+  "FeedbackEmojis": {
+   "added": [
+    "onChange",
+    "labels",
+    "showLabel",
+    "size"
+   ],
+   "changed": {
+    "look": "59 Quran-palette circles with Smiles mouths; others 40% after a pick; picked name under it (was Ivory tiles with line faces)",
+    "order": "left to right, very dissatisfied to very satisfied, in both languages"
+   }
+  },
+  "NpsScale": {
+   "new": true,
+   "props": [
+    "question",
+    "from",
+    "value",
+    "onChange",
+    "lowLabel",
+    "highLabel"
+   ]
+  },
+  "CustomerFeedback": {
+   "new": true,
+   "props": [
+    "service",
+    "title",
+    "subtitle",
+    "icon",
+    "iconName",
+    "emoji",
+    "csat",
+    "step",
+    "question",
+    "labels",
+    "value",
+    "onChange",
+    "nps",
+    "npsQuestion",
+    "npsFrom",
+    "npsValue",
+    "onNps",
+    "reasons",
+    "reasonsTitle",
+    "selectedReasons",
+    "onReasons",
+    "textArea",
+    "textLabel",
+    "textPlaceholder",
+    "text",
+    "rateLabel",
+    "nextLabel",
+    "shareLabel",
+    "onSubmit",
+    "later",
+    "laterLabel",
+    "onLater"
+   ]
+  }
+ },
+ "knownIssues": {
+  "new": [
+   "F56",
+   "F57",
+   "F58",
+   "F59",
+   "F60",
+   "F61",
+   "F62",
+   "F63",
+   "F64",
+   "F65"
+  ]
+ },
+ "questions": {
+  "new": [
+   "Q-D25",
+   "Q-D26",
+   "Q-D27",
+   "Q-D28"
+  ]
+ }
+}
