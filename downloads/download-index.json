@@ -1,14 +1,15 @@
 {
  "release": "2026-11-17",
- "built": "2026-11-17T20:13+03:00",
- "designMd": "DESIGN.md 3.4.0",
+ "built": "2026-11-17T21:16+03:00",
+ "designMd": "DESIGN.md 3.5.0",
  "tokens": "3.11",
- "checked": 328,
+ "plugin": "2026.11.172116",
+ "checked": 329,
  "files": [
   {
    "file": "DESIGN.md",
-   "bytes": 247776,
-   "sha256": "452deb36e14c4792b223f57592ef7fecbf4495da71fefbf3f5f0b5cc3295d1f7"
+   "bytes": 251270,
+   "sha256": "ca16b1ab7ee210b43f1aabe0e64ed569800ea9a05644bb8f6459d380d92a4e08"
   },
   {
    "file": "NusukTokens.kt",
@@ -22,38 +23,20 @@
   },
   {
    "file": "ios-android-handoff.md",
-   "bytes": 35324,
-   "sha256": "76fd42de0c268636f574970dd5d819b741d5722e4a14ac040aadb48952e2bcbc"
+   "bytes": 35395,
+   "sha256": "12a47eeb2cd0af7eda1fa113230181de7cb9e9c059d8194a7fa229dad2c90434"
   },
   {
-   "file": "nusuk-design-language.zip",
-   "bytes": 843303,
-   "sha256": "70ee06cb6424e0529d957b1c3b585922a6bb0375d07fb9d128e246825a890f31",
-   "files": 85
+   "file": "nusuk-dl-developer-handoff.zip",
+   "bytes": 1012981,
+   "sha256": "92eed7f395f10fa41d80c3a3f20ee9c3293f31ba83d0dc0e9bf1a551708e383b",
+   "files": 325
   },
   {
-   "file": "nusuk-dl-all.zip",
-   "bytes": 1856783,
-   "sha256": "9726ab2890819c67d28e33f46d996735cda43ad59566b1588cd56e64fa7daa99",
-   "files": 417
-  },
-  {
-   "file": "nusuk-dl-designers.zip",
-   "bytes": 1646980,
-   "sha256": "95672828bbf3ac5ee7f1cdd02944c95a9c20d44723f518aaaa92ced0c148f48b",
-   "files": 328
-  },
-  {
-   "file": "nusuk-dl-developers.zip",
-   "bytes": 1832862,
-   "sha256": "02f730aa4fefa9f1efddd0b163159788bd79782d6561fc164d37a3e56f842a6a",
-   "files": 410
-  },
-  {
-   "file": "nusuk-dl-patterns-templates.zip",
-   "bytes": 74173,
-   "sha256": "2f3c27619c7c8deda0c1bde2cbc1c63abf5d30e3d95c55854713ea4bdf8e7805",
-   "files": 26
+   "file": "nusuk-dl.plugin",
+   "bytes": 23756830,
+   "sha256": "5349a9284541f61f504b2180c21c634da1128c8b12059d7dfb672e763dea2080",
+   "files": 501
   },
   {
    "file": "tokens-native.json",

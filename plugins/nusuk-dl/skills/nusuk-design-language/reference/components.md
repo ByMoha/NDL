@@ -714,13 +714,15 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 A determinate ring for a process whose completion can be measured: an upload, a download, a sync.
 
-**Figma source:** [🧭 Navigation › Circular progress indicator](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) (Progress 0, 10, 30, 50, 80 × Darkmode Off, On), new on 17 November 2026. The set was being edited while it was read (it had Flat and Wave types earlier the same day; at 20:00 it has one type and no 100), so treat this card as Proposed until the set is published.
+**Figma source:** [🧭 Navigation › Circular progress indicator](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) (Progress 0, 10, 30, 50, 80 × Darkmode Off, On), new on 17 November 2026. The set was being edited while it was read (it had Flat and Wave types earlier the same day; at 20:00 it has one type and no 100), so treat this card as Proposed until the set is published. Its variant labels (0, 10, 30, 50, 80) still don't match the values drawn (0%, 20%, 50%, 75%, done) (F92).
 
-## Anatomy
+## Anatomy (re-read 17 November 2026, 20:55)
 
-- 44 square, 3 stroke drawn inside (centre radius 20.5).
-- Active part: `surface-longing`, round ends, from 12 o'clock, clockwise.
-- The rest of the track: `surface-03-pearl` (Darkmode On: `surface-01-white`), with a 15° gap at each end of the active part. At 0 the track is a full ring; at 100% the active part is.
+- 44 square, 3 stroke drawn inside (centre radius 20.5), round caps.
+- 0: a whole `surface-03-pearl` ring.
+- Otherwise the active arc (`surface-longing`) runs clockwise from 15° after 12 o'clock to 360° × value; after a 15° gap the track (`surface-03-pearl`; Darkmode On `surface-01-white`) runs back to 12 o'clock. Figma's 50% variant is turned 15° from the others (F106); code follows the 20% and 75% variants.
+- The value in the middle: `notes-2-regular`, `text-content` (Darkmode `text-inverse`).
+- Done: a `surface-longing` disc with a white 24 `tick-02`.
 
 ## Props
 
@@ -728,6 +730,7 @@ A determinate ring for a process whose completion can be measured: an upload, a 
 |---|---|---|
 | `value` | `number` | 0–1 (or 0–100) |
 | `dark` | `boolean` | Darkmode On: white track |
+| `text` | `string` | The text in the middle (default: the percentage) |
 | `label` | `string` | Accessible name; the value is announced |
 
 ## Use
@@ -1559,36 +1562,51 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 # HeaderTabs
 
-Segmented tabs for switching views inside one screen, with optional counts.
+Segmented tabs for switching views inside one screen, with optional icons, counts and an updates dot.
 
-**Figma source:** 🎹 Tabs › Header Tabs (Size × Background), Number Notification. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** [🎹 Tabs › Header Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2883) (Size SM, LR × Background On, Off), on `_Header Tabs` (Darkmode, Show Item 3–8) and `_Tab_Master_Status` (Status × Icon Off, On, Icon Only × Show Number × White × Updates), with Number Notification. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
-**15 November 2026, evening (read from 🎹 Tabs, published):** the chosen tab is a white pill with `text-heading` and a soft shadow (Figma `_Tab_Master/On`), on the track (Background On) or on nothing (Background Off). Code drew it Ink with white text; that is fixed. `background={false}` is now the bare track (it used to switch to the glass toolbar tabs; pass `light` for those). Tabs: 30 high in SM, 20 padding, 8 apart, icons 20.
+**17 November 2026, 21:00 (rebuilt as a replica):** the track is padded 4 / 8 (code had 4 all round); its fill reaches 2 outside the track, as Glass BG does in Figma; LR tabs are 40 high (code had 38); the chosen tab's shadow is −6 6 30 −12 Ink 5%, the style Tabs uses (F104); new `darkmode` (Smoke track, white labels), and per tab `icon`, `iconOnly` and `updates`. The count stays Smoke on the chosen tab, as Figma draws it (code turned it white).
 
-**17 November 2026:** `light` (the glass version in toolbars) uses GlassBG `field` glass with Dark=On; the plain track stays Ivory.
+## Anatomy
+
+| Part | SM | LR | Token |
+|---|---|---|---|
+| Track | 38 high, padding 4 / 8, tabs 8 apart | 48 high | `space-xxs`, `space-xs` |
+| Track fill (2 outside the track) | Ivory; Darkmode Smoke | same | `surface-02-ivory`, `surface-05-smoke` |
+| Tab | 30 high, padding 8 / 20, 18 on the icon side | 40 high | `space-xs`, `space-md`, `radius-full` |
+| Label | Notes 1 Regular, 2 above the bottom | same | `text-heading` (Darkmode `text-inverse`) |
+| Icon | 20, at the start, 4 before the label | same | `icons-black` (as Figma, also in Darkmode: F107) |
+| Count | Number Notification 16 high, 12 after the label | same | Smoke with `text-inverse`; Darkmode white with `text-heading` and a soft shadow |
+| Updates | 6 dot, 8 from the end, 4 from the top | same | `alerts-surface-solid-error` |
+| Chosen tab | white, −6 6 30 −12 Ink 5% | same | `surface-01-white` |
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
-| `tabs` | `(string \| {label,count})[]` |  |
-| `active` | `number` |  |
-| `size` | `'sm' \| 'lr'` |  |
-| `background` | `boolean` | false = the glass version used in toolbars: Glass BG, active tab white with a soft shadow (Navigation, 8 November 2026) |
-| `onChange` | `(index) => void` | Called when the person picks a tab. The tabs keep their own state, so `active` is the starting tab (9 November 2026) |
-| `light` | `boolean` |  |
+| `tabs` | `(string \| { label, icon?, iconOnly?, count?, updates?, ariaLabel? })[]` | 2 to 8 tabs (Show Item 3–8) |
+| `active` | `number` | The starting tab; the tabs keep their own state |
+| `size` | `'sm' \| 'lr'` | |
+| `background` | `boolean` | `false` = Background Off: no track |
+| `darkmode` | `boolean` | `_Header Tabs` Darkmode On, for imagery |
+| `light` | `boolean` | The glass toolbar tabs (GlassBG `field`, Dark On), not this set |
+| `onChange` | `(index) => void` | Called when the person picks a tab |
+| `ariaLabel` | `string` | Names the tab list |
 
 ## Use
 
-- Two to four short labels.
+- Two to four short labels on a phone; up to eight where the screen is wide.
+- An icon-only tab takes its label as its accessible name.
 
 ## Don't
 
 - Do not use for navigation between sections of the app.
+- Do not use Updates as a nudge to come back: it marks a real change in that view.
 
 ## You provide
 
-The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
+The content (labels, counts, icons from the DL set) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
 
 ---
@@ -2545,6 +2563,8 @@ iOS: a `Circle().trim(from:to:)` with `StrokeStyle(lineWidth: 7.4, lineCap: .rou
 
 The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
+**17 November 2026, 20:55:** with a `title`, the title and subtitle come first, at the reading start, 4 in, and the ring 12 after them, as 🧭 Navigation › Progress (RTL=On) draws it; the title is `text-heading`.
+
 
 ---
 
@@ -3367,7 +3387,7 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 | Prop | Type | Notes |
 |---|---|---|
-| `type` | `'landing' \| 'travel' \| 'content' \| 'market' \| 'inner-pages' \| 'actions' \| 'action-input' \| 'loading' \| 'filters' \| 'content-share' \| 'floating-cart-empty' \| 'with-price' \| 'cart' \| 'floating-profile' \| 'empty'` | Figma Active. The first five render BottomNav (`journey` = `travel`); `habits` is deprecated |
+| `type` | `'landing' \| 'travel' \| 'content' \| 'market' \| 'inner-pages' \| 'actions' \| 'action-input' \| 'loading' \| 'filters' \| 'content-share' \| 'floating-cart-empty' \| 'with-price' \| 'cart-with-count' \| 'payment' \| 'floating-profile' \| 'empty'` | Figma Active. The first five render BottomNav (`journey` = `travel`); `habits` is deprecated |
 | `items` | `{ icon, label }[]` | Home tabs. Default: اليوم, رحلتي, المحتوى, المتجر with the Nusuk icons |
 | `active` | `number` | Current home tab |
 | `title` | `string` | Line above the actions, `notes-1-regular` |
@@ -3415,6 +3435,8 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 ## You provide
 
 The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
+
+**17 November 2026, 21:15 ([🧭 Navigation › Tab Bar](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=70301-10665)):** Figma renamed Active=Cart to **Cart with Count** and added **Active=Payment**. Both use `_Shop CTA`: Primary LR, the label first, then `total` and the riyal; Cart with Count keeps the counter (now on Glass BG, 18 from the CTA), Payment's CTA fills the row. `type="cart-with-count"` (`cart` still works) and `type="payment"`; pass `total` and `quantity`. A total shows only the real amount, fees included (M4).
 
 
 ---
@@ -3473,7 +3495,7 @@ A selectable time slot cut as a ticket, with markers and an optional crowd chip.
 
 **Figma source:** 📅 Date & Time › Time slot card (Selected Default / Selected / Disabled) on _Time slot card Master, Time & Slots section. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
-**17 November 2026, rebuilt from the master:** 54 high, corners 12. One 17-wide semicircle notch on the top edge and one on the bottom, centred 26.5 from the start corner on the markers' side (left in Arabic). The notches are real cut-outs (a CSS mask), so they show whatever sits behind the card, and the Pearl line (Longing when selected) follows the notch. The old version painted circles in the screen colour and drew their full ring outside the card. Text: time Body 1 Regular, then the period Body 2 Light (reads «06:00 ص»). Markers are 22 circles (12 icon, 4 padding, 1 line) overlapping by 7, from −4/−3 over the top notch, in the order soon, instant, prayer. The master's optional Chips slot is `crowd` (Chips Pending MD, «مزدحم») and its trailing icon is `iconName` (24). Default white + Pearl; Selected Shade 2 + Longing, Longing markers with white icons; Disabled Ivory + Pearl, `text-note`.
+**17 November 2026, 21:10 (replica of [📅 Date & Time › Time slot card](https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU/?node-id=2402-18252)):** built from Figma's own parts: 12 bands top and bottom (corner 18 · ticket 17 · the rest) and a 32 middle, 54 high. Corners Radius/MD, clamped to 12 by the band. The notch is a shallow bite (11.3 wide, 4.2 deep) whose tip sits 27 from the **start** edge (right in Arabic), on the side away from the markers; the Pearl line (Longing when selected) follows it. Markers are 20 (were 22), from −3 / −3 at the end corner, the first on top: soon Ivory, instant shade 5 with `icons-illumination`, prayer white; all Longing with white icons when selected. Text: time Body 1 Regular, period Body 2 Light (reads «06:00 ص»). With `iconName` (24, at the start) or `crowd` (Chips Pending MD, at the end) the text fills the middle, as the master draws it. Default white + Pearl; Selected shade 2 + Longing; Disabled Ivory + Pearl, `text-note`.
 
 ## Props
 
@@ -3485,7 +3507,7 @@ A selectable time slot cut as a ticket, with markers and an optional crowd chip.
 | `markers` | `('soon' \| 'instant' \| 'prayer')[]` | Corner markers, each with a spoken label |
 | `crowd` | `string` | Crowd chip; `note` is still read as the same chip |
 | `crowdState` | `string` | Chip state, default pending |
-| `iconName` | `string` | Trailing 24 icon |
+| `iconName` | `string` | The master's Show Icon: 24, at the start (Figma uses `ramadhan-01`) |
 
 ## Use
 

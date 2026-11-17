@@ -468,3 +468,13 @@ Read in [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?n
 | Q-D41 | A discount pill in error red (Price Options, HotelCard)? | The DL keeps red for errors, delete and cancel; a red price tag reads as a warning, and pairs with a struck price (anchoring, M3) |
 | Q-D42 | The Proposed Guides page and the coded `guide` pattern share a name. Rename which? | Two patterns under one name will be mixed up in contracts and prompts |
 | Q-D43 | Content landing: it is drawn as a tab destination with no back arrow, but placed at L2 under the tab destinations; and its measure counts opening an article or reel as a meaningful action | The North Star counts outcomes (a reading session over a threshold), not taps; the level decides the toolbar |
+
+## Figma round (17 November 2026, 21:00: 🎹 Tabs › Header Tabs, 🧭 Navigation progress again)
+
+| # | Issue | Rule code follows |
+|---|---|---|
+| F104 | [🎹 Tabs › Header Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2883): the chosen tab (`_Tab_Master/On`, and the White Number Notification) uses a remote effect style named **Shadow/XS** (key 500fbab…) that is −6 6 30 −12 Ink 5%. Foundation's Shadow/XS is 0 1 2 −1 Graphite 4% (key fd4fd08…). Two styles share one name | Code draws what Tabs draws (−6 6 30 −12 Ink 5%). Relink Tabs to Foundation's Shadow/XS, or rename the other style |
+| F105 | [🧭 Navigation › _Progress Bar](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252): the Darkmode property now has five values (Off, On, Darkmode3, Darkmode5, Darkmode6) and the six variants are spread across them; Step 03 light pads its blocks 8 at each side and starts the first block at −8, where Step 03 dark has no padding | Code: Darkmode on or off; three full blocks, 90 wide, as Step 03 dark |
+| F106 | 🧭 Navigation › Circular progress indicator: the 50% variant starts its arc at 12 o'clock and ends the track 15° before it; the 20% and 75% variants start the arc 15° after 12 o'clock and end the track at 12 | Code follows the 20% and 75% variants |
+| F107 | 🎹 Tabs › `_Tab_Master_Status`: with White=On (the Darkmode track) the icon stays `Icons/Black` on Smoke while the label turns white | Code copies it; Figma should use `Icons/white` there |
+

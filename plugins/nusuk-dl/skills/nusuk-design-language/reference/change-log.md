@@ -4,6 +4,56 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 17 November 2026, 21:30 (Header Tabs and TimeSlot rebuilt as replicas; Tab Bar Cart with Count and Payment; Navigation progress re-read; the DL becomes one plugin and a developer handoff) · DESIGN.md 3.5.0 · tokens 3.11
+
+**Figma:** [🎹 Tabs › Header Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2883) (Size × Background, `_Header Tabs` Darkmode, `_Tab_Master_Status`, read 20:52) and [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) (`_Progress Bar`, `.Building Blocks`, Circular progress indicator and Progress, re-read 20:55 after the DL Advisor's third update, and [Tab Bar](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=70301-10665) at 21:12), and [📅 Date & Time › Time slot card](https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU/?node-id=2402-18252) (read 21:10).
+
+### Changed: HeaderTabs, a replica of 🎹 Tabs
+
+- **Track:** 38 high (LR 48), padding 4 / 8 (was 4 all round), tabs 8 apart; the Ivory fill reaches 2 outside the track, as Glass BG does in Figma. `darkmode` (new): a Smoke track and white labels. Background Off: no track.
+- **Tab:** 30 high (LR 40, was 38), padding 8 / 20 and 18 on the icon side, label Notes 1 Regular 2 above the bottom. New per tab: `icon` (20, at the start), `iconOnly`, `updates` (a 6 red dot 8 from the end, 4 from the top). The count stays Smoke on the chosen tab (code turned it white); in Darkmode it is white with a soft shadow.
+- **Chosen tab:** white with −6 6 30 −12 Ink 5%, the style Tabs uses under the name Shadow/XS, which is not Foundation's Shadow/XS (F104).
+
+### Changed: 🧭 Navigation progress (third read)
+
+- **CircularProgress:** the value now sits in the middle (Notes 2 Regular), 0 is a whole Pearl ring, done is a `surface-longing` disc with a white 24 tick, and the arc starts 15° after 12 o'clock with the track ending at 12 (F106 for the 50% variant). Still Proposed (F92).
+- **Toolbar Process:** the bar is 28 high (8 above and below), as `_Progress Bar` is. Its Darkmode property now has five values (F105).
+- **ProgressRing with a title:** the title and subtitle come first and the ring after them, as Progress (RTL=On) draws it.
+
+### Changed: TimeSlot, a replica of 📅 Date & Time
+
+- **Shape:** built from Figma's parts: 12 bands top and bottom (corner 18 · ticket 17 · the rest) and a 32 middle, 54 high; corners Radius/MD, clamped to 12 by the band.
+- **Notch:** a shallow bite 11.3 wide and 4.2 deep (was a 17 semicircle), its tip 27 from the **start** edge, away from the markers (code had it on the markers' side). The line follows it.
+- **Markers:** 20 (were 22), from −3 / −3 at the end corner, the first on top. Selected: all Longing with white icons.
+- **With an icon or a crowd chip** the text fills the middle, as the master draws it.
+
+### Changed: Tab Bar
+
+- **Cart with Count** (Figma renamed Cart) and **Payment** (new): the title over `_Shop CTA`, Primary LR with the label first, then the total and the riyal. Cart with Count keeps the counter, now on Glass BG, 18 from the CTA; Payment's CTA fills the row. `type="cart-with-count"` (`cart` still works), `type="payment"`, `total`.
+
+### Changed: how the DL is distributed (DL-42)
+
+- **One plugin, `nusuk-dl`:** eleven skills (the seven Nusuk skills, and `accessibility-audit`, `design-critique`, `ux-writing` and `humanizer`, MIT-licensed and credited) and the whole DL library in `library/`. Upload `nusuk-dl.plugin` in Customize › Plugins › Add › Upload plugin, or sync it from GitHub.
+- **One handoff for developers:** `nusuk-dl-developer-handoff.zip` (the former developer package, without the skill zip). It is also the plugin's `library/`.
+- **Gone:** the designers and everything packages, the stand-alone skill zips and the patterns zip. Google Drive keeps only the plugin and the handoff; GitHub keeps the plugin folder and the handoff (no root mirror, no `artworks/`: the paintings are in the `nusuk-visual-system` skill).
+- **The DL skill** no longer carries copies of the content writer, voice rules and visual system: they are skills beside it in the plugin.
+
+### iOS
+
+- **HeaderTabs:** an `HStack(spacing: 8)` with `.padding(.vertical, 4).padding(.horizontal, 8)` over a `Capsule().fill(surface02Ivory)` inset −2 (`surface05Smoke` in Darkmode). Tabs 30 pt (LR 40), padding 8 / 20, 18 on the icon side; the chosen tab a white `Capsule` with `.shadow(color: ink.opacity(0.05), radius: 15, x: -6, y: 6)` shrunk by the spread. Updates: a 6 pt red `Circle` overlay at the top trailing corner, 8 / 4 in. Each tab `.accessibilityAddTraits(.isSelected)` when chosen; an icon-only tab takes its label.
+- **CircularProgress:** a `Text` in the middle (Notes 2); arcs trimmed from 15° after the top; at 1.0 a filled `Circle` and the 24 pt tick in white.
+- **Process bar:** 28 pt high.
+- **TimeSlot:** one `Shape`: a rounded rectangle (radius 12) with a 11.3 × 4.2 bite top and bottom, tip 27 pt from the leading edge, stroked 1 pt; markers 20 pt `Circle`s at (−3, −3) on the trailing corner, overlapping 7, the first on top.
+- **Tab Bar Cart with Count and Payment:** an `HStack(spacing: 18)` of the counter (110 × 48, glass) and a full-width Primary LR whose label is followed by the total and the riyal; Payment drops the counter.
+
+### Android
+
+- **HeaderTabs:** a `Row(horizontalArrangement = spacedBy(8.dp))` with `padding(vertical = 4.dp, horizontal = 8.dp)`, drawn over a pill extended 2 dp each side (`drawBehind`). Tabs 30 dp (LR 40), padding 8 / 20, 18 on the icon side; the chosen tab white with `Modifier.dropShadow` (−6, 6, blur 30, spread −12, Ink 5%). Use `Modifier.selectable(role = Role.Tab)`; the updates dot a 6 dp `Box` aligned top end.
+- **CircularProgress:** the value as `Text` in the centre; `drawArc` from −75° (15° after the top); done fills the circle and draws the 24 dp tick in white.
+- **Process bar:** 28 dp high.
+- **TimeSlot:** a `GenericShape` with the two bites, tip 27 dp from the start edge; markers 20 dp, offset −3 dp, overlapping 7 dp, the first drawn last.
+- **Tab Bar Cart with Count and Payment:** `Row(spacedBy(18.dp))` of the counter (110 × 48 dp, glass) and the Primary LR CTA (label, total, riyal); Payment is the CTA alone.
+
 ## 17 November 2026, 20:45 (Navigation progress, Misc headers, Cards, Market, Patterns; the design system's comment fixes in the downloads) · DESIGN.md 3.4.0 · tokens 3.11
 
 **Figma:** [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) (read at 19:00 and again at 20:05, after the DL Advisor's second update), [🔌 Misc](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj/?node-id=2402-18252), [🃏 Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=2402-18252), [🛍️ Market](https://www.figma.com/design/5X9RDeo33hZFEhtjVUYr5c/?node-id=2402-18252), [✨ Templates-Patterns › ⠏ Patterns](https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70394-7656) and [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 54 variants, 3 masters: no change since 15:30). The comment fixes below came from [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) (Haramin Icon, Tab Bar), [🃏 Cards › Option Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=68491-1912), [📅 Date & Time](https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU), [🏖️ Travel › Travel](https://www.figma.com/design/ozi4A2gUbVXbzbUJ3MF4uU/?node-id=70393-17066) and [⚙️ Foundation › Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296).

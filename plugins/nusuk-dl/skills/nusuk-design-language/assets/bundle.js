@@ -284,7 +284,7 @@
       h('span', { className: 'total', dir: 'ltr' }, I('arrow-left-02', 'nr'), p.action ? T('body-2-regular', p.action) : h('span', { className: 'price' }, I('riyal', 'sm'), T('body-2-regular', p.total || '0.00'))));
   }
   /* TabBar — Navigation › Tab Bar: Active (18) × RTL. `type` takes the Figma Active name */
-  var TABBAR = { landing: 'home', journey: 'home', travel: 'home', 'market/cart-+': 'home', 'inner-pages': 'home', content: 'home', market: 'home', home: 'home', actions: 'actions', 'action-input': 'action-input', 'action-&-input': 'action-input', loading: 'loading', filters: 'filters', 'content-share': 'content-share', habits: 'habits', 'floating-cart-empty': 'floating-cart', 'floating-cart': 'floating-cart', 'with-price': 'with-price', cart: 'cart', 'floating-profile': 'floating-profile', empty: 'empty', 'screen-controller': 'empty' };
+  var TABBAR = { landing: 'home', journey: 'home', travel: 'home', 'market/cart-+': 'home', 'inner-pages': 'home', content: 'home', market: 'home', home: 'home', actions: 'actions', 'action-input': 'action-input', 'action-&-input': 'action-input', loading: 'loading', filters: 'filters', 'content-share': 'content-share', habits: 'habits', 'floating-cart-empty': 'floating-cart', 'floating-cart': 'floating-cart', 'with-price': 'with-price', cart: 'cart', 'cart-with-count': 'cart', payment: 'payment', 'floating-profile': 'floating-profile', empty: 'empty', 'screen-controller': 'empty' };
   function TabBar(p) {
     var raw = String(p.type || p.active2 || 'landing').toLowerCase().replace(/\s+/g, '-'), t = TABBAR[raw] || 'home';
     var tabIdx = { landing: 0, journey: 1, content: 2, market: 3 }[raw];
@@ -306,7 +306,12 @@
     if (t === 'floating-cart') body = [title, h(CartBar, { key: 'b', floating: true, total: p.total, people: p.people, label: p.label, more: p.more })];
     if (t === 'floating-profile') body = [title, h(CartBar, { key: 'b', floating: true, action: p.action || 'اختيار الموعد', people: p.people || ['A', '', '', '', 'A'] })];
     if (t === 'with-price') body = [title, h('div', { key: 'r', className: 'nk-bar-price' }, h('div', { className: 'from' }, T('notes-1-light', p.fromLabel || 'يبدأ من'), h('span', { className: 'amt', dir: 'ltr' }, I('riyal-sharp'), T('headline-1-regular', p.price || '340'))), h(Button, { kind: 'primary', size: 'lr', full: true }, p.primary || 'احجز تذكرة'))];
-    if (t === 'cart') body = [title, h('div', { key: 'r', className: 'nk-bar-price' }, h('div', { className: 'nk-stepper' }, h('button', { type: 'button', 'aria-label': p.decreaseLabel || tr('decrease') }, I('remove-01', 'nr')), T('body-2-regular', String(p.quantity || 1)), h('button', { type: 'button', 'aria-label': p.increaseLabel || tr('increase') }, I('plus-sign', 'nr'))), h(Button, { kind: 'primary', size: 'lr', full: true }, p.primary || 'أضف للسلة'))];
+    /* 17 Nov 2026, 21:15: Figma renamed Cart to "Cart with Count" and added Payment. Both: the title (Notes 1) over a row of _Shop CTA, Primary LR
+       with the riyal and the total before the label; Cart with Count puts the counter (Glass BG field, padding 12 / 18, minus · count · plus, 18 apart)
+       18 from it at the start, Payment's CTA fills the row. */
+    var shop = function (label) { return h(Button, { key: 'b', kind: 'primary', size: 'lr', full: true, className: 'shop' }, h('span', { className: 'shop-in' }, label, h('span', { className: 'price', dir: 'ltr' }, I('riyal'), h('span', { className: 'amt' }, p.total != null ? p.total : '[الإجمالي]')))); };   // _Shop CTA: the label leads, then the total and the riyal
+    if (t === 'cart') body = [title, h('div', { key: 'r', className: 'nk-bar-price' }, h(Glass, { className: 'nk-stepper', attrs: { role: 'group', 'aria-label': p.quantityLabel || tr('quantity') } }, h('button', { type: 'button', 'aria-label': p.decreaseLabel || tr('decrease') }, I('remove-01', 'nr')), T('body-2-regular', String(p.quantity || 1)), h('button', { type: 'button', 'aria-label': p.increaseLabel || tr('increase') }, I('plus-sign', 'nr'))), shop(p.primary || 'أضف للسلة'))];
+    if (t === 'payment') body = [title, h('div', { key: 'r', className: 'nk-bar-price' }, shop(p.primary || 'المتابعة إلى الدفع'))];
     return h('div', { className: cx('nk', 'nk-bottombar', t === 'empty' && 'empty') }, body && h('div', { className: 'body' }, body), h(HomeIndicator, { compact: true }));
   }
   /* NavTab — Navigation › Tab (Current × Standalone × Special), 10 November 2026 */
@@ -393,13 +398,21 @@
       show && p.fromLabel !== false && T('from notes-2-light', p.fromLabel || 'ابتداءً من'),
       h('div', { className: 'bottom' }, p.vertical ? [sr && h(React.Fragment, { key: 's' }, sr), cart && h('span', { key: 'c', className: 'cartw' }, cart), cta && h(React.Fragment, { key: 't' }, cta)] : [sr && h(React.Fragment, { key: 's' }, sr), h('span', { key: 'a', className: 'acts' }, cta, cart)]));
   }
-  /* HeaderTabs — 🎹 Tabs › Header Tabs. `background={false}` is the glass version used in toolbars */
+  /* HeaderTabs — 🎹 Tabs › Header Tabs (Size SM / LR × Background On / Off) on _Header Tabs (Darkmode, Show Item 3–8) and
+     _Tab_Master_Status (Status × Icon Off / On / Icon Only × Show Number × White × Updates), read 17 Nov 2026.
+     Track: padding 4 / 8, tabs 8 apart, 38 high (LR 48); Glass BG (Default, Glass Off) 2 outside the track: Ivory, Smoke when darkmode.
+     Tab: padding 8 / 20 (18 on the icon side), label Notes 1 Regular in text-heading (text-inverse when darkmode) 2 above the bottom,
+     icon 20 leading, number 12 after the label, Updates a 6 red dot 8 from the end and 4 from the top.
+     Chosen tab: white with -6 6 30 -12 Ink 5% (the remote "Shadow/XS" Tabs uses, F104). 2 to 8 tabs. `light` = the glass toolbar tabs. */
   function HeaderTabs(p) {
     if (p.light) return h(GlassTabs, { tabs: p.tabs, active: p.active, light: p.light, onChange: p.onChange });
-    var s = useState(p.active || 0);
-    return h('div', { className: cx('nk', 'nk-htabs', p.size === 'lr' && 'lr', p.background === false && 'bare'), role: 'tablist' }, (p.tabs || []).map(function (t, i) {
-      var label = typeof t === 'string' ? t : t.label;
-      return h('button', { key: i, type: 'button', role: 'tab', 'aria-selected': i === s[0], className: 'notes-1-regular', onClick: function () { s[1](i); if (p.onChange) p.onChange(i); } }, label, t.count != null && h(CountBadge, { status: i === s[0] ? 'white' : 'default' }, t.count));
+    var s = useState(p.active || 0), dark = !!(p.darkmode || p.dark);
+    return h('div', { className: cx('nk', 'nk-htabs', p.size === 'lr' && 'lr', p.background === false && 'bare', dark && 'dark'), role: 'tablist', 'aria-label': p.ariaLabel }, (p.tabs || []).slice(0, 8).map(function (t, i) {
+      var o = typeof t === 'string' ? { label: t } : t, on = i === s[0], only = !!(o.icon && (o.iconOnly || !o.label));
+      return h('button', { key: i, type: 'button', role: 'tab', 'aria-selected': on, 'aria-label': only ? (o.ariaLabel || o.label) : undefined, className: cx(o.icon && !only && 'ic', only && 'only'), onClick: function () { s[1](i); if (p.onChange) p.onChange(i); } },
+        o.icon && h(Icon, { name: o.icon, size: 'nr' }),
+        (!only || o.count != null) && h('span', { className: 'ln' }, !only && h('span', { className: 'lb notes-1-regular' }, o.label), o.count != null && h(CountBadge, { status: dark ? 'white' : 'default' }, o.count)),
+        o.updates && h('i', { className: 'upd', 'aria-hidden': true }));
     }));
   }
   function CountBadge(p) { return h('span', { className: cx('nk', 'nk-count', 'notes-2-regular', p.status) }, p.children); }
@@ -413,8 +426,9 @@
   /* ProgressRing — 🧭 Navigation › Progress on _Form Progress Indicator (P20…P100, Show Check Mark), read 17 Nov 2026: 44 square; a 1.14 Pearl ring;
      the progress is a 7.4 Illumination band (inner radius 64%) from 6 o'clock, clockwise, with round ends, and a 5 shade 3 dot in its start cap;
      the count (Notes 2 Regular) in the middle. At 100% the circle fills and a 28 tick-02 replaces the count. */
-  /* ProcessBar — 🧭 Navigation › _Progress Bar (Step 01/02/03 × Darkmode), 17 Nov 2026: 90 wide; one 30 × 12 wave block (.Building Blocks,
-     3 surface-longing, round) per step done from the reading start, then 8 apart a straight 3 track to the end (Pearl; white on dark). Private in Figma. */
+  /* ProcessBar — 🧭 Navigation › _Progress Bar (Step 01/02/03 × Darkmode), re-read 17 Nov 2026, 20:55: 90 × 28 (8 above and below); one 30 × 12
+     .Building Blocks per step done from the reading start, each a wave of 3 strokes in surface-longing with round caps (Figma draws it as straight segments
+     with rounded corners through (0,7) (8,12) (14,6) (20,0) (30,7)), then 8 apart a straight 3 track to the end (Pearl; white on dark). Private in Figma. */
   function ProcessBar(p) {
     var n = p.steps || 3, k = p.step != null ? p.step : p.progress != null ? Math.ceil(p.progress * n - 1e-9) : 1;
     k = Math.max(0, Math.min(n, k));
@@ -438,18 +452,22 @@
           v > 0 && h('circle', { key: 'd', cx: dot[0], cy: dot[1], r: 2.5, fill: 'var(--surface-shade-3)' })]),
       full ? h('span', { className: 'tick' }, I('tick-02')) : h('b', { className: 'notes-2-regular' }, txt));
     if (!p.title) return h('span', { className: 'nk' }, ring);
-    return h('div', { className: 'nk nk-progress' }, ring, h('div', null, T('body-2-regular', p.title, 'div'), p.subtitle && T('notes-2-light', p.subtitle, 'div')));
+    return h('div', { className: 'nk nk-progress' }, h('div', { className: 'tt' }, T('body-2-regular', p.title, 'div'), p.subtitle && T('notes-2-light', p.subtitle, 'div')), ring);
   }
-  /* CircularProgress — 🧭 Navigation › Circular progress indicator (Progress × Darkmode), new 17 Nov 2026: 44 square, 3 stroke inside;
-     the active part in surface-longing from 12 o'clock, clockwise, with round ends; the rest of the track in Pearl (white on dark), a 15° gap at each end. */
+  /* CircularProgress — 🧭 Navigation › Circular progress indicator (Progress × Darkmode), re-read 17 Nov 2026, 20:55: 44 square, 3 stroke inside, round caps.
+     0: a whole Pearl ring. Otherwise the active arc (surface-longing) runs from 15° after 12 o'clock to 360° × value, clockwise; after a 15° gap
+     the track (Pearl; white on dark) runs back to 12 o'clock (Figma's 20% and 75% variants; its 50% variant is turned 15°, F106). The value in the
+     middle, Notes 2 Regular, text-content (text-inverse on dark). Done: a surface-longing disc with a white 24 tick-02. */
   function CircularProgress(p) {
     var v = Math.max(0, Math.min(1, p.value == null ? .3 : p.value > 1 ? p.value / 100 : p.value));
-    var r = 20.5, C = 2 * Math.PI * r, g = v > 0 && v < 1 ? C * 15 / 360 : 0, act = C * v, rest = C - act - 2 * g;
-    var rot = function (off) { return 'rotate(' + (-90 + off * 360 / C) + ' 22 22)'; };
-    return h('span', { className: cx('nk', 'nk-cprog', p.dark && 'dark'), role: 'progressbar', 'aria-valuenow': Math.round(v * 100), 'aria-valuemin': 0, 'aria-valuemax': 100, 'aria-label': p.label || tr('progress') },
+    var r = 20.5, C = 2 * Math.PI * r, deg = C / 360, act = Math.max(0, C * v - 15 * deg), rest = Math.max(0, C - C * v - 15 * deg);
+    var rot = function (a) { return 'rotate(' + (-90 + a) + ' 22 22)'; }, done = v >= 1;
+    return h('span', { className: cx('nk', 'nk-cprog', p.dark && 'dark', done && 'done'), role: 'progressbar', 'aria-valuenow': Math.round(v * 100), 'aria-valuemin': 0, 'aria-valuemax': 100, 'aria-label': p.label || tr('progress') },
       h('svg', { width: 44, height: 44, viewBox: '0 0 44 44', 'aria-hidden': true },
-        v < 1 && h('circle', { cx: 22, cy: 22, r: r, className: 'trk', fill: 'none', strokeWidth: 3, strokeLinecap: v > 0 ? 'round' : 'butt', strokeDasharray: v > 0 ? Math.max(rest - 3, .001) + ' ' + C : 'none', transform: rot(act + g + 1.5) }),
-        v > 0 && h('circle', { cx: 22, cy: 22, r: r, className: 'act', fill: 'none', strokeWidth: 3, strokeLinecap: 'round', strokeDasharray: v >= 1 ? 'none' : Math.max(act - 3, .001) + ' ' + C, transform: rot(1.5) })));
+        done ? h('circle', { cx: 22, cy: 22, r: 22, className: 'disc' }) : v === 0 ? h('circle', { cx: 22, cy: 22, r: r, className: 'trk', fill: 'none', strokeWidth: 3 }) : [
+          act > 0 && h('circle', { key: 'a', cx: 22, cy: 22, r: r, className: 'act', fill: 'none', strokeWidth: 3, strokeLinecap: 'round', strokeDasharray: act + ' ' + C, transform: rot(15) }),
+          rest > 0 && h('circle', { key: 't', cx: 22, cy: 22, r: r, className: 'trk', fill: 'none', strokeWidth: 3, strokeLinecap: 'round', strokeDasharray: rest + ' ' + C, transform: rot(360 * v + 15) })]),
+      done ? h('span', { className: 'tick' }, I('tick-02')) : h('b', { className: 'notes-2-regular' }, p.text != null ? p.text : Math.round(v * 100) + '%'));
   }
   /* DirectionSheet — Navigation › Direction Sheet (Restore, Details, 2 Options, Filter…) */
   function DirectionSheet(p) {
@@ -939,15 +957,21 @@
       h('i', { className: cx('bar', AVAIL[av] || av), 'aria-hidden': true }));
   }
   var SLOT_MARK = { soon: ['hourglass', 'متاح قريبًا'], instant: ['zap', 'تأكيد فوري'], prayer: ['salah', 'وقت صلاة'] }, SLOT_ORDER = ['soon', 'instant', 'prayer'];
-  /* TimeSlot — 📅 Date & Time › _Time slot card Master (17 Nov 2026, rebuilt from the master): a ticket 54 high, corners 12, one 17-wide semicircle
-     notch top and bottom whose centre sits 26.5 from the start corner on the markers' side (left in Arabic), cut out with a mask so it
-     shows whatever is behind it; the Pearl / Longing line follows the notch. Text: time Body 1, period Body 2 Light, then the optional
-     crowd chip (Chips, Pending, MD) and trailing icon (24). Markers: 22 circles (icon 12 + 4 padding + 1 line), 7 overlap, from -4/-3. */
+  /* TimeSlot — 📅 Date & Time › Time slot card (Selected Default / Selected / Disabled) on _Time slot card Master, re-read 17 Nov 2026, 21:10.
+     Built as Figma builds it: a 12 band top and bottom (an 18 corner piece at the start, the 17 ticket with the notch, the rest), a 32 middle with side
+     lines only, overlapping by 1: 54 high. Corners Radius/MD, which the 12 band clamps to 12. The notch is a shallow bite, 11.3 wide at the edge and
+     4.2 deep, its tip 27 from the start edge (right in Arabic), and the line follows it. Markers: 20 circles (12 icon, 4 padding, 1 line inside),
+     7 overlap, the first on top, from −3 / −3 at the end corner, in the order soon, instant, prayer. Text: time Body 1 Regular, period Body 2 Light,
+     4 apart; with the master's Show Icon (24) and Crowd (Chips Pending MD) the text fills the middle. Default white + Pearl; Selected shade 2 +
+     Longing, every marker Longing with a white icon; Disabled Ivory + Pearl, text-note. */
+  var SLOT_NOTCH_FILL = 'M0 0H2.34C3.4 3.58 8 4.18 8 4.18C8 4.18 12.5 3.66 13.62 0H17V12H0Z', SLOT_NOTCH_LINE = 'M-.5 .55L2.34 .45C3.4 4.03 8 4.63 8 4.63C8 4.63 12.5 4.11 13.62 .55H17.5';
+  function slotBand(k) { return h('span', { className: 'b ' + k }, h('i', { className: 'c' }), h('svg', { viewBox: '0 0 17 12', width: 17, height: 12 }, h('path', { className: 'f', d: SLOT_NOTCH_FILL }), h('path', { className: 'l', d: SLOT_NOTCH_LINE })), h('i', { className: 'r' })); }
   function TimeSlot(p) {
     var st = p.status || 'default', marks = SLOT_ORDER.filter(function (m) { return (p.markers || []).indexOf(m) > -1; });
     var parts = String(p.time || '').split(' '), time = p.period ? p.time : parts[0], period = p.period || parts.slice(1).join(' ');
     var crowd = p.crowd != null ? p.crowd : p.note;
-    return h('button', { type: 'button', className: cx('nk', 'nk-slot', st), disabled: st === 'disabled', 'aria-pressed': st === 'selected', 'aria-label': [time, period, crowd].concat(marks.map(function (m) { return SLOT_MARK[m][1]; })).filter(Boolean).join('، ') },
+    return h('button', { type: 'button', className: cx('nk', 'nk-slot', st, (p.iconName || crowd) && 'wide'), disabled: st === 'disabled', 'aria-pressed': st === 'selected', 'aria-label': [time, period, crowd].concat(marks.map(function (m) { return SLOT_MARK[m][1]; })).filter(Boolean).join('، ') },
+      h('span', { className: 'bg', 'aria-hidden': true }, slotBand('t'), h('i', { className: 'm' }), slotBand('bt')),
       p.iconName && h('span', { className: 'ti', 'aria-hidden': true }, I(p.iconName)),
       h('span', { className: 'tm', 'aria-hidden': true }, h('bdi', { className: 'body-1-regular' }, time), period && h('span', { className: 'pd body-2-light' }, period)),
       crowd && h('span', { className: 'cr', 'aria-hidden': true }, h(Chip, { state: p.crowdState || 'pending', size: 'md' }, crowd)),

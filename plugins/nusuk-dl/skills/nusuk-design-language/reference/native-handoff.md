@@ -281,7 +281,7 @@ The iOS team's ten questions, with the answer where the DL already has one.
 | `migrations/<date>.json` | The same change as data, with `ios` and `android` names | Codemods and agents |
 | `DESIGN.md` › M8, M9, M10, M11 | Foundations, component specs, accessibility, platform notes | The spec behind the numbers |
 
-All of these are in the design system and inside the `nusuk-design-language` skill zip (`reference/`).
+All of these are in the design system, in the developer handoff (`nusuk-dl-developer-handoff.zip`) and in the `nusuk-dl` plugin (the DL skill's `reference/` and `library/`).
 
 ## Reference: units
 

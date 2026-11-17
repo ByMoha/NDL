@@ -1,53 +1,18 @@
-# Nusuk Design Language (DL)
+# Nusuk DL
 
-The full DL tree, release by release. **Figma is the source of truth;** this repository mirrors the DL library for concepts, decks, prototypes and code. The DL guide and the live design system link here.
+The Nusuk Design Language for Claude and for developers. Release 2026-11-17 (DESIGN.md 3.5.0, tokens 3.11), plugin 2026.11.172116, built 2026-11-17T21:16+03:00.
 
-## Download
+Since 17 November 2026 (DL-42) the DL reaches people in two ways only:
 
-Every release puts its packages in [`downloads/`](downloads/) on `main`, so these links always give the latest (sign in to GitHub with access to this repository):
+- **The Nusuk plugin for Claude**, [`plugins/nusuk-dl/`](plugins/nusuk-dl/): eleven skills (the Nusuk Design Language, DX, UX, content writer, voice rules, visual system, feature handoff, accessibility audit, design critique, UX writing, humanizer) and the whole DL library in [`plugins/nusuk-dl/library/`](plugins/nusuk-dl/library/). This repository is its marketplace (`.claude-plugin/marketplace.json`).
+- **The developer handoff**, [`downloads/nusuk-dl-developer-handoff.zip`](downloads/nusuk-dl-developer-handoff.zip): tokens (JSON, CSS, Swift, Kotlin), the component bundle and types, component cards with previews, template contracts and patterns, migrations, the chat lane, DESIGN.md and the developer documents.
 
-| Package | For | Latest |
-|---|---|---|
-| `nusuk-dl-developers.zip` | Web, iOS and Android: tokens (JSON, CSS, Swift, Kotlin), the component bundle and types, cards with previews, contracts, patterns, migrations, the chat lane, the developer documents, the logos, the Claude skill | [download](https://github.com/ByMoha/NusukDL/raw/main/downloads/nusuk-dl-developers.zip) |
-| `nusuk-dl-designers.zip` | Designers, writers and product: DESIGN.md and every DL document, change sheets, cards with live previews, patterns and contracts, the logos, the Claude skill | [download](https://github.com/ByMoha/NusukDL/raw/main/downloads/nusuk-dl-designers.zip) |
-| `nusuk-dl-all.zip` | Everything above | [download](https://github.com/ByMoha/NusukDL/raw/main/downloads/nusuk-dl-all.zip) |
-| `nusuk-design-language.zip` | The Claude skill alone (fewer than 200 files, the most claude.ai accepts) | [download](https://github.com/ByMoha/NusukDL/raw/main/downloads/nusuk-design-language.zip) |
-| `artworks/` | The 18 illustration reference paintings and their manifest; with the skill, they make the full visual-system skill (the DL guide assembles that zip) | [browse](artworks/) |
+`downloads/download-index.json` lists every download of the release with its size and SHA-256. The plugin as one file, `nusuk-dl.plugin`, is in the DL guide › Downloads (Google Drive, no sign-in).
 
-The same packages are on Google Drive, linked from the DL guide › Downloads. `downloads/download-index.json` lists each with its SHA-256.
+## Install the plugin
 
-## Claude plugin
+- **Organization (Owners, once):** claude.ai › Organization settings › Plugins & skills › Add › Sync from GitHub › https://github.com/ByMoha/NusukDL, with Sync automatically on. Each push to `main` reaches members.
+- **Yourself:** claude.ai › Customize › Plugins › Add › Add marketplace › https://github.com/ByMoha/NusukDL (needs access to this repository), or Add › Upload plugin with `nusuk-dl.plugin`.
+- **Claude Code:** `/plugin marketplace add https://github.com/ByMoha/NusukDL`, then `/plugin install nusuk-dl@nusuk-dl`.
 
-This repository is also a Claude plugin marketplace. Owners add it once in claude.ai › Organization settings › Plugins & skills › Add › Sync from GitHub › https://github.com/ByMoha/NusukDL; with Sync automatically on, every release reaches members as the `nusuk-dl` plugin: the seven Nusuk skills (design language, visual system, content writer, voice rules, UX, DX, feature handoff). Developers can add it in Claude Code with `/plugin marketplace add https://github.com/ByMoha/NusukDL`. See [`plugins/nusuk-dl/`](plugins/nusuk-dl/).
-
-## In this repository
-
-The tree below is the "everything" package unpacked, plus `plugins/nusuk-dl/` (the Claude plugin: the seven Nusuk skills, listed in `.claude-plugin/marketplace.json`) and `artworks/` (the 18 illustration reference paintings and their manifest). Open `index.html` locally to browse every component preview.
-
----
-# Nusuk Design Language · coded package (2026-11-17)
-
-Figma is the source of truth. This package mirrors the DL library for concepts, decks, prototypes and code. It is rebuilt with every DL release; the guide's download index (`download-index.json`) lists every file with its size and SHA-256.
-
-## What's inside
-
-| Path | What it is |
-|---|---|
-| `index.html` | Start here: every component preview and card, the chat lane, the template contracts, documents and migrations |
-| `DESIGN.md` | DESIGN.md 3.4.0: the whole design language in one file |
-| `tokens.json`, `tokens.css` | Tokens 3.11: six themes, type, space, size, radius, shadows, opacity, borders and blur; the CSS has one block per theme (`data-theme`) and one class per type style |
-| `components/bundle.js`, `bundle.css`, `index.d.ts` | The coded components as `window.NusukDL.*` (React 18, no build step) and their TypeScript props |
-| `components/<Name>/` | 90 component cards (props, anatomy, Figma source, rules, known issues, native notes) and 91 previews that open on their own |
-| `native/` | `NusukTokens.swift`, `NusukTokens.kt` and `tokens-native.json` (every token with its web, Swift and Kotlin name) |
-| `chat/` | The Nusuk AI chat as a proposed lane: code, `manifest.proposed.json`, proposed tokens and icons, 37 cards and the chat team's proposal migrations |
-| `templates/`, `patterns/` | 20 template contracts, their index, the Rawdah landing templates and the pattern index |
-| `docs/` | Overview, governance, library, inventory, brand, writing, DX practice, behaviour, KPIs, devices and accessibility, known issues, using with Claude, release notes, change log, templates and patterns, template contracts, iOS and Android handoff |
-| `assets/` | Asset notes (Brand, Illustration, Imagery, Logos) and the three Nusuk logo files (SVG) |
-| `migrations/` | Machine-readable changes, 2026-11-05 to 2026-11-17 (29 files) |
-| `CHANGES-2026-11-08.md`, `CHANGES-2026-11-09.md`, `CHANGES-2026-11-10.md`, `CHANGES-2026-11-11.md` | The change sheets of 2026-11-08 to 2026-11-11, for iOS and Android |
-| `nusuk-design-language.zip` | The DL skill for Claude: upload it as it is in Customize › Skills |
-| `vendor/` | React 18.3 production builds (MIT) |
-
-## This release
-
-Read `docs/12-release-notes.md` (in short) and `docs/13-change-log.md` (every change, with its Figma file and what iOS and Android must do). Open issues and their workarounds: `docs/10-known-issues.md`.
+Every file here is rebuilt by the DL release; don't edit it by hand. Source of truth: the Figma library (32 files).

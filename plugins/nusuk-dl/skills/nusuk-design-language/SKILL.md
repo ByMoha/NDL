@@ -5,7 +5,7 @@ description: "Nusuk Design Language: use for any Nusuk concept, deck, design, pr
 
 # Nusuk Design Language (DL) · skill
 
-Version 3.4.0 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.5.0 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 
@@ -124,16 +124,19 @@ A **template contract** says what one kind of screen may hold: spaces in a fixed
 
 ## 9 · Skills that work with this one
 
-When they are installed, these skills cover what the DL does not; the DL still decides tokens, components, placement and the never-ship list. The `nusuk-dl` plugin installs all of them with this one; this zip also carries the content guide and the voice rules in `reference/`.
+This skill ships inside the `nusuk-dl` plugin with ten other skills, and the plugin is the only way it is distributed (DL-42, 17 November 2026). They cover what the DL does not; the DL still decides tokens, components, placement and the never-ship list, and where a general skill and a Nusuk rule disagree, the Nusuk rule wins. The plugin's `library/` folder (two levels up from this file: `../../library/`) holds the whole DL tree: every component folder with its preview, the coded package, every migration and the developer handoff.
 
 | Task | Use with this skill | What it adds |
 |---|---|---|
 | Heuristic evaluation, research plan, behavioural model, metrics | `nusuk-dx` | The DX team's method: S0–S4 and E0–E4, Nielsen and Rams lenses, report template, 3Ms. The DL's WCAG floor (2.2 AA, 48 targets) overrides its older 2.1 / 44 line |
-| Arabic or English copy, notifications, store replies | `nusuk-content-writer` (its guide is also in `reference/content-writer/`), `nusuk-voice-rules` (also `reference/voice-rules.md`), `nusuk-ux` | The writing guide in full. M6 › House rules records where they disagreed: adverse outcomes are agentless and never use تم («أُلغي حجزك») |
-| Illustrations and campaign art | `nusuk-visual-system`, also in `reference/visual-system.md` and `reference/visual-system/` with `scripts/match_blue_tone.py` (the artworks are in the with-artworks zip and in the plugin) | The watercolour painting language, colour discipline and the create, refine and QA steps (M7) |
+| Arabic or English copy, notifications, store replies | `nusuk-content-writer`, `nusuk-voice-rules`, `nusuk-ux` | The writing guide in full. M6 › House rules records where they disagreed: adverse outcomes are agentless and never use تم («أُلغي حجزك») |
+| Illustrations and campaign art | `nusuk-visual-system` (with its 18 reference paintings and `scripts/match_blue_tone.py`) | The watercolour painting language, colour discipline and the create, refine and QA steps (M7) |
 | A feature from brief to developer handoff | `nusuk-feature-handoff` | Project Canvas, a clickable DL prototype, the gaps questionnaire and the iOS and Android handoff page |
 | Any change in Figma | `figma-use` (with `figma-generate-library` for library work) | The Plugin API rules; never run two Figma calls at once |
 | A full accessibility audit | `accessibility-audit` | The five-layer audit (automated, keyboard, screen reader, visual, flow) behind the M10 floor |
+| A structured design critique | `design-critique` | Heuristics, UX laws, pattern and excise reviews; M13 › Critique and review protocol sets the Nusuk scales (S0–S4, E0–E4) and the closing lines |
+| General microcopy method | `ux-writing` | Patterns and checklists for buttons, errors, empty states and onboarding; Nusuk wording comes from `nusuk-ux`, `nusuk-voice-rules` and M6 |
+| Rephrasing so text reads as written by a person | `humanizer` | Detects and rewrites AI-sounding prose (English and Spanish rules); never for Quran, hadith or approved faith text, and Arabic follows the Nusuk writing guide |
 
 ## 10 · The Nusuk AI chat (M9C)
 
@@ -155,8 +158,7 @@ The chat is one aspect of this skill, a **Proposed lane** of the DL built from F
 | `reference/templates/index.json`, `reference/templates/contracts/<id>.json` | Designing or reviewing a screen of a known kind (§8) |
 | `reference/patterns-index.json` | Choosing the layout pattern for a space |
 | `reference/templates-and-patterns.md`, `reference/template-contracts.md` | The method for templates and patterns, and the full text of every contract |
-| `reference/chat/README.md`, `reference/chat/components.md`, `reference/chat/` | The Nusuk AI chat (Proposed lane, NusukChat 2.8.4): how to use it, the 41 exports with their Figma nodes and DL parents, code, proposed tokens, icons and manifest; every card in `reference/chat/cards.md`, every chat migration in `reference/chat/migrations.json`; the rules are DESIGN.md › M9C |
-| `reference/content-writer/README.md`, `reference/content-writer/references/`, `reference/voice-rules.md` | Writing any Nusuk content, Arabic first: the official writing guide (voice and tone, writing rules, content types, terminology) and the microcopy house rules. Use them when `nusuk-content-writer` and `nusuk-voice-rules` are not installed |
+| `reference/chat/README.md`, `reference/chat/components.md`, `reference/chat/` | The Nusuk AI chat (Proposed lane, NusukChat 2.8.5): how to use it, the 41 exports with their Figma nodes and DL parents, code, proposed tokens, icons and manifest; every card in `reference/chat/cards.md`, every chat migration in `reference/chat/migrations.json`; the rules are DESIGN.md › M9C |
 | `reference/known-issues.md` | A value looks wrong: it may be a logged Figma defect that code copies on purpose |
 | `reference/component-inventory.md`, `reference/library.md` | Finding a Figma set, its variants, or a library file key |
 | `reference/native/NusukTokens.swift`, `reference/native/NusukTokens.kt`, `reference/native/tokens-native.json`, `reference/native-handoff.md` | Any iOS or Android work: the tokens as Swift and Kotlin constants, the name map, units and the pull-request checks |
@@ -164,10 +166,9 @@ The chat is one aspect of this skill, a **Proposed lane** of the DL built from F
 | `reference/release-notes.md`, `reference/CHANGES-*.md`, `reference/migrations.json` | What changed and when; old-to-new maps for developers (every migration in one file, keyed by its file name) |
 | `reference/governance.md` | Who may change the DL and how to propose something new |
 | `reference/components.md` | Every component's card in one file (search `# <Name>`, e.g. `# StatusSheet`): props, variants, use, don't, accessibility, the Figma set it mirrors |
-| `reference/visual-system.md`, `reference/visual-system/` (scene guide, colour matching, manifest, and the 18 reference images in the with-artworks zip) | Creating, refining or reviewing a Nusuk illustration: inspect the images first |
 | `reference/brand.md`, `reference/writing.md`, `reference/behaviour.md`, `reference/dx-practice.md`, `reference/targets-and-kpis.md`, `reference/devices-accessibility.md`, `reference/using-with-claude.md` | The design system's own sections, word for word (DESIGN.md carries their rules) |
 | `assets/logos/` | The Nusuk logo in ink, white and gold (SVG); clear space and misuse rules are in `reference/brand.md` |
 | `assets/bundle.js`, `assets/bundle.css`, `assets/tokens.css`, `assets/starter.html` | Building a prototype with the coded components (React 18, `window.NusukDL`) |
 | `scripts/figma-count-behind.js`, `scripts/figma-accept-updates.js` | Carrying a library update into other Figma files, safely |
-| GitHub https://github.com/ByMoha/NusukDL (team access), or the DL guide › Downloads | The full DL tree this skill condenses: one folder per component with its preview page, the coded package, every migration and the illustration references. claude.ai takes at most 200 files in a skill zip, so the skill carries the cards, chat cards and migrations as one file each |
+| `../../library/` (the plugin's library folder; also on GitHub https://github.com/ByMoha/NusukDL › plugins/nusuk-dl/library) | The full DL tree this skill condenses: one folder per component with its preview page, the coded package, every migration and the developer handoff. The skill carries the cards, chat cards and migrations as one file each so it stays light to load |
 

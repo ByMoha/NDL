@@ -1,0 +1,108 @@
+{
+ "version": "2026-11-17c",
+ "title": "Header Tabs and TimeSlot replicas, Tab Bar Payment, Navigation progress, plugin distribution",
+ "date": "2026-11-17",
+ "designMd": "3.5.0",
+ "tokens": "3.11",
+ "figma": [
+  "https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2883",
+  "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252",
+  "https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU/?node-id=2402-18252",
+  "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=70301-10665"
+ ],
+ "components": {
+  "HeaderTabs": {
+   "added": [
+    "darkmode",
+    "ariaLabel",
+    "tabs[].icon",
+    "tabs[].iconOnly",
+    "tabs[].updates"
+   ],
+   "changed": {
+    "track padding": "4 -> 4/8",
+    "track fill": "inset 0 -> -2",
+    "lr tab height": "38 -> 40",
+    "chosen shadow": "shadow-xs -> -6 6 30 -12 rgba(7,8,8,.05)",
+    "count on chosen tab": "white -> default (Smoke)"
+   },
+   "ios": "HStack spacing 8, padding 4/8, Capsule fill inset -2",
+   "android": "Row spacedBy 8.dp, padding 4/8 dp, pill drawn 2 dp outside"
+  },
+  "CircularProgress": {
+   "added": [
+    "text",
+    "value label in the middle",
+    "done disc with tick-02"
+   ],
+   "changed": {
+    "arc start": "12 o'clock -> 15 degrees after 12",
+    "caps": "compensated -> Figma round caps"
+   }
+  },
+  "ProcessBar": {
+   "changed": {
+    "height": "20 -> 28"
+   }
+  },
+  "ProgressRing": {
+   "changed": {
+    "title order": "ring first -> title first, ring at the end"
+   }
+  },
+  "TimeSlot": {
+   "changed": {
+    "notch": "17 semicircle on the markers side -> 11.3 x 4.2 bite, tip 27 from the start edge",
+    "markers": "22 -> 20, offset -4 -> -3",
+    "construction": "mask -> bands (corner 18, ticket 17, rest) and a 32 middle"
+   },
+   "ios": "one Shape with two bites, markers 20 pt",
+   "android": "GenericShape with two bites, markers 20 dp"
+  },
+  "TabBar": {
+   "added": [
+    "type cart-with-count (Figma Cart with Count; cart kept)",
+    "type payment",
+    "total"
+   ],
+   "changed": {
+    "counter": "Ivory -> Glass BG field, gap 18",
+    "cta": "label, then total and riyal (_Shop CTA)"
+   }
+  }
+ },
+ "distribution": {
+  "decision": "DL-42",
+  "added": [
+   "nusuk-dl.plugin",
+   "nusuk-dl-developer-handoff.zip"
+  ],
+  "removed": [
+   "nusuk-dl-all.zip",
+   "nusuk-dl-designers.zip",
+   "nusuk-dl-developers.zip",
+   "nusuk-design-language.zip",
+   "nusuk-design-language-with-artworks.zip",
+   "nusuk-dl-patterns-templates.zip"
+  ],
+  "plugin skills": [
+   "nusuk-design-language",
+   "nusuk-dx",
+   "nusuk-ux",
+   "nusuk-content-writer",
+   "nusuk-voice-rules",
+   "nusuk-visual-system",
+   "nusuk-feature-handoff",
+   "accessibility-audit",
+   "design-critique",
+   "ux-writing",
+   "humanizer"
+  ]
+ },
+ "knownIssues": [
+  "F104",
+  "F105",
+  "F106",
+  "F107"
+ ]
+}
