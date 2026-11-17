@@ -56,6 +56,9 @@ Every release renders every preview and measures it; the numbers go in the relea
 | Assumed "Left" in a Figma variant meant leading | Icons on the wrong side in Arabic | Compare a render with a Figma screenshot for anything directional |
 | Shipped a skill zip with 217 files (one per card, chat card and migration) | claude.ai refused the upload: at most 200 files | The release joins the cards, chat cards and migrations into one file each and fails above 200 (17 Nov 2026) |
 | Offered every DL file as its own download | A long page and no clear choice | Three packages (developers, designers, everything) on Google Drive and GitHub; single files are not listed (17 Nov 2026) |
+| Edited the chat's manifest and cards by hand | `tools/build-dl-package.js` would have put the old text back | Change the registry in `nk-chat.js`: the cards and `manifest.proposed.json` are built from it (NusukChat 2.8.4, 17 Nov 2026) |
+| Synced ByMoha/NusukDL with no marketplace manifest | claude.ai could not sync it as the organization's plugin | The release writes `.claude-plugin/marketplace.json` and `plugins/nusuk-dl`, and raises the plugin's version every time (17 Nov 2026) |
+| Gave change-log entries of one day the same anchor (the colon in "15:30" cut the link) | A link to one entry opened another | Anchors keep the time; the release fails on a duplicate (17 Nov 2026) |
 
 ## 6 · What the DL still owes (10 November 2026)
 
@@ -91,7 +94,7 @@ Each is a rule in `DESIGN.md`; they are listed here because they were decided un
 
 ## 8 · Using this skill in a new account
 
-1. Upload the skill zip in Customize › Skills (or share it from a Team or Enterprise plan). It holds fewer than 200 files, the most claude.ai accepts; the full DL tree is in GitHub (ByMoha/NusukDL) and in the guide's Downloads.
+1. For a whole organization, sync ByMoha/NusukDL as a plugin marketplace (Organization settings › Plugins & skills › Sync from GitHub): the `nusuk-dl` plugin carries this skill and every release updates it. Otherwise upload the skill zip in Customize › Skills (or share it from a Team or Enterprise plan). It holds fewer than 200 files, the most claude.ai accepts; the full DL tree is in GitHub (ByMoha/NusukDL) and in the guide's Downloads.
 2. For work on Nusuk, also add `DESIGN.md` to the project so every chat has it.
 3. To build with the coded components, use `assets/bundle.js`, `assets/bundle.css` and `assets/tokens.css` with React 18 (`window.NusukDL`); `assets/starter.html` shows the wiring.
 4. The live design system and guide are linked in `DESIGN.md` §2. When they are newer than this skill, they win; ask for a fresh skill file.

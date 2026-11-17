@@ -4,6 +4,28 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 17 November 2026, 16:30 (Nusuk AI chat: one bubble per answered question; the DL as a Claude plugin) · DESIGN.md 3.3.1
+
+**Read:** the chat lane's Verify cases (15:28) and the DL Advisor's comment on them: a question and its answer become one bubble once it is answered, as 💬 Chat UI draws the User variants.
+
+### Changed
+
+- **M9C and the chat README** state the rule: before it is answered, a question is one Nusuk bubble (type row, question, controls, one Primary MD). Once answered, that bubble is dismissed and the answer is one user bubble whose header row carries the question beside the 12 × 14 Nusuk mark, then "Edit answer". Pass the question as `question` on the answer. Replies to suggestions after a result stay plain user bubbles.
+- **The DL as a Claude plugin:** ByMoha/NusukDL now has `.claude-plugin/marketplace.json` and `plugins/nusuk-dl`, which carries the DL skill. An owner syncs it once in Organization settings › Plugins & skills › Sync from GitHub; every release raises the plugin's version and reaches members on the next sync. The skill's GETTING-STARTED.md and the guide's Downloads say how.
+- **DL guide:** entries of one day get their own anchors; the time stays in the link.
+
+### Still open
+
+- **Chip answers:** on the Verify cases the Advisor asked for the "active status" template; which state that is was asked in the Verify thread. Until then, chip answers use User/BG with the question header.
+
+### iOS
+
+- On answer, remove the question cell and insert one user cell: an `HStack(spacing: 12)` header with the question (Notes 14) and the 12 × 14 Nusuk mark, then the answer bubble with "Edit answer". VoiceOver reads the question, then the answer.
+
+### Android
+
+- On answer, replace the question item with one user item: a `Row(horizontalArrangement = Arrangement.spacedBy(12.dp))` header with the question and the mark, then the answer bubble with "Edit answer". Keep the thread a polite live region so the change is announced.
+
 ## 17 November 2026, 15:50 (Nusuk AI chat: component notes match the code) · NusukChat 2.8.4
 
 **Why:** the chat's component cards and `manifest.proposed.json` are built from the registry in `nk-chat.js` (`tools/build-dl-package.js`). Two registry notes still described the layout before 2.8.2, so a rebuild would have put the old text back in the cards.

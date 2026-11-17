@@ -2,7 +2,7 @@
 
 For developers. Figma is the source of truth; `tokens.json` mirrors it. Machine-readable migrations: `migrations/2026-11-17-status-rating.json`, `migrations/2026-11-17-glass-brand.json`, `migrations/2026-11-16-csat-nps.json`, `migrations/2026-11-16-bottom-bar-inputs-select-card.json`, `migrations/2026-11-15-evening-round.json`, `migrations/2026-11-15-trackers-replica.json`, `migrations/2026-11-15-chat-figma-round.json`, `migrations/2026-11-14-designmd-3-0-1.json`, `migrations/2026-11-14-chat-lane-downloads.json`, `migrations/2026-11-14-ux-answers.json`, `migrations/2026-11-14-full-assessment.json`, `migrations/2026-11-14-figma-round.json`, `migrations/2026-11-12-figma-round.json`, `migrations/2026-11-11-figma-round-chat.json`, `migrations/2026-11-11-template-contracts-recheck.json`, `migrations/2026-11-11-button-padding.json`, `migrations/2026-11-05-buttons.json`, `migrations/2026-11-08-navigation-cards.json`, `migrations/2026-11-08b-buttons-cards.json`, `migrations/2026-11-09-patterns-templates.json`, `migrations/2026-11-09b-button-sizes.json`, `migrations/2026-11-09c-light-previews.json`, `migrations/2026-11-09d-chips.json`, `migrations/2026-11-09e-review.json`, `migrations/2026-11-10-buttons-navigation-cards-market.json`, `migrations/2026-11-11-template-contracts.json`. For iOS and Android conversion, start with `CHANGES-2026-11-08.md`.
 
-## 17 November 2026, late afternoon (Nusuk AI chat 2.8.1 to 2.8.4) · tokens 3.10 unchanged
+## 17 November 2026, late afternoon (Nusuk AI chat 2.8.1 to 2.8.4; the DL as a Claude plugin) · tokens 3.10 unchanged, DESIGN.md 3.3.1
 
 **Figma read:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) at 14:59, 15:07 and 15:30.
 
@@ -10,6 +10,8 @@ For developers. Figma is the source of truth; `tokens.json` mirrors it. Machine-
 - **Bubble padding (2.8.2, 2.8.3):** 20 / 18 / 26 / 18; the Voice, Days and Slots answers, Passport Attach and Location Guide keep 20 at the bottom, as Figma draws them.
 - **Password (2.8.2, 2.8.3):** the criteria sit under the 62 field as DL Checkbox SM, 8 apart, without full stops.
 - **Component notes (2.8.4):** the PasswordField and Message cards are rebuilt from the code's registry and describe the 2.8.2 layout; nothing renders differently.
+- **One bubble per answered question (M9C):** once a question is answered, its bubble is dismissed and the answer is one user bubble carrying the question as its header row, with "Edit answer". Pass the question as `question` on the answer.
+- **The DL as a Claude plugin:** sync ByMoha/NusukDL once in Organization settings › Plugins & skills › Sync from GitHub; the `nusuk-dl` plugin carries the skill, and each release raises its version.
 - **Open:** F88–F90; questions Q-D38 (the master's bottom padding) and Q-D39 (three or five password criteria).
 
 ## 17 November 2026, afternoon (Status Handlers and Rating & CSAT) · tokens 3.10 unchanged

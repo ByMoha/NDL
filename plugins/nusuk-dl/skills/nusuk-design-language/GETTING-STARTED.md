@@ -2,6 +2,12 @@
 
 This zip is the whole Nusuk DL in one file: the rules (`SKILL.md`, `DESIGN.md`), every reference (tokens, component cards, template contracts, patterns, the Nusuk AI chat, the iOS and Android token files, change log, migrations), the coded components and the logos. It links to the live design system and the DL guide. The full DL tree (one folder per component with its preview page, the coded package and the illustration references) is in the GitHub repo [ByMoha/NusukDL](https://github.com/ByMoha/NusukDL) for the team, and in the DL guide › Downloads (Google Drive or GitHub).
 
+## For the whole organization: the nusuk-dl plugin
+
+The GitHub repo ByMoha/NusukDL is also a Claude plugin marketplace. An owner adds it once: Organization settings › Plugins & skills (https://claude.ai/admin-settings/skills?tab=inventory) › **Add** › **Sync from GitHub** › `ByMoha/NusukDL`, with **Sync automatically** on, then sets the `nusuk-dl` plugin to *Installed by default* or *Required*. Members get this skill in chat, in Cowork and in Claude Code signed in with the same account, and every DL release reaches them when it is pushed: no one uploads a zip. If the skill was also uploaded by hand, remove that copy so it does not load twice.
+
+Claude Code without a claude.ai account: `/plugin marketplace add ByMoha/NusukDL`, then `/plugin install nusuk-dl@nusuk-dl` (with your own GitHub access).
+
 ## Install in Claude (web or desktop)
 
 1. **Turn on files.** Settings › Capabilities: turn on *Code execution and file creation* (in the newer layout, *Create and edit files*). Direct link: https://claude.ai/settings/capabilities. On a Team or Enterprise plan an owner turns this on in Organization settings › Plugins & skills › Policy.
@@ -27,7 +33,7 @@ What it does with that: it reads `SKILL.md` first, then only the module or refer
 
 ## Keep it current
 
-Every DL release rebuilds this zip. Download it again from the DL guide (Design system tab › **Download everything**) and upload it over the old one: Customize › Skills › the skill's ⋯ menu › replace, or delete the old one and upload the new one. The version and date are on line 3 of `DESIGN.md`.
+With the plugin there is nothing to do: each release updates it. Every DL release also rebuilds this zip. Download it again from the DL guide (Design system tab › **Download everything**) and upload it over the old one: Customize › Skills › the skill's ⋯ menu › replace, or delete the old one and upload the new one. The version and date are on line 3 of `DESIGN.md`.
 
 ## Links
 

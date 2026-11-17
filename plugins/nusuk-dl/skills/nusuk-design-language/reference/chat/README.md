@@ -23,6 +23,7 @@ Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot,
 4. **Answers are logistics, not rulings.** The bot guides, links and books; it never issues a fatwa, never adds urgency to a spiritual decision, and never streaks or scores worship (M4).
 5. **One primary per question.** Each Question container has one primary Button MD ("Confirm and continue"); secondary actions are Ghost or Secondary.
 6. **Arabic first, English mirrored.** `NusukChat.setLang('en')` switches built-in labels; directional icons swap by language (`arrow-left-02` in Arabic, `arrow-right-02` in English).
+7. **One bubble per answered question.** Once a question is answered, its bubble is dismissed and the answer becomes one user bubble with the question as its header row (12 × 14 Nusuk mark, Notes 14) and "Edit answer": pass the question as `question` on the answer. Replies to suggestions after a result stay plain user bubbles (DESIGN.md › M9C, 17 November 2026).
 
 ## Load order (HTML)
 ```html

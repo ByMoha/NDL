@@ -1,6 +1,6 @@
 # DESIGN.md — Nusuk Design Language
 
-Version 3.3 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.3.1 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 
@@ -1354,6 +1354,16 @@ The chat UI built from Figma 💬 Chat UI is now part of the Nusuk DL as a **Pro
 - **17 November 2026, 15:50 (NusukChat 2.8.4):** the component notes in the code's registry (PasswordField, Message) now describe the 2.8.2 layout, so the cards and the manifest rebuild to the same text. Nothing renders differently.
 - **Skill:** the `nusuk-design-language` skill carries this lane in `reference/chat/` (README, component table, code, proposed tokens and icons, manifest, cards, migrations). Load it with this module.
 - **Decided:** 11 November 2026, by the DL Advisor: merge as a Proposed lane, and take every value from a DL file before proposing a new one.
+
+#### Questions and answers in the thread
+
+Confirmed by the DL Advisor on 17 November 2026, as 💬 Chat UI › AI Chat Messages draws the User and Nusuk variants:
+
+1. **Before it is answered,** a question is one Nusuk bubble with the bot avatar (`Question`): the type row (16 icon and a short title, Notes 12), the question (Body 1, 18), an optional description, the answer controls (chips, fields, select cards) and one Primary MD CTA.
+2. **Once it is answered,** that bubble is dismissed. The answer becomes one user bubble (User/BG) whose header row carries the question (Notes 14, `text-heading`) beside the 12 × 14 Nusuk mark, 12 apart; under it come the answer, "Edit answer" (Secondary XS) and the time. In code, pass the question as `question` on the answer (`Text`, `Voice`, `DaysAnswer`, `SlotsAnswer`). Never leave the question bubble above its answer.
+3. **"Edit answer"** takes the person back to that question in its live state.
+4. **Suggestions are not questions.** Follow-up chips after a result (share, report, verify another) are suggestions: their replies stay plain user bubbles, with no question header.
+5. **Open:** which state a chip answer takes. On the Verify cases the Advisor asked for the "active status" template; which state that is was asked in that thread. Until it is settled, chip answers use User/BG with the question header.
 
 #### Where it stands
 

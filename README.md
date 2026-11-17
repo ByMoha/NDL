@@ -34,7 +34,7 @@ Figma is the source of truth. This package mirrors the DL library for concepts, 
 | Path | What it is |
 |---|---|
 | `index.html` | Start here: every component preview and card, the chat lane, the template contracts, documents and migrations |
-| `DESIGN.md` | DESIGN.md 3.3: the whole design language in one file |
+| `DESIGN.md` | DESIGN.md 3.3.1: the whole design language in one file |
 | `tokens.json`, `tokens.css` | Tokens 3.10: six themes, type, space, size, radius, shadows, opacity, borders and blur; the CSS has one block per theme (`data-theme`) and one class per type style |
 | `components/bundle.js`, `bundle.css`, `index.d.ts` | The coded components as `window.NusukDL.*` (React 18, no build step) and their TypeScript props |
 | `components/<Name>/` | 82 component cards (props, anatomy, Figma source, rules, known issues, native notes) and 83 previews that open on their own |

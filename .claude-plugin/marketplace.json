@@ -9,7 +9,7 @@
     {
       "name": "nusuk-dl",
       "source": "./plugins/nusuk-dl",
-      "description": "The Nusuk Design Language (DL) as a Claude skill: tokens, components, patterns and template contracts, placement, writing and ethics rules, the Nusuk AI chat lane and DESIGN.md, so Nusuk concepts, decks, designs, copy and UI code follow the DL. Release 2026-11-17: DESIGN.md 3.3, tokens 3.10, NusukChat 2.8.4.",
+      "description": "The Nusuk Design Language (DL) as a Claude skill: tokens, components, patterns and template contracts, placement, writing and ethics rules, the Nusuk AI chat lane and DESIGN.md, so Nusuk concepts, decks, designs, copy and UI code follow the DL. Release 2026-11-17: DESIGN.md 3.3.1, tokens 3.10, NusukChat 2.8.4.",
       "author": {
         "name": "Nusuk DL"
       },

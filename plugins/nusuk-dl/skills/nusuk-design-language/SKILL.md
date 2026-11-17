@@ -5,7 +5,7 @@ description: "Nusuk Design Language: use for any Nusuk concept, deck, design, pr
 
 # Nusuk Design Language (DL) · skill
 
-Version 3.3 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.3.1 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 
@@ -141,7 +141,7 @@ The chat is one aspect of this skill, a **Proposed lane** of the DL built from F
 1. **Classify first (§3).** Chat answers are mostly logistics intents: fast, one step, one primary action. A spiritual question gets a calm text answer with its source; the bot never issues rulings (M4).
 2. **Use a chat export before drawing.** `reference/chat/components.md` lists the 41 exports: 4 are DL components as they are, 23 are variants of DL components (ChatMessage, TextField, SelectCard, Chip, TabBar, FlightTicket, OptionCard) and 14 are new. Configure them; don't restyle them.
 3. **Values come from DL tokens.** The only exceptions are the proposed `chat-*` tokens in `reference/chat/tokens.proposed.json`; never add a raw value.
-4. **One question per bubble.** A question is a Question container with its own primary Button MD; suggestions are Chips (or DL Button MD with `buttons: true`); "Edit answer" sits on the user's answer.
+4. **One question per bubble, one bubble per answer.** A question is a Question container with its own primary Button MD; suggestions are Chips (or DL Button MD with `buttons: true`). Once answered, the question bubble is dismissed and the answer becomes one user bubble with the question as its header row (pass `question` on the answer) and "Edit answer". Replies to suggestions after a result have no header (M9C).
 5. **Load order in code:** `tokens.css` → `bundle.css` → `nk-chat.tokens.css` → `nk-chat.css`, then React 18 → `bundle.js` → `nk-chat.js`. `NusukChat.setLang('en')` for English; Arabic is the default.
 6. **Something new for the chat** follows §4 rule 5: build it locally with DL tokens, label it Proposed, and add it to `manifest.proposed.json` with its Figma node.
 
