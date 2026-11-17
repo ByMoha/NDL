@@ -1,0 +1,64 @@
+{
+ "release": "2026-11-17",
+ "built": "2026-11-17T13:28+03:00",
+ "designMd": "DESIGN.md 3.3",
+ "tokens": "3.10",
+ "checked": 303,
+ "files": [
+  {
+   "file": "DESIGN.md",
+   "bytes": 231838,
+   "sha256": "af2ddb4b37e1efcc173b72545a1e033f22df57d4d29c12a68c94d39993cb826f"
+  },
+  {
+   "file": "NusukTokens.kt",
+   "bytes": 59479,
+   "sha256": "15b7511e0a4ec65a7d4023aa063d191e86c7f0f437a7b756726865a00896a093"
+  },
+  {
+   "file": "NusukTokens.swift",
+   "bytes": 68341,
+   "sha256": "8038f0f49da209c778d1c6b690e705aef25f4d396e90079447d4fa3a38181883"
+  },
+  {
+   "file": "ios-android-handoff.md",
+   "bytes": 35324,
+   "sha256": "76fd42de0c268636f574970dd5d819b741d5722e4a14ac040aadb48952e2bcbc"
+  },
+  {
+   "file": "nusuk-design-language.zip",
+   "bytes": 763057,
+   "sha256": "f60e237556717f36c29a3a6beea39f06fe3201132824711a0d41979412bd299d",
+   "files": 77
+  },
+  {
+   "file": "nusuk-dl-all.zip",
+   "bytes": 1706300,
+   "sha256": "02cc8d37e40e512ead2252492d303e96649ff7ccb478dec617b881ac53cb4a2e",
+   "files": 384
+  },
+  {
+   "file": "nusuk-dl-designers.zip",
+   "bytes": 1513086,
+   "sha256": "7a510a6a5f92f93f050eb3ec5aeede29a6afc105d8aef7caede3ed385de39c08",
+   "files": 304
+  },
+  {
+   "file": "nusuk-dl-developers.zip",
+   "bytes": 1681829,
+   "sha256": "d3d458fbaab2c82675aeb76af27655ae524e14648f46e5aafd57dbf76aa8d3fe",
+   "files": 377
+  },
+  {
+   "file": "nusuk-dl-patterns-templates.zip",
+   "bytes": 72711,
+   "sha256": "fcd6ae0447f68ca6dc5899d7fbd94e1fa23de759ffe1c3d449d4b4102dc9a105",
+   "files": 26
+  },
+  {
+   "file": "tokens-native.json",
+   "bytes": 76470,
+   "sha256": "fd654fa6352a4183e6d7e4f083dc4da26a443d24ef33ff5f76e83e6b5c3fbc8d"
+  }
+ ]
+}
