@@ -4,7 +4,7 @@ Password field (62), then its Strength Meter: the criteria as DL Checkbox SM, 8 
 
 **Status:** Proposed as a variant / prop of DL **TextField**.  
 **Figma source:** 💬 Chat UI › AI Chat Messages › Style=Password — Variant `80607:16432` · Input/Type=Password `80607:16851`.  
-**Code today:** `NusukChat.PasswordField` in nk-chat.js (built with: nk-field-box (192h) · view (Figma icon) · 5 rules with DL check · DL Button Primary MD).
+**Code today:** `NusukChat.PasswordField` in nk-chat.js (built with: nk-field-box (62h) · view (Figma icon) · 5 criteria as DL Checkbox SM below the field · DL Button Primary MD).
 
 ## Props
 

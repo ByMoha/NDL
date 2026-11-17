@@ -154,7 +154,7 @@ The chat is one aspect of this skill, a **Proposed lane** of the DL built from F
 | `reference/templates/index.json`, `reference/templates/contracts/<id>.json` | Designing or reviewing a screen of a known kind (§8) |
 | `reference/patterns-index.json` | Choosing the layout pattern for a space |
 | `reference/templates-and-patterns.md`, `reference/template-contracts.md` | The method for templates and patterns, and the full text of every contract |
-| `reference/chat/README.md`, `reference/chat/components.md`, `reference/chat/` | The Nusuk AI chat (Proposed lane, NusukChat 2.8.3): how to use it, the 41 exports with their Figma nodes and DL parents, code, proposed tokens, icons and manifest; every card in `reference/chat/cards.md`, every chat migration in `reference/chat/migrations.json`; the rules are DESIGN.md › M9C |
+| `reference/chat/README.md`, `reference/chat/components.md`, `reference/chat/` | The Nusuk AI chat (Proposed lane, NusukChat 2.8.4): how to use it, the 41 exports with their Figma nodes and DL parents, code, proposed tokens, icons and manifest; every card in `reference/chat/cards.md`, every chat migration in `reference/chat/migrations.json`; the rules are DESIGN.md › M9C |
 | `reference/known-issues.md` | A value looks wrong: it may be a logged Figma defect that code copies on purpose |
 | `reference/component-inventory.md`, `reference/library.md` | Finding a Figma set, its variants, or a library file key |
 | `reference/native/NusukTokens.swift`, `reference/native/NusukTokens.kt`, `reference/native/tokens-native.json`, `reference/native-handoff.md` | Any iOS or Android work: the tokens as Swift and Kotlin constants, the name map, units and the pull-request checks |

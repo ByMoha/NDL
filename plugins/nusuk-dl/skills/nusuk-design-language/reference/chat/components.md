@@ -1,4 +1,4 @@
-# Nusuk AI chat · components (NusukChat 2.8.3)
+# Nusuk AI chat · components (NusukChat 2.8.4)
 
 Generated from `manifest.proposed.json` (2026-11-17). Figma file: [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252). Status: **dl** = a DL component as it is · **variant** = a chat variant of a DL component · **new** = proposed, no DL parent yet.
 

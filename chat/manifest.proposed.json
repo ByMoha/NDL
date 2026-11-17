@@ -30,7 +30,7 @@
     }
    },
    "props": "from: \"nusuk\"|\"user\" · bg: boolean · question?: string · actions?: boolean · time?: string · footer?: false",
-   "builtWith": "tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/sm · DL Avatar (XS, Ink)"
+   "builtWith": "tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/lr/sm · DL Avatar (XS, Ink)"
   },
   {
    "name": "Question",

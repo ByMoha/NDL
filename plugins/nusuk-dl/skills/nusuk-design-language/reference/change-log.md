@@ -4,6 +4,16 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 17 November 2026, 15:50 (Nusuk AI chat: component notes match the code) · NusukChat 2.8.4
+
+**Why:** the chat's component cards and `manifest.proposed.json` are built from the registry in `nk-chat.js` (`tools/build-dl-package.js`). Two registry notes still described the layout before 2.8.2, so a rebuild would have put the old text back in the cards.
+
+### Changed
+
+- **PasswordField:** the note now reads: the 62 field, then its Strength Meter, the criteria as DL Checkbox SM, 8 apart. It said the rules sat inside a 192 field.
+- **Message:** the token list adds `space-lr`, the 26 at the bottom of the body since 2.8.2.
+- The `Message` and `PasswordField` cards and `manifest.proposed.json` are rebuilt from the registry and match it. Nothing renders differently, on the web, iOS or Android.
+
 ## 17 November 2026, 15:30 (Nusuk AI chat: answer padding as drawn, password copy) · NusukChat 2.8.3
 
 **Read:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) at 15:30: every variant of the 7 sets and the 3 masters, with its size and Body padding, to check the 2.8.1 and 2.8.2 rounds. Every size they list matches Figma: User/BG 469, Nusuk/BG 435, User/Transparent 178; Text 185 and 101; Voice 148 and 114; Confirmation 410; Password 347; Gender 321; IBAN 443; Single Choose 497.

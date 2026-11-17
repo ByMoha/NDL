@@ -1080,5 +1080,50 @@
    "added": []
   },
   "breaking": []
+ },
+ "2026-11-17e-nusuk-chat-component-notes.json": {
+  "date": "2026-11-17",
+  "name": "NusukChat 2.8.4: component notes match the code",
+  "status": "proposed",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+  "chat": {
+   "version": {
+    "from": "2.8.3",
+    "to": "2.8.4"
+   },
+   "coverage": {
+    "sets": 7,
+    "variants": 54,
+    "masters": 3,
+    "allMapped": true
+   },
+   "changed": [
+    {
+     "component": "PasswordField",
+     "figma": "80607:16432",
+     "change": "registry note and DL status note: the 62 field, then its Strength Meter, criteria as DL Checkbox SM 8 apart (said: rules inside a 192 field)"
+    },
+    {
+     "component": "Message",
+     "figma": "_Chat Container Master",
+     "change": "registry token list adds space-lr (the 26 at the bottom of the body since 2.8.2)"
+    }
+   ],
+   "rebuilt": [
+    "manifest.proposed.json",
+    "cards/Message.md",
+    "cards/PasswordField.md"
+   ],
+   "renders": "unchanged"
+  },
+  "tokens": {
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "icons": {
+   "added": []
+  },
+  "breaking": []
  }
 }

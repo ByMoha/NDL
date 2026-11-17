@@ -777,7 +777,7 @@ Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk B
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
 **Figma source:** 💬 Chat UI › _Chat Container Master — Status=Chat, Type=Nusuk/BG `80451:18764` · Status=Chat, Type=Nusuk/Transprent `80578:5431` · Status=Chat, Type=User/BG `80451:18765` · Status=Chat, Type=User/Transprent `80578:5289`.  
-**Code today:** `NusukChat.Message` in nk-chat.js (built with: tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/sm · DL Avatar (XS, Ink)).
+**Code today:** `NusukChat.Message` in nk-chat.js (built with: tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/lr/sm · DL Avatar (XS, Ink)).
 
 ## Props
 
@@ -1074,7 +1074,7 @@ Password field (62), then its Strength Meter: the criteria as DL Checkbox SM, 8 
 
 **Status:** Proposed as a variant / prop of DL **TextField**.  
 **Figma source:** 💬 Chat UI › AI Chat Messages › Style=Password — Variant `80607:16432` · Input/Type=Password `80607:16851`.  
-**Code today:** `NusukChat.PasswordField` in nk-chat.js (built with: nk-field-box (192h) · view (Figma icon) · 5 rules with DL check · DL Button Primary MD).
+**Code today:** `NusukChat.PasswordField` in nk-chat.js (built with: nk-field-box (62h) · view (Figma icon) · 5 criteria as DL Checkbox SM below the field · DL Button Primary MD).
 
 ## Props
 

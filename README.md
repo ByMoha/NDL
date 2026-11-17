@@ -16,9 +16,13 @@ Every release puts its packages in [`downloads/`](downloads/) on `main`, so thes
 
 The same packages are on Google Drive, linked from the DL guide › Downloads. `downloads/download-index.json` lists each with its SHA-256.
 
+## Claude plugin
+
+This repository is also a Claude plugin marketplace. Owners add it once in claude.ai › Organization settings › Plugins & skills › Add › Sync from GitHub › `ByMoha/NusukDL`; with Sync automatically on, every release reaches members as the `nusuk-dl` plugin (the DL skill). Developers can add it in Claude Code with `/plugin marketplace add ByMoha/NusukDL`. See [`plugins/nusuk-dl/`](plugins/nusuk-dl/).
+
 ## In this repository
 
-The tree below is the "everything" package unpacked, plus `skill/` (the Claude skill, unpacked to read on GitHub) and `artworks/` (the 18 illustration reference paintings and their manifest). Open `index.html` locally to browse every component preview.
+The tree below is the "everything" package unpacked, plus `plugins/nusuk-dl/` (the Claude plugin: the skill unpacked, listed in `.claude-plugin/marketplace.json`) and `artworks/` (the 18 illustration reference paintings and their manifest). Open `index.html` locally to browse every component preview.
 
 ---
 # Nusuk Design Language · coded package (2026-11-17)
