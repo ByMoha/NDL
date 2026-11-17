@@ -5,7 +5,13 @@
 <div id="root" class="nk nk-stage col" dir="rtl"></div>
 <script>
   var N = window.NusukDL, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h(N.PaymentDetails,{title:'تفاصيل الدفع',lines:[{label:'باقة العمرة',amount:'SAR 3,200'},{label:'ضريبة القيمة المضافة',amount:'SAR 480'},{label:'خصم',amount:'- SAR 200',discount:true}],total:'SAR 3,480'})));
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(400px,1fr))',gap:16,alignItems:'start'}},
+    h('div',{style:{display:'flex',flexDirection:'column',gap:16}},
+      h(N.PaymentDetails,{open:false,total:'73.6'}),
+      h(N.PaymentDetails,{total:'73.6',totalAmount:'340',lines:[{label:'عنصر 1x',amount:'140'},{label:'عنصر 2x',amount:'50'},{label:'عنصر 1x',amount:'50'},{label:'ضريبة القيمة المضافة 15%',amount:'24'}]})),
+    h('div',{style:{display:'flex',flexDirection:'column',gap:16}},
+      h(N.PaymentDetails,{type:'refund',open:false}),
+      h(N.PaymentDetails,{type:'refund',lines:[{label:'تاريخ الإلغاء',value:'22 Jun 2025'},{label:'رقم الطلب',value:'123456',copy:true},{label:'عنصر 2x',amount:'50'},{label:'عنصر 1x',amount:'140'},{label:'المبلغ المسترد',amount:'190'},{label:'حالة الاسترداد',chip:'جارٍ الاسترداد'}]}))));
 </script>
 </body>
 </html>

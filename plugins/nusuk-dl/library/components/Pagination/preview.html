@@ -5,8 +5,9 @@
 <div id="root" class="nk nk-stage col" dir="rtl"></div>
 <script>
   var N = window.NusukDL, h = React.createElement;
-  function F(label, el, dark){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:402,maxWidth:'100%',borderRadius:18,overflow:'hidden',background:dark?'linear-gradient(160deg,#5b4a35,#1d1a17 60%,#070808)':'var(--surface-screen-bk)',outline:'1px solid var(--surface-03-pearl)'}}, el)); }
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment,null,h('div',{style:{display:'flex',gap:32,alignItems:'center'}},h(N.Pagination,{count:5,active:1}),h(N.Pagination,{count:5,active:1,size:'sm'}),h(N.Pagination,{count:5,active:1,progress:.5}),h(N.Pagination,{count:3,active:0,direction:'vertical'})),h('div',{style:{display:'flex',gap:32,alignItems:'center',background:'var(--surface-10-ink)',padding:14,borderRadius:14}},h(N.Pagination,{count:5,active:1,white:true}),h(N.Pagination,{count:5,active:1,white:true,size:'sm'}),h(N.Pagination,{count:3,active:0,white:true,direction:'vertical'}))));
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment,null,
+    h('div',{style:{display:'flex',gap:40,alignItems:'center',padding:14}},h(N.Pagination,{count:6,active:2}),h(N.Pagination,{count:4,active:0,direction:'vertical'}),h(N.Pagination,{count:6,active:2,progress:.5})),
+    h('div',{style:{display:'flex',gap:40,alignItems:'center',background:'var(--surface-10-ink)',padding:14,borderRadius:14}},h(N.Pagination,{count:4,active:2,white:true}),h(N.Pagination,{count:4,active:0,white:true,direction:'vertical'}))));
 </script>
 </body>
 </html>

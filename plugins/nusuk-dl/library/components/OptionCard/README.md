@@ -4,6 +4,8 @@ A choice or setting in a list: with an action, a counter, an icon on top, or a r
 
 **Figma source:** 🃏 Cards › Option Cards (13 types) on `_Master Card` (Mode Default / Transparent / Gray).
 
+**18 November 2026 (Golf Carts review, F115, GC-R15):** rows are 18 all round: 60 high on one line, 66 with a small action, 78 with title and description. An empty `title` or `description` renders nothing, and the card spans its container (no 359 cap). Option Cards are list rows, not content cards: STD-07's 26/18 does not apply.
+
 **17 November 2026, revised cards:** the preview now follows the Figma order and names. Figma's names are accepted as `type`: `default` (title + description, no icon, no action), `with-icon` (lead icon, no action), `simple-list`, `with-action` (no icon), `icon-with-action`, `2-actions`, `2-actions-on`, `counter`, `lr-icon-with-action`, `lr-icon`, `top-icon` / `icon-top`, `requirement-item`, `product`. 2 Actions, 2 Actions On and Counter no longer draw a lead icon (Figma has none; pass `iconName` to add one). The LR flag tile is Ivory, as in Figma (was Shade 5).
 
 **15 November 2026, evening:** 13 types. New: `simple-list`, `lr-icon` (the flag tile without an action — **use `lr-icon-with-action` for the one with the button**) and `2-actions-on` (the card slides to reveal a Secondary action (star) and a Fate action (delete-03), each the full card height; `open` on `2-actions` does the same). `_Master Card` is published with modes Default (white, radius 18, shadow), Transparent (Ivory line) and Gray (Ivory fill, radius 14).

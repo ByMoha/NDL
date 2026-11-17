@@ -2,10 +2,18 @@
 <html data-theme="gold-light" lang="ar">
 <head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>SectionHeader — preview</title></head>
 <body style="margin:0">
-<div id="root" class="nk nk-stage col white" dir="rtl"></div>
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
 <script>
   var N = window.NusukDL, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h(N.SectionHeader,{level:'hero',title:'ادخل روضة النبي ﷺ',description:'روضة من رياض الجنة. احجز موعدك قبل الزيارة.'}),h(N.SectionHeader,{level:'section',title:'خدمات مقترحة',action:'عرض الكل'}),h(N.SectionHeader,{level:'legend',title:'التفاصيل',divider:true})));
+  function F(label, el){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:4}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:402,maxWidth:'100%'}}, el)); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(402px,1fr))',gap:12,alignItems:'start'}},
+    F('01 Hero', h(N.SectionHeader,{level:'hero',title:'ادخل روضة النبي ﷺ',description:'روضة من رياض الجنة بانتظار دعائك.'})),
+    F('02 Section Title', h(N.SectionHeader,{level:'section',title:'محتوى مميز',tag:'#المحتوى'})),
+    F('02 Section Title / Centered', h(N.SectionHeader,{level:'section-centered',title:'محتوى مميز',tag:'#المحتوى'})),
+    F('03 Collaps', h(N.SectionHeader,{level:'collapse',title:'إجمالي ٣ تذاكر'})),
+    F('04 Legend', h(N.SectionHeader,{level:'legend',title:'عنوان القسم'})),
+    F('05 Complex', h(N.SectionHeader,{level:'complex',overline:'الفنادق',title:'بقرب الحرم المكي'})),
+    F('06 Family', h(N.SectionHeader,{level:'family'}))));
 </script>
 </body>
 </html>

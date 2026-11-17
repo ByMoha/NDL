@@ -133,6 +133,8 @@
 .nk-htabs.dark::before{background:var(--surface-05-smoke)}
 .nk-htabs.bare::before{content:none}
 .nk-htabs.lr{height:48px}
+.nk-htabs.fill{display:flex;width:100%}
+.nk-htabs.fill button{flex:1 1 0;min-width:0}
 .nk-htabs button{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-xxs);padding:var(--space-xs) var(--space-md);border:0;border-radius:var(--radius-full);background:transparent;color:var(--text-heading);cursor:pointer;font-family:inherit}
 .nk-htabs button.ic{padding-inline-start:18px}
 .nk-htabs .ln{display:inline-flex;align-items:center;gap:var(--space-sm)}
@@ -149,11 +151,6 @@
 .nk-ring .tick{position:absolute;inset:0;display:grid;place-items:center;color:var(--surface-shade-6)}
 .nk-ring .tick .nk-ico{width:28px;height:28px}
 .nk-ring b{position:absolute;inset:0;display:grid;place-items:center;font-weight:400;font-size:12px}
-.nk-sechead{display:flex;flex-direction:column;gap:var(--space-xs);width:100%}
-.nk-sechead .row{display:flex;align-items:center;gap:var(--space-sm)}
-.nk-sechead .row .t{flex:1}
-.nk-sechead .d{color:var(--text-note)}
-.nk-sechead.divider{padding-bottom:var(--space-sm);border-bottom:var(--border-thin) solid var(--surface-03-pearl)}
 
 /* Overlays */
 .nk-sheet-wrap{background:var(--overlay-backdrop);padding:8px;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;width:100%;box-sizing:border-box}
@@ -359,10 +356,6 @@
 .nk-avail{background:var(--alerts-icons-success)}.nk-avail.filling{background:var(--alerts-icons-warning)}.nk-avail.almost{background:var(--alerts-icons-error)}.nk-avail.none{background:var(--icons-gray)}
 
 /* Features */
-.nk-pay{background:var(--surface-01-white);border-radius:var(--radius-md);padding:var(--space-lr) var(--space-nr);display:flex;flex-direction:column;gap:var(--space-sm);width:100%;max-width:495px}
-.nk-pay .r{display:flex;justify-content:space-between;color:var(--text-subtle)}
-.nk-pay .r.total{color:var(--text-heading);padding-top:var(--space-sm);border-top:var(--border-thin) solid var(--surface-03-pearl)}
-.nk-pay .r.disc{color:var(--alerts-text-success)}
 .nk-player{background:var(--surface-01-white);border-radius:var(--radius-md);padding:var(--space-nr);display:flex;flex-direction:column;gap:var(--space-sm);width:100%;max-width:402px}
 .nk-player .meta{display:flex;align-items:center;gap:var(--space-sm)}
 .nk-player .meta .c{flex:1}
@@ -396,8 +389,10 @@
 .nk-live .now{color:var(--alerts-text-gold)}
 .nk-live .sub{opacity:.75}
 .nk-live .times{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;text-align:center}
-.nk-live .times div{padding:6px 2px;border-radius:var(--radius-xs);background:rgba(255,255,255,.08)}
-.nk-live .times div.on{background:var(--brand-quranic-illumination);color:var(--brand-kiswah-reverence)}
+/* Each prayer cell carries the one background; the name and time inside it are plain text (17 Nov 2026, Moha: no inner tag backgrounds). */
+.nk-live .times>div{padding:6px 2px;border-radius:var(--radius-xs);background:rgba(255,255,255,.08)}
+.nk-live .times>div.on{background:var(--brand-quranic-illumination);color:var(--brand-kiswah-reverence)}
+.nk-live .times>div>div{background:none;padding:0;border-radius:0}
 .nk-pin{display:inline-flex;flex-direction:column;align-items:center}
 .nk-pin b{width:31px;height:31px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--surface-10-ink);display:grid;place-items:center;box-shadow:var(--shadow-03)}
 .nk-pin b span{transform:rotate(45deg);color:var(--icons-longing);display:grid}
@@ -616,12 +611,13 @@
 .nk-stepper .nk-ico{width:20px;height:20px}
 /* Pagination */
 .nk-pag{display:inline-flex;gap:8px;align-items:center}
-.nk-pag i{position:relative;width:8px;height:4px;border-radius:var(--radius-full);background:var(--icons-gray);overflow:hidden}
-.nk-pag i.on{width:38px}
+/* 🧭 Navigation › Pagination, retaken 17 Nov 2026 (evening): items 4 × 4 Mist, current 16 × 4 Smoke, gap 8 (vertical 4 × 16, gap 4); Darkmode: Ivory items, white current */
+.nk-pag i{position:relative;width:4px;height:4px;border-radius:var(--radius-full);background:var(--surface-04-mist);overflow:hidden;flex:none}
+.nk-pag i.on{width:16px;background:var(--surface-05-smoke)}
 .nk-pag i b{position:absolute;inset-block:0;inset-inline-start:0;border-radius:inherit;background:var(--icons-black)}
-.nk-pag.sm i{height:3px}
-.nk-pag.white i{background:var(--icons-white)}.nk-pag.white i b{background:var(--icons-background)}
-.nk-pag.v{flex-direction:column;gap:4px}.nk-pag.v i{width:4px;height:8px}.nk-pag.v i.on{width:4px;height:38px}
+.nk-pag.sm i{height:3px}.nk-pag.sm i:not(.on){width:3px}
+.nk-pag.white i{background:var(--surface-02-ivory)}.nk-pag.white i.on{background:var(--surface-01-white)}.nk-pag.white i b{background:var(--icons-background)}
+.nk-pag.v{flex-direction:column;gap:4px}.nk-pag.v i{width:4px;height:4px}.nk-pag.v i.on{width:4px;height:16px}
 .nk-pag.v i b{inset-inline:0;inset-block-end:auto;top:0}
 /* Progress (form) */
 .nk-progress{display:inline-flex;align-items:center;gap:12px}
@@ -711,7 +707,7 @@
 .nk-rq.empty .logo{width:42px;height:42px;border-radius:var(--radius-s);background:var(--surface-02-ivory);display:grid;place-items:center;color:var(--icons-black)}
 .nk-rq.empty p{margin:0;align-self:stretch;color:var(--text-heading)}
 /* Option card */
-.nk-opt{display:flex;align-items:center;gap:12px;padding:18px;width:100%;max-width:359px;min-height:78px}
+.nk-opt{display:flex;align-items:center;gap:12px;padding:18px;width:100%;min-height:60px}
 .nk-opt .lead{width:24px;height:24px;display:grid;place-items:center;flex:none;color:var(--icons-black)}
 .nk-opt .lead .nk-ico{width:24px;height:24px}
 .nk-opt .flag{width:42px;height:42px;border-radius:var(--radius-full);background:var(--surface-02-ivory);display:grid;place-items:center;flex:none;overflow:hidden}
@@ -1117,7 +1113,7 @@ button.nk-tb-hello{cursor:pointer}
 .nk-qr.blurred>svg{filter:blur(12px)}
 .nk-qr .ov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .nk-opt .ttl{display:flex;align-items:center;gap:4px}.nk-opt .mini{display:grid;place-items:center;width:16px;height:16px;color:var(--icons-black)}.nk-opt .mini .nk-ico{width:16px;height:16px}
-.nk-opt-swipe{position:relative;width:100%;max-width:359px;min-height:78px;display:flex}
+.nk-opt-swipe{position:relative;width:100%;min-height:60px;display:flex}
 .nk-opt-swipe .acts{position:absolute;inset-block:0;inset-inline-end:0;display:flex}
 .nk-opt-swipe .sw-act{width:72px;height:100%;border:0;border-radius:var(--radius-md);display:grid;place-items:center;background:var(--button-secondary-surface);color:var(--button-secondary-content);cursor:pointer;margin-inline-start:-18px;padding-inline-start:18px}
 .nk-opt-swipe .sw-act:first-child{margin-inline-start:0;padding-inline-start:0}
@@ -1218,8 +1214,6 @@ button.nk-tb-hello{cursor:pointer}
 .nk-ticket .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-xxs)}
 .nk-ticket .sep{--n-r:8px;position:relative;height:28px;isolation:isolate}
 .nk-ticket .sep::before,.nk-ticket .sep::after{content:'';position:absolute;z-index:-1}
-.nk-ticket .sep::before{inset:0;background:var(--ft-line,var(--surface-01-white));-webkit-mask:radial-gradient(circle at 0 50%,#0000 var(--n-r),#000 calc(var(--n-r) + .5px)) left/51% 100% no-repeat,radial-gradient(circle at 100% 50%,#0000 var(--n-r),#000 calc(var(--n-r) + .5px)) right/51% 100% no-repeat;mask:radial-gradient(circle at 0 50%,#0000 var(--n-r),#000 calc(var(--n-r) + .5px)) left/51% 100% no-repeat,radial-gradient(circle at 100% 50%,#0000 var(--n-r),#000 calc(var(--n-r) + .5px)) right/51% 100% no-repeat}
-.nk-ticket .sep::after{inset:0 var(--border-thin,1px);background:linear-gradient(var(--surface-04-mist),var(--surface-04-mist)) center/calc(100% - 32px) 1px no-repeat,var(--ft-sep,var(--surface-01-white));background:repeating-linear-gradient(to right,var(--surface-03-pearl) 0 6px,transparent 6px 12px) center/calc(100% - 32px) 1px no-repeat,var(--ft-sep,var(--surface-01-white));-webkit-mask:radial-gradient(circle at -1px 50%,#0000 calc(var(--n-r) + 1px),#000 calc(var(--n-r) + 1.5px)) left/51% 100% no-repeat,radial-gradient(circle at calc(100% + 1px) 50%,#0000 calc(var(--n-r) + 1px),#000 calc(var(--n-r) + 1.5px)) right/51% 100% no-repeat;mask:radial-gradient(circle at -1px 50%,#0000 calc(var(--n-r) + 1px),#000 calc(var(--n-r) + 1.5px)) left/51% 100% no-repeat,radial-gradient(circle at calc(100% + 1px) 50%,#0000 calc(var(--n-r) + 1px),#000 calc(var(--n-r) + 1.5px)) right/51% 100% no-repeat}
 .nk-ticket .bottom{display:flex;align-items:stretch;justify-content:space-between;gap:var(--space-sm);padding:var(--space-xxs) var(--space-md) var(--space-lr);border-radius:0 0 var(--radius-md) var(--radius-md);background:linear-gradient(to bottom,var(--surface-01-white),rgba(255,255,255,.55));box-shadow:0 1px 2px -1px rgba(26,28,31,.04),inset 0 -1px 0 #fff,inset 0 -10px 10px rgba(255,255,255,.4)}
 .nk-ticket .air{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-xs)}
 .nk-ticket .air .lg{display:flex;direction:ltr}
@@ -1361,3 +1355,98 @@ button.nk-tb-hello{cursor:pointer}
 .nk-mc.charity .ch-amt{display:inline-flex;align-items:center;gap:var(--space-xxs)}
 .nk-mc.charity .ch-amt .nk-ico{width:16px;height:16px}
 .nk-mc.charity .ch-sep{flex:none;width:1px;height:20px;background:var(--surface-03-pearl)}
+/* Tab Bar retake (17 Nov 2026, evening): Content Share, Filters, Floating Cart Empty on Glass BG like _BottomTab master */
+.nk-pillbar.glassbar{height:48px;padding:4px;background:var(--gl-se),var(--gl-df);box-shadow:var(--gl-fx),var(--gl-sh)}
+.nk-pillbar.glassbar button{height:40px;padding:8px 18px 8px 20px;box-shadow:0 1px 1px rgba(7,8,8,.03),0 -3px 4px rgba(0,0,0,.02),1px 0 5px rgba(0,0,0,.01)}
+.nk-pillbar.glassbar .sep{width:1px;height:22px;background:var(--surface-03-pearl)}
+.nk-pillbar.cartempty{gap:8px}
+.nk-pillbar.cartempty button{box-shadow:none;padding:0 12px;gap:8px}
+.nk-pillbar.cartempty .tot{padding:0 8px;gap:4px}.nk-pillbar.cartempty .tot .nk-ico.sm{width:16px;height:16px}
+.nk-btn.nk-load74{width:74px;min-width:74px;height:48px;padding:0}
+.nk-bnav.hug .row{justify-content:center}.nk-bnav.hug .bar{flex:none;gap:20px}
+.nk-tb-timer{display:inline-flex}.nk-tb-timer .lbl{display:inline-flex;align-items:center;gap:6px}.nk-tb-timer .ring{width:14px;height:14px;box-sizing:border-box;border-radius:50%;border:2px solid var(--alerts-icons-warning,#ff6d01);flex:none}
+/* Direction Sheet, retaken 17 Nov 2026 (evening): the option cards are _Master Card Mode=Transparent (white, 1 Pearl line, no shadow), 8 apart; icon 32 under the grabber */
+.nk-dsheet .content{padding-top:var(--space-sm)}
+.nk-dsheet .options{gap:var(--space-xs)}
+.nk-dsheet .options>.nk-opt,.nk-dsheet .options>*>.nk-opt{box-shadow:inset 0 0 0 var(--border-thin,1px) var(--surface-03-pearl);background:var(--surface-01-white)}
+
+/* SectionHeader — 🔌 Misc › Headers, 7 live locations (17 Nov 2026) */
+.nk-sechead{display:flex;align-items:center;gap:18px;padding:32px 18px 18px;width:100%;box-sizing:border-box;color:var(--text-heading)}
+.nk-sechead .t{margin:0;font-weight:400;flex:1;min-width:0}
+.nk-sechead .acts{display:flex;align-items:center;gap:8px;flex:none}
+.nk-sechead .acts .tag{color:var(--text-heading)}
+.nk-sechead.hero{flex-direction:column;align-items:stretch;gap:12px;padding:48px 18px 26px}
+.nk-sechead.hero .d{margin:0;color:var(--text-heading)}
+.nk-sechead.section-centered{flex-direction:column;gap:12px;padding:26px 18px 18px;text-align:center}
+.nk-sechead.section-centered .t{flex:none}
+.nk-sechead.collapse,.nk-sechead.legend,.nk-sechead.family{padding:26px 18px 18px}
+.nk-sechead.collapse{gap:8px}
+.nk-sechead.legend .t{flex:none;color:var(--text-subtle)}
+.nk-sechead.legend .rule{flex:1;height:0;border-top:1px solid var(--surface-03-pearl)}
+.nk-sechead .fam{flex:1;display:flex;align-items:center;gap:4px}
+.nk-sechead.complex .mark{flex:none;display:grid;place-items:center;color:var(--icons-illumination)}.nk-sechead.complex .mark .nk-ico{width:38px;height:38px}
+.nk-sechead.complex .tt{flex:1;min-width:0;display:flex;flex-direction:column}
+.nk-sechead.complex .ov{color:var(--text-subtle)}
+.nk-sechead.complex .pick{flex:none;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text-subtle)}
+
+.nk-sheet>.sheet-body{display:flex;flex-direction:column;gap:var(--space-nr);padding:var(--space-xs) var(--space-nr) var(--space-xxl)}
+.nk-sheet>.sheet-body>.sheet-title{margin:0}
+/* Secondary CTA fill as Figma draws it (17 Nov 2026, evening): `_Button_Master Of Masters` › Default Fill is Ivory 70% in Plus Darker,
+   so it darkens whatever card or glass sits behind it instead of washing it out. The fill moves to a ::before layer that blends with the
+   backdrop: plus-darker where the browser has it (Safari), multiply elsewhere (the closest match). On-dark and glass buttons keep their own fills. */
+.nk-btn.secondary:not(.on-dark):not(.glass){background:transparent;position:relative}
+.nk-btn.secondary:not(.on-dark):not(.glass)::before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--button-secondary-surface);mix-blend-mode:multiply;pointer-events:none}
+@supports (mix-blend-mode:plus-darker){.nk-btn.secondary:not(.on-dark):not(.glass)::before{mix-blend-mode:plus-darker}}
+.nk-btn.secondary:not(.on-dark):not(.glass)>*{position:relative}
+/* Fate secondary (delete, upload-on-error): the same Plus Darker fill layer as the master, recoloured to the fate surface, so the red tint
+   is kept instead of being replaced by Ivory. The File Uploader's loading pill is the secondary button shape, so it blends the same way. */
+.nk-btn.secondary.fate:not(.on-dark):not(.glass):not(.ghost)::before{background:var(--button-fate-surface)}
+.nk-upl .nk-upload .spin{background:transparent;position:relative}
+.nk-upl .nk-upload .spin::before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--button-secondary-surface);mix-blend-mode:multiply;pointer-events:none}
+@supports (mix-blend-mode:plus-darker){.nk-upl .nk-upload .spin::before{mix-blend-mode:plus-darker}}
+.nk-upl .nk-upload .spin>*{position:relative}
+
+/* TimeSlot: the notch on the markers' side, as Figma draws it (left in Arabic, right in English) */
+.nk-slot .bg .b{direction:ltr}.nk-slot:dir(ltr) .bg .b{direction:rtl}
+
+/* PaymentDetails — 💸 Payment › Payment Details (17 Nov 2026, evening) */
+.nk-pay{background:var(--surface-01-white);border-radius:var(--radius-md);padding:var(--space-lr) var(--space-nr);display:flex;flex-direction:column;gap:var(--space-xl);width:100%;max-width:495px;box-sizing:border-box;color:var(--text-heading)}
+.nk-pay .hd{display:flex;align-items:center;gap:var(--space-xs)}
+.nk-pay .hd>.nk-ico{width:24px;height:24px;flex:none}
+.nk-pay .hd .ttl{flex:1;min-width:0;margin:0;font-weight:400}
+.nk-pay .hd .sum{display:inline-flex;align-items:center;gap:var(--space-xs)}.nk-pay .hd .sum .nk-ico{width:20px;height:20px}
+.nk-pay .rows{display:flex;flex-direction:column}
+.nk-pay .row{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:44px;padding:12px;box-sizing:border-box;border-radius:var(--radius-full)}
+.nk-pay .row.odd{background:var(--surface-02-ivory)}
+.nk-pay .row.total{min-height:47px}
+.nk-pay .row.disc .amt{color:var(--alerts-text-success)}
+.nk-pay .row .amt,.nk-pay .row .val{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.nk-pay .row .amt .nk-ico{width:16px;height:16px}.nk-pay .row.total .amt .nk-ico{width:18px;height:18px}
+.nk-pay .row .val .nk-ico{width:16px;height:16px;color:var(--icons-black)}
+.nk-pay .note{display:flex;align-items:flex-start;gap:var(--space-xs);color:var(--alerts-text-warning);margin-top:calc(var(--space-xl) * -1 + var(--space-nr))}
+.nk-pay .note .nk-ico{width:20px;height:20px;flex:none}.nk-pay .note a{color:inherit}
+
+/* FlightTicket tear line, exact (17 Nov 2026, evening): Figma's Seperator cuts are not circles but pointed bites 7.66 deep whose sides
+   curve the other way (inverted curves) into the card edges; cut from both layers with an SVG mask, the line layer keeping 1 px along them */
+.nk-ticket .sep{--cl:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 28' preserveAspectRatio='none'%3E%3Cpath d='M0 0C.04 3.48 1.33 6.84 3.64 9.45L7.66 14L3.84 18.41C1.52 21.09.17 24.46 0 28Z'/%3E%3C/svg%3E");--cr:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 28' preserveAspectRatio='none'%3E%3Cpath d='M8 0C7.96 3.48 6.67 6.84 4.36 9.45L.34 14L4.16 18.41C6.48 21.09 7.83 24.46 8 28Z'/%3E%3C/svg%3E")}
+.nk-ticket .sep::before{inset:0;background:var(--ft-line,var(--surface-01-white));-webkit-mask:var(--cl) left 0 top 0/8px 28px no-repeat,var(--cr) right 0 top 0/8px 28px no-repeat,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:var(--cl) left 0 top 0/8px 28px no-repeat,var(--cr) right 0 top 0/8px 28px no-repeat,linear-gradient(#000 0 0);mask-composite:exclude}
+.nk-ticket .sep::after{inset:0 var(--border-thin,1px);background:repeating-linear-gradient(to right,var(--surface-03-pearl) 0 6px,transparent 6px 12px) center/calc(100% - 32px) 1px no-repeat,var(--ft-sep,var(--surface-01-white));-webkit-mask:var(--cl) left 0 top 0/8px 28px no-repeat,var(--cr) right 0 top 0/8px 28px no-repeat,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:var(--cl) left 0 top 0/8px 28px no-repeat,var(--cr) right 0 top 0/8px 28px no-repeat,linear-gradient(#000 0 0);mask-composite:exclude}
+
+/* Buttons follow their parent's dark mode (17 Nov 2026, evening): any Button or CTA inside a dark parent — Glass / GlassBG Dark=On,
+   Toolbar Light (darkmode), HeaderTabs dark, CircularProgress dark, or any container with class `nk-dark` / `data-darkmode="on"` —
+   takes its Dark=On (on-dark) colours without an `onDark` prop. `onDark={false}` keeps a light button inside a dark parent. */
+:is(.nk-glass.dark,.nk-tb.light,.nk-htabs.dark,.nk-cprog.dark,.nk-dark,[data-darkmode="on"]) .nk-btn:not(.on-light):not(.glass){--focus-ring:var(--text-inverse)}
+:is(.nk-glass.dark,.nk-tb.light,.nk-htabs.dark,.nk-cprog.dark,.nk-dark,[data-darkmode="on"]) .nk-btn:not(.on-light):not(.glass).primary{background:var(--button-primary-surface-on-dark);color:var(--button-primary-content-on-dark)}
+:is(.nk-glass.dark,.nk-tb.light,.nk-htabs.dark,.nk-cprog.dark,.nk-dark,[data-darkmode="on"]) .nk-btn:not(.on-light):not(.glass).secondary{background:var(--button-secondary-surface-on-dark);color:var(--button-secondary-content-on-dark)}
+:is(.nk-glass.dark,.nk-tb.light,.nk-htabs.dark,.nk-cprog.dark,.nk-dark,[data-darkmode="on"]) .nk-btn:not(.on-light):not(.glass).secondary::before{display:none}
+:is(.nk-glass.dark,.nk-tb.light,.nk-htabs.dark,.nk-cprog.dark,.nk-dark,[data-darkmode="on"]) .nk-btn:not(.on-light):not(.glass).ghost{color:var(--button-ghost-content-on-dark)}
+:is(.nk-glass.dark,.nk-tb.light,.nk-htabs.dark,.nk-cprog.dark,.nk-dark,[data-darkmode="on"]) .nk-btn:not(.on-light):not(.glass).ghost .lbl{text-decoration:none}
+:is(.nk-glass.dark,.nk-tb.light,.nk-htabs.dark,.nk-cprog.dark,.nk-dark,[data-darkmode="on"]) .nk-btn:not(.on-light):not(.glass).fate:not(.ghost){background:var(--button-fate-surface-on-dark);color:var(--button-fate-content-on-dark)}
+:is(.nk-glass.dark,.nk-tb.light,.nk-htabs.dark,.nk-cprog.dark,.nk-dark,[data-darkmode="on"]) .nk-btn:not(.on-light):not(.glass).ghost.fate{color:var(--button-fate-content-on-dark)}
+/* Icon / flag circles in Plus Darker (17 Nov 2026, evening): as in Figma, the Ivory circle behind a flag or an icon — OptionCard LR Icon,
+   Requirement and the Direction Sheet's top icon — darkens what lies under it instead of covering it: the fill sits on a ::before that blends
+   with the card (plus-darker where supported, multiply elsewhere); the flag or icon stays on top, unblended. */
+.nk-opt .flag,.nk-dsheet .icon:not(.success):not(.info):not(.warning):not(.error):not(.brand):not(.gold){position:relative;isolation:auto;background:transparent}
+.nk-opt .flag::before,.nk-dsheet .icon:not(.success):not(.info):not(.warning):not(.error):not(.brand):not(.gold)::before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--surface-02-ivory);mix-blend-mode:multiply;pointer-events:none}
+@supports (mix-blend-mode:plus-darker){.nk-opt .flag::before,.nk-dsheet .icon:not(.success):not(.info):not(.warning):not(.error):not(.brand):not(.gold)::before{mix-blend-mode:plus-darker}}
+.nk-opt .flag>*,.nk-dsheet .icon>*{position:relative}

@@ -5,11 +5,23 @@ description: "Nusuk Design Language: use for any Nusuk concept, deck, design, pr
 
 # Nusuk Design Language (DL) · skill
 
-Version 3.6.1 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.7.0 · 18 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 
 **What this skill holds:** this file is the root of DESIGN.md (always read). `DESIGN.md` in this folder is the full text: this root, modules M1–M13 (open only the one the task needs: search its heading, e.g. `## M9S`) and Appendix A (the 53 services) and Appendix B (every journey step), which are data to look up, not read end to end. `reference/tokens.json` holds every exact value, `reference/components.d.ts` every component and section prop, `reference/rawdah-landing.json` the page models, `reference/templates/index.json` and `reference/templates/contracts/<id>.json` the template contracts, `reference/patterns-index.json` the layout patterns.
+
+## 0 · Intake: every new task starts here (DL Advisor, 18 November 2026)
+
+Before drawing a screen or writing a flow, run these five steps in order. Skip one only when it cannot apply (a copy fix has no flow to benchmark) and say which you skipped and why.
+
+1. **Ask for clarifications.** Ask what you cannot settle from the brief, the Figma file, the DL or the platform decisions register: the one to four questions whose answers change what you build (use AskUserQuestion when it is available). Don't ask what a source already answers.
+2. **Ask for the objectives and purpose, in the DX Tracker's fields.** If the task has a row in Notion › DX Tracker, read it first and use what it already says. Ask only for the fields that are empty and apply: **Aims and Purpose**, **ST. Objectives**, **LT. Objectives**, **Questions and Objectives**, **Use Case**, **Action**, **User Pain**, **User Gain**, **Research Type**, plus the context fields **Service**, **Platform**, **Journeys**, **Mindsets**, **Personas**, **Release Group**, **Priority** and **Figma URL**. Write the answers into the Project Canvas.
+3. **Benchmark internally.** Before looking outside, compare the task with what Nusuk already has: the template contracts (`templates/index.json`, M9T), the patterns (`patterns/index.json`, M9P), the placement model (M9S), and other Nusuk flows that do the same job (for a booking: Umrah Permits, Rawdah Permits, Golf Carts; for a purchase: Marketplace). Say what you reuse, what differs and why.
+4. **Search Mobbin and Dribbble for structure.** Mobbin through its connector (`search_flows`, `search_screens`); Dribbble through web search (`site:dribbble.com` with the task's terms). Look for structure only: the order of steps, what each screen holds, where decisions sit. Never take a look, a colour, a type style or a component from them; the DL decides every visual. List the references you used, with links, in the canvas.
+5. **Then build:** the flow first (stages, states, transitions), then each screen's structure from DL components and patterns, filling each template contract space from its allowed list.
+
+When nobody can answer (a scheduled or unattended run), write your assumptions for steps 1 and 2 at the top of the work and continue; mark each assumption so it can be confirmed later.
 
 ## 1 · Load the right module
 
@@ -18,8 +30,9 @@ You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, 
 | Any screen, concept or critique | M2 Intent & desire, then the modules below |
 | Colour, type, spacing, radius, effects, glass | M8 Foundations (values come from `tokens.json`) |
 | A component: which one, its states and rules | M9 Components |
-| The Nusuk AI chat: answers, questions, AI tab bar, bot, tickets, hotel and flight cards | M9 Components, then **M9C Nusuk AI chat**, with `reference/chat/` (§10) |
+| The Nusuk AI chat: answers, questions, AI tab bar, bot, tickets, hotel and flight cards | M9 Components, then **M9C Nusuk AI chat**, with `reference/chat/` (§11) |
 | Which service shows where, when and for whom; Today; pushes and notifications | M9S Surface allocation (+ Appendices A, B) |
+| A prototype of a flow that already exists in Figma | **§9** (below), then M9 and M9T |
 | A screen of a known kind: landing, list, details, cart, payment, booking step, booking details, pass, sheet | M9S, then **M9T Template contracts** (§8 below), then M9P |
 | A section or a page: what goes where, in what order | M9S, then M9P Patterns & templates |
 | A new pattern | M9P › Adding a pattern, then M9S |
@@ -122,7 +135,24 @@ A **template contract** says what one kind of screen may hold: spaces in a fixed
 
 **Worked examples:** "Booking page for a museum ticket" → `booking-details`, five states; the ticket is `pass-sheet`. · "Pick a visit day and an exact time" → `date-slot` (valid all day: `date-period`). · "Offer above the QR on the pass" → refuse. · "Move invoices above people when permits are issued" → refuse: states never reorder spaces. · "Use the Marketplace cart rules for the hotel cart" → use the `cart` contract, not the example. · "A screen for giving to a cause" → no contract fits: Proposed, with a draft contract.
 
-## 9 · Skills that work with this one
+## 9 · Prototypes: Figma fidelity, native motion and the status bar (17–18 November 2026)
+
+Every prototype simulates native iOS motion and shows the status bar at 02:22 (the two bullets below). When the brief is a Figma file, the prototype is also a mirror, not a redesign. The fidelity rules come from the DL Advisor's 20 comments and 4 rulings on the Golf Carts v2 prototype; the evidence and the method are in `LEARNINGS.md` › Prototype fidelity, the defects in `reference/known-issues.md` › Golf Carts review (GC).
+
+- **One stage per frame, nothing else (GC-R1).** List the page's frames (`get_metadata` on the page) before building; every stage carries its node id, and a stage without one is a defect. No added screens, sheets, states, hint lines or helper copy. Re-list the frames before every publish: designers change the file mid-review (GC-R4).
+- **Conflicts are questions, not fixes (GC-R2).** Where Figma meets M4, M6, the release scope or a placeholder, keep the Figma version and raise a numbered design question (FQ) in the handoff. A genuine never-ship item is raised as a blocker at the top of the handoff, never silently built either way.
+- **Validation sheets and toasts are copied as drawn (GC-R3):** words, icon, buttons, order and count.
+- **Placeholders** (`%s`, `[Total]`, `[المبلغ]`) take sample values inside Figma's own sentence (GC-R5): «🎉 وفرت %s» becomes «🎉 وفرت 10%».
+- **Chrome:** sections sit 8px from the screen sides, 386 on a 402 screen (GC-R6); a closing section sits flush on the empty Tab Bar (GC-R7); every Toolbar floats with a progressive blur from the top and every Tab Bar with one from the bottom, never solid (GC-R8, GC-R9); the Figma Header Effect (402 × 572: a warm glow over a white blurred circle) sits under every Toolbar (GC-R10).
+- **Components:** Select Card has no radio (GC-R12); Header Tabs on a page share the width equally, grey track and white pill (`fill`, GC-R11); disabled time slots show only the disabled state (GC-R13); Option Card rows are 18 all round, 60px (66 with an action), not the STD-07 card padding 26/18 (GC-R15); in RTL the counter sits on the right of its button row (GC-R14); section titles take the page's own spacing (GC-R16).
+- **Payment Box** is one piece (GC-R17): the code field, 12 above a widget whose top section (bottom padding 48) overlaps the cards section by −26.
+- **Never `all:unset` a DL component**: its tap-padding layer needs `position: relative` and would cover its neighbours (a builder rule from the Golf Carts review).
+- **Native iOS motion in every prototype (DL Advisor, 18 November 2026).** Simulate Apple's own transitions: a pushed screen slides in from the trailing edge (from the left in Arabic) while the previous screen shifts part of the way and dims, and back swipes from the leading edge; sheets rise from the bottom over a dimmed backdrop and drag down to close; a full-screen cover rises from the bottom; tabs switch without a slide; alerts fade in with a slight scale; a large title collapses into the bar on scroll. Use a spring with no bounce, close to iOS's default (check it against the iOS Simulator rather than guessing). With reduced motion, cross-fade instead. DL motion tokens (M8) stay for component interactions such as press and toggle.
+- **The iOS status bar is always drawn, at 02:22.** Every prototype screen shows the status bar with the time fixed at **02:22**, the signal and Wi-Fi icons, and the battery with its percentage. The digits are Western and left to right in both languages. Native apps use the system status bar; this rule is for prototypes and mockups.
+- **Measure, don't eyeball:** compare section bounding boxes and dark-pixel rows with the Figma render (within 2px) and sample background colours. A coded component that differs from Figma is logged as a GC issue and overridden locally with a note.
+- **Use the plugin's bundle.** A prototype built from an older standalone copy of this skill drew a radio in Select Card and 26 padding in Option Card, both fixed in the coded DL before the review. Turn off standalone copies of the Nusuk skills.
+
+## 10 · Skills that work with this one
 
 This skill ships inside the `nusuk-dl` plugin with ten other skills, and the plugin is the only way it is distributed (DL-42, 17 November 2026). They cover what the DL does not; the DL still decides tokens, components, placement and the never-ship list, and where a general skill and a Nusuk rule disagree, the Nusuk rule wins. The plugin's `library/` folder (two levels up from this file: `../../library/`) holds the whole DL tree: every component folder with its preview, the coded package, every migration and the developer handoff.
 
@@ -138,7 +168,7 @@ This skill ships inside the `nusuk-dl` plugin with ten other skills, and the plu
 | General microcopy method | `ux-writing` | Patterns and checklists for buttons, errors, empty states and onboarding; Nusuk wording comes from `nusuk-ux`, `nusuk-voice-rules` and M6 |
 | Rephrasing so text reads as written by a person | `humanizer` | Detects and rewrites AI-sounding prose (English and Spanish rules); never for Quran, hadith or approved faith text, and Arabic follows the Nusuk writing guide |
 
-## 10 · The Nusuk AI chat (M9C)
+## 11 · The Nusuk AI chat (M9C)
 
 The chat is one aspect of this skill, a **Proposed lane** of the DL built from Figma [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 54 variants, 3 masters on 17 Nov 2026). Load it for any chat answer, question, AI tab bar, bot, ticket or chat card.
 

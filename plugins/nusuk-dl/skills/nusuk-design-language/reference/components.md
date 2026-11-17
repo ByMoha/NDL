@@ -362,6 +362,8 @@ The call to action. Primary for the one main action, Secondary for the alternati
 
 **Figma source:** 🕹️ Buttons › CTA (320 variants: Kind × Size × State × Icon × Fate), built on `_Button Trail` (44 variants). Colours come from the Buttons library's own collection `Buttons Colors` (Light / Dark / Green modes). Sizes come from `Buttons Setup` (XS / SM / MD / LR modes). Insert the component from the library in Figma. This card mirrors it for concepts, decks and code.
 
+**18 November 2026 (Golf Carts review, builder rule):** the 48 tap area is a `::after` layer that needs `position: relative`. Never `all: unset` a DL button or any DL component: the layer then covers its neighbours.
+
 **14 November 2026:** every case of the master is now reachable. The Figma master of masters (`_Button_Master Of Masters`) has nine booleans: Leading Icon, Trailing Icon, Icon Only, Show Text, Show Price, Show Apple Pay, Nafath Icon, Show Absher, Glass Effect. Code adds `icon="both"`, `price`, `mark` and `glass`, and composes kind × `fate` × `tone` × `onDark` so the combinations `_Button Trail` does not list also work (table below). Token fixes: `button-fate-surface` is `Alerts/Surface/Solid Error` at 10% (#ff41361a, was #fff2f1) and `button-secondary-surface-on-dark` is Slate at 70% (#303336b3).
 
 **17 November 2026:** the `glass` prop blurs 5px behind the button (`Glass/Andriod Blur` is 10 in Figma; CSS blur is half the Figma radius). It was 10px.
@@ -1583,6 +1585,8 @@ Segmented tabs for switching views inside one screen, with optional icons, count
 
 **Figma source:** [🎹 Tabs › Header Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2883) (Size SM, LR × Background On, Off), on `_Header Tabs` (Darkmode, Show Item 3–8) and `_Tab_Master_Status` (Status × Icon Off, On, Icon Only × Show Number × White × Updates), with Number Notification. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**18 November 2026 (Golf Carts review, GC-R11):** on a page the tabs span the full width and share it equally (two tabs 50/50), grey track and white pill: pass `fill`. Keep the track on white cards; `background={false}` is for tabs over the page background only.
+
 **17 November 2026, 21:00 (rebuilt as a replica):** the track is padded 4 / 8 (code had 4 all round); its fill reaches 2 outside the track, as Glass BG does in Figma; LR tabs are 40 high (code had 38); the chosen tab's shadow is −6 6 30 −12 Ink 5%, the style Tabs uses (F104); new `darkmode` (Smoke track, white labels), and per tab `icon`, `iconOnly` and `updates`. The count stays Smoke on the chosen tab, as Figma draws it (code turned it white).
 
 ## Anatomy
@@ -1608,6 +1612,7 @@ Segmented tabs for switching views inside one screen, with optional icons, count
 | `background` | `boolean` | `false` = Background Off: no track |
 | `darkmode` | `boolean` | `_Header Tabs` Darkmode On, for imagery |
 | `light` | `boolean` | The glass toolbar tabs (GlassBG `field`, Dark On), not this set |
+| `fill` | `boolean` | Span the container, every tab an equal share (two tabs 50/50). Use on a page (18 Nov 2026) |
 | `onChange` | `(index) => void` | Called when the person picks a tab |
 | `ariaLabel` | `string` | Names the tab list |
 
@@ -2174,6 +2179,8 @@ A choice or setting in a list: with an action, a counter, an icon on top, or a r
 
 **Figma source:** 🃏 Cards › Option Cards (13 types) on `_Master Card` (Mode Default / Transparent / Gray).
 
+**18 November 2026 (Golf Carts review, F115, GC-R15):** rows are 18 all round: 60 high on one line, 66 with a small action, 78 with title and description. An empty `title` or `description` renders nothing, and the card spans its container (no 359 cap). Option Cards are list rows, not content cards: STD-07's 26/18 does not apply.
+
 **17 November 2026, revised cards:** the preview now follows the Figma order and names. Figma's names are accepted as `type`: `default` (title + description, no icon, no action), `with-icon` (lead icon, no action), `simple-list`, `with-action` (no icon), `icon-with-action`, `2-actions`, `2-actions-on`, `counter`, `lr-icon-with-action`, `lr-icon`, `top-icon` / `icon-top`, `requirement-item`, `product`. 2 Actions, 2 Actions On and Counter no longer draw a lead icon (Figma has none; pass `iconName` to add one). The LR flag tile is Ivory, as in Figma (was Shade 5).
 
 **15 November 2026, evening:** 13 types. New: `simple-list`, `lr-icon` (the flag tile without an action — **use `lr-icon-with-action` for the one with the button**) and `2-actions-on` (the card slides to reveal a Secondary action (star) and a Fate action (delete-03), each the full card height; `open` on `2-actions` does the same). `_Master Card` is published with modes Default (white, radius 18, shadow), Transparent (Ivory line) and Gray (Ivory fill, radius 14).
@@ -2263,9 +2270,11 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 # Pagination
 
-Dots for carousels and stories. The current item is a 38px bar.
+Dots for carousels and stories. The current item is a short bar.
 
-**Figma source:** 🧭 Navigation › Pagination (Direction × White × Size) and `_Pagination item master` (Default, Active, Filled).
+**Figma source:** 🧭 Navigation › Pagination (Direction Verticale / Horizontal × Darkmode) and `_Pagination item master` (Default, Status2).
+
+**17 November 2026, evening — retaken from the updated Navigation file:** items are 4 × 4 Mist (`surface-04-mist`); the current one is 16 × 4 Smoke (`surface-05-smoke`); gap 8 horizontal, 4 vertical (4 × 16). Darkmode: Ivory items and a white current bar. Was 8 × 4 Gray items with a 38 bar.
 
 ## Props
 
@@ -2274,13 +2283,13 @@ Dots for carousels and stories. The current item is a 38px bar.
 | `count` | `number` | Default 5 |
 | `active` | `number` |  |
 | `direction` | `'horizontal' \| 'vertical'` | Gap 8 horizontal, 4 vertical |
-| `size` | `'default' \| 'sm'` | 4px or 3px high |
-| `white` | `boolean` | On media |
-| `progress` | `number` | 0–1. Fills the active bar (Figma Filled), for stories |
+| `size` | `'default' \| 'sm'` | 4px or 3px |
+| `white` | `boolean` | Figma Darkmode=On, on media and Ink |
+| `progress` | `number` | 0–1. Fills the current bar, for stories |
 
 ## Use
 
-- All items are `icons-gray`; only the active one is longer.
+- Only the current item is longer; all others are dots.
 
 ## Don't
 
@@ -2295,26 +2304,33 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 # PaymentDetails
 
-A price breakdown with discounts and total.
+The order summary and the refund summary: a card that opens to a list of priced rows.
 
-**Figma source:** 💸 Payment › Payment Box, Payment Details (Price, Refund), Tickets Payment Details. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** 💸 Payment › Payment Details (Collapse Off / On × Type Price / Refund) on `_Payment Details Master` and `_Price` (Type Default / Total). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026, evening — rebuilt from Figma:** white card, radius 18, padding 26 / 18, 32 between the header and the rows. Header: the title (Body 1, 18); Price shows the total (riyal 20 + 20 Regular), Refund a 24 `file-block` icon and the status chip («جارٍ الاسترداد», Pending MD with hourglass); a Secondary XS icon-only button at the end opens and closes the card. Rows are `_Price`: 44 high, padding 12, radius full, label and value Body 2. **Odd rows (1st, 3rd, 5th…) are Ivory and even rows are clear**; the Total row (Body 1, 47 high) continues the pattern. A value can be an amount (riyal), text (with a copy button) or a chip. Refund ends with the warning hint and the policy link. The old ruled list (a separator line and a bold total) is gone.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
-| `title` | `string` |  |
-| `lines` | `{label,amount,discount}[]` |  |
-| `total` | `string` |  |
-| `totalLabel` | `string` |  |
+| `type` | `'price' \| 'refund'` | Default price |
+| `title` | `string` | Default «ملخص الطلب» / «طلب الإلغاء» |
+| `total` | `string` | Price: the header total, and the Total row unless `totalAmount` |
+| `totalLabel, totalAmount` | `string` | The Total row; default «المجموع» |
+| `lines` | `{label, amount?, value?, copy?, chip?, discount?}[]` | Rows, striped odd / even |
+| `status` | `string \| false` | Refund: the status chip |
+| `iconName` | `string` | Refund: the header icon |
+| `open, onToggle, toggleLabel` | `boolean, fn, string` | Collapse On / Off; default open |
+| `note, policyLabel, policyHref` | `string` | Refund: the warning hint |
 
 ## Use
 
-- Show every fee before payment; no surprises at the end.
+- Show what was paid, row by row, in the order of the invoice.
 
 ## Don't
 
-- No hidden fees, no pre-selected add-ons.
+- Do not add a separator line or a different total style; the stripes carry the rhythm.
 
 ## You provide
 
@@ -2928,19 +2944,37 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 # SectionHeader
 
-Titles for heroes, sections and legends, with optional description and action.
+Titles for heroes, sections, legends and grouped lists, with an optional tag, action, picker or people.
 
-**Figma source:** 🔌 Misc › Headers (13 locations: Hero, XL Header, Section Title, Simple Title, Legend, Collapse, Family, Filter / Search…). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** 🔌 Misc › Headers. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026, evening — re-read:** Headers has 14 locations, but 7 sit at 10% opacity in Figma (XL Header, Seperate Icon, Widget Header, Simple Title, XS Legend, Section Title With Devider, Filter / Search); they are retired and not built. The 7 live ones:
+
+| `level` | Figma location | Anatomy |
+|---|---|---|
+| `hero` | 01 Hero | padding 48 / 18 / 26; title Headline 1 (24), description Notes 1, gap 12 |
+| `section` | 02 Section Title | padding 32 / 18 / 18; title Body 1 (18); a Notes 2 tag and a Secondary XS icon-only button (arrow-left-02), 8 apart |
+| `section-centered` | 02 Section Title / Centered | padding 26 / 18 / 18; title over the tag + button, centred, gap 12 |
+| `collapse` | 03 Collaps | padding 26 / 18 / 18; title Body 2 (16) and an XS chevron |
+| `legend` | 04 Legend | padding 26 / 18 / 18; title Notes 1 `text-subtle`, a Pearl rule, an XS arrow |
+| `complex` | 05 Complex | padding 32 / 18 / 18; the Nusuk mark (38), overline Notes 1 + title Headline 2 (20), and a «القدوم من» picker (Secondary XS with leading chevron) |
+| `family` | 06 Family | padding 26 / 18 / 18; «أنت و» + avatars (38, +2), an XS chevron |
+
+Old values still work: `xl` → `hero`, `simple` → `section`, `divider` → `legend`.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
-| `level` | `'hero' \| 'xl' \| 'section' \| 'simple' \| 'legend'` |  |
+| `level` | `'hero' \| 'section' \| 'section-centered' \| 'collapse' \| 'legend' \| 'complex' \| 'family'` |  |
 | `title` | `string` |  |
-| `description` | `string` |  |
-| `action` | `string` | "See all" |
-| `divider` | `boolean` |  |
+| `description` | `string` | `hero` |
+| `tag` | `string` | `section`, `section-centered` (e.g. «#المحتوى») |
+| `actionIcon, actionLabel, onAction` | `string, string, fn` | The XS button; `onAction: false` hides it |
+| `open, toggleLabel` | `boolean, string` | `collapse`, `family` |
+| `overline, pick, pickLabel, onPick, iconName, mark` | `…` | `complex` |
+| `people, more` | `string[], string` | `family` |
+| `as` | `string` | Heading tag; default h1 for hero, h2 otherwise |
 
 ## Use
 
@@ -2949,6 +2983,7 @@ Titles for heroes, sections and legends, with optional description and action.
 ## Don't
 
 - Do not skip heading levels.
+- Do not use the retired (10%) locations.
 
 ## You provide
 
@@ -3013,6 +3048,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 A large selectable card for choosing a journey type or package.
 
 **Figma source:** 📻 Switches › Select Card (Active, Selected, Disabled). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**18 November 2026 (Golf Carts review, GC-R12):** no radio. The selected state alone shows the choice. A prototype built from the older standalone DL skill drew one; the coded card here never does.
 
 **14 November 2026 (read from Figma; the set lives in 📻 Switches):** radius 18 (`radius-md`; was 12), padding and gap 18. Active: `surface-02-ivory` with a 1 px `surface-03-pearl` line. Selected: `surface-shade-5` with a 1 px `surface-illumination` line (was shade 6 with a 1.5 Longing line). Disabled: content at 70%, the description in `text-note`, gap 20 and the soft avatar shadow (was the whole card at 38%). The top row holds the icon only; the radio code drew there is not in Figma and was removed. 
 
@@ -3471,6 +3508,8 @@ A labelled input with every Nusuk field type: text, text area, search, select, m
 
 **Figma source:** ⌨️ Inputs › Input (12 types: Counter, Text Area, OTP, Multi Select, Search, Select, Action, Password, Input, Mobile, Credit Card, Avatar). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**18 November 2026 (Golf Carts review, F116):** `type="action"` draws a Ghost XS link. The Payment Box code field in Golf Carts ends in a 38 glass pill «تطبيق» instead; until the DL Manager says which one Input Type=Action is, compose that field with a Secondary SM button.
+
 **14 November 2026:** Figma's Input is now 12 types × Status (Default, Error, Dissabled [sic]) × Filled (Off, On), 72 variants on the private `_Input_Master Trail` (Status Default / Error / Filled × Disabled). Error adds the 20-high Hint (Type=Error) 8 under the field; Error and Disabled keep the default field fill (`inputs-surface-default`; code used the error and disabled fills until now): Error has the `inputs-icons-error` border, Disabled the `surface-04-mist` border and `inputs-text-disabled` text. Two types were missing in code and are added: `multi-select` (two selects side by side, gap 8, each with its chevron) and `avatar` (a 42 picture at the end of the field).
 
 **12 November 2026:** fields are radius 18 (`radius-md`, Figma Radius/MD) with `shadow-xs`; Search and Counter are capsules (`radius-full`); the label above the field is `notes-1-regular` in `inputs-text-placeholder`, inset 18. OTP boxes follow (radius 18). The Hint icon is 20.
@@ -3519,6 +3558,8 @@ A selectable time slot cut as a ticket, with markers and an optional crowd chip.
 
 **Figma source:** 📅 Date & Time › Time slot card (Selected Default / Selected / Disabled) on _Time slot card Master, Time & Slots section. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**18 November 2026 (Golf Carts review, GC-R13):** a disabled slot shows the disabled state only: no «مكتمل» or any other added text.
+
 **17 November 2026, 21:10 (replica of [📅 Date & Time › Time slot card](https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU/?node-id=2402-18252)):** built from Figma's own parts: 12 bands top and bottom (corner 18 · ticket 17 · the rest) and a 32 middle, 54 high. Corners Radius/MD, clamped to 12 by the band. The notch is a shallow bite (11.3 wide, 4.2 deep) whose tip sits 27 from the **start** edge (right in Arabic), on the side away from the markers; the Pearl line (Longing when selected) follows it. Markers are 20 (were 22), from −3 / −3 at the end corner, the first on top: soon Ivory, instant shade 5 with `icons-illumination`, prayer white; all Longing with white icons when selected. Text: time Body 1 Regular, period Body 2 Light (reads «06:00 ص»). With `iconName` (24, at the start) or `crowd` (Chips Pending MD, at the end) the text fills the middle, as the master draws it. Default white + Pearl; Selected shade 2 + Longing; Disabled Ivory + Pearl, `text-note`.
 
 ## Props
@@ -3555,6 +3596,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 The top app bar. It is transparent and floats over the screen; controls sit on glass. Every Figma type is available, in the standard and the Light (on media) version.
 
 **Figma source:** 🧭 Navigation › Toolbar (40 variants: Type [16] × Status × Light), read 8 November 2026. Built from `_Icon Block`, `_Search-bar`, `_DatePicker`, `_Profile`, `_Nusuk AI` and `Glass BG` (Foundation).
+
+**18 November 2026 (Golf Carts review, GC-R8, GC-R10, F119):** content scrolls under the bar behind a progressive blur from the top; the bar is never solid. Every page under a Toolbar carries Figma's Header Effect (402 × 572: a warm glow over a white blurred circle), not coded yet (F117). The `Timer` type is a white LR chip with a 14 ring before the time, as Figma draws it (F119, fixed 17 Nov). Prototypes draw the iOS status bar above it at 02:22 with the battery percentage (DL-44).
 
 **17 November 2026 — glass as Figma builds it:** every control now draws [Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296) with the layers its Figma instance keeps. Icon blocks, the logo, Wallet, the date and booking pills are `control` glass: OS shadows and the Glass Effect carrying a white sheen (50% at the bottom → clear), no Default Fill. The search bar and Top Tabs are `field` glass (OS shadows, the radial fill, the Glass Effect). Secondary Pages / Tabs sits on a flat Ivory track (Glass Off, fill only). The old recipe (white 62% → 34%, a white outline, `saturate(1.4)`) is gone. `glass={false}` (or `data-glass="off"` on an ancestor) draws Glass Off for Android. In dark themes the controls take Dark=On. See GlassBG.
 

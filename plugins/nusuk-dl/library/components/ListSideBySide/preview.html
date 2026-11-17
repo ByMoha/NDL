@@ -4,8 +4,9 @@
 <body style="margin:0">
 <div id="root" class="nk nk-stage col" dir="rtl"></div>
 <script>
-  var N = window.NusukDL, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h(N.ListSideBySide,{title:'القرآن الكريم مُرتل',tag:'#الصوتيات',items:[Object.assign({duration:'30 د'},{title:'الشيخ أ.د. ماهر المعيقلي',subtitle:'#الصحة',color:'mint',backColor:'lavender'}),Object.assign({duration:'30 د'},{title:'الشيخ أ.د. ماهر المعيقلي',subtitle:'#الصحة',color:'mint',backColor:'lavender'}),Object.assign({duration:'30 د'},{title:'الشيخ أ.د. ماهر المعيقلي',subtitle:'#الصحة',color:'mint',backColor:'lavender'}),Object.assign({duration:'30 د'},{title:'الشيخ أ.د. ماهر المعيقلي',subtitle:'#الصحة',color:'mint',backColor:'lavender'})]})));
+  var N = window.NusukDL, h = React.createElement, P = '/_blob/9716a02b60759c8fe5caa48282476c47';
+  var item = {duration:'30 د',title:'الشيخ أ.د. ماهر المعيقلي',subtitle:'#الصحة',color:'mint',backColor:'lavender',image:P,backImage:P};
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h(N.ListSideBySide,{title:'القرآن الكريم مُرتل',tag:'#الصوتيات',items:[item,item,item,item]})));
 </script>
 </body>
 </html>

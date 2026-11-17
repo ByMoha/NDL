@@ -1,25 +1,32 @@
 # PaymentDetails
 
-A price breakdown with discounts and total.
+The order summary and the refund summary: a card that opens to a list of priced rows.
 
-**Figma source:** 💸 Payment › Payment Box, Payment Details (Price, Refund), Tickets Payment Details. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** 💸 Payment › Payment Details (Collapse Off / On × Type Price / Refund) on `_Payment Details Master` and `_Price` (Type Default / Total). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026, evening — rebuilt from Figma:** white card, radius 18, padding 26 / 18, 32 between the header and the rows. Header: the title (Body 1, 18); Price shows the total (riyal 20 + 20 Regular), Refund a 24 `file-block` icon and the status chip («جارٍ الاسترداد», Pending MD with hourglass); a Secondary XS icon-only button at the end opens and closes the card. Rows are `_Price`: 44 high, padding 12, radius full, label and value Body 2. **Odd rows (1st, 3rd, 5th…) are Ivory and even rows are clear**; the Total row (Body 1, 47 high) continues the pattern. A value can be an amount (riyal), text (with a copy button) or a chip. Refund ends with the warning hint and the policy link. The old ruled list (a separator line and a bold total) is gone.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
-| `title` | `string` |  |
-| `lines` | `{label,amount,discount}[]` |  |
-| `total` | `string` |  |
-| `totalLabel` | `string` |  |
+| `type` | `'price' \| 'refund'` | Default price |
+| `title` | `string` | Default «ملخص الطلب» / «طلب الإلغاء» |
+| `total` | `string` | Price: the header total, and the Total row unless `totalAmount` |
+| `totalLabel, totalAmount` | `string` | The Total row; default «المجموع» |
+| `lines` | `{label, amount?, value?, copy?, chip?, discount?}[]` | Rows, striped odd / even |
+| `status` | `string \| false` | Refund: the status chip |
+| `iconName` | `string` | Refund: the header icon |
+| `open, onToggle, toggleLabel` | `boolean, fn, string` | Collapse On / Off; default open |
+| `note, policyLabel, policyHref` | `string` | Refund: the warning hint |
 
 ## Use
 
-- Show every fee before payment; no surprises at the end.
+- Show what was paid, row by row, in the order of the invoice.
 
 ## Don't
 
-- No hidden fees, no pre-selected add-ons.
+- Do not add a separator line or a different total style; the stripes carry the rhythm.
 
 ## You provide
 

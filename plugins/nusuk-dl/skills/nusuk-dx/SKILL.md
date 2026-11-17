@@ -13,6 +13,12 @@ This skill carries the DX team's whole practice: how experiences are **designed*
 
 ---
 
+## Intake (read first, 18 November 2026)
+
+Every new task runs the intake in `nusuk-design-language` §0 before any design or flow work: ask the clarifications that change the outcome; ask the objectives and purpose in the Notion DX Tracker's fields (read the task's tracker row first and ask only for empty fields); benchmark against Nusuk's own contracts, patterns and flows; search Mobbin and Dribbble for structure only; then build from DL components. Every prototype simulates native iOS transitions and draws the status bar at 02:22 with the battery percentage (DL §9).
+
+---
+
 ## House terminology (read first)
 
 - **Spell it "Thikr", not "Dhikr"** — Nusuk's house transliteration for الذكر in all English copy (e.g. "Daily Thikr", "Continue Thikr"). This **supersedes the `glossary.md` entry**, which still reads "Dhikr" until that reference file is updated. Keep "Athkar" (plural) and "Tasbih" as they are.

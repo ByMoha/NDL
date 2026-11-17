@@ -1,8 +1,18 @@
 # nusuk-dl · the Nusuk plugin
 
-Version 2026.11.172222, built 2026-11-17T22:22+03:00. Release 2026-11-17: DESIGN.md 3.6.1, tokens 3.12, NusukChat 2.8.5.
+Version 2026.11.180014, built 2026-11-18T00:14+03:00. Release 2026-11-18: DESIGN.md 3.7.0, tokens 3.12, NusukChat 2.8.5.
 
 The one way the Nusuk DL reaches Claude (DL-42). The developer handoff (`nusuk-dl-developer-handoff.zip`) is the only other download.
+
+## How every task starts (DL-43, DL-44)
+
+1. Ask the clarifications that change the build.
+2. Ask the objectives and purpose in the Notion DX Tracker's fields (Aims and Purpose, ST. and LT. Objectives, Questions and Objectives, Use Case, Action, User Pain, User Gain, Research Type), reading the task's row first.
+3. Benchmark against Nusuk's own template contracts, patterns and flows.
+4. Search Mobbin and Dribbble for structure only, never for visuals.
+5. Build the flow, then each screen's structure from DL components.
+
+Every prototype simulates Apple's native transitions and draws the iOS status bar with the time fixed at 02:22 and the battery percentage. Details: `nusuk-design-language` §0 and §9, DESIGN.md M13.
 
 ## Skills
 

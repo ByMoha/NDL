@@ -1,0 +1,53 @@
+{
+ "id": "2026-11-18a-golf-carts-intake-native",
+ "date": "2026-11-18",
+ "designMd": "3.7.0",
+ "tokens": "3.12",
+ "figma": [
+  "https://www.figma.com/design/s0G2Gga52Tz5GcZayR3jd9",
+  "https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl"
+ ],
+ "components": {
+  "OptionCard": {
+   "minHeight": {
+    "from": 78,
+    "to": 60
+   },
+   "maxWidth": {
+    "from": 359,
+    "to": null
+   },
+   "emptyTitleOrDescription": "renders nothing"
+  },
+  "HeaderTabs": {
+   "added": {
+    "fill": "boolean: span the container, equal tabs"
+   }
+  }
+ },
+ "rules": [
+  "DL-43 intake",
+  "DL-44 native prototypes (Apple transitions, status bar 02:22 with battery percentage)",
+  "GC-R1..GC-R18 prototype fidelity"
+ ],
+ "knownIssues": [
+  "F114 Payment Box",
+  "F115 OptionCard height and width (fixed in this release)",
+  "F116 TextField action button",
+  "F117 Header Effect",
+  "F118 icons mountain, time-04, navigation, VISA, mada",
+  "F119 Toolbar Timer icon"
+ ],
+ "skills": {
+  "nusuk-design-language": "§0 Intake and §9 Prototypes added; old §9, §10 renumbered §10, §11",
+  "nusuk-feature-handoff": "Step 0 intake; Figma version built, conflicts as design questions; native motion and status bar",
+  "nusuk-dx": "intake pointer"
+ },
+ "notDefects": {
+  "SelectCard radio": "fixed 14 Nov 2026; came from a standalone 2.9 bundle",
+  "HeaderTabs widths": "track fine with background on; equal shares added as fill",
+  "body-2 line height": "Figma Body 2 is 1.28 too; 20 is Figma rounding",
+  "all:unset on a DL button": "builder rule",
+  "status colours": "same as C2"
+ }
+}

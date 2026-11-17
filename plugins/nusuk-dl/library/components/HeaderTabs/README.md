@@ -4,6 +4,8 @@ Segmented tabs for switching views inside one screen, with optional icons, count
 
 **Figma source:** [🎹 Tabs › Header Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2883) (Size SM, LR × Background On, Off), on `_Header Tabs` (Darkmode, Show Item 3–8) and `_Tab_Master_Status` (Status × Icon Off, On, Icon Only × Show Number × White × Updates), with Number Notification. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**18 November 2026 (Golf Carts review, GC-R11):** on a page the tabs span the full width and share it equally (two tabs 50/50), grey track and white pill: pass `fill`. Keep the track on white cards; `background={false}` is for tabs over the page background only.
+
 **17 November 2026, 21:00 (rebuilt as a replica):** the track is padded 4 / 8 (code had 4 all round); its fill reaches 2 outside the track, as Glass BG does in Figma; LR tabs are 40 high (code had 38); the chosen tab's shadow is −6 6 30 −12 Ink 5%, the style Tabs uses (F104); new `darkmode` (Smoke track, white labels), and per tab `icon`, `iconOnly` and `updates`. The count stays Smoke on the chosen tab, as Figma draws it (code turned it white).
 
 ## Anatomy
@@ -29,6 +31,7 @@ Segmented tabs for switching views inside one screen, with optional icons, count
 | `background` | `boolean` | `false` = Background Off: no track |
 | `darkmode` | `boolean` | `_Header Tabs` Darkmode On, for imagery |
 | `light` | `boolean` | The glass toolbar tabs (GlassBG `field`, Dark On), not this set |
+| `fill` | `boolean` | Span the container, every tab an equal share (two tabs 50/50). Use on a page (18 Nov 2026) |
 | `onChange` | `(index) => void` | Called when the person picks a tab |
 | `ariaLabel` | `string` | Names the tab list |
 

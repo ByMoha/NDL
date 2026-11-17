@@ -493,3 +493,16 @@ Read in [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?n
 |---|---|---|
 | F112 | [📻 Selections & Switches › Select Card](https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw): the Shadows layer draws the three OS drops locally instead of the new `Shadow/OS` style, and `_Master Select Card` uses the remote style named Shadow/XS that is −6 6 30 −12 (Disabled), the same name clash as F104 | Code uses `shadow-os` on every state and Foundation's `shadow-xs` on Active. Bind the layer to `Shadow/OS` and relink the master to Foundation's Shadow/XS |
 | F113 | [_Glass BG Master](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296): the Shadows layer gained a 1% fill with a Luminosity blend so Figma renders its drop shadows | No blend modes in code (M8): code and native draw `shadow-os` directly and skip the fill; nothing visible changes |
+
+## Golf Carts review (17 November 2026; logged 18 November 2026)
+
+From the DL Advisor's review of the Golf Carts v2 prototype ([🚙 Golf Carts](https://www.figma.com/design/s0G2Gga52Tz5GcZayR3jd9), Booking 80451:41304, Confirm 80451:41310, Pay 86074:14210). Every finding was checked against the coded DL 3.6.1 before it was logged. The prototype had been built from an older standalone 2.9 copy of the DL skill, so three of its eleven findings did not hold: the Select Card radio (fixed 14 Nov), the Header Tabs track (right with `background` on; equal shares are now `fill`) and the body-2 line height (Figma's Body 2 is 1.28 too; its 20 box is Figma rounding). `all:unset` on a DL component became a builder rule (DL §9), and the status colours stay under C2.
+
+| # | Issue | Rule code follows |
+|---|---|---|
+| F114 | Payment Box (`_Promocode`, `Payment widget Master`, Bank Cards; Figma 86074:14231) is not in the coded bundle | Specified in M9 › TabBar (GC-R17): one piece, code field 12 above the widget, top section 48 at the bottom overlapping the cards section by −26. Adding it to the bundle is the DL Manager's call |
+| F115 | Option Card rows: Figma 18 all round, 60 high (66 with a small action), full width; code had a 78 minimum, a 359 width cap, and an empty `title` drew a line | **Fixed 18 Nov 2026:** minimum 60, no width cap, an empty title or description renders nothing |
+| F116 | The Payment Box code field ends in a 38 glass pill «تطبيق»; TextField `type="action"` draws a Ghost XS link | Code unchanged until the DL Manager says which one Input Type=Action is; compose that field with a Secondary SM button meanwhile |
+| F117 | The Header Effect (402 × 572 on every Toolbar frame: a warm glow over a white blurred circle) is not in the coded bundle | Specified in M9 › Toolbar (GC-R10); prototypes use the Figma artwork. Adding it is the DL Manager's call |
+| F118 | Icons in Golf Carts missing from the coded set: `mountain`, `time-04`, `navigation`, and the VISA and mada marks (`wallet-01` and `information-circle` are already coded) | Prototypes use the Figma artwork as a mask or the nearest coded icon; paths come from the icon library, never redrawn |
+| F119 | Toolbar `Timer`: Figma shows a chip with a ring timer icon; the review's bundle drew a clock icon | **Fixed in code on 17 Nov 2026 (evening Toolbar retake):** a white LR chip with a 14 ring before the time. The timer itself is a design question in the Golf Carts handoff (FQ4) |

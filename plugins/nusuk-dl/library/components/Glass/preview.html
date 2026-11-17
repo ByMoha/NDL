@@ -1,0 +1,39 @@
+<!doctype html>
+<html data-theme="gold-light">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>Glass — preview</title>
+<style>
+  .gl-wrap{display:flex;flex-direction:column;gap:14px;padding:16px;font-family:var(--font-sans)}
+  .gl-bd{border-radius:18px;padding:16px 18px;background:radial-gradient(55% 70% at 18% 28%,#f7c873,transparent),radial-gradient(45% 65% at 82% 62%,#3b8c87,transparent),linear-gradient(180deg,#9cc3e6,#e8d9b5 58%,#6b5a3a)}
+  .gl-grid{display:grid;grid-template-columns:72px repeat(4,minmax(0,1fr));gap:14px 12px;align-items:center;justify-items:center}
+  .gl-tag{display:inline-block;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.88);color:#070808;font-size:11px;line-height:16px;white-space:nowrap}
+  .gl-in{display:flex;align-items:center;justify-content:center;gap:6px;box-sizing:border-box}
+  .gl-in.dk,.gl-in.dk *{color:var(--text-inverse,#fff)}
+  .gl-in span{white-space:nowrap}
+</style></head>
+<body style="margin:0">
+<div id="root" class="nk" dir="rtl"></div>
+<script>
+  var N = window.NusukDL, h = React.createElement;
+  var cols = [[false, true, 'Light · iOS'], [true, true, 'Dark · iOS'], [false, false, 'Light · Android'], [true, false, 'Dark · Android']];
+  var tag = function (t, k) { return h('span', { className: 'gl-tag', key: k, dir: 'ltr' }, t); };
+  /* kind, label, box size and radius, and the content each recipe usually holds */
+  var kinds = [
+    ['control', 'control', { width: 42, height: 42, borderRadius: 999 }, function () { return h(N.Icon, { name: 'arrow-right-01' }); }],
+    ['field', 'field', { width: 124, height: 42, borderRadius: 999, padding: '0 14px' }, function () { return [h(N.Icon, { key: 'i', name: 'search-01', size: 'sm' }), h('span', { key: 't', className: 'notes-1-regular', style: { flex: 1, opacity: .7 } }, 'ابحث في نسك')]; }],
+    ['bar', 'bar', { width: 124, height: 54, borderRadius: 999, padding: '0 6px', justifyContent: 'space-around' }, function () { return ['home-01', 'kaaba-01', 'user'].map(function (n) { return h(N.Icon, { key: n, name: n }); }); }],
+    ['flat', 'flat', { width: 96, height: 38, borderRadius: 999 }, function () { return h('span', { className: 'notes-1-regular' }, 'الكل'); }],
+    ['card', 'card', { width: 96, height: 72, borderRadius: 18, flexDirection: 'column' }, function () { return [h(N.Icon, { key: 'i', name: 'umrah' }), h('span', { key: 't', className: 'notes-2-regular' }, 'العمرة')]; }]
+  ];
+  var cells = [h('span', { key: 'c' })].concat(cols.map(function (c, i) { return tag(c[2], 'h' + i); }));
+  kinds.forEach(function (k) {
+    cells.push(tag(k[1], 'r' + k[0]));
+    cols.forEach(function (c, i) {
+      var card = k[0] === 'card', dk = c[0] && !card; /* Glass/Full cards have no dark state: they stay white */
+      cells.push(h(N.Glass, { key: k[0] + i, kind: k[0], dark: dk, glass: c[1], className: cx('gl-in', dk && 'dk'), style: k[2], attrs: { dir: 'rtl', role: 'group', 'aria-label': k[1] + ', ' + c[2] } }, k[3]()));
+    });
+  });
+  function cx() { return Array.prototype.filter.call(arguments, Boolean).join(' '); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'gl-wrap' }, h('div', { className: 'gl-bd' }, h('div', { className: 'gl-grid' }, cells))));
+</script>
+</body>
+</html>

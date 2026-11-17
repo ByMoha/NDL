@@ -1,11 +1,20 @@
 <!doctype html>
 <html data-theme="gold-light" lang="ar">
-<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>preview</title></head>
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>SectionTitle — preview</title></head>
 <body style="margin:0">
 <div id="root" class="nk nk-stage col white" dir="rtl"></div>
 <script>
   var N = window.NusukDL, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h(N.SectionTitle,{title:'وجهات مميزة',tag:'#المحتوى'}),h(N.SectionTitle,{title:'الحجوزات القادمة',actionLabel:'عرض الكل',tight:true}),h(N.SectionTitle,{title:'محتوى مميز',tag:'#المحتوى',variant:'centered'}),h('div',{style:{padding:'0 18px'}},h(N.SectionTitle,{title:'كن مستعد لزيارة الروضة',variant:'collapse'}))));
+  function F(label, el){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:4}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:402,maxWidth:'100%'}}, el)); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(402px,1fr))',gap:12,alignItems:'start'}},
+    F('01 Hero — variant="hero"', h(N.SectionTitle,{variant:'hero',title:'ادخل روضة النبي ﷺ',description:'روضة من رياض الجنة بانتظار دعائك.'})),
+    F('02 Section Title — tag + action', h(N.SectionTitle,{title:'وجهات مميزة',tag:'#المحتوى'})),
+    F('02 Section Title — action only', h(N.SectionTitle,{title:'الحجوزات القادمة',actionLabel:'عرض الكل',tight:true})),
+    F('02 Section Title / Centered — variant="centered"', h(N.SectionTitle,{title:'محتوى مميز',tag:'#المحتوى',variant:'centered'})),
+    F('03 Collaps — variant="collapse"', h('div',{style:{padding:'0 18px'}},h(N.SectionTitle,{title:'كن مستعد لزيارة الروضة',variant:'collapse'}))),
+    F('04 Legend — variant="legend"', h(N.SectionTitle,{variant:'legend',title:'عنوان القسم'})),
+    F('05 Complex — variant="complex"', h(N.SectionTitle,{variant:'complex',overline:'الفنادق',title:'بقرب الحرم المكي'})),
+    F('06 Family — variant="family"', h(N.SectionTitle,{variant:'family'}))));
 </script>
 </body>
 </html>

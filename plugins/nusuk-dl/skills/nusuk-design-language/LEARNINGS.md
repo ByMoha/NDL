@@ -61,6 +61,15 @@ Every release renders every preview and measures it; the numbers go in the relea
 | Gave change-log entries of one day the same anchor (the colon in "15:30" cut the link) | A link to one entry opened another | Anchors keep the time; the release fails on a duplicate (17 Nov 2026) |
 | Shipped the plugin with the DL skill alone | Members had no visual-system artworks and no content skills | The plugin carries the seven Nusuk skills; the DL skill also carries the content guide and the voice rules (17 Nov 2026) |
 | Left single-file downloads on the design system tab after the Downloads tab moved to three packages | Two download stories in one guide | Every tab offers the same three packages: everything, developers, designers (17 Nov 2026) |
+| "Improved" Figma to meet M4, M6 and the scope (removed discounts, unselected the default, reworded toasts, a new ticket) | The whole Golf Carts draft rejected | Keep Figma and ask (GC-R2) (17 Nov 2026) |
+| Invented a cost sheet, a pass sheet and hint lines | Rejected as "creative" | One stage per Figma frame, nothing added (GC-R1) |
+| Used the content-card padding (26) on Option Cards | Rows 78 high, not 60 | Option Card rows are 18 all round (GC-R15) |
+| Solid toolbar, no Header Effect | Two comments | Bars float with a progressive blur; the Header Effect sits under every Toolbar (GC-R8, GC-R10) |
+| Payment summary and methods as two cards | A comment | The Payment Box is one piece (GC-R17) |
+| Missed a Figma frame added mid-review | A late rebuild | Re-list the frames before every publish (GC-R4) |
+| `all:unset` on a DL button | Clicks landed on the wrong control | Never `all:unset` a DL component (builder rule) |
+| Embedded the prototype in the narrow text column of a handoff | A comment, twice | The prototype runs at full page width (GC-R18) |
+| Built a prototype from a standalone copy of the DL skill older than the plugin | Two "defects" that the plugin's code had already fixed (Select Card radio, Option Card padding) | Use the plugin; turn off standalone copies of the Nusuk skills (18 Nov 2026) |
 
 ## 6 · What the DL still owes (10 November 2026)
 
@@ -157,3 +166,118 @@ Edits to those three skills were proposed to the owner, to be saved from the rev
 | A selection list may draw only the chosen state (Dropdown item shows a check, no empty radio) | Make the row the control (`role="radio"` / `"checkbox"`), keep the slot, and ask for the unchosen state; never invent it |
 | Gold fills and Longing lines look right but fail 3:1 for states (2.5:1, 1.9:1) | Compute contrast for every new state colour; log it with a proposed value that passes |
 | README props drift from `index.d.ts` | Run the props parity script before a release: every prop in the types must be in the card |
+
+## Intake and native prototypes (18 November 2026)
+
+The DL Advisor asked for two standing behaviours (DL-43, DL-44; SKILL.md §0 and §9; DESIGN.md M13):
+
+- **Intake before any build.** Ask the clarifications that change the build; ask the objectives and purpose in the Notion DX Tracker's fields (Aims and Purpose, ST. Objectives, LT. Objectives, Questions and Objectives, Use Case, Action, User Pain, User Gain, Research Type; context Service, Platform, Journeys, Mindsets, Personas, Release Group, Priority, Figma URL), reading the task's row first; benchmark against Nusuk's own contracts, patterns and flows; search Mobbin (connector) and Dribbble (web search) for structure only; then build the flow and the screens from DL components.
+- **Native prototypes.** Every prototype simulates Apple's transitions (push and back swipe, sheets, covers, alerts, large titles; a no-bounce spring; cross-fade under reduced motion) and draws the iOS status bar with the time fixed at 02:22 and the battery percentage.
+
+## Prototype fidelity (17 November 2026)
+
+From the DL Advisor's 20 artifact comments and 4 chat rulings on the Golf Carts v2 prototype ([🚙 Golf Carts](https://www.figma.com/design/s0G2Gga52Tz5GcZayR3jd9)). Every rule below comes from his comments. The coded defects it found are F114–F119 in `reference/known-issues.md`; the Select Card radio and the Option Card padding it also reported were already fixed in the plugin's bundle, and the body-2 line height is not a defect (Figma's Body 2 is 1.28 too), because the prototype was built from an older standalone copy of this skill.
+
+#### Fidelity
+
+**GC-R1 · Mirror the Figma file. Add nothing.**
+- **Rule:** a prototype of an existing Figma flow has exactly one stage per frame on the page. It adds no screen, sheet, state, hint line, helper copy or component that is not in the file or the DL.
+- **Why:** the Advisor's words were “do not be creative, do what is there only” and “ensure you do not have any case or component outside it and outside the DL”. Draft 1 added a cost sheet, a pass sheet, a hold-reason line and error hints. Every one was rejected.
+- **Check:** list the page's frames with `get_metadata` on the page node. Map them 1:1 to stages and put the node id in each stage. A stage with no node id is a defect.
+
+**GC-R2 · When Figma conflicts with a rule, keep Figma and ask. Do not fix it.**
+- **Rule:** Figma may meet M4 (timers, defaults), M6 (writing, e.g. “تم”), the Notion scope (e.g. discounts out of v2) or placeholders (`%s`, `[Total]`). Keep the Figma version in the prototype and raise each conflict as a numbered design question (FQ) in the handoff.
+- **Why:** draft 1 “fixed” ten things (removed the discount line, unselected the default package, reworded toasts, replaced the ticket). The Advisor rejected the draft as “nothing to do with the design”.
+- **Limit:** this does not switch off M4. A real never-ship item, such as a countdown on a spiritual decision, is still raised as a **blocker** at the top of the handoff. The conflict is flagged loudly; the Figma file is not quietly changed.
+
+**GC-R3 · Sheets and toasts are copied as drawn.**
+- **Rule:** frames in the “Validations” section (permission, directions, hold, payment, calendar, wallet, QR, cancel) are built as is: words, icon, buttons, order and count.
+- **Why:** the first directions sheet was rejected with “implement the validation and bottom sheets from the Validations section as is”.
+- **Check:** compare each sheet's text and button labels with its frame.
+
+**GC-R4 · Watch the file during a review.**
+- **Rule:** re-list the page's frames before every publish. Designers change the file mid-review.
+- **Why:** the Confirm and Pay split (new frame 86074:14210) landed during this review.
+
+**GC-R5 · Sample values fill placeholders. Structure stays.**
+- **Rule:** `%s`, `[Total]` and `[المبلغ]` are filled with plausible sample values, and the sentence around them stays exactly as Figma writes it. Example: “🎉 وفرت %s” becomes “🎉 وفرت 10%”, not a rewritten line.
+
+#### Layout and chrome
+
+**GC-R6 · Screen sections sit 8px from the screen sides.**
+- **Rule:** cards span 386px on a 402px screen.
+- **Check:** in Golf Carts, the service box, package box, summary and detail rows are all at x 8, width 386.
+
+**GC-R7 · A bottom section sits on the empty tab bar.**
+- **Rule:** when a screen ends with a section and has no action bar, the section sits directly on the empty Tab Bar with no gap.
+- **Evidence:** booking 80451:41304. Package box 443–836, Tab Bar 836–874.
+
+**GC-R8 · Every top nav bar floats.**
+- **Rule:** every nav bar (Toolbar) floats over the content with a progressive blur from the top. It is never a solid fill. Content scrolls under it.
+- **Check:** content starts at y 146, under a 146px toolbar.
+
+**GC-R9 · Every bottom tab bar floats.**
+- **Rule:** every tab bar (actions, empty) floats with a progressive blur from the bottom up, plus a light gradient.
+- **Exception:** the empty bar under a flush section (GC-R7).
+
+**GC-R10 · The Header Effect is part of the page.**
+- **Rule:** every page under a Toolbar carries the Figma **Header Effect** (402×572): a warm glow from the top over a large white blurred circle that lifts the screen background.
+- **Measured:** over `Surface/Screen BK` #F1F3F4 it reads as #F7F7F8 below the glow (247,247,248).
+- **Why:** the Advisor's comment was “the white circle with blur that comes from the top … is missing”.
+
+**GC-R11 · Header Tabs share the width equally.**
+- **Rule:** Header Tabs fill the full width, each tab an equal share (two tabs are 50/50). Grey track, white active pill. Zone tabs use the same layout.
+
+**GC-R12 · Select Card has no radio.**
+- **Rule:** the box selection is shown by the card's selected state alone.
+
+**GC-R13 · Disabled time slots show only the disabled state.**
+- **Rule:** no “مكتمل” or other added text.
+
+**GC-R14 · The counter goes on the right.**
+- **Rule:** in an RTL row with a counter and a main button, the counter is on the right (start) and the button on the left. The minus sign sits on the counter's right.
+
+**GC-R15 · Option Card rows use 18px vertically.**
+- **Rule:** Option Card rows have 18px top and bottom (and 18px sides), giving 60px rows; 66px with a small action. They are not cards under STD-07 (26/18).
+- **Note:** this is the second padding rule. STD-07 (26/18) is for content cards; Option Cards are 18 all round.
+
+**GC-R16 · Title spacing follows the page exactly.**
+- **Rule:** section titles follow the Figma page geometry exactly, never a generic header margin.
+- **Evidence:** on Confirm 80451:41310, “ملخص الحجز” (body-1) sits at the content top with 12 below; “تفاصيل الحجز” (body-2) has 17 above and 17 below. On Pay 86074:14210, “اختر طريقة الدفع” has 32 above and 18 below.
+
+#### Composite patterns
+
+**GC-R17 · The Payment Box is one piece.**
+- **Rule:** it is never two stacked cards.
+- **Code field:** 62px high, radius 18, glass pill button “تطبيق” 38px. It sits 12px above the widget.
+- **Widget:** white, radius 18, shadow XS.
+  - **Top section:** padding 26 / 18 / **48 bottom** (the safe space), gap 26. Header Effect rotated 180° at the bottom. **margin-bottom −26** so it overlaps the section below.
+  - **Cards section:** padding 26/18, gap 26. Header row (26 above, 18 below, separator line). Bank Cards: padding 8, gap 12, radius 18, 1px inside stroke. The add button is a 30px glass pill. Terms, then the 44px pay button.
+- **Why:** the Advisor's comment was “no separation … combined with negative spaces between them and safe space extra”.
+
+#### Handoff page
+
+**GC-R18 · The prototype fills the page width.**
+- **Rule:** on the handoff page the embedded prototype runs at full page width (24px margins), at least 960px high or the window height. The phone and the reviewer panel must both fit.
+
+### Measured geometry
+
+| Screen | Skeleton (y, px) |
+|---|---|
+| Booking 80451:41304 | Toolbar 0–146 · service box 146–242 (96) · art space · package box 443–836 (393: title +26, tabs +67, cards +123 (140, gap 12), savings +293 (18), CTA row +319 (48), bottom 26) · empty Tab Bar 836–874 |
+| Confirm 80451:41310 | Toolbar 0–146 · header 146 (24 + 12) · product card 182–262 (80) · header 262–316 (54) · rows from 316, 60 each (location 66), gap 8 · Tab Bar actions 776–874 (98) |
+| Pay 86074:14210 | Toolbar 0–146 · header (32 above, 18 below) · Payment Box 220–1205 · empty Tab Bar 56 · frame 1261 |
+
+---
+
+### Method that worked
+
+1. **List the frames first.** Run `get_metadata` on the page and write the frame list (id, name, size) into the stage table before building.
+2. **Read values, not pictures.** Use `get_metadata` for geometry and `get_design_context` for paddings, gaps, radii and type, then build.
+3. **Measure the build.** Take `getBoundingClientRect()` of each section and compare it with the frame numbers. Compare dark-pixel rows of your render against the Figma render of the same frame; agree within 2px.
+4. **Compare colour by sampling.** Sample about 10 background points against the Figma render. This is how GC-R10 was found and fixed.
+5. **Click-test every path.** Use Playwright on a local build: every sheet opens and closes, every toggle works, and `#stage` replay works.
+6. **Treat comments as a backlog.** Change, measure, publish, reply in the thread with the numbers. Leave threads for the reviewer to resolve.
+7. **Keep Figma artwork in code.** When an asset can't be downloaded from Figma, render the node and crop it. Keep it as Figma artwork; never redraw it.
+
+---

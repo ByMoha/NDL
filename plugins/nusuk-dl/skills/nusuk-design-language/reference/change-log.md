@@ -4,6 +4,37 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 18 November 2026, 00:30 (Golf Carts review learnings; task intake; native prototypes; Option Card and Header Tabs fixes) · DESIGN.md 3.7.0 · tokens 3.12 unchanged
+
+**Figma:** [🚙 Golf Carts](https://www.figma.com/design/s0G2Gga52Tz5GcZayR3jd9) (Booking 80451:41304, Confirm 80451:41310, Pay 86074:14210; the DL Advisor's review of the v2 prototype, 17 Nov) and [🃏 Cards › Option Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl). No library file changed; the rules come from the Advisor's comments and rulings.
+
+### Changed: components
+
+- **OptionCard:** minimum height 60 (was 78): rows are 18 all round, so one line is 60 and a row with a small action 66. The 359 width cap is gone (rows span 386 on a 402 screen). An empty `title` or `description` renders nothing (F115).
+- **HeaderTabs:** new `fill`: the track spans its container and every tab takes an equal share, two tabs 50/50 (GC-R11).
+- Checked and already right in this release: SelectCard has no radio (fixed 14 Nov; the radio came from an older standalone copy of the skill), and the Toolbar `Timer` chip has its ring (F119).
+- Also carried in this release: the fixes published to the design system page on 17 November, evening, after DESIGN.md 3.6.1 (Pagination, Tab Bar Content Share / Filters / Floating Cart Empty, Direction Sheet, Payment Details, Section Header and Section Title, the Secondary and Fate fills in Plus Darker, buttons following a dark parent, the Toolbar Timer ring, RTL as the default, light preview frames). They are now in the plugin and the handoff too.
+
+### Added: rules
+
+- **Intake (DL-43):** every new task asks the clarifications that change the build, then the objectives and purpose in the Notion DX Tracker's fields, benchmarks against Nusuk's own contracts, patterns and flows, searches Mobbin and Dribbble for structure only, and then builds the flow and the screens from DL components (M13 › Intake; skill §0).
+- **Native prototypes (DL-44):** every prototype simulates Apple's transitions and draws the iOS status bar with the time fixed at 02:22 and the battery percentage (M13 › Prototypes; skill §9).
+- **Prototype fidelity (GC-R1 to GC-R18):** one stage per Figma frame and nothing added; conflicts raised as design questions, never fixed silently; floating, blurred Toolbar and Tab Bar; the Header Effect; sections 8 from the screen sides; the Payment Box as one piece (M9, M9T, M13; `LEARNINGS.md`).
+- **Known issues F114–F119** (Payment Box, Option Card height and width, TextField action, Header Effect, four icons, Timer icon); `all:unset` on a DL component is now a builder rule; the body-2 line height is not a defect (Figma's Body 2 is 1.28 too).
+- **Skills:** `nusuk-design-language` gains §0 Intake and §9 Prototypes (the old §9 and §10 are now §10 and §11); `nusuk-feature-handoff` runs the intake, builds the Figma version and raises conflicts as design questions; `nusuk-dx` points to the intake.
+
+### iOS
+
+- Option Card rows: 60 pt (one line), 66 with a small action, 18 all round; full width.
+- Header Tabs on a page: equal-width segments across the container (an `HStack` of tabs with `.frame(maxWidth: .infinity)`).
+- Prototypes now show the transitions you build with the system (`NavigationStack` push, `.sheet` with detents, `.fullScreenCover`, alerts, large titles). Use the system status bar; the 02:22 bar is for prototypes only.
+
+### Android
+
+- Option Card rows: 60 dp (one line), 66 with a small action, 18 all round; full width.
+- Header Tabs on a page: equal-width tabs (`Row` with `Modifier.weight(1f)` on each tab).
+- Prototypes show iOS transitions; on Android keep the platform's own navigation and predictive back.
+
 ## 17 November 2026, 22:15 (⚙️ Foundation: Shadow/OS effect style; _Glass BG Master background; drop shadows in the native files; direct downloads) · DESIGN.md 3.6.1 · tokens 3.12
 
 **Figma:** [⚙️ Foundation › Effects](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo/?node-id=54003-2344) (`Shadow/OS` new, read 22:00) and [⚙️ Foundation › Glass BG / _Glass BG Master](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296) (read 22:17), with [📻 Selections & Switches › Select Card](https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw).

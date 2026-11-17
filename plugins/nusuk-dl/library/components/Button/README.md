@@ -4,6 +4,8 @@ The call to action. Primary for the one main action, Secondary for the alternati
 
 **Figma source:** 🕹️ Buttons › CTA (320 variants: Kind × Size × State × Icon × Fate), built on `_Button Trail` (44 variants). Colours come from the Buttons library's own collection `Buttons Colors` (Light / Dark / Green modes). Sizes come from `Buttons Setup` (XS / SM / MD / LR modes). Insert the component from the library in Figma. This card mirrors it for concepts, decks and code.
 
+**18 November 2026 (Golf Carts review, builder rule):** the 48 tap area is a `::after` layer that needs `position: relative`. Never `all: unset` a DL button or any DL component: the layer then covers its neighbours.
+
 **14 November 2026:** every case of the master is now reachable. The Figma master of masters (`_Button_Master Of Masters`) has nine booleans: Leading Icon, Trailing Icon, Icon Only, Show Text, Show Price, Show Apple Pay, Nafath Icon, Show Absher, Glass Effect. Code adds `icon="both"`, `price`, `mark` and `glass`, and composes kind × `fate` × `tone` × `onDark` so the combinations `_Button Trail` does not list also work (table below). Token fixes: `button-fate-surface` is `Alerts/Surface/Solid Error` at 10% (#ff41361a, was #fff2f1) and `button-secondary-surface-on-dark` is Slate at 70% (#303336b3).
 
 **17 November 2026:** the `glass` prop blurs 5px behind the button (`Glass/Andriod Blur` is 10 in Figma; CSS blur is half the Figma radius). It was 10px.
