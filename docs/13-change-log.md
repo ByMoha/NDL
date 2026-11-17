@@ -4,6 +4,24 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 17 November 2026, 17:30 (install steps give the full GitHub link) · DESIGN.md 3.3.1
+
+**Figma:** none. This changes the text of the guide and the skill only.
+
+### Changed
+
+- **Install steps:** wherever the DL says how to install the plugin, it names the repository by its full link, [https://github.com/ByMoha/NusukDL](https://github.com/ByMoha/NusukDL): the guide's design system tab and Downloads, the skill's `GETTING-STARTED.md`, `LEARNINGS.md` and `SKILL.md`, the README files on GitHub, and this design system's README and release notes.
+- **Claude Code** takes the link as it is: `/plugin marketplace add https://github.com/ByMoha/NusukDL`, then `/plugin install nusuk-dl@nusuk-dl`, tried on 17 November in a clean Claude Code setup. The short form `ByMoha/NusukDL` still works.
+- **Google Drive** keeps one copy of each download, the newest. The copies from earlier releases are in the Drive trash.
+
+### iOS
+
+- No change.
+
+### Android
+
+- No change.
+
 ## 17 November 2026, 16:45 (the Nusuk plugin carries the seven Nusuk skills; three downloads on the design system tab) · DESIGN.md 3.3.1
 
 ### Changed

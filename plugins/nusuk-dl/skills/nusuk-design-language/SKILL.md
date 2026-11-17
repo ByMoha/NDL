@@ -169,5 +169,5 @@ The chat is one aspect of this skill, a **Proposed lane** of the DL built from F
 | `assets/logos/` | The Nusuk logo in ink, white and gold (SVG); clear space and misuse rules are in `reference/brand.md` |
 | `assets/bundle.js`, `assets/bundle.css`, `assets/tokens.css`, `assets/starter.html` | Building a prototype with the coded components (React 18, `window.NusukDL`) |
 | `scripts/figma-count-behind.js`, `scripts/figma-accept-updates.js` | Carrying a library update into other Figma files, safely |
-| GitHub `ByMoha/NusukDL` (team access), or the DL guide › Downloads | The full DL tree this skill condenses: one folder per component with its preview page, the coded package, every migration and the illustration references. claude.ai takes at most 200 files in a skill zip, so the skill carries the cards, chat cards and migrations as one file each |
+| GitHub https://github.com/ByMoha/NusukDL (team access), or the DL guide › Downloads | The full DL tree this skill condenses: one folder per component with its preview page, the coded package, every migration and the illustration references. claude.ai takes at most 200 files in a skill zip, so the skill carries the cards, chat cards and migrations as one file each |
 

@@ -11,8 +11,9 @@ For developers. Figma is the source of truth; `tokens.json` mirrors it. Machine-
 - **Password (2.8.2, 2.8.3):** the criteria sit under the 62 field as DL Checkbox SM, 8 apart, without full stops.
 - **Component notes (2.8.4):** the PasswordField and Message cards are rebuilt from the code's registry and describe the 2.8.2 layout; nothing renders differently.
 - **One bubble per answered question (M9C):** once a question is answered, its bubble is dismissed and the answer is one user bubble carrying the question as its header row, with "Edit answer". Pass the question as `question` on the answer.
-- **The DL as a Claude plugin:** sync ByMoha/NusukDL once in Organization settings › Plugins & skills › Sync from GitHub; the `nusuk-dl` plugin carries the seven Nusuk skills (design language, visual system with its artworks, content writer, voice rules, UX, DX, feature handoff), and each release raises its version.
+- **The DL as a Claude plugin:** sync [https://github.com/ByMoha/NusukDL](https://github.com/ByMoha/NusukDL) once in Organization settings › Plugins & skills › Sync from GitHub; the `nusuk-dl` plugin carries the seven Nusuk skills (design language, visual system with its artworks, content writer, voice rules, UX, DX, feature handoff), and each release raises its version.
 - **Downloads:** the design system tab offers the three packages only (everything, developers, designers); the skill zip inside them also carries the content guide and the voice rules.
+- **Install steps (17:30):** every install step gives the full link; Claude Code takes it as it is: `/plugin marketplace add https://github.com/ByMoha/NusukDL`, then `/plugin install nusuk-dl@nusuk-dl`. Google Drive keeps only the newest copy of each download.
 - **Open:** F88–F90; questions Q-D38 (the master's bottom padding) and Q-D39 (three or five password criteria).
 
 ## 17 November 2026, afternoon (Status Handlers and Rating & CSAT) · tokens 3.10 unchanged
