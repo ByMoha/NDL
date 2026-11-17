@@ -253,6 +253,7 @@ A read of the DL library files on 11 November 2026, before the Nusuk AI chat joi
 | AI6 | Saudia, Marriott and Egyptair marks in 🃏 Cards › Logo Icons are image fills, so code ships PNGs; vector marks are needed |
 | AI7 | The Nusuk Bot colours stay gold in Makkah and green in Madinah in every theme. The DL has no fixed colour token for them (the primitive collection in ⚙️ Foundation is private), so they stay proposed as `chat-bot-*` |
 | AI8 | 💬 Chat UI raw values outside the DL scale (recounted 14 Nov): item spacing 10 (9 layers) and 9 (2), radius 74 (5), opacity 0.3 (15). The 35 unbound white fills are now bound. The 62 input height is still no DL variable |
+| AI9 | The chat lane's `HotelCard` and `FlightTicketFull` now duplicate the DL `HotelCard` and `FlightTicket` (Full), rebuilt from 🏖️ Travel on 17 Nov 2026 | Point the chat's hotel and flight answers at the DL components and retire the two chat copies; until then they may drift |
 
 ## Figma round (12 November 2026)
 
@@ -422,6 +423,12 @@ Read in [🚙 Golf Carts](https://www.figma.com/design/s0G2Gga52Tz5GcZayR3jd9/�
 | TC19 | Golf Carts › Confirm and pay (`86028:13882`) reuses Market's `Shippment (2)` and `Shipping Details` frames, with a hidden `Location` sub-frame, to hold the pickup zone and time — not a shipped parcel | `payment`: nothing else on the page; borrowed shipping copy also mistranslates and misreads to a screen reader |
 | TC20 | Golf Carts › the pass is a local `_GolfCart Ticket` component (booking details `86028:13911`; a standalone Ticket/QR frame reused across Passenger and Passengers variants), not `QRCodeStatus`, and shows a remaining-uses count ("used 1 of 5") | `pass-sheet.states` has four states and none of them is multi-use; a reusable pass needs its own state, not a local workaround |
 | TC21 | Golf Carts › Service Details shows a Contact Details block (phone, email) inline, part of a hidden Shared Facilities / Working Hours / F&amp;Qs / Contact Details master — none of these are spaces in `item-details.spaces` | Either document a venue-info space family on `item-details` for location-based services, or route to `service-support`'s `contact` space instead of duplicating it |
+| TC22 | Golf Carts › All requests: the two Active cards show the raw token «⁦%s⁩ تذاكر» / «⁦%s⁩ تذكرة», while Ended and Cancelled cards resolve («تذكرتان», «تذكرة واحدة») | No placeholder ships (M6); count with the six Arabic plural forms |
+| TC23 | Golf Carts › Booking screen (package and quantity before a date) has no contract: `item-details.notFor` excludes a booking with a date, slot or permit, and `date-period` / `date-slot` do not cover choosing what to book. The screen itself uses real Select Card, CTA and Tab Bar | A scope call: draft a Proposed step contract, or log only. Candidate new contract |
+| TC24 | Golf Carts › Confirm and pay: six raw tokens render («[Total]» ×2, «[المبلغ]», four «%s»), and the final CTA reads «ادفع عبر %s» | Release blocker on the payment screen: no placeholder ships, and the button names the outcome |
+| TC25 | Golf Carts › Confirm and pay sums two package types (5 electric, 2 manual) while the Booking screen offers one either/or choice with one stepper | Resolve with TC23 |
+| TC26 | Golf Carts › Terms and conditions: no contract, and the body is Zamzam and telecom boilerplate, not Golf Carts' terms | Content owner supplies the service's own terms; a terms contract is a scope call |
+| TC27 | Golf Carts › Support sheet: the header shows raw %s; of five FAQ rows one has content (a Tawaf lap-counting answer, unrelated) and four read «العنوان» | Content and data binding; no placeholder ships |
 
 ## Figma round (17 November 2026, 15:30: 💬 Chat UI)
 
@@ -432,3 +439,32 @@ Read in [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node
 | F88 | `_Chat Container` (`80453:2664`) still has Body 20 / 18 / 20 / 18. 16 variants override the bottom to 26 and 8 keep 20 (Voice ×2, the Days and Slots answers, Passport Attach, Location Guide, Hotel Choose, Flights Selection). Overrides that disagree with their master drift at the next edit | If 26 is the rule, set it on the master and reset the overrides; if the 8 are deliberate, say why (Q-D38). Code follows each variant as drawn |
 | F89 | Style=Password (`80607:16432`) lists three criteria (8 characters, one lowercase, one uppercase); the chat checks five (adds a digit and a symbol without spaces) | One policy for design and code; the content owner decides (Q-D39) |
 | F90 | The password field label is «كلمة المُرور», with a damma | «كلمة المرور», as everywhere else in the DL and the chat |
+
+## Figma round (17 November 2026, evening: Navigation progress, Misc, Cards, Market, Patterns)
+
+Read in [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) (twice: 19:00 and 20:05), [🔌 Misc](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj/?node-id=2402-18252), [🃏 Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=2402-18252), [🛍️ Market](https://www.figma.com/design/5X9RDeo33hZFEhtjVUYr5c/?node-id=2402-18252), [✨ Templates-Patterns](https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70394-7656) and [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252). Logged, not fixed in Figma.
+
+| # | Issue | What to do |
+|---|---|---|
+| F91 | 🧭 Navigation › `_Progress Bar`: the Darkmode values are Off, On, Darkmode3, Darkmode5 (twice) and Darkmode6, so Off/Step 03 and On/Step 02 share "Darkmode5". Off/Step 03 has padding 8 on every side and a 74 fill (On is 90) | Darkmode Off and On only, three steps each; Step 03 as Step 01 and 02 |
+| F92 | 🧭 Navigation › Circular progress indicator: the labels do not match the drawings (Progress=10 draws about 17%, 30 half, 50 three quarters, 80 the full ring), there is no 100, and the description promises a Wave option with no variant. The set changed three times while it was read (24, 5, then 10 variants) | Finish the set before publishing; code follows the labels and stays Proposed |
+| F93 | 🧭 Navigation › `_Form Progress Indicator`: P60 is built on P40, P80 on P60 and P100 on P80, so an edit to one step ripples. The master's progress ellipse is 45.6 in a 44 frame, 0.8 off centre | Each step on the master; the ellipse inside the frame |
+| F94 | 🧭 Navigation › Haramin Icon loops every 6 s in the prototype and now in code (BottomNav's الحرمين tab, from the design system comments). DESIGN.md says the icon plays once per visit, never as a resting loop (M8 Motion, N16) | Decide which wins (Q-D40) |
+| F95 | 🔌 Misc › Headers: names in the published API keep spelling slips (Show Seperator, 03 Collaps, Section Title With Devider); the change log lines are undated | Fix the names before the next publish; date each change |
+| F96 | 🃏 Cards › Request Cards › Type=Message is a copy of Hair Cut (the instance is named Hair Cut; wellness copy, «موعد استجمامك») | Remove it, or draw the message card it is named for |
+| F97 | 🃏 Cards › Price Options › Discount Tag binds ⚙️ Foundation's `Buttons/Surface/Error` and `Buttons/Text/Error`, which have no DL token (their values equal Alerts/Surface/Error and Alerts/Text/Error); the tag text has no text style, is 10 and mixes Ping AR + LT Light with IBM Plex Sans Arabic Light. Error red on a promotion also reads as a warning | Bind the alert tokens or add button error tokens; a text style; the colour question is Q-D41 |
+| F98 | 🃏 Cards › Price Options › Show CTA adds a second control beside the cart control, with the placeholder icon and no stated purpose; K9 allows one control | Say what it does, or remove it; code keeps it off by default |
+| F99 | 🃏 Cards › Add to Cart CTA has a variant named "Status7" («اشتر») | Name it (code calls it `buy`) |
+| F100 | 🛍️ Market › `_Udhiya Details`: LR shows `arrow-up-01` open and closed (SM shows `arrow-down-01` both ways); the Delete CTA reads the placeholder «Button Text»; the switch reads «استخدام نفس معلومات التواصل الخاصة بي.» (write «بيانات», no full stop on a label); the chip shows «#» | Chevron follows the state; real labels: «حذف» or what the action removes, «استخدام بيانات التواصل الخاصة بي» |
+| F101 | 🛍️ Market › Select Location: Selected=On is 160 × 81 and Off 158 × 79, so choosing a place shifts the row by 2. Breathing Effect left 🛍️ Market; Shippment Tracker uses the library copy | One size for both states (draw the line inside) |
+| F102 | ⠏ Patterns: nine of the ten sections keep the Option chip picker's header (title and subtitle) in their DL Header; Live, Reel, Articles and Guides copy the chip picker's Signal line («gold fill… Solid=On»), and Live its Focus line («every chip») | Each section's own title and accessibility lines before the DL Manager reviews them |
+| F103 | ✨ Templates: five loose frames (Category filter, Feature rows, Audio row, Reels strip, Community strip, 294 × 70) sit on the page outside any section; the page's change log stops at 11 November | Move them into the Content landing wireframe; log the 17 November proposals |
+
+### Questions for the DL Manager (17 November 2026, evening)
+
+| # | Question | Why it matters |
+|---|---|---|
+| Q-D40 | The Haramain tab: a 6 s loop as Figma's prototype draws it, or once per visit as M8 Motion and N16 say? | A resting loop on the tab bar is always in view; reduced motion already holds it still |
+| Q-D41 | A discount pill in error red (Price Options, HotelCard)? | The DL keeps red for errors, delete and cancel; a red price tag reads as a warning, and pairs with a struck price (anchoring, M3) |
+| Q-D42 | The Proposed Guides page and the coded `guide` pattern share a name. Rename which? | Two patterns under one name will be mixed up in contracts and prompts |
+| Q-D43 | Content landing: it is drawn as a tab destination with no back arrow, but placed at L2 under the tab destinations; and its measure counts opening an article or reel as a meaningful action | The North Star counts outcomes (a reading session over a threshold), not taps; the level decides the toolbar |

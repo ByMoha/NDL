@@ -1,24 +1,24 @@
 {
  "release": "2026-11-17",
- "built": "2026-11-17T17:27+03:00",
- "designMd": "DESIGN.md 3.3.1",
- "tokens": "3.10",
- "checked": 310,
+ "built": "2026-11-17T20:13+03:00",
+ "designMd": "DESIGN.md 3.4.0",
+ "tokens": "3.11",
+ "checked": 328,
  "files": [
   {
    "file": "DESIGN.md",
-   "bytes": 235784,
-   "sha256": "4834a75c33f4a562ca4ebb54d9c1b28fbe0f9cec81145f333457d04efd14a812"
+   "bytes": 247776,
+   "sha256": "452deb36e14c4792b223f57592ef7fecbf4495da71fefbf3f5f0b5cc3295d1f7"
   },
   {
    "file": "NusukTokens.kt",
    "bytes": 59479,
-   "sha256": "15b7511e0a4ec65a7d4023aa063d191e86c7f0f437a7b756726865a00896a093"
+   "sha256": "52f23aba5bb0d77edfa5750e5fcb00351c19ff13f4860fedf0bc5e63bdf25010"
   },
   {
    "file": "NusukTokens.swift",
    "bytes": 68341,
-   "sha256": "8038f0f49da209c778d1c6b690e705aef25f4d396e90079447d4fa3a38181883"
+   "sha256": "a82a63ef205685c7a67e827fe28f6dc84845e19decc484c8adf1c8ed9a931ac0"
   },
   {
    "file": "ios-android-handoff.md",
@@ -27,38 +27,38 @@
   },
   {
    "file": "nusuk-design-language.zip",
-   "bytes": 806186,
-   "sha256": "24a0d086c4f6c83555b0558bac4b5a548c67538b9896562f8901c19d50324e05",
+   "bytes": 843303,
+   "sha256": "70ee06cb6424e0529d957b1c3b585922a6bb0375d07fb9d128e246825a890f31",
    "files": 85
   },
   {
    "file": "nusuk-dl-all.zip",
-   "bytes": 1770425,
-   "sha256": "311d1b6c113cf630c213a46bdcf9ad66915051f6d396c4be71c0cea762b3933c",
-   "files": 399
+   "bytes": 1856783,
+   "sha256": "9726ab2890819c67d28e33f46d996735cda43ad59566b1588cd56e64fa7daa99",
+   "files": 417
   },
   {
    "file": "nusuk-dl-designers.zip",
-   "bytes": 1564773,
-   "sha256": "24a2511210723cbba726f98c61d914923175a2d5276b485454683a1a95f897fa",
-   "files": 312
+   "bytes": 1646980,
+   "sha256": "95672828bbf3ac5ee7f1cdd02944c95a9c20d44723f518aaaa92ced0c148f48b",
+   "files": 328
   },
   {
    "file": "nusuk-dl-developers.zip",
-   "bytes": 1746107,
-   "sha256": "c979a97fde789fbb69e1359a5264a2e52a600f6cf149887d0d53773fff109a21",
-   "files": 392
+   "bytes": 1832862,
+   "sha256": "02f730aa4fefa9f1efddd0b163159788bd79782d6561fc164d37a3e56f842a6a",
+   "files": 410
   },
   {
    "file": "nusuk-dl-patterns-templates.zip",
-   "bytes": 72738,
-   "sha256": "13c2f2c8997b274b6034358fc2f1f4f9dda8748d8d7bcd3aafa7e5c1198965ee",
+   "bytes": 74173,
+   "sha256": "2f3c27619c7c8deda0c1bde2cbc1c63abf5d30e3d95c55854713ea4bdf8e7805",
    "files": 26
   },
   {
    "file": "tokens-native.json",
    "bytes": 76470,
-   "sha256": "fd654fa6352a4183e6d7e4f083dc4da26a443d24ef33ff5f76e83e6b5c3fbc8d"
+   "sha256": "e519bba513fecbafc7c6a2bcf74dee7af366e04fa32abace9405fec80e77fb89"
   }
  ]
 }

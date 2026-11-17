@@ -1,28 +1,32 @@
 # TimeSlot
 
-A selectable time slot with capacity note.
+A selectable time slot cut as a ticket, with markers and an optional crowd chip.
 
-**Figma source:** 📅 Date & Time › Time slot card, Time & Slots section (Normal, Skeleton, Gender Unavailable), Time Picker. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** 📅 Date & Time › Time slot card (Selected Default / Selected / Disabled) on _Time slot card Master, Time & Slots section. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
-**15 November 2026, evening:** a ticket card 54 high, radius 22, with notches top and bottom; period (16) and time (18) in `text-heading`; optional `markers` (`soon` hourglass, `instant` zap, `prayer` salah) as 20 circles overlapping the corner. Default white with a Pearl line; Selected shade 2 with a Longing line and Longing markers; Disabled Ivory and `text-note`. Put it on the screen background (the notches use `--slot-cut`).
+**17 November 2026, rebuilt from the master:** 54 high, corners 12. One 17-wide semicircle notch on the top edge and one on the bottom, centred 26.5 from the start corner on the markers' side (left in Arabic). The notches are real cut-outs (a CSS mask), so they show whatever sits behind the card, and the Pearl line (Longing when selected) follows the notch. The old version painted circles in the screen colour and drew their full ring outside the card. Text: time Body 1 Regular, then the period Body 2 Light (reads «06:00 ص»). Markers are 22 circles (12 icon, 4 padding, 1 line) overlapping by 7, from −4/−3 over the top notch, in the order soon, instant, prayer. The master's optional Chips slot is `crowd` (Chips Pending MD, «مزدحم») and its trailing icon is `iconName` (24). Default white + Pearl; Selected Shade 2 + Longing, Longing markers with white icons; Disabled Ivory + Pearl, `text-note`.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
 | `status` | `'default' \| 'selected' \| 'disabled'` |  |
-| `time` | `string` |  |
-| `note` | `string` | Real capacity only |
-| `period` | `string` | ص / م; taken from `time` after a space when absent |
+| `time` | `string` | «06:00 ص»: the period is taken after the space |
+| `period` | `string` | ص / م when `time` has none |
 | `markers` | `('soon' \| 'instant' \| 'prayer')[]` | Corner markers, each with a spoken label |
+| `crowd` | `string` | Crowd chip; `note` is still read as the same chip |
+| `crowdState` | `string` | Chip state, default pending |
+| `iconName` | `string` | Trailing 24 icon |
 
 ## Use
 
-- Capacity notes reflect real availability.
+- Put it on any surface: the notches are transparent.
+- Crowd chips reflect real availability.
 
 ## Don't
 
-- Never invent scarcity ("Only 2 left!") that isn't true.
+- Never invent scarcity that is not true.
+- Do not add a second text note next to the crowd chip.
 
 ## You provide
 

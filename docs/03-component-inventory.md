@@ -1,6 +1,6 @@
 # Component inventory
 
-Every public component set in the DL library, with its variant properties, read from Figma on 2 November 2026; Buttons, 🧭 Navigation and 🃏 Cards re-read on 8 November 2026 (Media Cards now live in 🃏 Cards) and again on 10 November 2026, with the new 🛍️ Market library. Every library file re-read on 11 November 2026 (*Known issues › Figma round*); 📻 Switches, ⬇️ Dropdown list, the 🧭 Navigation sheets and Nudges, 🔦 Tracker › Steps, 🏖️ Travel › User Group and 🎫 Widgets › Start Journey re-read set by set on 14 November 2026 (F16 to F25); every file read again that night after the library publish (F33 to F45); chat sets traced in DESIGN.md › M9C. Sets starting with `_` are private building blocks (masters) and are not listed. The **Card** column names the component in this system that mirrors the set; sets without a card are used straight from Figma.
+Every public component set in the DL library, with its variant properties, read from Figma on 2 November 2026; Buttons, 🧭 Navigation and 🃏 Cards re-read on 8 November 2026 (Media Cards now live in 🃏 Cards) and again on 10 November 2026, with the new 🛍️ Market library. Every library file re-read on 11 November 2026 (*Known issues › Figma round*); 📻 Switches, ⬇️ Dropdown list, the 🧭 Navigation sheets and Nudges, 🔦 Tracker › Steps, 🏖️ Travel › User Group and 🎫 Widgets › Start Journey re-read set by set on 14 November 2026 (F16 to F25); every file read again that night after the library publish (F33 to F45); chat sets traced in DESIGN.md › M9C. On 17 November 2026, evening, 🧭 Navigation (twice), 🔌 Misc, 🃏 Cards, 🛍️ Market, ✨ Templates-Patterns and 💬 Chat UI were read again (F91 to F103). Sets starting with `_` are private building blocks (masters) and are not listed. The **Card** column names the component in this system that mirrors the set; sets without a card are used straight from Figma.
 
 ## Actions — 🕹️ Buttons
 
@@ -40,11 +40,13 @@ Built from private masters: `_Button_Master Of Masters/Default` (layout, label, 
 | `_Tab` (private, replaces Tab on 14 Nov) | 8 | Style [Default, Current, Icon Only, Pill] × Darkmode [Off, On] | NavTab |
 | `_BottomTab master` (private; Buttom Navigation removed 14 Nov) | 12 | Mode [Primary, Primary/Small, InnerPage, Marketplace, Interactions, Actions] × Darkmode [Off, On] · Nudge slot | BottomNav |
 | Nudges (new 10 Nov) | 2 | Expand [On, Off], on `_Nudges Master` | Nudge |
-| Haramin Icon (new 14 Nov) | 2 | Darkmode [Off, On]: three stacked glyphs with a layer blur (F8) | NavTab `special` |
+| Haramin Icon (new 14 Nov) | 2 | Darkmode [Off, On]: Kaaba, Masjid and Maqam cross-fading on a 6 s loop in the prototype (coded 17 Nov 2026; Q-D40) | HaramainIcon (BottomNav special tab) |
 | ~~Toolbar - Bottom - iPhone~~ | — | Removed from 🧭 Navigation on 14 Nov 2026, night (was 5 types built from Apple's iOS kit, F7 closed) | Use the system toolbar |
 | Home Item, Marketplace Cart, Tab, Buttom Navigation | — | Removed from Figma on 14 Nov 2026 (HomeItem and TabBar `market` still render in code) | — |
 | _Status Bar (private since 8 November) | 2 | Color [Black, White] | StatusBar (mockups) |
-| Progress | 1 | RTL | ProgressRing |
+| Progress | 1 | RTL, on `_Form Progress Indicator` (Status P20, P40, P60, P80, P100 · Show Check Mark) and `_Master Progress Indicator`; rebuilt in code 17 Nov 2026 (F93) | ProgressRing |
+| Circular progress indicator (new 17 Nov 2026) | 10 | Progress [0, 10, 30, 50, 80] × Darkmode [Off, On]; edited during the read, labels and drawings disagree (F92) | CircularProgress (Proposed) |
+| `_Progress Bar` (private, 17 Nov 2026) | 6 | Step [01, 02, 03] × Darkmode [Off, On, Darkmode3, Darkmode5, Darkmode6] (F91), on `.Building Blocks` (Full On, Off) | Toolbar `process` (`step`) |
 | Group Users | 2 | RTL | AvatarGroup |
 | Direction Sheet | 4 | Options [Restore, 2 Options, Details, Filter] (Login Sheet and Session timeout removed 15 Nov 2026) · Show Icon? · Show subtitle? · re-read 14 Nov 2026: Bottom Sheet BG corners 42 / 54, Glass/Full, content 32 / 26 / 48 (F23) | DirectionSheet |
 | Support Bottom Sheet | 2 | Status [Default, SOS], on `_Support Bottom Sheet Master`: an Ivory quick-actions sheet behind a white questions sheet (gap −130); SOS: instant help and numbers. Re-read 14 Nov 2026 | BottomSheet |
@@ -53,7 +55,7 @@ Built from private masters: `_Button_Master Of Masters/Default` (layout, label, 
 | Header Tabs | 4 | Size [LR, SM] · Background [On, Off]; chosen tab white (re-read 15 Nov 2026) | HeaderTabs |
 | Number Notification | 5 | Status [Default, Alert, Success, Gold, White] | CountBadge |
 | Vertical Stepper Mobile | 9 | State [Done, Current, Next] · Step [Start, Middle, Last], on `_Stepper Step Master Mobile` (booleans Status, Description, Last Update, Alerts, CTAs), `_Stepper Point` (Done, Current; Number) and `_Tracker Status` (1–3 chips). Re-read 14 Nov 2026, night: code rebuilt as a replica (F33–F37) | VerticalStepper |
-| Headers | 13 | Location [Widget Header, 02 Section Title, 01 Hero, XL Header, Separate Icon, 03 Collapse, 03 Family, Section Title With Divider, Simple Title, Filter / Search, XS Legend, 04 Legend, 05 Complex] · RTL · Show CTA? · Show Description? · Show Separator? | SectionHeader |
+| Headers | 14 | 17 Nov 2026: new Location 02 Section Title / Centered and an Actions slot (02 Section Title now 32 / 18 / 18) · Location [Widget Header, 02 Section Title, 02 Section Title / Centered, 01 Hero, XL Header, Separate Icon, 03 Collapse, 03 Family, Section Title With Divider, Simple Title, Filter / Search, XS Legend, 04 Legend, 05 Complex] · RTL · Show CTA? · Show Description? · Show Separator? | SectionHeader |
 | Step | 3 | State [Previous, Current, Next] | Steps |
 | Steps | 8 | Status [OrderReview, OrderPreparation, OrderShipped, OutForDelivery, Delivered, CancellationRequested, CancellationProcessing, RefundInProgress] (last three order statuses named 12 Nov 2026), on `_Step Master`. Re-read 14 Nov 2026: stage icons per status; code rebuilt (F20), then rebuilt as a replica that night (18 / 32 spacing, gradient lines, Breathing Effect, F38) | Steps |
 
@@ -94,16 +96,16 @@ These Notifications components currently sit on a page named *Playground*; see *
 | Member Card / Actionable | 2 | Swaped · Active | MemberCard (`actionable`, `swiped`) |
 | Member Card / Selection | 2 | Selected | MemberCard (`selectable`) |
 | _Badge Type, _Card Avatar (private) | 2 + 2 | Type [Contact, Absher] · Avatar [1, 2] | MemberCard (`badge`, `people`) |
-| Request Card Status | 47 | 46 statuses + Approved (new 14 Nov, مقبول, `document-validation`); full list in DESIGN.md › M9 › StatusChip | StatusChip |
-| Request Cards | 12 | Type [Electric Cart, Flight, HHR, Hair Cut, Hotel, Rawdah, Ticket, Umrah, Marketplace, Umrah Package, Hajj] (SIM removed 10 Nov 2026); built on `_Request Card Master` (Status [Active, Empty State] · Upcoming? · Past? · Show Market Order? · Alert? · Content slot) | RequestCard (all 12 + Empty State) |
-| Option Cards | 13 | Type [Icon with Action, Action Only, LR Icon with Action, Icon Top, without Action, text only, 2 Actions, Counter, Requirement Item, Product, Simple list, LR Icon, 2 Actions On (new 15 Nov 2026)]; built on `_Master Card/On` (Partner Logo? · Description? · Status? · Right Icon slot) | OptionCard (all 9) |
+| Request Card Status | 48 | 46 statuses + Approved (new 14 Nov, مقبول, `document-validation`) + Confirmed Booking (new 17 Nov, حجز مؤكد, `document-validation`); full list in DESIGN.md › M9 › StatusChip | StatusChip |
+| Request Cards | 12 | Type [Electric Cart, Flight, HHR, Hair Cut, Hotel, Rawdah, Ticket, Umrah, Marketplace, Umrah Package, Hajj, Message (a copy of Hair Cut, F96)] (SIM removed 10 Nov 2026); built on `_Request Card Master` (Status [Active, Empty State] · Upcoming? · Past? · Show Market Order? · Alert? · Content slot) | RequestCard (all 12 + Empty State) |
+| Option Cards | 13 | Type [Default, with Icon, Simple list, with Action, Icon with Action, 2 Actions, 2 Actions On, Counter, LR Icon with Action, LR Icon, Top Icon, Requirement Item, Product] (renamed 17 Nov 2026); built on `_Master Card` (Mode [Default, Transprent, Gray] · Partner Logo? · Title? · Status? · Left and Right slots) | OptionCard (all 13; Figma names accepted) |
 | Media Cards | 23 | Type [Marketplace Grid, Marketplace List / Out of stock, Marketplace Grid / out of stock (15 Nov 2026), Streem, Athkar, Flight, Ticket, Train, Resturants, Activitie, Article, Video, Sound, Attraction, More, Marketplace / List, Marketplace (was Marketplace / Grid), Marketplace / out of stock, ADS, Short, Image, Hotel, Package, Author, Museum (new 14 Nov, night)]; built on `_Media-Card` (Group × Solid BK), `_Highlight-Icons` (21 types, Out of stock added) and `_Highlight-Author`; `_Highlight Master Component` is gone (F42). Moved here from 🏠 Landing Experience V2 | MediaCard (Museum not coded yet) |
-| Add to Cart CTA (new 10 Nov) | 6 | Status [cart, one, many, Remove, Notify me, arrow] | AddToCartCTA |
-| Price Options (new 10 Nov) | 2 | Vertical [False, True] | PriceOptions |
+| Add to Cart CTA (new 10 Nov) | 7 | Status [cart, one, many, Remove, Notify me, arrow, Status7 (17 Nov, «اشتر», F99)] | AddToCartCTA (`buy` = Status7) |
+| Price Options (new 10 Nov) | 2 | Vertical [False, True] · Show Price? · Show Add To Cart? · Show CTA? · Discount? (17 Nov 2026; F97, F98) | PriceOptions |
 | Siblings in the same file | — | Option Card_Master (Image, SM, LR, XS) · Faces (Group) · Playlist (Vertical) · Hints Widget (Vertical, Horizontal, Direction3, Direction4 = HintWidget `logo`, 14 Nov) · Logo Icons (7 entities) · City Logo · Logos Group | CategoryTile · FaceTile · PlaylistCard · HintWidget (coded 9 November 2026); logos Figma only |
 | Layout patterns | 10 | Categories (2), Cards Slider, Playlist, Leaderboard, Guide, Services Box, List Side by Side, Bento Grid (3 slots), Cards List | Categories, CategoryChips, CardsSlider (`layout` row, grid), PlaylistRow, Leaderboard, Guide (`variant` card, plain), ServicesBox, ListSideBySide, BentoGrid, CardsList (coded 9 November 2026) |
 
-## Market — 🛍️ Market (new 10 November 2026)
+## Market — 🛍️ Market (new 10 November 2026; re-read 17 November 2026: 15 public sets, 5 private)
 
 Not coded yet (MK8). Sizes and rules: DESIGN.md › M9 › Market.
 
@@ -116,11 +118,13 @@ Not coded yet (MK8). Sizes and rules: DESIGN.md › M9 › Market.
 | Product Item | 5 | Status [Off, Default, Remove Product, cann't delever, Less Available] | Figma only |
 | Items List | 2 | Expanded [Off, On] | Figma only |
 | Categories | 2 | Status [Off, On] | Figma only |
-| Gifting · Featured Services/Shipping · eSIM Card · Select Location/widget · Product Header | 1 each | — | Figma only |
+| Gifting · Featured Services/Shipping · eSIM Card · Product Header | 1 each | — | Figma only |
+| Select Location (a set since 17 Nov 2026) | 2 | Selected [On, Off] (F101) | Figma only |
+| `_Udhiya Details`, `_Contact Details` (private, new 17 Nov 2026) | 4 · 2 | Status [Off, On] × Size [LR, SM] · Delete? · Status [Off, On] (F100) | Figma only |
 | Order Basic Information | 2 | Type [Order Details, Cancellation] | Figma only |
 | Shippment Tracker | 4 | Type [Sim/Pickup, Package, eSim/Install, Sim/Nafath] | Figma only |
 | TrustedByNusuk | 4 | Property 1 | Figma only |
-| Animated Gift · Breathing Effect | 4 · 2 | — | Figma only |
+| Animated Gift | 4 | — (Breathing Effect left 🛍️ Market on 17 Nov 2026; Shippment Tracker uses the library copy) | Figma only |
 
 ## Patterns and templates — 🏠 Landing Experience V2 › CMS (9 November 2026)
 
@@ -182,14 +186,14 @@ Section model, composition rules and metrics: *DESIGN.md › M9P Patterns and te
 | Try Nusuk AI | 6 | Case [Build Trip, Rawdah, Content, Support Center, Menu, Landing] | Figma only |
 | Pin Event | 2 | Type [Icon, Logo] | MapPin |
 | Select Location (screen, widget), Full Map | 3 | — | Figma only |
-| From To / Destination, From To / Duration | 5 | Status [Default, Active, Disabled] | Figma only |
-| Flight Ticket | 4 | Selected [On, Off, Skeleton] · Version [Full, Mini] | FlightTicket (Mini); Full: Proposed FlightTicketFull |
-| Hotel (was Hotel Offer) | 1 | — renamed 14 Nov 2026, night; not published, so libraries and the chat lane still say Hotel Offer (F43) | Proposed: HotelCard |
-| Ribbon/On, Feature Box, Visa User Block, Place Details, Ticket Master Empty State, Seperator | 7 | New in 🏖️ Travel, 11 Nov 2026. Seperator has 2 variants since 12 Nov 2026 (`Selected` = Off, On: the selected ticket notch, `Surface/shade 4` with a `Surface/Longing` stroke) | Figma only |
+| From To / Destination, From To / Duration | 5 | Status [Default, Active, Disabled] | FromTo, DateRange (17 Nov 2026) |
+| Flight Ticket | 4 | Selected [On, Off, Skeleton] · Version [Full, Mini] | FlightTicket (Full and Mini, rebuilt 17 Nov 2026); the chat lane's FlightTicketFull should move to it (AI9) |
+| Hotel (was Hotel Offer) | 1 | — renamed 14 Nov 2026, night; not published, so libraries and the chat lane still say Hotel Offer (F43) | HotelCard (17 Nov 2026); the chat lane's HotelCard should move to it (AI9) |
+| Ribbon/On, Feature Box, Visa User Block, Place Details, Ticket Master Empty State, Seperator | 7 | Ribbon, FeatureBox and VisaUserBlock coded 17 Nov 2026 · New in 🏖️ Travel, 11 Nov 2026. Seperator has 2 variants since 12 Nov 2026 (`Selected` = Off, On: the selected ticket notch, `Surface/shade 4` with a `Surface/Longing` stroke) | Figma only |
 | Hotel Ticket | 3 | Selected [Off, Skeleton] · Version [Full, Mini] · removed from 🏖️ Travel by 11 Nov 2026 | FlightTicket pattern |
 | Room Layout | 2 | Selected · removed from 🏖️ Travel by 11 Nov 2026 | OptionCard pattern |
 | Step Card | 17 | Status [Current, Completed, Disabled, Action, Track, Tag, Req. Completed, Req. Progress, Expanded, Companions, List Users, In Progress, Exception Request, Cancellation, Failure, Cancelled] · image · removed from 🏖️ Travel by 11 Nov 2026 (FR7) | StepCard |
-| featured airport | 2 | Selected | Figma only |
+| featured airport | 2 | Selected | FeaturedAirport (17 Nov 2026) |
 | Places & Events | 4 | Type [Package, Ticket, Simplify Hotels, Events] · removed from 🏖️ Travel by 11 Nov 2026 | MediaCard pattern |
 | Description Master | 4 | Status · RTL | CollapsedSection |
 | Details List Item | 2 | Odd/Even · Show Icon? · Availability? · Show Value? | DetailsListItem |

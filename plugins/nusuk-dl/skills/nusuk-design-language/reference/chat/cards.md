@@ -172,6 +172,7 @@ Nusuk Bot message (insight / pill) with gradient text.
 | `variant` | "insight"\|"pill" |
 | `text` |  |
 | `motion` |  |
+| `bot` | optional false (drops the bot when a Nusuk message follows) |
 
 ## Use
 
@@ -789,6 +790,7 @@ Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk B
 | `actions` | optional boolean |
 | `time` | optional string |
 | `footer` | optional false |
+| `bot` | optional false (hide the bot when the next message is also Nusuk; 24 column kept) |
 
 ## Use
 

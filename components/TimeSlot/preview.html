@@ -5,7 +5,7 @@
 <div id="root" class="nk nk-stage " dir="rtl"></div>
 <script>
   var N = window.NusukDL, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h(N.TimeSlot,{status:'selected',time:'9:30 م',note:'متاح'}),h(N.TimeSlot,{time:'10:30 م',note:'يمتلئ'}),h(N.TimeSlot,{status:'disabled',time:'11:30 م',note:'ممتلئ'})));
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h(N.TimeSlot,{status:'selected',time:'06:00 ص',markers:['soon','instant','prayer']}),h(N.TimeSlot,{time:'06:00 ص',markers:['soon','instant','prayer']}),h(N.TimeSlot,{status:'disabled',time:'06:00 ص',markers:['soon','instant','prayer']}),h(N.TimeSlot,{time:'06:00 ص',crowd:'مزدحم',iconName:'moon-01',markers:['soon','instant','prayer']})));
 </script>
 </body>
 </html>

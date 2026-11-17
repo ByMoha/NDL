@@ -2,7 +2,9 @@
 
 A coloured tile with a cut-out portrait (reciters, scholars, guides). Group stacks a second tile behind.
 
-**Figma source:** Faces (Group Off, On) in 🃏 Cards › Partials (`mg7egvNbr2ciMP04Ig2XDl`). Read 9 November 2026.
+**Figma source:** Faces (Group Off, On) in 🃏 Cards › Media Cards (`mg7egvNbr2ciMP04Ig2XDl`). Read 9 November 2026; preview photos 17 November 2026.
+
+**17 November 2026:** the preview uses the cut-out portrait from the Figma Faces component (transparent PNG, Imagery › faces-portrait.png) instead of the placeholder glyph.
 
 ## Props
 

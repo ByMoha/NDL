@@ -29,7 +29,7 @@
      "Status=Chat, Type=User/Transprent": "80578:5289"
     }
    },
-   "props": "from: \"nusuk\"|\"user\" · bg: boolean · question?: string · actions?: boolean · time?: string · footer?: false",
+   "props": "from: \"nusuk\"|\"user\" · bg: boolean · question?: string · actions?: boolean · time?: string · footer?: false · bot?: false (hide the bot when the next message is also Nusuk; 24 column kept)",
    "builtWith": "tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/lr/sm · DL Avatar (XS, Ink)"
   },
   {
@@ -409,7 +409,7 @@
      "Variant4 (Madinah pill)": "80559:28816"
     }
    },
-   "props": "location · variant: \"insight\"|\"pill\" · text · motion",
+   "props": "location · variant: \"insight\"|\"pill\" · text · motion · bot?: false (drops the bot when a Nusuk message follows)",
    "builtWith": "Light/Body/Two gradient text (black → text-link | alerts-text-success → #666) · Regular/Notes/One · pill tint shade-5 gold / #E4FBEA green"
   },
   {

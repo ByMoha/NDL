@@ -14,6 +14,7 @@ Nusuk Bot message (insight / pill) with gradient text.
 | `variant` | "insight"\|"pill" |
 | `text` |  |
 | `motion` |  |
+| `bot` | optional false (drops the bot when a Nusuk message follows) |
 
 ## Use
 

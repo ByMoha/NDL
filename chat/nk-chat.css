@@ -352,3 +352,9 @@
 .nkc-choice.on { background: var(--alerts-surface-success); }
 .nkc-choice-go { width: var(--button-height-xs); height: var(--button-height-xs); border-radius: var(--radius-full); display: grid; place-items: center; background: var(--button-secondary-surface); color: var(--button-secondary-content); }
 .nkc-choice.on .nkc-choice-go { background: var(--button-green-surface); color: var(--button-green-content); }
+
+/* 2.8.5 · Avatar grouping (thread 56b0e6d5): in a run of Nusuk messages only the last one shows the bot.
+   Native: pass bot:false to every Nusuk item except the last. Web: put .nkc-thread on the thread and it is automatic. */
+.nkc-thread .nkc-msg[data-from="nusuk"]:has(+ .nkc-msg[data-from="nusuk"]) > .nkc-row > .nkc-bot { visibility: hidden; }
+.nkc-thread .nkc-note.insight:has(+ .nkc-msg[data-from="nusuk"]) > .nkc-bot,
+.nkc-thread .nkc-note.insight:has(+ .nkc-note) > .nkc-bot { display: none; }

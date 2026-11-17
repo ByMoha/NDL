@@ -1125,5 +1125,42 @@
    "added": []
   },
   "breaking": []
+ },
+ "2026-11-17f-nusuk-chat-avatar-grouping.json": {
+  "date": "2026-11-17",
+  "name": "NusukChat 2.8.5: one bot per run of Nusuk messages",
+  "status": "proposed",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+  "source": "Review comment on the Verify before you pay cases (thread 56b0e6d5): remove the bot when the next message is also Nusuk; the one at the bottom stays.",
+  "chat": {
+   "version": {
+    "from": "2.8.4",
+    "to": "2.8.5"
+   },
+   "changed": [
+    {
+     "component": "Message and every Nusuk message type",
+     "change": "new prop bot (default true). bot:false keeps the 24 start column empty so the bubble stays aligned, and sets data-bot=none."
+    },
+    {
+     "component": "BotNote (insight, pill)",
+     "change": "new prop bot (default true). bot:false drops the 38 (insight) or 20 (pill) bot; the text starts at the note padding."
+    },
+    {
+     "component": "Thread (web)",
+     "change": "class nkc-thread on the thread container hides the bot on any Nusuk message or insight note followed by another Nusuk message. A user message, a sheet or the end of the thread ends the run."
+    }
+   ]
+  },
+  "native": {
+   "ios": "In the thread list, pass showsBot = (next item is not from Nusuk) to each Nusuk row; when false, keep a 24 pt leading spacer for bubbles, none for the insight note.",
+   "android": "In the LazyColumn, showBot = items.getOrNull(i + 1)?.from != Nusuk; Spacer(Modifier.width(24.dp)) in its place for bubbles."
+  },
+  "tokens": {
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "breaking": []
  }
 }

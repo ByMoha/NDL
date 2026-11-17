@@ -25,18 +25,18 @@ All 32 DL files in the ELM - HUIC Figma organisation. Add the library from Asset
 | [🍟 Chips](https://www.figma.com/design/VVGHy0fAHuPqL6dhBD5Ai6) | 2 sets · 130 variants |
 | [📻 Switches, Checkbox and Radio](https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw) | 10 sets · 68 variants, plus `_Master Select Card` · re-read 14 Nov 2026 |
 | [🎹 Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY) | 6 sets · 61 variants |
-| [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw) | Toolbar (22 types × Darkmode), Tab Bar (15, now also the floating bottom navigation on `_BottomTab master` and `_Tab`), Nudges, Haramin Icon, Pagination, sheets · re-read 10 Nov 2026 |
+| [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw) | Toolbar (23 types × Darkmode), Tab Bar (16, the floating bottom navigation on `_BottomTab master` and `_Tab`), Nudges, Haramin Icon, Pagination, sheets, Progress, `_Progress Bar` and Circular progress indicator (17 Nov 2026) · re-read 17 Nov 2026 |
 | [⬆️ Modals & Sheets](https://www.figma.com/design/amc1XbBjs5YtztnLxoKvh6) | 1 set · 7 components |
 | [🛎️ Notifications](https://www.figma.com/design/WAFzcSl4nXiU0nYqNrMYx1) | 28 sets · 73 variants |
 | [‼️ Status Handlers](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o) | 14 sets · 55 variants |
 | [🃏 Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl) | Member, Request (11), Option (10), Media (21), Add to Cart CTA, Price Options, Faces, Playlist, Hints, Guide · re-read 10 Nov 2026 |
-| [🛍️ Market](https://www.figma.com/design/5X9RDeo33hZFEhtjVUYr5c) | New 10 Nov 2026 · 17 public sets: product page, cart items, categories, gifting, eSIM, order and shipment tracking |
+| [🛍️ Market](https://www.figma.com/design/5X9RDeo33hZFEhtjVUYr5c) | New 10 Nov 2026 · 15 public sets and 5 private (17 Nov 2026): product page, cart items, categories, gifting, eSIM, order and shipment tracking, Udhiya details |
 | [👩🏻‍💻 Avatar](https://www.figma.com/design/doe7J5GzfjwD9ysWHZuVIG) | 4 sets · 53 variants |
 | [📅 Date & Time](https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU) | 26 sets · 55 variants |
 | [⭐️ Rating & CSAT](https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl) | 12 sets · 49 variants |
 | [🎫 Widgets](https://www.figma.com/design/VMlLoRqMJLSCKW2Fl2THrS) | 6 sets · 17 variants |
 | [🔦 Tracker](https://www.figma.com/design/nj7L8ks27djv1LmxZYFTM8) | 6 sets · 26 variants |
-| [🔌 Misc](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj) | 1 set · 13 variants |
+| [🔌 Misc](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj) | 1 set · 14 variants (Headers; 02 Section Title / Centered and the Actions slot, 17 Nov 2026) |
 
 ## Feature patterns
 

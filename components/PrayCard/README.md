@@ -2,17 +2,17 @@
 
 A selectable day card for Rawdah and prayer bookings, with gender availability.
 
-**Figma source:** 📅 Date & Time › Pray Card. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** 📅 Date & Time › Pray Card (Selected On / Off). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
-**15 November 2026, evening:** 110 × 90, radius 18. Off: Ivory, Slate icon (sunrise), title `text-subtle`; On: shade 6 with a 1.5 Illumination line, title `text-link`. Both show the men's and women's icons (muslim, hijab) under the title; `gender` picks them.
+**17 November 2026:** as Figma, the card holds one icon (sunrise, 24), the day in Body 1 Light and the men's and women's icons (16) — nothing else. The extra «رجال / نساء» text line is gone: it repeated what the icons say. `note` is now spoken only (added to the label). Off: Ivory, padding 26, title `text-subtle`; On: Shade 6, 1.5 Illumination line, padding 18, title `text-link`.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
 | `selected` | `boolean` |  |
-| `title` | `string` |  |
-| `note` | `string` |  |
+| `title` | `string` | The day |
+| `note` | `string` | Spoken only |
 | `iconName` | `string` | Default sunrise |
 | `gender` | `'both' \| 'male' \| 'female' \| 'none'` | Men's and women's icons |
 | `genderLabel` | `string` | Spoken gender note |
@@ -23,7 +23,8 @@ A selectable day card for Rawdah and prayer bookings, with gender availability.
 
 ## Don't
 
-- Do not use for general dates; use Day Tab.
+- Do not add a text tag for gender: the icons carry it.
+- Do not use for general dates; use DayTab.
 
 ## You provide
 

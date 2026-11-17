@@ -2,7 +2,7 @@
 
 Every coded component card in one file; search `# <Name>` (for example `# StatusSheet`). Each card is its own folder, with a preview page, in the GitHub repo (components/<Name>/) and the packages.
 
-Contents: AddToCartCTA · Alert · AppNotification · Avatar · AvatarGroup · BentoGrid · BottomNav · BottomSheet · Button · CardsList · CardsSlider · Categories · CategoryChips · CategoryTile · ChatMessage · Checkbox · Chip · CollapsedSection · CountBadge · CustomerFeedback · DayPicker · DayTab · DetailsListItem · DirectionSheet · DropdownItem · EmptyState · FaceTile · FeaturedHeader · FeedbackEmojis · FileUploader · FlightTicket · GlassBG · Guide · HeaderTabs · Hint · HintWidget · Icon · InfoTile · Leaderboard · ListSideBySide · MapPin · MediaCard · MemberCard · NoticeBar · NpsScale · Nudge · OptionCard · Page · Pagination · PaymentDetails · PlaylistCard · PlaylistRow · PrayCard · PrayerLiveActivity · PriceOptions · ProductTile · ProgressRing · QRCodeStatus · Radio · RatingBar · ReasonSelection · RequestCard · ReviewCard · ReviewSummary · SectionError · SectionHeader · SectionTitle · SelectCard · ServicesBox · SoundPlayer · StartJourney · StatusChip · StatusSheet · StepCard · Steps · Switch · TabBar · TextField · TimeSlot · Toolbar · UpcomingRequests · VerticalStepper
+Contents: AddToCartCTA · Alert · AppNotification · Avatar · AvatarGroup · BentoGrid · BottomNav · BottomSheet · Button · CardsList · CardsSlider · Categories · CategoryChips · CategoryTile · ChatMessage · Checkbox · Chip · CircularProgress · CollapsedSection · CountBadge · CustomerFeedback · DateRange · DayPicker · DayTab · DetailsListItem · DirectionSheet · DropdownItem · EmptyState · FaceTile · FeatureBox · FeaturedAirport · FeaturedHeader · FeedbackEmojis · FileUploader · FlightTicket · FromTo · GlassBG · Guide · HeaderTabs · Hint · HintWidget · HotelCard · Icon · InfoTile · Leaderboard · ListSideBySide · MapPin · MediaCard · MemberCard · NoticeBar · NpsScale · Nudge · OptionCard · Page · Pagination · PaymentDetails · PlaylistCard · PlaylistRow · PrayCard · PrayerLiveActivity · PriceOptions · ProductTile · ProgressRing · QRCodeStatus · Radio · RatingBar · ReasonSelection · RequestCard · ReviewCard · ReviewSummary · Ribbon · SectionError · SectionHeader · SectionTitle · SelectCard · ServicesBox · SoundPlayer · StartJourney · StatusChip · StatusSheet · StepCard · Steps · Switch · TabBar · TextField · TimeSlot · Toolbar · UpcomingRequests · VerticalStepper · VisaUserBlock
 
 
 ---
@@ -11,14 +11,15 @@ Contents: AddToCartCTA · Alert · AppNotification · Avatar · AvatarGroup · B
 
 The cart control on product cards and rows: add, a quantity stepper, remove, or notify me.
 
-**Figma source:** 🃏 Cards › Add to Cart CTA (Status: cart, one, many, Remove, Notify me, arrow). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** 🃏 Cards › Add to Cart CTA (Status: cart, one, many, Remove, Notify me, arrow, Status7). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
-| `status` | `'cart' \| 'arrow' \| 'one' \| 'many' \| 'remove' \| 'notify-me'` | `one` shows remove instead of minus |
+| `status` | `'cart' \| 'arrow' \| 'buy' \| 'one' \| 'many' \| 'remove' \| 'notify-me'` | `one` shows remove instead of minus. `buy` is Figma's Status7 (17 November 2026): Secondary XS, icon left `shopping-basket-add-01`, «اشتر» (F99) |
 | `count` | `number` | The quantity |
+| `onBuy` | `fn` | `buy`; falls back to `onAdd` |
 | `onAdd / onIncrease / onDecrease / onRemove / onNotify` | `fn` | Actions |
 | `label, removeLabel, increaseLabel, decreaseLabel` | `string` | Accessible names (Arabic by default) |
 
@@ -709,6 +710,48 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 ---
 
+# CircularProgress
+
+A determinate ring for a process whose completion can be measured: an upload, a download, a sync.
+
+**Figma source:** [🧭 Navigation › Circular progress indicator](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) (Progress 0, 10, 30, 50, 80 × Darkmode Off, On), new on 17 November 2026. The set was being edited while it was read (it had Flat and Wave types earlier the same day; at 20:00 it has one type and no 100), so treat this card as Proposed until the set is published.
+
+## Anatomy
+
+- 44 square, 3 stroke drawn inside (centre radius 20.5).
+- Active part: `surface-longing`, round ends, from 12 o'clock, clockwise.
+- The rest of the track: `surface-03-pearl` (Darkmode On: `surface-01-white`), with a 15° gap at each end of the active part. At 0 the track is a full ring; at 100% the active part is.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `value` | `number` | 0–1 (or 0–100) |
+| `dark` | `boolean` | Darkmode On: white track |
+| `label` | `string` | Accessible name; the value is announced |
+
+## Use
+
+- Use the same ring for every instance of one process, as Figma's description asks.
+- Pair it with words for anything longer than a few seconds: what is happening and what happens next.
+
+## Don't
+
+- Do not use it for a step count: that is ProgressRing.
+- Do not spin it when the duration is unknown; use the loading state of Button.
+- The Wave option in Figma's description has no variant yet; code draws only the flat ring.
+
+## Native
+
+iOS: `ProgressView(value:)` with a custom `ProgressViewStyle` drawing two trimmed `Circle` strokes (3 pt, round caps). Android: Material 3 `CircularProgressIndicator(progress = { v }, strokeWidth = 3.dp, gapSize = …, trackColor = …)`; set the colours to the DL tokens.
+
+## You provide
+
+The value and the words around it. Colour, size and stroke come from the tokens and are not props.
+
+
+---
+
 # CollapsedSection
 
 An accordion row for FAQs, policies and long details.
@@ -829,6 +872,38 @@ The rating sheet: service header, CSAT faces, optional NPS row, reasons after a 
 ## You provide
 
 The service name and icon, the questions, the reasons and the handlers. Colour, type, radius and spacing come from the tokens.
+
+
+---
+
+# DateRange
+
+A from–to date pair in one card.
+
+**Figma source:** 🏖️ Travel › From To / Duration (Status Default / Dissabled / Active) on _Master Date From To. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026:** the FromTo card with calendar-download-02 / calendar-upload-02 icons, day in Headline 2 Light and the year in Body 2 Light at 70%; the middle is a black «إلى» pill (54 × 48) at 40% by default, 100% when active, 20% when disabled (fields 40%).
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `status` | `'default' \| 'active' \| 'disabled'` |  |
+| `from, to` | `{label, value, sub}` |  |
+| `joiner` | `string` | Default «إلى» |
+| `onPick` | `fn` |  |
+
+## Use
+
+- Show the year under the day.
+
+## Don't
+
+- Do not use for a single date; use DayPicker.
+
+## You provide
+
+The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
 
 ---
@@ -1057,7 +1132,9 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 A coloured tile with a cut-out portrait (reciters, scholars, guides). Group stacks a second tile behind.
 
-**Figma source:** Faces (Group Off, On) in 🃏 Cards › Partials (`mg7egvNbr2ciMP04Ig2XDl`). Read 9 November 2026.
+**Figma source:** Faces (Group Off, On) in 🃏 Cards › Media Cards (`mg7egvNbr2ciMP04Ig2XDl`). Read 9 November 2026; preview photos 17 November 2026.
+
+**17 November 2026:** the preview uses the cut-out portrait from the Figma Faces component (transparent PNG, Imagery › faces-portrait.png) instead of the placeholder glyph.
 
 ## Props
 
@@ -1090,6 +1167,68 @@ A coloured tile with a cut-out portrait (reciters, scholars, guides). Group stac
 ## Native
 
 The code ships no portraits (they are content with usage rights). Pass `image`.
+
+## You provide
+
+The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
+
+
+---
+
+# FeatureBox
+
+One amenity as a round icon with a label.
+
+**Figma source:** 🏖️ Travel › Feature Box. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026:** a 54 white circle with Shadow/XS and a 24 icon (smart-ac), the label in Notes 1 below, gap 8.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `iconName` | `string` |  |
+| `label` | `string` |  |
+
+## Use
+
+- Use in rows of amenities.
+
+## Don't
+
+- Do not put more than two words in the label.
+
+## You provide
+
+The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
+
+
+---
+
+# FeaturedAirport
+
+A quick-pick airport tile for the holy cities.
+
+**Figma source:** 🏖️ Travel › featured airport (Selected Off / On). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026:** 127 wide, padding 18, gap 12, radius 18, white → White Shine, Shadow/XS; a 38 gold Haramain mark, the city (Body 1) and code (Notes 2) with airplane-landing-01 (16). Selected: Shade 6 with a 1.5 Longing line.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `city, code` | `string` |  |
+| `selected` | `boolean` |  |
+| `iconName` | `string` | Default hajj-service-solid |
+| `onClick` | `fn` |  |
+
+## Use
+
+- Use for Makkah and Madinah shortcuts.
+
+## Don't
+
+- Do not show more than four in a row.
 
 ## You provide
 
@@ -1236,31 +1375,69 @@ The content (labels, values, file names) and the container. Colour, type, radius
 
 # FlightTicket
 
-A flight option with route, times, tag and price; full, selected and skeleton.
+A flight option as a two-part ticket: route and times, a notched dashed tear line, then airline and price.
 
-**Figma source:** 🏖️ Travel › Flight Ticket (Selected × Version), Hotel Ticket, From To, Room Layout, Places & Events. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** 🏖️ Travel › _Master_Flight Ticket and Flight Ticket (Selected Off / On / Skeleton × Version Full / Mini), Ribbon/On. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026, rebuilt from the Travel file:** 386 wide. Top: padding 26/20/4, radius 18 18 0 0, white rising from `rgba(255,255,255,.3)`, Glass/Top. Departure country (Notes 1), time (20 Light) and code (Notes 1 Light) on the start side, arrival on the end side; between them a 94 column with the duration, a dashed arc with the airplane-02 pill (Ivory, 3 white ring) and «رحلة مباشرة»; under it Default XS chips. Then a 28 tear line: transparent semicircle notches at both edges and a 6/6 dashed Pearl rule. Bottom: airline logos (28 circles overlapping 7.6), airline and «تدار بواسطة» on the start side; seats (warning), riyal 20 + price (20) and «لكل مسافر» on the end side; Glass/Bottom. Selected: Shade 4 gradient, Longing line that follows the notches. Skeleton: Ivory bars in the same layout. Mini: the top part alone, bottom corners 22. Ribbon: «الارخص» on the start corner, 7 above the card.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
 | `selected` | `boolean \| 'skeleton'` |  |
-| `airline` | `string` |  |
-| `from` | `string` |  |
-| `to` | `string` |  |
-| `fromTime` | `string` |  |
-| `toTime` | `string` |  |
-| `meta` | `string` |  |
-| `price` | `string` |  |
-| `tag` | `string` |  |
+| `mini` | `boolean` | Version Mini |
+| `from, to` | `{country, time, code}` | Strings still work as codes |
+| `duration, stops` | `string` |  |
+| `tags` | `string[]` | Default XS chips |
+| `ribbon` | `string` | Ribbon/On |
+| `airline, operatedBy` | `string` |  |
+| `logos` | `{tone, src}[]` | tone: saudia, flynas, egyptair |
+| `logosImage` | `string` | One image for the logo group (the preview uses the Figma group) |
+| `seats, price, per` | `string` |  |
 
 ## Use
 
-- Routes and times read left to right in every language.
+- Routes read from the start side; times and codes stay left-to-right.
+- Show the ribbon only when it is true for the current results.
 
 ## Don't
 
-- Do not use the tag for paid placement without saying so.
+- Do not use the ribbon for paid placement.
+- Do not invent seat counts.
+
+## You provide
+
+The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
+
+
+---
+
+# FromTo
+
+Departure and arrival pickers with the trip-type tabs and a swap button.
+
+**Figma source:** 🏖️ Travel › From To / Destination (Status Default / Active) on _Master From To. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026:** tabs are three 38-high pills (Ink selected, white otherwise, Body 2). The card is white, radius 18, padding 26/20, gap 12, Glass/Full. Each field: a 24 icon (airplane-take-off-02 / airplane-landing-02), label Body 2 Light at 70%, value Headline 2 Light `text-subtle`, city Body 2 Light. The swap button is a black 54 × 48 pill with arrow-data-transfer-horizontal (26), at 40% until both ends are set (`active`).
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `tabs` | `string[] \| false` |  |
+| `tab, onTab` | `number, fn` |  |
+| `from, to` | `{label, value, sub, iconName}` |  |
+| `active` | `boolean` | Both ends chosen |
+| `onSwap` | `fn` |  |
+
+## Use
+
+- Keep the airport code as the value once chosen.
+
+## Don't
+
+- Do not hide the swap button; dim it.
 
 ## You provide
 
@@ -1489,6 +1666,43 @@ A preparation tip people can tick off: icon, title, details and a link chip.
 ## Native
 
 The tick is a toggle button with an accessible name ("تم: <title>").
+
+## You provide
+
+The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
+
+
+---
+
+# HotelCard
+
+A hotel result: photo, name, distance, rating, room features and price.
+
+**Figma source:** 🏖️ Travel › Hotel. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026:** 373 wide, radius 18, white with Glass/Full. Photo 280 high inside an 8 inset, radius 14, Shadow/SM, a dark fade at the bottom, featured chips top start (Gold «إختيارات نسك» with the Nusuk mark, White «إلغاء حجز مجاني»), favourite top end, pagination dots. Name Body 1, distance Notes 2 Light with the Haramain mark, rating (star, warning) and reviews on the end side; room features in Notes 2 Light with 16 icons and 2-dot separators. A dashed rule, then nights (Notes 1 Light), the bookings note (gold, fire-03), price 28 with riyal, the old price struck in error red and the discount chip. The preview photo is the one in the Figma Hotel component.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `image` | `string` | Photo url |
+| `photos, photo` | `number` | Dots and current photo |
+| `specs` | `{label, state, nusuk}[]` |  |
+| `favourite` | `boolean` |  |
+| `name, distance, rating, reviews` | `string` |  |
+| `features` | `{label, iconName}[]` |  |
+| `nights, hot` | `string` | `hot: false` hides the note |
+| `price, oldPrice, discount` | `string` |  |
+
+## Use
+
+- Show distance to the Haram first.
+- Show the bookings note only with a real count.
+
+## Don't
+
+- Do not invent a discount or a bookings count.
 
 ## You provide
 
@@ -1918,9 +2132,11 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 A choice or setting in a list: with an action, a counter, an icon on top, or a requirement.
 
-**Figma source:** 🃏 Cards › Option Cards (9 types) on `_Master Card/On`.
+**Figma source:** 🃏 Cards › Option Cards (13 types) on `_Master Card` (Mode Default / Transparent / Gray).
 
-**15 November 2026, evening:** 13 types. New: `simple-list` (title with a 16 icon before it, no lead, no action), `lr-icon` (the flag tile without an action — **this name meant LR Icon with Action until now; use `lr-icon-with-action` for that**) and `2-actions-on` (the swiped state: the card slides to reveal a Secondary action (star) and a Fate action (delete-03), each the full card height; `open` on `2-actions` does the same). `_Master Card` is published with modes Default (white, radius 18, shadow), Transparent (Ivory line) and Gray (Ivory fill, radius 14).
+**17 November 2026, revised cards:** the preview now follows the Figma order and names. Figma's names are accepted as `type`: `default` (title + description, no icon, no action), `with-icon` (lead icon, no action), `simple-list`, `with-action` (no icon), `icon-with-action`, `2-actions`, `2-actions-on`, `counter`, `lr-icon-with-action`, `lr-icon`, `top-icon` / `icon-top`, `requirement-item`, `product`. 2 Actions, 2 Actions On and Counter no longer draw a lead icon (Figma has none; pass `iconName` to add one). The LR flag tile is Ivory, as in Figma (was Shade 5).
+
+**15 November 2026, evening:** 13 types. New: `simple-list`, `lr-icon` (the flag tile without an action — **use `lr-icon-with-action` for the one with the button**) and `2-actions-on` (the card slides to reveal a Secondary action (star) and a Fate action (delete-03), each the full card height; `open` on `2-actions` does the same). `_Master Card` is published with modes Default (white, radius 18, shadow), Transparent (Ivory line) and Gray (Ivory fill, radius 14).
 
 **10 November 2026:** new type `product` (picture, name, quantity).
 
@@ -1928,7 +2144,7 @@ A choice or setting in a list: with an action, a counter, an icon on top, or a r
 
 | Prop | Type | Notes |
 |---|---|---|
-| `type` | `'icon-with-action' \| 'action-only' \| 'lr-icon-with-action' \| 'lr-icon' \| 'simple-list' \| 'icon-top' \| 'without-action' \| 'text-only' \| '2-actions' \| '2-actions-on' \| 'counter' \| 'requirement-item' \| 'product'` | Figma Type (Figma names work too) |
+| `type` | `'default' \| 'with-icon' \| 'simple-list' \| 'with-action' \| 'icon-with-action' \| '2-actions' \| '2-actions-on' \| 'counter' \| 'lr-icon-with-action' \| 'lr-icon' \| 'icon-top' \| 'requirement-item' \| 'product'` | Figma Type; older names (`action-only`, `without-action`, `text-only`) still work |
 | `open, actions, onMore` | `boolean, {icon,label,fate,onClick}[], fn` | `2-actions`: reveal the swipe actions |
 | `title, description` | `string` | `notes-1-light` over `body-2-regular` (Counter swaps them) |
 | `status` | `string` | Error chip under the text |
@@ -2151,17 +2367,17 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 A selectable day card for Rawdah and prayer bookings, with gender availability.
 
-**Figma source:** 📅 Date & Time › Pray Card. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** 📅 Date & Time › Pray Card (Selected On / Off). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
-**15 November 2026, evening:** 110 × 90, radius 18. Off: Ivory, Slate icon (sunrise), title `text-subtle`; On: shade 6 with a 1.5 Illumination line, title `text-link`. Both show the men's and women's icons (muslim, hijab) under the title; `gender` picks them.
+**17 November 2026:** as Figma, the card holds one icon (sunrise, 24), the day in Body 1 Light and the men's and women's icons (16) — nothing else. The extra «رجال / نساء» text line is gone: it repeated what the icons say. `note` is now spoken only (added to the label). Off: Ivory, padding 26, title `text-subtle`; On: Shade 6, 1.5 Illumination line, padding 18, title `text-link`.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
 | `selected` | `boolean` |  |
-| `title` | `string` |  |
-| `note` | `string` |  |
+| `title` | `string` | The day |
+| `note` | `string` | Spoken only |
 | `iconName` | `string` | Default sunrise |
 | `gender` | `'both' \| 'male' \| 'female' \| 'none'` | Men's and women's icons |
 | `genderLabel` | `string` | Spoken gender note |
@@ -2172,7 +2388,8 @@ A selectable day card for Rawdah and prayer bookings, with gender availability.
 
 ## Don't
 
-- Do not use for general dates; use Day Tab.
+- Do not add a text tag for gender: the icons carry it.
+- Do not use for general dates; use DayTab.
 
 ## You provide
 
@@ -2216,7 +2433,9 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 The price block of a product card: "from", the price and the cart control.
 
-**Figma source:** 🃏 Cards › Price Options (Vertical False / True). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** [🃏 Cards › Price Options](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=2402-18252) (Vertical False / True · Show Price, Show Add To Cart, Show CTA, Discount). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026:** four booleans. Discount adds a row under the price: a pill (`خصم 25%`, 10, padding 2 / 8, full radius, `alerts-surface-error` with `alerts-text-error`) and the earlier price struck through (12, `alerts-text-error`), 8 apart; price and discount stack 4 apart. Show CTA adds a Secondary XS icon-only button beside the cart control. Figma binds the pill to Foundation's `Buttons/Surface/Error` and `Buttons/Text/Error`, which have no DL token; their values equal the alert error tokens (F97).
 
 ## Props
 
@@ -2227,6 +2446,10 @@ The price block of a product card: "from", the price and the cart control.
 | `vertical` | `boolean` | Stacked, for grid cards |
 | `cart` | `AddToCartStatus \| false` | The control; `false` hides it |
 | `cartProps` | `Partial<AddToCartCTAProps>` |  |
+| `showPrice` | `boolean` | Figma Show Price; false hides the from label and the price |
+| `discount` | `string` | Figma Discount: the pill text |
+| `oldPrice` | `string` | The earlier price, struck through |
+| `cta, ctaIcon, ctaLabel, onCta` | `boolean, string, string, fn` | Figma Show CTA. Off by default in code: Figma gives it no purpose and K9 allows one control (F98) |
 
 ## Use
 
@@ -2235,7 +2458,8 @@ The price block of a product card: "from", the price and the cart control.
 
 ## Don't
 
-- No struck-through price without a real earlier price.
+- No struck-through price without a real earlier price: the old price is what was actually charged, and the offer has a real end.
+- No discount on Udhiya, Hady or any act of worship (M4), and never paired with urgency.
 - No second control beside the cart control (K9).
 
 ## You provide
@@ -2289,24 +2513,33 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 A small ring showing progress through a form or steps, with an optional title.
 
-**Figma source:** 🧭 Navigation › Progress and `_Form Progress Indicator` (P20–P100).
+**Figma source:** [🧭 Navigation › Progress](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) on `_Form Progress Indicator` (Status P20, P40, P60, P80, P100 · Show Check Mark) and `_Master Progress Indicator`.
+
+**17 November 2026, rebuilt to Figma:** 44 square. A 1.14 `surface-03-pearl` ring; the progress is a 7.4 `surface-illumination` band (Figma: inner radius 64%) that starts at 6 o'clock and runs clockwise, with round ends. A 5 `surface-shade-3` dot sits in the band's start cap. The count is `notes-2-regular` in `text-content`. At 100% the circle fills with Illumination and a 28 `tick-02` in `surface-shade-6` replaces the count (Show Check Mark). Until today code drew a 3 stroke from 12 o'clock.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
 | `value` | `number` | 0–1 |
-| `text` | `string` | Inside the ring, e.g. 1/4 |
-| `title, subtitle` | `string` | `body-2-regular` and `notes-2-light` |
+| `step, steps` | `number` | Sets the value and the count «2/4» (`steps` default 4) |
+| `text` | `string` | Overrides the count |
+| `check` | `boolean` | Show Check Mark at 100% (default true) |
+| `title, subtitle` | `string` | `body-2-regular` and `notes-2-light`, 12 from the ring (Figma Progress) |
 | `label` | `string` | Accessible name |
 
 ## Use
 
-- Track `surface-03-pearl`, progress `surface-illumination`.
+- Steps of a form or a booking: the count names the step, the band shows how far.
+- The ring stays clockwise in Arabic and English.
 
 ## Don't
 
-- Do not use for loading; use the loading state of Button.
+- Do not use for loading; use the loading state of Button or CircularProgress.
+
+## Native
+
+iOS: a `Circle().trim(from:to:)` with `StrokeStyle(lineWidth: 7.4, lineCap: .round)`, rotated so 0 sits at 6 o'clock, over a 1.14 track; a 5 pt dot at the start. Android: `Canvas` `drawArc(startAngle = 90f, sweepAngle = 360f * v, useCenter = false, style = Stroke(7.4.dp, cap = StrokeCap.Round))`.
 
 ## You provide
 
@@ -2323,6 +2556,8 @@ A QR code with default, used, expired, blurred, cancelled and error states.
 
 **15 November 2026, evening:** follows QR Code Status (200 × 200, radius 14; unpublished edits in 🏖️ Travel). Default shows the Nusuk logo in the centre. Every other state blurs the whole code (layer blur 22): Blurred nothing else; Used a Success MD chip «مستخدمة» with tick-double-02; Expired a Default MD chip «انتهت» with calendar-remove-02; Cancelled an Error MD chip «مُلغاة»; Error a Primary SM button «تحديث» with exchange-01 (`onRetry`). The old overlay text and alert icon are gone.
 
+**17 November 2026:** the code art now follows Figma: a 25-module dot code (round modules), solid rounded finder squares top right and bottom left, a dot top left, and the Nusuk mark in a clear centre. The art is decorative; pass `src` with a real code image for production.
+
 ## Props
 
 | Prop | Type | Notes |
@@ -2332,6 +2567,7 @@ A QR code with default, used, expired, blurred, cancelled and error states.
 | `ariaLabel` | `string` |  |
 | `retryLabel, onRetry` | `string, fn` | Error: the refresh button |
 | `logo` | `boolean` | Default: the Nusuk logo in the centre |
+| `src` | `string` | A real code image in place of the art |
 
 ## Use
 
@@ -2583,6 +2819,35 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 ---
 
+# Ribbon
+
+The corner ribbon that marks one result, such as the cheapest flight.
+
+**Figma source:** 🏖️ Travel › Ribbon/On. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026:** 65 × 25, radius 22, padding 4/18, Notes 2 white on the solid success green.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `children / label` | `string` | Default «الارخص» |
+
+## Use
+
+- Use on one result at a time.
+
+## Don't
+
+- Do not use it for advertising.
+
+## You provide
+
+The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
+
+
+---
+
 # SectionError
 
 A block inside a page that failed to load, with a retry. The page around it keeps working.
@@ -2654,13 +2919,16 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 The header every section starts with: a title, an optional tag (#المحتوى) or action label (عرض الكل), and the glass arrow that opens the full list.
 
-**Figma source:** Headers (remote, Navigation): Location 02 Section Title, 03 Collaps. Read 9 November 2026.
+**Figma source:** [🔌 Misc › Headers](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj/?node-id=2402-18252) (Location 02 Section Title, 02 Section Title / Centered, 03 Collaps · Actions slot). Read 9 November 2026; re-read 17 November 2026.
+
+**17 November 2026:** 02 Section Title is now 32 top, 18 sides and bottom (Space/XL, Space/NR; it was 48 / 18 / 26), so every pattern header is 24 shorter. New Location **02 Section Title / Centered** (`variant="centered"`): the title centred over the Actions slot, 12 apart, 26 / 18 / 18. The tag and arrow now sit in Figma's **Actions** slot; pass `actions` to put other content there.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
 | `action` | `boolean` |  |
+| `actions` | `node` | Figma's Actions slot; replaces the tag and the arrow |
 | `actionIcon` | `string` |  |
 | `actionLabel` | `string` |  |
 | `as` | `'h2' \| 'h3'` |  |
@@ -2668,12 +2936,13 @@ The header every section starts with: a title, an optional tag (#المحتوى)
 | `tag` | `string` |  |
 | `tight` | `boolean` |  |
 | `title` | `string` |  |
-| `variant` | `'section' \| 'collapse'` |  |
+| `variant` | `'section' \| 'collapse' \| 'centered'` |  |
 
 ## Anatomy
 
-- 02 Section Title: padding 48 top, 18 sides, 26 bottom (18 when `tight`), gap 18; title `body-1-regular` `text-heading`, one line
+- 02 Section Title: padding 32 top, 18 sides and bottom (17 November 2026; was 48 / 18 / 26), gap 18; title `body-1-regular` `text-heading`, one line
 - Slot: tag or action label `notes-2-light` + Secondary XS icon-only `arrow-left-02`, gap 8
+- 02 Section Title / Centered: column, centred, gap 12, padding 26 / 18 / 18; title `body-1-regular`, the slot under it
 - 03 Collaps (inside a card): padding 32 top, 18 bottom, no sides; title `body-2-regular`
 
 ## Logic
@@ -2841,9 +3110,9 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 # StatusChip
 
-The status of a request. 47 statuses with their colour and icon, exactly as Figma (`approved`, مقبول, added 14 November 2026).
+The status of a request. 48 statuses with their colour and icon, exactly as Figma (`approved`, مقبول, added 14 November 2026; `confirmed-booking`, حجز مؤكد with `document-validation`, added 17 November 2026).
 
-**Figma source:** 🃏 Cards › Request Card Status (46 variants): Chips XS, 18 high, text 10, icon 12 (9 November 2026).
+**Figma source:** 🃏 Cards › Request Card Status (48 variants): Chips XS, 18 high, text 10, icon 12 (9 November 2026).
 
 ## Props
 
@@ -3086,6 +3355,8 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 **Figma source:** 🧭 Navigation › Tab Bar (18 variants: Active × RTL), Home Item, Marketplace Cart and `_Shop CTA`, read 8 November 2026.
 
+**17 November 2026, later — deprecated home bar removed:** the white home tab bar (Home Item row + «نسك AI» pill, 95 high, top radius 18) and `habits` are deprecated in 🧭 Navigation. Tab Bar's home actives (Landing, Travel, Content, Market/Cart +, Inner Pages) are the glass `_BottomTab master`, so `type` `landing`, `journey`/`travel`, `content`, `market` and `inner-pages` now render **BottomNav** (sliding selected glass, Haramain tab). The action bars stay. The card shows only the current Figma actives.
+
 **17 November 2026:** the glass parts (Inner Pages actions, the Nusuk AI circle) use the GlassBG engine; see BottomNav and GlassBG.
 
 **15 November 2026, evening:** Figma Tab Bar has 16 actives: `Inner Pages` is new (see BottomNav `screen="inner-pages"`) and `Habits` is gone; `habits` still renders for one release (DL-25). No variant has a shadow now, so the bar's 0 −6 30 −12 shadow is removed (N7 closed).
@@ -3096,7 +3367,7 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 | Prop | Type | Notes |
 |---|---|---|
-| `type` | `'landing' \| 'journey' \| 'content' \| 'market' \| 'actions' \| 'action-input' \| 'loading' \| 'filters' \| 'content-share' \| 'habits' \| 'floating-cart-empty' \| 'floating-cart' \| 'with-price' \| 'cart' \| 'floating-profile' \| 'empty'` | Figma Active. The first four are the home tab bar with that tab current; `market` adds the cart strip |
+| `type` | `'landing' \| 'travel' \| 'content' \| 'market' \| 'inner-pages' \| 'actions' \| 'action-input' \| 'loading' \| 'filters' \| 'content-share' \| 'floating-cart-empty' \| 'with-price' \| 'cart' \| 'floating-profile' \| 'empty'` | Figma Active. The first five render BottomNav (`journey` = `travel`); `habits` is deprecated |
 | `items` | `{ icon, label }[]` | Home tabs. Default: اليوم, رحلتي, المحتوى, المتجر with the Nusuk icons |
 | `active` | `number` | Current home tab |
 | `title` | `string` | Line above the actions, `notes-1-regular` |
@@ -3127,7 +3398,7 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 ## Use
 
-- Home tab bar: 95 high, white, top radius 18. Current tab: solid icon in `surface-longing` with a soft glow, label `text-heading`.
+- Home tab bar: use BottomNav (glass `_BottomTab master`); the white 95-high bar is deprecated.
 - Action bars fade from transparent to white (80%) so content scrolls under them.
 - The Nusuk AI shimmer plays once (3 s) when the bar appears. Replay it only for a new reason, such as a new suggestion; never loop it (M8, WCAG 2.2.2).
 
@@ -3198,29 +3469,33 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 # TimeSlot
 
-A selectable time slot with capacity note.
+A selectable time slot cut as a ticket, with markers and an optional crowd chip.
 
-**Figma source:** 📅 Date & Time › Time slot card, Time & Slots section (Normal, Skeleton, Gender Unavailable), Time Picker. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** 📅 Date & Time › Time slot card (Selected Default / Selected / Disabled) on _Time slot card Master, Time & Slots section. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
-**15 November 2026, evening:** a ticket card 54 high, radius 22, with notches top and bottom; period (16) and time (18) in `text-heading`; optional `markers` (`soon` hourglass, `instant` zap, `prayer` salah) as 20 circles overlapping the corner. Default white with a Pearl line; Selected shade 2 with a Longing line and Longing markers; Disabled Ivory and `text-note`. Put it on the screen background (the notches use `--slot-cut`).
+**17 November 2026, rebuilt from the master:** 54 high, corners 12. One 17-wide semicircle notch on the top edge and one on the bottom, centred 26.5 from the start corner on the markers' side (left in Arabic). The notches are real cut-outs (a CSS mask), so they show whatever sits behind the card, and the Pearl line (Longing when selected) follows the notch. The old version painted circles in the screen colour and drew their full ring outside the card. Text: time Body 1 Regular, then the period Body 2 Light (reads «06:00 ص»). Markers are 22 circles (12 icon, 4 padding, 1 line) overlapping by 7, from −4/−3 over the top notch, in the order soon, instant, prayer. The master's optional Chips slot is `crowd` (Chips Pending MD, «مزدحم») and its trailing icon is `iconName` (24). Default white + Pearl; Selected Shade 2 + Longing, Longing markers with white icons; Disabled Ivory + Pearl, `text-note`.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
 | `status` | `'default' \| 'selected' \| 'disabled'` |  |
-| `time` | `string` |  |
-| `note` | `string` | Real capacity only |
-| `period` | `string` | ص / م; taken from `time` after a space when absent |
+| `time` | `string` | «06:00 ص»: the period is taken after the space |
+| `period` | `string` | ص / م when `time` has none |
 | `markers` | `('soon' \| 'instant' \| 'prayer')[]` | Corner markers, each with a spoken label |
+| `crowd` | `string` | Crowd chip; `note` is still read as the same chip |
+| `crowdState` | `string` | Chip state, default pending |
+| `iconName` | `string` | Trailing 24 icon |
 
 ## Use
 
-- Capacity notes reflect real availability.
+- Put it on any surface: the notches are transparent.
+- Crowd chips reflect real availability.
 
 ## Don't
 
-- Never invent scarcity ("Only 2 left!") that isn't true.
+- Never invent scarcity that is not true.
+- Do not add a second text note next to the crowd chip.
 
 ## You provide
 
@@ -3245,6 +3520,8 @@ The top app bar. It is transparent and floats over the screen; controls sit on g
 
 **10 November 2026:** 20 types × `darkmode`. Pass the Figma type name (`'Secondary Pages / Default'`); the short names still work. `status`, `market-landing` and `market-category` are deprecated. The full table is in DESIGN.md › M9 › Toolbar.
 
+**17 November 2026:** the Process progress counts steps, as Figma's `_Progress Bar` now does (Step 01, 02, 03 × Darkmode): one 30 × 12 wave block per step done (`.Building Blocks`, 3 px `surface-longing`, round), from the reading start, then 8 apart a straight 3 px track to the end (`surface-03-pearl`; white on `light`). Pass `step` (and `steps`, default 3); `progress` still works and rounds up to a step.
+
 **16 November 2026:** the Process progress follows the new [🧭 Navigation › `_Progress Bar`](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw): 90 × 20, a straight 3 px track (`surface-03-pearl`, white on `light`) and a wavy 3 px active part in `surface-longing` from the reading start (was 70 × 8, 1.6 px, grey wave with a gold gradient). `progress` is 0–1.
 
 ## Props
@@ -3260,6 +3537,7 @@ The top app bar. It is transparent and floats over the screen; controls sit on g
 | `backLabel, leadLabel, trailLabel, actionLabels, cartLabel` | `string, string[]` | Names for the icon buttons. Back, close, menu, support and cart are named already (Arabic; English with `lang="en"`); action icons read "إجراء 1", so pass `actionLabels` |
 | `tabs, activeTab` | `string[], number` | Glass tabs (`with-tabs`, `top-tabs`) |
 | `statusBar` | `boolean` | Draws the 62px iOS status bar, for mockups and decks only |
+| `step, steps` | `number` | Process: steps done, of `steps` (default 3) |
 | `wallet, avatar, chip, timer, date, progress, people, nusukId, cartCount` | `…` | Content for the type that uses it |
 | `accountLabel` | `string` |  |
 | `categories` | `string[]` |  |
@@ -3389,6 +3667,39 @@ A vertical timeline of journey steps: done, current, next.
 ## Accessibility
 
 An ordered list with `aria-current="step"` on the current step; done and next steps add «مكتملة» / «قادمة» (completed / upcoming) for screen readers. The rail is hidden from them.
+
+## You provide
+
+The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
+
+
+---
+
+# VisaUserBlock
+
+A traveller tile for visa and booking lists.
+
+**Figma source:** 🏖️ Travel › Visa User Block. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026:** white, radius 18, padding 18/12, gap 8, Shadow/XS. The Latin name in Notes 1, 93 wide, two lines then …; a 20 gender icon (muslim / hijab) and the flag (20 × 15). Selected adds checkmark-circle-02 (18) top right and a Longing line.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `name` | `string` | As on the passport |
+| `gender` | `'male' \| 'female'` |  |
+| `flag` | `string` | Emoji or image |
+| `selected` | `boolean` |  |
+| `onClick` | `fn` |  |
+
+## Use
+
+- Show the passport name as written.
+
+## Don't
+
+- Do not translate the name.
 
 ## You provide
 

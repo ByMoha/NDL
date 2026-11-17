@@ -1,8 +1,8 @@
 # StatusChip
 
-The status of a request. 47 statuses with their colour and icon, exactly as Figma (`approved`, مقبول, added 14 November 2026).
+The status of a request. 48 statuses with their colour and icon, exactly as Figma (`approved`, مقبول, added 14 November 2026; `confirmed-booking`, حجز مؤكد with `document-validation`, added 17 November 2026).
 
-**Figma source:** 🃏 Cards › Request Card Status (46 variants): Chips XS, 18 high, text 10, icon 12 (9 November 2026).
+**Figma source:** 🃏 Cards › Request Card Status (48 variants): Chips XS, 18 high, text 10, icon 12 (9 November 2026).
 
 ## Props
 

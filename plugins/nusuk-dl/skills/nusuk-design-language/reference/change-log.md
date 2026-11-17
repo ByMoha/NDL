@@ -4,6 +4,85 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 17 November 2026, 20:45 (Navigation progress, Misc headers, Cards, Market, Patterns; the design system's comment fixes in the downloads) · DESIGN.md 3.4.0 · tokens 3.11
+
+**Figma:** [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) (read at 19:00 and again at 20:05, after the DL Advisor's second update), [🔌 Misc](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj/?node-id=2402-18252), [🃏 Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=2402-18252), [🛍️ Market](https://www.figma.com/design/5X9RDeo33hZFEhtjVUYr5c/?node-id=2402-18252), [✨ Templates-Patterns › ⠏ Patterns](https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70394-7656) and [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 54 variants, 3 masters: no change since 15:30). The comment fixes below came from [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=2402-18252) (Haramin Icon, Tab Bar), [🃏 Cards › Option Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=68491-1912), [📅 Date & Time](https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU), [🏖️ Travel › Travel](https://www.figma.com/design/ozi4A2gUbVXbzbUJ3MF4uU/?node-id=70393-17066) and [⚙️ Foundation › Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296).
+
+### Changed: 🧭 Navigation progress
+
+- **ProgressRing** (Progress on `_Form Progress Indicator` P20–P100) is rebuilt: a 1.14 Pearl ring, a 7.4 Illumination band from 6 o'clock, clockwise, with round ends and a 5 `surface-shade-3` dot in its start cap, the count in `notes-2-regular`. At 100% the circle fills and a 28 `tick-02` replaces the count (`check`). New `step` and `steps` set the value and the count «2/4». Code drew a 3 stroke from 12 o'clock until now.
+- **Toolbar Process** counts steps like `_Progress Bar` (Step 01–03 × Darkmode): one 30 × 12 wave block per step done from the reading start, then 8 apart a straight 3 track (Pearl; white in Darkmode). New `step` and `steps`; `progress` rounds up to a step.
+- **New: CircularProgress** (Circular progress indicator, Progress × Darkmode): 44, 3 stroke inside; active `surface-longing` from 12 o'clock, clockwise, round ends; the rest Pearl (white in Darkmode) with a 15° gap at each end. Proposed until the set is finished: its labels and drawings disagree (F92).
+- **Photo Scan and Upload**, a new example screen in 🧭 Navigation, is a frame, not a component.
+
+### Changed: 🔌 Misc, 🃏 Cards, 🛍️ Market
+
+- **SectionTitle:** 02 Section Title is 32 top, 18 sides and bottom (Space/XL, Space/NR; was 48 / 18 / 26), so every pattern header is 24 shorter. New `variant="centered"` (Location 02 Section Title / Centered) and `actions` (Figma's Actions slot).
+- **StatusChip:** `confirmed-booking` («حجز مؤكد», success, `document-validation`); 48 statuses.
+- **AddToCartCTA:** `buy` (Figma `Status7`): Secondary XS, icon left `shopping-basket-add-01` (new in the coded icon set), «اشتر».
+- **PriceOptions:** `showPrice`, `discount` and `oldPrice` (a 10 pill in the alert error colours and the earlier price struck through, under the price), and `cta` (off by default: F98). A discount shows only when it is real, never with urgency and never on Udhiya or Hady.
+- **Market** (documented, not coded): 15 public sets and 5 private. New private `_Udhiya Details` (one collapsible card per sacrifice: the name it is offered for, its type, contact details behind a switch) and `_Contact Details`; Select Location is a set (Selected On, Off); Breathing Effect left the file.
+
+### Changed: from the design system's comments (14:13–16:09, now in every download)
+
+These were made on the design system page in answer to the DL Advisor's comments, and were not yet in the downloads, GitHub or the plugin. They are now, and logged here.
+
+- **BottomNav:** the current tab's glass slides from the previous tab to the new one (0.45 s; reduced motion holds still). The الحرمين tab draws the Haramin Icon: Kaaba, Masjid and Maqam centred on one 24 square, cross-fading with a 20 blur on a 6 s loop; exported as `HaramainIcon` (Q-D40: the loop against M8 Motion).
+- **TabBar:** the white home bar and Habits are deprecated in Figma; `landing`, `journey`/`travel`, `content`, `market` and `inner-pages` now render BottomNav.
+- **Glass BG:** the white band at the bottom of the glass is softer, 0 −8 10 −4 at 75% (was 0 −6 3 −1 at 90%). The page changed only the stylesheet's fallback, which the `glass-rim` token overrides, so the default glass had not changed: `glass-rim` now carries it (tokens 3.11).
+- **OptionCard:** Figma's type names (`default`, `with-icon`, `with-action`, `top-icon`), Figma's order in the preview, no lead icon on 2 Actions, 2 Actions On and Counter, an Ivory flag tile.
+- **Categories:** six 120 × 140 image tiles as Figma's Partials draw them, and the chips row; an image tile with no picture keeps an empty 64 slot.
+- **FaceTile:** the preview uses the cut-out portrait from Cards › Media Cards › Faces.
+- **PrayCard:** the icon, the day (`body-1-light`) and the men's and women's icons only; `note` is spoken only.
+- **TimeSlot:** rebuilt from `_Time slot card Master`: corners 12, real 17-wide notches top and bottom centred 26.5 from the markers' corner, the line follows the notch, markers 22 in a fixed order, the master's crowd chip and trailing icon as props.
+- **QRCodeStatus:** dot-code art as Figma draws it; `src` takes a real code.
+- **FlightTicket** is rebuilt from 🏖️ Travel (two-part ticket, Full and Mini, Selected, Skeleton, Ribbon), and seven Travel components are new: Ribbon, FromTo, DateRange, FeaturedAirport, FeatureBox, VisaUserBlock and HotelCard. Their types are now in `index.d.ts`.
+
+### Proposed in Figma (not approved)
+
+- ⠏ Patterns: Option chip picker, Image Gallery, Video Player, Sound Player Screen / Quran, Sound Player, Live, Reel, Articles, Guides, Search / Result. ✨ Templates: Content landing and Pass sheet · multi-use state. Listed in `patterns/index.json › proposed` and `proposedTemplates`, and in M9P.
+
+### Known issues
+
+- F91–F103, TC22–TC27 (Golf Carts), AI9; questions Q-D40 to Q-D43.
+
+### iOS
+
+- **ProgressRing:** `Circle().trim(from: 0, to: v)` with `StrokeStyle(lineWidth: 7.4, lineCap: .round)`, rotated so 0 is at 6 o'clock, over a 1.14 Pearl `Circle().stroke`; a 5 pt shade 3 dot at the start; at 1.0 a filled circle and the 28 pt tick. Shorten the trim by the cap so the ends stay inside the sweep.
+- **Toolbar Process:** an `HStack(spacing: 8)` of a wave `Path` (one 30 × 12 period per step done, 3 pt, round caps) and a 3 pt `Capsule` filling the rest; it follows the layout direction.
+- **CircularProgress:** two trimmed `Circle` strokes, 3 pt, round caps, starting at −90°, with a 15° gap at each end; `.accessibilityValue` reads the percent.
+- **SectionTitle:** top inset 32, bottom 18 (was 48 / 26); Centered is a `VStack(spacing: 12)` with a centred title.
+- **PriceOptions:** the discount row is an `HStack(spacing: 8)` of a capsule (10 pt text, padding 2 / 8) and a strikethrough `Text`, 4 pt under the price.
+- **BottomNav:** slide the selected pill with `matchedGeometryEffect` (0.45 s ease); the Haramain icon cross-fades three images every 6 s unless `accessibilityReduceMotion`.
+- **TimeSlot:** draw the ticket as one `Shape` with the two notches subtracted, so the stroke follows them.
+
+### Android
+
+- **ProgressRing:** `Canvas`: `drawCircle` Pearl stroke 1.14.dp, `drawArc(startAngle = 90f, sweepAngle = 360f * v, useCenter = false, style = Stroke(7.4.dp.toPx(), cap = StrokeCap.Round))`; at 1f a filled circle and the tick.
+- **Toolbar Process:** a `Row(horizontalArrangement = Arrangement.spacedBy(8.dp))` of a wave `Path` and a 3.dp rounded track that fills the rest.
+- **CircularProgress:** Material 3 `CircularProgressIndicator(progress = { v }, strokeWidth = 3.dp, gapSize = …, trackColor = …, strokeCap = StrokeCap.Round)` with the DL colours.
+- **SectionTitle:** padding top 32.dp, bottom 18.dp; Centered is a `Column(horizontalAlignment = CenterHorizontally, verticalArrangement = spacedBy(12.dp))`.
+- **PriceOptions:** the discount row is a `Row(spacedBy(8.dp))` of a `RoundedCornerShape(50)` tag and a `TextDecoration.LineThrough` price.
+- **BottomNav:** animate the selected pill's offset with `animateDpAsState` (450 ms); the Haramain icon cross-fades unless animations are off in the system settings.
+- **TimeSlot:** a `GenericShape` with the two notches cut out; the border follows it.
+
+## 17 November 2026, 19:30 (Nusuk AI chat: one bot per run of Nusuk messages) · NusukChat 2.8.5
+
+**Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252). Review comment on the *Verify before you pay* cases: when the next message is also from Nusuk, the bot goes; the one at the bottom of the run stays.
+
+### Changed
+
+- **Avatar grouping:** in a run of Nusuk messages only the last one shows the bot. Bubbles above it keep the empty 24 start column so they stay aligned; an insight note above a Nusuk message drops its 38 bot. A user message, a sheet or the end of the thread ends the run.
+- **Code:** `Message`, every Nusuk message type and `BotNote` take `bot` (default `true`). On the web, `.nkc-thread` on the thread container applies the rule automatically. Built on 2.8.4 (the Days and Slots answer padding and the criteria copy stay).
+
+### iOS
+
+- In the thread list, `showsBot = next?.from != .nusuk` for each Nusuk row. When false, a 24 pt leading `Spacer` for bubbles; nothing for the insight note. Hide the hidden bot from VoiceOver.
+
+### Android
+
+- In the `LazyColumn`, `showBot = items.getOrNull(i + 1)?.from != From.Nusuk`; when false, `Spacer(Modifier.width(24.dp))` for bubbles. Hidden bots carry no content description.
+
 ## 17 November 2026, 17:30 (install steps give the full GitHub link) · DESIGN.md 3.3.1
 
 **Figma:** none. This changes the text of the guide and the skill only.

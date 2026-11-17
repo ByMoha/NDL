@@ -4,6 +4,8 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 **Figma source:** 🧭 Navigation › Tab Bar (18 variants: Active × RTL), Home Item, Marketplace Cart and `_Shop CTA`, read 8 November 2026.
 
+**17 November 2026, later — deprecated home bar removed:** the white home tab bar (Home Item row + «نسك AI» pill, 95 high, top radius 18) and `habits` are deprecated in 🧭 Navigation. Tab Bar's home actives (Landing, Travel, Content, Market/Cart +, Inner Pages) are the glass `_BottomTab master`, so `type` `landing`, `journey`/`travel`, `content`, `market` and `inner-pages` now render **BottomNav** (sliding selected glass, Haramain tab). The action bars stay. The card shows only the current Figma actives.
+
 **17 November 2026:** the glass parts (Inner Pages actions, the Nusuk AI circle) use the GlassBG engine; see BottomNav and GlassBG.
 
 **15 November 2026, evening:** Figma Tab Bar has 16 actives: `Inner Pages` is new (see BottomNav `screen="inner-pages"`) and `Habits` is gone; `habits` still renders for one release (DL-25). No variant has a shadow now, so the bar's 0 −6 30 −12 shadow is removed (N7 closed).
@@ -14,7 +16,7 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 | Prop | Type | Notes |
 |---|---|---|
-| `type` | `'landing' \| 'journey' \| 'content' \| 'market' \| 'actions' \| 'action-input' \| 'loading' \| 'filters' \| 'content-share' \| 'habits' \| 'floating-cart-empty' \| 'floating-cart' \| 'with-price' \| 'cart' \| 'floating-profile' \| 'empty'` | Figma Active. The first four are the home tab bar with that tab current; `market` adds the cart strip |
+| `type` | `'landing' \| 'travel' \| 'content' \| 'market' \| 'inner-pages' \| 'actions' \| 'action-input' \| 'loading' \| 'filters' \| 'content-share' \| 'floating-cart-empty' \| 'with-price' \| 'cart' \| 'floating-profile' \| 'empty'` | Figma Active. The first five render BottomNav (`journey` = `travel`); `habits` is deprecated |
 | `items` | `{ icon, label }[]` | Home tabs. Default: اليوم, رحلتي, المحتوى, المتجر with the Nusuk icons |
 | `active` | `number` | Current home tab |
 | `title` | `string` | Line above the actions, `notes-1-regular` |
@@ -45,7 +47,7 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 ## Use
 
-- Home tab bar: 95 high, white, top radius 18. Current tab: solid icon in `surface-longing` with a soft glow, label `text-heading`.
+- Home tab bar: use BottomNav (glass `_BottomTab master`); the white 95-high bar is deprecated.
 - Action bars fade from transparent to white (80%) so content scrolls under them.
 - The Nusuk AI shimmer plays once (3 s) when the bar appears. Replay it only for a new reason, such as a new suggestion; never loop it (M8, WCAG 2.2.2).
 

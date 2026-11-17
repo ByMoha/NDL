@@ -1,7 +1,7 @@
 {
  "$schema": "Nusuk DL pattern index v1",
  "updated": "2026-11-17",
- "note": "A pattern is a CMS section (header + layout + items) and is what fills a space of a template contract. Full specs: the component card and DESIGN.md › M9P.",
+ "note": "A pattern is a CMS section (header + layout + items) and is what fills a space of a template contract. Full specs: the component card and DESIGN.md › M9P. `proposed` and `proposedTemplates` list what Figma proposes and the DL Manager has not approved: point to them, never treat them as approved.",
  "composition": [
   "Bands top-down, never inverted",
   "One heavy pattern each per page (leaderboard, bento-grid); never two rows of the same item type back to back",
@@ -304,6 +304,177 @@
    "name": "Quote widget",
    "bandPlacement": "5, P1 or P2",
    "status": "Proposed"
+  }
+ ],
+ "proposed": [
+  {
+   "key": "option-chip-picker",
+   "name": "Option chip picker",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70496-15085",
+   "what": "A short row of named options picked directly (zone, size, colour, time group), built from Chips.",
+   "spaces": [
+    "label 0–1",
+    "options 2–6"
+   ],
+   "reuses": "Chips",
+   "open": "TC18; no chip variant named Selected",
+   "added": "2026-11-17"
+  },
+  {
+   "key": "image-gallery",
+   "name": "Image Gallery",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70519-14983",
+   "what": "A full-screen photo browser for an item with two or more images.",
+   "spaces": [
+    "cover photo 1",
+    "peek and position 0–1"
+   ],
+   "reuses": "Product Photo + Pagination",
+   "open": "Position announced in words",
+   "added": "2026-11-17"
+  },
+  {
+   "key": "video-player",
+   "name": "Video Player",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70519-15074",
+   "what": "The inline playback surface for one clip; a Live badge only when live.",
+   "spaces": [
+    "surface 1",
+    "transport controls"
+   ],
+   "reuses": "Media player pieces + StatusChip",
+   "open": "Media Status=Viedo spelling",
+   "added": "2026-11-17"
+  },
+  {
+   "key": "sound-player-screen",
+   "name": "Sound Player Screen / Quran",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70519-15164",
+   "what": "Full-screen now playing for one recitation or audio.",
+   "spaces": [
+    "identity and progress",
+    "transport"
+   ],
+   "reuses": "SoundPlayer",
+   "open": "Same component as the row or a sibling",
+   "added": "2026-11-17"
+  },
+  {
+   "key": "sound-player-row",
+   "name": "Sound Player",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70519-15256",
+   "what": "One playable row in a list of recitations or lessons.",
+   "spaces": [
+    "artwork and identity",
+    "play control"
+   ],
+   "reuses": "SoundPlayer (compact)",
+   "open": "Playing vs paused row state",
+   "added": "2026-11-17"
+  },
+  {
+   "key": "live",
+   "name": "Live",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70519-15347",
+   "what": "One surface for a live session: counter, soon, live, ended, not available.",
+   "spaces": [
+    "surface",
+    "state badge"
+   ],
+   "reuses": "Video Player + StatusChip",
+   "open": "Session Not Exist copy; countdown states the time only",
+   "added": "2026-11-17"
+  },
+  {
+   "key": "reel",
+   "name": "Reel",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70519-15437",
+   "what": "Full-bleed vertical short clips swiped one at a time.",
+   "spaces": [
+    "clip",
+    "side actions and caption 0–1"
+   ],
+   "reuses": "Video Player",
+   "open": "Side actions and caption have no DL component",
+   "added": "2026-11-17"
+  },
+  {
+   "key": "articles",
+   "name": "Articles",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70519-15529",
+   "what": "A long-form reading surface: hero, title and byline, body.",
+   "spaces": [
+    "hero and title",
+    "body"
+   ],
+   "reuses": "None (layout convention)",
+   "open": "No reading-width rule",
+   "added": "2026-11-17"
+  },
+  {
+   "key": "guides",
+   "name": "Guides",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70519-15622",
+   "what": "A numbered step-by-step walkthrough, one step at a time.",
+   "spaces": [
+    "step illustration and title",
+    "progress"
+   ],
+   "reuses": "StepCard, VerticalStepper, Steps",
+   "open": "Name collides with the coded guide pattern (Q-D42)",
+   "added": "2026-11-17"
+  },
+  {
+   "key": "search-result",
+   "name": "Search / Result",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70519-15715",
+   "what": "Results of a content search across types, with the no-results state.",
+   "spaces": [
+    "result row 0–n",
+    "no results 1"
+   ],
+   "reuses": "CardsList / CardsSlider rows",
+   "open": "No ordering rule for mixed types",
+   "added": "2026-11-17"
+  }
+ ],
+ "proposedTemplates": [
+  {
+   "key": "content-landing",
+   "name": "Content landing",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70520-14952",
+   "spaces": [
+    "toolbar (fixed)",
+    "hero or cover 1",
+    "category filter 0–1",
+    "feature rows 1–6",
+    "audio row 0–1",
+    "reels strip 0–1",
+    "community strip 0–1",
+    "tab bar (fixed)"
+   ],
+   "open": "Q-D43: L2 against a tab destination with no back arrow; the measure counts opening an item as a meaningful action",
+   "added": "2026-11-17"
+  },
+  {
+   "key": "pass-sheet.multi-use",
+   "name": "Pass sheet · multi-use state",
+   "status": "Proposed",
+   "figma": "https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70509-14816",
+   "what": "Active content plus \"used N of M\"; moves to Used, expired, cancelled at 0",
+   "open": "TC20; not mocked",
+   "added": "2026-11-17"
   }
  ]
 }

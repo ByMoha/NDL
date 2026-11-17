@@ -1,6 +1,6 @@
 # DESIGN.md — Nusuk Design Language
 
-Version 3.3.1 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.4.0 · 17 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 
@@ -356,7 +356,7 @@ IBM Plex Sans Arabic (Arabic and Latin; English mode in Figma uses Ping AR + LT)
 
 Glass BG stacks several of these (the layers table below). Noise and Treatment are textures for imagery and hero surfaces: apply one only where the Figma layer uses it, never on text.
 - Borders 1 px Pearl, 1.5 px `surface-longing` for selection, 2 px Ink for focused fields. States: hover .08, pressed .12, disabled .38 (buttons .4).
-- No blend modes in code (Linear Burn in Figma is dropped, L3). Glass BG's linear-burn and linear-dodge rims become normal-blend inset shadows (`glass-rim`), set against Figma's render.
+- No blend modes in code (Linear Burn in Figma is dropped, L3). Glass BG's linear-burn and linear-dodge rims become normal-blend inset shadows (`glass-rim`), set against Figma's render. Since 17 November (tokens 3.11) the white band at the bottom is softer: 0 −8 10 −4 at 75% (was 0 −6 3 −1 at 90%), at the DL Advisor's request; the Highlighted and Active rims follow.
 
 ### Glass BG (Foundation, exact recipe)
 
@@ -413,15 +413,16 @@ Load when: choosing or configuring a component. Each component card in the desig
 ### Inventory (by family)
 
 - **Actions:** Button (CTA: Kind Primary/Secondary/Ghost × Size LR/MD/SM/XS × State × Icon × Fate; `onDark`; `tone="green"`). One Primary per screen.
-- **Inputs:** TextField (12 Figma types × Status × Filled since 14 Nov, 13 in code with calendar; radius 18, `Shadow/XS`; search and counter are capsules), Hint (5 types: Hint, Info, Warning, Error, Success), FileUploader, Chip, StatusChip (47), Switch, Checkbox, Radio, SelectCard, DropdownItem.
-- **Navigation:** Toolbar (23 types × Darkmode), BottomNav (6 screens, `inner-pages` since 15 Nov), NavTab, Nudge, TabBar (home bar + 12 action bars), HeaderTabs, CountBadge, Pagination, ProgressRing, VerticalStepper, Steps, SectionHeader, SectionTitle, IconBlock, SearchBar, HomeItem, Glass (`kind`: control, field, bar, flat, card), GlassBG (the 12 Glass BG variants with layer switches, 17 Nov).
+- **Inputs:** TextField (12 Figma types × Status × Filled since 14 Nov, 13 in code with calendar; radius 18, `Shadow/XS`; search and counter are capsules), Hint (5 types: Hint, Info, Warning, Error, Success), FileUploader, Chip, StatusChip (48), Switch, Checkbox, Radio, SelectCard, DropdownItem.
+- **Navigation:** Toolbar (23 types × Darkmode), BottomNav (6 screens, `inner-pages` since 15 Nov), NavTab, Nudge, TabBar (12 action bars; its home types render BottomNav since 17 Nov), HeaderTabs, CountBadge, Pagination, ProgressRing, CircularProgress (new 17 Nov), VerticalStepper, Steps, SectionHeader, SectionTitle, IconBlock, SearchBar, HomeItem, Glass (`kind`: control, field, bar, flat, card), GlassBG (the 12 Glass BG variants with layer switches, 17 Nov).
 - **Overlays:** BottomSheet (Top Action Grabber, Arrow, Static), DirectionSheet, StatusSheet (Bottom Sheet's 7 statuses; 15 of the 19 General Bottom Sheet types as `template`, 17 Nov), ReasonSelection, CollapsedSection.
 - **Feedback:** NoticeBar (CTA, Close, Description; `hug` for NoticeBar Location), Alert (`stacked` = System Update), EmptyState (Full Page, List), SectionError, AppNotification; live activities and Dynamic Island.
 - **Cards:** MemberCard, RequestCard (11 types; Figma has 12 since 11 Nov), OptionCard (13), MediaCard (Figma 23 types; coded with `layout`, `outOfStock` and `type: 'ad'`; Museum not coded: F42; ADS must carry an ad label: F46), AddToCartCTA, PriceOptions, CategoryTile, ProductTile, FaceTile, PlaylistCard, HintWidget.
 - **Data display:** Avatar, AvatarGroup, RatingBar (Rating Bar and Ratings Box, Mini, Standard; a 1–5 input), ReviewCard, ReviewSummary, FeedbackEmojis, DayPicker, DayTab, TimeSlot, PrayCard, InfoTile.
-- **Features:** PaymentDetails, SoundPlayer, ChatMessage, FlightTicket, StepCard, QRCodeStatus, DetailsListItem, StartJourney, PrayerLiveActivity, MapPin.
-- **Market (🛍️ Market library, new 10 November):** 17 public sets in Figma; not coded yet apart from the shared parts above (see Market below).
-- **Nusuk AI chat (Proposed lane, 11 November 2026; counts of 14 November):** 41 exports from 💬 Chat UI in `chat/` (NusukChat 2.8.4, 17 November: on DL 3.10, with English labels via `setLang` and suggestions as DL Button MD via `buttons`): 4 DL, 23 variants of ChatMessage, TextField, SelectCard, Chip, TabBar, FlightTicket and OptionCard, and 14 new (Bot, BotNote, BookingTicket, LogosGroup, HotelCard and the chat answers). Every value comes from a DL token except the proposed `chat-*` values: 35 in the stylesheet, 43 in `tokens.proposed.json`, 12 of them type aliases. A chat component becomes DL when its Figma set is published and the DL Manager accepts its card; M9C lists the Figma source and status of each.
+- **Travel (17 Nov, from 🏖️ Travel › Travel):** FlightTicket (rebuilt: Full, Mini, Selected, Skeleton), Ribbon, FromTo, DateRange, FeaturedAirport, FeatureBox, VisaUserBlock, HotelCard.
+- **Features:** PaymentDetails, SoundPlayer, ChatMessage, StepCard, QRCodeStatus, DetailsListItem, StartJourney, PrayerLiveActivity, MapPin.
+- **Market (🛍️ Market library, new 10 November):** 15 public sets and 5 private in Figma on 17 November (was 17 public: Breathing Effect left the file and Select Location became a set); not coded yet apart from the shared parts above (see Market below).
+- **Nusuk AI chat (Proposed lane, 11 November 2026; counts of 14 November):** 41 exports from 💬 Chat UI in `chat/` (NusukChat 2.8.5, 17 November: on DL 3.10, one bot per run of Nusuk messages, with English labels via `setLang` and suggestions as DL Button MD via `buttons`): 4 DL, 23 variants of ChatMessage, TextField, SelectCard, Chip, TabBar, FlightTicket and OptionCard, and 14 new (Bot, BotNote, BookingTicket, LogosGroup, HotelCard and the chat answers). Every value comes from a DL token except the proposed `chat-*` values: 35 in the stylesheet, 43 in `tokens.proposed.json`, 12 of them type aliases. A chat component becomes DL when its Figma set is published and the DL Manager accepts its card; M9C lists the Figma source and status of each.
 - **Patterns and templates:** see M9P.
 
 ### Cross-cutting logic
@@ -567,6 +568,8 @@ Figma: ‼️ Status Handlers › Alerts (Info, Success, Warning, Error, Primary
 
 #### BottomNav (floating bottom navigation, new 10 November)
 
+**17 November 2026 (from the design system comments):** the current tab's glass is one pill that slides from the previous tab to the new one (0.45 s, iOS-style ease; it re-measures on resize and holds still with reduced motion) on the Primary (NR) bars. The الحرمين tab draws 🧭 Navigation › **Haramin Icon**: Kaaba, Masjid and Maqam on one 24 square, each glyph centred, cross-fading with a 20 blur on a 6 s loop (ease 0.5 0 0.5 1, the prototype's keyframes); reduced motion holds on the Kaaba. Exported as `HaramainIcon`. The loop follows Figma's prototype at the DL Advisor's request, and contradicts the rule below and M8 Motion (no resting loops): Q-D40 decides which wins.
+
 **14 November 2026:** the Figma set `Buttom Navigation` is gone; its screens are now 🧭 Navigation › Tab Bar › Active = Landing, Travel, Content, Market/Cart +, on the private `_BottomTab master` (Mode Primary, Primary/Small, InnerPage, Marketplace, Interactions, Actions) and `_Tab` (Default, Current, Icon Only, Pill). Bar 402 × 95 (was 106), gap 20 (was 12), a white haze instead of Ink. Current tab: solid icon in `icons-illumination`, label `text-link` at Light, a white and a `surface-longing` glow. Tabs — Landing: اليوم · السفر · الحرمين · السوق · الكل; Travel (was Journey): السفر · الطيران · الفنادق · التجارب; Content: اكتشف · الصوتيات · الفيديو · الإرشاد. Primary/Small is 48 high (was 44). The table below is the 10 November state, kept for reference (F6).
 
 *The rest of this section is the 10 November reading, kept for history; where it differs, the 14 November paragraph above wins.*
@@ -598,6 +601,8 @@ Figma: 🧭 Navigation › Nudges (Expand On 316 × 58, Off 279 × 58). One anno
 
 #### TabBar (bottom bars)
 
+**17 November 2026:** the white home tab bar (Home Item row + «نسك AI» pill) and Habits are deprecated in 🧭 Navigation; Tab Bar's home actives are the glass `_BottomTab master`. TabBar `landing`, `journey`/`travel`, `content`, `market` and `inner-pages` now render BottomNav; the old names keep working. The paragraph below is the history.
+
 - Home tab bar (10 November reading; since 14 November the home bars are Tab Bar › Landing, Travel, Content and Market, coded as BottomNav above): 95 high, `surface-01-white`, top corners 18, shadow 0 −6 30 −12 Ink 5%. Four tabs (اليوم, رحلتي, المحتوى, المتجر) plus Nusuk AI. Tab item 56 × 46, icon 24, label `notes-2-regular`. Current tab: solid icon in `surface-longing` with a soft glow, label `text-heading`; others `text-subtle`.
 - Action bars: actions, action & input, loading, filters, content share, habits, floating cart (empty and full), with price, cart, floating profile, empty. They fade from transparent to white 80% so content scrolls under them.
 - Home indicator: use the system one. Keyboard and Screen Controller in Figma are not components to build.
@@ -605,7 +610,10 @@ Figma: 🧭 Navigation › Nudges (Expand On 316 × 58, Off 279 × 58). One anno
 #### Other Navigation changes
 
 - Pagination: every dot `icons-gray` at full opacity, gap 8 (4 vertical); new small size (3); progress version.
-- ProgressRing: Pearl track, Illumination arc, optional title and subtitle.
+- **ProgressRing (rebuilt 17 November 2026,** 🧭 Navigation › Progress on `_Form Progress Indicator` P20–P100**):** 44 square; a 1.14 Pearl ring; a 7.4 `surface-illumination` band from 6 o'clock, clockwise, round ends, with a 5 `surface-shade-3` dot in its start cap; the count in `notes-2-regular` `text-content`. At 100% the circle fills and a 28 `tick-02` in `surface-shade-6` replaces the count (Show Check Mark). `Progress` sets the ring 12 from a `body-2-regular` title over a `notes-2-light` subtitle. Code drew a 3 stroke from 12 o'clock until now.
+- **Toolbar Process (17 November 2026):** `_Progress Bar` counts steps (Step 01, 02, 03 × Darkmode). One 30 × 12 wave block per step done (`.Building Blocks`, 3 `surface-longing`, round) from the reading start, then 8 apart a straight 3 track to the end (Pearl; white in Darkmode); 90 wide, 20 high in the toolbar. Code: `step` and `steps` (default 3); `progress` rounds up to a step. The variant names are broken (F91).
+- **CircularProgress (new 17 November 2026,** 🧭 Navigation › Circular progress indicator, Progress × Darkmode**):** a determinate ring for a measurable process (upload, download, sync). 44, 3 stroke inside; active `surface-longing` from 12 o'clock, clockwise, round ends; the rest Pearl (white in Darkmode) with a 15° gap at each end. The set was being edited while it was read and its labels do not match its drawings (F92); code is Proposed until it is published. Do not use it for steps (ProgressRing) or for an unknown duration.
+- **Photo Scan and Upload** (17 November 2026): a 402 × 874 example screen in 🧭 Navigation (Camera Widget, a Primary LR and a Ghost MD CTA, Tab Bar Empty, Toolbar Secondary Pages / Default in Darkmode). It is a frame, not a component.
 - HeaderTabs (15 November): the chosen tab is a white pill with `text-heading` and `shadow-xs`, on the track (Background On) or on nothing (Off); the glass toolbar tabs are `light`.
 - Toolbar `Secondary Pages / Full Search` (15 November): back, search and one action in one row (84, 32 below); `Secondary Pages / Search` is a title row over a full-width search row (142, 18 below).
 - BottomNav `inner-pages` (15 November): a 40 glass pill with four 44 × 38 icon actions and the 40 Nusuk AI circle; no bar shadow (only Glass BG's).
@@ -636,6 +644,8 @@ Figma: 🧭 Navigation › Nudges (Expand On 316 × 58, Off 279 × 58). One anno
 
 #### OptionCard (13 types)
 
+**17 November 2026 (from the design system comments, 🃏 Cards › Option Cards node 68491-1912):** code takes Figma's type names (`default` title and description only; `with-icon` lead icon, no action; `with-action` no icon; `top-icon`; the rest as below) and the preview follows Figma's order. 2 Actions, 2 Actions On and Counter have no lead icon; the LR flag tile is Ivory. `_Master Card` has modes Default (white, radius 18, four effects), Transparent (no fill, Ivory line) and Gray (Ivory fill, 437 × 138).
+
 **15 November:** Simple list (16 icon before the title, no lead or action), LR Icon (flag tile, no action) and 2 Actions On (the swiped state: Secondary star and Fate delete-03 tiles behind the card). Action Only, Icon with Action, 2 Actions, without Action, Counter, text only, LR Icon with Action, Icon Top, Requirement Item, **Product** (new 10 November: 359 × 66, padding 12 / 18, product picture 42 with a white 1.5 ring, name `body-2-regular`, quantity `body-2-light` such as `1x`). Padding 18, gap 12; title `notes-1-light`, description `body-2-regular`; actions Secondary XS icon-only; Counter stepper 110 × 44 Ivory capsule with a 12 backdrop blur; Icon Top corners 22/18/22/22; Requirement Item padding 12/18 with a 42 Ivory icon circle.
 
 #### AddToCartCTA (new 10 November)
@@ -650,6 +660,7 @@ Figma: 🃏 Cards › Add to Cart CTA. All 30 high, radius 22, built from CTA Se
 | `many` | Minus 16 · quantity · plus 16, padding 12 | 122 |
 | `Remove` | Destructive Secondary XS with an icon, "إزالة" | 74 |
 | `Notify me` | Secondary XS with a bell, "نبهني عند التوفر" | 142 |
+| `buy` (Figma `Status7`, 17 Nov) | Secondary XS, icon left `shopping-basket-add-01`, "اشتر" | 71 |
 
 The stepper reads left to right in every language (minus, number, plus). The plus and minus are 16 drawn; they answer a 48 touch (DL-20).
 
@@ -657,13 +668,15 @@ The stepper reads left to right in every language (minus, number, plus). The plu
 
 Figma: 🃏 Cards › Price Options (the master for price on product cards). "ابتداءً من" in `notes-2-light` `text-note`, then the price (riyal 12 × 14 + amount at 20, `text-heading`) and the Add to Cart CTA. `Vertical=False`: price and control on one row (269 × 61). `Vertical=True`: stacked, gap 8 (grid cards). Top padding 8. Show "from" only when the price really varies.
 
+**17 November 2026:** booleans Show Price, Show Add To Cart, Show CTA and Discount. Discount: a pill (`خصم 25%`, 10, padding 2 / 8, full radius, `alerts-surface-error` + `alerts-text-error`) and the earlier price struck through (12, `alerts-text-error`), 8 apart, 4 under the price. Show CTA: a Secondary XS icon-only button beside the cart control, with Figma's placeholder icon. Rules: a discount shows only when it is real (the struck price is what was charged before, and the offer has a real end, stated plainly), never with urgency and never on Udhiya, Hady or any act of worship (M4). The pill borrows error red (F97, Q-D41) and the second control conflicts with K9 (F98), so code keeps `cta` off by default.
+
 #### Marketplace media cards (10 November)
 
 Media Cards has 21 types. `Marketplace add to cart` is replaced by **Marketplace / List** (268 × 330, details on `Glass/Full`), **Marketplace / Grid** (189 × 330, image fade, stacked price) and **Marketplace / out of stock** (grid, with Notify me). In code: `layout="list" | "grid"` and `cart="cart" | "notify-me"` on MediaCard. `ADS` (250 × 330: image and the "اختيارات نسك" chip only) is still not coded (K8).
 
 #### Market (🛍️ Market library, new 10 November)
 
-File `5X9RDeo33hZFEhtjVUYr5c`. It has no variables or styles of its own: it uses Foundation, Buttons, Chips, Inputs, Switches, Cards, Avatar, Tabs and Tracker. 17 public sets, 5 private. Not coded in this release; build screens from the Figma components.
+File `5X9RDeo33hZFEhtjVUYr5c`. It has no variables or styles of its own: it uses Foundation, Buttons, Chips, Inputs, Switches, Cards, Avatar, Tabs and Tracker. On 17 November 2026: 15 public sets and 5 private (Breathing Effect is now the library copy Steps uses; Select Location is a set; new private `_Udhiya Details` and `_Contact Details`). Not coded in this release; build screens from the Figma components.
 
 | Set | Variants and size | Built from |
 |---|---|---|
@@ -677,19 +690,22 @@ File `5X9RDeo33hZFEhtjVUYr5c`. It has no variables or styles of its own: it uses
 | Gifting | 386 × 334, radius 22 | CTA, chip |
 | Featured Services/Shipping | 386 × 227, radius 22, `Glass/Full`, Visual slot | — |
 | eSIM Card | 384 × 292, radius 22 | `_SIM Details`, Add to Cart CTA |
-| Select Location/widget | 108 × 97, radius 14, `Shadow/XS` | — |
+| Select Location (a set since 17 Nov) | Selected On 160 × 81 (`surface-shade-4`, 1 `surface-longing` line) · Off 158 × 79 (white); radius 14, padding 12 / 18, gap 4; city `notes-2-regular`, address `notes-1-regular` (F101) | — |
+| `_Udhiya Details` (private, 17 Nov) | Status Off / On × Size LR (386 × 74 / 270, radius 18, white) / SM (386 × 58 / 230, radius 14, white with an Ivory line, Pearl when open) · Delete boolean | Input, `_Contact Details`, CTA Secondary SM / XS, chip |
+| `_Contact Details` (private, 17 Nov) | Status Off 386 × 30 (the switch only) · On 386 × 178 (switch, Mobile input, Input) | Switch SM, Input |
 | Order Basic Information | Order Details 386 × 304 · Cancellation 386 × 226, radius 18 | Request Card Status, CTA |
 | Shippment Tracker | eSim/Install 385 × 419 · Sim/Nafath, Sim/Pickup 385 × 381 · Package 385 × 289 | Tracker Step, Request Card Status, CTA, Avatar |
 | TrustedByNusuk | 4 variants, 111 × 46 | — |
-| Animated Gift · Breathing Effect | 4 × 20 and 2 × 54 | Motion pieces |
+| Animated Gift | 4 × 20 | Motion piece (Breathing Effect left the file on 17 Nov) |
 
 Rules for Market screens:
 - **Less Available** ("تبقي فقط %s منتجات") is a scarcity message. It shows only from live stock, below a threshold the business sets, and never on Udhiya, Hady or any act of worship (M4).
 - **TrustedByNusuk** is an endorsement. It needs a written criterion for who earns it; without one it is a disguised ad (M4).
 - Animated Gift and Breathing Effect play once, not as resting loops (M8 Motion).
 - Udhiya and Hady are worship bought through a shop: no upsell, no countdown, no "frequently bought together" on those products.
+- **Udhiya details** (17 November): one collapsible card per sacrifice: the name of the person it is offered for ("[اسم المُضحى عنه]") and its type ("نوع الأضحية"); open, it asks for the name and, behind a switch, contact details other than the buyer's. The name is the person's own wording and is never edited for them. The copy and the chevrons need fixing before it ships (F100).
 
-#### StatusChip (Request Card Status, 47)
+#### StatusChip (Request Card Status, 48)
 
 Chips XS: 18 high, text 10, icon 12, padding 8 (6 on the icon side, since 15 November), gap 4. Colours from the Chip state: success, pending, error, default, gold.
 
@@ -697,6 +713,7 @@ Chips XS: 18 high, text 10, icon 12, padding 8 (6 on the icon side, since 15 Nov
 | Figma status | Code `status` | Chip state | Arabic label | Icon |
 |---|---|---|---|---|
 | Confirmed | `confirmed` | success | مؤكد | `tick-double-02` |
+| Confirmed Booking (17 Nov) | `confirmed-booking` | success | حجز مؤكد | `document-validation` |
 | Partly Confirmed | `partly-confirmed` | pending | مؤكد جزئيا | `tick-double-02` |
 | Visit Completed | `visit-completed` | success | اكتملت الزيارة | `tick-double-02` |
 | Booked | `booked` | success | تم الحجز | `tick-double-02` |
@@ -747,12 +764,20 @@ Chips XS: 18 high, text 10, icon 12, padding 8 (6 on the icon side, since 15 Nov
 #### Date & Time and QR Code Status (15 November 2026)
 
 - **DayTab:** 80 × 78, radius 14, padding 12 / 8 / 8. Weekday `notes-2-regular` `text-subtle` over the date `headline-1-regular`; 14 corner icon (moon-01, or `unavailable`); availability bar 8 × 4 (green, orange, red, Smoke). Selected: `surface-shade-6`, 1.5 `surface-longing` line, `text-link`; Unavailable: Ivory, Pearl line, `text-note`. Today chip: Gold solid XS on the top edge.
-- **TimeSlot:** 54 high, radius 22, a 17 notch top and bottom 18 from the edge; period 16 + time 18; markers 20 (Available Soon Ivory, Instant shade 5 with a shade 2 line, Prayer white), overlapping by 7. Selected: `surface-shade-2` with a Longing line and Longing markers.
-- **PrayCard:** 110 × 90, radius 18. Off Ivory with a Slate icon; On shade 6 with a 1.5 Illumination line; men's and women's icons 16 under the title.
+- **TimeSlot (rebuilt 17 November 2026 from `_Time slot card Master`, from the design system comments):** 54 high, corners 12, padding 4 / 18. One 17-wide semicircle notch on the top edge and one on the bottom, centred 26.5 from the start corner on the markers' side (left in Arabic), cut out of the card so whatever is behind shows through; the Pearl line (Longing when selected) follows the notch. Time `body-1-regular`, then the period `body-2-light` («06:00 ص»). Markers 22 (12 icon, 4 padding, 1 line), overlapping 7, over the top notch, always in the order soon → instant → prayer; Selected = Longing with white icons. The master's slots are props: a crowd chip («مزدحم», Pending MD) and a trailing 24 icon. A free-text note no longer renders as a second label.
+- **PrayCard (17 November 2026):** 110 × 90, radius 18. One 24 icon (sunrise), the day in `body-1-light` and the men's and women's icons 16, nothing else: the «رجال / نساء» text line is gone and `note` is spoken only. Off Ivory, padding 26, `text-subtle`; On `surface-shade-6` with a 1.5 Illumination line, padding 18, `text-link`.
 - **InfoTile:** 125 wide, radius 18, padding 12 / 26 / 8; title 12 + sun-03 16; value 32 + unit 12; Good, Alert and Danger use the Success, Warning and Error alert colours.
-- **QRCodeStatus:** 200 × 200, radius 14, Nusuk logo in the centre by default. Every other state blurs the code; Used, Expired and Cancelled show an MD chip (Success, Default, Error), Error a Primary SM «تحديث» button.
+- **QRCodeStatus:** 200 × 200, radius 14, Nusuk logo in the centre by default. Since 17 November the code art follows 🏖️ Travel › QR Code Status: a 25-module dot code, rounded finder squares top right and bottom left, a dot top left, the mark in a clear centre. The art is decorative; pass `src` with a real code. Every other state blurs the code; Used, Expired and Cancelled show an MD chip (Success, Default, Error), Error a Primary SM «تحديث» button.
 
 ### Icons, Avatar, Chip
+
+#### Travel (17 November 2026, from the design system comments)
+
+Read from [🏖️ Travel › Travel](https://www.figma.com/design/ozi4A2gUbVXbzbUJ3MF4uU/?node-id=70393-17066) (node 70393:25450) at the DL Advisor's request.
+
+- **FlightTicket:** a two-part ticket 386 wide. Top: padding 26 / 20 / 4, radius 18 18 0 0, white rising from 30%. Departure country (`notes-1-regular`), time (20 Light) and code on the start side, arrival on the end side; between them a 94 column with the duration, a dashed arc with the airplane-02 pill (Ivory, 3 white ring) and «رحلة مباشرة»; Default XS chips under it. A 28 tear line with transparent semicircle notches at both edges and a 6 / 6 dashed Pearl rule. Bottom: airline logos (28 circles overlapping 7.6), airline and «تديرها …», seats in the warning colour, riyal and price, «لكل مسافر». Selected: `surface-shade-4` with a Longing line around the notches. Skeleton and Mini; Ribbon/On on top.
+- **Ribbon** («الارخص»), **FromTo** (Destination: trip tabs, two fields and the swap), **DateRange** (Duration: Default, Active, Disabled), **FeaturedAirport** (Off, On), **FeatureBox**, **VisaUserBlock** (name as on the passport, gender, flag, Selected) and **HotelCard** (photo with dots, specs, favourite, distance, rating, features, nights, price with an optional old price and discount).
+- Rules: routes read from the start side; times and codes stay left to right. The ribbon only when true for the current results, never for paid placement. Seat counts only from live inventory. The airline logo group in the preview is a 1x export; use the brand files.
 
 #### Icons (152 in the coded set)
 
@@ -1095,7 +1120,7 @@ Load when: building a section or a page, or reviewing one; load M9S first, becau
 - **BentoGrid** (`bento-grid`, Figma: Bento Grid (402 × 940, three slots)): Wide 386 × 220, halves 189 × 330, wide 386 × 220, gap 8, side padding 8, fade surface; `more`: Secondary MD full-width button.
 - **CardsList** (`cards-list`, Figma: Cards List (402 × 1160)): MediaCard 386 × 330 stacked, gap 8, side padding 8; no arrow in the title by default.
 
-All rows scroll sideways with 8 side padding and 8 gaps; sections start with a SectionTitle (48 top, 26 bottom; 18 when tight) unless noted.
+All rows scroll sideways with 8 side padding and 8 gaps; sections start with a SectionTitle (32 top, 18 bottom since 17 November 2026; it was 48 and 26) unless noted.
 
 ### Building blocks
 
@@ -1103,7 +1128,9 @@ All rows scroll sideways with 8 side padding and 8 gaps; sections start with a S
 
 The header every section starts with: a title, an optional tag (#المحتوى) or action label (عرض الكل), and the glass arrow that opens the full list.
 
-- 02 Section Title: padding 48 top, 18 sides, 26 bottom (18 when `tight`), gap 18; title `body-1-regular` `text-heading`, one line
+- 02 Section Title: padding 32 top, 18 sides and bottom (Space/XL, Space/NR; 17 November 2026, was 48 / 18 / 26), gap 18; title `body-1-regular` `text-heading`, one line
+- 02 Section Title / Centered (new 17 November 2026): a column, centred, gap 12, padding 26 / 18 / 18: the title, then the Actions slot (tag and arrow). For a section that opens a page, not for a row inside one.
+- The tag and arrow sit in Figma's **Actions** slot (17 November 2026); `actions` puts other content there. Misc › Headers also has Show CTA, Show Description and Show Seperator (spelled so in Figma).
 - Slot: tag or action label `notes-2-light` + Secondary XS icon-only `arrow-left-02`, gap 8
 - 03 Collaps (inside a card): padding 32 top, 18 bottom, no sides; title `body-2-regular`
 - **Logic:** Functional (navigation). The arrow means "see all"; when there is nothing more, pass `action={false}` (Cards List does this by default). Tag names the content stream (#المحتوى, #الصوتيات) so people know where "see all" leads.
@@ -1239,6 +1266,27 @@ Needed by the placement model (M9S, Appendix B) and not yet in the DL. Each star
 | Live stream | The Haram live (Figma: Video Status=Live) | 4–5, P1 on Fridays and seasons | D.1, B.1, C.3 |
 | Quote widget | One ayah or hadith with its source (Figma 70337:6095; title needs a text style, PT5) | 5, P1 or P2 | A.5, B.3 |
 
+### Proposed in Figma (17 November 2026)
+
+[✨ Templates-Patterns](https://www.figma.com/design/fIjmiUpwy5UE9KJ9aXfhrn/?node-id=70394-7656) gained a ⠏ Patterns page and two Proposed additions on ✨ Templates. All are **Proposed**: not in `patterns/index.json` or `templates/index.json` as approved entries, not merged into any contract, and waiting for the DL Manager. They are listed in `patterns/index.json › proposed` so a screen can point to them while they are reviewed.
+
+| Proposed | Spaces | Reuses | Open before it can be approved |
+|---|---|---|---|
+| Option chip picker (TC18) | label 0–1 · options 2–6 | Chips (Default unselected, Gold Solid selected) | No chip variant is named Selected |
+| Image Gallery | cover photo 1 · peek and position 0–1 | Product Photo On + Pagination (media-viewer space 1) | "2 of 6" announced, never dots alone |
+| Video Player | surface 1 · transport controls | Media's player pieces + StatusChip for Live | Media's `Status=Viedo` spelling |
+| Sound Player Screen / Quran | identity and progress · transport | SoundPlayer at full screen | Same component as the row, or a sibling? |
+| Sound Player (row) | artwork and identity · play control | SoundPlayer, compact | The playing vs paused row state |
+| Live | surface · state badge (Counter, Soon, Ended, Not exist) | Video Player + StatusChip | "Session Not Exist" has no copy; a countdown states the time only |
+| Reel | clip · side actions and caption 0–1 | Video Player | Side actions and caption have no DL component |
+| Articles | hero and title · body | none (a layout convention) | No reading-width rule for long body text |
+| Guides | step illustration and title · progress | StepCard, VerticalStepper or Steps | The name collides with the coded `guide` pattern (Q-D42) |
+| Search / Result | result row 0–n · no results 1 | CardsList or CardsSlider rows | No ordering rule for mixed result types |
+| **Template: Content landing** | toolbar · hero 1 · category filter 0–1 · feature rows 1–6 · audio row 0–1 · reels strip 0–1 · community strip 0–1 · tab bar | the patterns above | L2 vs tab destination, and a measure that counts opening as an action (Q-D43) |
+| **Pass sheet · multi-use state** (TC20) | the Active content plus "used N of M"; moves to Used, expired, cancelled at 0 | QRCodeStatus | Not mocked yet |
+
+Each Figma section repeats the chip picker's header and some of its accessibility lines (F102), and five loose frames sit on the Templates page (F103). Fix them before the review, so the reviewer reads each pattern's own text.
+
 ### Measuring a template (M5)
 
 Per section and per position: impressions → item taps → completed meaningful action. Guardrails: scroll depth with no action, back-outs from the first tap, complaint themes. Change the order for everyone only after a holdout comparison.
@@ -1345,13 +1393,14 @@ Load when: designing, reviewing or building anything in the Nusuk AI chat: answe
 The chat UI built from Figma 💬 Chat UI is now part of the Nusuk DL as a **Proposed lane**. Figma stays the source of truth (DL-01). A chat component moves from Proposed to DL when its Figma set is published and the DL Manager accepts its card.
 
 - **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR), plus the DL files it draws from (table below).
-- **Code:** `chat/nk-chat.js`, `chat/nk-chat.css` and `chat/nk-chat.tokens.css` (NusukChat 2.8.4, on DL 3.10). They load after `tokens.css` and `components/bundle.css` / `bundle.js`. Arabic is the default; `NusukChat.setLang('en')` switches the built-in labels to English. `Chips` and `ErrorMsg` take `buttons: true` to show each suggestion as a DL Button MD (primary unless `kind` says otherwise) with a leading arrow that follows the reading direction; the Figma chip stays the default.
+- **Code:** `chat/nk-chat.js`, `chat/nk-chat.css` and `chat/nk-chat.tokens.css` (NusukChat 2.8.5, on DL 3.10). They load after `tokens.css` and `components/bundle.css` / `bundle.js`. Arabic is the default; `NusukChat.setLang('en')` switches the built-in labels to English. `Chips` and `ErrorMsg` take `buttons: true` to show each suggestion as a DL Button MD (primary unless `kind` says otherwise) with a leading arrow that follows the reading direction; the Figma chip stays the default.
 - **Live gallery:** the *Nusuk Chat UI — preview per state* artifact (gallery, playground, handoff guide).
 - **17 November 2026 (NusukChat 2.8.0, [Figma](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252)):** 💬 Chat UI still has 7 sets, 54 variants and 3 masters, all mapped. The chat now follows the DL 3.10 library it draws from: SelCard is the DL Select Card (radius 14, white with an Ivory line and `shadow-os`, title 14 over description 16, no radio; a group is a `radiogroup`), suggestion chips take `chip-padding-lr` and `chip-padding-icon-lr`, and the AI Tab Bar input and round buttons are Glass BG (Default, Glass On) with Shadows › OS. Breaking: SelCard's `radio` prop is gone.
 - **17 November 2026, afternoon (NusukChat 2.8.1, [Figma](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252)):** on a user message, the Nusuk Bot beside the echoed question is now a 12 × 14 mark with no eyes (was the 24 × 27 bot with eyes), 12 from the question; user bubbles are 9 shorter (User/BG 463, User/Transparent 178). Code: `Bot` takes `eyes: false`. Nothing else in the file changed (7 sets, 54 variants, 3 masters).
 - **17 November 2026, 15:07 (NusukChat 2.8.2, [Figma](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252)):** the message body is 20 / 18 / 26 / 18 (`space-md`, `space-nr`, `space-lr`), so filled bubbles are 6 taller; Voice, Passport Attach and Location Guide keep 20 at the bottom as Figma draws them. The password question uses ⌨️ Inputs › Input Type=Password as published: the 62 field, then its Strength Meter, DL Checkbox SM criteria 8 apart.
 - **17 November 2026, 15:30 (NusukChat 2.8.3, [Figma](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252)):** checked against Figma: every size the 2.8.1 and 2.8.2 rounds list matches. The Days and Slots answers also keep 20 at the bottom, so six filled variants do (Voice ×2, Days and Slots answers, Passport Attach, Location Guide) and code follows with `padEnd: 'md'`; the `_Chat Container` master itself is still 20 (F88, Q-D38). The password criteria lose their full stops, as Figma writes them; Figma lists three criteria, code checks five (F89, Q-D39).
 - **17 November 2026, 15:50 (NusukChat 2.8.4):** the component notes in the code's registry (PasswordField, Message) now describe the 2.8.2 layout, so the cards and the manifest rebuild to the same text. Nothing renders differently.
+- **17 November 2026, 19:30 (NusukChat 2.8.5, [Figma](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252)):** one bot per run of Nusuk messages. When the next message is also from Nusuk, the bot goes and only the last one keeps it; bubbles keep the empty 24 column, an insight note drops its 38 bot. Code: `bot: false` on `Message`, every Nusuk type and `BotNote`; `.nkc-thread` on the thread container applies it on the web.
 - **Skill:** the `nusuk-design-language` skill carries this lane in `reference/chat/` (README, component table, code, proposed tokens and icons, manifest, cards, migrations). Load it with this module.
 - **Decided:** 11 November 2026, by the DL Advisor: merge as a Proposed lane, and take every value from a DL file before proposing a new one.
 

@@ -14,6 +14,8 @@ The top app bar. It is transparent and floats over the screen; controls sit on g
 
 **10 November 2026:** 20 types × `darkmode`. Pass the Figma type name (`'Secondary Pages / Default'`); the short names still work. `status`, `market-landing` and `market-category` are deprecated. The full table is in DESIGN.md › M9 › Toolbar.
 
+**17 November 2026:** the Process progress counts steps, as Figma's `_Progress Bar` now does (Step 01, 02, 03 × Darkmode): one 30 × 12 wave block per step done (`.Building Blocks`, 3 px `surface-longing`, round), from the reading start, then 8 apart a straight 3 px track to the end (`surface-03-pearl`; white on `light`). Pass `step` (and `steps`, default 3); `progress` still works and rounds up to a step.
+
 **16 November 2026:** the Process progress follows the new [🧭 Navigation › `_Progress Bar`](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw): 90 × 20, a straight 3 px track (`surface-03-pearl`, white on `light`) and a wavy 3 px active part in `surface-longing` from the reading start (was 70 × 8, 1.6 px, grey wave with a gold gradient). `progress` is 0–1.
 
 ## Props
@@ -29,6 +31,7 @@ The top app bar. It is transparent and floats over the screen; controls sit on g
 | `backLabel, leadLabel, trailLabel, actionLabels, cartLabel` | `string, string[]` | Names for the icon buttons. Back, close, menu, support and cart are named already (Arabic; English with `lang="en"`); action icons read "إجراء 1", so pass `actionLabels` |
 | `tabs, activeTab` | `string[], number` | Glass tabs (`with-tabs`, `top-tabs`) |
 | `statusBar` | `boolean` | Draws the 62px iOS status bar, for mockups and decks only |
+| `step, steps` | `number` | Process: steps done, of `steps` (default 3) |
 | `wallet, avatar, chip, timer, date, progress, people, nusukId, cartCount` | `…` | Content for the type that uses it |
 | `accountLabel` | `string` |  |
 | `categories` | `string[]` |  |

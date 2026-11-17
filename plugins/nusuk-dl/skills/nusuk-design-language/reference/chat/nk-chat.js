@@ -195,10 +195,10 @@
   function Message(p) {
     var from = p.from || 'nusuk', bg = p.bg !== false;
     var figma = p.figma || (from === 'user' ? (bg ? '80451:18765' : '80578:5289') : (bg ? '80451:18764' : '80578:5431'));
-    return h('div', { className: 'nkc-msg', 'data-figma': figma, 'data-from': from },
+    return h('div', { className: 'nkc-msg', 'data-figma': figma, 'data-from': from, 'data-bot': from === 'nusuk' && p.bot === false ? 'none' : undefined },
       p.question ? h('div', { className: 'nkc-q' }, h(Bot, { location: p.location || C_LOC.value, mirror: true, size: 12, eyes: false, motion: 'static' }), h('p', { className: 'nkc-q-text', style: { margin: 0 } }, p.question)) : null,
       h('div', { className: 'nkc-row ' + from },
-        from === 'nusuk' ? (p.question ? h('span', { style: { width: 24, flex: 'none' } }) : h(Bot, { location: p.location || C_LOC.value, mirror: true })) : h(Avatar),
+        from === 'nusuk' ? ((p.question || p.bot === false) ? h('span', { className: 'nkc-bot-gap', 'aria-hidden': true, style: { width: 24, flex: 'none' } }) : h(Bot, { location: p.location || C_LOC.value, mirror: true })) : h(Avatar),
         h('div', { className: 'nkc-col' },
           h('div', { className: 'nkc-body' + (bg ? '' : ' nobg') + (p.padEnd === 'md' ? ' padb-md' : '') }, p.children),
           p.footer === false ? null : h('div', { className: 'nkc-foot' },
@@ -211,14 +211,14 @@
   var NOTE_NODES = { makkah: { insight: '80559:28807', pill: '80559:28813' }, madinah: { insight: '80559:28810', pill: '80559:28816' } };
   function BotNote(p) {
     var loc = (p.location || C_LOC.value) === 'madinah' ? 'madinah' : 'makkah', v = p.variant === 'pill' ? 'pill' : 'insight';
-    return h('div', { className: 'nkc-note ' + v + ' ' + loc, 'data-figma': NOTE_NODES[loc][v] },
-      h(Bot, { location: loc, size: v === 'pill' ? 20 : 38, mirror: true, motion: p.motion }),
+    return h('div', { className: 'nkc-note ' + v + ' ' + loc, 'data-figma': NOTE_NODES[loc][v], 'data-bot': p.bot === false ? 'none' : undefined },
+      p.bot === false ? null : h(Bot, { location: loc, size: v === 'pill' ? 20 : 38, mirror: true, motion: p.motion }),
       h('p', { className: 'nkc-note-text' }, p.text));
   }
 
   /* ---------- AI Chat Messages variants ---------- */
   function Text(p) { // User=User|Nusuk, Style=Text
-    return h(Message, { from: p.from, question: p.question, actions: p.from === 'nusuk', copyText: p.text, time: p.time, figma: p.from === 'user' ? '80392:4524' : '80601:9158' },
+    return h(Message, { bot: p.bot, from: p.from, question: p.question, actions: p.from === 'nusuk', copyText: p.text, time: p.time, figma: p.from === 'user' ? '80392:4524' : '80601:9158' },
       h('p', { className: 'nkc-answer', style: { margin: 0 } }, p.text),
       p.children || null,
       p.from === 'user' && p.editable !== false ? h(EditAnswer, { onEdit: p.onEdit }) : null);
@@ -233,7 +233,7 @@
     var s = React.useState(false), playing = s[0], setPlaying = s[1];
     var g = React.useState(p.progress || 0.35), prog = g[0], setProg = g[1];
     React.useEffect(function () { if (!playing) return; var t = setInterval(function () { setProg(function (x) { if (x >= 1) { setPlaying(false); return 0; } return Math.min(1, x + 0.04); }); }, 120); return function () { clearInterval(t); }; }, [playing]);
-    return h(Message, { from: p.from, question: p.question, actions: p.from === 'nusuk', padEnd: 'md', figma: p.from === 'user' ? '80392:4534' : '80601:9269' },
+    return h(Message, { bot: p.bot, from: p.from, question: p.question, actions: p.from === 'nusuk', padEnd: 'md', figma: p.from === 'user' ? '80392:4534' : '80601:9269' },
       h('div', { className: 'nkc-voice' },
         h('button', { type: 'button', className: 'nkc-play', onClick: function () { setPlaying(!playing); }, 'aria-label': playing ? 'إيقاف مؤقت' : 'تشغيل الرسالة الصوتية' }, Ic(playing ? 'pause' : 'play', 'sm')),
         h(Wave, { progress: prog }),
@@ -242,7 +242,7 @@
 
   function Chips(p) { // Style=Default — follow-up chips, no background
     var s = React.useState(null), picked = s[0], setPicked = s[1];
-    return h(Message, { from: 'nusuk', bg: false, question: p.question, figma: p.figma || '80392:4581', time: p.time },
+    return h(Message, { bot: p.bot, from: 'nusuk', bg: false, question: p.question, figma: p.figma || '80392:4581', time: p.time },
       p.lead || null,
       h('div', { className: 'nkc-chips' + (p.buttons ? ' btns' : ''), role: 'group', 'aria-label': p.label || tl('اقتراحات', 'Suggestions') }, (p.items || []).map(function (t, i) {
         if (p.buttons) return h(N.Button, { key: i, kind: p.kind || 'primary', size: 'md', icon: 'left', iconName: p.iconName || (LANG.v === 'en' ? 'arrow-right-02' : 'arrow-left-02'), onClick: function () { setPicked(i); if (p.onPick) p.onPick(t, i); } }, t);
@@ -262,7 +262,7 @@
 
   /* _Chat Container with Question (80453:2664) */
   function Question(p) {
-    return h(Message, { from: 'nusuk', figma: p.figma || '80453:2664', time: p.time, footer: p.footer, padEnd: p.padEnd },
+    return h(Message, { bot: p.bot, from: 'nusuk', figma: p.figma || '80453:2664', time: p.time, footer: p.footer, padEnd: p.padEnd },
       h('div', { className: 'nkc-qb' },
         h('div', { className: 'nkc-type' }, p.typeFig ? FigIcon(p.typeFig, 16) : Ic(p.typeIcon || 'mail-validation-01', 'sm'), h('span', null, p.type || tl('عنوان مختصر', 'Short title')), h('span', { className: 'grow' }), p.help ? Ic('info', 'nr') : null),
         h('div', { className: 'nkc-title' }, p.title),
@@ -292,7 +292,7 @@
       h('div', { className: 'nkc-cal', role: 'group', 'aria-label': 'أيام الشهر' }, WD.map(function (w, i) { return h('span', { key: 'w' + i, className: 'nkc-wd', 'aria-hidden': true }, w); }), cells));
   }
   function DaysAnswer(p) { // User=User, Style=Days (80601:3360)
-    return h(Message, { from: 'user', question: p.question, padEnd: 'md', figma: '80601:3360' }, h('div', { className: 'nkc-mid' }, p.date || 'الأحد، 22 يونيو 2026'), h(EditAnswer, { onEdit: p.onEdit }));
+    return h(Message, { bot: p.bot, from: 'user', question: p.question, padEnd: 'md', figma: '80601:3360' }, h('div', { className: 'nkc-mid' }, p.date || 'الأحد، 22 يونيو 2026'), h(EditAnswer, { onEdit: p.onEdit }));
   }
 
   /* Style=Slots — DL Pray Card list + DL Time slot cards (80593:6839) */
@@ -312,7 +312,7 @@
       })));
   }
   function SlotsAnswer(p) { // User=User, Style=Slots (80601:5538 / 80601:9567)
-    return h(Message, { from: 'user', question: p.question, padEnd: 'md', figma: '80601:5538' }, h('div', { className: 'nkc-answer' }, p.date || 'الأحد، 22 يونيو 2026'), h('div', { className: 'nkc-big', dir: 'auto' }, p.time || '07:40 ص'), h(EditAnswer, { onEdit: p.onEdit }));
+    return h(Message, { bot: p.bot, from: 'user', question: p.question, padEnd: 'md', figma: '80601:5538' }, h('div', { className: 'nkc-answer' }, p.date || 'الأحد، 22 يونيو 2026'), h('div', { className: 'nkc-big', dir: 'auto' }, p.time || '07:40 ص'), h(EditAnswer, { onEdit: p.onEdit }));
   }
 
   /* ---------- AI Tab Bar (80392:4168 master; statuses 80392:4482…4494) ---------- */
@@ -619,7 +619,7 @@
   /* Location Guide — 80622:21047 */
   function LocationGuide(p) {
     var q = encodeURIComponent(p.query || 'Ajyad electric carts, Makkah');
-    return h(Message, { from: 'nusuk', figma: '80622:21047', padEnd: 'md' },
+    return h(Message, { bot: p.bot, from: 'nusuk', figma: '80622:21047', padEnd: 'md' },
       h('p', { className: 'nkc-lg-title body-1-regular' }, p.title || 'إتبع الإرشادات التالية للوصول لموقع العربات الكهربائية في منطقة أجياد.'),
       h('figure', { className: 'nkc-lg-img' }, h('img', { src: p.image || A('ajyad-guide.jpg'), alt: p.imageAlt || 'منطقة العربات الكهربائية في أجياد', loading: 'lazy' })),
       h('p', { className: 'nkc-lg-steps notes-1-regular' }, p.steps || 'توجه إلى (باب 3) أمام فندق الصفوة ← واصل السير حتى مفترق الطريق ← اتجه يمينًا نحو منطقة الفرز والانتظار حتى تصل'),
@@ -662,7 +662,7 @@
   function HotelChoose(p) {
     var s = React.useState(p.selected || null), sel = s[0], setSel = s[1], e = React.useState(false), err = e[0], setErr = e[1];
     var list = p.hotels || HOTELS;
-    return h(Message, { from: 'nusuk', bg: false, actions: true, figma: '80625:21403', copyText: 'حجز الفنادق' },
+    return h(Message, { bot: p.bot, from: 'nusuk', bg: false, actions: true, figma: '80625:21403', copyText: 'حجز الفنادق' },
       h('div', { className: 'nkc-qcard' }, h('div', { className: 'nkc-qb' }, h('div', { className: 'nkc-type' }, Ic('bed-double', 'sm'), h('span', null, 'حجز الفنادق'), h('span', { className: 'grow' })), h('div', { className: 'nkc-title' }, p.title || 'إختر من بين الفنادق المتنوعة في جدة.')), h(Filters, { items: p.filters || HOTEL_FILTERS, onEdit: p.onEditFilter })),
       h('div', { className: 'nkc-rail', role: 'listbox', 'aria-label': 'الفنادق المتاحة' }, list.map(function (x) { return h(HotelCard, { key: x.id, hotel: x, urgency: p.urgency, selected: sel === x.id, onSelect: function () { setSel(x.id); setErr(false); } }); })),
       err ? h(N.Hint, { type: 'error' }, 'اختر فندقًا للمتابعة.') : null,
@@ -691,7 +691,7 @@
   function FlightsSelection(p) {
     var s = React.useState(p.selected || null), sel = s[0], setSel = s[1], a = React.useState(false), all = a[0], setAll = a[1], e = React.useState(false), err = e[0], setErr = e[1];
     var list = p.flights || FLIGHTS, shown = all ? list.concat(list.map(function (x) { return Object.assign({}, x, { id: x.id + 'b', ribbon: null }); })) : list;
-    return h(Message, { from: 'nusuk', bg: false, actions: true, figma: '80652:10299', copyText: 'حجز الطيران' },
+    return h(Message, { bot: p.bot, from: 'nusuk', bg: false, actions: true, figma: '80652:10299', copyText: 'حجز الطيران' },
       h('div', { className: 'nkc-qcard' }, h('div', { className: 'nkc-qb' }, h('div', { className: 'nkc-type' }, Ic('airplane-01', 'sm'), h('span', null, 'حجز الطيران'), h('span', { className: 'grow' })), h('div', { className: 'nkc-title' }, p.title || 'اختر رحلتك من بين الرحلات المتاحة.')), h(Filters, { items: p.filters || HOTEL_FILTERS, onEdit: p.onEditFilter })),
       h('div', { className: 'nkc-ftlist', role: 'listbox', 'aria-label': 'الرحلات المتاحة' }, shown.map(function (x) { return h(FlightTicketFull, { key: x.id, flight: x, urgency: p.urgency, selected: sel === x.id, onSelect: function () { setSel(x.id); setErr(false); } }); })),
       all ? null : h('div', { className: 'nkc-showall' }, h(N.Button, { kind: 'ghost', size: 'md', icon: 'none', onClick: function () { setAll(true); }, className: 'nkc-btn-fig' }, h(F, null, h('span', null, 'عرض كافة الرحلات المتاحة'), FigIcon('arrow-expand-02', 20)))),
@@ -733,7 +733,7 @@
         b.cta ? h(N.Button, { kind: 'primary', size: 'sm', icon: 'only', iconName: 'arrow-left-02', ariaLabel: b.aria, onClick: p.onOpen }) : null));
   }
   var registry = [
-    { code: 'NusukChat.Message', figma: '_Chat Container Master', nodes: { 'Status=Chat, Type=Nusuk/BG': '80451:18764', 'Status=Chat, Type=Nusuk/Transprent': '80578:5431', 'Status=Chat, Type=User/BG': '80451:18765', 'Status=Chat, Type=User/Transprent': '80578:5289' }, props: 'from: "nusuk"|"user" · bg: boolean · question?: string · actions?: boolean · time?: string · footer?: false', dl: 'tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/lr/sm · DL Avatar (XS, Ink)' },
+    { code: 'NusukChat.Message', figma: '_Chat Container Master', nodes: { 'Status=Chat, Type=Nusuk/BG': '80451:18764', 'Status=Chat, Type=Nusuk/Transprent': '80578:5431', 'Status=Chat, Type=User/BG': '80451:18765', 'Status=Chat, Type=User/Transprent': '80578:5289' }, props: 'from: "nusuk"|"user" · bg: boolean · question?: string · actions?: boolean · time?: string · footer?: false · bot?: false (hide the bot when the next message is also Nusuk; 24 column kept)', dl: 'tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/lr/sm · DL Avatar (XS, Ink)' },
     { code: 'NusukChat.Question', figma: '_Chat Container', nodes: { '_Chat Container': '80453:2664' }, props: 'type · typeIcon · title · desc? · onBack? · children (Content slot) · cta · ctaState · onConfirm', dl: 'DL Button (Primary, MD, icon right tick-02) · _Button Trail (back) · DL TextField in slot' },
     { code: 'NusukChat.Text', figma: 'AI Chat Messages › Style=Text', nodes: { 'User=User': '80392:4524', 'User=Nusuk': '80601:9158' }, props: 'from · text · question? · editable? · onEdit?', dl: 'Light/Body/One · _Button Trail + edit-02 · Footer actions copy-01 / thumbs-up / thumbs-down' },
     { code: 'NusukChat.Voice', figma: 'AI Chat Messages › Style=Voice', nodes: { 'User=User': '80392:4534', 'User=Nusuk': '80601:9269' }, props: 'from · duration · progress · question?', dl: 'surface-illumination waveform · surface-10-ink play' },
@@ -753,7 +753,7 @@
     { code: 'NusukChat.Otp', figma: 'AI Chat Messages › User=Nusuk, Style=Confirmation (OTP · email)', nodes: { 'Variant': '80607:11146' }, props: 'email · length (4) · seconds (59) · onConfirm(code) · onEditEmail', dl: 'Question card · _Button Trail “تعديل” · OTP fields 62h radius-s · time-04 timer · DL Button Primary' },
     { code: 'NusukChat.PackageCard', figma: 'Media Cards / Type=Flight (chat)', nodes: { 'Saudi': '80477:4939', 'Morocco': '80477:4940', 'France': '80477:4941' }, props: 'image (CMS) · flag · best · from · title · desc · price · onAdd', dl: 'DL MediaCard (kind hajj, surface fade, selected = خيارك الأفضل, price + AddToCart). Swapped in on Moha’s request (comment, 11 Nov) to follow the new DL Media Cards' },
     { code: 'NusukChat.Packages', figma: 'Hajj Packgaes + Pagination', nodes: { 'Carousel': '80477:11127', 'Pagination': '80478:12232' }, props: 'items · onAdd', dl: '300-wide cards, 8 gap, scroll-snap · DL Pagination' },
-    { code: 'NusukChat.BotNote', figma: 'Nusuk Bot Messages', nodes: { 'Default (Makkah insight)': '80559:28807', 'Variant3 (Madinah insight)': '80559:28810', 'Variant2 (Makkah pill)': '80559:28813', 'Variant4 (Madinah pill)': '80559:28816' }, props: 'location · variant: "insight"|"pill" · text · motion', dl: 'Light/Body/Two gradient text (black → text-link | alerts-text-success → #666) · Regular/Notes/One · pill tint shade-5 gold / #E4FBEA green' },
+    { code: 'NusukChat.BotNote', figma: 'Nusuk Bot Messages', nodes: { 'Default (Makkah insight)': '80559:28807', 'Variant3 (Madinah insight)': '80559:28810', 'Variant2 (Makkah pill)': '80559:28813', 'Variant4 (Madinah pill)': '80559:28816' }, props: 'location · variant: "insight"|"pill" · text · motion · bot?: false (drops the bot when a Nusuk message follows)', dl: 'Light/Body/Two gradient text (black → text-link | alerts-text-success → #666) · Regular/Notes/One · pill tint shade-5 gold / #E4FBEA green' },
     { code: 'NusukChat.Bot', figma: 'Nusuk Bot · _Eyes', nodes: { 'Location=Makkah': '80559:28820', 'Location=Madina': '80559:28823', '_Eyes (7 frames)': '80559:28826' }, props: 'location: \"makkah\"|\"madinah\" · size (24) · motion: \"live\" (default: follows pointer, idle glances + blinks) | \"prototype\" | \"sequence\" | \"static\" · frame (static) · mirror · label · eyes: false (the 12×14 mark in a user question row, 17 Nov)', dl: 'Gold body = surface-longing → surface-shade-4 (gold) · green body #288A42 → #E0FAD1 (not DL tokens) · glow + 4px layer blur · ⚠ section "Beta – Do Not Use"' },
     { code: 'NusukChat.PasswordField', figma: 'AI Chat Messages › Style=Password', nodes: { 'Variant': '80607:16432', 'Input/Type=Password': '80607:16851' }, props: 'onConfirm(password) · onBack', dl: 'nk-field-box (62h) · view (Figma icon) · 5 criteria as DL Checkbox SM below the field · DL Button Primary MD' },
     { code: 'NusukChat.MobileField', figma: 'AI Chat Messages › Style=Mobile', nodes: { 'Variant': '80607:17062', 'Input/Type=Mobile': '80607:17346' }, props: 'onConfirm("+966 05…") · onBack', dl: 'country code select 115 + input 357 · DL Flag · arrow-down-01' },
@@ -827,5 +827,5 @@
     { code: 'NusukChat.SingleChoose', figma: 'AI Chat Messages › Style=Single Choose', nodes: { 'Variant': '80626:36740' }, props: 'type · typeIcon · title · options: [{icon, title}] · selected · onConfirm(option, i)', dl: 'Question card · DL Option Cards (Icon with Action) · Alerts/Surface/Success · Buttons Green · DL Button Primary MD' });
   registry.forEach(function (r) { var k = r.code.replace('NusukChat.', ''), d = DL_STATUS[k] || ['new', null, '']; r.status = d[0]; r.dlTarget = d[1]; r.dlNote = d[2]; });
 
-  window.NusukChat = { version: '2.8.4', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Alert: Alert, ErrorMsg: ErrorMsg, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
+  window.NusukChat = { version: '2.8.5', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Alert: Alert, ErrorMsg: ErrorMsg, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
 })();

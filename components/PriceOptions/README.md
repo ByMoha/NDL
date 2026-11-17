@@ -2,7 +2,9 @@
 
 The price block of a product card: "from", the price and the cart control.
 
-**Figma source:** 🃏 Cards › Price Options (Vertical False / True). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** [🃏 Cards › Price Options](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=2402-18252) (Vertical False / True · Show Price, Show Add To Cart, Show CTA, Discount). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**17 November 2026:** four booleans. Discount adds a row under the price: a pill (`خصم 25%`, 10, padding 2 / 8, full radius, `alerts-surface-error` with `alerts-text-error`) and the earlier price struck through (12, `alerts-text-error`), 8 apart; price and discount stack 4 apart. Show CTA adds a Secondary XS icon-only button beside the cart control. Figma binds the pill to Foundation's `Buttons/Surface/Error` and `Buttons/Text/Error`, which have no DL token; their values equal the alert error tokens (F97).
 
 ## Props
 
@@ -13,6 +15,10 @@ The price block of a product card: "from", the price and the cart control.
 | `vertical` | `boolean` | Stacked, for grid cards |
 | `cart` | `AddToCartStatus \| false` | The control; `false` hides it |
 | `cartProps` | `Partial<AddToCartCTAProps>` |  |
+| `showPrice` | `boolean` | Figma Show Price; false hides the from label and the price |
+| `discount` | `string` | Figma Discount: the pill text |
+| `oldPrice` | `string` | The earlier price, struck through |
+| `cta, ctaIcon, ctaLabel, onCta` | `boolean, string, string, fn` | Figma Show CTA. Off by default in code: Figma gives it no purpose and K9 allows one control (F98) |
 
 ## Use
 
@@ -21,7 +27,8 @@ The price block of a product card: "from", the price and the cart control.
 
 ## Don't
 
-- No struck-through price without a real earlier price.
+- No struck-through price without a real earlier price: the old price is what was actually charged, and the offer has a real end.
+- No discount on Udhiya, Hady or any act of worship (M4), and never paired with urgency.
 - No second control beside the cart control (K9).
 
 ## You provide

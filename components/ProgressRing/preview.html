@@ -4,9 +4,11 @@
 <body style="margin:0">
 <div id="root" class="nk nk-stage col" dir="rtl"></div>
 <script>
+  /* 🧭 Navigation › _Form Progress Indicator P20–P100 and Progress, read 17 November 2026 */
   var N = window.NusukDL, h = React.createElement;
-  function F(label, el, dark){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:402,maxWidth:'100%',borderRadius:18,overflow:'hidden',background:dark?'linear-gradient(160deg,#5b4a35,#1d1a17 60%,#070808)':'var(--surface-screen-bk)',outline:'1px solid var(--surface-03-pearl)'}}, el)); }
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment,null,h('div',{style:{display:'flex',gap:18,alignItems:'center'}},h(N.ProgressRing,{value:.2,text:'1/5'}),h(N.ProgressRing,{value:.6,text:'3/5'}),h(N.ProgressRing,{value:1,text:'5/5',label:'Steps done'})),h(N.ProgressRing,{value:.6,text:'1/4',title:'نص',subtitle:'فرعي'})));
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h('div', { style: { display: 'flex', gap: 18, alignItems: 'center' } }, [.2, .4, .6, .8, 1].map(function (v) { return h(N.ProgressRing, { key: v, value: v, text: '1/4' }); })),
+    h(N.ProgressRing, { step: 2, steps: 4, title: 'معلومات الحجز', subtitle: 'الخطوة التالية: الدفع' })));
 </script>
 </body>
 </html>
