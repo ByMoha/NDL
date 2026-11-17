@@ -1,0 +1,47 @@
+{
+ "date": "2026-11-17",
+ "name": "NusukChat 2.8.3: answer padding as drawn, password copy",
+ "status": "proposed",
+ "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+ "chat": {
+  "version": {
+   "from": "2.8.2",
+   "to": "2.8.3"
+  },
+  "coverage": {
+   "sets": 7,
+   "variants": 54,
+   "masters": 3,
+   "allMapped": true
+  },
+  "changed": [
+   {
+    "component": "DaysAnswer, SlotsAnswer",
+    "figma": "AI Chat Messages › User=User, Style=Days (80601:3360), Style=Slots (80601:5538)",
+    "change": "Body keeps 20 at the bottom in Figma; code takes padEnd: 'md' (was 26 in 2.8.2)"
+   },
+   {
+    "component": "PasswordField",
+    "figma": "80607:16432",
+    "change": "criteria without a full stop, as Figma writes them; card and components.md describe the field-then-criteria layout"
+   }
+  ]
+ },
+ "checked": {
+  "at": "2026-11-17T15:30+03:00",
+  "sizes": "User/BG 469, Nusuk/BG 435, User/Transparent 178, Text 185 and 101, Voice 148 and 114, Confirmation 410, Password 347, Gender 321, IBAN 443, Single Choose 497: as the 2.8.1 and 2.8.2 rounds list them"
+ },
+ "open": [
+  "F88 / Q-D38: _Chat Container (80453:2664) Body is 20 at the bottom; 16 variants override it to 26, 8 keep 20",
+  "F89 / Q-D39: three password criteria in Figma, five in code"
+ ],
+ "tokens": {
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "icons": {
+  "added": []
+ },
+ "breaking": []
+}

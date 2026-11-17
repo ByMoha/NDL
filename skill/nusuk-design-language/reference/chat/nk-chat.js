@@ -151,8 +151,9 @@
     var live = motion === 'live';
     React.useEffect(function () {
       if (!live || rm || !elRef.current) return;
+      if (p.eyes === false) return;
       return EyeEngine.add(elRef.current, !!p.mirror);
-    }, [live, rm, p.mirror, loc]);
+    }, [live, rm, p.mirror, loc, p.eyes]);
     React.useEffect(function () {
       if (still || live) return;
       if (motion === 'prototype' && frame === 0) { var t = setTimeout(function () { setFrame(1); }, 300); return function () { clearTimeout(t); }; }
@@ -162,15 +163,15 @@
     var svgBody = '<svg class="nkc-bot-body" viewBox="' + b.vb + '" preserveAspectRatio="none" fill="none" aria-hidden="true" style="position:absolute;left:0;width:100%;top:' + b.box.top + ';height:' + b.box.height + '"><defs>' + b.grad(idRef.current) + '</defs><path d="' + b.path + '" fill="url(#' + idRef.current + ')"/></svg>';
     var eyeStyle = 'position:absolute;top:' + b.eyes.top + ';left:' + b.eyes.left + ';width:' + b.eyes.w + ';height:' + b.eyes.h;
     var svgEyes, fi;
-    if (live) {
+    if (p.eyes === false) { svgEyes = ''; fi = 0; } else if (live) {
       fi = 3; var a = eyeAt(0, 0, 0), c = eyeAt(1, 0, 0);
       svgEyes = '<svg class="nkc-bot-eyes" viewBox="0 0 80 30" preserveAspectRatio="none" fill="none" aria-hidden="true" data-figma="80559:28826" style="' + eyeStyle + '"><ellipse fill="white" cx="' + a[0] + '" cy="' + a[1] + '" rx="' + a[2] + '" ry="' + RY + '"/><ellipse fill="white" cx="' + c[0] + '" cy="' + c[1] + '" rx="' + c[2] + '" ry="' + RY + '"/></svg>';
     } else {
       fi = still ? (p.frame || 0) : frame; var e = EYES[fi];
       svgEyes = '<svg class="nkc-bot-eyes" viewBox="0 0 80 ' + e[0] + '" preserveAspectRatio="none" fill="none" aria-hidden="true" data-figma="' + EYE_NODES[fi] + '" style="' + eyeStyle + '"><path fill="white" d="' + e[1] + '"/><path fill="white" d="' + e[2] + '"/></svg>';
     }
-    var props = { ref: elRef, className: 'nkc-bot ' + loc + (p.mirror ? ' mirror' : '') + (tap ? ' tappable' : '') + (live ? ' live' : ''), style: { width: size, height: size * 90 / 80, '--nkc-bot-blur': (size >= 48 ? (2 * size / 80).toFixed(2) : '0') + 'px', '--nkc-bot-glow': (11 * size / 80).toFixed(2) + 'px' }, role: 'img', 'aria-label': p.label || tl('نسك AI', 'Nusuk AI'), 'data-figma': b.node, 'data-motion': motion, 'data-eyes': live ? 'live' : fi + 1, dangerouslySetInnerHTML: { __html: svgBody + svgEyes } };
-    if (live) props.onClick = function () { EyeEngine.blink(elRef.current); };
+    var props = { ref: elRef, className: 'nkc-bot ' + loc + (p.mirror ? ' mirror' : '') + (tap ? ' tappable' : '') + (live ? ' live' : ''), style: { width: size, height: size * 90 / 80, '--nkc-bot-blur': (size >= 48 ? (2 * size / 80).toFixed(2) : '0') + 'px', '--nkc-bot-glow': (11 * size / 80).toFixed(2) + 'px' }, role: 'img', 'aria-label': p.label || tl('نسك AI', 'Nusuk AI'), 'data-figma': b.node, 'data-motion': motion, 'data-eyes': p.eyes === false ? 'none' : live ? 'live' : fi + 1, dangerouslySetInnerHTML: { __html: svgBody + svgEyes } };
+    if (live && p.eyes !== false) props.onClick = function () { EyeEngine.blink(elRef.current); };
     if (tap) { props.onClick = tap; props.tabIndex = 0; props.onKeyDown = function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); tap(); } }; props.role = 'button'; }
     return h('span', props);
   }
@@ -195,11 +196,11 @@
     var from = p.from || 'nusuk', bg = p.bg !== false;
     var figma = p.figma || (from === 'user' ? (bg ? '80451:18765' : '80578:5289') : (bg ? '80451:18764' : '80578:5431'));
     return h('div', { className: 'nkc-msg', 'data-figma': figma, 'data-from': from },
-      p.question ? h('div', { className: 'nkc-q' }, h(Bot, { location: p.location || C_LOC.value, mirror: true }), h('p', { className: 'nkc-q-text', style: { margin: 0 } }, p.question)) : null,
+      p.question ? h('div', { className: 'nkc-q' }, h(Bot, { location: p.location || C_LOC.value, mirror: true, size: 12, eyes: false, motion: 'static' }), h('p', { className: 'nkc-q-text', style: { margin: 0 } }, p.question)) : null,
       h('div', { className: 'nkc-row ' + from },
         from === 'nusuk' ? (p.question ? h('span', { style: { width: 24, flex: 'none' } }) : h(Bot, { location: p.location || C_LOC.value, mirror: true })) : h(Avatar),
         h('div', { className: 'nkc-col' },
-          h('div', { className: 'nkc-body' + (bg ? '' : ' nobg') }, p.children),
+          h('div', { className: 'nkc-body' + (bg ? '' : ' nobg') + (p.padEnd === 'md' ? ' padb-md' : '') }, p.children),
           p.footer === false ? null : h('div', { className: 'nkc-foot' },
             h('span', { className: 'nkc-time', dir: 'ltr' }, p.time || now()),
             p.actions ? h(Actions, { text: p.copyText }) : null))));
@@ -232,7 +233,7 @@
     var s = React.useState(false), playing = s[0], setPlaying = s[1];
     var g = React.useState(p.progress || 0.35), prog = g[0], setProg = g[1];
     React.useEffect(function () { if (!playing) return; var t = setInterval(function () { setProg(function (x) { if (x >= 1) { setPlaying(false); return 0; } return Math.min(1, x + 0.04); }); }, 120); return function () { clearInterval(t); }; }, [playing]);
-    return h(Message, { from: p.from, question: p.question, actions: p.from === 'nusuk', figma: p.from === 'user' ? '80392:4534' : '80601:9269' },
+    return h(Message, { from: p.from, question: p.question, actions: p.from === 'nusuk', padEnd: 'md', figma: p.from === 'user' ? '80392:4534' : '80601:9269' },
       h('div', { className: 'nkc-voice' },
         h('button', { type: 'button', className: 'nkc-play', onClick: function () { setPlaying(!playing); }, 'aria-label': playing ? 'إيقاف مؤقت' : 'تشغيل الرسالة الصوتية' }, Ic(playing ? 'pause' : 'play', 'sm')),
         h(Wave, { progress: prog }),
@@ -261,7 +262,7 @@
 
   /* _Chat Container with Question (80453:2664) */
   function Question(p) {
-    return h(Message, { from: 'nusuk', figma: p.figma || '80453:2664', time: p.time, footer: p.footer },
+    return h(Message, { from: 'nusuk', figma: p.figma || '80453:2664', time: p.time, footer: p.footer, padEnd: p.padEnd },
       h('div', { className: 'nkc-qb' },
         h('div', { className: 'nkc-type' }, p.typeFig ? FigIcon(p.typeFig, 16) : Ic(p.typeIcon || 'mail-validation-01', 'sm'), h('span', null, p.type || tl('عنوان مختصر', 'Short title')), h('span', { className: 'grow' }), p.help ? Ic('info', 'nr') : null),
         h('div', { className: 'nkc-title' }, p.title),
@@ -291,7 +292,7 @@
       h('div', { className: 'nkc-cal', role: 'group', 'aria-label': 'أيام الشهر' }, WD.map(function (w, i) { return h('span', { key: 'w' + i, className: 'nkc-wd', 'aria-hidden': true }, w); }), cells));
   }
   function DaysAnswer(p) { // User=User, Style=Days (80601:3360)
-    return h(Message, { from: 'user', question: p.question, figma: '80601:3360' }, h('div', { className: 'nkc-mid' }, p.date || 'الأحد، 22 يونيو 2026'), h(EditAnswer, { onEdit: p.onEdit }));
+    return h(Message, { from: 'user', question: p.question, padEnd: 'md', figma: '80601:3360' }, h('div', { className: 'nkc-mid' }, p.date || 'الأحد، 22 يونيو 2026'), h(EditAnswer, { onEdit: p.onEdit }));
   }
 
   /* Style=Slots — DL Pray Card list + DL Time slot cards (80593:6839) */
@@ -311,7 +312,7 @@
       })));
   }
   function SlotsAnswer(p) { // User=User, Style=Slots (80601:5538 / 80601:9567)
-    return h(Message, { from: 'user', question: p.question, figma: '80601:5538' }, h('div', { className: 'nkc-answer' }, p.date || 'الأحد، 22 يونيو 2026'), h('div', { className: 'nkc-big', dir: 'auto' }, p.time || '07:40 ص'), h(EditAnswer, { onEdit: p.onEdit }));
+    return h(Message, { from: 'user', question: p.question, padEnd: 'md', figma: '80601:5538' }, h('div', { className: 'nkc-answer' }, p.date || 'الأحد، 22 يونيو 2026'), h('div', { className: 'nkc-big', dir: 'auto' }, p.time || '07:40 ص'), h(EditAnswer, { onEdit: p.onEdit }));
   }
 
   /* ---------- AI Tab Bar (80392:4168 master; statuses 80392:4482…4494) ---------- */
@@ -470,20 +471,20 @@
   function useAnswer(p) { var a = React.useState(p.value || ''), v = a[0], set = a[1]; var e = React.useState(false), err = e[0], setErr = e[1]; return { v: v, set: function (x) { set(x); setErr(false); }, err: err, setErr: setErr }; }
 
   /* Password — 80607:16432 */
-  var PW_RULES = [['8 أحرف على الأقل.', function (s) { return s.length >= 8; }], ['حرف صغير واحد على الأقل.', function (s) { return /[a-z]/.test(s); }], ['حرف كبير واحد على الأقل.', function (s) { return /[A-Z]/.test(s); }], ['رقم واحد على الأقل.', function (s) { return /[0-9]/.test(s); }], ['رمز واحد على الأقل دون وجود مسافات.', function (s) { return /[^A-Za-z0-9\s]/.test(s) && !/\s/.test(s); }]];
+  var PW_RULES = [['8 أحرف على الأقل', function (s) { return s.length >= 8; }], ['حرف صغير واحد على الأقل', function (s) { return /[a-z]/.test(s); }], ['حرف كبير واحد على الأقل', function (s) { return /[A-Z]/.test(s); }], ['رقم واحد على الأقل', function (s) { return /[0-9]/.test(s); }], ['رمز واحد على الأقل دون وجود مسافات', function (s) { return /[^A-Za-z0-9\s]/.test(s) && !/\s/.test(s); }]];
   function PasswordField(p) {
     var a = useAnswer(p), sh = React.useState(false), show = sh[0], setShow = sh[1];
     var ok = PW_RULES.map(function (r) { return r[1](a.v); }), all = ok.every(Boolean);
     return h(Question, { figma: '80607:16432', type: 'تغيير كلمة المرور', typeIcon: null, typeFig: 'security-password', title: 'يمكنك إدخال كلمة المرور الجديدة هنا لتستعملها لاحقًا', onBack: p.onBack,
       onConfirm: function () { if (all) { if (p.onConfirm) p.onConfirm(a.v); } else a.setErr(true); } },
-      h('div', { className: 'nk nk-field nkc-pw ' + (a.err ? 'error' : ''), 'data-figma': '80607:16851' },
+      h('div', { className: 'nk nk-field nkc-pw ' + (a.err ? 'error' : ''), 'data-figma': '80607:16851' }, // ⌨️ Inputs › Input Type=Password: field 62, then the Strength Meter criteria (17 Nov)
         h('div', { className: 'nk-field-box nkc-pwbox' },
           h('div', { className: 'nkc-pwrow' },
             h('input', { className: 'body-2-regular', type: show ? 'text' : 'password', dir: a.v ? 'ltr' : undefined, autoComplete: 'new-password', placeholder: 'كلمة المرور', 'aria-label': 'كلمة المرور', 'aria-describedby': 'nkcpwr', 'aria-invalid': a.err || undefined, value: a.v, onChange: function (e) { a.set(e.target.value); } }),
-            h('button', { type: 'button', className: 'nkc-ib', 'aria-label': show ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور', 'aria-pressed': show, onClick: function () { setShow(!show); } }, FigIcon('view', 24))),
-          h('ul', { className: 'nkc-pwrules', id: 'nkcpwr', 'aria-live': 'polite' }, PW_RULES.map(function (r, i) {
-            return h('li', { key: i, className: 'notes-1-regular' + (ok[i] ? ' ok' : a.err ? ' bad' : '') }, h('span', { className: 'nk-check' + (ok[i] ? ' on' : '') + (!ok[i] && a.err ? ' error' : ''), 'aria-hidden': true }, ok[i] ? Ic('tick-02', 'sm') : null), h('span', null, r[0]), h('span', { className: 'nkc-sr' }, ok[i] ? ' (مستوفى)' : ' (غير مستوفى)'));
-          })))));
+            h('button', { type: 'button', className: 'nkc-ib', 'aria-label': show ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور', 'aria-pressed': show, onClick: function () { setShow(!show); } }, FigIcon('view', 24)))),
+        h('ul', { className: 'nkc-pwrules', id: 'nkcpwr', 'aria-live': 'polite' }, PW_RULES.map(function (r, i) {
+          return h('li', { key: i, className: 'notes-1-regular' + (ok[i] ? ' ok' : a.err ? ' bad' : '') }, h('span', { className: 'nk-check' + (ok[i] ? ' on' : '') + (!ok[i] && a.err ? ' err' : ''), 'aria-hidden': true }, ok[i] ? Ic('tick-02', 'sm') : null), h('span', null, r[0]), h('span', { className: 'nkc-sr' }, ok[i] ? ' (مستوفى)' : ' (غير مستوفى)'));
+        }))));
   }
 
   /* Mobile — 80607:17062 (variant is misnamed "Password" in Figma) */
@@ -549,7 +550,7 @@
   function PassportAttach(p) {
     var ref = React.useRef(null);
     function pick(mode) { if (mode === 'file' && ref.current && p.realPicker) ref.current.click(); else if (p.onPick) p.onPick(mode, null); }
-    return h(Question, Object.assign({ figma: '80607:19234', title: 'زودنا بصورة من جواز السفر', onBack: p.onBack, cta: false }, BASIC),
+    return h(Question, Object.assign({ figma: '80607:19234', title: 'زودنا بصورة من جواز السفر', onBack: p.onBack, cta: false, padEnd: 'md' }, BASIC),
       h('div', { className: 'nkc-cards2' },
         h(SelCard, { figma: '80607:19466', icon: 'camera-02', title: 'التقاط صورة', onClick: function () { pick('camera'); } }),
         h(SelCard, { figma: '80607:19465', icon: 'image-02', title: 'إرفاق الصورة', onClick: function () { pick('file'); } })),
@@ -618,7 +619,7 @@
   /* Location Guide — 80622:21047 */
   function LocationGuide(p) {
     var q = encodeURIComponent(p.query || 'Ajyad electric carts, Makkah');
-    return h(Message, { from: 'nusuk', figma: '80622:21047' },
+    return h(Message, { from: 'nusuk', figma: '80622:21047', padEnd: 'md' },
       h('p', { className: 'nkc-lg-title body-1-regular' }, p.title || 'إتبع الإرشادات التالية للوصول لموقع العربات الكهربائية في منطقة أجياد.'),
       h('figure', { className: 'nkc-lg-img' }, h('img', { src: p.image || A('ajyad-guide.jpg'), alt: p.imageAlt || 'منطقة العربات الكهربائية في أجياد', loading: 'lazy' })),
       h('p', { className: 'nkc-lg-steps notes-1-regular' }, p.steps || 'توجه إلى (باب 3) أمام فندق الصفوة ← واصل السير حتى مفترق الطريق ← اتجه يمينًا نحو منطقة الفرز والانتظار حتى تصل'),
@@ -753,7 +754,7 @@
     { code: 'NusukChat.PackageCard', figma: 'Media Cards / Type=Flight (chat)', nodes: { 'Saudi': '80477:4939', 'Morocco': '80477:4940', 'France': '80477:4941' }, props: 'image (CMS) · flag · best · from · title · desc · price · onAdd', dl: 'DL MediaCard (kind hajj, surface fade, selected = خيارك الأفضل, price + AddToCart). Swapped in on Moha’s request (comment, 11 Nov) to follow the new DL Media Cards' },
     { code: 'NusukChat.Packages', figma: 'Hajj Packgaes + Pagination', nodes: { 'Carousel': '80477:11127', 'Pagination': '80478:12232' }, props: 'items · onAdd', dl: '300-wide cards, 8 gap, scroll-snap · DL Pagination' },
     { code: 'NusukChat.BotNote', figma: 'Nusuk Bot Messages', nodes: { 'Default (Makkah insight)': '80559:28807', 'Variant3 (Madinah insight)': '80559:28810', 'Variant2 (Makkah pill)': '80559:28813', 'Variant4 (Madinah pill)': '80559:28816' }, props: 'location · variant: "insight"|"pill" · text · motion', dl: 'Light/Body/Two gradient text (black → text-link | alerts-text-success → #666) · Regular/Notes/One · pill tint shade-5 gold / #E4FBEA green' },
-    { code: 'NusukChat.Bot', figma: 'Nusuk Bot · _Eyes', nodes: { 'Location=Makkah': '80559:28820', 'Location=Madina': '80559:28823', '_Eyes (7 frames)': '80559:28826' }, props: 'location: \"makkah\"|\"madinah\" · size (24) · motion: \"live\" (default: follows pointer, idle glances + blinks) | \"prototype\" | \"sequence\" | \"static\" · frame (static) · mirror · label', dl: 'Gold body = surface-longing → surface-shade-4 (gold) · green body #288A42 → #E0FAD1 (not DL tokens) · glow + 4px layer blur · ⚠ section "Beta – Do Not Use"' },
+    { code: 'NusukChat.Bot', figma: 'Nusuk Bot · _Eyes', nodes: { 'Location=Makkah': '80559:28820', 'Location=Madina': '80559:28823', '_Eyes (7 frames)': '80559:28826' }, props: 'location: \"makkah\"|\"madinah\" · size (24) · motion: \"live\" (default: follows pointer, idle glances + blinks) | \"prototype\" | \"sequence\" | \"static\" · frame (static) · mirror · label · eyes: false (the 12×14 mark in a user question row, 17 Nov)', dl: 'Gold body = surface-longing → surface-shade-4 (gold) · green body #288A42 → #E0FAD1 (not DL tokens) · glow + 4px layer blur · ⚠ section "Beta – Do Not Use"' },
     { code: 'NusukChat.PasswordField', figma: 'AI Chat Messages › Style=Password', nodes: { 'Variant': '80607:16432', 'Input/Type=Password': '80607:16851' }, props: 'onConfirm(password) · onBack', dl: 'nk-field-box (192h) · view (Figma icon) · 5 rules with DL check · DL Button Primary MD' },
     { code: 'NusukChat.MobileField', figma: 'AI Chat Messages › Style=Mobile', nodes: { 'Variant': '80607:17062', 'Input/Type=Mobile': '80607:17346' }, props: 'onConfirm("+966 05…") · onBack', dl: 'country code select 115 + input 357 · DL Flag · arrow-down-01' },
     { code: 'NusukChat.GenderField', figma: 'AI Chat Messages › Style=Gender', nodes: { 'Variant': '80607:17682', 'أنثى': '80607:18050', 'ذكر': '80607:18051' }, props: 'value · onConfirm(value)', dl: 'DL Select Card (Active / Selected) · hijab, haji' },
@@ -826,5 +827,5 @@
     { code: 'NusukChat.SingleChoose', figma: 'AI Chat Messages › Style=Single Choose', nodes: { 'Variant': '80626:36740' }, props: 'type · typeIcon · title · options: [{icon, title}] · selected · onConfirm(option, i)', dl: 'Question card · DL Option Cards (Icon with Action) · Alerts/Surface/Success · Buttons Green · DL Button Primary MD' });
   registry.forEach(function (r) { var k = r.code.replace('NusukChat.', ''), d = DL_STATUS[k] || ['new', null, '']; r.status = d[0]; r.dlTarget = d[1]; r.dlNote = d[2]; });
 
-  window.NusukChat = { version: '2.8.0', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Alert: Alert, ErrorMsg: ErrorMsg, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
+  window.NusukChat = { version: '2.8.3', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Alert: Alert, ErrorMsg: ErrorMsg, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
 })();

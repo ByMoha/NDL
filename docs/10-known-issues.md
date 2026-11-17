@@ -422,3 +422,13 @@ Read in [🚙 Golf Carts](https://www.figma.com/design/s0G2Gga52Tz5GcZayR3jd9/�
 | TC19 | Golf Carts › Confirm and pay (`86028:13882`) reuses Market's `Shippment (2)` and `Shipping Details` frames, with a hidden `Location` sub-frame, to hold the pickup zone and time — not a shipped parcel | `payment`: nothing else on the page; borrowed shipping copy also mistranslates and misreads to a screen reader |
 | TC20 | Golf Carts › the pass is a local `_GolfCart Ticket` component (booking details `86028:13911`; a standalone Ticket/QR frame reused across Passenger and Passengers variants), not `QRCodeStatus`, and shows a remaining-uses count ("used 1 of 5") | `pass-sheet.states` has four states and none of them is multi-use; a reusable pass needs its own state, not a local workaround |
 | TC21 | Golf Carts › Service Details shows a Contact Details block (phone, email) inline, part of a hidden Shared Facilities / Working Hours / F&amp;Qs / Contact Details master — none of these are spaces in `item-details.spaces` | Either document a venue-info space family on `item-details` for location-based services, or route to `service-support`'s `contact` space instead of duplicating it |
+
+## Figma round (17 November 2026, 15:30: 💬 Chat UI)
+
+Read in [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252): every variant and master, with its size and Body padding. Logged, not fixed in Figma.
+
+| # | Issue | What to do |
+|---|---|---|
+| F88 | `_Chat Container` (`80453:2664`) still has Body 20 / 18 / 20 / 18. 16 variants override the bottom to 26 and 8 keep 20 (Voice ×2, the Days and Slots answers, Passport Attach, Location Guide, Hotel Choose, Flights Selection). Overrides that disagree with their master drift at the next edit | If 26 is the rule, set it on the master and reset the overrides; if the 8 are deliberate, say why (Q-D38). Code follows each variant as drawn |
+| F89 | Style=Password (`80607:16432`) lists three criteria (8 characters, one lowercase, one uppercase); the chat checks five (adds a digit and a symbol without spaces) | One policy for design and code; the content owner decides (Q-D39) |
+| F90 | The password field label is «كلمة المُرور», with a damma | «كلمة المرور», as everywhere else in the DL and the chat |

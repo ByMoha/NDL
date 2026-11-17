@@ -429,7 +429,7 @@
      "_Eyes (7 frames)": "80559:28826"
     }
    },
-   "props": "location: \"makkah\"|\"madinah\" · size (24) · motion: \"live\" (default: follows pointer, idle glances + blinks) | \"prototype\" | \"sequence\" | \"static\" · frame (static) · mirror · label",
+   "props": "location: \"makkah\"|\"madinah\" · size (24) · motion: \"live\" (default: follows pointer, idle glances + blinks) | \"prototype\" | \"sequence\" | \"static\" · frame (static) · mirror · label · eyes: false (the 12×14 mark in a user question row, 17 Nov)",
    "builtWith": "Gold body = surface-longing → surface-shade-4 (gold) · green body #288A42 → #E0FAD1 (not DL tokens) · glow + 4px layer blur · ⚠ section \"Beta – Do Not Use\""
   },
   {
@@ -438,7 +438,7 @@
    "status": "variant",
    "dlTarget": "TextField",
    "group": "Inputs",
-   "summary": "Password with rules inside the field and the view toggle (F24).",
+   "summary": "Password field (62), then its Strength Meter: the criteria as DL Checkbox SM, 8 apart, and the view toggle (F24).",
    "figma": {
     "file": "b2JRq5iuFo8rvl354ggpjR",
     "library": "💬 Chat UI",
@@ -449,7 +449,7 @@
     }
    },
    "props": "onConfirm(password) · onBack",
-   "builtWith": "nk-field-box (192h) · view (Figma icon) · 5 rules with DL check · DL Button Primary MD"
+   "builtWith": "nk-field-box (62h) · view (Figma icon) · 5 criteria as DL Checkbox SM below the field · DL Button Primary MD"
   },
   {
    "name": "MobileField",

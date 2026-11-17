@@ -4,6 +4,66 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 17 November 2026, 15:30 (Nusuk AI chat: answer padding as drawn, password copy) · NusukChat 2.8.3
+
+**Read:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) at 15:30: every variant of the 7 sets and the 3 masters, with its size and Body padding, to check the 2.8.1 and 2.8.2 rounds. Every size they list matches Figma: User/BG 469, Nusuk/BG 435, User/Transparent 178; Text 185 and 101; Voice 148 and 114; Confirmation 410; Password 347; Gender 321; IBAN 443; Single Choose 497.
+
+### Changed
+
+- **Answer padding:** User=User, Style=Days (`80601:3360`) and Style=Slots (`80601:5538`) keep 20 at the bottom in Figma, like Voice, Passport Attach and Location Guide; 2.8.2 gave them 26. `DaysAnswer` and `SlotsAnswer` now take `padEnd: 'md'`, so the code matches all six filled variants that keep 20 (Hotel Choose and Flights Selection are transparent).
+- **Password copy:** the criteria drop their full stops, as Figma writes them («8 أحرف على الأقل»). The component card and `components.md` now describe the 2.8.2 layout: the field, then the criteria.
+
+### Still open
+
+- **The `_Chat Container` master still has 20 at the bottom** (`80453:2664`). 16 variants override it to 26 and 8 keep 20 (F88, Q-D38). If 26 is the rule, set it on the master and reset the overrides; the code then drops `padEnd`.
+- **Password criteria:** Figma lists three, the chat checks five (F89, Q-D39).
+
+### iOS
+
+- The Days and Slots answer bubbles: `.padding(.bottom, 20)` (`NusukSpace.md`), like the voice, passport-photo and location-guide bubbles.
+
+### Android
+
+- The same two bubbles: `bottom = 20.dp`.
+
+## 17 November 2026, 15:07 (Nusuk AI chat: bubble padding, password criteria) · NusukChat 2.8.2
+
+**Read:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) at 15:07: `_Chat Container` (80453:2664) › Body and every AI Chat Messages variant (80392:4523); ⌨️ Inputs › Input Type=Password as used in Style=Password (80607:16432). 7 sets, 54 variants and 3 masters, all still mapped.
+
+### Changed
+
+- **Bubble padding:** the message body is 20 top, 18 sides, 26 bottom (`Space/MD`, `Space/NR`, `Space/LR`), so every filled bubble is 6 taller (User/BG 469, Nusuk/BG 435; Text 185 and 101; Confirmation 410, Gender 321, IBAN 443, Single Choose 497 …). Voice, Passport Attach and Location Guide keep 20 at the bottom in Figma; code follows with `padEnd: 'md'`.
+- **Password:** the question uses the published Input Type=Password: the 62 field, then its Strength Meter, criteria as DL Checkbox SM 8 apart, outside the field box (the variant is 347, 46 shorter). Criteria take the DL checkbox look: `surface-longing` line, `surface-illumination` when met, the error line after a failed confirm.
+- Open: Figma lists three criteria (8 characters, one lowercase, one uppercase); the chat keeps five (adds a digit and a symbol without spaces). The content owner decides which set ships.
+
+### iOS
+
+- Bubble: `.padding(.top, 20).padding(.horizontal, 18).padding(.bottom, 26)` from `NusukSpace.md`, `.nr`, `.lr`; 20 at the bottom for voice, passport-photo and location-guide bubbles.
+- Password: `VStack(spacing: 8)` with the 62 pt field and the criteria list; each criterion a Checkbox SM image with its label, announced as met or not met.
+
+### Android
+
+- Bubble: `PaddingValues(start = 18.dp, top = 20.dp, end = 18.dp, bottom = 26.dp)`; 20 dp at the bottom for the three exceptions.
+- Password: `Column(verticalArrangement = Arrangement.spacedBy(8.dp))`, field then criteria; each criterion `Modifier.semantics { stateDescription = … }`.
+
+## 17 November 2026, afternoon (Nusuk AI chat: user question row) · NusukChat 2.8.1
+
+**Read:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) at 14:59: `_Chat Container Master` (80451:18766) User/BG and User/Transparent, and AI Chat Messages (80392:4523) User Text, Voice, Days and Slots. 7 sets, 54 variants and 3 masters, all still mapped.
+
+### Changed
+
+- **User question row:** the Nusuk Bot beside the echoed question is now a 12 × 14 mark with no eyes (was the 24 × 27 bot with `_Eyes`), mirrored, 12 from the question (`Light/Notes/One`, `text-heading`). The row is 18 high, so every user bubble is 9 shorter: User/BG 463, User/Transparent 178; User Text 179, Voice 148, Days 197, Slots 240.
+- **Bot:** new prop `eyes: false` draws the body alone (no eye engine, no blink). Used only in the question row; the Nusuk avatar beside bot messages keeps its eyes.
+- No token, icon or component added or removed.
+
+### iOS
+
+- Question row: an `HStack(spacing: 12)` with the question text and the Nusuk mark at 12 × 14 pt (body shape only, no eyes, no animation), mirrored with `.scaleEffect(x: -1)` in RTL as in Figma; `.accessibilityHidden(true)` on the mark, since the text carries the meaning.
+
+### Android
+
+- Question row: `Row(horizontalArrangement = Arrangement.spacedBy(12.dp))` with the text and the mark at 12 × 14 dp (body only), `Modifier.graphicsLayer(scaleX = -1f)` as in Figma; `contentDescription = null` on the mark.
+
 ## 17 November 2026, afternoon (Status Handlers and Rating & CSAT) · tokens 3.10 unchanged
 
 **Read:** [‼️ Status Handlers](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o): [Bottom Sheet](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32059), [General Bottom Sheet](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32076) and its master [`_General_Bottom_Sheet`](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32030), [Bottom Sheet BG](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=69025-3308), [NoticeBar](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-31987) and [`_NoticeBar Master`](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=69240-4184), [NoticeBar Location](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=69678-3983), [`_Alert`](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68759-3359) (System Update), [Empty Status](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32096) and [`_Empty Status Master`](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32105), [Reason Selection](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68392-32655), [Section Error](https://www.figma.com/design/9yOrGPTn04ZTx3uiDZ5d9o?node-id=68545-4963). [⭐️ Rating & CSAT](https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl): [Rating Bar](https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76392-4805), [`_Star`](https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76392-4828), [Ratings](https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76479-1128), [Product Review Card](https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76404-3197), [Total Review Card](https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76427-1177), [Customer Feedback Bottom Sheet](https://www.figma.com/design/aBwaxX7ipeurOVoQXNC2Kl?node-id=76404-3106). Publish status of every set; every layer's size, padding, fill, text style and effect; screenshots of each set.

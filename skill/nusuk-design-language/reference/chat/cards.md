@@ -133,6 +133,7 @@ Nusuk Bot avatar, Makkah / Madinah, live eyes. Figma section is “Beta – Do N
 | `frame` | (static) |
 | `mirror` |  |
 | `label` |  |
+| `eyes` | false (the 12×14 mark in a user question row, 17 Nov) |
 
 ## Use
 
@@ -1069,7 +1070,7 @@ The content (labels, values, images from the CMS) and the container. Colour, typ
 
 # PasswordField  ·  *Proposed*
 
-Password with rules inside the field and the view toggle (F24).
+Password field (62), then its Strength Meter: the criteria as DL Checkbox SM, 8 apart, and the view toggle (F24).
 
 **Status:** Proposed as a variant / prop of DL **TextField**.  
 **Figma source:** 💬 Chat UI › AI Chat Messages › Style=Password — Variant `80607:16432` · Input/Type=Password `80607:16851`.  

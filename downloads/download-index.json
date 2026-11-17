@@ -1,14 +1,14 @@
 {
  "release": "2026-11-17",
- "built": "2026-11-17T14:03+03:00",
+ "built": "2026-11-17T15:34+03:00",
  "designMd": "DESIGN.md 3.3",
  "tokens": "3.10",
- "checked": 306,
+ "checked": 309,
  "files": [
   {
    "file": "DESIGN.md",
-   "bytes": 232678,
-   "sha256": "94fe81cfc47fda9f7bfb059e965aadeb98e5a0ff3f49588405a227613ebb1b69"
+   "bytes": 234186,
+   "sha256": "11c5622982c1351b875af7fb278e48d2b353e0b06822bce165f95268fa6ebcea"
   },
   {
    "file": "NusukTokens.kt",
@@ -27,32 +27,32 @@
   },
   {
    "file": "nusuk-design-language.zip",
-   "bytes": 774104,
-   "sha256": "b9e802317f3af1ff1e042954b8594687fe201c25d5da880764e40a9542faba93",
+   "bytes": 778565,
+   "sha256": "b09535b7ca8fd120749901bb87d8f3ace10a66a294a8f284886d63b698a002e3",
    "files": 78
   },
   {
    "file": "nusuk-dl-all.zip",
-   "bytes": 1728625,
-   "sha256": "a2a12e1951d9face7213df84a5190e527f361e52ea610e06c9b75c18501f86f2",
-   "files": 388
+   "bytes": 1739252,
+   "sha256": "132f19eb1c66845992da02836e9d7798728897a7c766e865ee8995c5ebf46d4a",
+   "files": 391
   },
   {
    "file": "nusuk-dl-designers.zip",
-   "bytes": 1527305,
-   "sha256": "664d182dd674a3cb9a14b821a3ae05559bd167d64a53c3f3cc0169c3f4408652",
+   "bytes": 1534669,
+   "sha256": "cd4341b04d5d0673078db6487442cc4fb0f8a6cd5220fe6a240490eceece6366",
    "files": 305
   },
   {
    "file": "nusuk-dl-developers.zip",
-   "bytes": 1704220,
-   "sha256": "4b61dbc4974f375b79b47dde055e090e439aba35ca42b6d6452aa2c3d5fc8baf",
-   "files": 381
+   "bytes": 1714913,
+   "sha256": "93b90df041857dad171858263412b477fdfe83c65834e10712cf57328ddf295d",
+   "files": 384
   },
   {
    "file": "nusuk-dl-patterns-templates.zip",
    "bytes": 72738,
-   "sha256": "6a561305fc9761233ffdbbdf4d3c759d7d02826a024985d38a8354b495f0485f",
+   "sha256": "5d0505bb818d164fa1a74da894bbceb2f1aa50d34bf04c54ec0769979ddfca81",
    "files": 26
   },
   {

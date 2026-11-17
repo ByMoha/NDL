@@ -35,16 +35,17 @@
 
 /* ---- _Chat Container Master ---- */
 .nkc-msg { display: flex; flex-direction: column; gap: var(--space-nr); width: 100%; }
-.nkc-q { display: flex; align-items: center; gap: var(--space-xs); }
+.nkc-q { display: flex; align-items: center; gap: var(--space-sm); } /* Figma 17 Nov: row gap 12, Nusuk mark 12×14 without eyes */
 .nkc-q-text { flex: 1; font: var(--nkc-type-notes-1-light); color: var(--text-heading); }
 .nkc-row { display: flex; align-items: flex-end; gap: var(--space-sm); width: 100%; }
 .nkc-row.user { flex-direction: row-reverse; }            /* RTL: bot on the start (right), user avatar on the end (left) */
 .nkc-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
 
 /* ---- _Chat Container › Body ---- */
-.nkc-body { position: relative; background: var(--surface-01-white); border-radius: var(--radius-md); padding: var(--space-md) var(--space-nr); display: flex; flex-direction: column; gap: var(--space-md); box-shadow: var(--glass-full); }
+.nkc-body { position: relative; background: var(--surface-01-white); border-radius: var(--radius-md); padding: var(--space-md) var(--space-nr) var(--space-lr); /* Figma 17 Nov 15:07: Body 20 / 18 / 26 / 18 */ display: flex; flex-direction: column; gap: var(--space-md); box-shadow: var(--glass-full); }
 .nkc-row.nusuk .nkc-body { border-end-start-radius: var(--radius-xs); }
 .nkc-row.user .nkc-body  { border-end-end-radius: var(--radius-xs); }
+.nkc-body.padb-md { padding-bottom: var(--space-md); } /* Voice, Days and Slots answers, Passport Attach, Location Guide keep 20 at the bottom in Figma (2.8.3) */
 .nkc-body.nobg { background: none; box-shadow: none; padding: 0 var(--space-nr); gap: var(--space-nr); }
 .nkc-answer { font: var(--nkc-type-body-1-light); color: var(--text-heading); overflow-wrap: anywhere; }
 .nkc-big { font: var(--nkc-type-display-1-light); color: var(--text-heading); }
@@ -212,17 +213,14 @@
 .nkc-fld .nk-btn.sm { flex: none; }
 .nkc-verified { display: inline-flex; align-items: center; gap: var(--space-xxs); color: var(--alerts-text-success); white-space: nowrap; }
 
-.nkc-pwbox { flex-direction: column; align-items: stretch; gap: var(--space-sm); padding-block: var(--space-sm) var(--space-nr); }
+.nkc-pw { display: flex; flex-direction: column; gap: var(--space-xs); } /* Input › Password: Fields, then Strength Meter, 8 apart */
+.nkc-pwbox { align-items: center; }
 .nkc-pwrow { display: flex; align-items: center; gap: var(--space-sm); min-height: var(--dimension-lr); }
 .nkc-pwrow input { flex: 1; min-width: 0; border: 0; background: transparent; outline: none; font: inherit; color: var(--inputs-text-default); }
 .nkc-pwrow input::placeholder { color: var(--inputs-text-placeholder); }
 .nkc-pwrules { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-xs); color: var(--text-content); }
 .nkc-pwrules li { display: flex; align-items: center; gap: var(--space-xs); }
-.nkc-pwrules .nk-check { width: var(--control-checkbox-sm); height: var(--control-checkbox-sm); flex: none; display: inline-grid; place-items: center; border-radius: var(--radius-xxs); background: var(--surface-03-pearl); box-shadow: none; /* the chat keeps its 12 Nov password-rule boxes; the DL Checkbox changed on 14 Nov */ transition: background 100ms cubic-bezier(0,0,.2,1); }
-.nkc-pwrules .nk-check.on { background: var(--surface-10-ink); color: var(--surface-01-white); box-shadow: none; }
-.nkc-pwrules .nk-check.error { background: var(--inputs-surface-error); outline: var(--border-thin) solid var(--inputs-icons-error); box-shadow: none; }
 .nkc-pwrules li.bad { color: var(--alerts-text-error); }
-.nkc-pwrules .nk-check .nk-ico { width: var(--control-icon-sm); height: var(--control-icon-sm); }
 
 .nkc-mobile { display: grid; grid-template-columns: var(--nkc-dial-width) minmax(0, 1fr); gap: var(--space-xs); align-items: start; }
 .nkc-dial { position: relative; }

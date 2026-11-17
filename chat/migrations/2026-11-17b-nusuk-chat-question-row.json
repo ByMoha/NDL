@@ -1,0 +1,38 @@
+{
+ "date": "2026-11-17",
+ "name": "NusukChat 2.8.1: user question row",
+ "status": "proposed",
+ "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252",
+ "chat": {
+  "version": {
+   "from": "2.8.0",
+   "to": "2.8.1"
+  },
+  "coverage": {
+   "sets": 7,
+   "variants": 54,
+   "masters": 3,
+   "allMapped": true
+  },
+  "changed": [
+   {
+    "component": "Message (question row)",
+    "figma": "_Chat Container Master User/BG 80451:18765, User/Transprent 80578:5289",
+    "change": "Nusuk Bot in the question row is a 12×14 mark with no eyes (was 24×27 with _Eyes); row gap 12; user bubbles 9 shorter"
+   },
+   {
+    "component": "Bot",
+    "change": "new prop eyes: false (body only, no eye engine)"
+   }
+  ]
+ },
+ "tokens": {
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "icons": {
+  "added": []
+ },
+ "breaking": []
+}

@@ -1,4 +1,4 @@
-# Nusuk AI chat · components (NusukChat 2.8.0)
+# Nusuk AI chat · components (NusukChat 2.8.3)
 
 Generated from `manifest.proposed.json` (2026-11-17). Figma file: [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252). Status: **dl** = a DL component as it is · **variant** = a chat variant of a DL component · **new** = proposed, no DL parent yet.
 
@@ -25,8 +25,8 @@ Generated from `manifest.proposed.json` (2026-11-17). Figma file: [💬 Chat UI]
 | `NusukChat.PackageCard` | dl | MediaCard | Cards | 💬 Chat UI › Media Cards / Type=Flight (chat) | 80477:4939, 80477:4940, 80477:4941 | image (CMS) · flag · best · from · title · desc · price · onAdd | DL MediaCard kind hajj, fade, price + AddToCart. |
 | `NusukChat.Packages` | dl | MediaCard | Cards | 💬 Chat UI › Hajj Packgaes + Pagination | 80477:11127, 80478:12232 | items · onAdd | DL MediaCard rail + DL Pagination. |
 | `NusukChat.BotNote` | new | — | Nusuk AI | 💬 Chat UI › Nusuk Bot Messages | 80559:28807, 80559:28810, 80559:28813, 80559:28816 | location · variant: "insight"/"pill" · text · motion | Nusuk Bot message (insight / pill) with gradient text. |
-| `NusukChat.Bot` | new | — | Nusuk AI | 💬 Chat UI › Nusuk Bot · _Eyes | 80559:28820, 80559:28823, 80559:28826 | location: "makkah"/"madinah" · size (24) · motion: "live" (default: follows pointer, idle glances + blinks) / "prototype" / "sequence" / "static" · frame (static) · mirror · label | Nusuk Bot avatar, Makkah / Madinah, live eyes. Figma section is “Beta – Do Not Use” (F1). |
-| `NusukChat.PasswordField` | variant | TextField | Inputs | 💬 Chat UI › AI Chat Messages › Style=Password | 80607:16432, 80607:16851 | onConfirm(password) · onBack | Password with rules inside the field and the view toggle (F24). |
+| `NusukChat.Bot` | new | — | Nusuk AI | 💬 Chat UI › Nusuk Bot · _Eyes | 80559:28820, 80559:28823, 80559:28826 | location: "makkah"/"madinah" · size (24) · motion: "live" (default: follows pointer, idle glances + blinks) / "prototype" / "sequence" / "static" · frame (static) · mirror · label · eyes: false (the 12×14 mark in a user question row, 17 Nov) | Nusuk Bot avatar, Makkah / Madinah, live eyes. Figma section is “Beta – Do Not Use” (F1). |
+| `NusukChat.PasswordField` | variant | TextField | Inputs | 💬 Chat UI › AI Chat Messages › Style=Password | 80607:16432, 80607:16851 | onConfirm(password) · onBack | Password field (62), then its Strength Meter: the criteria as DL Checkbox SM, 8 apart, and the view toggle (F24). |
 | `NusukChat.MobileField` | variant | TextField | Inputs | 💬 Chat UI › AI Chat Messages › Style=Mobile | 80607:17062, 80607:17346 | onConfirm("+966 05…") · onBack | Mobile: country code 115 + number (TextField Mobile). |
 | `NusukChat.GenderField` | variant | SelectCard | Inputs | 💬 Chat UI › AI Chat Messages › Style=Gender | 80607:17682, 80607:18050, 80607:18051 | value · onConfirm(value) | Select Card with custom icon (hijab / haji). |
 | `NusukChat.PassportNumber` | variant | TextField | Inputs | 💬 Chat UI › AI Chat Messages › Style=Passport (renamed from Pasport on 14 November 2026) | 80607:18228, 80607:18418 | onConfirm(number) · onScan | TextField Input with a trailing camera action. |

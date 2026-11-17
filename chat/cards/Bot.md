@@ -16,6 +16,7 @@ Nusuk Bot avatar, Makkah / Madinah, live eyes. Figma section is “Beta – Do N
 | `frame` | (static) |
 | `mirror` |  |
 | `label` |  |
+| `eyes` | false (the 12×14 mark in a user question row, 17 Nov) |
 
 ## Use
 
