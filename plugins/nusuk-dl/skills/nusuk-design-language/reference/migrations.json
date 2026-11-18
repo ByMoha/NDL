@@ -3977,5 +3977,36 @@
    "all:unset on a DL button": "builder rule",
    "status colours": "same as C2"
   }
+ },
+ "2026-11-18b-review-fixes-travel-price.json": {
+  "id": "2026-11-18b-review-fixes-travel-price",
+  "date": "2026-11-18",
+  "designMd": "3.7.1",
+  "tokens": "3.12",
+  "figma": [
+   "https://www.figma.com/design/ozi4A2gUbVXbzbUJ3MF4uU",
+   "https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl"
+  ],
+  "components": {
+   "FromTo": "rows align to the field's own edge",
+   "DateRange": "rows align to the field's own edge",
+   "VisaUserBlock": "RTL: name at start, check top-end; Arabic default",
+   "PriceOptions": {
+    "vertical": "cart CTA hugs at start",
+    "discount": "earlier price before the pill",
+    "preview": "Figma's four variants only"
+   },
+   "FeaturedAirport": "Arabic default city",
+   "FeatureBox": "Arabic default label"
+  },
+  "breaking": false,
+  "skills": {
+   "nusuk-feature-handoff": "examples/nusuk-charity added (from the 18 Nov handoff patch); worked examples list",
+   "nusuk-design-language": "§9 motion values and builder traps"
+  },
+  "proposedContracts": [
+   "giving-landing",
+   "giving-details"
+  ]
  }
 }

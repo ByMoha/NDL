@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nusuk Feature Handoff Gaps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  /* Nusuk DL gold-light: ink on Screen BK, gold as the one accent. Layout: summary band, then section rail + question cards. */
+  --ink:#070808; --muted:#5c6066; --line:#e3e4e6; --paper:#ffffff; --bg:#f2f3f4; --gold:#f5b13d; --gold-soft:#fdf1dc;
+  --blk:#c7372f; --blk-soft:#fbe9e7; --high:#a8650a; --high-soft:#fdf1dc; --ok:#1d7a3e; --ok-soft:#e4f5e9; --info:#25569c; --info-soft:#e7eef9;
+  --display:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,sans-serif; --body:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--body)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+.top{display:grid;gap:18px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+h1{font:600 30px/1.2 var(--display);margin:0;text-wrap:balance}
+.lede{margin:0;max-width:72ch;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.tile{background:var(--paper);border-radius:18px;padding:16px 18px;display:grid;gap:8px;border:1px solid var(--line)}
+.tile .k{font:600 26px/1 var(--display);font-variant-numeric:tabular-nums}
+.tile .l{font-size:13px;color:var(--muted)}
+.track{height:6px;border-radius:6px;background:var(--bg);overflow:hidden}
+.track i{display:block;height:100%;background:var(--ink);border-radius:6px;transition:width .3s}
+.tile.blk .track i{background:var(--blk)}
+.tile.up .track i{background:var(--gold)}
+.unlocks{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:10px}
+.unlocks h2{font:600 15px/1.3 var(--display);margin:0}
+.ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 18px;margin:0;padding:0;list-style:none;font-size:13px}
+.ul b{font-weight:600}
+.ul code{font:500 12px var(--mono);color:var(--muted)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);padding:10px 0;margin-top:6px}
+.fbtn,.xbtn{font:500 13px var(--body);border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px;cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.xbtn{border-color:var(--ink)}
+.grow{flex:1}
+#conn{font-size:13px;color:var(--muted);margin:4px 0 0}
+#ready{margin:0;font-weight:500;font-size:14px}
+.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;margin-top:8px;align-items:start}
+nav#nav{position:sticky;top:64px;display:grid;gap:2px}
+.navlink{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;padding:8px 10px;border-radius:10px;text-decoration:none;font-size:13px}
+.navlink:hover{background:var(--paper)}
+.nid{font:500 12px var(--mono);color:var(--muted)}
+.nc{font:500 12px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.navlink.done .nc{color:var(--ok)}
+#qs{display:grid;gap:28px}
+.sec{display:grid;gap:12px;scroll-margin-top:70px}
+.sech{display:flex;gap:14px;align-items:flex-start}
+.sid{font:600 13px var(--mono);background:var(--ink);color:#fff;border-radius:8px;padding:4px 8px}
+.sech h2{font:600 19px/1.25 var(--display);margin:0}
+.sech p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.card{background:var(--paper);border-radius:18px;padding:18px 18px 14px;border:1px solid var(--line);border-inline-start:4px solid var(--line);display:grid;gap:10px;scroll-margin-top:70px}
+.card[data-p="Blocker"]{border-inline-start-color:var(--blk)}
+.card[data-p="High"]{border-inline-start-color:var(--gold)}
+.card[data-st="closed"],.card[data-st="na"]{border-inline-start-color:var(--ok)}
+.ch{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.qid{font:500 12px var(--mono);color:var(--muted)}
+.pill{font:500 11px/1 var(--body);padding:5px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+.p-blocker{background:var(--blk-soft);color:var(--blk)}
+.p-high{background:var(--high-soft);color:var(--high)}
+.p-medium{background:var(--bg);color:var(--muted)}
+.pill.up{background:var(--info-soft);color:var(--info)}
+.owner{font-size:12px;color:var(--muted)}
+.st{font:500 12px var(--body);padding:4px 10px;border-radius:999px;background:var(--bg);color:var(--muted)}
+.s-closed,.s-na{background:var(--ok-soft);color:var(--ok)}
+.s-needs-file{background:var(--info-soft);color:var(--info)}
+.s-assigned{background:var(--high-soft);color:var(--high)}
+.qt{font:600 17px/1.35 var(--display);margin:0;text-wrap:balance;max-width:68ch}
+.why{margin:0;color:var(--muted);font-size:14px;max-width:72ch}
+.poc{margin:0;font-size:13px;background:var(--gold-soft);border-radius:10px;padding:8px 12px;max-width:80ch}
+.poc b{font-weight:600}
+.cb{display:grid;gap:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px 12px;cursor:pointer;font-size:14px;min-height:40px}
+.opt:has(input:checked){border-color:var(--ink);background:var(--bg)}
+.opt input{accent-color:var(--ink);margin:0}
+.lbl{font-size:12px;color:var(--muted);font-weight:500}
+.inp{font:15px/1.45 var(--body);border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%;background:var(--paper);color:var(--ink);resize:vertical}
+.inp.num{max-width:160px}
+.inp.assign{max-width:320px;padding:7px 10px;font-size:14px}
+.inp:focus,.opt:focus-within,.fbtn:focus-visible,.xbtn:focus-visible,.drop:focus-within,.rm:focus-visible,.navlink:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.upl{display:grid;gap:6px}
+.drop{display:grid;gap:2px;border:1.5px dashed #c5c8cc;border-radius:14px;padding:14px 16px;cursor:pointer;background:var(--bg)}
+.drop.over{border-color:var(--ink);background:var(--gold-soft)}
+.dt{font-weight:500;font-size:14px}
+.ds{font-size:12px;color:var(--muted)}
+.files{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.files li{display:flex;gap:10px;align-items:center;font-size:14px;border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.files a{flex:1;min-width:0;overflow-wrap:anywhere}
+.fs{font:500 12px var(--mono);color:var(--muted)}
+.rm{border:0;background:none;color:var(--blk);cursor:pointer;font:500 13px var(--body);padding:4px 6px}
+.uhint{margin:0;font-size:13px;color:var(--info)}
+.uhint:empty{display:none}
+.cf{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border-top:1px solid var(--line);padding-top:10px}
+.chk{display:inline-flex;gap:6px;align-items:center;font-size:13px;cursor:pointer}
+.chk input{accent-color:var(--ink)}
+.save{font-size:12px;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.map{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:14px 18px}
+.map summary{font:600 15px/1.3 var(--display);cursor:pointer}
+.tw{overflow-x:auto;margin-top:10px}
+.map table{border-collapse:collapse;width:100%;font-size:13px;min-width:640px}
+.map th{text-align:start;font-weight:500;color:var(--muted);padding:6px 10px 6px 0;border-bottom:1px solid var(--line)}
+.map td{padding:8px 10px 8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.map tr:last-child td{border-bottom:0}
+.sep{width:1px;height:22px;background:var(--line)}
+.rec{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ok-soft);border-radius:10px;padding:8px 12px;font-size:13px}
+.rect{flex:1;min-width:240px;max-width:80ch}
+.recw{color:var(--muted)}
+.recb{padding:5px 12px;border-color:var(--ok);color:var(--ok);background:var(--paper)}
+.conf{margin-inline-start:6px}.c-high{background:var(--ok-soft);color:var(--ok)}.c-medium{background:var(--high-soft);color:var(--high)}.c-low{background:var(--blk-soft);color:var(--blk)}
+.recs{display:block;color:var(--muted);font-size:12px}
+.poc.reg{background:var(--ok-soft)}
+.inp.due{max-width:170px}
+#upl-note{margin:0;font-size:13px;background:var(--info-soft);color:var(--info);border-radius:12px;padding:10px 14px}
+@media (max-width:860px){.layout{grid-template-columns:1fr}nav#nav{position:static;grid-template-columns:repeat(2,1fr)}.tiles{grid-template-columns:repeat(2,1fr)}.ul{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.track i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <span class="kicker" id="m-kicker">Nusuk · feature · from prototype to native handoff</span>
+    <h1 id="m-h1">What we still need to build this feature end to end</h1>
+    <p class="lede" id="m-lede">Each item is a decision or a document the prototype had to invent. Each has a proposed answer you can accept, change or assign. Attach the file where one is required; the owner ticks “Approved” to sign it off.</p>
+    <div class="tiles">
+      <div class="tile blk"><span class="k" id="k-blk">0 / 0</span><span class="l">Blockers closed</span><span class="track"><i id="bar-blk" style="width:0"></i></span></div>
+      <div class="tile"><span class="k" id="k-all">0 / 0</span><span class="l">All items closed</span><span class="track"><i id="bar-all" style="width:0"></i></span></div>
+      <div class="tile up"><span class="k" id="k-up">0 / 0</span><span class="l">Required files attached</span><span class="track"><i id="bar-up" style="width:0"></i></span></div>
+      <div class="tile"><span class="k" id="k-ap">0 / 0</span><span class="l">Approved by owners</span><span class="track"><i style="width:0"></i></span></div>
+      <div class="tile"><span class="k" id="k-as">0</span><span class="l">Assigned, not decided</span><span class="track"><i style="width:0"></i></span></div>
+    </div>
+    <div class="unlocks">
+      <h2>What each answer unlocks</h2>
+      <ul class="ul" id="m-unlocks"></ul>
+    </div>
+
+    <details class="map" open><summary>Parties in the flow</summary><div class="tw"><table id="m-parties"></table></div></details>
+    <details class="map" open><summary>Support or operating levels</summary><div class="tw"><table id="m-levels"></table></div></details>
+    <p id="ready" aria-live="polite"></p>
+    <p id="upl-note" hidden>File uploads need the page opened on claude.ai by an editor or contributor. You can still answer here; send files in the chat meanwhile.</p>
+  </div>
+  <div class="bar" role="toolbar" aria-label="Filter and export">
+    <span class="lbl">Group by</span>
+    <button class="fbtn mbtn" data-m="topic" aria-pressed="true">Topic</button>
+    <button class="fbtn mbtn" data-m="owner" aria-pressed="false">Owner</button>
+    <span class="sep" aria-hidden="true"></span>
+    <span class="lbl">Show</span>
+    <button class="fbtn" data-f="all" aria-pressed="true">All</button>
+    <button class="fbtn" data-f="blocker" aria-pressed="false">Open blockers</button>
+    <button class="fbtn" data-f="open" aria-pressed="false">Everything open</button>
+    <button class="fbtn" data-f="upload" aria-pressed="false">Needs a file</button>
+    <button class="fbtn" data-f="assigned" aria-pressed="false">Assigned</button>
+    <span class="grow"></span>
+    <button class="xbtn" id="ex-md" data-l="Export Markdown">Export Markdown</button>
+    <button class="xbtn" id="ex-json" data-l="Export JSON">Export JSON</button>
+  </div>
+  <p id="conn" aria-live="polite"></p>
+  <div class="layout">
+    <nav id="nav" aria-label="Sections"></nav>
+    <main id="qs"></main>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

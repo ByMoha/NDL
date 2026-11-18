@@ -428,7 +428,7 @@
   function PriceOptions(p) {
     var show = p.showPrice !== false;
     var sr = show && h('div', { className: 'sr' }, h('span', { className: 'amt', dir: 'ltr' }, I('riyal', 'sm'), T('headline-2-regular', p.price != null ? p.price : '1,000')),
-      p.discount && h('span', { className: 'disc' }, h('span', { className: 'tag' }, p.discount), p.oldPrice != null && h('s', { className: 'notes-2-regular old', dir: 'ltr' }, p.oldPrice)));
+      p.discount && h('span', { className: 'disc' }, p.oldPrice != null && h('s', { className: 'notes-2-regular old', dir: 'ltr' }, p.oldPrice), h('span', { className: 'tag' }, p.discount)));
     var cart = p.cart !== false && h(AddToCartCTA, Object.assign({ status: p.cart || 'cart' }, p.cartProps));
     var cta = p.cta && h(Button, { kind: 'secondary', size: 'xs', icon: 'only', iconName: p.ctaIcon || 'arrow-left-02', ariaLabel: p.ctaLabel || tr('open'), onClick: p.onCta });
     return h('div', { className: cx('nk', 'nk-popt', p.vertical && 'v', p.className) },
@@ -1162,14 +1162,14 @@
   function FeaturedAirport(p) {
     return h('button', { type: 'button', className: cx('nk', 'nk-airport', p.selected && 'selected'), 'aria-pressed': !!p.selected, onClick: p.onClick },
       h('span', { className: 'ic', 'aria-hidden': true }, I(p.iconName || 'hajj-service-solid')),
-      h('span', { className: 'c' }, T('body-1-regular nm', p.city || 'Makkah'), h('span', { className: 'ap' }, T('notes-2-regular', p.code || 'JED'), I('airplane-landing-01', 'sm'))));
+      h('span', { className: 'c' }, T('body-1-regular nm', p.city || 'مكة المكرمة'), h('span', { className: 'ap' }, T('notes-2-regular', p.code || 'JED'), I('airplane-landing-01', 'sm'))));
   }
   /* FeatureBox — Travel › Feature Box: a 54 white circle (Shadow/XS) with a 24 icon over a Notes 1 label */
-  function FeatureBox(p) { return h('div', { className: cx('nk', 'nk-featbox') }, h('span', { className: 'ic', 'aria-hidden': true }, I(p.iconName || 'smart-ac')), T('notes-1-regular', p.label || 'Ac')); }
+  function FeatureBox(p) { return h('div', { className: cx('nk', 'nk-featbox') }, h('span', { className: 'ic', 'aria-hidden': true }, I(p.iconName || 'smart-ac')), T('notes-1-regular', p.label || 'تكييف')); }
   /* VisaUserBlock — Travel › Visa User Block: white, radius 18, padding 18/12, Shadow/XS; name (two lines, then …), gender icon 20 and flag; Checkmark when chosen */
   function VisaUserBlock(p) {
     return h('button', { type: 'button', className: cx('nk', 'nk-visa', p.selected && 'selected'), 'aria-pressed': p.selected != null ? !!p.selected : undefined, onClick: p.onClick },
-      h('bdi', { className: 'notes-1-regular nm' }, p.name || 'Ahmed Mohamed Ali'),
+      h('bdi', { className: 'notes-1-regular nm' }, p.name || 'أحمد محمد علي'),
       h('span', { className: 'ics', 'aria-hidden': true }, I(p.gender === 'female' ? 'hijab' : 'muslim'), h('span', { className: 'flag' }, p.flag || '🇪🇬')),
       p.selected && h('span', { className: 'ck', 'aria-hidden': true }, I('checkmark-circle-02')));
   }

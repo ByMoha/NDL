@@ -7,7 +7,7 @@
   var N = window.NusukDL, h = React.createElement;
   function F(label, el, w){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:w||402,maxWidth:'100%',borderRadius:18,overflow:'hidden',background:'var(--surface-screen-bk)',outline:'1px solid var(--surface-03-pearl)'}}, el)); }
   ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'flex',flexWrap:'wrap',gap:26,alignItems:'flex-start'}},
-  h('div',{style:{width:232}},h(N.PriceOptions,{price:'1,000'})), h('div',{style:{width:153}},h(N.PriceOptions,{price:'1,000',vertical:true})), h('div',{style:{width:153}},h(N.PriceOptions,{price:'1,000',vertical:true,cart:'notify-me'})), h('div',{style:{width:269}},h(N.PriceOptions,{price:'750',discount:'خصم 25%',oldPrice:'1,000'})), h('div',{style:{width:247}},h(N.PriceOptions,{price:'750',vertical:true,discount:'خصم 25%',oldPrice:'1,000',cart:'buy'}))));
+  h('div',{style:{width:232}},h(N.PriceOptions,{price:'1,000'})), h('div',{style:{width:153}},h(N.PriceOptions,{price:'1,000',vertical:true})), h('div',{style:{width:269}},h(N.PriceOptions,{price:'750',discount:'خصم 25%',oldPrice:'1,000'})), h('div',{style:{width:247}},h(N.PriceOptions,{price:'750',vertical:true,discount:'خصم 25%',oldPrice:'1,000'}))));
 </script>
 </body>
 </html>

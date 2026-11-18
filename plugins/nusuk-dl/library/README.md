@@ -7,7 +7,7 @@ Figma is the source of truth. This package mirrors the DL library for concepts, 
 | Path | What it is |
 |---|---|
 | `index.html` | Start here: every component preview and card, the chat lane, the template contracts, documents and migrations |
-| `DESIGN.md` | DESIGN.md 3.7.0: the whole design language in one file |
+| `DESIGN.md` | DESIGN.md 3.7.1: the whole design language in one file |
 | `tokens.json`, `tokens.css` | Tokens 3.12: six themes, type, space, size, radius, shadows, opacity, borders and blur; the CSS has one block per theme (`data-theme`) and one class per type style |
 | `components/bundle.js`, `bundle.css`, `index.d.ts` | The coded components as `window.NusukDL.*` (React 18, no build step) and their TypeScript props |
 | `components/<Name>/` | 90 component cards (props, anatomy, Figma source, rules, known issues, native notes) and 92 previews that open on their own |
@@ -16,7 +16,7 @@ Figma is the source of truth. This package mirrors the DL library for concepts, 
 | `templates/`, `patterns/` | 20 template contracts, their index, the Rawdah landing templates and the pattern index |
 | `docs/` | Overview, governance, library, inventory, brand, writing, DX practice, behaviour, KPIs, devices and accessibility, known issues, using with Claude, release notes, change log, templates and patterns, template contracts, iOS and Android handoff |
 | `assets/` | Asset notes (Brand, Illustration, Imagery, Logos) and the three Nusuk logo files (SVG) |
-| `migrations/` | Machine-readable changes, 2026-11-05 to 2026-11-18 (33 files) |
+| `migrations/` | Machine-readable changes, 2026-11-05 to 2026-11-18 (34 files) |
 | `CHANGES-2026-11-08.md`, `CHANGES-2026-11-09.md`, `CHANGES-2026-11-10.md`, `CHANGES-2026-11-11.md` | The change sheets of 2026-11-08 to 2026-11-11, for iOS and Android |
 | `nusuk-design-language.zip` | The DL skill for Claude: upload it as it is in Customize › Skills |
 | `vendor/` | React 18.3 production builds (MIT) |

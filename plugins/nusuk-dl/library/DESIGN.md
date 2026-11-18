@@ -1,6 +1,6 @@
 # DESIGN.md — Nusuk Design Language
 
-Version 3.7.0 · 18 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.7.1 · 18 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 
@@ -676,6 +676,8 @@ The stepper reads left to right in every language (minus or remove, number, plus
 
 Figma: 🃏 Cards › Price Options (the master for price on product cards). "ابتداءً من" in `notes-2-light` `text-note`, then the price (riyal 12 × 14 + amount at 20, `text-heading`) and the Add to Cart CTA. `Vertical=False`: price and control on one row (269 × 61). `Vertical=True`: stacked, gap 8 (grid cards). Top padding 8. Show "from" only when the price really varies.
 
+**18 November 2026 (review comments):** in Vertical the Add to Cart CTA hugs and sits at the start under the price; in the discount row the struck-through earlier price comes first, then the pill.
+
 **17 November 2026:** booleans Show Price, Show Add To Cart, Show CTA and Discount. Discount: a pill (`خصم 25%`, 10, padding 2 / 8, full radius, `alerts-surface-error` + `alerts-text-error`) and the earlier price struck through (12, `alerts-text-error`), 8 apart, 4 under the price. Show CTA: a Secondary XS icon-only button beside the cart control, with Figma's placeholder icon. Rules: a discount shows only when it is real (the struck price is what was charged before, and the offer has a real end, stated plainly), never with urgency and never on Udhiya, Hady or any act of worship (M4). The pill borrows error red (F97, Q-D41) and the second control conflicts with K9 (F98), so code keeps `cta` off by default.
 
 #### Marketplace media cards (10 November)
@@ -786,6 +788,7 @@ Chips XS: 18 high, text 10, icon 12, padding 8 (6 on the icon side, since 15 Nov
 Read from [🏖️ Travel › Travel](https://www.figma.com/design/ozi4A2gUbVXbzbUJ3MF4uU/?node-id=70393-17066) (node 70393:25450) at the DL Advisor's request.
 
 - **FlightTicket:** a two-part ticket 386 wide. Top: padding 26 / 20 / 4, radius 18 18 0 0, white rising from 30%. Departure country (`notes-1-regular`), time (20 Light) and code on the start side, arrival on the end side; between them a 94 column with the duration, a dashed arc with the airplane-02 pill (Ivory, 3 white ring) and «رحلة مباشرة»; Default XS chips under it. A 28 tear line with transparent semicircle notches at both edges and a 6 / 6 dashed Pearl rule. Bottom: airline logos (28 circles overlapping 7.6), airline and «تديرها …», seats in the warning colour, riyal and price, «لكل مسافر». Selected: `surface-shade-4` with a Longing line around the notches. Skeleton and Mini; Ribbon/On on top.
+- **18 November 2026 (review comments):** FromTo and DateRange line every row up on its field's own edge, so Latin codes and dates sit under their Arabic labels; Visa User Block is RTL (name at the start, check at the top end corner); FeaturedAirport and FeatureBox default to Arabic text.
 - **Ribbon** («الارخص»), **FromTo** (Destination: trip tabs, two fields and the swap), **DateRange** (Duration: Default, Active, Disabled), **FeaturedAirport** (Off, On), **FeatureBox**, **VisaUserBlock** (name as on the passport, gender, flag, Selected) and **HotelCard** (photo with dots, specs, favourite, distance, rating, features, nights, price with an optional old price and discount).
 - Rules: routes read from the start side; times and codes stay left to right. The ribbon only when true for the current results, never for paid placement. Seat counts only from live inventory. The airline logo group in the preview is a 1x export; use the brand files.
 
@@ -1358,6 +1361,8 @@ Band `service` means the screen takes the band of the service that uses it; comm
 
 **`payment` and the Golf Carts split (18 November 2026):** Golf Carts v2 puts the summary on its own Confirm screen (80451:41310) and keeps Pay (86074:14210) for the code field and the Payment Box (M9 › TabBar). Measured skeletons: Confirm: Toolbar 0–146, header 146 (24 + 12), product card 182–262, header 262–316, rows from 316 at 60 each (66 with an action), gap 8, action Tab Bar 776–874. Pay: Toolbar 0–146, title 32 above and 18 below, Payment Box 220–1205, empty Tab Bar 56. Whether a summary screen before payment joins `payment` or becomes its own contract is open with the DL Manager.
 
+**Proposed from the Nusuk Charity handoff (18 November 2026):** `giving-landing` (the giving home) and `giving-details` (one campaign and choosing an amount) were drafted because no contract fit a giving flow; its payment uses `payment`. Both stay Proposed, outside `templates/index.json`, until the DL Manager reviews them; the drafts are in `nusuk-feature-handoff` › examples › nusuk-charity.
+
 ### Rules for every contract
 
 1. **Spaces are fixed in order.** Remove an optional space; never move one, never add one. A need for a new space is a change to the contract.
@@ -1854,6 +1859,8 @@ From the DL Advisor's rulings: two on every prototype, the rest from his review 
 - **Conflicts are questions, not fixes.** Where Figma meets M4, M6, the release scope or a placeholder, keep the Figma version and raise a numbered design question (FQ) in the handoff; a genuine never-ship item is a blocker at the top of the handoff (GC-R2).
 - **Measure, don't eyeball.** List the frames (`get_metadata`), read values (`get_design_context`), compare each section's bounding box and the rendered rows with the Figma render within 2px, sample about ten background points, and click every path. Reply to each review comment with the numbers.
 - **Keep Figma artwork.** When an asset can't be downloaded, render the node and crop it; never redraw it.
+- **Motion values that matched iOS** (Nusuk Charity example, 18 November 2026): the screen beneath moves 30% and dims 10%; the edge swipe commits at 35% or on a flick; sheets rise in 500 ms; easing `cubic-bezier(.32,.72,0,1)`. Only the Toolbar's first row sticks; progressive-blur layers stay at full opacity; draw the status bar with the DL `StatusBar`.
+- **Worked examples:** Support-in-Chat (from a brief) and Nusuk Charity (from a Figma file, kept as is), in `nusuk-feature-handoff` › examples.
 
 ### Research before design
 

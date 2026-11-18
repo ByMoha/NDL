@@ -904,6 +904,8 @@ A from–to date pair in one card.
 
 **Figma source:** 🏖️ Travel › From To / Duration (Status Default / Dissabled / Active) on _Master Date From To. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**18 November 2026 (review comments of 17 Nov):** «من / 23 Jun / 2025» line up on the start side next to the calendar icon and «إلى / 22 Jun / 2025» on the end side, in the Default, Disabled and Active states (the FromTo fix).
+
 **17 November 2026:** the FromTo card with calendar-download-02 / calendar-upload-02 icons, day in Headline 2 Light and the year in Body 2 Light at 70%; the middle is a black «إلى» pill (54 × 48) at 40% by default, 100% when active, 20% when disabled (fields 40%).
 
 ## Props
@@ -1203,6 +1205,8 @@ One amenity as a round icon with a label.
 
 **Figma source:** 🏖️ Travel › Feature Box. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**18 November 2026:** the default label is Arabic («تكييف»).
+
 **17 November 2026:** a 54 white circle with Shadow/XS and a 24 icon (smart-ac), the label in Notes 1 below, gap 8.
 
 ## Props
@@ -1232,6 +1236,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 A quick-pick airport tile for the holy cities.
 
 **Figma source:** 🏖️ Travel › featured airport (Selected Off / On). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**18 November 2026:** the default city is Arabic («مكة المكرمة»), so an unconfigured instance reads right to left.
 
 **17 November 2026:** 127 wide, padding 18, gap 12, radius 18, white → White Shine, Shadow/XS; a 38 gold Haramain mark, the city (Body 1) and code (Notes 2) with airplane-landing-01 (16). Selected: Shade 6 with a 1.5 Longing line.
 
@@ -1440,6 +1446,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 Departure and arrival pickers with the trip-type tabs and a swap button.
 
 **Figma source:** 🏖️ Travel › From To / Destination (Status Default / Active) on _Master From To. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**18 November 2026 (review comments of 17 Nov):** every line in a field lines up on that field's own edge: the start side for the departure field, the end side for the arrival field. Latin values («LCY», «23 Jun», «2025») sit under their Arabic label instead of drifting to the far side.
 
 **17 November 2026:** tabs are three 38-high pills (Ink selected, white otherwise, Body 2). The card is white, radius 18, padding 26/20, gap 12, Glass/Full. Each field: a 24 icon (airplane-take-off-02 / airplane-landing-02), label Body 2 Light at 70%, value Headline 2 Light `text-subtle`, city Body 2 Light. The swap button is a black 54 × 48 pill with arrow-data-transfer-horizontal (26), at 40% until both ends are set (`active`).
 
@@ -2490,6 +2498,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 The price block of a product card: "from", the price and the cart control.
 
 **Figma source:** [🃏 Cards › Price Options](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=2402-18252) (Vertical False / True · Show Price, Show Add To Cart, Show CTA, Discount). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**18 November 2026 (review comments of 17 Nov):** in Vertical=True the Add to Cart CTA hugs its content and sits at the start (right in Arabic), under the price, as Figma's Bottom frame does. In the discount row the struck-through earlier price comes first (right in Arabic), then the «خصم 25%» pill. The preview shows only Figma's variants: Horizontal and Vertical, each with and without Discount; the Notify me and Buy cases are gone, since Figma only puts the cart icon here.
 
 **17 November 2026:** four booleans. Discount adds a row under the price: a pill (`خصم 25%`, 10, padding 2 / 8, full radius, `alerts-surface-error` with `alerts-text-error`) and the earlier price struck through (12, `alerts-text-error`), 8 apart; price and discount stack 4 apart. Show CTA adds a Secondary XS icon-only button beside the cart control. Figma binds the pill to Foundation's `Buttons/Surface/Error` and `Buttons/Text/Error`, which have no DL token; their values equal the alert error tokens (F97).
 
@@ -3769,6 +3779,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 A traveller tile for visa and booking lists.
 
 **Figma source:** 🏖️ Travel › Visa User Block. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**18 November 2026 (review comments of 17 Nov: RTL everywhere):** the name starts on the start side (right in Arabic) and wraps to two lines before the ellipsis; the check sits at the top end corner (left in Arabic), mirroring Figma. The default name is Arabic («أحمد محمد علي»).
 
 **17 November 2026:** white, radius 18, padding 18/12, gap 8, Shadow/XS. The Latin name in Notes 1, 93 wide, two lines then …; a 20 gender icon (muslim / hijab) and the flag (20 × 15). Selected adds checkmark-circle-02 (18) top right and a Longing line.
 

@@ -1,0 +1,135 @@
+/* Prototype frame + local compositions. DL tokens only (tokens.css); no raw colours. */
+html,body{margin:0;background:var(--surface-03-pearl);font-family:var(--font-sans);color:var(--text-heading)}
+.pc-stage{flex-direction:row-reverse;display:flex;gap:32px;align-items:flex-start;justify-content:center;padding:24px;min-height:100vh;box-sizing:border-box}
+.pc-phone{position:sticky;top:24px;width:402px;height:874px;flex:none;border-radius:56px;overflow:hidden;background:var(--surface-screen-bk);box-shadow:var(--shadow-xl),0 0 0 10px var(--surface-10-ink);display:flex;flex-direction:column}
+.pc-status{height:54px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font-weight:600;font-size:16px;position:relative}
+.pc-island{z-index:5;position:absolute;inset-inline-start:50%;transform:translateX(50%);top:11px;width:124px;height:36px;border-radius:var(--radius-full);background:var(--surface-10-ink)}
+.pc-screen{flex:1;display:flex;flex-direction:column;min-height:0}
+.pc-top{flex:none}
+.pc-scroll{flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.pc-scroll::-webkit-scrollbar{display:none}
+.pc-pad{padding:8px 8px 24px;display:flex;flex-direction:column;gap:var(--space-sm)}
+.pc-bottom{flex:none}
+.pc-thread{padding:8px 8px 16px}
+.pc-composer{padding:0 8px}
+.pc-card{background:var(--surface-01-white);border-radius:var(--radius-xl);box-shadow:var(--shadow-xs)}
+.pc-pad2{padding:18px;display:flex;flex-direction:column;gap:18px}
+.pc-list{padding:4px 18px}
+.pc-muted{color:var(--text-note)}
+.pc-info-row{display:flex;gap:16px;align-items:flex-start;padding:18px 8px;border-bottom:var(--border-thin) solid var(--surface-03-pearl)}
+.pc-card .pc-info-row{margin:0 var(--space-nr);padding:var(--space-nr) 0;gap:var(--space-nr)}
+.pc-info-row:last-child{border-bottom:0}
+.pc-info-row p{margin:0;flex:1}
+.pc-info-ic{flex:none;color:var(--icons-black);padding-top:2px}
+.pc-ai{padding:var(--space-lr) var(--space-nr);display:flex;flex-direction:column;gap:var(--space-nr)}
+.pc-ai-head{display:flex;gap:12px;align-items:center}
+.pc-chiprow{display:flex;flex-wrap:wrap;gap:var(--space-xs)}
+.pc-topic{padding:8px 8px 6px}
+.pc-contact{padding:22px 18px;display:flex;flex-direction:column;gap:8px}
+.pc-contact .nk-btn,.pc-contact button{margin-top:8px}
+.pc-helpful{display:flex;flex-direction:column;align-items:center;gap:14px;padding:24px 0 8px;text-align:center}
+.pc-row2{display:flex;gap:8px}
+.pc-row2>*{flex:1}
+.pc-open{all:unset;display:block;cursor:pointer;border-radius:var(--radius-xl)}
+.pc-open:focus-visible{outline:2px solid var(--surface-10-ink);outline-offset:2px}
+.pc-stack{display:flex;flex-direction:column;gap:8px}
+.pc-indent{padding:4px 0 8px}
+.pc-tabs{display:flex;gap:8px;margin-bottom:12px}
+.pc-tab{all:unset;cursor:pointer;border-radius:var(--radius-full)}
+.pc-tab:focus-visible{outline:2px solid var(--surface-10-ink);outline-offset:2px}
+.pc-suggest{display:flex;align-items:center;gap:6px;color:var(--alerts-text-gold);margin-bottom:8px}
+.pc-bk{position:relative}
+.pc-bk-status{position:absolute;inset-inline-end:52px;top:18px;pointer-events:none}
+.pc-upl,.pc-upl-btn{all:unset;display:block;cursor:pointer;margin-bottom:6px}
+.pc-linkbtn{all:unset;cursor:pointer;color:var(--text-note);text-decoration:underline;margin-top:8px;display:inline-block}
+.pc-quote{margin-top:10px;padding:12px 14px;border-radius:var(--radius-md);background:var(--surface-02-ivory);border-inline-start:3px solid var(--surface-longing)}
+.pc-source{display:flex;align-items:center;gap:6px;margin-top:10px;color:var(--text-note)}
+.pc-system{display:flex;justify-content:center;padding:6px 0}
+.pc-agent .pc-agent-name{display:flex;align-items:center;gap:8px;color:var(--text-note);margin-bottom:4px}
+.pc-human{padding:1px 8px;border-radius:var(--radius-full);background:var(--alerts-surface-info);color:var(--alerts-text-info)}
+.pc-agent .nkc-body{background:var(--alerts-surface-info)}
+.pc-typing-agent{padding:8px 40px}
+.pc-ticket{padding:18px;display:flex;flex-direction:column;gap:12px;min-width:280px}
+.pc-ticket-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.pc-ticket-rows{display:flex;flex-direction:column}
+/* reviewer panel */
+.pc-panel{width:440px;flex:none;background:var(--surface-01-white);border-radius:var(--radius-xl);padding:24px;box-shadow:var(--shadow-xs);font-family:"IBM Plex Sans",var(--font-sans)}
+.pc-panel h1{margin:6px 0 8px}
+.pc-panel p{margin:0}
+.pc-rail{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
+.pc-rail-b{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:var(--radius-md);font-size:14px}
+.pc-rail-b:hover{background:var(--surface-02-ivory)}
+.pc-rail-b.on{background:var(--surface-10-ink);color:var(--text-inverse)}
+.pc-rail-b:focus-visible{outline:2px solid var(--surface-10-ink);outline-offset:2px}
+.pc-rail-n{width:22px;height:22px;border-radius:var(--radius-full);display:inline-grid;place-items:center;font-size:12px;background:var(--surface-03-pearl);color:var(--text-heading)}
+.pc-ctrl{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.pc-btn{all:unset;cursor:pointer;padding:8px 14px;border-radius:var(--radius-full);background:var(--surface-10-ink);color:var(--text-inverse);font-size:13px}
+.pc-btn.ghost{background:var(--surface-02-ivory);color:var(--text-heading)}
+.pc-btn:focus-visible{outline:2px solid var(--surface-10-ink);outline-offset:2px}
+.pc-ptabs{display:flex;gap:4px;border-bottom:var(--border-thin) solid var(--surface-03-pearl);margin-bottom:12px}
+.pc-ptab{all:unset;cursor:pointer;padding:8px 10px;font-size:13px;color:var(--text-note);border-bottom:2px solid transparent}
+.pc-ptab.on{color:var(--text-heading);border-bottom-color:var(--surface-10-ink)}
+.pc-notes dl{margin:0;display:grid;grid-template-columns:1fr;gap:4px}
+.pc-notes dt{font-size:12px;color:var(--text-note);margin-top:10px;text-transform:uppercase;letter-spacing:.04em}
+.pc-notes dd{margin:0;font-size:14px;line-height:1.55}
+.pc-notes ul{margin:0;padding-inline-start:18px;font-size:14px;line-height:1.55;display:flex;flex-direction:column;gap:10px}
+.pc-notes>p{margin-top:16px}
+.pc-json{margin:0;font-size:11.5px;line-height:1.5;background:var(--surface-02-ivory);border-radius:var(--radius-md);padding:14px;max-height:520px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+@media (max-width:920px){
+  .pc-stage{flex-direction:column;align-items:center;padding:24px 12px}
+  .pc-phone{position:relative;top:0}
+  .pc-panel{width:100%;max-width:440px;box-sizing:border-box}
+}
+/* Only on a real phone does the prototype drop its frame and fill the screen */
+@media (max-width:480px){
+  .pc-stage{padding:0}
+  .pc-phone{width:100%;height:100dvh;border-radius:0;box-shadow:none}
+  .pc-panel{border-radius:0}
+  .pc-status,.pc-island{display:none}
+}
+
+.pc-replychips{padding-inline-start:40px;margin:4px 0 8px}
+/* Close + title only: the Toolbar draws an empty glass block when actions is [] */
+.pc-top-close .nk-iblock:not(:has(.nk-ib)){display:none}
+.pc-info-notice{padding:var(--space-xs) var(--space-xs) 0}
+.pc-info-art{flex:none;width:40px;height:40px;margin-top:-6px;display:inline-flex}
+.pc-info-art svg{display:block;width:40px;height:40px}
+.pc-card .pc-info-row:last-child{padding-bottom:var(--space-lr)}
+/* Related sections sit 8px apart */
+.pc-pad.pc-related{gap:var(--space-xs)}
+/* Host page + support widget: unrelated sections 18px apart, the widget's own cards 8px apart */
+.pc-pad.pc-host{gap:0}
+.pc-widget{display:flex;flex-direction:column}
+.pc-widget-body{display:flex;flex-direction:column}
+.pc-widget-body.pc-related{gap:var(--space-xs)}
+
+.pc-scroll.pc-host{display:flex;flex-direction:column}
+.pc-host-body{padding-top:0}
+.pc-scroll.pc-host>*{flex:none}
+/* Fixed nav bar + progressive blur (blur tokens: sm 2 · md 10 · lr 20) */
+.pc-has-fixed{position:relative}
+.pc-fixedbar{position:absolute;inset:0 0 auto 0;height:150px;z-index:4;pointer-events:none}
+.pc-fixedbar .nk-fh{height:auto;overflow:visible;background:none}
+.pc-fixedbar .nk-fh .bg,.pc-fixedbar .nk-fh .ttl{display:none}
+.pc-fixedbar .nk-fh .bar{pointer-events:auto}
+.pc-pblur{position:absolute;inset:0}
+.pc-pblur i,.pc-pblur b{position:absolute;inset:0}
+.pc-pblur i:nth-child(1){backdrop-filter:blur(var(--blur-sm));-webkit-backdrop-filter:blur(var(--blur-sm));-webkit-mask-image:linear-gradient(180deg,#000 0,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 70%,transparent 100%)}
+.pc-pblur i:nth-child(2){backdrop-filter:blur(var(--blur-md));-webkit-backdrop-filter:blur(var(--blur-md));-webkit-mask-image:linear-gradient(180deg,#000 0,#000 45%,transparent 78%);mask-image:linear-gradient(180deg,#000 0,#000 45%,transparent 78%)}
+.pc-pblur i:nth-child(3){backdrop-filter:blur(var(--blur-lr));-webkit-backdrop-filter:blur(var(--blur-lr));-webkit-mask-image:linear-gradient(180deg,#000 0,#000 25%,transparent 55%);mask-image:linear-gradient(180deg,#000 0,#000 25%,transparent 55%)}
+.pc-pblur b{background:linear-gradient(180deg,color-mix(in srgb,var(--surface-screen-bk) 55%,transparent) 0,transparent 75%)}
+/* the scrolling header keeps its layout; its own status bar and nav bar give way to the fixed copy */
+.pc-host .nk-fh>.nk-sb,.pc-host .nk-fh>.bar{visibility:hidden}
+/* Show all services: continues the Featured Actions grid (4 columns, gap 4, side 20) right under the header tiles */
+.pc-allsvc{margin-top:-30px;position:relative;z-index:1}
+.pc-allsvc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:0 20px}
+.pc-allsvc-grid .nk-ctile{height:100px;width:auto;padding:18px 8px;min-width:0}
+.pc-allsvc-btn{display:flex;justify-content:center;padding-top:var(--space-sm)}
+.pc-allsvc-btn [aria-expanded=true] .nk-ico{transform:rotate(180deg)}
+/* Featured Header white shade (Figma: Rawdah Landing › Toolbar › Header Effect + Featured BG › Headline › BG Effect):
+   a white veil under the nav bar, a soft white cloud behind the title, and an earlier fade into the screen */
+.pc-host .nk-fh .bg::after{content:'';position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(ellipse 62% 17% at 50% 46%,var(--surface-01-white) 0,color-mix(in srgb,var(--surface-01-white) 80%,transparent) 38%,transparent 78%),
+  linear-gradient(180deg,color-mix(in srgb,var(--surface-01-white) 55%,transparent) 0,color-mix(in srgb,var(--surface-01-white) 18%,transparent) 26%,transparent 40%),
+  linear-gradient(180deg,transparent 48%,color-mix(in srgb,var(--surface-screen-bk) 75%,transparent) 66%,var(--surface-screen-bk) 84%)}
+.pc-mt{margin-top:var(--space-sm)}

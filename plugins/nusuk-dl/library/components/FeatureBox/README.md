@@ -4,6 +4,8 @@ One amenity as a round icon with a label.
 
 **Figma source:** 🏖️ Travel › Feature Box. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**18 November 2026:** the default label is Arabic («تكييف»).
+
 **17 November 2026:** a 54 white circle with Shadow/XS and a 24 icon (smart-ac), the label in Notes 1 below, gap 8.
 
 ## Props

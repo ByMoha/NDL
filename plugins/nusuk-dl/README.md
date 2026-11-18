@@ -1,6 +1,6 @@
 # nusuk-dl · the Nusuk plugin
 
-Version 2026.11.180014, built 2026-11-18T00:14+03:00. Release 2026-11-18: DESIGN.md 3.7.0, tokens 3.12, NusukChat 2.8.5.
+Version 2026.11.180946, built 2026-11-18T09:46+03:00. Release 2026-11-18: DESIGN.md 3.7.1, tokens 3.12, NusukChat 2.8.5.
 
 The one way the Nusuk DL reaches Claude (DL-42). The developer handoff (`nusuk-dl-developer-handoff.zip`) is the only other download.
 
@@ -24,7 +24,7 @@ Every prototype simulates Apple's native transitions and draws the iOS status ba
 | `nusuk-content-writer` | Any Nusuk content (notifications, social, store replies, campaigns, faith content), from the official writing guide |
 | `nusuk-voice-rules` | The microcopy house rules: message voice, no manufactured urgency, dignity, placeholders, Arabic grammar checks |
 | `nusuk-visual-system` | Nusuk watercolour illustrations, with the 18 approved reference paintings |
-| `nusuk-feature-handoff` | A feature from brief to developer handoff: canvas, prototype, gaps questionnaire, native handoff page |
+| `nusuk-feature-handoff` | A feature from brief to developer handoff: canvas, prototype, gaps questionnaire, native handoff page. Worked examples: Support-in-Chat (from a brief) and Nusuk Charity (from a Figma file, `examples/nusuk-charity/`) |
 | `accessibility-audit` | A full WCAG 2.2 audit (general method; the DL sets the Nusuk floor) |
 | `design-critique` | Heuristic and pattern critique (general method; DESIGN.md M13 sets the Nusuk protocol) |
 | `ux-writing` | General microcopy method (Nusuk wording comes from the Nusuk skills) |

@@ -70,6 +70,12 @@ Every release renders every preview and measures it; the numbers go in the relea
 | `all:unset` on a DL button | Clicks landed on the wrong control | Never `all:unset` a DL component (builder rule) |
 | Embedded the prototype in the narrow text column of a handoff | A comment, twice | The prototype runs at full page width (GC-R18) |
 | Built a prototype from a standalone copy of the DL skill older than the plugin | Two "defects" that the plugin's code had already fixed (Select Card radio, Option Card padding) | Use the plugin; turn off standalone copies of the Nusuk skills (18 Nov 2026) |
+| Local class names `.ch-amt` and `.ch-row` in the Charity prototype collided with the DL Charity Card and stacked the riyal sign | A visual bug | Prefix every local class and check it against `bundle.css` (18 Nov 2026) |
+| A sticky element inside the Toolbar only stuck within the Toolbar | The row scrolled away | `display:contents` on the wrapper, `.nk-tb` and `.nk-tb-bar`; stick `.nk-tb-row` |
+| The progressive blur showed nothing when faded with `opacity` | No blur | Keep blur layers at full opacity; fade only the tint |
+| A second scrim stacked over StatusSheet's own | A dark band | Let the sheet's scrim fill the screen |
+| A hand-built status bar | The island sat off centre in RTL | Use the DL `StatusBar` |
+| Figma asset URLs and `exportAsync` returned nothing useful | No artwork | Clone the node at 2–3× into a temporary frame, screenshot it, delete the frame and confirm none remain |
 
 ## 6 · What the DL still owes (10 November 2026)
 

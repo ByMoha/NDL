@@ -1,0 +1,196 @@
+/* Nusuk Charity prototype: local compositions. DL tokens only (tokens.css); no raw colours. */
+/* --- screen frame pieces --- */
+.ch-top,.ch-top>.nk-tb,.ch-top .nk-tb-bar{display:contents}
+.ch-top .nk-tb{background:none}
+.ch-headfx{position:absolute;inset:0 0 auto 0;height:400px;pointer-events:none;z-index:0;
+  background:radial-gradient(120% 60% at 50% 0,var(--surface-shade-5) 0,color-mix(in srgb,var(--surface-shade-5) 40%,transparent) 55%,transparent 80%)}
+.ch-body{position:relative;z-index:1}
+.ch-sec{padding:0 var(--space-xs)}
+.ch-gap{height:var(--space-sm)}
+/* featured slider: Charity Cards 320 × 330, gap 8, snap, peek */
+.ch-feat{display:flex;gap:var(--space-xs);overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--space-xs);scrollbar-width:none}
+.ch-feat::-webkit-scrollbar{display:none}
+.ch-feat>*{flex:none;width:320px;scroll-snap-align:center}
+.ch-feat .nk-mc,.ch-list .nk-mc{width:100%}
+.ch-pag{display:flex;justify-content:center;padding-top:var(--space-nr)}
+.ch-list{display:flex;flex-direction:column;gap:var(--space-xs);padding:0 var(--space-xs)}
+.ch-open{all:unset;display:block;cursor:pointer;border-radius:var(--radius-md)}
+.ch-open:focus-visible{outline:2px solid var(--surface-10-ink);outline-offset:2px}
+.ch-more{padding:var(--space-xs) var(--space-xs) 0}
+/* skeletons for the loading state */
+.ch-skel{border-radius:var(--radius-md);background:linear-gradient(90deg,var(--surface-03-pearl) 0,var(--surface-02-ivory) 50%,var(--surface-03-pearl) 100%);background-size:200% 100%;animation:chsk 1.2s linear infinite}
+@keyframes chsk{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.ch-skel{animation:none}}
+/* details: artwork behind, two Service Boxes 26/18/18 */
+.ch-art{position:absolute;left:0;top:0;width:402px;height:874px;z-index:0;overflow:hidden}
+.ch-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* Artwork › Ellipse 1 (to Screen BK) and Ellipse 2 (white, rotated 180), 584 × 564, layer blur 54 */
+.ch-art i{position:absolute;width:584px;height:564px;left:-91px;border-radius:50%;filter:blur(27px)}
+.ch-art .e1{top:548px;background:linear-gradient(180deg,transparent 0,var(--surface-screen-bk) 100%)}
+.ch-art .e2{top:-370px;background:linear-gradient(0deg,transparent 0,var(--surface-01-white) 100%)}
+.ch-detail{position:relative;z-index:1;display:flex;flex-direction:column;padding:0 var(--space-xs);box-sizing:border-box}
+.ch-box{background:var(--surface-01-white);border-radius:var(--radius-md);padding:var(--space-lr) var(--space-nr);box-shadow:-6px 6px 30px -12px color-mix(in srgb,var(--surface-10-ink) 5%,transparent)}
+.ch-svc{display:flex;gap:var(--space-sm);align-items:flex-start}
+.ch-svc p{margin:0;flex:1}
+.ch-svc-ic{flex:none;width:44px;height:44px;border-radius:var(--radius-s);background:var(--surface-screen-bk);display:grid;place-items:center}
+.ch-flex{flex:1;min-height:26px}
+.ch-amtbox{display:flex;flex-direction:column;gap:var(--space-nr)}
+.ch-amtbox h2{margin:0;text-align:center}
+.ch-grp{display:flex;flex-direction:column;gap:var(--space-xs)}
+.ch-prices{display:flex;gap:var(--space-xs)}
+/* DL Select Card · Details variant (riyal + amount, no title, no radio): Figma 💸/Select Card; coded SelectCard has no such variant */
+.ch-sel{all:unset;box-sizing:border-box;flex:1;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:var(--space-xxs);padding:var(--space-nr);
+  border-radius:var(--radius-s);background:var(--surface-01-white);border:var(--border-thin) solid var(--surface-02-ivory);box-shadow:var(--shadow-xs);min-height:56px}
+.ch-sel[aria-pressed=true]{background:var(--surface-shade-5);border-color:var(--surface-illumination);box-shadow:none}
+.ch-sel:focus-visible{outline:2px solid var(--surface-10-ink);outline-offset:2px}
+/* Input · riyal at the end (Figma Input with the 24 riyal) */
+.ch-fld{display:flex;align-items:center;gap:var(--space-sm);height:62px;padding:0 var(--space-nr) 0 10px;border-radius:var(--radius-md);background:var(--surface-01-white);border:var(--border-thin) solid var(--surface-02-ivory);box-shadow:0 0 1px .5px color-mix(in srgb,var(--surface-10-ink) 5%,transparent)}
+.ch-fld.on{border-color:var(--surface-illumination)}
+.ch-fld.err{border-color:var(--alerts-text-error)}
+.ch-fld input{all:unset;flex:1;min-width:0;font:inherit;font-size:16px;color:var(--text-content)}
+.ch-fld input::placeholder{color:var(--inputs-text-placeholder);font-size:14px}
+.ch-err{color:var(--alerts-text-error);margin:0}
+.ch-ctas{display:flex;flex-direction:column;gap:0}
+.ch-ctas .nk-btn{width:100%}
+.ch-link{all:unset;cursor:pointer;text-align:center;text-decoration:underline;padding:12px 0;min-height:24px}
+.ch-link:focus-visible{outline:2px solid var(--surface-10-ink);outline-offset:2px;border-radius:var(--radius-s)}
+/* payment widget: Figma 💸 Payment › _Payment widget Master (not in the coded bundle) */
+.ch-pay{position:relative;overflow:hidden;background:var(--surface-01-white);border-radius:var(--radius-md);padding:var(--space-lr) var(--space-nr);display:flex;flex-direction:column;gap:var(--space-lr);box-shadow:var(--shadow-xs)}
+.ch-pay::before{content:none}
+/* Payment widget › Top Section › Header Effect, rotated 180 at the bottom (575 × 572, bottom −11) */
+.ch-pay>.ch-payfx{position:absolute;left:50%;bottom:-11px;width:575px;height:572px;margin-left:-287.5px;transform:rotate(180deg);pointer-events:none}
+.ch-payfx i{position:absolute;border-radius:50%;filter:blur(146px)}
+.ch-pay>*{position:relative}
+.ch-total{display:flex;flex-direction:column;align-items:center;gap:var(--space-xs)}
+.ch-total-v{display:flex;align-items:center;gap:var(--space-xs)}
+.ch-dt{all:unset;box-sizing:border-box;width:100%;cursor:pointer;background:var(--surface-02-ivory);border-radius:var(--radius-md);padding:var(--space-sm) var(--space-nr) var(--space-nr);display:flex;flex-direction:column;align-items:center;gap:var(--space-sm)}
+.ch-dt-h{display:flex;align-items:center;gap:var(--space-xs)}
+.ch-dt-h .nk-ico{transition:transform .2s}
+.ch-dt[aria-expanded=false] .ch-dt-h .nk-ico{transform:rotate(180deg)}
+.ch-prows{width:100%;display:flex;flex-direction:column}
+.ch-prow{display:flex;gap:var(--space-nr);align-items:center;padding:var(--space-sm);border-radius:var(--radius-full)}
+.ch-prow:nth-child(odd){background:var(--surface-01-white)}
+.ch-prow span:first-child{flex:1}
+.ch-amtv{display:inline-flex;align-items:center;gap:var(--space-xs)}
+.ch-acts{display:flex;flex-direction:column;gap:var(--space-sm);align-items:stretch}
+.ch-terms{text-align:center;margin:0}
+.ch-terms a{color:inherit}
+.ch-bal{display:flex;align-items:center;justify-content:center;gap:var(--space-xs);color:var(--inputs-text-placeholder);margin:0}
+.ch-or{display:flex;align-items:center;gap:var(--space-xs);padding:var(--space-sm) 0}
+.ch-or i{flex:1;height:1px;background:var(--surface-03-pearl)}
+.ch-cards{all:unset;box-sizing:border-box;cursor:pointer;height:48px;border-radius:var(--radius-full);background:var(--surface-01-white);border:var(--border-thin) solid var(--surface-04-mist);display:flex;align-items:center;justify-content:center;gap:var(--space-xs);padding:0 20px 0 18px}
+.ch-cards:focus-visible{outline:2px solid var(--surface-10-ink);outline-offset:2px}
+.ch-logos{display:inline-flex;gap:var(--space-xxs);direction:ltr}
+.ch-logos svg{display:block}
+.ch-logo{width:24px;height:17px;border-radius:4px;border:var(--border-thin) solid var(--surface-02-ivory);display:grid;place-items:center;font:600 7px/1 "IBM Plex Sans",sans-serif;color:var(--text-subtle);background:var(--surface-01-white)}
+/* overlays */
+.ch-scrim{position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;justify-content:flex-end;background:color-mix(in srgb,var(--surface-10-ink) 12%,transparent)}
+.ch-scrim .nk-sheet-wrap{position:relative}
+.ch-toast{position:absolute;top:calc(var(--ch-sb) + 8px);inset-inline:0;z-index:25;display:flex;justify-content:center;pointer-events:none}
+.ch-toast>*{pointer-events:auto}
+.ch-applepay{background:var(--surface-01-white);border-radius:var(--radius-xl) var(--radius-xl) 0 0;padding:var(--space-lr) var(--space-nr) var(--space-xl);display:flex;flex-direction:column;gap:var(--space-nr)}
+.ch-applepay dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 16px}
+.ch-applepay dt{color:var(--text-note)}
+.ch-applepay dd{margin:0}
+.ch-sys{font-family:"IBM Plex Sans",system-ui,sans-serif;direction:ltr;text-align:left}
+.ch-offline{padding:0 var(--space-xs) var(--space-xs)}
+.ch-pad{padding:0 var(--space-xs) var(--space-xs);display:flex;flex-direction:column;gap:var(--space-xs)}
+.ch-empty{padding:var(--space-xxl) var(--space-xs)}
+.ch-proposed{outline:1.5px dashed var(--surface-illumination);outline-offset:3px;border-radius:var(--radius-md)}
+.pc-panel .ch-k{display:inline-block;font:500 11px/1.4 "IBM Plex Mono",monospace;background:var(--surface-shade-5);color:var(--alerts-text-gold,var(--text-link));padding:1px 6px;border-radius:6px}
+.pc-panel select{font:inherit;font-size:13px;padding:6px 8px;border-radius:var(--radius-s);border:var(--border-thin) solid var(--surface-03-pearl);background:var(--surface-01-white)}
+.pc-panel label.ch-opt{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--text-note)}
+.pc-ctrl.ch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc-panel h2{font-size:15px;margin:18px 0 6px}
+
+/* Header Effect: frame-anchored glow behind the status bar and toolbar */
+.pc-phone{--ch-sb:62px}
+.ch-sbw{position:absolute;top:0;left:0;right:0;z-index:30;pointer-events:none}
+@media (max-width:480px){.ch-sbw{display:none}.pc-phone{--ch-sb:0px}}
+.ch-fx{position:absolute;left:0;top:0;width:402px;height:600px;pointer-events:none;z-index:0}
+.ch-fx i{position:absolute;border-radius:50%}
+.ch-body{position:relative;z-index:1}
+@media (max-width:480px){.pc-phone{--ch-sb:0px}}
+.ch-feat>.ch-open{width:320px;flex:none}
+/* Figma Headers: pt 48, pb 26 */
+.ch-body .nk-pat.cats>.nk-st,.ch-body .ch-listsec>.nk-st{padding-top:var(--space-xxl);padding-bottom:var(--space-lr)}
+.ch-sel{height:56px;min-height:0;padding:0 var(--space-nr)}
+.ch-body .nk-pat.cats .nk-row{scroll-snap-type:none;padding-inline:var(--space-xs)}
+/* Pagination as drawn in this flow (Figma _Pagination item master at 4): dots 4 × 4 Mist, active 16 × 4 Smoke, gap 8. The coded DL Pagination draws 8 × 4 dots and a 38 active bar */
+.ch-pag .nk-pag i{width:4px;height:4px;background:var(--surface-04-mist)}
+.ch-pag .nk-pag i.on{width:16px;background:var(--surface-05-smoke)}
+/* Secondary buttons: Figma's fill layer uses Plus darker (linear burn). Safari draws it natively; other browsers get the computed result on Screen BK */
+.ch-body .nk-st .nk-btn.secondary,.ch-more .nk-btn.secondary,.nk-mc.charity .nk-btn.secondary{mix-blend-mode:plus-darker}
+@supports not (mix-blend-mode:plus-darker){
+  .ch-body .nk-st .nk-btn.secondary,.ch-more .nk-btn.secondary{background:color-mix(in srgb,var(--surface-03-pearl) 60%,var(--surface-02-ivory))}
+}
+
+/* --- v0.4 · floating Toolbar: only the first row (back, title, actions) sticks, over a progressive blur, never a solid fill --- */
+.ch-scr{position:relative;display:flex;flex-direction:column}
+.ch-scr>*,.ch-top .nk-tb-row,.ch-top .nk-tb-sub{flex:none}
+.ch-scr.fill>.ch-body{flex:1 0 auto}
+.ch-top .nk-tb-row{position:sticky;top:calc(var(--ch-sb) + 4px);z-index:6;margin-top:calc(var(--ch-sb) + 4px)}
+.ch-top .nk-tb-sub{margin-top:18px;position:relative;z-index:1}
+/* the blur sits under the status bar and the sticky row and fades out below it; it takes no space */
+.ch-tbfx{position:sticky;top:0;height:calc(var(--ch-sb) + 68px);margin-bottom:calc(-1 * (var(--ch-sb) + 68px));z-index:5;pointer-events:none}
+.ch-tbfx .pc-pblur b{opacity:0;transition:opacity .2s ease}
+.ch-scr.scrolled>.ch-tbfx .pc-pblur b{opacity:1}
+
+/* --- v0.4 · iOS navigation: push, pop, edge-swipe back, sheets and toast --- */
+.pc-phone{--ch-ios:cubic-bezier(.32,.72,0,1)}
+.pc-screen{position:relative;overflow:hidden}
+.ch-page{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--surface-screen-bk);overflow:hidden}
+.ch-page.hid{visibility:hidden}
+.ch-page.top{z-index:2}
+.ch-page.under{z-index:1}
+.ch-page.in-push,.ch-page.out-pop,.ch-page.moving{box-shadow:var(--shadow-lr)}
+.ch-page.under::after{content:'';position:absolute;inset:0;z-index:60;pointer-events:none;background:var(--surface-10-ink);opacity:var(--dimo,.1)}
+.ch-page.in-push{animation:ch-in .5s var(--ch-ios) both}
+.ch-page.push-under{animation:ch-under .5s var(--ch-ios) both}
+.ch-page.push-under::after{animation:ch-dim .5s var(--ch-ios) both}
+.ch-page.out-pop{animation:ch-out .5s var(--ch-ios) both}
+.ch-page.pop-under{animation:ch-back .5s var(--ch-ios) both}
+.ch-page.pop-under::after{animation:ch-undim .5s var(--ch-ios) both}
+.ch-page.rel,.ch-page.rel::after{transition:transform .3s var(--ch-ios),opacity .3s var(--ch-ios)}
+@keyframes ch-in{from{transform:translateX(-100%)}to{transform:none}}
+@keyframes ch-under{from{transform:none}to{transform:translateX(30%)}}
+@keyframes ch-out{from{transform:none}to{transform:translateX(-100%)}}
+@keyframes ch-back{from{transform:translateX(30%)}to{transform:none}}
+@keyframes ch-dim{from{opacity:0}to{opacity:.1}}
+@keyframes ch-undim{from{opacity:.1}to{opacity:0}}
+.ch-scrim{animation:ch-scrim-in .3s ease both}
+.ch-scrim>*{animation:ch-rise .5s var(--ch-ios) both}
+.ch-scrim.out{animation:ch-scrim-out .3s ease both;pointer-events:none}
+.ch-scrim.out>*{animation:ch-sink .3s cubic-bezier(.4,0,1,1) both}
+@keyframes ch-scrim-in{from{background-color:transparent}}
+@keyframes ch-scrim-out{to{background-color:transparent}}
+@keyframes ch-rise{from{transform:translateY(100%)}to{transform:none}}
+@keyframes ch-sink{from{transform:none}to{transform:translateY(105%)}}
+.ch-toast>*{animation:ch-drop .5s var(--ch-ios) both}
+.ch-toast.out>*{animation:ch-lift .28s ease-in both}
+@keyframes ch-drop{from{transform:translateY(calc(-100% - var(--ch-sb) - 8px))}to{transform:none}}
+@keyframes ch-lift{from{transform:none;opacity:1}to{transform:translateY(-40%);opacity:0}}
+@media (prefers-reduced-motion:reduce){.ch-page,.ch-page::after,.ch-scrim,.ch-scrim>*,.ch-toast>*{animation-duration:1ms!important;transition-duration:1ms!important}}
+/* the Toolbar's own bottom padding (18 under search, 32 without), carried over now that its bar is display:contents */
+.ch-top .nk-tb-sub{margin-bottom:18px}
+.ch-top .nk-tb-bar>.nk-tb-row:last-child{margin-bottom:32px}
+/* a StatusSheet brings its own soft scrim: let it fill the screen instead of stacking a second one (no band above the sheet) */
+.ch-scrim:has(>.nk-sheet-wrap){background:none;animation:none}
+.ch-scrim>.nk-sheet-wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;animation:ch-scrim-in .3s ease both}
+.ch-scrim>.nk-sheet-wrap>*{animation:ch-rise .5s var(--ch-ios) both}
+.ch-scrim.out>.nk-sheet-wrap{animation:ch-scrim-out .3s ease both}
+.ch-scrim.out>.nk-sheet-wrap>*{animation:ch-sink .3s cubic-bezier(.4,0,1,1) both}
+/* lighter tint under the blur: the blur carries the separation, never a solid band */
+.ch-tbfx .pc-pblur b{background:linear-gradient(180deg,color-mix(in srgb,var(--surface-screen-bk) 35%,transparent) 0,transparent 80%)}
+
+/* --- v0.5 · Tab Bar (Empty) floats: 38 high, home indicator 134 × 5 at 25 from its top (Figma 87392:27297); progressive blur rises 40px above it --- */
+.ch-tabbar{position:absolute;left:0;right:0;bottom:0;height:78px;z-index:15;pointer-events:none}
+.ch-tabbar .pc-pblur i:nth-child(1){-webkit-mask-image:linear-gradient(0deg,#000 0,#000 70%,transparent 100%);mask-image:linear-gradient(0deg,#000 0,#000 70%,transparent 100%)}
+.ch-tabbar .pc-pblur i:nth-child(2){-webkit-mask-image:linear-gradient(0deg,#000 0,#000 45%,transparent 78%);mask-image:linear-gradient(0deg,#000 0,#000 45%,transparent 78%)}
+.ch-tabbar .pc-pblur i:nth-child(3){-webkit-mask-image:linear-gradient(0deg,#000 0,#000 25%,transparent 55%);mask-image:linear-gradient(0deg,#000 0,#000 25%,transparent 55%)}
+.ch-tabbar .pc-pblur b{background:linear-gradient(0deg,color-mix(in srgb,var(--surface-screen-bk) 35%,transparent) 0,transparent 80%)}
+.ch-tabbar .nk-hind{position:absolute;left:0;right:0;bottom:0;height:32px;padding-top:19px;box-sizing:border-box;background:none}
+/* the content ends where the Tab Bar starts, as in Figma, then scrolls under it */
+.ch-scr::after{content:'';flex:none;height:38px}
+@media (max-width:480px){.ch-tabbar{height:72px}}
+.ch-hindw{height:38px;z-index:35}

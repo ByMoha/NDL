@@ -4,6 +4,35 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 18 November 2026, 09:50 (review fixes from the design system page: FromTo, DateRange, Visa User Block, Price Options; Nusuk Charity worked example) · DESIGN.md 3.7.1 · tokens 3.12 unchanged
+
+**Figma:** [🏖️ Travel](https://www.figma.com/design/ozi4A2gUbVXbzbUJ3MF4uU) (From To / Destination, From To / Duration, Visa User Block, featured airport, Feature Box) and [🃏 Cards › Price Options](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=2402-18252). The fixes answer the DL Advisor's comments of 17 November on the design system page; they were published there after 3.7.0 and are now in every download.
+
+### Changed: components
+
+- **FromTo and DateRange:** every line in a field lines up on the field's own edge (departure and «من» at the start, arrival and «إلى» at the end), so «LCY», «23 Jun» and «2025» sit under their Arabic labels.
+- **VisaUserBlock:** RTL: the name starts on the start side and wraps to two lines; the check sits at the top end corner. Default name in Arabic.
+- **PriceOptions:** Vertical: the Add to Cart CTA hugs and sits at the start under the price. Discount row: the struck-through earlier price first, then the «خصم 25%» pill. The preview keeps Figma's four variants only.
+- **FeaturedAirport, FeatureBox:** Arabic defaults («مكة المكرمة», «تكييف»).
+
+### Added: skills
+
+- **`nusuk-feature-handoff` › examples › nusuk-charity:** a second worked example, the Nusuk Charity giving flow taken from [🌱 Nusuk Charity](https://www.figma.com/design/cBtXOQA9rgnQVmCMgx3UA8/?node-id=76438-60811) to a handoff with Figma kept as is: frames and node ids, measurements within 2px, design questions Q-01 to Q-10, and `source/` that rebuilds the prototype, questionnaire and handoff. Merged from the 18 November handoff patch; the patch's older skill text, README and version were not taken, so the 3.7.0 intake and native-prototype rules stay.
+- **Motion values and builder traps** from that example joined the prototype rules (DL skill §9, M13): the screen beneath moves 30% and dims 10%, edge swipe at 35%, sheets in 500 ms, `cubic-bezier(.32,.72,0,1)`; only the Toolbar's first row sticks; blur layers stay at full opacity; prefix local classes; use the DL `StatusBar`.
+- **Proposed contracts** `giving-landing` and `giving-details` noted in M9T (not in the index).
+
+### iOS
+
+- From To and Duration fields: `VStack(alignment: .leading)` for the departure and «من» field, `.trailing` for the arrival and «إلى» field; wrap Latin runs in their own `Text` so they keep left-to-right order inside the RTL stack.
+- Visa User Block: the name `Text` with `.lineLimit(2)` at the leading edge; the check overlay at `.topTrailing`.
+- Price Options, Vertical: the cart button keeps its intrinsic width at the leading edge; discount row `HStack`: struck price, then the pill.
+
+### Android
+
+- From To and Duration fields: `Column(horizontalAlignment = Alignment.Start)` for departure, `Alignment.End` for arrival; Latin runs as their own `Text` with `TextDirection.Ltr`.
+- Visa User Block: name `maxLines = 2` at the start; the check `Alignment.TopEnd`.
+- Price Options, Vertical: the cart button `wrapContentWidth(Alignment.Start)`; discount row: struck price, then the pill.
+
 ## 18 November 2026, 00:30 (Golf Carts review learnings; task intake; native prototypes; Option Card and Header Tabs fixes) · DESIGN.md 3.7.0 · tokens 3.12 unchanged
 
 **Figma:** [🚙 Golf Carts](https://www.figma.com/design/s0G2Gga52Tz5GcZayR3jd9) (Booking 80451:41304, Confirm 80451:41310, Pay 86074:14210; the DL Advisor's review of the v2 prototype, 17 Nov) and [🃏 Cards › Option Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl). No library file changed; the rules come from the Advisor's comments and rulings.
