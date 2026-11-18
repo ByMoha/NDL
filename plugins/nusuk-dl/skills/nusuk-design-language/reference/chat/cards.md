@@ -786,11 +786,11 @@ Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk B
 |---|---|
 | `from` | "nusuk"\|"user" |
 | `bg` | boolean |
-| `question` | optional string |
+| `question` | optional string (user: the answered question as the header row with the 12×14 mark; Nusuk: the question as the bubble's first line) |
 | `actions` | optional boolean |
 | `time` | optional string |
 | `footer` | optional false |
-| `bot` | optional false (hide the bot when the next message is also Nusuk; 24 column kept) |
+| `bot` | optional false (hide the bot when the next message is also Nusuk; 24 column kept). Nusuk: bot at the top, tail top-start, time at the start and actions at the end; user: avatar at the bottom, tail bottom-end, time at the end |
 
 ## Use
 
@@ -809,9 +809,6 @@ Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk B
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
-
----
 
 # MobileField  ·  *Proposed*
 

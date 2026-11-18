@@ -29,7 +29,7 @@
      "Status=Chat, Type=User/Transprent": "80578:5289"
     }
    },
-   "props": "from: \"nusuk\"|\"user\" · bg: boolean · question?: string · actions?: boolean · time?: string · footer?: false · bot?: false (hide the bot when the next message is also Nusuk; 24 column kept)",
+   "props": "from: \"nusuk\"|\"user\" · bg: boolean · question?: string (user: the answered question as the header row with the 12×14 mark; Nusuk: the question as the bubble's first line) · actions?: boolean · time?: string · footer?: false · bot?: false (hide the bot when the next message is also Nusuk; 24 column kept). Nusuk: bot at the top, tail top-start, time at the start and actions at the end; user: avatar at the bottom, tail bottom-end, time at the end",
    "builtWith": "tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/lr/sm · DL Avatar (XS, Ink)"
   },
   {

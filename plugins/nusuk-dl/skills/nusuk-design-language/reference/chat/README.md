@@ -1,6 +1,6 @@
 # Nusuk AI chat · a skill aspect of the Nusuk DL
 
-**Version:** NusukChat 2.8.5 on DL 3.10 (17 November 2026, Figma checked at 15:30 and 20:05) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 54 variants, 3 masters)
+**Version:** NusukChat 2.8.6 on DL 3.10 (18 November 2026, _Chat Container Master checked) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 54 variants, 3 masters)
 
 ## When to open this folder
 Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot, OTP, password, mobile, gender, passport, border number, IBAN, face scan), the AI tab bar (default, text, typing, recording, recorded, responding, limit reached), the Nusuk Bot and its notes, booking tickets, hotel and flight cards, location guides and option lists.
@@ -36,6 +36,10 @@ Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot,
 <script src="components/bundle.js"></script>
 <script src="chat/nk-chat.js"></script>
 ```
+
+## What changed on 18 November (2.8.6)
+- **The six container states** (💬 Chat UI › `_Chat Container Master`, [Figma](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18763)): **Nusuk/BG, Nusuk/Transparent** when Nusuk owns a message or question and the user has not answered; **User/BG, User/Transparent** once the user answers (the question moves up into the header row, the body is the answer); **Loading Nusuk, Loading User** while one side waits or something runs in the background.
+- **Code now matches Figma:** the Nusuk bot sits at the top of the bubble, tail corner top-start (was the bottom); the time follows the reading direction (start for Nusuk, end for the user; it was pinned left-to-right); time and question header are Notes 14 Regular; a Nusuk message no longer takes the answered-question header (its `question` is the bubble's first line); Loading centres the bot or avatar with the dots. Migration `migrations/2026-11-18-nusuk-chat-container-states.json`.
 
 ## What changed on 17 November, 19:30 (2.8.5)
 - **One bot per run of Nusuk messages:** when the next message is also from Nusuk, the bot goes and only the last one keeps it. Bubbles keep the empty 24 start column; an insight note drops its 38 bot. A user message, a sheet or the end of the thread ends the run. `bot: false` on `Message`, every Nusuk type and `BotNote`; `.nkc-thread` on the thread container applies it on the web.

@@ -36,14 +36,16 @@
 /* ---- _Chat Container Master ---- */
 .nkc-msg { display: flex; flex-direction: column; gap: var(--space-nr); width: 100%; }
 .nkc-q { display: flex; align-items: center; gap: var(--space-sm); } /* Figma 17 Nov: row gap 12, Nusuk mark 12×14 without eyes */
-.nkc-q-text { flex: 1; font: var(--nkc-type-notes-1-light); color: var(--text-heading); }
+.nkc-q-text { flex: 1; font: var(--nkc-type-notes-1-regular); color: var(--text-heading); }
 .nkc-row { display: flex; align-items: flex-end; gap: var(--space-sm); width: 100%; }
+.nkc-row.nusuk { align-items: flex-start; }               /* Figma Nusuk/BG + Transparent: the bot sits at the top, beside the bubble's first line */
+.nkc-row.nkc-loading { align-items: center; }           /* Status=Loading: bot or avatar and the dots centred, 12 apart */
 .nkc-row.user { flex-direction: row-reverse; }            /* RTL: bot on the start (right), user avatar on the end (left) */
 .nkc-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
 
 /* ---- _Chat Container › Body ---- */
 .nkc-body { position: relative; background: var(--surface-01-white); border-radius: var(--radius-md); padding: var(--space-md) var(--space-nr) var(--space-lr); /* Figma 17 Nov 15:07: Body 20 / 18 / 26 / 18 */ display: flex; flex-direction: column; gap: var(--space-md); box-shadow: var(--glass-full); }
-.nkc-row.nusuk .nkc-body { border-end-start-radius: var(--radius-xs); }
+.nkc-row.nusuk .nkc-body { border-start-start-radius: var(--radius-xs); } /* tail at the top, next to the bot (Figma: top-start Radius/XS) */
 .nkc-row.user .nkc-body  { border-end-end-radius: var(--radius-xs); }
 .nkc-body.padb-md { padding-bottom: var(--space-md); } /* Voice, Days and Slots answers, Passport Attach, Location Guide keep 20 at the bottom in Figma (2.8.3) */
 .nkc-body.nobg { background: none; box-shadow: none; padding: 0 var(--space-nr); gap: var(--space-nr); }
@@ -63,7 +65,7 @@
 
 /* Footer: timestamp + actions */
 .nkc-foot { display: flex; align-items: center; gap: var(--space-md); padding: 0 var(--space-nr); }
-.nkc-time { flex: 1; font: var(--nkc-type-notes-1-light); color: var(--text-heading); unicode-bidi: isolate; }
+.nkc-time { flex: 1; font: var(--nkc-type-notes-1-regular); color: var(--text-heading); unicode-bidi: isolate; text-align: start; } /* Figma: Nusuk time at the start (actions at the end); user time at the end, beside the avatar */
 .nkc-acts { display: flex; gap: var(--space-sm); }
 .nkc-ib { width: var(--dimension-nr); height: var(--dimension-nr); padding: 0; border: 0; background: none; color: var(--icons-black); cursor: pointer; display: grid; place-items: center; position: relative; }
 .nkc-ib::after { content: ''; position: absolute; inset: calc(-1 * var(--space-sm)); }      /* 44px hit area, 20px glyph */
@@ -358,3 +360,6 @@
 .nkc-thread .nkc-msg[data-from="nusuk"]:has(+ .nkc-msg[data-from="nusuk"]) > .nkc-row > .nkc-bot { visibility: hidden; }
 .nkc-thread .nkc-note.insight:has(+ .nkc-msg[data-from="nusuk"]) > .nkc-bot,
 .nkc-thread .nkc-note.insight:has(+ .nkc-note) > .nkc-bot { display: none; }
+
+/* 2.8.6 · a Nusuk message never carries the answered-question header: its question is the first line of the bubble (Body 1) */
+.nkc-ask { margin: 0; }

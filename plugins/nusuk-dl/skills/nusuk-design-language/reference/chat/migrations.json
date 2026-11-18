@@ -1,4 +1,52 @@
 {
+ "2026-11-18-nusuk-chat-container-states.json": {
+  "date": "2026-11-18",
+  "name": "NusukChat 2.8.6: the six _Chat Container Master states, as Figma draws them",
+  "status": "proposed",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18763",
+  "source": "The DL Advisor's walkthrough of _Chat Container Master (80451:18766) on 18 November 2026.",
+  "states": {
+   "Status=Chat, Type=Nusuk/BG (80451:18764) and Nusuk/Transprent (80578:5431)": "Nusuk owns the message or question and the user has not answered yet. 24×27 bot at the start, aligned to the top of the bubble, 12 apart; Body radius Radius/MD with Radius/XS at the top-start corner (next to the bot); footer: time at the start, Actions (copy, helpful, not helpful) at the end when shown.",
+   "Status=Chat, Type=User/BG (80451:18765) and User/Transprent (80578:5289)": "The user has answered. The question moves to the top as a header row (the 12×14 Nusuk mark without eyes, then the question in Notes 14 Regular, text-heading, 12 apart, at the start); 18 below it the answer bubble with the 24 user avatar at the end, aligned to the bottom; Radius/XS at the bottom-end corner; time at the end, beside the avatar.",
+   "Status=Loading, Type=Nusuk (80451:18763) and Type=User (80501:2248)": "One side has sent and the other is working, or something runs in the background. Nusuk: the bot at the start with the three dots beside it; User: the avatar at the end with the dots beside it; centred, Space/SM apart, no bubble."
+  },
+  "chat": {
+   "version": {
+    "from": "2.8.5",
+    "to": "2.8.6"
+   },
+   "changed": [
+    {
+     "component": "Message (from: nusuk)",
+     "change": "bot aligned to the top (was the bottom); tail corner top-start (was bottom-start)."
+    },
+    {
+     "component": "Message (question)",
+     "change": "the header row with the 12×14 mark is for answered (user) messages only. On a Nusuk message, question is the bubble's first line (Body 1), and the bot stays."
+    },
+    {
+     "component": "Message footer",
+     "change": "time follows the reading direction: start for Nusuk, end for the user (it was pinned left-to-right, which put both on the wrong side in Arabic). Time and question header: Notes 14 Regular (was Light)."
+    },
+    {
+     "component": "Loading",
+     "change": "bot or avatar and dots centred on each other (row class nkc-loading)."
+    }
+   ]
+  },
+  "native": {
+   "ios": "Nusuk row: HStack(alignment: .top, spacing: 12) { bot; bubble }; bubble UnevenRoundedRectangle(topLeading: 8, others 18). User row: VStack(spacing: 18) { question header; HStack(alignment: .bottom, spacing: 12) { bubble; avatar } } with bottomTrailing 8. Footer time .leading for Nusuk, .trailing for the user.",
+   "android": "Nusuk row: Row(verticalAlignment = Alignment.Top, horizontalArrangement = spacedBy(12.dp)); RoundedCornerShape(topStart = 8.dp, others 18.dp). User: Column(spacedBy(18.dp)) { header; Row(verticalAlignment = Alignment.Bottom) }, bottomEnd = 8.dp. Time TextAlign.Start (Nusuk) / TextAlign.End (user)."
+  },
+  "tokens": {
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "breaking": [
+   "Message with from: 'nusuk' and question no longer renders the header row; the question is inside the bubble."
+  ]
+ },
  "2026-11-11-nusuk-chat-proposal.json": {
   "date": "2026-11-11",
   "name": "NusukChat proposal (Nusuk AI chat, registration, travel cards)",
