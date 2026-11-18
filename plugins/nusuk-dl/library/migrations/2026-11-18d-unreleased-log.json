@@ -1,0 +1,23 @@
+{
+ "id": "2026-11-18d-unreleased-log",
+ "date": "2026-11-18",
+ "designMd": "3.7.3",
+ "tokens": "3.12",
+ "figma": [],
+ "breaking": false,
+ "added": {
+  "project/UNRELEASED.md": "log of publishes made outside a release; the next release folds it in and empties it"
+ },
+ "modules": {
+  "M13": "edits between releases go in UNRELEASED.md",
+  "governance": "Changing the design system page between releases",
+  "using-with-claude": "the same rule"
+ },
+ "skills": {
+  "nusuk-design-language": "§6b Editing the design system page"
+ },
+ "process": {
+  "gate": "plugin_health.py --stage build ends every build; --stage final after the push",
+  "handoff": "zip built with fixed timestamps"
+ }
+}

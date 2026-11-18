@@ -2,7 +2,9 @@ Nusuk is the faith companion for every Muslim: the app for Hajj, Umrah, Rawdah v
 
 **The Figma library is the source of truth.** If anything here differs from the DL Foundation file, Figma wins. Updates are announced on the DL channel on Microsoft Teams.
 
-**Latest (18 November 2026, 11:30: plugin health; DESIGN.md 3.7.2, tokens 3.12).** BottomNav, TabBar and Toolbar have no solid fill: content blurs progressively under them. Glass has its card, five cards match the code's props, and the plugin carries fifteen skills with a *Who wins* table for skills that set their own look.
+**Latest (18 November 2026, 13:00: edits between releases; DESIGN.md 3.7.3, tokens 3.12).** A publish to this page outside a release adds an entry to `UNRELEASED.md`; the next release ships it to every output and empties the file.
+
+**Earlier — Latest (18 November 2026, 11:30: plugin health; DESIGN.md 3.7.2, tokens 3.12).** BottomNav, TabBar and Toolbar have no solid fill: content blurs progressively under them. Glass has its card, five cards match the code's props, and the plugin carries fifteen skills with a *Who wins* table for skills that set their own look.
 
 **Earlier — Latest (18 November 2026, 09:50: review fixes; DESIGN.md 3.7.1, tokens 3.12).** FromTo and DateRange line every row up on its field's edge; Visa User Block is RTL; Price Options Vertical hugs its cart CTA at the start and puts the earlier price before the discount pill; Travel defaults are Arabic. See `13-change-log.md`.
 

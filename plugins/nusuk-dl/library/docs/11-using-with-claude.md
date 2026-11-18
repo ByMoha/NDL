@@ -42,6 +42,8 @@ Load `tokens.css`, `components/bundle.css`, React 18 and `components/bundle.js`,
 
 Change DL itself, invent components and present them as official, restyle components to fit copy, or reproduce the logo by hand. Anything new is labelled *Proposed* and goes through the contribution flow.
 
+**Edits between releases go in `UNRELEASED.md` (18 November 2026).** Any session that publishes to the design system page outside the release chat (a comment-thread fix, a chat-lane round, a quick code change) adds an entry to `project/UNRELEASED.md` in the same publish: date and time, what changed and why, every file it touched, the Figma file, and the iOS and Android impact. It does not edit the change log, release notes, the DESIGN.md version or the migrations: the next release reads `UNRELEASED.md`, ships those changes to every output and empties it. A release does not start while an edit is missing from it.
+
 ## The other skills in the plugin (17 November 2026)
 
 The plugin installs these with the DL skill. They cover what the DL does not; the DL still decides tokens, components, placement and the never-ship list, and where a general skill and a Nusuk rule disagree, the Nusuk rule wins.

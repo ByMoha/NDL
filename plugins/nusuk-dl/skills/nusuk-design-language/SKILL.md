@@ -5,7 +5,7 @@ description: "Nusuk Design Language: use for any Nusuk concept, deck, design, pr
 
 # Nusuk Design Language (DL) · skill
 
-Version 3.7.2 · 18 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.7.3 · 18 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 
@@ -86,6 +86,10 @@ Streaks or streak shame · ranks, points or scores for worship · countdowns, FO
 ## 6 · Done means the eight gates (M13)
 
 Principles (Intuitive, Engaging, Intelligent) · intent/desire and realm · behavioural model in five parts · KPI pillar with threshold and guardrail, linked to WMA/WAU · WCAG 2.2 AA · DL and brand compliance · research grounding · handoff (specs, tokens, states, edge cases, responsive).
+
+## 6b · Editing the design system page
+
+Any session that publishes to the design system page outside the release chat (a comment-thread fix, a chat-lane round, a quick code change) adds an entry to `project/UNRELEASED.md` in the same publish: date and time, what changed and why, every file it touched, the Figma file, and the iOS and Android impact. It does not edit the change log, release notes, the DESIGN.md version or the migrations: the next release reads `UNRELEASED.md`, ships those changes to every output and empties it. A release does not start while an edit is missing from it. The entry is part of the same publish (`files`: `project/UNRELEASED.md` with the changed files).
 
 ## 7 · How to answer
 

@@ -4,6 +4,23 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 18 November 2026, 13:00 (edits between releases go in UNRELEASED.md; the release process) · DESIGN.md 3.7.3 · tokens 3.12 unchanged
+
+**Figma:** no library file changed. The rule comes from the plugin health review of 18 November: the navigation bars' progressive blur reached the design system page from another session with no docs, and only the release's file comparison found it.
+
+### Changed: process
+
+- **`project/UNRELEASED.md` (new):** any session that publishes to this page outside the release chat adds an entry in the same publish (date and time, what and why, every file, the Figma file, the iOS and Android impact) and leaves the change log, release notes, version and migrations alone. The next release folds the entries in and empties the file; it does not start while an entry is missing. Rule in M13, Governance › Changing the design system page between releases, Using DL with Claude, and the DL skill §6b.
+- **Releases:** every release now ends with the plugin health gate (a failing check stops it before anything is published) and a final check after the push (GitHub, the account marketplace and the installed plugin). The developer handoff zip is built with fixed timestamps, so its Drive copy changes only when a file in it changes.
+
+### iOS
+
+- No change.
+
+### Android
+
+- No change.
+
 ## 18 November 2026, 11:30 (plugin health check; navigation bars' progressive blur; Glass card; five component cards aligned with the code; four motion and stress-test skills) · DESIGN.md 3.7.2 · tokens 3.12 unchanged
 
 **Figma:** [🧭 Navigation › Tab Bar](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw) and the Toolbar (the progressive blur, decided by Moha on 18 November and coded on the design system page that morning), [⚙️ Foundation › Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296) (the Glass card). The rest comes from the plugin health check on the DL Health page.
