@@ -1,0 +1,10 @@
+Nusuk DL plugin (nusuk-dl): licence notice
+
+1. Nusuk content. The Nusuk Design Language in this plugin (DESIGN.md, the tokens, the component bundle, its types and cards, the patterns, templates and contracts, the documentation, the native files, the illustrations and reference paintings, the logos) and the nusuk-* skills are proprietary. All rights reserved. They are shared for Nusuk work only. Do not copy, redistribute or use them outside Nusuk without written permission from the Nusuk DL owners. The Nusuk name and marks may not be used to suggest endorsement.
+
+2. Third-party skills keep their own licences. Each folder holds its LICENSE file:
+   - accessibility-audit, design-critique, ux-writing: MIT, Copyright (c) 2026 Carlos C. (design-skills)
+   - humanizer: MIT, Copyright (c) 2025 Siqi Chen
+   - apple-design, mobile-native, break-ui, review-animations: MIT, Copyright (c) 2026 Emil Kowalski (emilkowalski/skills)
+
+3. Third-party code: React and ReactDOM in library/vendor are MIT, Copyright (c) Meta Platforms, Inc. and affiliates; their headers carry the notice.

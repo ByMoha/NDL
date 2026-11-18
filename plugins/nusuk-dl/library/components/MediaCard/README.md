@@ -54,7 +54,7 @@ A 250 × 330 content or commerce card: a full-bleed photo with a type pill on to
 | Prop | Type | Notes |
 |---|---|---|
 | `type` | `'card' \| 'more' \| 'ad' \| 'charity'` | `more` renders the "browse more" tile; `ad` the ADS card with its ad label (`adLabel`, `sponsor`, `href`); `charity` the Charity Card (386 wide) |
-| `tag, description, progress, progressText, remaining, collected, onOpen` | Charity Card | `tag: { label, icon }`; `remaining` and `collected`: `{ label, amount }`; `progress` 0–1 |
+| `tag, description, progress, progressText, progressLabel, remaining, collected, onOpen` | Charity Card | `tag: { label, icon }`; `remaining` and `collected`: `{ label, amount }`; `progress` 0–1; `progressText` replaces the percentage in the ring; `progressLabel` is its spoken name |
 | `adLabel, sponsor, href` | `string` | `type: 'ad'` |
 | `notifyLabel, onNotify` | `string, fn` | Out of stock |
 | `outOfStock` | `boolean` | Marketplace out of stock: «نفد من المخزون» pill and Notify me (`notifyLabel`, `onNotify`) |

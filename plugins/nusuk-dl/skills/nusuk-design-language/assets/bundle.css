@@ -847,8 +847,19 @@ button.nk-tb-hello{cursor:pointer}
 .nk-bnav{position:relative;display:flex;flex-direction:column;isolation:isolate}
 .nk-bnav .nudge{display:flex;justify-content:center;align-items:center;height:58px;padding-inline:18px}
 .nk-bnav .row{position:relative;display:flex;align-items:center;gap:20px;height:95px;padding:18px 18px 26px;box-sizing:border-box}
-.nk-bnav .haze{position:absolute;inset:0;overflow:hidden;z-index:-1;-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);pointer-events:none}
-.nk-bnav .haze::before{content:'';position:absolute;inset:0 -32px;background:linear-gradient(0deg,var(--surface-01-white),transparent);filter:blur(50px)}
+/* Navigation bars carry no solid fill (18 Nov 2026, Moha): what scrolls under them is blurred progressively, strongest at the screen edge and
+   fading to nothing toward the content. Two stacked backdrop layers, each masked by its own gradient: a light 4 px blur over most of the
+   band and a 16 px blur on the outer half. Used by BottomNav (bottom edge), TabBar (bottom edge) and Toolbar (top edge). */
+.nk-bnav .haze{position:absolute;inset:-24px 0 0;z-index:-1;pointer-events:none}
+.nk-bnav .haze::before,.nk-bnav .haze::after,.nk-tabbar::before,.nk-tabbar::after,.nk-tb::before,.nk-tb::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1}
+.nk-bnav .haze::before,.nk-tabbar::before{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);-webkit-mask:linear-gradient(to top,#000 45%,transparent);mask:linear-gradient(to top,#000 45%,transparent)}
+.nk-bnav .haze::after,.nk-tabbar::after{-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);-webkit-mask:linear-gradient(to top,#000 20%,transparent 65%);mask:linear-gradient(to top,#000 20%,transparent 65%)}
+.nk-tabbar{background:none!important;isolation:isolate}
+.nk-tabbar::before,.nk-tabbar::after{inset:-24px 0 0}
+.nk-tb{position:relative;isolation:isolate;background:none}
+.nk-tb::before,.nk-tb::after{inset:0 0 -24px}
+.nk-tb::before{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);-webkit-mask:linear-gradient(to bottom,#000 45%,transparent);mask:linear-gradient(to bottom,#000 45%,transparent)}
+.nk-tb::after{-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);-webkit-mask:linear-gradient(to bottom,#000 20%,transparent 65%);mask:linear-gradient(to bottom,#000 20%,transparent 65%)}
 .nk-bnav .row>.nk-hind{position:absolute;inset:auto 0 0;height:26px;padding-top:13px}
 .nk-bnav .bar{flex:1;min-width:0;display:flex;align-items:center;height:62px;padding:4px;box-sizing:border-box}
 .nk-bnav .bar>.nk-ntab{flex:1;min-width:0;margin-inline-start:-10px}

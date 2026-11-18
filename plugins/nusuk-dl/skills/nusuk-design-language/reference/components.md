@@ -2,7 +2,7 @@
 
 Every coded component card in one file; search `# <Name>` (for example `# StatusSheet`). Each card is its own folder, with a preview page, in the GitHub repo (components/<Name>/) and the packages.
 
-Contents: AddToCartCTA · Alert · AppNotification · Avatar · AvatarGroup · BentoGrid · BottomNav · BottomSheet · Button · CardsList · CardsSlider · Categories · CategoryChips · CategoryTile · ChatMessage · Checkbox · Chip · CircularProgress · CollapsedSection · CountBadge · CustomerFeedback · DateRange · DayPicker · DayTab · DetailsListItem · DirectionSheet · DropdownItem · EmptyState · FaceTile · FeatureBox · FeaturedAirport · FeaturedHeader · FeedbackEmojis · FileUploader · FlightTicket · FromTo · GlassBG · Guide · HeaderTabs · Hint · HintWidget · HotelCard · Icon · InfoTile · Leaderboard · ListSideBySide · MapPin · MediaCard · MemberCard · NoticeBar · NpsScale · Nudge · OptionCard · Page · Pagination · PaymentDetails · PlaylistCard · PlaylistRow · PrayCard · PrayerLiveActivity · PriceOptions · ProductTile · ProgressRing · QRCodeStatus · Radio · RatingBar · ReasonSelection · RequestCard · ReviewCard · ReviewSummary · Ribbon · SectionError · SectionHeader · SectionTitle · SelectCard · ServicesBox · SoundPlayer · StartJourney · StatusChip · StatusSheet · StepCard · Steps · Switch · TabBar · TextField · TimeSlot · Toolbar · UpcomingRequests · VerticalStepper · VisaUserBlock
+Contents: AddToCartCTA · Alert · AppNotification · Avatar · AvatarGroup · BentoGrid · BottomNav · BottomSheet · Button · CardsList · CardsSlider · Categories · CategoryChips · CategoryTile · ChatMessage · Checkbox · Chip · CircularProgress · CollapsedSection · CountBadge · CustomerFeedback · DateRange · DayPicker · DayTab · DetailsListItem · DirectionSheet · DropdownItem · EmptyState · FaceTile · FeatureBox · FeaturedAirport · FeaturedHeader · FeedbackEmojis · FileUploader · FlightTicket · FromTo · Glass · GlassBG · Guide · HeaderTabs · Hint · HintWidget · HotelCard · Icon · InfoTile · Leaderboard · ListSideBySide · MapPin · MediaCard · MemberCard · NoticeBar · NpsScale · Nudge · OptionCard · Page · Pagination · PaymentDetails · PlaylistCard · PlaylistRow · PrayCard · PrayerLiveActivity · PriceOptions · ProductTile · ProgressRing · QRCodeStatus · Radio · RatingBar · ReasonSelection · RequestCard · ReviewCard · ReviewSummary · Ribbon · SectionError · SectionHeader · SectionTitle · SelectCard · ServicesBox · SoundPlayer · StartJourney · StatusChip · StatusSheet · StepCard · Steps · Switch · TabBar · TextField · TimeSlot · Toolbar · UpcomingRequests · VerticalStepper · VisaUserBlock
 
 
 ---
@@ -268,7 +268,7 @@ The floating bottom navigation: a glass capsule of destinations with one optiona
 
 **14 November 2026:** the Figma set `Buttom Navigation` is gone. Its screens are now `Tab Bar › Active` = Landing, Travel, Content and Market/Cart +, all built on the private `_BottomTab master` (Mode Primary, Primary/Small, InnerPage, Marketplace, Interactions, Actions × Darkmode) and `_Tab` (Style Default, Current, Icon Only, Pill × Darkmode). What changed:
 
-- Bar 402 × 95 (was 106), padding 18 / 18 / 26 / 18, gap 20 (was 12). Behind it a 24 background blur and a white-to-clear haze (was Ink at 40%).
+- Bar 402 × 95 (was 106), padding 18 / 18 / 26 / 18, gap 20 (was 12). Behind it a progressive blur, no fill (18 November 2026; was a 24 background blur with a white-to-clear haze, and before that Ink at 40%).
 - Current tab: the solid icon in `icons-illumination`, the label in `text-link` at Light, two glows under the icon (white 25, `surface-longing` 13). Until now the label kept its colour.
 - Tabs. Landing: اليوم · السفر · الحرمين · السوق · الكل (حسابي left the bar). Travel (was Journey): السفر · الطيران · الفنادق · التجارب. Content: اكتشف · الصوتيات · الفيديو · الإرشاد. Travel and Content now open with their first tab current.
 - Primary/Small: icon-only tabs 61 × 40 in a 48 capsule, round button 48 (was 44).
@@ -277,6 +277,8 @@ The floating bottom navigation: a glass capsule of destinations with one optiona
 **Figma source:** 🧭 Navigation › Tab Bar (Active Landing, Travel, Content, Market/Cart +) on `_BottomTab master` and `_Tab`. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
 **15 November 2026, evening:** new screen `inner-pages` (Figma Tab Bar › Inner Pages on `_BottomTab master` Mode=InnerPage): a 40-high glass pill with four icon actions (44 × 38) at the end and the 40 Nusuk AI circle at the start; pass `actions` (`{icon, label, onClick}`). `_Tab` and `_BottomTab master` now have `Darkmode` (labels Text/Inverse in dark, text style Notes 2, IBM Plex): the dark recipe code used is now Figma's (N22 closed). The bar carries no shadow of its own; only Glass BG's (N7 closed). Figma: unpublished edits in 🧭 Navigation.
+
+**18 November 2026 (Moha): no solid fill behind the bar.** What scrolls under it is blurred progressively, strongest at the screen's bottom edge and fading to nothing toward the content: two stacked backdrop layers, a 4 px blur masked over most of the band and a 16 px blur on the outer half, reaching 24 past the bar. The bar's own glass is unchanged. Native: a progressive (variable) blur material behind the bar, not a tinted fill.
 
 ## Props
 
@@ -1415,7 +1417,9 @@ A flight option as a two-part ticket: route and times, a notched dashed tear lin
 |---|---|---|
 | `selected` | `boolean \| 'skeleton'` |  |
 | `mini` | `boolean` | Version Mini |
+| `version` | `'full' \| 'mini'` | Same as `mini`; Figma's Version property |
 | `from, to` | `{country, time, code}` | Strings still work as codes |
+| `fromTime, toTime` | `string` | The times when `from` and `to` are plain codes |
 | `duration, stops` | `string` |  |
 | `tags` | `string[]` | Default XS chips |
 | `ribbon` | `string` | Ribbon/On |
@@ -1472,6 +1476,55 @@ Departure and arrival pickers with the trip-type tabs and a swap button.
 ## You provide
 
 The content (labels, values, images from Visual Assets) and the container. Colour, type, radius and spacing come from the tokens and are not props.
+
+
+---
+
+# Glass
+
+The glass surface a component draws inside itself: one element with a Glass BG recipe already chosen. Use it when you build a floating control, a field on imagery or a tile that must look like the DL's own; use `GlassBG` when you need the full Figma variant (Mode × Dark × Glass) with its layer switches.
+
+**Figma source:** [⚙️ Foundation › 🎨 Colors › Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296), as component instances use it (each recipe is a set of layers the instance keeps). The recipes and their layers are documented on the GlassBG card.
+
+**18 November 2026:** card written (the plugin health check found Glass had a preview but no card).
+
+## Recipes
+
+| `kind` | What it is | Used by |
+|---|---|---|
+| `control` | Shadows + Glass Effect with the white sheen; no fill | Icon buttons on imagery, the toolbar logo, Wallet, date and booking pills |
+| `field` (default) | Shadows + Default Fill + Glass Effect | Search fields, Top Tabs, bottom-bar fields, the current tab pill |
+| `bar` | Shadows + Glass Effect | The BottomNav bar |
+| `flat` | Default Fill only, Glass Off | Secondary pages and tabs |
+| `card` | Solid white + `Glass/Full` | Tiles on white (CategoryTile); it has no dark state |
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `kind` | `'control' \| 'field' \| 'bar' \| 'flat' \| 'card'` | Default `field` |
+| `dark` | `boolean` | Dark=On: the Darkmode toolbar and dark themes |
+| `glass` | `boolean` | Default true (iOS). `false` is Glass=Off, Android's blur; `data-glass="off"` on an ancestor does the same |
+| `as` | `string` | Element to render, default `div` |
+| `attrs` | `object` | Extra attributes (role, aria-label, dir) |
+| `className, style` | `string, object` | Size, radius and layout of the box; never its colour or blur |
+| `children` | `node` | The content: an icon, a label, a field |
+
+## Use
+
+- Pick the recipe by what the element is, not by how much glass you want.
+- Pass `glass={false}` (or set `data-glass="off"` once on the screen) for Android.
+- Give a group or control its accessible name with `attrs`.
+
+## Don't
+
+- Do not add a background colour, border or extra blur: the recipe carries all of them.
+- Do not use glass for running text or long content; it is for controls and tiles over content.
+- Do not use `card` in dark themes expecting it to darken; it stays white by design.
+
+## You provide
+
+The size, radius and content. Fills, blur, rims and shadows come from the tokens (`glass-fill`, `glass-rim`, `shadow-os`, `glass-android`).
 
 
 ---
@@ -1974,7 +2027,7 @@ A 250 × 330 content or commerce card: a full-bleed photo with a type pill on to
 | Prop | Type | Notes |
 |---|---|---|
 | `type` | `'card' \| 'more' \| 'ad' \| 'charity'` | `more` renders the "browse more" tile; `ad` the ADS card with its ad label (`adLabel`, `sponsor`, `href`); `charity` the Charity Card (386 wide) |
-| `tag, description, progress, progressText, remaining, collected, onOpen` | Charity Card | `tag: { label, icon }`; `remaining` and `collected`: `{ label, amount }`; `progress` 0–1 |
+| `tag, description, progress, progressText, progressLabel, remaining, collected, onOpen` | Charity Card | `tag: { label, icon }`; `remaining` and `collected`: `{ label, amount }`; `progress` 0–1; `progressText` replaces the percentage in the ring; `progressLabel` is its spoken name |
 | `adLabel, sponsor, href` | `string` | `type: 'ad'` |
 | `notifyLabel, onNotify` | `string, fn` | Out of stock |
 | `outOfStock` | `boolean` | Marketplace out of stock: «نفد من المخزون» pill and Notify me (`notifyLabel`, `onNotify`) |
@@ -2326,7 +2379,7 @@ The order summary and the refund summary: a card that opens to a list of priced 
 | `title` | `string` | Default «ملخص الطلب» / «طلب الإلغاء» |
 | `total` | `string` | Price: the header total, and the Total row unless `totalAmount` |
 | `totalLabel, totalAmount` | `string` | The Total row; default «المجموع» |
-| `lines` | `{label, amount?, value?, copy?, chip?, discount?}[]` | Rows, striped odd / even |
+| `lines` | `{label, amount?, value?, copy?, chip?, chipState?, chipIcon?, discount?}[]` | Rows, striped odd / even; a chip row takes its state (default pending) and icon (default hourglass) |
 | `status` | `string \| false` | Refund: the status chip |
 | `iconName` | `string` | Refund: the header icon |
 | `open, onToggle, toggleLabel` | `boolean, fn, string` | Collapse On / Off; default open |
@@ -2985,6 +3038,7 @@ Old values still work: `xl` → `hero`, `simple` → `section`, `divider` → `l
 | `overline, pick, pickLabel, onPick, iconName, mark` | `…` | `complex` |
 | `people, more` | `string[], string` | `family` |
 | `as` | `string` | Heading tag; default h1 for hero, h2 otherwise |
+| `action, divider` | `string, boolean` | Older names: `action` is `tag`, `divider` is `level: 'legend'` |
 
 ## Use
 
@@ -3454,6 +3508,8 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 **16 November 2026 (🧭 Navigation, published):** [`_BottomTab master` › Actions](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw) gained a Text slot, the terms line and an optional side button beside the primary CTA.
 
+**18 November 2026 (Moha): no solid fill behind the bar.** What scrolls under it is blurred progressively, strongest at the screen's bottom edge and fading to nothing toward the content: two stacked backdrop layers, a 4 px blur masked over most of the band and a 16 px blur on the outer half, reaching 24 past the bar. The bar's own glass is unchanged. Native: a progressive (variable) blur material behind the bar, not a tinted fill.
+
 ## Props
 
 | Prop | Type | Notes |
@@ -3582,6 +3638,7 @@ A selectable time slot cut as a ticket, with markers and an optional crowd chip.
 | `markers` | `('soon' \| 'instant' \| 'prayer')[]` | Corner markers, each with a spoken label |
 | `crowd` | `string` | Crowd chip; `note` is still read as the same chip |
 | `crowdState` | `string` | Chip state, default pending |
+| `note` | `string` | Older name for `crowd`; read as the same chip |
 | `iconName` | `string` | The master's Show Icon: 24, at the start (Figma uses `ramadhan-01`) |
 
 ## Use
@@ -3622,6 +3679,8 @@ The top app bar. It is transparent and floats over the screen; controls sit on g
 **17 November 2026:** the Process progress counts steps, as Figma's `_Progress Bar` now does (Step 01, 02, 03 × Darkmode): one 30 × 12 wave block per step done (`.Building Blocks`, 3 px `surface-longing`, round), from the reading start, then 8 apart a straight 3 px track to the end (`surface-03-pearl`; white on `light`). Pass `step` (and `steps`, default 3); `progress` still works and rounds up to a step.
 
 **16 November 2026:** the Process progress follows the new [🧭 Navigation › `_Progress Bar`](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw): 90 × 20, a straight 3 px track (`surface-03-pearl`, white on `light`) and a wavy 3 px active part in `surface-longing` from the reading start (was 70 × 8, 1.6 px, grey wave with a gold gradient). `progress` is 0–1.
+
+**18 November 2026 (Moha): no solid fill behind the bar.** What scrolls under it is blurred progressively, strongest at the screen's top edge and fading to nothing toward the content: two stacked backdrop layers, a 4 px blur masked over most of the band and a 16 px blur on the outer half, reaching 24 past the bar. The bar's own glass is unchanged. Native: a progressive (variable) blur material behind the bar, not a tinted fill.
 
 ## Props
 

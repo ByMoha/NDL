@@ -1,6 +1,6 @@
 # nusuk-dl · the Nusuk plugin
 
-Version 2026.11.180946, built 2026-11-18T09:46+03:00. Release 2026-11-18: DESIGN.md 3.7.1, tokens 3.12, NusukChat 2.8.5.
+Version 2026.11.181109, built 2026-11-18T11:09+03:00. Release 2026-11-18: DESIGN.md 3.7.2, tokens 3.12, NusukChat 2.8.5.
 
 The one way the Nusuk DL reaches Claude (DL-42). The developer handoff (`nusuk-dl-developer-handoff.zip`) is the only other download.
 
@@ -29,8 +29,12 @@ Every prototype simulates Apple's native transitions and draws the iOS status ba
 | `design-critique` | Heuristic and pattern critique (general method; DESIGN.md M13 sets the Nusuk protocol) |
 | `ux-writing` | General microcopy method (Nusuk wording comes from the Nusuk skills) |
 | `humanizer` | Rewriting AI-sounding prose (never for Quran, hadith or approved faith text) |
+| `apple-design` | Apple's fluid motion and materials for prototypes (DESIGN.md M13 values win) |
+| `mobile-native` | A prototype that feels installed: safe areas, dvh, 16 px inputs, right-to-left, the 02:22 status bar |
+| `break-ui` | Worst-case data behind a toggle, with Nusuk's cases (four-part Arabic names, Hijri dates, riyal amounts) |
+| `review-animations` | A strict motion-code review (the DL's native values are deliberate) |
 
-The last four are MIT-licensed; each folder keeps its `LICENSE` and credits its source. Where a general skill and a Nusuk rule disagree, the Nusuk rule wins.
+The last eight are MIT-licensed; each folder keeps its `LICENSE` and credits its source. Where a general skill and a Nusuk rule disagree, the Nusuk rule wins. Skills installed outside this plugin that set their own look (frontend-design, impeccable, the taste-skill family, brand-guidelines) never set Nusuk tokens, type, colour or motion: see `nusuk-design-language` §10 › Who wins. `LICENSE` covers the whole plugin.
 
 ## library/
 

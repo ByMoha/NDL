@@ -1,9 +1,10 @@
 # Nusuk Design Language · getting started
 
-The Nusuk DL reaches Claude as one plugin, `nusuk-dl` (DL-42, 17 November 2026). It carries eleven skills and the whole DL library:
+The Nusuk DL reaches Claude as one plugin, `nusuk-dl` (DL-42, 17 November 2026). It carries fifteen skills and the whole DL library:
 
 - **Nusuk skills:** `nusuk-design-language` (this skill: `SKILL.md`, the full `DESIGN.md`, tokens, every component card, the 20 template contracts, the patterns, the Nusuk AI chat, the native token files and the coded components), `nusuk-dx`, `nusuk-ux`, `nusuk-content-writer`, `nusuk-voice-rules`, `nusuk-visual-system` (with its 18 reference paintings) and `nusuk-feature-handoff`.
-- **General method skills (MIT, credited in each folder):** `accessibility-audit`, `design-critique`, `ux-writing` and `humanizer`. Where they and a Nusuk rule disagree, the Nusuk rule wins.
+- **General method skills (MIT, credited in each folder):** `accessibility-audit`, `design-critique`, `ux-writing` and `humanizer`; and from Emil Kowalski (18 November 2026) `apple-design`, `mobile-native`, `break-ui` and `review-animations`. Where they and a Nusuk rule disagree, the Nusuk rule wins.
+- **Skills outside the plugin that set their own look** (frontend-design, impeccable, the taste-skill family, brand-guidelines) never set Nusuk tokens, type, colour or motion: `nusuk-design-language` §10 › Who wins.
 - **`library/`:** the full DL tree: one folder per component with its preview page, the coded package, patterns and templates, the chat lane, every migration, the iOS and Android files and the developer handoff.
 
 The only other download is the **developer handoff** (`nusuk-dl-developer-handoff.zip`), for developers who don't use Claude. Both are in the DL guide › Downloads, on Google Drive (no sign-in needed) and on GitHub.

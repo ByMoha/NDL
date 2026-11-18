@@ -12,6 +12,8 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 **16 November 2026 (🧭 Navigation, published):** [`_BottomTab master` › Actions](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw) gained a Text slot, the terms line and an optional side button beside the primary CTA.
 
+**18 November 2026 (Moha): no solid fill behind the bar.** What scrolls under it is blurred progressively, strongest at the screen's bottom edge and fading to nothing toward the content: two stacked backdrop layers, a 4 px blur masked over most of the band and a 16 px blur on the outer half, reaching 24 past the bar. The bar's own glass is unchanged. Native: a progressive (variable) blur material behind the bar, not a tinted fill.
+
 ## Props
 
 | Prop | Type | Notes |

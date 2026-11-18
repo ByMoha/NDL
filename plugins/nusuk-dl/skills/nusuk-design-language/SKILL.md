@@ -5,7 +5,7 @@ description: "Nusuk Design Language: use for any Nusuk concept, deck, design, pr
 
 # Nusuk Design Language (DL) · skill
 
-Version 3.7.1 · 18 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.7.2 · 18 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
 You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
 
@@ -154,7 +154,7 @@ Every prototype simulates native iOS motion and shows the status bar at 02:22 (t
 
 ## 10 · Skills that work with this one
 
-This skill ships inside the `nusuk-dl` plugin with ten other skills, and the plugin is the only way it is distributed (DL-42, 17 November 2026). They cover what the DL does not; the DL still decides tokens, components, placement and the never-ship list, and where a general skill and a Nusuk rule disagree, the Nusuk rule wins. The plugin's `library/` folder (two levels up from this file: `../../library/`) holds the whole DL tree: every component folder with its preview, the coded package, every migration and the developer handoff.
+This skill ships inside the `nusuk-dl` plugin with fourteen other skills, and the plugin is the only way it is distributed (DL-42, 17 November 2026). They cover what the DL does not; the DL still decides tokens, components, placement and the never-ship list, and where a general skill and a Nusuk rule disagree, the Nusuk rule wins. The plugin's `library/` folder (two levels up from this file: `../../library/`) holds the whole DL tree: every component folder with its preview, the coded package, every migration and the developer handoff.
 
 | Task | Use with this skill | What it adds |
 |---|---|---|
@@ -167,6 +167,26 @@ This skill ships inside the `nusuk-dl` plugin with ten other skills, and the plu
 | A structured design critique | `design-critique` | Heuristics, UX laws, pattern and excise reviews; M13 › Critique and review protocol sets the Nusuk scales (S0–S4, E0–E4) and the closing lines |
 | General microcopy method | `ux-writing` | Patterns and checklists for buttons, errors, empty states and onboarding; Nusuk wording comes from `nusuk-ux`, `nusuk-voice-rules` and M6 |
 | Rephrasing so text reads as written by a person | `humanizer` | Detects and rewrites AI-sounding prose (English and Spanish rules); never for Quran, hadith or approved faith text, and Arabic follows the Nusuk writing guide |
+| Native iOS motion and materials in a prototype | `apple-design` | Apple's fluid motion, springs, gestures and materials, translated for the web; DESIGN.md M13's values (30% and 10%, 35%, 500 ms, `cubic-bezier(.32,.72,0,1)`) win |
+| A prototype that feels installed on a phone | `mobile-native` | Safe areas, `dvh`, 16 px inputs, no tap highlight, overscroll; with the DL `StatusBar` at 02:22 and right-to-left by default |
+| Stress-testing a screen or component | `break-ui` | Worst-case data behind a toggle, with Nusuk's cases: four-part Arabic names, Hijri dates, riyal amounts, long permit names, every status |
+| Reviewing motion code | `review-animations` | A strict motion review; the DL's native values are deliberate and are not findings |
+| Native iOS code (SwiftUI) for a handoff | `swift-ios-skills` (not in this plugin; install it separately) and `figma-swiftui` | `ios-localization` (right-to-left, String Catalogs), `ios-accessibility`, `swiftui-liquid-glass`, `swiftui-navigation`, `activitykit` (PrayerLiveActivity), `widgetkit`. The DL tokens (`NusukTokens.swift`) and M11 win |
+
+### Skills that set a look: who wins
+
+Several skills you may have installed choose fonts, palettes, spacing, shadows or motion of their own. On Nusuk work none of them sets a token, a type style, a colour, a radius or a motion value: DESIGN.md and the DL components do. Use them only for what is listed.
+
+| Skill | On Nusuk work it may | It may not |
+|---|---|---|
+| `frontend-design`, `canvas-design`, `design-elevation` (design-skills), `impeccable` | Critique and polish against the DL: spacing rhythm, hierarchy, states | Choose fonts, colours, shadows, Tailwind tokens or a new layout system |
+| The taste-skill family (`design-taste-frontend`, `gpt-taste`, `high-end-visual-design`, `minimalist-ui`, `industrial-brutalist-ui`, `redesign-existing-projects`, `brandkit`, `imagegen-frontend-*`, `image-to-code`) | Nothing in product UI | Set any visual direction; their bans (on fonts, layouts, emoji) do not apply to Nusuk |
+| `stitch-design-taste` | Nothing | Write a DESIGN.md: Nusuk has one |
+| `brand-guidelines` | Nothing | Apply Anthropic's brand to Nusuk |
+| `emil-design-eng`, `animate`, `improve-animations`, `find-animation-opportunities` | Suggest where motion helps | Override M8 and M13 motion values |
+| `web-design-guidelines`, `writing-guidelines` (Vercel) | Check generic web quality | Override the M10 floor or the Nusuk writing guide |
+
+If one of these starts to restyle a Nusuk screen, stop, say which skill did it, and return to the DL.
 
 ## 11 · The Nusuk AI chat (M9C)
 

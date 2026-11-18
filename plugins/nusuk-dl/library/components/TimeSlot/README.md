@@ -18,6 +18,7 @@ A selectable time slot cut as a ticket, with markers and an optional crowd chip.
 | `markers` | `('soon' \| 'instant' \| 'prayer')[]` | Corner markers, each with a spoken label |
 | `crowd` | `string` | Crowd chip; `note` is still read as the same chip |
 | `crowdState` | `string` | Chip state, default pending |
+| `note` | `string` | Older name for `crowd`; read as the same chip |
 | `iconName` | `string` | The master's Show Icon: 24, at the start (Figma uses `ramadhan-01`) |
 
 ## Use

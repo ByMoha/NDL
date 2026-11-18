@@ -14,7 +14,7 @@ The order summary and the refund summary: a card that opens to a list of priced 
 | `title` | `string` | Default «ملخص الطلب» / «طلب الإلغاء» |
 | `total` | `string` | Price: the header total, and the Total row unless `totalAmount` |
 | `totalLabel, totalAmount` | `string` | The Total row; default «المجموع» |
-| `lines` | `{label, amount?, value?, copy?, chip?, discount?}[]` | Rows, striped odd / even |
+| `lines` | `{label, amount?, value?, copy?, chip?, chipState?, chipIcon?, discount?}[]` | Rows, striped odd / even; a chip row takes its state (default pending) and icon (default hourglass) |
 | `status` | `string \| false` | Refund: the status chip |
 | `iconName` | `string` | Refund: the header icon |
 | `open, onToggle, toggleLabel` | `boolean, fn, string` | Collapse On / Off; default open |

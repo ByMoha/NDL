@@ -12,7 +12,9 @@ A flight option as a two-part ticket: route and times, a notched dashed tear lin
 |---|---|---|
 | `selected` | `boolean \| 'skeleton'` |  |
 | `mini` | `boolean` | Version Mini |
+| `version` | `'full' \| 'mini'` | Same as `mini`; Figma's Version property |
 | `from, to` | `{country, time, code}` | Strings still work as codes |
+| `fromTime, toTime` | `string` | The times when `from` and `to` are plain codes |
 | `duration, stops` | `string` |  |
 | `tags` | `string[]` | Default XS chips |
 | `ribbon` | `string` | Ribbon/On |

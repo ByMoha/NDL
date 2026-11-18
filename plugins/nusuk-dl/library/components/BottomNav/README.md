@@ -6,7 +6,7 @@ The floating bottom navigation: a glass capsule of destinations with one optiona
 
 **14 November 2026:** the Figma set `Buttom Navigation` is gone. Its screens are now `Tab Bar › Active` = Landing, Travel, Content and Market/Cart +, all built on the private `_BottomTab master` (Mode Primary, Primary/Small, InnerPage, Marketplace, Interactions, Actions × Darkmode) and `_Tab` (Style Default, Current, Icon Only, Pill × Darkmode). What changed:
 
-- Bar 402 × 95 (was 106), padding 18 / 18 / 26 / 18, gap 20 (was 12). Behind it a 24 background blur and a white-to-clear haze (was Ink at 40%).
+- Bar 402 × 95 (was 106), padding 18 / 18 / 26 / 18, gap 20 (was 12). Behind it a progressive blur, no fill (18 November 2026; was a 24 background blur with a white-to-clear haze, and before that Ink at 40%).
 - Current tab: the solid icon in `icons-illumination`, the label in `text-link` at Light, two glows under the icon (white 25, `surface-longing` 13). Until now the label kept its colour.
 - Tabs. Landing: اليوم · السفر · الحرمين · السوق · الكل (حسابي left the bar). Travel (was Journey): السفر · الطيران · الفنادق · التجارب. Content: اكتشف · الصوتيات · الفيديو · الإرشاد. Travel and Content now open with their first tab current.
 - Primary/Small: icon-only tabs 61 × 40 in a 48 capsule, round button 48 (was 44).
@@ -15,6 +15,8 @@ The floating bottom navigation: a glass capsule of destinations with one optiona
 **Figma source:** 🧭 Navigation › Tab Bar (Active Landing, Travel, Content, Market/Cart +) on `_BottomTab master` and `_Tab`. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
 **15 November 2026, evening:** new screen `inner-pages` (Figma Tab Bar › Inner Pages on `_BottomTab master` Mode=InnerPage): a 40-high glass pill with four icon actions (44 × 38) at the end and the 40 Nusuk AI circle at the start; pass `actions` (`{icon, label, onClick}`). `_Tab` and `_BottomTab master` now have `Darkmode` (labels Text/Inverse in dark, text style Notes 2, IBM Plex): the dark recipe code used is now Figma's (N22 closed). The bar carries no shadow of its own; only Glass BG's (N7 closed). Figma: unpublished edits in 🧭 Navigation.
+
+**18 November 2026 (Moha): no solid fill behind the bar.** What scrolls under it is blurred progressively, strongest at the screen's bottom edge and fading to nothing toward the content: two stacked backdrop layers, a 4 px blur masked over most of the band and a 16 px blur on the outer half, reaching 24 past the bar. The bar's own glass is unchanged. Native: a progressive (variable) blur material behind the bar, not a tinted fill.
 
 ## Props
 

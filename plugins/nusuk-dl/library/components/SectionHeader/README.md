@@ -31,6 +31,7 @@ Old values still work: `xl` → `hero`, `simple` → `section`, `divider` → `l
 | `overline, pick, pickLabel, onPick, iconName, mark` | `…` | `complex` |
 | `people, more` | `string[], string` | `family` |
 | `as` | `string` | Heading tag; default h1 for hero, h2 otherwise |
+| `action, divider` | `string, boolean` | Older names: `action` is `tag`, `divider` is `level: 'legend'` |
 
 ## Use
 

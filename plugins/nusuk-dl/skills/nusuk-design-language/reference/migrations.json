@@ -4008,5 +4008,47 @@
    "giving-landing",
    "giving-details"
   ]
+ },
+ "2026-11-18c-plugin-health-blur.json": {
+  "id": "2026-11-18c-plugin-health-blur",
+  "date": "2026-11-18",
+  "designMd": {
+   "M7": "visual-system path points to the nusuk-visual-system skill",
+   "M9": "navigation bars' progressive blur",
+   "M12": "DL-42 amended: fifteen skills"
+  },
+  "tokens": "3.12",
+  "figma": [
+   "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw",
+   "https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296"
+  ],
+  "components": {
+   "BottomNav": "no solid fill; progressive blur behind the bar (bundle.css)",
+   "TabBar": "no solid fill; progressive blur behind the bar (bundle.css)",
+   "Toolbar": "no solid fill; progressive blur behind the bar, top edge (bundle.css)",
+   "Glass": "card written",
+   "FlightTicket": "card lists version, fromTime, toTime",
+   "MediaCard": "card lists progressLabel",
+   "TimeSlot": "card lists note (older name for crowd)",
+   "PaymentDetails": "index.d.ts types type, status, iconName, open, onToggle, toggleLabel, totalAmount, note, policyLabel, policyHref and value, copy and chip rows",
+   "SectionHeader": "index.d.ts types the seven levels and their props; action and divider kept"
+  },
+  "breaking": false,
+  "skills": {
+   "added": [
+    "apple-design",
+    "mobile-native",
+    "break-ui",
+    "review-animations"
+   ],
+   "nusuk-design-language": "§10: four skills, swift-ios-skills and figma-swiftui, Who wins table",
+   "nusuk-feature-handoff": "companion skills in the prototype step; native notes name the iOS skills",
+   "humanizer": "catalogues moved to references/",
+   "design-critique": "lenses moved to references/evaluation-lenses.md"
+  },
+  "plugin": {
+   "license": "LICENSE added",
+   "icon": ".claude-plugin/icon.png"
+  }
  }
 }

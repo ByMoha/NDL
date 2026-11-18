@@ -4,6 +4,35 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 18 November 2026, 11:30 (plugin health check; navigation bars' progressive blur; Glass card; five component cards aligned with the code; four motion and stress-test skills) · DESIGN.md 3.7.2 · tokens 3.12 unchanged
+
+**Figma:** [🧭 Navigation › Tab Bar](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw) and the Toolbar (the progressive blur, decided by Moha on 18 November and coded on the design system page that morning), [⚙️ Foundation › Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296) (the Glass card). The rest comes from the plugin health check on the DL Health page.
+
+### Changed: components
+
+- **BottomNav, TabBar, Toolbar:** no solid fill behind the bar. What scrolls under it is blurred progressively, strongest at the screen edge and fading to nothing toward the content: a 4 px blur masked over most of the band and a 16 px blur on its outer half, reaching 24 past the bar (bottom edge for BottomNav and TabBar, top edge for Toolbar). The bar's own glass is unchanged. `bundle.css` only; no prop changed.
+- **Glass:** the component card is written (recipes `control`, `field`, `bar`, `flat`, `card`; `dark`; `glass={false}` for Android).
+- **Cards aligned with `index.d.ts`:** FlightTicket (`version`, `fromTime`, `toTime`), MediaCard (`progressLabel`), TimeSlot (`note`, the older name for `crowd`). `index.d.ts` now types PaymentDetails (`type`, `status`, `iconName`, `open`, `onToggle`, `toggleLabel`, `totalAmount`, `note`, `policyLabel`, `policyHref`, value, copy and chip rows) and SectionHeader (the seven levels and their props; `action` and `divider` kept as older names), as the code already accepted them.
+
+### Changed: DESIGN.md and skills
+
+- **M7:** the painting-language line points to the `nusuk-visual-system` skill in the plugin (the old `reference/visual-system.md` path no longer existed).
+- **M9:** the navigation bars' progressive blur.
+- **Plugin, fifteen skills:** `apple-design`, `mobile-native`, `break-ui` and `review-animations` from [emilkowalski/skills](https://github.com/emilkowalski/skills) (MIT), each with a Nusuk section: DESIGN.md's motion values win, `mobile-native` adds the 02:22 status bar and right-to-left, `break-ui` adds Nusuk's worst cases (four-part Arabic names, Hijri dates, riyal amounts, long permit names).
+- **DL skill §10:** the four skills, `swift-ios-skills` and `figma-swiftui` for native code, and *Who wins*: skills that set their own look (frontend-design, impeccable, the taste-skill family, brand-guidelines, design-elevation) never set Nusuk tokens, type, colour or motion.
+- **feature-handoff:** the companion skills in the prototype step; the native notes name the iOS skills used.
+- **Plugin:** a `LICENSE` (Nusuk content proprietary; the third-party skills keep their MIT licences) and an icon (the gold lockup on Kiswah black). `humanizer` and `design-critique` keep their method in `SKILL.md` and moved their long catalogues to `references/`.
+
+### iOS
+
+- Tab bar and toolbar: no tinted background. Put a variable (progressive) blur behind the bar, strongest at the screen edge and clear toward the content, about 24 pt past the bar; keep the bar's own glass material. On iOS 26 the system bars already do this: use them as they are.
+- PaymentDetails and SectionHeader: build to the props now in `index.d.ts`; nothing visual changed.
+
+### Android
+
+- Bottom bar and top bar: no solid scrim. On Android 12 and later use `RenderEffect.createBlurEffect` on a layer behind the bar with a vertical alpha gradient as the mask (4 dp blur over most of the band, 16 dp on the outer half); below 12, a translucent surface at the bar's own glass recipe (Glass=Off), never a solid fill.
+- PaymentDetails and SectionHeader: build to the props now in `index.d.ts`; nothing visual changed.
+
 ## 18 November 2026, 09:50 (review fixes from the design system page: FromTo, DateRange, Visa User Block, Price Options; Nusuk Charity worked example) · DESIGN.md 3.7.1 · tokens 3.12 unchanged
 
 **Figma:** [🏖️ Travel](https://www.figma.com/design/ozi4A2gUbVXbzbUJ3MF4uU) (From To / Destination, From To / Duration, Visa User Block, featured airport, Feature Box) and [🃏 Cards › Price Options](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=2402-18252). The fixes answer the DL Advisor's comments of 17 November on the design system page; they were published there after 3.7.0 and are now in every download.

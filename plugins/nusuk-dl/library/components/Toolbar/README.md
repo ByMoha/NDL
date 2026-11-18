@@ -20,6 +20,8 @@ The top app bar. It is transparent and floats over the screen; controls sit on g
 
 **16 November 2026:** the Process progress follows the new [🧭 Navigation › `_Progress Bar`](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw): 90 × 20, a straight 3 px track (`surface-03-pearl`, white on `light`) and a wavy 3 px active part in `surface-longing` from the reading start (was 70 × 8, 1.6 px, grey wave with a gold gradient). `progress` is 0–1.
 
+**18 November 2026 (Moha): no solid fill behind the bar.** What scrolls under it is blurred progressively, strongest at the screen's top edge and fading to nothing toward the content: two stacked backdrop layers, a 4 px blur masked over most of the band and a 16 px blur on the outer half, reaching 24 past the bar. The bar's own glass is unchanged. Native: a progressive (variable) blur material behind the bar, not a tinted fill.
+
 ## Props
 
 | Prop | Type | Notes |
