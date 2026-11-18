@@ -1,11 +1,7 @@
 {
  "id": "2026-11-18c-plugin-health-blur",
  "date": "2026-11-18",
- "designMd": {
-  "M7": "visual-system path points to the nusuk-visual-system skill",
-  "M9": "navigation bars' progressive blur",
-  "M12": "DL-42 amended: fifteen skills"
- },
+ "designMd": "3.7.2",
  "tokens": "3.12",
  "figma": [
   "https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw",
@@ -38,5 +34,10 @@
  "plugin": {
   "license": "LICENSE added",
   "icon": ".claude-plugin/icon.png"
+ },
+ "modules": {
+  "M7": "visual-system path points to the nusuk-visual-system skill",
+  "M9": "navigation bars' progressive blur",
+  "M12": "DL-42 amended: fifteen skills"
  }
 }
