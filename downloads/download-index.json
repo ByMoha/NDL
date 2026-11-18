@@ -1,9 +1,9 @@
 {
  "release": "2026-11-18",
- "built": "2026-11-18T11:09+03:00",
+ "built": "2026-11-18T11:17+03:00",
  "designMd": "DESIGN.md 3.7.2",
  "tokens": "3.12",
- "plugin": "2026.11.181109",
+ "plugin": "2026.11.181117",
  "checked": 336,
  "files": [
   {
@@ -29,13 +29,13 @@
   {
    "file": "nusuk-dl-developer-handoff.zip",
    "bytes": 1060304,
-   "sha256": "6036eda6f99a867e35191a22f75f88e445a426f6dc681b678017195819d9a38b",
+   "sha256": "442ded25f3313f2a5c4d1f26182e730730ba25fa2b3faeb68a8e0f93fbcd6ed5",
    "files": 332
   },
   {
    "file": "nusuk-dl.plugin",
-   "bytes": 24777688,
-   "sha256": "a7103d4c41f11034aee80c5e854017d8f4caf0bccd26c51cf3b6c272af408f95",
+   "bytes": 24777660,
+   "sha256": "9e42bf78d16e23091a031db68130458cc80632b0ba85995ffd9e3b75a176a245",
    "files": 538
   },
   {

@@ -1,8 +1,8 @@
 {
   "name": "nusuk-dl",
   "displayName": "Nusuk",
-  "version": "2026.11.181109",
-  "description": "Everything Nusuk for Claude: the Nusuk Design Language (DESIGN.md, tokens, components, patterns and template contracts, the Nusuk AI chat, native files), the DX and UX practice, the content writer, voice rules and UX writing, the visual system with its reference paintings, feature handoff, accessibility audit, design critique, humanizer, Apple-style motion, native phone feel, worst-case stress tests and motion review, plus the whole DL library. Release 2026-11-18: DESIGN.md 3.7.2, tokens 3.12, NusukChat 2.8.5.",
+  "version": "2026.11.181117",
+  "description": "Everything Nusuk for Claude: the Nusuk Design Language (DESIGN.md, tokens, components, patterns, template contracts, the Nusuk AI chat, native files), the DX and UX practice, Nusuk writing and visual skills, feature handoff, and eight general methods (accessibility, critique, UX writing, humanizer, Apple-style motion, native feel, stress tests, motion review), plus the whole DL library. Release 2026-11-18: DESIGN.md 3.7.2, tokens 3.12, NusukChat 2.8.5.",
   "author": {
     "name": "Nusuk DL",
     "url": "https://github.com/ByMoha/NusukDL"
