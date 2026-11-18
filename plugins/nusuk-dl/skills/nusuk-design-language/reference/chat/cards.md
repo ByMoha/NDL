@@ -2,7 +2,7 @@
 
 Every chat card in one file; search `# <Name>`. One file per card in the GitHub repo (chat/cards/) and the developer package.
 
-Contents: AddedNationalities · BookingTicket · BorderNumber · Bot · BotNote · Chips · Days · DaysAnswer · ErrorMsg · Fld · FlightTicketFull · FlightsSelection · GenderField · HotelCard · HotelChoose · IbanField · Liveness · Loading · LocationGuide · LogosGroup · Message · MobileField · NafathAnswer · NationalitySearch · Otp · PassportAttach · PassportNumber · PassportPreview · PasswordField · Question · SelCard · SingleChoose · Slots · SlotsAnswer · TabBar · Text · Voice
+Contents: AddedNationalities · BookingTicket · BorderNumber · Bot · BotNote · Chips · Days · DaysAnswer · ErrorMsg · Fld · FlightTicketFull · FlightsSelection · GenderField · GeneralError · HotelCard · HotelChoose · IbanField · Liveness · Loading · LocationGuide · LogosGroup · Message · MobileField · NafathAnswer · NationalitySearch · Otp · PassportAttach · PassportNumber · PassportPreview · PasswordField · Question · SelCard · SingleChoose · Slots · SlotsAnswer · TabBar · Text · Voice
 
 
 ---
@@ -349,6 +349,44 @@ The content (labels, values, images from the CMS) and the container. Colour, typ
 
 
 ---
+
+# GeneralError  ·  *Proposed*
+
+A question that stops the flow: the 72 error mark, the message (Body 1) and one Primary CTA (Figma Style=General Error, 19 Nov 2026).
+
+**Status:** Proposed as a new DL component.  
+**Figma source:** 💬 Chat UI › AI Chat Messages › Style=General Error — User=Nusuk `80759:6908`.  
+**Code today:** `NusukChat.GeneralError` in nk-chat.js (built with: Question card (Nusuk/BG) · error mark: Alerts/Surface/Error circle 72 with alert-01 38 in Alerts/Icons/Error · Body 1 · DL Button Primary MD (Icon Left)).
+
+## Props
+
+| Prop | Notes |
+|---|---|
+| `text` | (\n for a line break) |
+| `type` | optional  |
+| `typeIcon` | optional  |
+| `cta` | optional (label) |
+| `ctaEl` | optional  |
+| `onConfirm` |  |
+| `onBack` | optional  |
+
+## Use
+
+- Inside Nusuk AI chat answers, in the bubble or question card it is shown in today.
+
+## Don't
+
+- Do not restyle: colour, type, radius and spacing come from DL tokens and the proposed `chat-*` tokens.
+- Do not use outside chat until the DL review confirms the scope.
+
+## Accessibility
+
+- Arabic first, mirrored with logical properties; numbers isolated in RTL.
+- Focus ring: border-thick ink with the proposed focus offset; targets ≥ 44 px (48 for primary actions).
+
+## You provide
+
+The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
 # Fld  ·  *Proposed*
 
@@ -1383,7 +1421,7 @@ The content (labels, values, images from the CMS) and the container. Colour, typ
 
 # Voice  ·  *Proposed*
 
-Voice message (waveform + duration).
+Voice message: the 42 Ink play button and the waveform (bars on Surface/Longing, played at 100%, the rest at 30%); the duration is in the play button's label.
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
 **Figma source:** 💬 Chat UI › AI Chat Messages › Style=Voice — User=User `80392:4534` · User=Nusuk `80601:9269`.  
@@ -1415,4 +1453,3 @@ Voice message (waveform + duration).
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-

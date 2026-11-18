@@ -17,6 +17,11 @@
   --nkc-input-height: 62px;           /* OTP box height. DL TextField is 62px but exposes no token. */
   --nkc-ticket-endpoint-min: 72px;    /* Flight Ticket Full: min width of origin/destination column. */
   --nkc-logos-group-width: 76px;      /* Logos Group, 3 airline marks at 28px with 8px overlap. */
+  --nkc-error-mark: 72px;             /* General Error mark circle (80759:6908 › Icon). DL avatars reach 72 but expose no size token. */
+  --nkc-voice-bar: 3px;               /* Voice waveform bar (stroke 3, round caps) — Figma Style=Voice 19 Nov 2026. */
+  --nkc-glow-blur: 40px;              /* Location Guide image glow: layer blur 40 (80622:21047 › Shadow). */
+  --nkc-live-copy-width: 318px;       /* Copy column in FaceScan (80607:20622) and General Error (80759:6908). */
+  --nkc-lg-card-height: 120px;        /* Location Guide select cards 234×120 (80622:21047). */
   --nkc-scan-size: 86px;              /* Scan Photo / Status=00 (80607:20843). */
   --nkc-ticket-top-min: 100px;        /* Booking_Ticket header min height (80632:38068). */
   --nkc-dial-width: 115px;            /* Input/Type=Mobile country-code part (80607:17346). */
@@ -30,6 +35,7 @@
      tokens.css ships type as classes (.body-1-light …) and no variable, so a `font:` declaration has nothing to read.
      Each value below equals the DL class of the same name (tokens.json › type). Proposed for the DL as `type-*`. */
   --nkc-type-display-1-light: 300 32px/1.28 var(--font-sans);         /* = DL .display-1-light (300 32px/1.28). */
+  --nkc-type-display-1-regular: 400 32px/1.28 var(--font-sans);       /* = DL .display-1-regular (400 32px/1.28). Answer to a Days question (19 Nov). */
   --nkc-type-display-2-light: 300 28px/1.28 var(--font-sans);         /* = DL .display-2-light (300 28px/1.28). */
   --nkc-type-headline-1-regular: 400 24px/1.28 var(--font-sans);      /* = DL .headline-1-regular (400 24px/1.28). */
   --nkc-type-headline-2-regular: 400 20px/1.28 var(--font-sans);      /* = DL .headline-2-regular (400 20px/1.28). */

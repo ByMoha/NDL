@@ -1,6 +1,6 @@
 # Nusuk AI chat · a skill aspect of the Nusuk DL
 
-**Version:** NusukChat 2.8.6 on DL 3.10 (18 November 2026, _Chat Container Master checked) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 54 variants, 3 masters)
+**Version:** NusukChat 2.8.7 on DL 3.10 (19 November 2026, every AI Chat Messages variant measured) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 55 variants, 3 masters)
 
 ## When to open this folder
 Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot, OTP, password, mobile, gender, passport, border number, IBAN, face scan), the AI tab bar (default, text, typing, recording, recorded, responding, limit reached), the Nusuk Bot and its notes, booking tickets, hotel and flight cards, location guides and option lists.
@@ -36,6 +36,15 @@ Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot,
 <script src="components/bundle.js"></script>
 <script src="chat/nk-chat.js"></script>
 ```
+
+## What changed on 19 November (2.8.7)
+- **New: General Error** (`GeneralError`, [Figma 80759:6908](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80759-6908)): a Nusuk/BG question that stops the flow. Type row, the 72 error mark (Alerts/Surface/Error, alert-01 at 38 in Alerts/Icons/Error), 18 below the message in Body 1 (`\n` breaks the line), one Primary MD CTA; no footer actions. Props: `text`, `type`, `typeIcon`, `cta`, `ctaEl`, `onConfirm`, `onBack`.
+- **Voice:** 42 Ink play button, waveform of 3-wide round bars on Surface/Longing on an 8 pitch (played 100%, the rest 30%), no timer — the duration is in the play button's label. Breaking for anyone styling `.nkc-timer` inside `.nkc-voice`.
+- **Transparent messages** keep their 18 inline padding (Chips, ErrorMsg); in Hotel Choose and Flights Selection the question card stays full width and the list sits 12 below it.
+- **Days:** Ivory month pill (Headline 2, a 24 calendar icon, two 42 white round buttons), weekday row 48, calendar 8 in, flush with the month. **DaysAnswer:** Display 1 Regular 32. **Slots:** blocks flush; the note row is 18 all round, Notes 12 in Alerts/Text/Default with the muslim icon.
+- **Confirmation:** the email and Edit sit in the question block, 8 below the title. **Password:** three criteria, as Figma lists them (was five). **SelCard:** 12 between the icon row and the text. **Border Number:** 8 between cards and field. **IBAN:** 12 between fields.
+- **FaceScan:** the scan sits in a 134 photo frame; copy and hint in a 318 column; the CTA is below the content. **Location Guide:** steps in Body 2, the image glows (blur 40, 40%), cards 120 high. **Single Choose:** option cards without the line, 66 high.
+- **Still on the DL side:** Day Picker is 48 high in Figma (DL 40), Pray Card 90 (DL 113), the Select Card master's 12 gap (DL card says 18), and the Hotel Offer (318×515) and Flight Ticket Full (259) sizes (AI9). Migration `migrations/2026-11-19-nusuk-chat-figma-round.json`.
 
 ## What changed on 18 November (2.8.6)
 - **The six container states** (💬 Chat UI › `_Chat Container Master`, [Figma](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18763)): **Nusuk/BG, Nusuk/Transparent** when Nusuk owns a message or question and the user has not answered; **User/BG, User/Transparent** once the user answers (the question moves up into the header row, the body is the answer); **Loading Nusuk, Loading User** while one side waits or something runs in the background.

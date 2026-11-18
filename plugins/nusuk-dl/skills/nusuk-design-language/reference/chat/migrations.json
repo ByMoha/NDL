@@ -1,4 +1,100 @@
 {
+ "2026-11-19-nusuk-chat-figma-round.json": {
+  "date": "2026-11-19",
+  "name": "NusukChat 2.8.7: Figma round of 19 November, new General Error",
+  "status": "proposed",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80759-6908",
+  "source": "The DL Advisor's updates to 💬 Chat UI on 18–19 November 2026 (AI Chat Messages now 25 variants; 7 sets, 55 variants, 3 masters). Read variant by variant and measured against the code at the Figma width (552).",
+  "chat": {
+   "version": {
+    "from": "2.8.6",
+    "to": "2.8.7"
+   },
+   "added": [
+    {
+     "component": "GeneralError",
+     "figma": "80759:6908",
+     "change": "A Nusuk/BG question that stops the flow: type row, the 72 error mark (Alerts/Surface/Error, alert-01 38 in Alerts/Icons/Error), 18 below the message in Body 1 Regular (318 column), one Primary MD CTA. No footer actions."
+    }
+   ],
+   "changed": [
+    {
+     "component": "Voice",
+     "change": "42 Ink play button (was 30); waveform of 3-wide round bars on Surface/Longing, 8 pitch, played 100% and the rest 30%; no timer (the duration moves into the play button's label)."
+    },
+    {
+     "component": "Transparent messages (Chips, ErrorMsg, HotelChoose, FlightsSelection)",
+     "change": "Content No BG keeps 18 inline padding (a later rule had set it to 0). Hotel and Flights: the question card stays full width and the list sits 12 below it."
+    },
+    {
+     "component": "DaysAnswer",
+     "change": "the date is Display 1 Regular 32 (was Display 2 Light 28)."
+    },
+    {
+     "component": "Days",
+     "change": "Months_Interaction: Ivory pill 52, 18 start / 4 end, month in Headline 2 with a 24 calendar icon, the switch as two 42 white round buttons; weekday labels 48 high in text-subtle; calendar 8 in; month and calendar flush."
+    },
+    {
+     "component": "Slots",
+     "change": "the blocks sit flush; the note row is 18 all round, Notes 12 Regular in Alerts/Text/Default with the muslim icon."
+    },
+    {
+     "component": "Otp (Confirmation)",
+     "change": "the email and Edit sit in the question block, 8 below the title (were in the content, 20 below)."
+    },
+    {
+     "component": "PasswordField",
+     "change": "three criteria, as Figma lists them (was five)."
+    },
+    {
+     "component": "SelCard",
+     "change": "12 between the icon row and the text (was 18); title 14 and description 16, 4 apart."
+    },
+    {
+     "component": "BorderNumber, IbanField",
+     "change": "8 between the cards and the field; 12 between IBAN fields."
+    },
+    {
+     "component": "Liveness (FaceScan)",
+     "change": "the 86 scan sits in a 134 photo frame (24 in); copy and hint in a 318 column, 12 apart; the CTA sits below the content like every question."
+    },
+    {
+     "component": "LocationGuide",
+     "change": "steps in Body 2 (was Notes 1); the image glows (the image again, 12 in, 18 down, blur 40, 40%); cards 120 high, 12 apart, 12 below the steps."
+    },
+    {
+     "component": "SingleChoose",
+     "change": "option cards drop the 1 px line (white with Glass/Full), 66 high."
+    }
+   ]
+  },
+  "openDL": [
+   "📅 Day Picker is 40×48 in Figma; the DL DayPicker renders 40×40 (Days is 40 shorter than Figma).",
+   "Pray Card is 110×90 in Figma; the DL PrayCard renders 113 high (Slots is 23 taller).",
+   "_Master Select Card has 12 between the icon row and the text; the DL SelectCard card says 18.",
+   "Hotel Offer is 318×515 and Flight Ticket Full 259 high in this file; the chat's HotelCard (316×424) and FlightTicketFull (≈234) still differ (AI9: move to the DL HotelCard and FlightTicket)."
+  ],
+  "native": {
+   "ios": "Voice: Circle 42 Ink + an HStack(spacing: 5) of Capsule(width: 3) bars on surfaceLonging (opacity 0.3 until played). GeneralError: Circle 72 alertsSurfaceError with alert-01 at 38, 18 above a Body 1 Text, then the Primary MD button. Bubble paddings unchanged.",
+   "android": "Voice: Box(42.dp, CircleShape, surface10Ink) + Row(spacedBy(5.dp)) of 3.dp RoundedCornerShape bars. GeneralError: Box(72.dp, CircleShape, alertsSurfaceError) { Icon(38.dp) }, Spacer(18.dp), Text(body1), Button(primary, md)."
+  },
+  "tokens": {
+   "added": [
+    "nkc-type-display-1-regular",
+    "nkc-voice-bar 3px",
+    "nkc-glow-blur 40px",
+    "nkc-live-copy-width 318px",
+    "nkc-lg-card-height 120px",
+    "nkc-error-mark 72px"
+   ],
+   "changed": [],
+   "removed": []
+  },
+  "breaking": [
+   "Voice no longer renders a timer element (.nkc-timer inside .nkc-voice); read the duration from the play button's aria-label.",
+   "PasswordField checks three rules, not five."
+  ]
+ },
  "2026-11-18-nusuk-chat-container-states.json": {
   "date": "2026-11-18",
   "name": "NusukChat 2.8.6: the six _Chat Container Master states, as Figma draws them",

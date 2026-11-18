@@ -1,6 +1,6 @@
 # Voice  ·  *Proposed*
 
-Voice message (waveform + duration).
+Voice message: the 42 Ink play button and the waveform (bars on Surface/Longing, played at 100%, the rest at 30%); the duration is in the play button's label.
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
 **Figma source:** 💬 Chat UI › AI Chat Messages › Style=Voice — User=User `80392:4534` · User=Nusuk `80601:9269`.  

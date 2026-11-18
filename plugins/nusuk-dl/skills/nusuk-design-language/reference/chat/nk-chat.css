@@ -51,7 +51,7 @@
 .nkc-body.nobg { background: none; box-shadow: none; padding: 0 var(--space-nr); gap: var(--space-nr); }
 .nkc-answer { font: var(--nkc-type-body-1-light); color: var(--text-heading); overflow-wrap: anywhere; }
 .nkc-big { font: var(--nkc-type-display-1-light); color: var(--text-heading); }
-.nkc-mid { font: var(--nkc-type-display-2-light); color: var(--text-heading); }
+.nkc-mid { font: var(--nkc-type-display-1-regular); color: var(--text-heading); } /* Figma User/Days (19 Nov): 32 Regular */
 
 /* Question block (Type and Icon / Question / Description / back CTA) */
 .nkc-qb { display: flex; flex-direction: column; gap: var(--space-xs); }
@@ -61,6 +61,10 @@
 .nkc-desc { font: var(--nkc-type-notes-1-light); color: var(--text-note); }
 .nkc-back { display: flex; justify-content: flex-end; }
 .nkc-slot { display: flex; flex-direction: column; gap: var(--space-md); }
+.nkc-slot.tight { gap: 0; }               /* Days, Slots: the blocks sit flush (Figma Content gap 0) */
+.nkc-slot.xs { gap: var(--space-xs); }    /* Border Number: cards, then the field, 8 apart */
+.nkc-slot.sm { gap: var(--space-sm); }    /* IBAN: fields 12 apart */
+.nkc-slot.nr { gap: var(--space-nr); }    /* FaceScan: photo, then the copy, 18 apart */
 .nkc-cta { display: flex; justify-content: flex-start; }
 
 /* Footer: timestamp + actions */
@@ -102,27 +106,27 @@
 
 /* Voice */
 .nkc-voice { display: flex; align-items: center; gap: var(--space-sm); }
-.nkc-play { width: var(--button-height-xs); height: var(--button-height-xs); flex: none; border-radius: 50%; border: 0; background: var(--surface-10-ink); color: var(--surface-01-white); display: grid; place-items: center; cursor: pointer; }
-.nkc-wave { flex: 1; display: flex; align-items: center; gap: var(--scale-02); height: var(--scale-26); overflow: hidden; }
-.nkc-wave i { flex: none; width: var(--border-thick); border-radius: var(--radius-xxs); background: var(--surface-illumination); opacity: .35; transition: opacity 100ms cubic-bezier(0,0,.2,1); }
+.nkc-play { width: var(--scale-42); height: var(--scale-42); flex: none; border-radius: 50%; border: 0; background: var(--surface-10-ink); color: var(--surface-01-white); display: grid; place-items: center; cursor: pointer; }
+.nkc-wave { flex: 1; min-width: 0; display: flex; align-items: center; gap: calc(var(--space-xs) - var(--nkc-voice-bar)); height: var(--scale-30); padding-inline-end: var(--scale-10); overflow: hidden; } /* Figma Voice (19 Nov): bars on an 8 pitch */
+.nkc-wave i { flex: none; width: var(--nkc-voice-bar); border-radius: var(--radius-full); background: var(--surface-longing); opacity: .3; transition: opacity 100ms cubic-bezier(0,0,.2,1); }
 .nkc-wave i.on { opacity: 1; }
 
 /* Days (Months_Interaction + DL Day Picker grid) */
-.nkc-month { height: var(--button-height-md); display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-xs) 0 var(--space-sm); border-radius: var(--radius-full); background: var(--surface-02-ivory); }
-.nkc-month .lbl { display: flex; align-items: center; gap: var(--space-xs); font: var(--nkc-type-body-1-regular); }
-.nkc-month .nav { display: flex; gap: var(--space-xxs); }
-.nkc-month .nav button { width: var(--scale-32); height: var(--scale-32); border-radius: 50%; border: 0; background: var(--surface-01-white); color: var(--icons-black); display: grid; place-items: center; cursor: pointer; }
-.nkc-month .nav button:disabled { background: none; color: var(--icons-gray); opacity: var(--opacity-disabled); cursor: default; }
-.nkc-cal { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: var(--space-xs); justify-items: center; }
-.nkc-wd { font: var(--nkc-type-notes-2-regular); color: var(--text-note); height: var(--scale-32); display: grid; place-items: center; }
+.nkc-month { min-height: calc(var(--scale-42) + var(--space-md) / 2); display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm); padding-block: 0; padding-inline: var(--space-nr) var(--space-xxs); /* Figma Months_Interaction: 52 pill, 18 start, 4 end */ border-radius: var(--radius-full); background: var(--surface-02-ivory); }
+.nkc-month .lbl { display: flex; align-items: center; gap: var(--space-xs); font: var(--nkc-type-headline-2-regular); color: var(--text-heading); }
+.nkc-month .nav { display: flex; gap: 0; }
+.nkc-month .nav button { width: var(--scale-42); height: var(--scale-42); border-radius: var(--radius-full); border: 0; background: var(--surface-01-white); color: var(--icons-black); display: grid; place-items: center; cursor: pointer; }
+.nkc-month .nav button:disabled { color: var(--icons-black); opacity: var(--opacity-disabled); cursor: default; }
+.nkc-cal { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: var(--space-xs); justify-items: center; padding-inline: var(--space-xs); } /* Figma Calendar: 8 in, rows 8 apart */
+.nkc-wd { font: var(--nkc-type-notes-2-regular); color: var(--text-subtle); height: var(--scale-48); display: grid; place-items: center; } /* Figma Weekdays: 40×48, Notes 12, text-subtle */
 .nkc-day { border: 0; background: none; padding: 0; cursor: pointer; position: relative; }
 .nkc-day .moon { position: absolute; top: calc(-1 * var(--space-xs)); inset-inline-start: 50%; transform: translateX(50%); color: var(--icons-gray); }
 .nkc-day .moon svg { width: var(--scale-10); height: var(--scale-10); }
 
 /* Slots (DL Pray Card list + DL Time slot card grid) */
-.nkc-prays { display: flex; gap: var(--space-xs); overflow-x: auto; padding-bottom: var(--space-xxs); scrollbar-width: none; }
+.nkc-prays { display: flex; gap: var(--space-xs); overflow-x: auto; scrollbar-width: none; }
 .nkc-prays > * { flex: none; }
-.nkc-sub { display: flex; align-items: center; gap: var(--space-xs); font: var(--nkc-type-notes-2-light); color: var(--text-note); }
+.nkc-sub { display: flex; align-items: center; gap: var(--space-xs); padding: var(--space-nr); font: var(--nkc-type-notes-2-regular); color: var(--alerts-text-default); } /* Figma Time & Slots › Headline: 18 all round, Notes 12, the muslim icon */
 .nkc-slots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xs); }
 .nkc-slots .nkc-slotbtn { min-width: 0; width: 100%; }
 .nkc-slots .nkc-slotbtn * { white-space: nowrap; }
@@ -186,7 +190,7 @@
 .nkc-natchip .x::after { content: ''; position: absolute; inset: calc(-1 * var(--space-sm)); }
 .nkc-natrow-wrap .nkc-flag { width: var(--dimension-nr); height: var(--nkc-badge-sm); }
 /* OTP */
-.nkc-otp-to { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-xs); }
+.nkc-otp-to { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-xs); } /* inside the question block since 2.8.7 (Figma: Description + Edit, 8 apart) */
 .nkc-otp-to .email { font: var(--nkc-type-headline-1-regular); color: var(--text-note); overflow-wrap: anywhere; }
 .nkc-otp { display: flex; flex-direction: column; gap: var(--space-sm); }
 .nkc-otp-lbl { font: var(--nkc-type-body-2-regular); color: var(--inputs-text-default); }
@@ -264,7 +268,6 @@
 .nkc-lg-steps { margin: 0; color: var(--text-content); }
 
 .nkc-qcard { background: var(--surface-01-white); border-radius: var(--radius-md); padding: var(--space-md) var(--space-nr); display: flex; flex-direction: column; gap: var(--space-md); box-shadow: var(--glass-full); }
-.nkc-row.nusuk .nkc-body.nobg { padding: 0; }
 .nkc-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xs); }
 .nkc-filter { all: unset; display: block; min-width: 0; cursor: pointer; }
 .nkc-filter .nk-field-box { gap: var(--space-xs); padding-inline: var(--space-sm); }
@@ -350,7 +353,7 @@
 
 /* Style=Single Choose (80626:36740), 12 November 2026: DL Option Cards as one radio group */
 .nkc-choices { display: flex; flex-direction: column; gap: var(--space-xs); }
-.nkc-choice { max-width: none; min-height: 0; font: inherit; text-align: start; cursor: pointer; border: var(--border-thin) solid var(--surface-03-pearl); }
+.nkc-choice { max-width: none; min-height: 0; font: inherit; text-align: start; cursor: pointer; border: 0; } /* Option Card (Icon with Action): white with Glass/Full, no line — 66 high (Figma 19 Nov) */
 .nkc-choice.on { background: var(--alerts-surface-success); }
 .nkc-choice-go { width: var(--button-height-xs); height: var(--button-height-xs); border-radius: var(--radius-full); display: grid; place-items: center; background: var(--button-secondary-surface); color: var(--button-secondary-content); }
 .nkc-choice.on .nkc-choice-go { background: var(--button-green-surface); color: var(--button-green-content); }
@@ -363,3 +366,20 @@
 
 /* 2.8.6 · a Nusuk message never carries the answered-question header: its question is the first line of the bubble (Body 1) */
 .nkc-ask { margin: 0; }
+
+/* 2.8.7 · Figma pull 19 Nov 2026 */
+.nkc-selcard { gap: var(--space-sm); }                       /* _Master Select Card: icon row, 12, title 14 + description 16 (4 apart) */
+.nkc-selcard .cnt { gap: var(--space-xxs); }
+.nkc-body.nobg > .nkc-qcard { margin-inline: calc(-1 * var(--space-nr)); margin-bottom: calc(var(--space-sm) - var(--space-nr)); } /* Hotel, Flights: the question card is the Body; the list sits 12 below in Content No BG */
+.nkc-body.nobg > .nkc-rail { margin-inline: calc(-1 * var(--space-nr)); padding-inline: var(--space-nr); }
+.nkc-photo { align-self: flex-start; padding: var(--scale-24); }   /* FaceScan › Photo: 134 square, the 86 scan 24 in */
+.nkc-live-txt { display: flex; flex-direction: column; gap: var(--space-sm); max-width: var(--nkc-live-copy-width); }
+.nkc-lg-body { display: flex; flex-direction: column; gap: var(--space-sm); }
+.nkc-lg-img { position: relative; overflow: visible; aspect-ratio: auto; background: none; box-shadow: none; padding-bottom: var(--space-sm); }
+.nkc-lg-img img { width: 100%; aspect-ratio: 480 / 216; height: auto; object-fit: cover; display: block; border-radius: var(--radius-md); position: relative; }
+.nkc-lg-img img.glow { position: absolute; inset: var(--space-nr) var(--space-sm) 0; width: auto; height: calc(100% - var(--space-nr)); aspect-ratio: auto; filter: blur(var(--nkc-glow-blur)); opacity: .4; }   /* Figma Thumbinal › Shadow: the image again, 12 in, 19 down, blur 40, 40% */
+.nkc-lg-body .nkc-cards2 { gap: var(--space-sm); padding-top: var(--space-sm); }
+.nkc-lg-body .nkc-selcard { min-height: var(--nkc-lg-card-height); }
+.nkc-gerr-ic { width: var(--nkc-error-mark); height: var(--nkc-error-mark); flex: none; border-radius: var(--radius-full); background: var(--alerts-surface-error); color: var(--alerts-icons-error); display: grid; place-items: center; } /* General Error › Icon: 72 circle, 8 in, Alerts/Surface/Error */
+.nkc-gerr-ic .nk-ico { width: var(--scale-38); height: var(--scale-38); }
+.nkc-gerr-txt { margin: 0; font: var(--nkc-type-body-1-regular); color: var(--text-heading); white-space: pre-line; max-width: var(--nkc-live-copy-width); }

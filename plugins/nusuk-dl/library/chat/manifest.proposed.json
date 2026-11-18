@@ -7,7 +7,7 @@
  "updated": "2026-11-17",
  "counts": {
   "variant": 23,
-  "new": 14,
+  "new": 15,
   "dl": 4
  },
  "components": [
@@ -75,7 +75,7 @@
    "status": "variant",
    "dlTarget": "ChatMessage",
    "group": "Nusuk AI",
-   "summary": "Voice message (waveform + duration).",
+   "summary": "Voice message: the 42 Ink play button and the waveform (bars on Surface/Longing, played at 100%, the rest at 30%); the duration is in the play button's label.",
    "figma": {
     "file": "b2JRq5iuFo8rvl354ggpjR",
     "library": "💬 Chat UI",
@@ -105,6 +105,24 @@
    },
    "props": "items: string[] · onPick(text, i) · question? · buttons? (render each as DL Button MD, 15 Nov 2026) · kind? (primary | secondary, with buttons)",
    "builtWith": "DL Chips (State=White, Size=LR, Icon=Right, arrow-left-02) · Content No BG; with buttons: DL Button MD, leading arrow-left-02 (Arabic) / arrow-right-02 (English)"
+  },
+  {
+   "name": "GeneralError",
+   "code": "NusukChat.GeneralError",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Nusuk AI",
+   "summary": "A question that stops the flow: the 72 error mark, the message (Body 1) and one Primary CTA (Figma Style=General Error, 19 Nov 2026).",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=General Error",
+    "nodes": {
+     "User=Nusuk": "80759:6908"
+    }
+   },
+   "props": "text (\\n for a line break) · type? · typeIcon? · cta? (label) · ctaEl? · onConfirm · onBack?",
+   "builtWith": "Question card (Nusuk/BG) · error mark: Alerts/Surface/Error circle 72 with alert-01 38 in Alerts/Icons/Error · Body 1 · DL Button Primary MD (Icon Left)"
   },
   {
    "name": "ErrorMsg",

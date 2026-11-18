@@ -224,8 +224,9 @@
       p.from === 'user' && p.editable !== false ? h(EditAnswer, { onEdit: p.onEdit }) : null);
   }
 
+  var WAVE = [14, 22, 30, 22, 14, 10, 18, 22, 18, 14, 18, 14, 22, 30, 22, 14, 10, 18, 22, 18, 14, 18, 14, 14, 14, 22, 30, 22, 14, 10, 18, 22, 18, 14, 18, 14, 22, 30, 22, 14, 10, 18, 22, 18, 14, 18, 14, 14, 14, 22, 30, 22, 14, 10, 18, 22, 18, 14, 18, 14, 22, 30, 22, 14, 10, 18, 22, 18, 14, 18, 14, 14];
   function Wave(p) {
-    var bars = p.bars || [10, 16, 22, 14, 26, 18, 12, 20, 24, 14, 10, 18, 26, 16, 12, 22, 18, 10, 14, 24, 20, 12, 16, 26, 18, 14, 10, 20, 24, 16, 12, 18];
+    var bars = p.bars || WAVE; // Figma Style=Voice (19 Nov 2026): 72 bars, 3 wide, heights 10–30 on an 8 pitch
     var lit = Math.round((p.progress || 0) * bars.length);
     return h('div', { className: 'nkc-wave', 'aria-hidden': true }, bars.map(function (v, i) { return h('i', { key: i, className: i < lit ? 'on' : '', style: { height: v + 'px' } }); }));
   }
@@ -235,9 +236,8 @@
     React.useEffect(function () { if (!playing) return; var t = setInterval(function () { setProg(function (x) { if (x >= 1) { setPlaying(false); return 0; } return Math.min(1, x + 0.04); }); }, 120); return function () { clearInterval(t); }; }, [playing]);
     return h(Message, { bot: p.bot, from: p.from, question: p.question, actions: p.from === 'nusuk', padEnd: 'md', figma: p.from === 'user' ? '80392:4534' : '80601:9269' },
       h('div', { className: 'nkc-voice' },
-        h('button', { type: 'button', className: 'nkc-play', onClick: function () { setPlaying(!playing); }, 'aria-label': playing ? 'إيقاف مؤقت' : 'تشغيل الرسالة الصوتية' }, Ic(playing ? 'pause' : 'play', 'sm')),
-        h(Wave, { progress: prog }),
-        h('span', { className: 'nkc-timer' }, p.duration || '0:13')));
+        h('button', { type: 'button', className: 'nkc-play', onClick: function () { setPlaying(!playing); }, 'aria-label': (playing ? tl('إيقاف مؤقت', 'Pause') : tl('تشغيل الرسالة الصوتية', 'Play voice message')) + ' · ' + (p.duration || '0:13') }, Ic(playing ? 'pause' : 'play', 'md')),
+        h(Wave, { progress: prog })));
   }
 
   function Chips(p) { // Style=Default — follow-up chips, no background
@@ -255,6 +255,14 @@
     return h(Chips, { figma: '80392:4595', buttons: p.buttons, kind: p.kind, items: p.items || [tl('أعد المحاولة', 'Try again')], onPick: p.onPick, question: p.question, lead: h(Alert, { tone: 'error' }, p.text) });
   }
 
+  /* Style=General Error — 80759:6908 (new, 19 Nov 2026): a Nusuk/BG question that stops the flow. Type row, the 72 error mark
+     (Alerts/Surface/Error circle, alert-01 38 in Alerts/Icons/Error), 18 below the message in Body 1, one Primary MD CTA. No actions. */
+  function GeneralError(p) {
+    return h(Question, { figma: '80759:6908', slot: 'nr', type: p.type || BASIC.type, typeIcon: p.typeIcon || BASIC.typeIcon, onBack: p.onBack, cta: p.cta, ctaEl: p.ctaEl, onConfirm: p.onConfirm, bot: p.bot },
+      h('span', { className: 'nkc-gerr-ic', 'aria-hidden': true }, Ic('alert-01')),
+      h('p', { className: 'nkc-gerr-txt', role: 'alert' }, p.text || tl('لديك تعديلات لم يتم حفظها\nهل ترغب في تجاهلها؟', 'You have unsaved changes.\nDo you want to discard them?')));
+  }
+
   function Loading(p) { // Status=Loading, Type=Nusuk|User
     return h('div', { className: 'nkc-row nkc-loading ' + (p.from || 'nusuk'), 'data-figma': p.from === 'user' ? '80501:2248' : '80451:18763', role: 'status', 'aria-label': p.from === 'user' ? tl('يُرسل', 'Sending') : tl('نسك AI يكتب', 'Nusuk AI is typing') },
       p.from === 'user' ? h(Avatar) : h(Bot, { location: p.location || C_LOC.value, mirror: true }), h('span', { className: 'nkc-dots' }, h('i'), h('i'), h('i')), h('span', { style: { flex: 1 } }));
@@ -265,11 +273,12 @@
     return h(Message, { bot: p.bot, from: 'nusuk', figma: p.figma || '80453:2664', time: p.time, footer: p.footer, padEnd: p.padEnd },
       h('div', { className: 'nkc-qb' },
         h('div', { className: 'nkc-type' }, p.typeFig ? FigIcon(p.typeFig, 16) : Ic(p.typeIcon || 'mail-validation-01', 'sm'), h('span', null, p.type || tl('عنوان مختصر', 'Short title')), h('span', { className: 'grow' }), p.help ? Ic('info', 'nr') : null),
-        h('div', { className: 'nkc-title' }, p.title),
+        p.title ? h('div', { className: 'nkc-title' }, p.title) : null,
         p.desc ? h('div', { className: 'nkc-desc' }, p.desc) : null,
+        p.extra || null,
         p.onBack ? h('div', { className: 'nkc-back' }, h(Trail, { iconOnly: true, dlIcon: 'arrow-back', ariaLabel: tl('السؤال السابق', 'Previous question'), onClick: p.onBack })) : null),
-      p.children ? h('div', { className: 'nkc-slot' }, p.children) : null,
-      p.cta === false ? null : h('div', { className: 'nkc-cta' }, h(N.Button, { kind: 'primary', size: 'md', icon: 'right', iconName: 'tick-02', state: p.ctaState, onClick: p.onConfirm }, p.cta || tl('التأكيد والمتابعة', 'Confirm and continue'))));
+      p.children ? h('div', { className: 'nkc-slot' + (p.slot ? ' ' + p.slot : '') }, p.children) : null,
+      p.ctaEl ? h('div', { className: 'nkc-cta', 'aria-live': 'polite' }, p.ctaEl) : p.cta === false ? null : h('div', { className: 'nkc-cta' }, h(N.Button, { kind: 'primary', size: 'md', icon: 'right', iconName: 'tick-02', state: p.ctaState, onClick: p.onConfirm }, p.cta || tl('التأكيد والمتابعة', 'Confirm and continue'))));
   }
 
   /* Style=Days — Months_Interaction + DL Day Picker grid (80587:9465) */
@@ -285,10 +294,10 @@
         p.moons && p.moons.indexOf(d) > -1 ? h('span', { className: 'moon' }, Ic('moon', 'sm')) : null,
         h(N.DayPicker, { day: String(d), state: disabled ? 'disabled' : sel === d ? 'selected' : d === today ? 'current' : 'unselected', availability: disabled ? 'none' : a })));
     })(d);
-    return h(Question, { figma: '80587:9465', type: p.type || 'حجز الروضة الشريفة', typeIcon: 'rawdah', title: p.title || 'اختر يوم الزيارة', onConfirm: function () { if (p.onConfirm) p.onConfirm(sel); } },
+    return h(Question, { figma: '80587:9465', slot: 'tight', type: p.type || 'حجز الروضة الشريفة', typeIcon: 'rawdah', title: p.title || 'اختر يوم الزيارة', onConfirm: function () { if (p.onConfirm) p.onConfirm(sel); } },
       h('div', { className: 'nkc-month', 'data-figma': 'Months_Interaction' },
-        h('span', { className: 'lbl' }, Ic('calendar-04', 'nr'), (p.monthLabel || 'يونيو') + ' ' + (p.year || '2026')),
-        h('span', { className: 'nav' }, h('button', { type: 'button', 'aria-label': 'الشهر السابق', disabled: true }, Ic('arrow-right-01', 'sm')), h('button', { type: 'button', 'aria-label': 'الشهر التالي' }, Ic('arrow-back', 'sm')))),
+        h('span', { className: 'lbl' }, Ic('calendar-04', 'md'), (p.monthLabel || 'يونيو') + ' ' + (p.year || '2026')),
+        h('span', { className: 'nav' }, h('button', { type: 'button', 'aria-label': 'الشهر السابق', disabled: true }, Ic('arrow-right-01', 'nr')), h('button', { type: 'button', 'aria-label': 'الشهر التالي' }, Ic('arrow-left-01', 'nr')))),
       h('div', { className: 'nkc-cal', role: 'group', 'aria-label': 'أيام الشهر' }, WD.map(function (w, i) { return h('span', { key: 'w' + i, className: 'nkc-wd', 'aria-hidden': true }, w); }), cells));
   }
   function DaysAnswer(p) { // User=User, Style=Days (80601:3360)
@@ -301,11 +310,11 @@
   function Slots(p) {
     var a = React.useState(p.prayer == null ? 1 : p.prayer), pr = a[0], setPr = a[1];
     var b = React.useState(p.slot == null ? 0 : p.slot), sl = b[0], setSl = b[1];
-    return h(Question, { figma: '80593:6839', type: p.type || 'حجز الروضة الشريفة', typeIcon: 'rawdah', title: p.title || 'اختر وقت الزيارة', onConfirm: function () { if (p.onConfirm) p.onConfirm(SLOTS[sl][0]); } },
+    return h(Question, { figma: '80593:6839', slot: 'tight', type: p.type || 'حجز الروضة الشريفة', typeIcon: 'rawdah', title: p.title || 'اختر وقت الزيارة', onConfirm: function () { if (p.onConfirm) p.onConfirm(SLOTS[sl][0]); } },
       h('div', { className: 'nkc-prays', role: 'radiogroup', 'aria-label': 'الفترة' }, PRAYERS.map(function (x, i) {
         return h('button', { key: i, type: 'button', className: 'nkc-slotbtn', role: 'radio', 'aria-checked': pr === i, onClick: function () { setPr(i); } }, h(N.PrayCard, { selected: pr === i, title: x.t, iconName: x.i }));
       })),
-      h('div', { className: 'nkc-sub' }, Ic('user', 'sm'), 'مواعيد مخصصة للرجال.'),
+      h('div', { className: 'nkc-sub' }, Ic('muslim', 'sm'), p.note || 'مواعيد مخصّصة للرجال.'),
       h('div', { className: 'nkc-slots', role: 'radiogroup', 'aria-label': 'الأوقات المتاحة' }, SLOTS.map(function (x, i) {
         var dis = x[1] === 'disabled';
         return h('button', { key: i, type: 'button', className: 'nkc-slotbtn', role: 'radio', disabled: dis, 'aria-checked': sl === i, onClick: function () { setSl(i); } }, h(N.TimeSlot, { time: x[0], status: dis ? 'disabled' : sl === i ? 'selected' : 'default' }));
@@ -385,8 +394,8 @@
     React.useEffect(function () { if (secs <= 0) return; var t = setTimeout(function () { setSecs(secs - 1); }, 1000); return function () { clearTimeout(t); }; }, [secs]);
     function set(i, x) { var d = x.replace(/[^0-9٠-٩]/g, '').slice(-1).replace(/[٠-٩]/g, function (c) { return String('٠١٢٣٤٥٦٧٨٩'.indexOf(c)); }); var n = val.slice(); n[i] = d; setVal(n); if (d && refs.current[i + 1]) refs.current[i + 1].focus(); }
     var full = val.every(Boolean);
-    return h(Question, { figma: '80607:11146', type: p.type || 'التحقق من البريد الإلكتروني', typeFig: p.type ? null : 'mail-at-sign-01', typeIcon: 'rawdah', onBack: p.onBack, title: p.title || 'تم إرسال رمز التحقق عبر البريد الإلكتروني إلى', cta: 'التأكيد والمتابعة', ctaState: full ? 'default' : 'disabled', onConfirm: function () { if (full && p.onConfirm) p.onConfirm(val.join('')); } },
-      h('div', { className: 'nkc-otp-to' }, h('span', { className: 'email', dir: 'ltr' }, p.email || 'moha@example.com'), h(Trail, { icon: 'edit', onClick: p.onEditEmail }, 'تعديل')),
+    return h(Question, { figma: '80607:11146', type: p.type || 'التحقق من البريد الإلكتروني', typeFig: p.type ? null : 'mail-at-sign-01', typeIcon: 'rawdah', onBack: p.onBack, title: p.title || 'تم إرسال رمز التحقق عبر البريد الإلكتروني إلى', cta: 'التأكيد والمتابعة',
+      extra: h('div', { className: 'nkc-otp-to' }, h('span', { className: 'email', dir: 'ltr' }, p.email || 'moha@example.com'), h(Trail, { icon: 'edit', onClick: p.onEditEmail }, 'تعديل')), ctaState: full ? 'default' : 'disabled', onConfirm: function () { if (full && p.onConfirm) p.onConfirm(val.join('')); } },
       h('div', { className: 'nkc-otp' }, h('label', { className: 'nkc-otp-lbl', id: 'otpl' }, 'أدخل رمز التحقق'),
         h('div', { className: 'nkc-otp-fields', dir: 'ltr', role: 'group', 'aria-labelledby': 'otpl' }, val.map(function (x, i) { return h('input', { key: i, ref: function (el) { refs.current[i] = el; }, className: 'nkc-otp-box', inputMode: 'numeric', autoComplete: i === 0 ? 'one-time-code' : 'off', maxLength: 1, value: x, 'aria-label': 'الرقم ' + (i + 1), onChange: function (e) { set(i, e.target.value); }, onKeyDown: function (e) { if (e.key === 'Backspace' && !val[i] && refs.current[i - 1]) refs.current[i - 1].focus(); } }); })),
         h('div', { className: 'nkc-resend', 'aria-live': 'polite' }, secs > 0 ? h(F, null, Ic('time-02', 'nr'), h('span', null, 'يمكنك طلب رمز جديد بعد'), h('span', { className: 'nkc-timer' }, '00:' + String(secs).padStart(2, '0'))) : h(Trail, { dlIcon: 'return-request', onClick: function () { setSecs(p.seconds || 59); setVal(Array(len).fill('')); } }, 'أرسل رمزًا جديدًا'))));
@@ -471,7 +480,7 @@
   function useAnswer(p) { var a = React.useState(p.value || ''), v = a[0], set = a[1]; var e = React.useState(false), err = e[0], setErr = e[1]; return { v: v, set: function (x) { set(x); setErr(false); }, err: err, setErr: setErr }; }
 
   /* Password — 80607:16432 */
-  var PW_RULES = [['8 أحرف على الأقل', function (s) { return s.length >= 8; }], ['حرف صغير واحد على الأقل', function (s) { return /[a-z]/.test(s); }], ['حرف كبير واحد على الأقل', function (s) { return /[A-Z]/.test(s); }], ['رقم واحد على الأقل', function (s) { return /[0-9]/.test(s); }], ['رمز واحد على الأقل دون وجود مسافات', function (s) { return /[^A-Za-z0-9\s]/.test(s) && !/\s/.test(s); }]];
+  var PW_RULES = [['8 أحرف على الأقل', function (s) { return s.length >= 8; }], ['حرف صغير واحد على الأقل', function (s) { return /[a-z]/.test(s); }], ['حرف كبير واحد على الأقل', function (s) { return /[A-Z]/.test(s); }]]; // Figma Style=Password lists three criteria (19 Nov 2026: code follows Figma; was five)
   function PasswordField(p) {
     var a = useAnswer(p), sh = React.useState(false), show = sh[0], setShow = sh[1];
     var ok = PW_RULES.map(function (r) { return r[1](a.v); }), all = ok.every(Boolean);
@@ -524,7 +533,7 @@
     var k = React.useState(p.kind || null), kind = k[0], setKind = k[1], a = useAnswer(p);
     var label = kind ? 'رقم ' + (kind === 'border' ? 'الحدود' : 'التأشيرة') : 'رقم %s';
     var valid = kind && /^\d{10}$/.test(a.v);
-    return h(Question, Object.assign({ figma: '80607:18463', title: 'زودنا برقم الحدود أو رقم التأشيرة', onBack: p.onBack, onConfirm: function () { if (valid) { if (p.onConfirm) p.onConfirm(label + ': ' + a.v); } else a.setErr(true); } }, BASIC),
+    return h(Question, Object.assign({ figma: '80607:18463', slot: 'xs', title: 'زودنا برقم الحدود أو رقم التأشيرة', onBack: p.onBack, onConfirm: function () { if (valid) { if (p.onConfirm) p.onConfirm(label + ': ' + a.v); } else a.setErr(true); } }, BASIC),
       h('div', { className: 'nkc-cards2', role: 'radiogroup', 'aria-label': 'نوع الرقم' },
         h(SelCard, { figma: '80607:18656', icon: 'airplane-landing-02', title: 'رقم الحدود', selected: kind === 'border', onClick: function () { setKind('border'); a.setErr(false); } }),
         h(SelCard, { figma: '80607:18655', icon: 'audit-01', title: 'رقم التأشيرة', selected: kind === 'visa', onClick: function () { setKind('visa'); a.setErr(false); } })),
@@ -537,7 +546,7 @@
     var a = useAnswer({ value: p.iban || '' }), s = React.useState(p.verified ? 'ok' : 'idle'), st = s[0], setSt = s[1];
     var clean = a.v.replace(/\s/g, ''), valid = /^SA\d{22}$/.test(clean);
     function verify() { if (!valid) { a.setErr(true); return; } setSt('busy'); setTimeout(function () { setSt('ok'); }, 700); }
-    return h(Question, { figma: '80607:18703', type: 'المعلومات البنكية', typeIcon: 'bank', title: 'أكمل معلوماتك البنكية', desc: 'سيتم استرداد قيمة الحجز في حال الإلغاء.', onBack: p.onBack, ctaState: st === 'ok' && name.trim() ? 'default' : undefined,
+    return h(Question, { figma: '80607:18703', slot: 'sm', type: 'المعلومات البنكية', typeIcon: 'bank', title: 'أكمل معلوماتك البنكية', desc: 'سيتم استرداد قيمة الحجز في حال الإلغاء.', onBack: p.onBack, ctaState: st === 'ok' && name.trim() ? 'default' : undefined,
       onConfirm: function () { if (st === 'ok' && name.trim()) { if (p.onConfirm) p.onConfirm(name + ' · \u2066' + clean.slice(0, 4) + '…' + clean.slice(-4) + '\u2069'); } else if (st !== 'ok') verify(); } },
       h(Fld, { figma: '80607:19076', label: 'اسم صاحب الحساب', floating: true, autoComplete: 'name', value: name, onChange: setName }),
       h(Fld, { figma: '80607:19077', label: 'رقم الآيبان', floating: true, dir: 'ltr', autoComplete: 'off', value: a.v, state: a.err ? 'error' : st === 'ok' ? 'success' : undefined, hint: a.err ? 'يبدأ الآيبان السعودي بـ SA ويتبعه 22 رقمًا.' : null,
@@ -570,12 +579,13 @@
   function Liveness(p) {
     var s = React.useState(p.status || 'idle'), st = s[0], setSt = s[1];
     function start() { if (st !== 'idle') return; setSt('scanning'); setTimeout(function () { setSt('done'); if (p.onDone) setTimeout(p.onDone, 600); }, 2600); }
-    return h(Question, Object.assign({ figma: '80607:20622', title: 'زودنا بصورة من جواز السفر', onBack: p.onBack, cta: false }, BASIC),
-      h('div', { className: 'nkc-scan ' + st, 'data-figma': '80607:20843', role: 'img', 'aria-label': st === 'done' ? 'اكتمل المسح' : 'إطار مسح الوجه', dangerouslySetInnerHTML: { __html: SCAN_SVG } }),
-      h('p', { className: 'nkc-live-copy body-1-regular' }, 'تتطلب الخطوة تصوير واضح للوجه في إضاءة واضحة باستخدام كاميرا الجوال.'),
-      h(N.Hint, { type: 'warning' }, 'الهدف: حماية حسابك وتصريحك - لا نستخدم هذا للإعلانات إطلاقاً.'),
-      h('div', { className: 'nkc-cta', 'aria-live': 'polite' }, st === 'done' ? h('span', { className: 'nkc-verified body-2-regular' }, Ic('tick-02', 'nr'), 'اكتمل المسح الحيّ') :
-        h(N.Button, { kind: 'primary', size: 'md', state: st === 'scanning' ? 'loading' : 'default', className: 'nkc-btn-fig', onClick: start }, h(F, null, h('span', null, 'ابدأ المسح الحيّ'), FigIcon('identification', 20)))));
+    return h(Question, Object.assign({ figma: '80607:20622', slot: 'nr', title: 'زودنا بصورة من جواز السفر', onBack: p.onBack,
+      ctaEl: st === 'done' ? h('span', { className: 'nkc-verified body-2-regular' }, Ic('tick-02', 'nr'), 'اكتمل المسح الحيّ') :
+        h(N.Button, { kind: 'primary', size: 'md', state: st === 'scanning' ? 'loading' : 'default', className: 'nkc-btn-fig', onClick: start }, h(F, null, h('span', null, 'ابدأ المسح الحيّ'), FigIcon('identification', 20))) }, BASIC),
+      h('div', { className: 'nkc-photo' }, h('div', { className: 'nkc-scan ' + st, 'data-figma': '80607:20843', role: 'img', 'aria-label': st === 'done' ? 'اكتمل المسح' : 'إطار مسح الوجه', dangerouslySetInnerHTML: { __html: SCAN_SVG } })),
+      h('div', { className: 'nkc-live-txt' },
+        h('p', { className: 'nkc-live-copy body-1-regular' }, 'تتطلب الخطوة تصوير واضح للوجه في إضاءة واضحة باستخدام كاميرا الجوال.'),
+        h(N.Hint, { type: 'warning' }, 'الهدف: حماية حسابك وتصريحك - لا نستخدم هذا للإعلانات إطلاقاً.')));
   }
   /* ---------- Figma pull 11 Nov 2026 (evening): Location Guide, Hotel Choose, Flights Selection, Booking_Ticket ---------- */
   Object.assign(FIG_ICONS, {
@@ -621,11 +631,12 @@
     var q = encodeURIComponent(p.query || 'Ajyad electric carts, Makkah');
     return h(Message, { bot: p.bot, from: 'nusuk', figma: '80622:21047', padEnd: 'md' },
       h('p', { className: 'nkc-lg-title body-1-regular' }, p.title || 'إتبع الإرشادات التالية للوصول لموقع العربات الكهربائية في منطقة أجياد.'),
-      h('figure', { className: 'nkc-lg-img' }, h('img', { src: p.image || A('ajyad-guide.jpg'), alt: p.imageAlt || 'منطقة العربات الكهربائية في أجياد', loading: 'lazy' })),
-      h('p', { className: 'nkc-lg-steps notes-1-regular' }, p.steps || 'توجه إلى (باب 3) أمام فندق الصفوة ← واصل السير حتى مفترق الطريق ← اتجه يمينًا نحو منطقة الفرز والانتظار حتى تصل'),
+      h('div', { className: 'nkc-lg-body' },
+      h('figure', { className: 'nkc-lg-img' }, h('img', { className: 'glow', src: p.image || A('ajyad-guide.jpg'), alt: '', 'aria-hidden': true, loading: 'lazy' }), h('img', { src: p.image || A('ajyad-guide.jpg'), alt: p.imageAlt || 'منطقة العربات الكهربائية في أجياد', loading: 'lazy' })),
+      h('p', { className: 'nkc-lg-steps body-2-regular' }, p.steps || 'توجه إلى (باب 3) أمام فندق الصفوة ← واصل السير حتى مفترق الطريق ← اتجه يمينًا نحو منطقة الفرز والانتظار حتى تصل'),
       h('div', { className: 'nkc-cards2' },
         h(SelCard, { icon: 'maps', title: 'فتح خرائط نسك', onClick: p.onNusukMaps }),
-        h(SelCard, { icon: 'google-maps', title: 'فتح خرائط Google', onClick: function () { if (p.onGoogleMaps) p.onGoogleMaps(); else window.open('https://www.google.com/maps/search/?api=1&query=' + q, '_blank', 'noopener'); } })));
+        h(SelCard, { icon: 'google-maps', title: 'فتح خرائط Google', onClick: function () { if (p.onGoogleMaps) p.onGoogleMaps(); else window.open('https://www.google.com/maps/search/?api=1&query=' + q, '_blank', 'noopener'); } }))));
   }
 
   /* Shared filter strip (Input/Type=Select × 3, Filled) used by Hotel Choose and Flights Selection */
@@ -738,6 +749,7 @@
     { code: 'NusukChat.Text', figma: 'AI Chat Messages › Style=Text', nodes: { 'User=User': '80392:4524', 'User=Nusuk': '80601:9158' }, props: 'from · text · question? · editable? · onEdit?', dl: 'Light/Body/One · _Button Trail + edit-02 · Footer actions copy-01 / thumbs-up / thumbs-down' },
     { code: 'NusukChat.Voice', figma: 'AI Chat Messages › Style=Voice', nodes: { 'User=User': '80392:4534', 'User=Nusuk': '80601:9269' }, props: 'from · duration · progress · question?', dl: 'surface-illumination waveform · surface-10-ink play' },
     { code: 'NusukChat.Chips', figma: 'AI Chat Messages › Style=Default', nodes: { 'User=Nusuk': '80392:4581' }, props: 'items: string[] · onPick(text, i) · question? · buttons? (render each as DL Button MD, 15 Nov 2026) · kind? (primary | secondary, with buttons)', dl: 'DL Chips (State=White, Size=LR, Icon=Right, arrow-left-02) · Content No BG; with buttons: DL Button MD, leading arrow-left-02 (Arabic) / arrow-right-02 (English)' },
+    { code: 'NusukChat.GeneralError', figma: 'AI Chat Messages › Style=General Error', nodes: { 'User=Nusuk': '80759:6908' }, props: 'text (\\n for a line break) · type? · typeIcon? · cta? (label) · ctaEl? · onConfirm · onBack?', dl: 'Question card (Nusuk/BG) · error mark: Alerts/Surface/Error circle 72 with alert-01 38 in Alerts/Icons/Error · Body 1 · DL Button Primary MD (Icon Left)' },
     { code: 'NusukChat.ErrorMsg', figma: 'AI Chat Messages › Style=Error', nodes: { 'User=Nusuk': '80392:4595' }, props: 'text · items (recovery chips) · onPick · buttons? · kind?', dl: 'DL _Alert (Error, alert-02) + DL Chips (or DL Button MD with buttons)' },
     { code: 'NusukChat.Days', figma: 'AI Chat Messages › Style=Days', nodes: { 'User=Nusuk': '80587:9465' }, props: 'monthLabel · year · today · selected · moons[] · onConfirm(day)', dl: 'DL Day Picker (state × availability) · Months_Interaction · DL Button' },
     { code: 'NusukChat.DaysAnswer', figma: 'AI Chat Messages › Style=Days', nodes: { 'User=User': '80601:3360' }, props: 'date · question? · onEdit', dl: 'Light/Display/Two' },
@@ -781,9 +793,10 @@
     'Message': ['variant', 'ChatMessage', 'Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk Bot avatar.'],
     'Question': ['new', null, 'Chat question card: type row, title, description, back, content slot, one Primary CTA.'],
     'Text': ['variant', 'ChatMessage', 'Answer text with question echo and “تعديل الإجابة”.'],
-    'Voice': ['variant', 'ChatMessage', 'Voice message (waveform + duration).'],
+    'Voice': ['variant', 'ChatMessage', 'Voice message: the 42 Ink play button and the waveform (bars on Surface/Longing, played at 100%, the rest at 30%); the duration is in the play button\'s label.'],
     'Chips': ['variant', 'Chip', 'Answer chips: Chip White LR with arrow-left-02, as a group.'],
     'ErrorMsg': ['variant', 'ChatMessage', 'Error message = DL Alert (error) + recovery chips.'],
+    'GeneralError': ['new', null, 'A question that stops the flow: the 72 error mark, the message (Body 1) and one Primary CTA (Figma Style=General Error, 19 Nov 2026).'],
     'Days': ['new', null, 'Question card + DL DayPicker month grid.'],
     'DaysAnswer': ['variant', 'ChatMessage', 'Date answer.'],
     'Slots': ['new', null, 'Question card + DL PrayCard + DL TimeSlot groups.'],
@@ -827,5 +840,5 @@
     { code: 'NusukChat.SingleChoose', figma: 'AI Chat Messages › Style=Single Choose', nodes: { 'Variant': '80626:36740' }, props: 'type · typeIcon · title · options: [{icon, title}] · selected · onConfirm(option, i)', dl: 'Question card · DL Option Cards (Icon with Action) · Alerts/Surface/Success · Buttons Green · DL Button Primary MD' });
   registry.forEach(function (r) { var k = r.code.replace('NusukChat.', ''), d = DL_STATUS[k] || ['new', null, '']; r.status = d[0]; r.dlTarget = d[1]; r.dlNote = d[2]; });
 
-  window.NusukChat = { version: '2.8.6', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Alert: Alert, ErrorMsg: ErrorMsg, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
+  window.NusukChat = { version: '2.8.7', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Alert: Alert, ErrorMsg: ErrorMsg, GeneralError: GeneralError, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
 })();

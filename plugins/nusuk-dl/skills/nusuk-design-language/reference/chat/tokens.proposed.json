@@ -63,6 +63,43 @@
    "usage": "Logos Group, 3 airline marks at 28px with 8px overlap."
   },
   {
+   "name": "nkc-error-mark",
+   "proposedDLName": "chat-error-mark",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "72px",
+   "usage": "General Error mark circle (80759:6908 › Icon). DL avatars reach 72 but expose no size token."
+  },
+  {
+   "name": "nkc-voice-bar",
+   "proposedDLName": "chat-voice-bar",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "3px",
+   "usage": "Voice waveform bar (stroke 3, round caps) — Figma Style=Voice 19 Nov 2026."
+  },
+  {
+   "name": "nkc-glow-blur",
+   "proposedDLName": "chat-glow-blur",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "40px",
+   "usage": "Location Guide image glow: layer blur 40 (80622:21047 › Shadow)."
+  },
+  {
+   "name": "nkc-live-copy-width",
+   "proposedDLName": "chat-live-copy-width",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "318px",
+   "usage": "Copy column in FaceScan (80607:20622) and General Error (80759:6908).",
+   "figma": "80607:20622"
+  },
+  {
+   "name": "nkc-lg-card-height",
+   "proposedDLName": "chat-lg-card-height",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "120px",
+   "usage": "Location Guide select cards 234×120 (80622:21047).",
+   "figma": "80622:21047"
+  },
+  {
    "name": "nkc-scan-size",
    "proposedDLName": "chat-scan-size",
    "group": "Component dimensions (fixed by Figma, not spacing)",
@@ -129,6 +166,13 @@
    "group": "Type: the DL type classes as font shorthands",
    "value": "300 32px/1.28 var(--font-sans)",
    "usage": "= DL .display-1-light (300 32px/1.28)."
+  },
+  {
+   "name": "nkc-type-display-1-regular",
+   "proposedDLName": "chat-type-display-1-regular",
+   "group": "Type: the DL type classes as font shorthands",
+   "value": "400 32px/1.28 var(--font-sans)",
+   "usage": "= DL .display-1-regular (400 32px/1.28). Answer to a Days question (19 Nov)."
   },
   {
    "name": "nkc-type-display-2-light",
