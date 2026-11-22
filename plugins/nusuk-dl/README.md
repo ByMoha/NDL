@@ -1,6 +1,6 @@
 # nusuk-dl · the Nusuk plugin
 
-Version 2026.11.190105, built 2026-11-19T01:05+03:00. Release 2026-11-18: DESIGN.md 3.7.3, tokens 3.12, NusukChat 2.8.7.
+Version 2026.11.230245, built 2026-11-23T02:45+03:00. Release 2026-11-18: DESIGN.md 3.7.3, tokens 3.12, NusukChat 2.8.8.
 
 The one way the Nusuk DL reaches Claude (DL-42). The developer handoff (`nusuk-dl-developer-handoff.zip`) is the only other download.
 

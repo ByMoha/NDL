@@ -4,7 +4,7 @@
  "namespace": "NusukChat",
  "status": "proposed",
  "date": "2026-11-12",
- "updated": "2026-11-17",
+ "updated": "2026-11-23",
  "counts": {
   "variant": 23,
   "new": 15,
@@ -92,9 +92,9 @@
    "name": "Chips",
    "code": "NusukChat.Chips",
    "status": "variant",
-   "dlTarget": "Chip",
+   "dlTarget": "Button",
    "group": "Nusuk AI",
-   "summary": "Answer chips: Chip White LR with arrow-left-02, as a group.",
+   "summary": "Follow-up actions: a wrapping row of DL CTA Primary SM with a trailing arrow (Figma 23 Nov 2026; was Chip White LR).",
    "figma": {
     "file": "b2JRq5iuFo8rvl354ggpjR",
     "library": "💬 Chat UI",
@@ -103,8 +103,8 @@
      "User=Nusuk": "80392:4581"
     }
    },
-   "props": "items: string[] · onPick(text, i) · question? · buttons? (render each as DL Button MD, 15 Nov 2026) · kind? (primary | secondary, with buttons)",
-   "builtWith": "DL Chips (State=White, Size=LR, Icon=Right, arrow-left-02) · Content No BG; with buttons: DL Button MD, leading arrow-left-02 (Arabic) / arrow-right-02 (English)"
+   "props": "items: string[] · onPick(text, i) · question? · kind? (primary | secondary; default primary) · size? (sm; ErrorMsg uses xs) · iconName? (default arrow-right-02) · chip? (true = legacy White LR chip, not in Figma since 23 Nov 2026)",
+   "builtWith": "Content No BG (transparent, help-circle on, footer timestamp only) · DL CTA Kind=Primary, Size=SM, Icon=Right, arrow-right-02 mirrored in RTL · Tags row: wrap, 8 × 8, from the start edge, 12 below"
   },
   {
    "name": "GeneralError",
@@ -130,7 +130,7 @@
    "status": "variant",
    "dlTarget": "ChatMessage",
    "group": "Nusuk AI",
-   "summary": "Error message = DL Alert (error) + recovery chips.",
+   "summary": "Error message = DL Alert (error) + a row of recovery actions as DL CTA Primary XS (Figma 23 Nov 2026).",
    "figma": {
     "file": "b2JRq5iuFo8rvl354ggpjR",
     "library": "💬 Chat UI",
@@ -139,8 +139,8 @@
      "User=Nusuk": "80392:4595"
     }
    },
-   "props": "text · items (recovery chips) · onPick · buttons? · kind?",
-   "builtWith": "DL _Alert (Error, alert-02) + DL Chips (or DL Button MD with buttons)"
+   "props": "text · items (recovery actions; default أعد المحاولة) · onPick · kind? · size? (default xs) · chip? (legacy)",
+   "builtWith": "Content No BG · DL Alerts Type=Error (alert-02), full width · 18 · DL CTA Kind=Primary, Size=XS, Icon=Right, arrow-right-02 mirrored in RTL · Tags row: wrap, 8 × 8, 12 below"
   },
   {
    "name": "Days",

@@ -1,0 +1,42 @@
+{
+ "date": "2026-11-23",
+ "name": "NusukChat 2.8.8: AI Chat Messages Default and Error use DL CTAs",
+ "status": "proposed",
+ "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4523",
+ "source": "The DL Advisor's update to 💬 Chat UI › AI Chat Messages, Style=Default (80392:4581) and Style=Error (80392:4595), 23 November 2026.",
+ "chat": {
+  "version": {
+   "from": "2.8.7",
+   "to": "2.8.8"
+  },
+  "added": [],
+  "changed": [
+   {
+    "component": "Chips",
+    "figma": "80392:4581",
+    "change": "Follow-up actions are DL CTA Kind=Primary, Size=SM, State=Default, Icon=Right with arrow-right-02 (mirrored in RTL), replacing Chip White LR. Tags row: wrap, 8 between and 8 between rows, from the start edge, 12 below. Content No BG with 18 inline padding, help-circle on, footer timestamp only."
+   },
+   {
+    "component": "ErrorMsg",
+    "figma": "80392:4595",
+    "change": "DL Alerts Type=Error (alert-02) at full width, 18 above the actions; actions are CTA Primary XS, Icon=Right, arrow-right-02, same wrap, 12 below."
+   }
+  ]
+ },
+ "openDL": [
+  "DL Chip proposal for chat answers is withdrawn: Chips is now proposed as a use of DL Button, not a Chip variant."
+ ],
+ "native": {
+  "ios": "Follow-ups: a wrapping flow (spacing 8, line spacing 8) of the DL primary button at .small (38) or .xSmall (26 for Error) with a trailing arrow.right that flips with layoutDirection; 12 bottom padding.",
+  "android": "Follow-ups: FlowRow(horizontalArrangement = spacedBy(8.dp), verticalArrangement = spacedBy(8.dp)) of DL PrimaryButton(size = Sm or Xs, trailingIcon = arrow_right_02, autoMirrored = true); padding(bottom = 12.dp)."
+ },
+ "tokens": {
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "breaking": [
+  "Chips and ErrorMsg render DL Buttons by default; pass chip: true for the old chip. The buttons prop is removed (it is now the default).",
+  "Chip clicks no longer set aria-pressed; selection state is the flow's job."
+ ]
+}

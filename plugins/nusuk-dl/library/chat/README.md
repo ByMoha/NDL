@@ -1,6 +1,6 @@
 # Nusuk AI chat · a skill aspect of the Nusuk DL
 
-**Version:** NusukChat 2.8.7 on DL 3.10 (19 November 2026, every AI Chat Messages variant measured) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 55 variants, 3 masters)
+**Version:** NusukChat 2.8.8 on DL 3.10 (23 November 2026, Default and Error follow-ups are DL CTAs) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 55 variants, 3 masters)
 
 ## When to open this folder
 Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot, OTP, password, mobile, gender, passport, border number, IBAN, face scan), the AI tab bar (default, text, typing, recording, recorded, responding, limit reached), the Nusuk Bot and its notes, booking tickets, hotel and flight cards, location guides and option lists.
@@ -37,6 +37,11 @@ Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot,
 <script src="chat/nk-chat.js"></script>
 ```
 
+## What changed on 23 November (2.8.8)
+- **Default** (`Chips`, [Figma 80392:4581](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4581)): follow-ups are DL **CTA Primary SM, Icon=Right** with arrow-right-02 (mirrored in RTL), not Chip White LR. They wrap 8 × 8 from the start edge, 12 below. Transparent message, help-circle on, the time alone in the footer.
+- **Error** (`ErrorMsg`, [Figma 80392:4595](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4595)): DL Alert (Error, alert-02) at full width, 18 above a row of **CTA Primary XS, Icon=Right**, same wrap, 12 below.
+- **Props:** `kind`, `size` (sm; ErrorMsg xs), `iconName` (arrow-right-02), `chip: true` for the old chip. Breaking: `buttons` is removed (buttons are the default) and chips no longer set `aria-pressed`. Migration `migrations/2026-11-23-nusuk-chat-default-error-ctas.json`.
+
 ## What changed on 19 November (2.8.7)
 - **New: General Error** (`GeneralError`, [Figma 80759:6908](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80759-6908)): a Nusuk/BG question that stops the flow. Type row, the 72 error mark (Alerts/Surface/Error, alert-01 at 38 in Alerts/Icons/Error), 18 below the message in Body 1 (`\n` breaks the line), one Primary MD CTA; no footer actions. Props: `text`, `type`, `typeIcon`, `cta`, `ctaEl`, `onConfirm`, `onBack`.
 - **Voice:** 42 Ink play button, waveform of 3-wide round bars on Surface/Longing on an 8 pitch (played 100%, the rest 30%), no timer — the duration is in the play button's label. Breaking for anyone styling `.nkc-timer` inside `.nkc-voice`.
@@ -70,7 +75,7 @@ Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot,
 
 ## What changed on 17 November (2.8.0)
 - **SelCard** follows DL 3.10 Select Card: radius 14, Active white + Ivory line + `shadow-os`, title 14 `text-content` over description 16 `text-heading`, icon alone in the top row. No radio (Figma has none); groups are `role=radiogroup` of `role=radio`. New props `desc`, `disabled`. **Breaking:** `radio` prop removed.
-- **Chips** padding: `chip-padding-lr` (14) content side, `chip-padding-icon-lr` (12) icon side.
+- **Chips** padding (legacy `chip: true` only): `chip-padding-lr` (14) content side, `chip-padding-icon-lr` (12) icon side.
 - **AI Tab Bar** input and round buttons: Glass BG (Default, Glass On) + Shadows › OS — `glass-fill`, `glass-rim`, `shadow-os`, `blur(blur-frost / 2)`; no Pearl border.
 
 ## Open items

@@ -1,20 +1,21 @@
 # ErrorMsg  ·  *Proposed*
 
-Error message = DL Alert (error) + recovery chips.
+Error message = DL Alert (error) + a row of recovery actions as DL CTA Primary XS (Figma 23 Nov 2026).
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
 **Figma source:** 💬 Chat UI › AI Chat Messages › Style=Error — User=Nusuk `80392:4595`.  
-**Code today:** `NusukChat.ErrorMsg` in nk-chat.js (built with: DL _Alert (Error, alert-02) + DL Chips (or DL Button MD with buttons)).
+**Code today:** `NusukChat.ErrorMsg` in nk-chat.js (built with: Content No BG · DL Alerts Type=Error (alert-02), full width · 18 · DL CTA Kind=Primary, Size=XS, Icon=Right, arrow-right-02 mirrored in RTL · Tags row: wrap, 8 × 8, 12 below).
 
 ## Props
 
 | Prop | Notes |
 |---|---|
 | `text` |  |
-| `items` | (recovery chips) |
+| `items` | (recovery actions; default أعد المحاولة) |
 | `onPick` |  |
-| `buttons` | optional  |
 | `kind` | optional  |
+| `size` | optional (default xs) |
+| `chip` | optional (legacy) |
 
 ## Use
 

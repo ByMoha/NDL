@@ -240,19 +240,23 @@
         h(Wave, { progress: prog })));
   }
 
-  function Chips(p) { // Style=Default — follow-up chips, no background
+  /* Style=Default — 80392:4581 (Figma 23 Nov 2026): transparent Nusuk message, follow-up actions as DL CTA Primary SM, Icon=Right
+     (arrow-right-02, mirrored in RTL), wrapping 8 × 8 from the start edge, 12 below; footer = timestamp only.
+     Style=Error (80392:4595) uses the same row at XS. `chip: true` keeps the old White LR chip look for screens not yet redrawn. */
+  function Chips(p) {
     var s = React.useState(null), picked = s[0], setPicked = s[1];
+    var chip = p.chip === true, size = p.size || 'sm';
     return h(Message, { bot: p.bot, from: 'nusuk', bg: false, question: p.question, figma: p.figma || '80392:4581', time: p.time },
       p.lead || null,
-      h('div', { className: 'nkc-chips' + (p.buttons ? ' btns' : ''), role: 'group', 'aria-label': p.label || tl('اقتراحات', 'Suggestions') }, (p.items || []).map(function (t, i) {
-        if (p.buttons) return h(N.Button, { key: i, kind: p.kind || 'primary', size: 'md', icon: 'left', iconName: p.iconName || (LANG.v === 'en' ? 'arrow-right-02' : 'arrow-left-02'), onClick: function () { setPicked(i); if (p.onPick) p.onPick(t, i); } }, t);
+      h('div', { className: 'nkc-chips' + (chip ? '' : ' btns'), role: 'group', 'aria-label': p.label || tl('اقتراحات', 'Suggestions') }, (p.items || []).map(function (t, i) {
+        if (!chip) return h(N.Button, { key: i, kind: p.kind || 'primary', size: size, icon: 'right', iconName: p.iconName || 'arrow-right-02', flipIcon: true, onClick: function () { setPicked(i); if (p.onPick) p.onPick(t, i); } }, t);
         return h('button', { key: i, type: 'button', className: 'nkc-chip', 'aria-pressed': picked === i, onClick: function () { setPicked(i); if (p.onPick) p.onPick(t, i); } }, t, Svg('chipArrow'));
       })));
   }
 
   function Alert(p) { return h('div', { className: 'nkc-alert ' + (p.tone || 'error'), role: p.tone === 'error' || !p.tone ? 'alert' : 'status', 'data-figma': '68392:32025' }, h('span', { className: 'tx' }, p.children), h('span', { className: 'ic' }, Ic(p.icon || 'alert-02', 'nr'))); }
   function ErrorMsg(p) { // Style=Error
-    return h(Chips, { figma: '80392:4595', buttons: p.buttons, kind: p.kind, items: p.items || [tl('أعد المحاولة', 'Try again')], onPick: p.onPick, question: p.question, lead: h(Alert, { tone: 'error' }, p.text) });
+    return h(Chips, { figma: '80392:4595', size: p.size || 'xs', chip: p.chip, kind: p.kind, items: p.items || [tl('أعد المحاولة', 'Try again')], onPick: p.onPick, question: p.question, lead: h(Alert, { tone: 'error' }, p.text) });
   }
 
   /* Style=General Error — 80759:6908 (new, 19 Nov 2026): a Nusuk/BG question that stops the flow. Type row, the 72 error mark
@@ -748,9 +752,9 @@
     { code: 'NusukChat.Question', figma: '_Chat Container', nodes: { '_Chat Container': '80453:2664' }, props: 'type · typeIcon · title · desc? · onBack? · children (Content slot) · cta · ctaState · onConfirm', dl: 'DL Button (Primary, MD, icon right tick-02) · _Button Trail (back) · DL TextField in slot' },
     { code: 'NusukChat.Text', figma: 'AI Chat Messages › Style=Text', nodes: { 'User=User': '80392:4524', 'User=Nusuk': '80601:9158' }, props: 'from · text · question? · editable? · onEdit?', dl: 'Light/Body/One · _Button Trail + edit-02 · Footer actions copy-01 / thumbs-up / thumbs-down' },
     { code: 'NusukChat.Voice', figma: 'AI Chat Messages › Style=Voice', nodes: { 'User=User': '80392:4534', 'User=Nusuk': '80601:9269' }, props: 'from · duration · progress · question?', dl: 'surface-illumination waveform · surface-10-ink play' },
-    { code: 'NusukChat.Chips', figma: 'AI Chat Messages › Style=Default', nodes: { 'User=Nusuk': '80392:4581' }, props: 'items: string[] · onPick(text, i) · question? · buttons? (render each as DL Button MD, 15 Nov 2026) · kind? (primary | secondary, with buttons)', dl: 'DL Chips (State=White, Size=LR, Icon=Right, arrow-left-02) · Content No BG; with buttons: DL Button MD, leading arrow-left-02 (Arabic) / arrow-right-02 (English)' },
+    { code: 'NusukChat.Chips', figma: 'AI Chat Messages › Style=Default', nodes: { 'User=Nusuk': '80392:4581' }, props: 'items: string[] · onPick(text, i) · question? · kind? (primary | secondary; default primary) · size? (sm; ErrorMsg uses xs) · iconName? (default arrow-right-02) · chip? (true = legacy White LR chip, not in Figma since 23 Nov 2026)', dl: 'Content No BG (transparent, help-circle on, footer timestamp only) · DL CTA Kind=Primary, Size=SM, Icon=Right, arrow-right-02 mirrored in RTL · Tags row: wrap, 8 × 8, from the start edge, 12 below' },
     { code: 'NusukChat.GeneralError', figma: 'AI Chat Messages › Style=General Error', nodes: { 'User=Nusuk': '80759:6908' }, props: 'text (\\n for a line break) · type? · typeIcon? · cta? (label) · ctaEl? · onConfirm · onBack?', dl: 'Question card (Nusuk/BG) · error mark: Alerts/Surface/Error circle 72 with alert-01 38 in Alerts/Icons/Error · Body 1 · DL Button Primary MD (Icon Left)' },
-    { code: 'NusukChat.ErrorMsg', figma: 'AI Chat Messages › Style=Error', nodes: { 'User=Nusuk': '80392:4595' }, props: 'text · items (recovery chips) · onPick · buttons? · kind?', dl: 'DL _Alert (Error, alert-02) + DL Chips (or DL Button MD with buttons)' },
+    { code: 'NusukChat.ErrorMsg', figma: 'AI Chat Messages › Style=Error', nodes: { 'User=Nusuk': '80392:4595' }, props: 'text · items (recovery actions; default أعد المحاولة) · onPick · kind? · size? (default xs) · chip? (legacy)', dl: 'Content No BG · DL Alerts Type=Error (alert-02), full width · 18 · DL CTA Kind=Primary, Size=XS, Icon=Right, arrow-right-02 mirrored in RTL · Tags row: wrap, 8 × 8, 12 below' },
     { code: 'NusukChat.Days', figma: 'AI Chat Messages › Style=Days', nodes: { 'User=Nusuk': '80587:9465' }, props: 'monthLabel · year · today · selected · moons[] · onConfirm(day)', dl: 'DL Day Picker (state × availability) · Months_Interaction · DL Button' },
     { code: 'NusukChat.DaysAnswer', figma: 'AI Chat Messages › Style=Days', nodes: { 'User=User': '80601:3360' }, props: 'date · question? · onEdit', dl: 'Light/Display/Two' },
     { code: 'NusukChat.Slots', figma: 'AI Chat Messages › Style=Slots', nodes: { 'User=Nusuk': '80593:6839' }, props: 'prayer · slot · onConfirm(time)', dl: 'DL Pray Card · DL Time slot card · muslim icon' },
@@ -794,8 +798,8 @@
     'Question': ['new', null, 'Chat question card: type row, title, description, back, content slot, one Primary CTA.'],
     'Text': ['variant', 'ChatMessage', 'Answer text with question echo and “تعديل الإجابة”.'],
     'Voice': ['variant', 'ChatMessage', 'Voice message: the 42 Ink play button and the waveform (bars on Surface/Longing, played at 100%, the rest at 30%); the duration is in the play button\'s label.'],
-    'Chips': ['variant', 'Chip', 'Answer chips: Chip White LR with arrow-left-02, as a group.'],
-    'ErrorMsg': ['variant', 'ChatMessage', 'Error message = DL Alert (error) + recovery chips.'],
+    'Chips': ['variant', 'Button', 'Follow-up actions: a wrapping row of DL CTA Primary SM with a trailing arrow (Figma 23 Nov 2026; was Chip White LR).'],
+    'ErrorMsg': ['variant', 'ChatMessage', 'Error message = DL Alert (error) + a row of recovery actions as DL CTA Primary XS (Figma 23 Nov 2026).'],
     'GeneralError': ['new', null, 'A question that stops the flow: the 72 error mark, the message (Body 1) and one Primary CTA (Figma Style=General Error, 19 Nov 2026).'],
     'Days': ['new', null, 'Question card + DL DayPicker month grid.'],
     'DaysAnswer': ['variant', 'ChatMessage', 'Date answer.'],
@@ -840,5 +844,5 @@
     { code: 'NusukChat.SingleChoose', figma: 'AI Chat Messages › Style=Single Choose', nodes: { 'Variant': '80626:36740' }, props: 'type · typeIcon · title · options: [{icon, title}] · selected · onConfirm(option, i)', dl: 'Question card · DL Option Cards (Icon with Action) · Alerts/Surface/Success · Buttons Green · DL Button Primary MD' });
   registry.forEach(function (r) { var k = r.code.replace('NusukChat.', ''), d = DL_STATUS[k] || ['new', null, '']; r.status = d[0]; r.dlTarget = d[1]; r.dlNote = d[2]; });
 
-  window.NusukChat = { version: '2.8.7', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Alert: Alert, ErrorMsg: ErrorMsg, GeneralError: GeneralError, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
+  window.NusukChat = { version: '2.8.8', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Alert: Alert, ErrorMsg: ErrorMsg, GeneralError: GeneralError, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
 })();

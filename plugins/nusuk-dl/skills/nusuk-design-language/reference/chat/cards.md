@@ -197,11 +197,11 @@ The content (labels, values, images from the CMS) and the container. Colour, typ
 
 # Chips  ·  *Proposed*
 
-Answer chips: Chip White LR with arrow-left-02, as a group.
+Follow-up actions: a wrapping row of DL CTA Primary SM with a trailing arrow (Figma 23 Nov 2026; was Chip White LR).
 
-**Status:** Proposed as a variant / prop of DL **Chip**.  
+**Status:** Proposed as a variant / prop of DL **Button**.  
 **Figma source:** 💬 Chat UI › AI Chat Messages › Style=Default — User=Nusuk `80392:4581`.  
-**Code today:** `NusukChat.Chips` in nk-chat.js (built with: DL Chips (State=White, Size=LR, Icon=Right, arrow-left-02) · Content No BG; with buttons: DL Button MD, leading arrow-left-02 (Arabic) / arrow-right-02 (English)).
+**Code today:** `NusukChat.Chips` in nk-chat.js (built with: Content No BG (transparent, help-circle on, footer timestamp only) · DL CTA Kind=Primary, Size=SM, Icon=Right, arrow-right-02 mirrored in RTL · Tags row: wrap, 8 × 8, from the start edge, 12 below).
 
 ## Props
 
@@ -210,8 +210,10 @@ Answer chips: Chip White LR with arrow-left-02, as a group.
 | `items` | string[] |
 | `onPick` | (text, i) |
 | `question` | optional  |
-| `buttons` | optional (render each as DL Button MD, 15 Nov 2026) |
-| `kind` | optional (primary \| secondary, with buttons) |
+| `kind` | optional (primary \| secondary; default primary) |
+| `size` | optional (sm; ErrorMsg uses xs) |
+| `iconName` | optional (default arrow-right-02) |
+| `chip` | optional (true = legacy White LR chip, not in Figma since 23 Nov 2026) |
 
 ## Use
 
@@ -230,7 +232,6 @@ Answer chips: Chip White LR with arrow-left-02, as a group.
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -313,21 +314,22 @@ The content (labels, values, images from the CMS) and the container. Colour, typ
 
 # ErrorMsg  ·  *Proposed*
 
-Error message = DL Alert (error) + recovery chips.
+Error message = DL Alert (error) + a row of recovery actions as DL CTA Primary XS (Figma 23 Nov 2026).
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
 **Figma source:** 💬 Chat UI › AI Chat Messages › Style=Error — User=Nusuk `80392:4595`.  
-**Code today:** `NusukChat.ErrorMsg` in nk-chat.js (built with: DL _Alert (Error, alert-02) + DL Chips (or DL Button MD with buttons)).
+**Code today:** `NusukChat.ErrorMsg` in nk-chat.js (built with: Content No BG · DL Alerts Type=Error (alert-02), full width · 18 · DL CTA Kind=Primary, Size=XS, Icon=Right, arrow-right-02 mirrored in RTL · Tags row: wrap, 8 × 8, 12 below).
 
 ## Props
 
 | Prop | Notes |
 |---|---|
 | `text` |  |
-| `items` | (recovery chips) |
+| `items` | (recovery actions; default أعد المحاولة) |
 | `onPick` |  |
-| `buttons` | optional  |
 | `kind` | optional  |
+| `size` | optional (default xs) |
+| `chip` | optional (legacy) |
 
 ## Use
 
@@ -346,7 +348,6 @@ Error message = DL Alert (error) + recovery chips.
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
