@@ -3,8 +3,8 @@
 Typing / loading state.
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
-**Figma source:** 💬 Chat UI › _Chat Container Master › Status=Loading — Type=Nusuk `80451:18763` · Type=User `80501:2248`.  
-**Code today:** `NusukChat.Loading` in nk-chat.js (built with: icons-black dots).
+**Figma source:** 💬 Chat UI › _Chat Container Master › Status=Loading — Type=Nusuk `80451:18763` · Type=User `80501:2248` · AI Chat Messages › User=Nusuk, Style=Loading `80835:33952` · AI Chat Messages › User=User, Style=Loading `80392:4524`.  
+**Code today:** `NusukChat.Loading` in nk-chat.js (built with: DL Loading Text (Status 00–03): three icons-black dots 3.66, one grows to 5.85 from the start edge, 150 ms a step, ease-out).
 
 ## Props
 

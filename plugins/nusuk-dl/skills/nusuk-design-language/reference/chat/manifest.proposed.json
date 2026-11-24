@@ -4,9 +4,9 @@
  "namespace": "NusukChat",
  "status": "proposed",
  "date": "2026-11-12",
- "updated": "2026-11-23",
+ "updated": "2026-11-25",
  "counts": {
-  "variant": 23,
+  "variant": 24,
   "new": 15,
   "dl": 4
  },
@@ -25,11 +25,15 @@
     "nodes": {
      "Status=Chat, Type=Nusuk/BG": "80451:18764",
      "Status=Chat, Type=Nusuk/Transprent": "80578:5431",
+     "Status=Chat, Type=Nusuk/Mixed": "80835:28996",
      "Status=Chat, Type=User/BG": "80451:18765",
-     "Status=Chat, Type=User/Transprent": "80578:5289"
+     "Status=Chat, Type=User/Transprent": "80578:5289",
+     "Status=Chat, Type=User/Mixed": "80835:29699",
+     "AI Chat Messages › Style=Solid Background": "80835:33283 / 80835:33476",
+     "AI Chat Messages › Style=Transprent": "80835:32812 / 80835:32356"
     }
    },
-   "props": "from: \"nusuk\"|\"user\" · bg: boolean · question?: string (user: the answered question as the header row with the 12×14 mark; Nusuk: the question as the bubble's first line) · actions?: boolean · time?: string · footer?: false · bot?: false (hide the bot when the next message is also Nusuk; 24 column kept). Nusuk: bot at the top, tail top-start, time at the start and actions at the end; user: avatar at the bottom, tail bottom-end, time at the end",
+   "props": "from: \"nusuk\"|\"user\" · bg: boolean · below?: node (Mixed: content outside the bubble; Nusuk puts time + actions between bubble and below, user puts the time last) · question?: string (user: the answered question as the header row with the 12×14 mark; Nusuk: the question as the bubble's first line) · actions?: boolean · time?: string · footer?: false · bot?: false (hide the bot when the next message is also Nusuk; 24 column kept). Nusuk: bot at the top, tail top-start, time at the start and actions at the end; user: avatar at the bottom, tail bottom-end, time at the end",
    "builtWith": "tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/lr/sm · DL Avatar (XS, Ink)"
   },
   {
@@ -62,7 +66,7 @@
     "library": "💬 Chat UI",
     "component": "AI Chat Messages › Style=Text",
     "nodes": {
-     "User=User": "80392:4524",
+     "User=User": "80835:30455",
      "User=Nusuk": "80601:9158"
     }
    },
@@ -227,11 +231,32 @@
     "component": "_Chat Container Master › Status=Loading",
     "nodes": {
      "Type=Nusuk": "80451:18763",
-     "Type=User": "80501:2248"
+     "Type=User": "80501:2248",
+     "AI Chat Messages › User=Nusuk, Style=Loading": "80835:33952",
+     "AI Chat Messages › User=User, Style=Loading": "80392:4524"
     }
    },
    "props": "from",
-   "builtWith": "icons-black dots"
+   "builtWith": "DL Loading Text (Status 00–03): three icons-black dots 3.66, one grows to 5.85 from the start edge, 150 ms a step, ease-out"
+  },
+  {
+   "name": "Mixed",
+   "code": "NusukChat.Mixed",
+   "status": "variant",
+   "dlTarget": "ChatMessage",
+   "group": "Nusuk AI",
+   "summary": "Question card in the bubble with follow-up DL Buttons outside it (Nusuk), or an answer card with content outside it (user). Figma 25 Nov 2026.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "AI Chat Messages › Style=Mixed",
+    "nodes": {
+     "User=Nusuk": "80835:33795",
+     "User=User": "80835:31779"
+    }
+   },
+   "props": "from · type · typeIcon? · title · desc? · items: string[] (Nusuk follow-ups) · onPick(text, i) · kind? · size? · below? (user) · question? (user)",
+   "builtWith": "_Chat Container Master Type=Nusuk/Mixed · User/Mixed · DL CTA Kind=Primary, Size=SM, Icon=No Icon · Actions row: wrap, 8 × 8, from the start edge"
   },
   {
    "name": "TabBar",
@@ -239,23 +264,25 @@
    "status": "variant",
    "dlTarget": "TabBar",
    "group": "Nusuk AI",
-   "summary": "AI Tab Bar: 7 statuses (default, limit, recording, recorded, text, responding, typing).",
+   "summary": "AI Tab Bar: 8 statuses (default, limit, recording, recorded, text, responding, actions, typing); light and dark master.",
    "figma": {
     "file": "b2JRq5iuFo8rvl354ggpjR",
     "library": "💬 Chat UI",
     "component": "AI Tab Bar",
     "nodes": {
-     "_AI Tab Bar Master": "80392:4168",
+     "_AI Tab Bar Master › Darkmode=Off": "80392:4168",
+     "_AI Tab Bar Master › Darkmode=On": "80821:21830",
      "default": "80392:4482",
      "limit": "80392:4484",
      "recording": "80392:4486",
      "recorded": "80392:4488",
      "text": "80392:4490",
      "responding": "80392:4492",
+     "actions": "80821:18082",
      "typing": "80392:4494"
     }
    },
-   "props": "status · value · placeholder · limitText · onSend({type,text|duration}) · onStop · respondOnSend",
+   "props": "status (default · limit · recording · recorded · text · responding · actions · typing) · value · placeholder · limitText · message + actions: string[] + onAction(text, i) (status actions) · onSend({type,text|duration}) · onStop · respondOnSend",
    "builtWith": "glass-full · radius-full · DL Icon mic / send / pause / delete-03"
   },
   {

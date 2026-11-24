@@ -6,6 +6,34 @@
  "note": "Every value used by NusukChat that has no DL token. All other values in nk-chat.css are DL tokens. proposedDLName drops the nkc- prefix; the DL Manager picks the final name.",
  "tokens": [
   {
+   "name": "nkc-loading-w",
+   "proposedDLName": "chat-loading-w",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "23px",
+   "usage": "DL Loading Text frame (Figma 80700:13922, 25 Nov 2026)."
+  },
+  {
+   "name": "nkc-loading-h",
+   "proposedDLName": "chat-loading-h",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "13px",
+   "usage": ""
+  },
+  {
+   "name": "nkc-loading-dot",
+   "proposedDLName": "chat-loading-dot",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "3.66px",
+   "usage": "Rectangle 2–4: 3.66 × 3.66, radius full; the active dot scales to 5.85 (×1.6)."
+  },
+  {
+   "name": "nkc-loading-gap",
+   "proposedDLName": "chat-loading-gap",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "5.34px",
+   "usage": "9 pitch − 3.66."
+  },
+  {
    "name": "nkc-indicator-xs",
    "proposedDLName": "chat-indicator-xs",
    "group": "Component dimensions (fixed by Figma, not spacing)",

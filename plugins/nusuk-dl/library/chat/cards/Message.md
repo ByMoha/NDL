@@ -3,7 +3,7 @@
 Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk Bot avatar.
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
-**Figma source:** 💬 Chat UI › _Chat Container Master — Status=Chat, Type=Nusuk/BG `80451:18764` · Status=Chat, Type=Nusuk/Transprent `80578:5431` · Status=Chat, Type=User/BG `80451:18765` · Status=Chat, Type=User/Transprent `80578:5289`.  
+**Figma source:** 💬 Chat UI › _Chat Container Master — Status=Chat, Type=Nusuk/BG `80451:18764` · Status=Chat, Type=Nusuk/Transprent `80578:5431` · Status=Chat, Type=Nusuk/Mixed `80835:28996` · Status=Chat, Type=User/BG `80451:18765` · Status=Chat, Type=User/Transprent `80578:5289` · Status=Chat, Type=User/Mixed `80835:29699` · AI Chat Messages › Style=Solid Background `80835:33283 / 80835:33476` · AI Chat Messages › Style=Transprent `80835:32812 / 80835:32356`.  
 **Code today:** `NusukChat.Message` in nk-chat.js (built with: tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/lr/sm · DL Avatar (XS, Ink)).
 
 ## Props
@@ -12,6 +12,7 @@ Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk B
 |---|---|
 | `from` | "nusuk"\|"user" |
 | `bg` | boolean |
+| `below` | optional node (Mixed: content outside the bubble; Nusuk puts time + actions between bubble and below, user puts the time last) |
 | `question` | optional string (user: the answered question as the header row with the 12×14 mark; Nusuk: the question as the bubble's first line) |
 | `actions` | optional boolean |
 | `time` | optional string |

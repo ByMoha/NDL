@@ -9,6 +9,10 @@
   /* ---- Spacing / focus ---------------------------------------------------- */
 
   /* ---- Component dimensions (fixed by Figma, not spacing) ----------------- */
+  --nkc-loading-w: 23px;              /* DL Loading Text frame (Figma 80700:13922, 25 Nov 2026). */
+  --nkc-loading-h: 13px;
+  --nkc-loading-dot: 3.66px;          /* Rectangle 2–4: 3.66 × 3.66, radius full; the active dot scales to 5.85 (×1.6). */
+  --nkc-loading-gap: 5.34px;          /* 9 pitch − 3.66. */
   --nkc-indicator-xs: 5px;            /* Typing dots, home indicator height. Figma: _Chat Container Master › Status=Loading. */
   --nkc-timeline-dot: 9px;            /* Booking_Ticket timeline origin dot (80632:38068). */
   --nkc-badge-sm: 15px;               /* City Logo badge on Logos Group (🃏 Cards › City Logo 70306:7355); flag in nationality row. */

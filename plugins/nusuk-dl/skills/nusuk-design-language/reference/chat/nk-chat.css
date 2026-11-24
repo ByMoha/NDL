@@ -69,6 +69,9 @@
 
 /* Footer: timestamp + actions */
 .nkc-foot { display: flex; align-items: center; gap: var(--space-md); padding: 0 var(--space-nr); }
+/* Mixed (Figma 25 Nov 2026): Nusuk = Body › Upper Footer › Content No BG; user = Body › Content No BG › Lower Footer; 12 between, from .nkc-col */
+.nkc-below:empty { display: none; }
+.nkc-chips.btns.flush { padding-bottom: 0; }
 .nkc-time { flex: 1; font: var(--nkc-type-notes-1-regular); color: var(--text-heading); unicode-bidi: isolate; text-align: start; } /* Figma: Nusuk time at the start (actions at the end); user time at the end, beside the avatar */
 .nkc-acts { display: flex; gap: var(--space-sm); }
 .nkc-ib { width: var(--dimension-nr); height: var(--dimension-nr); padding: 0; border: 0; background: none; color: var(--icons-black); cursor: pointer; display: grid; place-items: center; position: relative; }
@@ -99,9 +102,11 @@
 .nkc-alert .tx { flex: 1; }
 
 /* Loading (Status=Loading) */
-.nkc-dots { display: inline-flex; gap: var(--space-xxs); padding: 0 var(--space-xxs); align-items: center; height: var(--dimension-md); }
-.nkc-dots i { width: var(--nkc-indicator-xs); height: var(--nkc-indicator-xs); border-radius: 50%; background: var(--icons-black); animation: nkc-dot 1.2s cubic-bezier(.4,0,.2,1) infinite; }
-.nkc-dots i:nth-child(2) { animation-delay: .15s; } .nkc-dots i:nth-child(3) { animation-delay: .3s; }
+/* DL Loading Text (Figma 25 Nov 2026): 23 × 13, three 3.66 dots on a 9 pitch; one at a time grows to 5.85 (×1.6) from the start edge, 150 ms a step, ease-out */
+.nkc-dots { display: inline-flex; gap: var(--nkc-loading-gap); align-items: center; justify-content: center; width: var(--nkc-loading-w); height: var(--nkc-loading-h); }
+.nkc-dots i { width: var(--nkc-loading-dot); height: var(--nkc-loading-dot); border-radius: var(--radius-full); background: var(--icons-black); animation: nkc-grow .6s cubic-bezier(0,0,.2,1) infinite; }
+.nkc-dots i:nth-child(1) { animation-delay: 0s; } .nkc-dots i:nth-child(2) { animation-delay: .15s; } .nkc-dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes nkc-grow { 0%, 25% { transform: scale(1); } 37.5% { transform: scale(1.6); } 50%, 100% { transform: scale(1); } }
 @keyframes nkc-dot { 0%,60%,100% { opacity: .3; } 30% { opacity: 1; } }
 
 /* Voice */
@@ -138,6 +143,12 @@
 .nkc-tab { display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-xs); width: 100%; }
 .nkc-tab.fade { background: linear-gradient(to top, var(--nkc-fade-tab), transparent); border-radius: var(--radius-md); }
 .nkc-tabrow { display: flex; gap: var(--space-xs); align-items: center; }
+/* Status=Actions (Figma 25 Nov 2026): Regular/Body/Two, 18 inline, 12 above one non-wrapping row of Primary SM, gap 8, scrolls sideways */
+.nkc-tabacts { display: flex; flex-direction: column; gap: var(--space-sm); }
+.nkc-tabacts-msg { margin: 0; padding: 0 var(--space-nr); font: var(--nkc-type-body-2-regular); color: var(--text-heading); }
+.nkc-tabacts-row { display: flex; flex-wrap: nowrap; gap: var(--space-xs); overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; scroll-padding-inline: var(--space-nr); }
+.nkc-tabacts-row::-webkit-scrollbar { display: none; }
+.nkc-tabacts-row > * { flex: none; }
 .nkc-input { flex: 1; height: var(--nkc-control-lg); display: flex; align-items: center; gap: var(--space-xs); padding-inline: var(--space-nr) var(--space-xs); border-radius: var(--radius-full); background: var(--glass-fill); box-shadow: var(--glass-rim), var(--shadow-os); -webkit-backdrop-filter: blur(calc(var(--blur-frost) / 2)); backdrop-filter: blur(calc(var(--blur-frost) / 2)); border: 0; } /* DL 3.10 Glass BG (Default, Glass On) + Shadows/OS, 17 Nov */
 .nkc-input input { flex: 1; min-width: 0; height: 100%; border: 0; background: none; outline: none; font: var(--nkc-type-body-2-regular); color: var(--inputs-text-default); }
 .nkc-input input::placeholder { color: var(--inputs-text-placeholder); }
@@ -159,7 +170,7 @@
 .nkc-ai { position: relative; outline: var(--border-medium) dashed var(--surface-longing); outline-offset: var(--scale-02); border-radius: var(--radius-md); }
 
 .nkc-sr { position: absolute; width: var(--border-thin); height: var(--border-thin); overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-@media (prefers-reduced-motion: reduce) { .nkc-dots i, .nkc-rec.live i { animation: none; } .nkc-wave i { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .nkc-dots i, .nkc-rec.live i { animation: none; } .nkc-tabacts-row { scroll-behavior: auto; } .nkc-wave i { transition: none; } }
 .nkc-row.user .nkc-time { text-align: end; }
 
 /* ================= Registration ================= */

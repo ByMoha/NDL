@@ -5,6 +5,7 @@ Every chat card in one file; search `# <Name>`. One file per card in the GitHub 
 Contents: AddedNationalities · BookingTicket · BorderNumber · Bot · BotNote · Chips · Days · DaysAnswer · ErrorMsg · Fld · FlightTicketFull · FlightsSelection · GenderField · GeneralError · HotelCard · HotelChoose · IbanField · Liveness · Loading · LocationGuide · LogosGroup · Message · MobileField · NafathAnswer · NationalitySearch · Otp · PassportAttach · PassportNumber · PassportPreview · PasswordField · Question · SelCard · SingleChoose · Slots · SlotsAnswer · TabBar · Text · Voice
 
 
+
 ---
 
 # AddedNationalities  ·  *Proposed*
@@ -39,7 +40,6 @@ Removable chips with flags (Button Secondary XS icon-left today).
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -76,7 +76,6 @@ Booking_Ticket (4 statuses).
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # BorderNumber  ·  *Proposed*
@@ -111,7 +110,6 @@ Select Card without radio + dependent input.
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -153,7 +151,6 @@ Nusuk Bot avatar, Makkah / Madinah, live eyes. Figma section is “Beta – Do N
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # BotNote  ·  *Proposed*
@@ -191,7 +188,6 @@ Nusuk Bot message (insight / pill) with gradient text.
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -272,7 +268,6 @@ Question card + DL DayPicker month grid.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # DaysAnswer  ·  *Proposed*
@@ -308,7 +303,6 @@ Date answer.
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -389,6 +383,8 @@ A question that stops the flow: the 72 error mark, the message (Body 1) and one 
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
+---
+
 # Fld  ·  *Proposed*
 
 Trailing slot (icon button / action button / logo) and floating label.
@@ -432,7 +428,6 @@ Trailing slot (icon button / action button / logo) and floating label.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # FlightTicketFull  ·  *Proposed*
@@ -469,7 +464,6 @@ Version=Full: countries, flags, duration arc, tags, ribbon, airline group, seats
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -509,7 +503,6 @@ Filters + Flight Ticket (Full) list + show all.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # GenderField  ·  *Proposed*
@@ -544,7 +537,6 @@ Select Card with custom icon (hijab / haji).
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -582,7 +574,6 @@ The content (labels, values, images from the CMS) and the container. Colour, typ
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -623,7 +614,6 @@ Filters + Hotel Offer rail + CTA.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # IbanField  ·  *Proposed*
@@ -661,7 +651,6 @@ TextField Action (verify) + Filled-Disabled bank row with logo.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # Liveness  ·  *Proposed*
@@ -697,7 +686,6 @@ Scan Photo + copy + DL Hint warning + CTA.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # Loading  ·  *Proposed*
@@ -705,8 +693,8 @@ The content (labels, values, images from the CMS) and the container. Colour, typ
 Typing / loading state.
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
-**Figma source:** 💬 Chat UI › _Chat Container Master › Status=Loading — Type=Nusuk `80451:18763` · Type=User `80501:2248`.  
-**Code today:** `NusukChat.Loading` in nk-chat.js (built with: icons-black dots).
+**Figma source:** 💬 Chat UI › _Chat Container Master › Status=Loading — Type=Nusuk `80451:18763` · Type=User `80501:2248` · AI Chat Messages › User=Nusuk, Style=Loading `80835:33952` · AI Chat Messages › User=User, Style=Loading `80392:4524`.  
+**Code today:** `NusukChat.Loading` in nk-chat.js (built with: DL Loading Text (Status 00–03): three icons-black dots 3.66, one grows to 5.85 from the start edge, 150 ms a step, ease-out).
 
 ## Props
 
@@ -731,7 +719,6 @@ Typing / loading state.
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -772,7 +759,6 @@ Photo + steps + open-maps select cards.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # LogosGroup  ·  *Proposed*
@@ -808,7 +794,6 @@ Logos Group + Logo Icons + City Logo badge as code.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # Message  ·  *Proposed*
@@ -816,7 +801,7 @@ The content (labels, values, images from the CMS) and the container. Colour, typ
 Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk Bot avatar.
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
-**Figma source:** 💬 Chat UI › _Chat Container Master — Status=Chat, Type=Nusuk/BG `80451:18764` · Status=Chat, Type=Nusuk/Transprent `80578:5431` · Status=Chat, Type=User/BG `80451:18765` · Status=Chat, Type=User/Transprent `80578:5289`.  
+**Figma source:** 💬 Chat UI › _Chat Container Master — Status=Chat, Type=Nusuk/BG `80451:18764` · Status=Chat, Type=Nusuk/Transprent `80578:5431` · Status=Chat, Type=Nusuk/Mixed `80835:28996` · Status=Chat, Type=User/BG `80451:18765` · Status=Chat, Type=User/Transprent `80578:5289` · Status=Chat, Type=User/Mixed `80835:29699` · AI Chat Messages › Style=Solid Background `80835:33283 / 80835:33476` · AI Chat Messages › Style=Transprent `80835:32812 / 80835:32356`.  
 **Code today:** `NusukChat.Message` in nk-chat.js (built with: tokens: surface-01-white, radius-md, radius-xs (tail), glass-full, space-md/nr/lr/sm · DL Avatar (XS, Ink)).
 
 ## Props
@@ -825,6 +810,7 @@ Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk B
 |---|---|
 | `from` | "nusuk"\|"user" |
 | `bg` | boolean |
+| `below` | optional node (Mixed: content outside the bubble; Nusuk puts time + actions between bubble and below, user puts the time last) |
 | `question` | optional string (user: the answered question as the header row with the 12×14 mark; Nusuk: the question as the bubble's first line) |
 | `actions` | optional boolean |
 | `time` | optional string |
@@ -848,6 +834,8 @@ Adds Nusuk/User × BG/Transparent, question echo, footer actions and the Nusuk B
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
+
+---
 
 # MobileField  ·  *Proposed*
 
@@ -881,7 +869,6 @@ Mobile: country code 115 + number (TextField Mobile).
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -918,7 +905,6 @@ Nafath sign-in answer pill with the Nafath logo.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # NationalitySearch  ·  *Proposed*
@@ -954,7 +940,6 @@ Search with flag result list (TextField Search + DropdownItem flag).
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -994,7 +979,6 @@ TextField OTP + ResendTimer inside the Question card.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # PassportAttach  ·  *Proposed*
@@ -1030,7 +1014,6 @@ Select Card without radio as the answer (no CTA).
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # PassportNumber  ·  *Proposed*
@@ -1065,7 +1048,6 @@ TextField Input with a trailing camera action.
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -1103,7 +1085,6 @@ Document preview + Secondary SM / Primary SM.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # PasswordField  ·  *Proposed*
@@ -1138,7 +1119,6 @@ Password field (62), then its Strength Meter: the criteria as DL Checkbox SM, 8 
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -1182,7 +1162,6 @@ Chat question card: type row, title, description, back, content slot, one Primar
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # SelCard  ·  *Proposed*
@@ -1221,7 +1200,6 @@ Figma icon via FigIcon; one label renders as the 16 description line.
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -1262,7 +1240,6 @@ Option Cards (Icon with Action) as one radio group; the chosen card takes Alerts
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # Slots  ·  *Proposed*
@@ -1298,7 +1275,6 @@ Question card + DL PrayCard + DL TimeSlot groups.
 ## You provide
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
-
 
 ---
 
@@ -1337,25 +1313,32 @@ Date + time answer.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # TabBar  ·  *Proposed*
 
-AI Tab Bar: 7 statuses (default, limit, recording, recorded, text, responding, typing).
+AI Tab Bar: 8 statuses (default, limit, recording, recorded, text, responding, actions, typing); light and dark master.
 
 **Status:** Proposed as a variant / prop of DL **TabBar**.  
-**Figma source:** 💬 Chat UI › AI Tab Bar — _AI Tab Bar Master `80392:4168` · default `80392:4482` · limit `80392:4484` · recording `80392:4486` · recorded `80392:4488` · text `80392:4490` · responding `80392:4492` · typing `80392:4494`.  
+**Figma source:** 💬 Chat UI › AI Tab Bar — _AI Tab Bar Master › Darkmode=Off `80392:4168` · _AI Tab Bar Master › Darkmode=On `80821:21830` · default `80392:4482` · limit `80392:4484` · recording `80392:4486` · recorded `80392:4488` · text `80392:4490` · responding `80392:4492` · actions `80821:18082` · typing `80392:4494`.  
 **Code today:** `NusukChat.TabBar` in nk-chat.js (built with: glass-full · radius-full · DL Icon mic / send / pause / delete-03).
 
 ## Props
 
 | Prop | Notes |
 |---|---|
-| `status` |  |
+| `status` | (default |
+| `limit` |  |
+| `recording` |  |
+| `recorded` |  |
+| `text` |  |
+| `responding` |  |
+| `actions` |  |
+| `typing` | ) |
 | `value` |  |
 | `placeholder` |  |
 | `limitText` |  |
+| `message` | + actions: string[] + onAction(text, i) (status actions) |
 | `onSend` | ({type,text\|duration}) |
 | `onStop` |  |
 | `respondOnSend` |  |
@@ -1378,7 +1361,6 @@ AI Tab Bar: 7 statuses (default, limit, recording, recorded, text, responding, t
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
-
 ---
 
 # Text  ·  *Proposed*
@@ -1386,7 +1368,7 @@ The content (labels, values, images from the CMS) and the container. Colour, typ
 Answer text with question echo and “تعديل الإجابة”.
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
-**Figma source:** 💬 Chat UI › AI Chat Messages › Style=Text — User=User `80392:4524` · User=Nusuk `80601:9158`.  
+**Figma source:** 💬 Chat UI › AI Chat Messages › Style=Text — User=User `80835:30455` · User=Nusuk `80601:9158`.  
 **Code today:** `NusukChat.Text` in nk-chat.js (built with: Light/Body/One · _Button Trail + edit-02 · Footer actions copy-01 / thumbs-up / thumbs-down).
 
 ## Props
@@ -1417,6 +1399,49 @@ Answer text with question echo and “تعديل الإجابة”.
 
 The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
+---
+
+# Mixed  ·  *Proposed*
+
+Question card in the bubble with follow-up DL Buttons outside it (Nusuk), or an answer card with content outside it (user). Figma 25 Nov 2026.
+
+**Status:** Proposed as a variant / prop of DL **ChatMessage**.  
+**Figma source:** 💬 Chat UI › AI Chat Messages › Style=Mixed — User=Nusuk `80835:33795` · User=User `80835:31779`.  
+**Code today:** `NusukChat.Mixed` in nk-chat.js (built with: _Chat Container Master Type=Nusuk/Mixed · User/Mixed · DL CTA Kind=Primary, Size=SM, Icon=No Icon · Actions row: wrap, 8 × 8, from the start edge).
+
+## Props
+
+| Prop | Notes |
+|---|---|
+| `from` |  |
+| `type` |  |
+| `typeIcon` | optional  |
+| `title` |  |
+| `desc` | optional  |
+| `items` | string[] (Nusuk follow-ups) |
+| `onPick` | (text, i) |
+| `kind` | optional  |
+| `size` | optional  |
+| `below` | optional (user) |
+| `question` | optional (user) |
+
+## Use
+
+- Inside Nusuk AI chat answers, in the bubble or question card it is shown in today.
+
+## Don't
+
+- Do not restyle: colour, type, radius and spacing come from DL tokens and the proposed `chat-*` tokens.
+- Do not use outside chat until the DL review confirms the scope.
+
+## Accessibility
+
+- Arabic first, mirrored with logical properties; numbers isolated in RTL.
+- Focus ring: border-thick ink with the proposed focus offset; targets ≥ 44 px (48 for primary actions).
+
+## You provide
+
+The content (labels, values, images from the CMS) and the container. Colour, type, radius and spacing come from the tokens and are not props.
 
 ---
 

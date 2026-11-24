@@ -1,6 +1,6 @@
 # Nusuk AI chat · a skill aspect of the Nusuk DL
 
-**Version:** NusukChat 2.8.8 on DL 3.10 (23 November 2026, Default and Error follow-ups are DL CTAs) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 55 variants, 3 masters)
+**Version:** NusukChat 2.9.0 on DL 3.10 (25 November 2026, Mixed messages, Loading Text, tab bar actions) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 55 variants, 3 masters)
 
 ## When to open this folder
 Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot, OTP, password, mobile, gender, passport, border number, IBAN, face scan), the AI tab bar (default, text, typing, recording, recorded, responding, limit reached), the Nusuk Bot and its notes, booking tickets, hotel and flight cards, location guides and option lists.
@@ -36,6 +36,15 @@ Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot,
 <script src="components/bundle.js"></script>
 <script src="chat/nk-chat.js"></script>
 ```
+
+## What changed on 25 November (2.9.0)
+Source: the DL Advisor's major update to 💬 Chat UI ([_Chat Container Master](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18766), [AI Chat Messages](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4523), [AI Tab Bar](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4481)).
+- **Mixed (new):** container Type=Nusuk/Mixed (80835:28996) and User/Mixed (80835:29699); AI Chat Messages Style=Mixed (Nusuk 80835:33795, User 80835:31779). Nusuk: bubble › time + actions › follow-ups outside the bubble as DL CTA Primary SM without an icon, wrapping 8 × 8 from the start edge. User: bubble › content outside › time. Code: `NusukChat.Mixed` and `Message` `below`.
+- **Loading:** DL Loading Text replaces the fading dots: 23 × 13, three 3.66 dots, one at a time grows to 5.85 from the start edge, 150 ms a step, ease-out; off with reduced motion. Style=Loading: Nusuk 80835:33952, User 80392:4524.
+- **Tab bar Status=Actions (new, 80821:18082):** Regular/Body/Two with 18 inline padding, 12 above one row of Primary SM replies that does not wrap and scrolls sideways. The master is `_AI Tab Bar Master` with Darkmode Off (80392:4168) and On (80821:21830); Status=Default is the home indicator only.
+- **Re-pointed:** user text is 80835:30455 (80392:4524 is now User / Loading). Style=Transprent (80835:32812 / 32356) and Solid Background (80835:33283 / 33476) map to `Message` with `bg` false / true. Nafath, Nationality, Email and Email OTP now place the Conversation Components sets inside AI Chat Messages.
+- **Icons:** earth, global and mail-01 are not in the DL icon set; the chat carries them from Figma (FigIcon). The Nationality search icon was blank before.
+- Migration `migrations/2026-11-25-nusuk-chat-mixed-loading-tabactions.json`.
 
 ## What changed on 23 November (2.8.8)
 - **Default** (`Chips`, [Figma 80392:4581](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4581)): follow-ups are DL **CTA Primary SM, Icon=Right** with arrow-right-02 (mirrored in RTL), not Chip White LR. They wrap 8 × 8 from the start edge, 12 below. Transparent message, help-circle on, the time alone in the footer.

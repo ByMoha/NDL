@@ -3,7 +3,7 @@
 Answer text with question echo and “تعديل الإجابة”.
 
 **Status:** Proposed as a variant / prop of DL **ChatMessage**.  
-**Figma source:** 💬 Chat UI › AI Chat Messages › Style=Text — User=User `80392:4524` · User=Nusuk `80601:9158`.  
+**Figma source:** 💬 Chat UI › AI Chat Messages › Style=Text — User=User `80835:30455` · User=Nusuk `80601:9158`.  
 **Code today:** `NusukChat.Text` in nk-chat.js (built with: Light/Body/One · _Button Trail + edit-02 · Footer actions copy-01 / thumbs-up / thumbs-down).
 
 ## Props

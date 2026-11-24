@@ -1,0 +1,74 @@
+{
+ "date": "2026-11-25",
+ "name": "NusukChat 2.9.0: Mixed messages, Loading Text, tab bar actions",
+ "status": "proposed",
+ "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18766",
+ "source": "The DL Advisor's major update to 💬 Chat UI, 25 November 2026: _Chat Container Master (8 states), AI Chat Messages (37 variants), AI Tab Bar (8 statuses, light and dark master).",
+ "chat": {
+  "version": {
+   "from": "2.8.8",
+   "to": "2.9.0"
+  },
+  "added": [
+   {
+    "component": "Mixed",
+    "figma": {
+     "Nusuk": "80835:33795",
+     "User": "80835:31779",
+     "container Nusuk/Mixed": "80835:28996",
+     "container User/Mixed": "80835:29699"
+    },
+    "what": "Nusuk: Body › Upper Footer (time + copy/up/down) › Content No BG with DL CTA Primary SM, Icon=No Icon, wrap 8 × 8, start edge. User: Body › Content No BG › Lower Footer (time)."
+   },
+   {
+    "component": "TabBar status actions",
+    "figma": "80821:18082",
+    "what": "Actions Only: Regular/Body/Two with 18 inline padding, 12 above one non-wrapping row of CTA Primary SM, no icon, gap 8; the row scrolls sideways."
+   }
+  ],
+  "changed": [
+   {
+    "component": "Message",
+    "change": "New below prop (Mixed). The footer is the Upper Footer between bubble and below for Nusuk, the Lower Footer last for user."
+   },
+   {
+    "component": "Loading",
+    "change": "DL Loading Text (80700:13922) replaces the fading dots: 23 × 13, dots 3.66 on a 9 pitch, the active dot scales ×1.6, 150 ms a step, ease-out, from the start edge. AI Chat Messages Style=Loading: Nusuk 80835:33952, User 80392:4524."
+   },
+   {
+    "component": "Text",
+    "change": "User text is 80835:30455; 80392:4524 now holds User / Loading."
+   },
+   {
+    "component": "TabBar",
+    "change": "Master is now _AI Tab Bar Master with Darkmode=Off (80392:4168) and On (80821:21830); Status=Default shows the home indicator only."
+   },
+   {
+    "component": "FigIcon",
+    "change": "Adds earth, global and mail-01 from Figma (not in the DL icon set). NationalitySearch uses global from here; it rendered blank before."
+   }
+  ]
+ },
+ "openDL": [
+  "earth, global and mail-01 are used by the chat but missing from the DL icon set: request them for 🎨 Icons.",
+  "Loading Text is a remote library component: confirm it is published in the DL and named for code (LoadingDots?)."
+ ],
+ "native": {
+  "ios": "Mixed: VStack(spacing 12) { bubble; HStack { time; Spacer; actions } (Nusuk); FlowLayout(spacing 8) of the DL primary .small buttons }. Loading: three 3.66 circles, scaleEffect 1.6 on the active one, 0.15 s steps, easeOut, honouring accessibilityReduceMotion. Tab bar actions: ScrollView(.horizontal, showsIndicators: false) of .small primary buttons, spacing 8, 18 leading/trailing content margins.",
+  "android": "Mixed: Column(spacedBy(12.dp)) { bubble; Row { time; Spacer; actions } (Nusuk); FlowRow(spacedBy(8.dp), spacedBy(8.dp)) of PrimaryButton(size = Sm) }. Loading: three 3.66.dp circles, scale 1.6 on the active one, 150 ms steps, FastOutSlowIn/EaseOut, off when animations are disabled. Tab bar actions: LazyRow(horizontalArrangement = spacedBy(8.dp), contentPadding = PaddingValues(horizontal = 18.dp))."
+ },
+ "tokens": {
+  "added": [
+   "--nkc-loading-w 23px",
+   "--nkc-loading-h 13px",
+   "--nkc-loading-dot 3.66px",
+   "--nkc-loading-gap 5.34px"
+  ],
+  "changed": [],
+  "removed": []
+ },
+ "breaking": [
+  "NusukChat.Text user figma node changed to 80835:30455.",
+  "Loading no longer fades; it scales one dot at a time (respects reduced motion)."
+ ]
+}

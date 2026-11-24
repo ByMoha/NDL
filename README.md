@@ -1,6 +1,6 @@
 # Nusuk DL
 
-The Nusuk Design Language for Claude and for developers. Release 2026-11-18 (DESIGN.md 3.7.3, tokens 3.12), plugin 2026.11.230245, built 2026-11-23T02:45+03:00 (chat lane update: NusukChat 2.8.8).
+The Nusuk Design Language for Claude and for developers. Release 2026-11-18 (DESIGN.md 3.7.3, tokens 3.12), plugin 2026.11.250300, built 2026-11-25T03:00+03:00 (chat lane update: NusukChat 2.9.0).
 
 Since 17 November 2026 (DL-42) the DL reaches people in two ways only:
 
