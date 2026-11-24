@@ -71,6 +71,11 @@
 .nkc-foot { display: flex; align-items: center; gap: var(--space-md); padding: 0 var(--space-nr); }
 /* Mixed (Figma 25 Nov 2026): Nusuk = Body › Upper Footer › Content No BG; user = Body › Content No BG › Lower Footer; 12 between, from .nkc-col */
 .nkc-below:empty { display: none; }
+/* Badge (Figma 80840:63916): 50 × 50, first in the Body at the start edge; shape and icon placed as in Figma */
+.nkc-badge { position: relative; display: block; flex: none; width: var(--nkc-badge-size); height: var(--nkc-badge-size); align-self: flex-start; }
+.nkc-badge-bg { position: absolute; overflow: visible; }
+.nkc-badge-ic { position: absolute; display: inline-flex; }
+.nkc-badge-ic .nk-ico { width: 100%; height: 100%; }
 .nkc-chips.btns.flush { padding-bottom: 0; }
 .nkc-time { flex: 1; font: var(--nkc-type-notes-1-regular); color: var(--text-heading); unicode-bidi: isolate; text-align: start; } /* Figma: Nusuk time at the start (actions at the end); user time at the end, beside the avatar */
 .nkc-acts { display: flex; gap: var(--space-sm); }

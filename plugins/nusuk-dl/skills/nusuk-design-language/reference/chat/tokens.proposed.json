@@ -6,6 +6,13 @@
  "note": "Every value used by NusukChat that has no DL token. All other values in nk-chat.css are DL tokens. proposedDLName drops the nkc- prefix; the DL Manager picks the final name.",
  "tokens": [
   {
+   "name": "nkc-badge-size",
+   "proposedDLName": "chat-badge-size",
+   "group": "Component dimensions (fixed by Figma, not spacing)",
+   "value": "50px",
+   "usage": "💬 Chat UI › Badge (80840:63916, 25 Nov 2026)."
+  },
+  {
    "name": "nkc-loading-w",
    "proposedDLName": "chat-loading-w",
    "group": "Component dimensions (fixed by Figma, not spacing)",

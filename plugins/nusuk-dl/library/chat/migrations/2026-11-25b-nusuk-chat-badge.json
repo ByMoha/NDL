@@ -1,0 +1,46 @@
+{
+ "date": "2026-11-25",
+ "name": "NusukChat 2.9.1: Badge",
+ "status": "proposed",
+ "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80840-63916",
+ "source": "The DL Advisor's change to 💬 Chat UI on 25 November 2026: a new local Badge set (Color × Status) placed first in the _Chat Container Body.",
+ "chat": {
+  "version": {
+   "from": "2.9.0",
+   "to": "2.9.1"
+  },
+  "added": [
+   {
+    "component": "Badge",
+    "figma": {
+     "set": "80840:63916",
+     "in _Chat Container": "80841:64026"
+    },
+    "what": "50 × 50. success: rosette + tick-02 24 at 13,13; failure: rounded triangle (48 × 42 at 1,4) + unavailable 20 at 15,22; alert: hexagon (43.3 × 49.4 at 3.65,0.3) + alert-02 38 at 6,6. light: Alerts/Surface/Success · Error · Warning with Alerts/Icons/*; dark: Alerts/Surface/Solid * with Alerts/Icons/White."
+   }
+  ],
+  "changed": [
+   {
+    "component": "Question",
+    "change": "badge prop: first in the bubble at the start edge."
+   }
+  ]
+ },
+ "openDL": [
+  "Figma: rename the solid variants to Color=Dark (they duplicate Color=Light, Status=Faliure / Alert), and Faliure → Failure.",
+  "Figma: alert-02 is 38 inside a 43 hexagon; 24 would match the other badges.",
+  "Figma: add a Show Badge boolean on _Chat Container; today the layer is shown or hidden by hand."
+ ],
+ "native": {
+  "ios": "A 50 × 50 ZStack: the shape as a Path filled with the Alerts surface token, the DL icon on top at the Figma offset; accessibilityLabel from the status.",
+  "android": "Box(Modifier.size(50.dp)) { Icon(shape vector, tint = Alerts surface); Icon(DL icon, tint = Alerts icon or White) }; contentDescription from the status."
+ },
+ "tokens": {
+  "added": [
+   "--nkc-badge-size 50px"
+  ],
+  "changed": [],
+  "removed": []
+ },
+ "breaking": []
+}

@@ -1,6 +1,6 @@
 # Nusuk AI chat · a skill aspect of the Nusuk DL
 
-**Version:** NusukChat 2.9.0 on DL 3.10 (25 November 2026, Mixed messages, Loading Text, tab bar actions) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 55 variants, 3 masters)
+**Version:** NusukChat 2.9.1 on DL 3.10 (25 November 2026, Mixed messages, Loading Text, tab bar actions, Badge) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 55 variants, 3 masters)
 
 ## When to open this folder
 Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot, OTP, password, mobile, gender, passport, border number, IBAN, face scan), the AI tab bar (default, text, typing, recording, recorded, responding, limit reached), the Nusuk Bot and its notes, booking tickets, hotel and flight cards, location guides and option lists.
@@ -36,6 +36,10 @@ Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot,
 <script src="components/bundle.js"></script>
 <script src="chat/nk-chat.js"></script>
 ```
+
+## Badge (2.9.1, 25 November)
+- **New:** [Badge](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80840-63916) (80840:63916), placed first in the _Chat Container Body. `NusukChat.Badge`: success (rosette, tick-02 24), failure (rounded triangle, unavailable 20), alert (hexagon, alert-02 38); light = soft Alerts surface + Alerts icon colour, dark = solid surface + white icon; 50 × 50. `Question` takes `badge`.
+- **Open in Figma:** the solid red and orange variants are named Color=Light (they duplicate the light ones) and Failure is spelled Faliure; alert-02 at 38 overflows the hexagon; there is no Show Badge property, so the layer is toggled by hand. Migration `migrations/2026-11-25b-nusuk-chat-badge.json`.
 
 ## What changed on 25 November (2.9.0)
 Source: the DL Advisor's major update to 💬 Chat UI ([_Chat Container Master](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18766), [AI Chat Messages](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4523), [AI Tab Bar](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4481)).

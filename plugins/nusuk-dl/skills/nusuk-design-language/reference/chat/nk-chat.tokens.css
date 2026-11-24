@@ -9,6 +9,7 @@
   /* ---- Spacing / focus ---------------------------------------------------- */
 
   /* ---- Component dimensions (fixed by Figma, not spacing) ----------------- */
+  --nkc-badge-size: 50px;            /* 💬 Chat UI › Badge (80840:63916, 25 Nov 2026). */
   --nkc-loading-w: 23px;              /* DL Loading Text frame (Figma 80700:13922, 25 Nov 2026). */
   --nkc-loading-h: 13px;
   --nkc-loading-dot: 3.66px;          /* Rectangle 2–4: 3.66 × 3.66, radius full; the active dot scales to 5.85 (×1.6). */

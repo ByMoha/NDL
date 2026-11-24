@@ -1,15 +1,15 @@
 {
  "release": "2026-11-18",
- "built": "2026-11-25T03:00+03:00",
+ "built": "2026-11-25T03:20+03:00",
  "designMd": "DESIGN.md 3.7.3",
  "tokens": "3.12",
- "plugin": "2026.11.250300",
+ "plugin": "2026.11.250320",
  "checked": 337,
  "files": [
   {
    "file": "DESIGN.md",
-   "bytes": 271516,
-   "sha256": "5471a05d17e4eb9731c09adac8c7cc02fda92de615f35aedb1041723481ef9d1"
+   "bytes": 271904,
+   "sha256": "3a0050a6e8617fe2e7e7d9485a90a37eced0494e880f1781a30ae333131af3cd"
   },
   {
    "file": "NusukTokens.kt",
@@ -28,15 +28,15 @@
   },
   {
    "file": "nusuk-dl-developer-handoff.zip",
-   "bytes": 1088172,
-   "sha256": "0273c461e1d46f92b3b2742047c912b4039a579e647a2220ac30098962712be9",
-   "files": 339
+   "bytes": 1093479,
+   "sha256": "96347ec568987af3e49977c0a79135211e8cb55c0e37c0422c371875a613b302",
+   "files": 341
   },
   {
    "file": "nusuk-dl.plugin",
-   "bytes": 24846440,
-   "sha256": "e9718f7c337c95459a76492b5cc0d49dbc93d5f8b54ddc869be0b0d2b323eba4",
-   "files": 545
+   "bytes": 24855623,
+   "sha256": "c25e29e7758b20e070ab1c6d060196cc3db2577b090498d5f3d44cd7014f8354",
+   "files": 547
   },
   {
    "file": "tokens-native.json",
@@ -44,5 +44,5 @@
    "sha256": "bda6d286aa9a709a5b6a72edce917008ad1e65f97d41c267e86baf526d0e5e7d"
   }
  ],
- "chat": "NusukChat 2.9.0"
+ "chat": "NusukChat 2.9.1"
 }

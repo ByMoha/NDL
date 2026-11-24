@@ -7,7 +7,7 @@
  "updated": "2026-11-25",
  "counts": {
   "variant": 24,
-  "new": 15,
+  "new": 16,
   "dl": 4
  },
  "components": [
@@ -238,6 +238,29 @@
    },
    "props": "from",
    "builtWith": "DL Loading Text (Status 00–03): three icons-black dots 3.66, one grows to 5.85 from the start edge, 150 ms a step, ease-out"
+  },
+  {
+   "name": "Badge",
+   "code": "NusukChat.Badge",
+   "status": "new",
+   "dlTarget": null,
+   "group": "Nusuk AI",
+   "summary": "Status mark at the top of a chat bubble: success rosette, failure triangle, alert hexagon; light and dark. Figma 25 Nov 2026.",
+   "figma": {
+    "file": "b2JRq5iuFo8rvl354ggpjR",
+    "library": "💬 Chat UI",
+    "component": "💬 Chat UI › Badge",
+    "nodes": {
+     "light-success": "80840:63917",
+     "light-failure": "80840:63920",
+     "light-alert": "80840:63923",
+     "dark-success": "80840:63926",
+     "dark-failure": "80841:63960",
+     "dark-alert": "80841:63957"
+    }
+   },
+   "props": "status: success | failure | alert · color: light | dark · label? (spoken name). On Question: badge: \"success\" | { status, color }",
+   "builtWith": "Alerts/Surface/Success · Error · Warning (light) and Solid Success · Error · Warning (dark); icons tick-02 24 · unavailable 20 · alert-02 38, Alerts/Icons/* or White. Sits first in the _Chat Container Body (start edge, above the question)."
   },
   {
    "name": "Mixed",
