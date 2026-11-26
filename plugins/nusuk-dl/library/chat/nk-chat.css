@@ -77,6 +77,13 @@
 .nkc-badge-ic { position: absolute; display: inline-flex; }
 .nkc-badge-ic .nk-ico { width: 100%; height: 100%; }
 .nkc-chips.btns.flush { padding-bottom: 0; }
+/* Clouser (Figma 80835:63106, 26 Nov 2026): Ivory card between the bubble and the follow-ups */
+.nkc-closure { display: flex; flex-direction: column; align-items: center; gap: var(--space-nr); padding: var(--space-nr) 0; background: var(--surface-02-ivory); border-radius: var(--radius-md); }
+.nkc-closure-q, .nkc-closure-thanks { margin: 0; font: var(--nkc-type-body-2-regular); color: var(--text-content); text-align: center; }
+.nkc-closure-acts { display: flex; justify-content: center; gap: var(--space-xs); }
+.nkc-thumb-down { display: contents; } .nkc-thumb-down .nk-ico { transform: rotate(180deg); }
+.nkc-below.lead { padding-top: var(--space-nr); gap: var(--space-nr); }
+.nkc-below-lead { margin: 0; font: var(--nkc-type-body-1-regular); color: var(--text-heading); }
 .nkc-time { flex: 1; font: var(--nkc-type-notes-1-regular); color: var(--text-heading); unicode-bidi: isolate; text-align: start; } /* Figma: Nusuk time at the start (actions at the end); user time at the end, beside the avatar */
 .nkc-acts { display: flex; gap: var(--space-sm); }
 .nkc-ib { width: var(--dimension-nr); height: var(--dimension-nr); padding: 0; border: 0; background: none; color: var(--icons-black); cursor: pointer; display: grid; place-items: center; position: relative; }

@@ -203,11 +203,12 @@
         from === 'nusuk' ? (p.bot === false ? h('span', { className: 'nkc-bot-gap', 'aria-hidden': true, style: { width: 24, flex: 'none' } }) : h(Bot, { location: p.location || C_LOC.value, mirror: true })) : h(Avatar),
         h('div', { className: 'nkc-col' },
           h('div', { className: 'nkc-body' + (bg ? '' : ' nobg') + (p.padEnd === 'md' ? ' padb-md' : '') }, (p.question && from === 'nusuk') ? h('p', { className: 'nkc-title nkc-ask' }, p.question) : null, p.children),
-          mixed && from === 'user' ? h('div', { className: 'nkc-body nobg nkc-below' }, p.below) : null,
+          p.feedback || null,
+          mixed && from === 'user' ? h('div', { className: 'nkc-body nobg nkc-below' + (p.belowLead ? ' lead' : '') }, p.below) : null,
           p.footer === false ? null : h('div', { className: 'nkc-foot' + (mixed && from !== 'user' ? ' upper' : '') },
             h('span', { className: 'nkc-time' }, p.time || now()),
             p.actions ? h(Actions, { text: p.copyText }) : null),
-          mixed && from !== 'user' ? h('div', { className: 'nkc-body nobg nkc-below' }, p.below) : null)));
+          mixed && from !== 'user' ? h('div', { className: 'nkc-body nobg nkc-below' + (p.belowLead ? ' lead' : '') }, p.below) : null)));
   }
 
   /* Nusuk Bot Messages (80559:28806): variant 'insight' (Default=Makkah 80559:28807, Variant3=Madinah 80559:28810)
@@ -257,6 +258,31 @@
       return h(N.Button, { key: i, kind: p.kind || 'primary', size: p.size || 'sm', onClick: function () { if (p.onPick) p.onPick(t, i); } }, t);
     }));
     return h(Message, { bot: p.bot, from: from, question: from === 'user' ? p.question : null, actions: from === 'nusuk', copyText: p.title, time: p.time, padEnd: from === 'user' ? 'md' : null, figma: from === 'user' ? '80835:31779' : '80835:33795', below: below }, card);
+  }
+
+  /* Style=Clouser (Figma 80835:63106, 26 Nov 2026) — closing message: the answer in the bubble, then the "Clouser" card
+     (Surface/02 Ivory, radius 18, 18 above and below, 18 gap; Regular/Body/Two centred in Text/Content; DL CTA Primary SM,
+     Icon=Left: نعم thumbs-up first, then لا thumbs-down, centred, gap 8), then outside the bubble a Regular/Body/One lead line and
+     follow-ups (Primary SM, no icon, wrap 8 × 8, start edge); 18 on top and between. No time or actions under the bubble. */
+  function Closure(p) {
+    var s = React.useState(null), vote = s[0], setVote = s[1];
+    var card = h('div', { className: 'nkc-qb' },
+      h('div', { className: 'nkc-type' }, FigIcon(p.typeIcon || 'mail-01', 16), h('span', null, p.type || tl('عنوان مختصر', 'Short title'))),
+      p.title ? h('div', { className: 'nkc-title' }, p.title) : null,
+      p.desc ? h('div', { className: 'nkc-desc' }, p.desc) : null);
+    var fb = h('div', { className: 'nkc-closure', role: 'group', 'aria-label': p.feedbackLabel || tl('هل كانت هذه المعلومات مفيدة؟', 'Was this helpful?') },
+      h('p', { className: 'nkc-closure-q' }, p.feedbackLabel || tl('هل كانت هذه المعلومات مفيدة؟', 'Was this helpful?')),
+      vote ? h('p', { className: 'nkc-closure-thanks', role: 'status' }, p.thanks || tl('شكرًا لملاحظتك.', 'Thanks for your feedback.')) :
+      h('div', { className: 'nkc-closure-acts' },
+        h(N.Button, { kind: 'primary', size: 'sm', icon: 'left', iconName: 'thumbs-up', onClick: function () { setVote('yes'); if (p.onFeedback) p.onFeedback(true); } }, tl('نعم', 'Yes')),
+        /* thumbs-down is not in the DL icon set: thumbs-up turned 180° (the Hugeicons pair are mirror images) until 🎨 Icons adds it */
+        h('span', { className: 'nkc-thumb-down' }, h(N.Button, { kind: 'primary', size: 'sm', icon: 'left', iconName: 'thumbs-up', onClick: function () { setVote('no'); if (p.onFeedback) p.onFeedback(false); } }, tl('لا', 'No')))));
+    var below = [
+      p.lead !== false ? h('p', { key: 'l', className: 'nkc-below-lead' }, p.lead || tl('يمكنك الاستفادة من نسك AI في ..', 'Nusuk AI can also help you with ..')) : null,
+      (p.items && p.items.length) ? h('div', { key: 'b', className: 'nkc-chips btns flush', role: 'group', 'aria-label': p.label || tl('اقتراحات', 'Suggestions') }, p.items.map(function (t, i) {
+        return h(N.Button, { key: i, kind: p.kind || 'primary', size: 'sm', onClick: function () { if (p.onPick) p.onPick(t, i); } }, t);
+      })) : null];
+    return h(Message, { bot: p.bot, from: 'nusuk', footer: false, figma: '80835:63106', feedback: fb, below: below, belowLead: true }, card);
   }
 
   /* Style=Default — 80392:4581 (Figma 23 Nov 2026): transparent Nusuk message, follow-up actions as DL CTA Primary SM, Icon=Right
@@ -812,6 +838,7 @@
     { code: 'NusukChat.SlotsAnswer', figma: 'AI Chat Messages › Style=Slots', nodes: { 'User=User': '80601:5538' }, props: 'date · time · question? · onEdit', dl: 'Light/Display/One for time' },
     { code: 'NusukChat.Loading', figma: '_Chat Container Master › Status=Loading', nodes: { 'Type=Nusuk': '80451:18763', 'Type=User': '80501:2248', 'AI Chat Messages › User=Nusuk, Style=Loading': '80835:33952', 'AI Chat Messages › User=User, Style=Loading': '80392:4524' }, props: 'from', dl: 'DL Loading Text (Status 00–03): three icons-black dots 3.66, one grows to 5.85 from the start edge, 150 ms a step, ease-out' },
     { code: 'NusukChat.Badge', figma: '💬 Chat UI › Badge', nodes: BADGE_NODES, props: 'status: success | failure | alert · color: light | dark · label? (spoken name). On Question: badge: "success" | { status, color }', dl: 'Alerts/Surface/Success · Error · Warning (light) and Solid Success · Error · Warning (dark); icons tick-02 24 · unavailable 20 · alert-02 38, Alerts/Icons/* or White. Sits first in the _Chat Container Body (start edge, above the question).' },
+    { code: 'NusukChat.Closure', figma: 'AI Chat Messages › Style=Clouser', nodes: { 'User=Nusuk, Style=Clouser': '80835:63106', '_Chat Container › Clouser': '80453:2664' }, props: 'type · typeIcon? · title · desc? · feedbackLabel? · onFeedback(helpful: boolean) · thanks? · lead? (false hides it) · items: string[] · onPick(text, i) · kind?', dl: '_Chat Container Master Type=Nusuk/Mixed with the Clouser block: Surface/02 Ivory, Radius/MD, Space/NR top/bottom and gap; Regular/Body/Two in Text/Content, centred; DL CTA Primary SM Icon=Left thumbs-down / thumbs-up, gap Space/XS; outside the bubble Regular/Body/One lead and Primary SM follow-ups, wrap 8 × 8; Content No BG padding-top and gap Space/NR' },
     { code: 'NusukChat.Mixed', figma: 'AI Chat Messages › Style=Mixed', nodes: { 'User=Nusuk': '80835:33795', 'User=User': '80835:31779' }, props: 'from · type · typeIcon? · title · desc? · items: string[] (Nusuk follow-ups) · onPick(text, i) · kind? · size? · below? (user) · question? (user)', dl: '_Chat Container Master Type=Nusuk/Mixed · User/Mixed · DL CTA Kind=Primary, Size=SM, Icon=No Icon · Actions row: wrap, 8 × 8, from the start edge' },
     { code: 'NusukChat.TabBar', figma: 'AI Tab Bar', nodes: Object.assign({ '_AI Tab Bar Master › Darkmode=Off': '80392:4168', '_AI Tab Bar Master › Darkmode=On': '80821:21830' }, TAB_NODES), props: 'status (default · limit · recording · recorded · text · responding · actions · typing) · value · placeholder · limitText · message + actions: string[] + onAction(text, i) (status actions) · onSend({type,text|duration}) · onStop · respondOnSend', dl: 'glass-full · radius-full · DL Icon mic / send / pause / delete-03' },
     { code: 'NusukChat.NafathAnswer', figma: 'Answers / Property 1=Nafath', nodes: { 'Instance on canvas': '80473:2474', 'Component': '80473:2443' }, props: 'label · onClick', dl: 'buttons/surface/reject (ivory) pill 48 · Regular/Body/Two · Nafath logo (exact SVG)' },
@@ -851,6 +878,7 @@
     'Question': ['new', null, 'Chat question card: type row, title, description, back, content slot, one Primary CTA.'],
     'Text': ['variant', 'ChatMessage', 'Answer text with question echo and “تعديل الإجابة”.'],
     'Badge': ['new', null, 'Status mark at the top of a chat bubble: success rosette, failure triangle, alert hexagon; light and dark. Figma 25 Nov 2026.'],
+    'Closure': ['variant', 'ChatMessage', 'Closing message: the answer, a “was this helpful?” card with لا / نعم, then follow-ups outside the bubble. Figma 26 Nov 2026 (Style=Clouser).'],
     'Mixed': ['variant', 'ChatMessage', 'Question card in the bubble with follow-up DL Buttons outside it (Nusuk), or an answer card with content outside it (user). Figma 25 Nov 2026.'],
     'Voice': ['variant', 'ChatMessage', 'Voice message: the 42 Ink play button and the waveform (bars on Surface/Longing, played at 100%, the rest at 30%); the duration is in the play button\'s label.'],
     'Chips': ['variant', 'Button', 'Follow-up actions: a wrapping row of DL CTA Primary SM with a trailing arrow (Figma 23 Nov 2026; was Chip White LR).'],
@@ -899,5 +927,5 @@
     { code: 'NusukChat.SingleChoose', figma: 'AI Chat Messages › Style=Single Choose', nodes: { 'Variant': '80626:36740' }, props: 'type · typeIcon · title · options: [{icon, title}] · selected · onConfirm(option, i)', dl: 'Question card · DL Option Cards (Icon with Action) · Alerts/Surface/Success · Buttons Green · DL Button Primary MD' });
   registry.forEach(function (r) { var k = r.code.replace('NusukChat.', ''), d = DL_STATUS[k] || ['new', null, '']; r.status = d[0]; r.dlTarget = d[1]; r.dlNote = d[2]; });
 
-  window.NusukChat = { version: '2.9.1', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Mixed: Mixed, Badge: Badge, BADGE: BADGE, Alert: Alert, ErrorMsg: ErrorMsg, GeneralError: GeneralError, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
+  window.NusukChat = { version: '2.9.2', setLang: function (l) { LANG.v = l === 'en' ? 'en' : 'ar'; }, lang: function () { return LANG.v; }, DL_STATUS: DL_STATUS, LocationGuide: LocationGuide, HotelChoose: HotelChoose, HotelCard: HotelCard, FlightsSelection: FlightsSelection, SingleChoose: SingleChoose, CHOICES: CHOICES, FlightTicketFull: FlightTicketFull, BookingTicket: BookingTicket, LogoIcon: LogoIcon, LogosGroup: LogosGroup, LOGO: LOGO, Filters: Filters, HOTELS: HOTELS, FLIGHTS: FLIGHTS, BOOKING: BOOKING, setAssetBase: function (b) { ASSET_BASE.v = b || ''; }, PasswordField: PasswordField, MobileField: MobileField, GenderField: GenderField, PassportNumber: PassportNumber, BorderNumber: BorderNumber, IbanField: IbanField, PassportAttach: PassportAttach, PassportPreview: PassportPreview, Liveness: Liveness, Fld: Fld, SelCard: SelCard, FigIcon: FigIcon, FIG_ICONS: FIG_ICONS, setLocation: function (l) { C_LOC.value = l; }, BotNote: BotNote, Flag: Flag, NafathAnswer: NafathAnswer, SkipNafath: SkipNafath, NationalitySearch: NationalitySearch, AddedNationalities: AddedNationalities, NationalityRow: NationalityRow, Otp: Otp, PackageCard: PackageCard, Packages: Packages, PACKAGES: PACKAGES, FLAGS: FLAGS, EYE_NODES: EYE_NODES, EyeEngine: EyeEngine, file: FILE, Bot: Bot, Avatar: Avatar, Trail: Trail, Actions: Actions, Message: Message, Text: Text, Voice: Voice, Chips: Chips, Mixed: Mixed, Closure: Closure, Badge: Badge, BADGE: BADGE, Alert: Alert, ErrorMsg: ErrorMsg, GeneralError: GeneralError, Loading: Loading, Question: Question, Days: Days, DaysAnswer: DaysAnswer, Slots: Slots, SlotsAnswer: SlotsAnswer, TabBar: TabBar, Svg: Svg, registry: registry, TAB_NODES: TAB_NODES };
 })();

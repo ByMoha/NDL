@@ -1,6 +1,6 @@
 # Nusuk AI chat · a skill aspect of the Nusuk DL
 
-**Version:** NusukChat 2.9.1 on DL 3.10 (25 November 2026, Mixed messages, Loading Text, tab bar actions, Badge) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 55 variants, 3 masters)
+**Version:** NusukChat 2.9.2 on DL 3.10 (26 November 2026, Closure; 25 November: Mixed, Loading Text, tab bar actions, Badge) · **Status:** Proposed lane · **Rules:** DESIGN.md › M9C · **Figma:** [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=2402-18252) (7 sets, 55 variants, 3 masters)
 
 ## When to open this folder
 Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot, OTP, password, mobile, gender, passport, border number, IBAN, face scan), the AI tab bar (default, text, typing, recording, recorded, responding, limit reached), the Nusuk Bot and its notes, booking tickets, hotel and flight cards, location guides and option lists.
@@ -36,6 +36,11 @@ Any work on the Nusuk AI chat: a bot answer, a question in the chat (date, slot,
 <script src="components/bundle.js"></script>
 <script src="chat/nk-chat.js"></script>
 ```
+
+## Closure (2.9.2, 26 November)
+- **New:** [AI Chat Messages › Style=Clouser](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80835-63106) (80835:63106), built on Type=Nusuk/Mixed with a new Clouser block in `_Chat Container`. `NusukChat.Closure`: the answer in the bubble; an Ivory card (Surface/02, radius 18, 18 padding and gap) asking “هل كانت هذه المعلومات مفيدة؟” with Primary SM نعم (thumbs-up) and لا (thumbs-down); outside the bubble a Body 1 lead and Primary SM follow-ups. No time or actions under the bubble. After a vote, a thank-you line replaces the buttons.
+- `Message` takes `feedback` and `belowLead`.
+- **Open:** thumbs-down is not in the DL icon set (thumbs-up turned 180° for now); the Clouser layer and the Badge are visible by default in `_Chat Container` with no property to switch them; Style=Clouser should be Closure. Migration `migrations/2026-11-26-nusuk-chat-closure.json`.
 
 ## Badge (2.9.1, 25 November)
 - **New:** [Badge](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80840-63916) (80840:63916), placed first in the _Chat Container Body. `NusukChat.Badge`: success (rosette, tick-02 24), failure (rounded triangle, unavailable 20), alert (hexagon, alert-02 38); light = soft Alerts surface + Alerts icon colour, dark = solid surface + white icon; 50 × 50. `Question` takes `badge`.

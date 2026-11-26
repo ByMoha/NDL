@@ -1,0 +1,44 @@
+{
+ "date": "2026-11-26",
+ "name": "NusukChat 2.9.2: Closure",
+ "status": "proposed",
+ "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80835-63106",
+ "source": "The DL Advisor's update to 💬 Chat UI on 25–26 November 2026: AI Chat Messages › User=Nusuk, Style=Clouser and a Clouser frame in _Chat Container.",
+ "chat": {
+  "version": {
+   "from": "2.9.1",
+   "to": "2.9.2"
+  },
+  "added": [
+   {
+    "component": "Closure",
+    "figma": {
+     "message": "80835:63106",
+     "_Chat Container": "80453:2664"
+    },
+    "what": "Type=Nusuk/Mixed: Body › Clouser (Surface/02 Ivory, Radius/MD, Space/NR top/bottom and gap; Regular/Body/Two, Text/Content, centred; CTA Primary SM Icon=Left نعم thumbs-up, لا thumbs-down, gap 8, centred) › Content No BG (padding-top 18, gap 18; Regular/Body/One lead; CTA Primary SM no icon, wrap 8 × 8). Upper and Lower Footer hidden."
+   }
+  ],
+  "changed": [
+   {
+    "component": "Message",
+    "change": "feedback (block after the bubble) and belowLead (18 above and between in the content outside the bubble)."
+   }
+  ]
+ },
+ "openDL": [
+  "🎨 Icons: add thumbs-down (also earth, global, mail-01 from 2.9.0).",
+  "Figma: add Show Clouser and Show Badge booleans to _Chat Container; both layers are visible by default and hidden by hand.",
+  "Figma: rename Style=Clouser to Style=Closure before code maps to it."
+ ],
+ "native": {
+  "ios": "VStack(spacing 12) { bubble; VStack(spacing 18) { Text(.body2).multilineTextAlignment(.center); HStack(spacing 8) { primary .small Yes (hand.thumbsup); primary .small No (hand.thumbsdown) } }.padding(.vertical, 18).background(ivory, radius 18); VStack(alignment: .leading, spacing 18) { Text(.body1); FlowLayout(8) } .padding(.top, 18) }. After a vote, replace the buttons with a thank-you line and announce it.",
+  "android": "Column(spacedBy(12.dp)) { bubble; Column(Modifier.background(Ivory, RoundedCornerShape(18.dp)).padding(vertical = 18.dp), horizontalAlignment = CenterHorizontally, spacedBy(18.dp)) { Text(body2); Row(spacedBy(8.dp)) { PrimaryButton(Sm, leading thumbs_up) ; PrimaryButton(Sm, leading thumbs_down) } }; Column(Modifier.padding(top = 18.dp), spacedBy(18.dp)) { Text(body1); FlowRow(8, 8) } }."
+ },
+ "tokens": {
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "breaking": []
+}
