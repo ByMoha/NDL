@@ -22,6 +22,8 @@ A flight option as a two-part ticket: route and times, a notched dashed tear lin
 | `logos` | `{tone, src}[]` | tone: saudia, flynas, egyptair |
 | `logosImage` | `string` | One image for the logo group (the preview uses the Figma group) |
 | `seats, price, per` | `string` |  |
+| `ariaLabel` | `string` | Names the ticket for screen readers |
+| `logosAlt` | `string` | Alt text of `logosImage` |
 
 ## Use
 

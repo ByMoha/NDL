@@ -7,11 +7,12 @@
   var N = window.NusukDL, h = React.createElement;
   var three = [{label:'الحالية',count:2},{label:'السابقة'},{label:'الملغاة'}];
   ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
-    h('div',null,h(N.HeaderTabs,{tabs:three})),
-    h('div',null,h(N.HeaderTabs,{size:'lr',tabs:['اليوم','غدًا','بعد غد'],active:1})),
-    h('div',null,h(N.HeaderTabs,{background:false,tabs:['الكل','الحج','العمرة']})),
-    h('div',{style:{width:'386px',maxWidth:'100%'}},h(N.HeaderTabs,{fill:true,tabs:['عربات كهربائية','عربات يدوية']})),
-    h('div',null,h(N.HeaderTabs,{tabs:[{label:'الإنجازات',icon:'star',count:1,updates:true},{label:'السجل',icon:'time-02'},{label:'المفضلة',icon:'star',iconOnly:true}]})),
+    h(N.HeaderTabs,{tabs:three}),
+    h(N.HeaderTabs,{size:'lr',tabs:['اليوم','غدًا','بعد غد'],active:1}),
+    h(N.HeaderTabs,{background:false,tabs:['الكل','الحج','العمرة']}),
+    h(N.HeaderTabs,{tabs:['عربات كهربائية','عربات يدوية']}),
+    h(N.HeaderTabs,{tabs:[{label:'الإنجازات',icon:'award-04',count:1,updates:true},{label:'السجل',icon:'time-02'},{label:'المفضلة',icon:'award-04',iconOnly:true}]}),
+    h('div',{style:{display:'flex',justifyContent:'center'}},h(N.HeaderTabs,{fill:false,tabs:['البريد الإلكتروني','رقم الجوال']})),
     h('div',{style:{background:'#303336',padding:'12px',borderRadius:'18px'}},h(N.HeaderTabs,{darkmode:true,size:'lr',tabs:[{label:'الصور',count:4},'الفيديو','الصوتيات'],active:0}))));
 </script>
 </body>

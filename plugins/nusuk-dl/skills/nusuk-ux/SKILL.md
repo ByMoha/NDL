@@ -29,7 +29,7 @@ Use a primary moment tone and a complementary case tone from Hospitable & Servin
 - **Worship guidance, blessings, or religious quotations:** [Faith content](references/faith-content-rules.md). Includes selected completion and disruption examples.
 - **Domain terms or service names:** [Terminology](references/glossary.md). Includes Arabic/English spellings and contextual exceptions.
 
-Do not load every reference for a small task. The examples are drawn from completed Mutawif, Umrah permits, Carts, Nusuk Pass, Rawdah, Adhkar, and Individual Dhikr work, with the later Rawdah updates taking precedence. Registration and Landing were unfinished; Umrah journey was paused. Their drafts have not been promoted into rules here.
+Do not load every reference for a small task. The examples are drawn from completed Mutawif, Umrah permits, Carts, Nusuk Pass, Rawdah, Athkar, and Thikr work, with the later Rawdah updates taking precedence. Registration and Landing were unfinished; Umrah journey was paused. Their drafts have not been promoted into rules here.
 
 ## Working and delivering
 

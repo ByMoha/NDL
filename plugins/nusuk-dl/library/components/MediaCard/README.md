@@ -80,6 +80,7 @@ A 250 × 330 content or commerce card: a full-bleed photo with a type pill on to
 | `layout` | `'list' \| 'grid'` | Marketplace cards: 'list' is 268 wide, 'grid' 189 |
 | `playLabel` | `string` |  |
 | `width` | `number \| string` |  |
+| `tagIcon` | `string` | DL icon in the tag chip when `tag` is a string |
 
 ## Use
 

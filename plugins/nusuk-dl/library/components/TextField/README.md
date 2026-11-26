@@ -1,45 +1,75 @@
 # TextField
 
-A labelled input with every Nusuk field type: text, text area, search, select, mobile, password, OTP, action and credit card.
+A field with every Nusuk input type: input, text area, search, select, multi select, mobile, password, OTP, action, credit card, avatar, counter and with logo.
 
-**Figma source:** ⌨️ Inputs › Input (12 types: Counter, Text Area, OTP, Multi Select, Search, Select, Action, Password, Input, Mobile, Credit Card, Avatar). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** [⌨️ Inputs › Input](https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR/?node-id=68394-7766) (Type 13 × Status Default, Error, Dissabled [sic] × Filled Off, On = 78 variants) on `_Input_Master`, with Hint and Error Messages Content. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
-**18 November 2026 (Golf Carts review, F116):** `type="action"` draws a Ghost XS link. The Payment Box code field in Golf Carts ends in a 38 glass pill «تطبيق» instead; until the DL Manager says which one Input Type=Action is, compose that field with a Secondary SM button.
+**24 November 2026 (Figma re-read, rebuilt):**
 
-**14 November 2026:** Figma's Input is now 12 types × Status (Default, Error, Dissabled [sic]) × Filled (Off, On), 72 variants on the private `_Input_Master Trail` (Status Default / Error / Filled × Disabled). Error adds the 20-high Hint (Type=Error) 8 under the field; Error and Disabled keep the default field fill (`inputs-surface-default`; code used the error and disabled fills until now): Error has the `inputs-icons-error` border, Disabled the `surface-04-mist` border and `inputs-text-disabled` text. Two types were missing in code and are added: `multi-select` (two selects side by side, gap 8, each with its chevron) and `avatar` (a 42 picture at the end of the field).
+- **The label sits inside the field.** It is Notes 1 (14) in `inputs-text-placeholder` above the value in Body 2 (16). When the field is empty and not focused, the label stands alone, centred (Filled Off). Code had the label above the field; only Text Area keeps it there.
+- **Field line** is 1 px Ivory (`surface-02-ivory`), was Pearl.
+- **Error** turns the line, label and value to the error colour, with the Error hint 8 below. There is no alert icon inside the field any more.
+- **Disabled** uses the `inputs-surface-disabled` fill and line and `inputs-text-disabled` (14 November had kept the default fill).
+- **New type `logo`** (Figma "with logo"): a partner mark at the end, SPL by default, 42 × 24.
+- **Mobile** is now two parts, 8 apart: the field, and a 106-wide country-code box («+966» and `arrow-down-01`) at the end.
+- **Password** has the eye at the end (`view`; `view-off` while the password is shown) and the criteria under the field as Checkbox SM. In Error, the criteria not met turn red under an Error hint.
+- **Action** ends in a Secondary SM icon-only button (`arrow-left-02`), padding 10 on that side. This replaces the Ghost XS link and settles F116.
+- **Counter** is a capsule with Secondary SM `remove-01` at the start and `add-01` at the end, the value centred, padding 10.
+- **Credit Card** is two rows divided by an Ivory line: card number, then expiry | security code.
+- **Avatar** puts the 42 picture with its Positive badge at the start.
+- **OTP** boxes share the width, 8 apart.
+- **Error Messages Content** (27 approved Arabic errors) ships as `NusukDL.ERROR_MESSAGES`; pass `errorType` (Figma name, e.g. `"Name Min10"`, `"ID Length"` with `errorValue`).
 
-**12 November 2026:** fields are radius 18 (`radius-md`, Figma Radius/MD) with `shadow-xs`; Search and Counter are capsules (`radius-full`); the label above the field is `notes-1-regular` in `inputs-text-placeholder`, inset 18. OTP boxes follow (radius 18). The Hint icon is 20.
+**14 November 2026:** 12 types × Status × Filled; Error adds the 20-high Hint 8 under the field.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
-| `type` | `'input' \| 'text-area' \| 'search' \| 'select' \| 'multi-select' \| 'mobile' \| 'password' \| 'otp' \| 'action' \| 'credit-card' \| 'avatar' \| 'calendar' \| 'counter'` | `counter` draws the capsule field; the stepper is DL OptionCard Counter |  |
-| `label` | `string` | Always visible above the field. It is the field's accessible name; the hint is its description |
-| `placeholder` | `string` | An example, never the label |
-| `value` | `string` |  |
-| `state` | `'default' \| 'focused' \| 'error' \| 'success' \| 'disabled'` |  |
+| `type` | `'input' \| 'text-area' \| 'search' \| 'select' \| 'multi-select' \| 'mobile' \| 'password' \| 'otp' \| 'action' \| 'credit-card' \| 'avatar' \| 'counter' \| 'logo' \| 'calendar'` | Figma Type; `'with logo'` also works |
+| `label` | `string` | Inside the field (above it for Text Area). It is the field's accessible name |
+| `placeholder` | `string` | An example, shown when the field is focused and empty, never the label |
+| `value` | `string` | |
+| `state` | `'default' \| 'focused' \| 'error' \| 'success' \| 'disabled'` | `status` and Figma's `Dissabled` also work |
 | `hint` | `string` | Help or error text under the field |
-| `maxLength` | `number` | Shows a counter |
+| `errorType` / `errorValue` | `string` | One of the 27 Error Messages Content types; `errorValue` fills `%s` |
+| `maxLength` | `number` | Text Area counter |
 | `length` | `number` | OTP digits (default 4) |
-| `values / placeholders / fieldLabels` | `[string, string]` | `multi-select`: the two halves. Give each half its own accessible name |
-| `avatar / initials` | `string` | `avatar`: the picture at the end of the field |
-| `ariaLabel` | `string` | The name when a field has no visible label (search). Without it the placeholder is read |
-| `actionLabel` | `string` |  |
-| `prefix` | `string` |  |
+| `values / placeholders / fieldLabels` | `string[]` | Multi Select (2) and Credit Card (3) parts |
+| `prefix` / `onCode` | `string` / `() => void` | Mobile country code (default +966) |
+| `rules` | `(string \| { label, met })[] \| false` | Password criteria (default the three Figma rules) |
+| `revealed` | `boolean` | Password starts shown |
+| `actionIcon` / `actionLabel` / `onAction` | | Action button; the label is its accessible name |
+| `onDecrease` / `onIncrease` | `() => void` | Counter |
+| `avatar / initials / avatarState` | `string` | Avatar picture |
+| `logo` / `logoLabel` | `string` | Logo type: an image URL instead of SPL, and its name |
+| `ariaLabel` | `string` | The name when there is no visible label |
+| `status` | `'default' \| 'error' \| 'disabled'` | Figma's property name for `state` |
+| `error` | `string` | Error text shown in the Error state (or use `errorType`) |
+| `hintType` | `'hint' \| 'info' \| 'warning' \| 'error' \| 'success'` | The Hint under the field |
+| `rulesLabel` | `string` | Password: names the criteria list, default «معايير كلمة المرور» |
+| `codeLabel` | `string` | Mobile: names the country-code box, default «رمز الدولة» |
+| `increaseLabel` / `decreaseLabel` | `string` | Counter: the add and remove buttons («زيادة», «إنقاص») |
+| `ltr` | `boolean` | Left-to-right input (Mobile is always LTR) |
 
 ## Use
 
 - Label every field. Put the format in the placeholder or hint ("5X XXX XXXX").
-- Errors say what happened and how to fix it, in one line under the field.
+- Take error text from Error Messages Content before writing a new one.
 - Numbers, phone numbers and OTP are always Western digits 0–9, left to right.
 
 ## Don't
 
 - Do not use placeholder text as the label.
 - Do not validate on every keystroke; validate on blur or submit.
-- Do not shrink the field to fit; the 62px height is the touch target.
+- Do not shrink the field; 62 is the touch target.
 - `type="otp"` draws the boxes only, for mockups; build the real field with the system one-time-code input.
+
+## iOS and Android
+
+- The in-field label is not a floating Material label: no animation, the label is static at the top when filled and centred when empty.
+- Mobile: two fields in an HStack / Row, spacing 8, the country picker 106 wide at the trailing side.
+- Password criteria: read-only checkmarks bound to the live rule check, not tappable.
 
 ## You provide
 

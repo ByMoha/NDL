@@ -70,7 +70,7 @@ Flag these on sight, hard:
 - Missing `prefers-reduced-motion` handling on movement
 - Ungated `:hover` motion
 - Symmetric enter/exit timing on a press-and-release or hold interaction
-- Everything-at-once entrance where a 30–80ms stagger belongs (non-uniform, one entrance per container; see `../choreograph/SKILL.md`)
+- Everything-at-once entrance where a 30–80ms stagger belongs (non-uniform, one entrance per container; `choreograph` is not in this plugin)
 
 ## Remedial Preference Hierarchy
 

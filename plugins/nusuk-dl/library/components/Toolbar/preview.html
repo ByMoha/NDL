@@ -5,46 +5,31 @@
 <div id="root" class="nk nk-stage col" dir="rtl" style="min-height:100vh;box-sizing:border-box"></div>
 <script>
   var N = window.NusukDL, h = React.createElement;
-  function F(label, el, dark){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:402,maxWidth:'100%',borderRadius:18,overflow:'hidden',background:dark?'linear-gradient(160deg,#5b4a35,#1d1a17 60%,#070808)':'var(--surface-screen-bk)',outline:'1px solid var(--surface-03-pearl)'}}, el)); }
+  function F(label, el, dark){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:402,maxWidth:'100%',borderRadius:18,overflow:'hidden',background:dark?'linear-gradient(160deg,#5b4a35,#1d1a17 60%,#070808)':'var(--surface-screen-bk)'}}, el)); }
+  var PHOTO = '/_blob/9716a02b60759c8fe5caa48282476c47';
+  function T(type, x){ return [type, Object.assign({ type: type, statusBar: true }, x || {})]; }
   var GROUPS = [
-    ['Landings & primary', function(){ return [
-      F('Landings / LoggedIn', h(N.Toolbar,{type:'Landings / LoggedIn',statusBar:true,wallet:'100'})),
-      F('Landings / Guest', h(N.Toolbar,{type:'Landings / Guest',statusBar:true})),
-      F('Landings / Search', h(N.Toolbar,{type:'Landings / Search',statusBar:true,wallet:'100'})),
-      F('Primary Pages / Default', h(N.Toolbar,{type:'Primary Pages / Default',statusBar:true})),
-      F('Primary Pages / Search', h(N.Toolbar,{type:'Primary Pages / Search',title:'العنوان',statusBar:true})),
-      F('Primary Pages / Tabs', h(N.Toolbar,{type:'Primary Pages / Tabs',title:'العنوان',statusBar:true})),
-      F('Profile', h(N.Toolbar,{type:'Profile',statusBar:true}))]; }],
-    ['Secondary & modal', function(){ return [
-      F('Secondary Pages / Default', h(N.Toolbar,{type:'Secondary Pages / Default',title:'العنوان',statusBar:true})),
-      F('Secondary Pages / No Actions', h(N.Toolbar,{type:'Secondary Pages / No Actions',title:'العنوان',statusBar:true})),
-      F('Secondary Pages / Search', h(N.Toolbar,{type:'Secondary Pages / Search',statusBar:true})),
-      F('Secondary Pages / Tabs', h(N.Toolbar,{type:'Secondary Pages / Tabs',title:'العنوان',tabs:['عنوان','عنوان','عنوان','عنوان','عنوان'],activeTab:1,statusBar:true})),
-      F('Modal / Default', h(N.Toolbar,{type:'Modal / Default',title:'العنوان',chip:'العنوان',statusBar:true})),
-      F('Modal / Search', h(N.Toolbar,{type:'Modal / Search',statusBar:true})),
-      F('Marketplace Prodcut', h(N.Toolbar,{type:'Marketplace Prodcut',title:'اسم المنتج',statusBar:true}))]; }],
-    ['Tools', function(){ return [
-      F('TopTabs', h(N.Toolbar,{type:'TopTabs',statusBar:true})),
-      F('Companion MGM', h(N.Toolbar,{type:'Companion MGM',statusBar:true})),
-      F('Nusuk AI', h(N.Toolbar,{type:'Nusuk AI',statusBar:true})),
-      F('Process', h(N.Toolbar,{type:'Process',step:1,statusBar:true})),
-      F('DatePicker&Close', h(N.Toolbar,{type:'DatePicker&Close',statusBar:true})),
-      F('Timer', h(N.Toolbar,{type:'Timer',title:'العنوان',statusBar:true}))]; }],
-    ['Darkmode', function(){ return [
-      F('Darkmode · Secondary Pages / Default', h(N.Toolbar,{type:'Secondary Pages / Default',title:'العنوان',darkmode:true,statusBar:true}), true),
-      F('Darkmode · Primary Pages / Search', h(N.Toolbar,{type:'Primary Pages / Search',title:'العنوان',darkmode:true,statusBar:true}), true),
-      F('Darkmode · Landings / LoggedIn', h(N.Toolbar,{type:'Landings / LoggedIn',darkmode:true,statusBar:true}), true),
-      F('Darkmode · DatePicker&Close', h(N.Toolbar,{type:'DatePicker&Close',darkmode:true,statusBar:true}), true)]; }]
+    ['Landings & primary', [
+      T('Landings / LoggedIn', { wallet: '100' }), T('Landings / Guest'), T('Landings / Search', { wallet: '100' }),
+      T('Primary Pages / Default'), T('Primary Pages / Search', { title: 'العنوان' }), T('Primary Pages / Title', { title: 'العنوان' }),
+      T('Primary Pages / URLs', { title: 'العنوان', tabs: ['عنوان', 'عنوان', 'عنوان', 'عنوان', 'عنوان', 'عنوان', 'عنوان'] }), T('Profile', { avatar: PHOTO })]],
+    ['Secondary & modal', [
+      T('Secondary Pages / Default', { title: 'العنوان' }), T('Secondary Pages / No Actions', { title: 'العنوان' }), T('Secondary Pages / Search'),
+      T('Secondary Pages / Full Search'), T('Secondary Pages / Tabs', { title: 'العنوان', tabs: ['عنوان', 'عنوان', 'عنوان', 'عنوان', 'عنوان'], activeTab: 1 }),
+      T('Modal / Default', { title: 'العنوان', chip: 'العنوان' }), T('Modal / Search'), T('Marketplace Prodcut', { title: 'اسم المنتج' })]],
+    ['Tools & services', [
+      T('Almatar', { route: ['🇸🇦 جدة', '🇪🇬 القاهرة'], meta: ['22 يونيو', 'بالغان', 'ذهاب وعودة', 'اقتصادية'] }), T('TopTabs'), T('Companion MGM', { people: [{ src: PHOTO }, 'ف', { src: PHOTO }, 'ع'] }), T('Nusuk AI'),
+      T('Process', { step: 1 }), T('DatePicker&Close'), T('Timer', { title: 'العنوان' }), T('Connected Shorts', { step: 4, steps: 8 })]]
   ];
-  // 20 types in four groups; one group renders at a time so the card stays light (each toolbar carries glass controls).
   function App(){
-    var s = React.useState(0), g = GROUPS[s[0]];
+    var s = React.useState(0), d = React.useState(false), g = GROUPS[s[0]];
     return h('div',{style:{display:'grid',gap:18,alignContent:'start',width:'100%'}},
-      h('div',{dir:'ltr',style:{display:'flex',alignItems:'center',gap:12,flexWrap:'wrap'}},
-        h(N.HeaderTabs,{tabs:GROUPS.map(function(x){ return {label:x[0],count:x[1]().length}; }),active:0,onChange:s[1]}),
-        h('span',{className:'notes-2-regular',style:{color:'var(--text-note)'}},'20 types · Figma Navigation › Toolbar')),
-      h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(402px,1fr))',gap:18,justifyItems:'start'}},
-        g[1]().map(function(el,i){ return React.cloneElement(el,{key:g[0]+i}); })));
+      h('div',{dir:'ltr',style:{display:'flex',alignItems:'center',gap:16,flexWrap:'wrap'}},
+        h(N.HeaderTabs,{fill:false,tabs:GROUPS.map(function(x){ return {label:x[0],count:x[1].length}; }),active:0,onChange:s[1]}),
+        h('div',{dir:'rtl'},h(N.Switch,{size:'sm',label:'Darkmode',checked:d[0],onChange:function(v){ d[1](v); }})),
+        h('span',{className:'notes-2-regular',style:{color:'var(--text-note)'}},'24 types · Figma Navigation › Toolbar')),
+      h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,402px)',gap:18,justifyContent:'start'}},
+        g[1].map(function(x,i){ return h(React.Fragment,{key:g[0]+i+d[0]}, F(x[0] + (d[0] ? ' · Darkmode' : ''), h(N.Toolbar, Object.assign({}, x[1], { darkmode: d[0] })), d[0])); })));
   }
   ReactDOM.createRoot(document.getElementById('root')).render(h(App));
 </script>

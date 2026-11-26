@@ -4,6 +4,8 @@ Segmented tabs for switching views inside one screen, with optional icons, count
 
 **Figma source:** [🎹 Tabs › Header Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2883) (Size SM, LR × Background On, Off), on `_Header Tabs` (Darkmode, Show Item 3–8) and `_Tab_Master_Status` (Status × Icon Off, On, Icon Only × Show Number × White × Updates), with Number Notification. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**24 November 2026 (Figma re-read):** Header Tabs now fills its container by default and every tab takes an equal share (`_Tab_Master_Status` is Fill in all four variants); `fill={false}` hugs the labels, as the Login Form does. The track is padded 4 all round (was 4 / 8). Tab, label, icon (20, Figma log: "updated icon size"), count and updates are unchanged.
+
 **18 November 2026 (Golf Carts review, GC-R11):** on a page the tabs span the full width and share it equally (two tabs 50/50), grey track and white pill: pass `fill`. Keep the track on white cards; `background={false}` is for tabs over the page background only.
 
 **17 November 2026, 21:00 (rebuilt as a replica):** the track is padded 4 / 8 (code had 4 all round); its fill reaches 2 outside the track, as Glass BG does in Figma; LR tabs are 40 high (code had 38); the chosen tab's shadow is −6 6 30 −12 Ink 5%, the style Tabs uses (F104); new `darkmode` (Smoke track, white labels), and per tab `icon`, `iconOnly` and `updates`. The count stays Smoke on the chosen tab, as Figma draws it (code turned it white).
@@ -12,7 +14,7 @@ Segmented tabs for switching views inside one screen, with optional icons, count
 
 | Part | SM | LR | Token |
 |---|---|---|---|
-| Track | 38 high, padding 4 / 8, tabs 8 apart | 48 high | `space-xxs`, `space-xs` |
+| Track | 38 high, padding 4, tabs 8 apart; fills its container | 48 high | `space-xxs`, `space-xs` |
 | Track fill (2 outside the track) | Ivory; Darkmode Smoke | same | `surface-02-ivory`, `surface-05-smoke` |
 | Tab | 30 high, padding 8 / 20, 18 on the icon side | 40 high | `space-xs`, `space-md`, `radius-full` |
 | Label | Notes 1 Regular, 2 above the bottom | same | `text-heading` (Darkmode `text-inverse`) |
@@ -31,9 +33,10 @@ Segmented tabs for switching views inside one screen, with optional icons, count
 | `background` | `boolean` | `false` = Background Off: no track |
 | `darkmode` | `boolean` | `_Header Tabs` Darkmode On, for imagery |
 | `light` | `boolean` | The glass toolbar tabs (GlassBG `field`, Dark On), not this set |
-| `fill` | `boolean` | Span the container, every tab an equal share (two tabs 50/50). Use on a page (18 Nov 2026) |
+| `fill` | `boolean` | Default `true` (24 Nov 2026): span the container, every tab an equal share. `false` hugs the labels |
 | `onChange` | `(index) => void` | Called when the person picks a tab |
 | `ariaLabel` | `string` | Names the tab list |
+| `dark` | `boolean` | Older name for `darkmode` |
 
 ## Use
 

@@ -88,6 +88,8 @@ Needed by:
 
 **Edits between releases go in `UNRELEASED.md` (18 November 2026).** Any session that publishes to the design system page outside the release chat (a comment-thread fix, a chat-lane round, a quick code change) adds an entry to `project/UNRELEASED.md` in the same publish: date and time, what changed and why, every file it touched, the Figma file, and the iOS and Android impact. It does not edit the change log, release notes, the DESIGN.md version or the migrations: the next release reads `UNRELEASED.md`, ships those changes to every output and empties it. A release does not start while an edit is missing from it.
 
+**Learnings and downloads (27 November 2026).** A correction the DL Advisor confirms in a working chat is logged the same way, as a `Learnings` entry in `UNRELEASED.md` (one line per rule); working chats never edit DESIGN.md, the skills or the plugin. A session that ships a developer handoff zip between releases uploads it beside the one the guide links and trashes nothing: only a release points the guide at a new zip and trashes the old ones, after opening the linked file to check it is live.
+
 ## Staying compliant
 
 Every element on a screen is one of three things: an official DL component used as designed, a labelled proposal, or a logged exception (with an owner and an expiry date).

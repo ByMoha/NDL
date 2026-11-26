@@ -6,14 +6,16 @@
 <script>
   var N = window.NusukDL, h = React.createElement;
   function F(label, el){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:4}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:402,maxWidth:'100%'}}, el)); }
-  ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(402px,1fr))',gap:12,alignItems:'start'}},
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,402px)',gap:12,justifyContent:'start',alignItems:'start'}},
     F('01 Hero', h(N.SectionHeader,{level:'hero',title:'ادخل روضة النبي ﷺ',description:'روضة من رياض الجنة بانتظار دعائك.'})),
     F('02 Section Title', h(N.SectionHeader,{level:'section',title:'محتوى مميز',tag:'#المحتوى'})),
     F('02 Section Title / Centered', h(N.SectionHeader,{level:'section-centered',title:'محتوى مميز',tag:'#المحتوى'})),
     F('03 Collaps', h(N.SectionHeader,{level:'collapse',title:'إجمالي ٣ تذاكر'})),
     F('04 Legend', h(N.SectionHeader,{level:'legend',title:'عنوان القسم'})),
     F('05 Complex', h(N.SectionHeader,{level:'complex',overline:'الفنادق',title:'بقرب الحرم المكي'})),
-    F('06 Family', h(N.SectionHeader,{level:'family'}))));
+    F('05 Complex / Headline only', h(N.SectionHeader,{level:'complex-headline',overline:'تخصيص الرحلة',title:'المعتمرون',count:'3'})),
+    F('06 Family', h(N.SectionHeader,{level:'family'})),
+    F('05 Complex — Madina bot', h(N.SectionHeader,{level:'complex',location:'madina',overline:'الفنادق',title:'بقرب المسجد النبوي'}))));
 </script>
 </body>
 </html>

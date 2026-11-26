@@ -1,12 +1,25 @@
 <!doctype html>
 <html data-theme="gold-light" lang="ar">
-<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>Avatar — preview</title></head>
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>Avatar — preview</title>
+<style>.avx{display:grid;grid-template-columns:92px repeat(5,max-content);gap:16px 28px;justify-content:start;align-items:center;justify-items:center}.avx .h{font-size:11px;line-height:14px;color:var(--text-note);direction:ltr;white-space:nowrap;justify-self:start}.avx .pair{display:flex;gap:8px;align-items:center;direction:ltr}.grp{display:flex;flex-direction:column;gap:14px;margin-top:22px}</style></head>
 <body style="margin:0">
-<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<div id="root" class="nk nk-stage col white" dir="rtl"></div>
 <script>
-  var N = window.NusukDL, h = React.createElement;
-  function F(label, el, dark){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), h('div',{style:{width:402,maxWidth:'100%',borderRadius:18,overflow:'hidden',background:dark?'linear-gradient(160deg,#5b4a35,#1d1a17 60%,#070808)':'var(--surface-screen-bk)',outline:'1px solid var(--surface-03-pearl)'}}, el)); }
-  ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'flex',gap:12,alignItems:'center',flexWrap:'wrap'}},['xs','sm','md','lg','xl'].map(function(s){return h(N.Avatar,{key:s,size:s,initials:'A'})}),h(N.Avatar,{size:'md',initials:'A',state:'positive'}),h(N.Avatar,{size:'md',icon:true,name:'User'}),h(N.Avatar,{size:'md',icon:true,ink:true,name:'User'})));
+  var N = window.NusukDL, h = React.createElement, PHOTO = '/_blob/9716a02b60759c8fe5caa48282476c47';
+  var sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+  var kinds = [['Initials', { initials: 'A' }], ['Icon', { icon: true }], ['Picture', { src: PHOTO }], ['Emojis', { emoji: '🧕' }]];
+  var cells = [h('span', { key: 'c', className: 'h' }, 'Kind \\ Size')].concat(sizes.map(function (s) { return h('span', { key: 's' + s, className: 'h', style: { justifySelf: 'center' } }, s + ' · N / P'); }));
+  kinds.forEach(function (k) {
+    cells.push(h('span', { key: 'k' + k[0], className: 'h' }, k[0]));
+    sizes.forEach(function (s) { cells.push(h('span', { key: k[0] + s, className: 'pair' }, h(N.Avatar, Object.assign({ size: s }, k[1])), h(N.Avatar, Object.assign({ size: s, state: 'positive' }, k[1])))); });
+  });
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', null,
+    h('div', { className: 'avx' }, cells),
+    h('div', { className: 'grp' },
+      h('span', { className: 'h', style: { fontSize: 11, color: 'var(--text-note)', direction: 'ltr' } }, 'Group without photos — Quran colours in turn'),
+      h(N.AvatarGroup, { label: 'أنت و', people: ['م', 'ف', 'ع', 'س', 'ن', 'ر'], max: 5, px: 38 }),
+      h('span', { className: 'h', style: { fontSize: 11, color: 'var(--text-note)', direction: 'ltr' } }, 'Mixed: icon first, photos and initials'),
+      h(N.AvatarGroup, { label: 'أنت و', first: 'icon', people: ['', { src: PHOTO }, 'ف', { src: PHOTO }, 'ع'], max: 5, px: 38 }))));
 </script>
 </body>
 </html>

@@ -17,7 +17,7 @@ Use فصحى مبسطة shaped by Nusuk’s established copy. Use the examples b
 | Nusuk example | What to learn |
 |---|---|
 | هناك بيانات مطلوبة نحتاج تحديثها حتى تكمل الحجز. — Rawdah | هناك is valid when it introduces a relevant condition. It is not automatically a calque. |
-| تم حفظ الإعدادات بنجاح — Individual Dhikr | Keep explicit confirmation when it reassures the user; do not automatically remove تم or بنجاح. |
+| تم حفظ الإعدادات بنجاح — Thikr | Keep explicit confirmation when it reassures the user; do not automatically remove تم or بنجاح. |
 | ستظهر طلباتك هنا بعد إنشائها — Carts | Explain what belongs in an empty view and when it will appear. This is not a rule to positively reframe errors or negative search results. |
 | %s د لإتمام 7 أشواط — Mutawif | Abbreviate minutes in compact counters where appropriate, not in every body message. |
 | تفعيل الإشعارات — Carts/Nusuk Pass | Masdar fits this control label; it does not imply all instructions must use masdar. |

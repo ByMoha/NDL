@@ -4,6 +4,8 @@ The glass surface a component draws inside itself: one element with a Glass BG r
 
 **Figma source:** [⚙️ Foundation › 🎨 Colors › Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296), as component instances use it (each recipe is a set of layers the instance keeps). The recipes and their layers are documented on the GlassBG card.
 
+**19 November 2026 (the DL Advisor's comments on the design system page):** on a glass bar only the container is glass: the buttons and fields inside it draw no background of their own. A white-fill button on glass takes black text and icon, and every button follows its bar's dark mode.
+
 **18 November 2026:** card written (the plugin health check found Glass had a preview but no card).
 
 ## Recipes

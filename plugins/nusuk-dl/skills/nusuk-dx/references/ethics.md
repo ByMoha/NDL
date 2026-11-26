@@ -88,7 +88,7 @@ into the band above.
 *Notifications, reward loops, variable rewards, daily login bonuses.*
 
 **This is the contested band, and Nusuk's position is specific rather than blanket.** Repetition
-is genuinely the goal — daily prayer, daily Quran, daily dhikr are habits worth forming. What is
+is genuinely the goal — daily prayer, daily Quran, daily thikr are habits worth forming. What is
 refused is the *mechanism*: intermittent variable reward, streak pressure, and notification
 volume as a retention lever.
 

@@ -46,7 +46,7 @@ follow-through collapses.
 dopamine**) · timely prompts.
 
 **Nusuk implementations**
-- Micro-actions under 30 seconds — one ayah, one dhikr set, one kindness ping
+- Micro-actions under 30 seconds — one ayah, one thikr set, one kindness ping
 - "Instant closure" feedback: calm confirmation that the action counted
 - Context-based prompts: after prayer, before sleep, commute time
 

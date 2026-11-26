@@ -13,6 +13,7 @@ The lock-screen live activity for prayer times.
 | `prayer` | `string` |  |
 | `times` | `[name, time][]` |  |
 | `current` | `number` |  |
+| `label` | `string` | Accessible name of the card |
 
 ## Use
 

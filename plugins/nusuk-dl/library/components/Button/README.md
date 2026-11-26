@@ -39,6 +39,7 @@ The call to action. Primary for the one main action, Secondary for the alternati
 | `onClick` | `() => void` |  |
 | `trailingIconName` | `string` | Trailing glyph when icon='both' (default: iconName mirrored). |
 | `type` | `'button' \| 'submit' \| 'reset'` |  |
+| `label` | `string` | Older name for `ariaLabel` on icon-only buttons |
 
 Labels use `body-2-regular` (16px) at every size, as in Figma.
 

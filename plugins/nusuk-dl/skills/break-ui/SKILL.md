@@ -1,6 +1,6 @@
 ---
 name: break-ui
-description: Try to break a piece of UI by feeding it worst-case data — long names, unbreakable emails, one-letter names, missing fields, huge counts, zero items, long labels, non-Latin text, emoji, extreme numbers — then render it behind a "Demo data / Worst case" toggle and report everything that broke, with the fix for each. Use when the user asks to stress-test, break, or find edge cases in a component or screen, or to "try the worst case". For visual design critique use emil-design-eng; for motion use review-animations. In the Nusuk plugin this is a general method: for Nusuk work the nusuk-* skills and DESIGN.md decide, and win where they differ.
+description: Try to break a piece of UI by feeding it worst-case data — long names, unbreakable emails, one-letter names, missing fields, huge counts, zero items, long labels, non-Latin text, emoji, extreme numbers — then render it behind a "Demo data / Worst case" toggle and report everything that broke, with the fix for each. Use when the user asks to stress-test, break, or find edge cases in a component or screen, or to "try the worst case". For visual design critique use design-critique; for motion use review-animations. In the Nusuk plugin this is a general method: for Nusuk work the nusuk-* skills and DESIGN.md decide, and win where they differ.
 ---
 
 > Included in the `nusuk-dl` plugin from [emilkowalski/skills](https://github.com/emilkowalski/skills) (commit 64eb3de) by Emil Kowalski (MIT, see `LICENSE`). For Nusuk work, the Nusuk skills and DESIGN.md decide where they differ.
@@ -29,7 +29,7 @@ When this skill is first invoked without a specific question, respond only with:
 
 Do not provide any other information until the user asks a question.
 
-An adversarial skill. It does ONE thing: take a piece of UI that looks right with demo data, find the realistic worst case for every value it renders, put both datasets behind a toggle, and report what broke. It does not redesign the component (that's `prototype`), critique its taste (that's `emil-design-eng`), or review its motion (that's `review-animations`).
+An adversarial skill. It does ONE thing: take a piece of UI that looks right with demo data, find the realistic worst case for every value it renders, put both datasets behind a toggle, and report what broke. It does not redesign the component, critique its design (that's `design-critique`), or review its motion (that's `review-animations`).
 
 ## Operating Posture
 

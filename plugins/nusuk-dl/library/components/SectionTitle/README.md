@@ -4,6 +4,8 @@ The header every section starts with: a title, an optional tag (#المحتوى)
 
 **Figma source:** [🔌 Misc › Headers](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj/?node-id=2402-18252) (Location 02 Section Title, 02 Section Title / Centered, 03 Collaps · Actions slot). Read 9 November 2026; re-read 17 November 2026.
 
+**19 November 2026:** the hero, legend, complex, complex-headline and family variants render through SectionHeader (with the NusukBot and the new props); section, centred and collapse are drawn here. `level` is accepted as an older name for `variant`.
+
 **17 November 2026:** 02 Section Title is now 32 top, 18 sides and bottom (Space/XL, Space/NR; it was 48 / 18 / 26), so every pattern header is 24 shorter. New Location **02 Section Title / Centered** (`variant="centered"`): the title centred over the Actions slot, 12 apart, 26 / 18 / 18. The tag and arrow now sit in Figma's **Actions** slot; pass `actions` to put other content there.
 
 ## Props
@@ -20,6 +22,8 @@ The header every section starts with: a title, an optional tag (#المحتوى)
 | `tight` | `boolean` |  |
 | `title` | `string` |  |
 | `variant` | `'section' \| 'collapse' \| 'centered'` |  |
+| `level` | `string` | Older name for `variant`; hero, legend, complex, complex-headline and family render through SectionHeader |
+| `ariaLabel` | `string` | Name of the action button when there is no `actionLabel` |
 
 ## Anatomy
 

@@ -18,6 +18,8 @@ A hotel result: photo, name, distance, rating, room features and price.
 | `features` | `{label, iconName}[]` |  |
 | `nights, hot` | `string` | `hot: false` hides the note |
 | `price, oldPrice, discount` | `string` |  |
+| `favouriteLabel` | `string` | Name of the favourite toggle, default «المفضلة» |
+| `imageAlt` | `string` | Alt text of the photo |
 
 ## Use
 

@@ -4,6 +4,8 @@ A preparation tip people can tick off: icon, title, details and a link chip.
 
 **Figma source:** Hints Widget (Direction Vertical, Horizontal) in 🃏 Cards › Partials (`mg7egvNbr2ciMP04Ig2XDl`). Read 9 November 2026.
 
+**24 November 2026 (Figma re-read):** the Vertical, Horizontal and Direction3 examples use the Amethyst shade (`tone="amethyst"`, #f0e5fa); Direction4 (`direction="logo"`) is Emerald with a white fade from 59% (`tone="emerald"`) and a 44 logo (was 48). Figma note: `Direction3` and `Direction4` are placeholder names and Direction3 duplicates Horizontal with a second icon slot (`Icon2`).
+
 **14 November 2026:** Figma has 4 directions. `Direction3` is Horizontal again with the icon in a second slot (`Icon2`), so code keeps `horizontal`. `Direction4` is new and becomes `direction="logo"`: 234 × 212, padding 26 / 20, gap 18, a partner logo 48 (Cards › Logo Icons), title `body-1-regular` (18), details `notes-1-regular` (14), no tick box. Its sample text names an airline: use it for a real service the person is booking, never as an advert (known issue F5).
 
 ## Props

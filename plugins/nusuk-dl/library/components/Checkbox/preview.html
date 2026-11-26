@@ -1,11 +1,21 @@
 <!doctype html>
 <html data-theme="gold-light" lang="ar">
-<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>Checkbox — preview</title></head>
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>Checkbox — preview</title>
+<style>
+  .sx{display:grid;grid-template-columns:44px repeat(5,minmax(0,1fr));gap:14px 12px;align-items:center;justify-items:start;padding:4px 0}
+  .sx .h{font-size:11px;line-height:14px;color:var(--text-note);direction:ltr;white-space:nowrap}
+</style></head>
 <body style="margin:0">
 <div id="root" class="nk nk-stage white" dir="rtl"></div>
 <script>
-  var N = window.NusukDL, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h(N.Checkbox,{label:'أوافق على الشروط',checked:true}),h(N.Checkbox,{label:'أضف مرافقًا'}),h(N.Checkbox,{label:'مطلوب',status:'error'}),h(N.Checkbox,{label:'غير متاح',status:'disabled'})));
+  var N = window.NusukDL, h = React.createElement, C = N.Checkbox;
+  var cols = [['Default', {}], ['Selected', { checked: true }], ['Disabled', { status: 'disabled' }], ['Disabled Selected', { status: 'disabled', checked: true }], ['Error', { status: 'error' }]];
+  var cells = [h('span', { key: 'c' })].concat(cols.map(function (c) { return h('span', { key: 'h' + c[0], className: 'h' }, c[0]); }));
+  ['sm', 'md', 'lr'].forEach(function (s) {
+    cells.push(h('span', { key: 'r' + s, className: 'h' }, s.toUpperCase()));
+    cols.forEach(function (c) { cells.push(h(C, Object.assign({ key: s + c[0], size: s, label: 'العنوان', onChange: function () {} }, c[1]))); });
+  });
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'sx' }, cells));
 </script>
 </body>
 </html>

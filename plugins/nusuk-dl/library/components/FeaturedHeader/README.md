@@ -20,6 +20,7 @@ The top of a destination landing: photo, search bar, title and four quick action
 | `statusBar` | `boolean` |  |
 | `supportLabel` | `string` |  |
 | `title` | `string` |  |
+| `actionsLabel` | `string` | Names the actions row for screen readers (default: the title) |
 
 ## Anatomy
 

@@ -19,6 +19,8 @@ The order summary and the refund summary: a card that opens to a list of priced 
 | `iconName` | `string` | Refund: the header icon |
 | `open, onToggle, toggleLabel` | `boolean, fn, string` | Collapse On / Off; default open |
 | `note, policyLabel, policyHref` | `string` | Refund: the warning hint |
+| `actionIcon` | `string` | The toggle's DL icon, default `arrow-left-02` |
+| `headerTotal` | `string` | The amount in the header, when it differs from `total` |
 
 ## Use
 

@@ -1,6 +1,6 @@
 # nusuk-dl · the Nusuk plugin
 
-Version 2026.11.261520, built 2026-11-26T15:20+03:00. Release 2026-11-18: DESIGN.md 3.7.3, tokens 3.12, NusukChat 2.9.2.
+Version 2026.11.270222, built 2026-11-27T02:22+03:00. Release 2026-11-27: DESIGN.md 3.8.0, tokens 3.12, NusukChat 2.9.2.
 
 The one way the Nusuk DL reaches Claude (DL-42). The developer handoff (`nusuk-dl-developer-handoff.zip`) is the only other download.
 
@@ -33,8 +33,10 @@ Every prototype simulates Apple's native transitions and draws the iOS status ba
 | `mobile-native` | A prototype that feels installed: safe areas, dvh, 16 px inputs, right-to-left, the 02:22 status bar |
 | `break-ui` | Worst-case data behind a toggle, with Nusuk's cases (four-part Arabic names, Hijri dates, riyal amounts) |
 | `review-animations` | A strict motion-code review (the DL's native values are deliberate) |
+| `gestures` | Drags, swipes and sheets that follow the finger and can be caught mid-motion (DL-44 sheet motion, mirrored in Arabic) |
+| `learn-taste` | Turns Moha's corrections into rules, written to the design system page's UNRELEASED.md › Learnings for the next release |
 
-The last eight are MIT-licensed; each folder keeps its `LICENSE` and credits its source. Where a general skill and a Nusuk rule disagree, the Nusuk rule wins. Skills installed outside this plugin that set their own look (frontend-design, impeccable, the taste-skill family, brand-guidelines) never set Nusuk tokens, type, colour or motion: see `nusuk-design-language` §10 › Who wins. `LICENSE` covers the whole plugin.
+The last ten are MIT-licensed; each folder keeps its `LICENSE` and credits its source. Where a general skill and a Nusuk rule disagree, the Nusuk rule wins. Skills installed outside this plugin that set their own look (frontend-design, impeccable, the taste-skill family, brand-guidelines) never set Nusuk tokens, type, colour or motion: see `nusuk-design-language` §10 › Who wins. `LICENSE` covers the whole plugin.
 
 ## library/
 
@@ -42,8 +44,8 @@ The whole DL tree: `DESIGN.md`, `tokens.json` and `tokens.css`, `components/` (t
 
 ## Install
 
-- **Organization (Owners, once):** claude.ai › Organization settings › Plugins & skills › Add › Sync from GitHub › https://github.com/ByMoha/NusukDL, with Sync automatically on.
-- **Yourself:** Customize › Plugins › Add › Upload plugin, and choose `nusuk-dl.plugin` as it is; or Add › Add marketplace with https://github.com/ByMoha/NusukDL.
-- **Claude Code:** `/plugin marketplace add https://github.com/ByMoha/NusukDL`, then `/plugin install nusuk-dl@nusuk-dl`.
+- **Organization (Owners, once):** claude.ai › Organization settings › Plugins & skills › Add › Sync from GitHub › https://github.com/ByMoha/NDL, with Sync automatically on.
+- **Yourself:** Customize › Plugins › Add › Upload plugin, and choose `nusuk-dl.plugin` as it is; or Add › Add marketplace with https://github.com/ByMoha/NDL.
+- **Claude Code:** `/plugin marketplace add https://github.com/ByMoha/NDL`, then `/plugin install nusuk-dl@nusuk-dl`.
 
 Do not edit these files by hand: every DL release rebuilds this folder.

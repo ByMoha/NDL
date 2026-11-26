@@ -2,10 +2,16 @@
 <html data-theme="gold-light" lang="ar">
 <head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>Chip — preview</title></head>
 <body style="margin:0">
-<div id="root" class="nk nk-stage " dir="rtl"></div>
+<div id="root" class="nk nk-stage col" dir="rtl"></div>
 <script>
   var N = window.NusukDL, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, ['default','pending','success','info','error','gold'].map(function(s){return h(N.Chip,{key:s,state:s,icon:true,size:'md'},{default:'عام',pending:'قيد الانتظار',success:'مؤكد',info:'معلومة',error:'ملغي',gold:'مميز'}[s])}),['default','pending','success','info','error','gold'].map(function(s){return h(N.Chip,{key:'s'+s,state:s,solid:true,size:'sm'},{default:'عام',pending:'قيد الانتظار',success:'مؤكد',info:'معلومة',error:'ملغي',gold:'مميز'}[s])})));
+  var S = ['default','pending','success','info','error','gold','white'], L = {default:'عام',pending:'قيد الانتظار',success:'مؤكد',info:'معلومة',error:'ملغي',gold:'مميز',white:'أبيض'};
+  function row(k, f){ return h('div',{key:k,style:{display:'flex',flexWrap:'wrap',gap:8,alignItems:'center'}}, S.map(f)); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    ['lr','md','sm','xs'].map(function(z){ return row(z, function(s){ return h(N.Chip,{key:s,state:s,size:z,icon:true},L[s]); }); }),
+    row('plain', function(s){ return h(N.Chip,{key:s,state:s,size:'md'},L[s]); }),
+    h('div',{style:{display:'flex',gap:8,alignItems:'center'}}, ['lr','md','sm','xs'].map(function(z){ return h(N.Chip,{key:z,state:'gold',solid:true,size:z,icon:true},'مميز'); })),
+    row('bare', function(s){ return h(N.Chip,{key:s,state:s,size:'md',icon:true,background:'bare'},L[s]); })));
 </script>
 </body>
 </html>

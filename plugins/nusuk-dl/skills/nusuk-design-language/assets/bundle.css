@@ -118,11 +118,6 @@
 .nk-chip.info{background:var(--alerts-surface-info);color:var(--alerts-text-info)}
 .nk-chip.gold{background:var(--alerts-surface-gold);color:var(--alerts-text-gold)}
 .nk-chip.white{background:var(--alerts-surface-solid-white);color:var(--alerts-text-default)}
-.nk-chip.solid.default{background:var(--alerts-surface-solid-default);color:var(--alerts-icons-white)}
-.nk-chip.solid.pending{background:var(--alerts-surface-solid-warning);color:var(--alerts-icons-white)}
-.nk-chip.solid.error{background:var(--alerts-surface-solid-error);color:var(--alerts-icons-white)}
-.nk-chip.solid.success{background:var(--alerts-surface-solid-success);color:var(--alerts-icons-white)}
-.nk-chip.solid.info{background:var(--alerts-surface-solid-info);color:var(--alerts-icons-white)}
 .nk-chip.solid.gold{background:var(--alerts-surface-solid-gold);color:var(--alerts-icons-white)}
 .nk-chip.outline{background:transparent;border:var(--border-thin) solid var(--surface-03-pearl)}
 .nk-flag{width:28px;height:20px;border-radius:4px;background:var(--surface-03-pearl);display:grid;place-items:center;font-size:10px;color:var(--text-note)}
@@ -404,6 +399,10 @@
 .nk-av.xs{width:24px;height:24px}.nk-av.sm{width:42px;height:42px}.nk-av.md{width:56px;height:56px}.nk-av.lg{width:72px;height:72px}.nk-av.xl{width:100px;height:100px}
 .nk-av .nk-ico{width:52%;height:52%}
 .nk-av.ink{background:var(--surface-10-ink);color:var(--surface-01-white)}
+/* Avatar, re-read 19 Nov 2026: Kind (Initials, Icon = user-03 at 52%, Picture, Emojis at 78%) x Size (xs 24, sm 42, md 56, lg 72, xl 100) x State
+   (Negative = White, Positive = Ivory), -6 6 12 -6 shadow. color="mint" (any Quran name or a CSS colour) fills an avatar; groups do it in turn. */
+.nk-av .emj{display:grid;place-items:center;width:78%;height:78%;line-height:1;object-fit:contain}
+.nk-av.xs .emj{font-size:14px}.nk-av.sm .emj{font-size:24px}.nk-av.md .emj{font-size:32px}.nk-av.lg .emj{font-size:42px}.nk-av.xl .emj{font-size:58px}
 .nk-av.ring-ink{border:1.36px solid var(--surface-10-ink)}.nk-av.ring-white{border:1.36px solid var(--surface-01-white)}
 .nk-avg{display:inline-flex;align-items:center;gap:4px;color:var(--text-heading)}
 .nk-avg .stack{display:inline-flex;align-items:center}
@@ -473,7 +472,7 @@
 .nk-sb b{font-size:17px;font-weight:600;letter-spacing:-.2px;width:54px;text-align:center}
 .nk-sb .island{position:absolute;left:50%;top:11px;width:125px;height:37px;margin-left:-62px;border-radius:100px;background:#000}
 .nk-sb.white{color:#fff}
-.nk-sb.white .island{background:#fff}
+.nk-sb.white .island{background:#000}
 /* Home indicator */
 .nk-hind{height:34px;display:flex;justify-content:center;padding-top:20px;flex:none}
 .nk-hind i{width:134px;height:5px;border-radius:100px;background:var(--surface-10-ink)}
@@ -482,6 +481,8 @@
 /* Toolbar */
 .nk-tb{display:flex;flex-direction:column;width:100%;color:var(--text-content)}
 .nk-tb-bar{display:flex;flex-direction:column;gap:18px;padding-top:4px}
+/* the 62 status-bar area every Figma Toolbar keeps above its bar (the device's safe area when it is taller) */
+.nk-tb-safe{display:block;flex:none;height:62px;height:max(62px,env(safe-area-inset-top,0px))}
 .nk-tb-row{display:flex;align-items:center;justify-content:space-between;height:var(--button-height-md);padding-inline:18px;gap:0}
 .nk-tb-lead{display:flex;align-items:center;gap:18px;padding-inline-end:12px;min-width:0}
 .nk-tb-lead.fill{flex:1}
@@ -855,11 +856,85 @@ button.nk-tb-hello{cursor:pointer}
 .nk-bnav .haze::before,.nk-tabbar::before{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);-webkit-mask:linear-gradient(to top,#000 45%,transparent);mask:linear-gradient(to top,#000 45%,transparent)}
 .nk-bnav .haze::after,.nk-tabbar::after{-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);-webkit-mask:linear-gradient(to top,#000 20%,transparent 65%);mask:linear-gradient(to top,#000 20%,transparent 65%)}
 .nk-tabbar{background:none!important;isolation:isolate}
+/* The TabBar action bars (Actions, Action & Input, Loading, with Price, Cart with Count, Payment, Floating Profile, Content Share, Filters)
+   use .nk-bottombar: its white gradient is dropped for the same two-layer progressive blur (18 Nov 2026). */
+.nk-bottombar{position:relative;isolation:isolate;background:none!important}
+.nk-bottombar::before,.nk-bottombar::after{content:'';position:absolute;inset:-24px 0 0;pointer-events:none;z-index:-1}
+.nk-bottombar::before{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);-webkit-mask:linear-gradient(to top,#000 45%,transparent);mask:linear-gradient(to top,#000 45%,transparent)}
+.nk-bottombar::after{-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);-webkit-mask:linear-gradient(to top,#000 20%,transparent 65%);mask:linear-gradient(to top,#000 20%,transparent 65%)}
 .nk-tabbar::before,.nk-tabbar::after{inset:-24px 0 0}
 .nk-tb{position:relative;isolation:isolate;background:none}
 .nk-tb::before,.nk-tb::after{inset:0 0 -24px}
 .nk-tb::before{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);-webkit-mask:linear-gradient(to bottom,#000 45%,transparent);mask:linear-gradient(to bottom,#000 45%,transparent)}
 .nk-tb::after{-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);-webkit-mask:linear-gradient(to bottom,#000 20%,transparent 65%);mask:linear-gradient(to bottom,#000 20%,transparent 65%)}
+/* Selection controls, re-read from Figma 📻 Switches, Checkbox, and Radio (18 Nov 2026, Moha: radios, colour, status). Every size keeps the
+   18 control (_Radio Icon Master / Checkbox Icon Master 18 x 18); only the label and gap grow (SM gap 8, MD and LR gap 12). Explicit values,
+   so a control never collapses when a size token is missing. Radio: Default Mist, Selected Illumination, Disabled Pearl + Ivory dot,
+   Disabled Selected Pearl + Mist dot, Error Solid Error; the 10 dot is a white 4-radius square with a soft 5% Ink shadow. Checkbox: Default
+   1 Longing line, Selected Illumination + white tick 12, Error 2 Icons/Error line, Disabled Pearl (tick at 50% when chosen). Switch SM 32 x 16,
+   knob 16 x 12, 2 in: off Mist with the knob on the start side, on Ink on the end side, Disabled Pearl + Mist knob, Error Solid Error. */
+.nk-sel{gap:8px;color:var(--text-content)}.nk-sel.md,.nk-sel.lr{gap:12px}
+.nk-radio{border:0;border-radius:50%;background:var(--surface-04-mist,#cbcccd)}.nk-radio,.nk-sel.md .nk-radio,.nk-sel.lr .nk-radio{width:18px;height:18px}
+.nk-radio i,.nk-sel.lr .nk-radio i{display:block;width:10px;height:10px;border-radius:4px;background:var(--surface-01-white,#fff);box-shadow:0 4px 30px rgba(7,8,8,.05)}
+.nk-radio.on{background:var(--surface-illumination,#d99726)}
+.nk-radio.err{background:var(--alerts-surface-solid-error,#ff4136)}.nk-radio.err i{box-shadow:none}
+.nk-radio[disabled]{background:var(--surface-03-pearl,#e5e5e6)}.nk-radio[disabled] i{background:var(--surface-02-ivory,#f5f5f5);box-shadow:none}.nk-radio[disabled].on i{background:var(--surface-04-mist,#cbcccd)}
+.nk-check{border:0;border-radius:4px;background:none;box-shadow:inset 0 0 0 1px var(--surface-longing,#f5b13d);color:var(--surface-01-white,#fff)}.nk-check,.nk-sel.md .nk-check,.nk-sel.lr .nk-check{width:18px;height:18px}
+.nk-check .nk-ico,.nk-sel.md .nk-check .nk-ico,.nk-sel.lr .nk-check .nk-ico{width:12px;height:12px}
+.nk-check.on{background:var(--surface-illumination,#d99726);box-shadow:none}
+.nk-check.err,.nk-check.error{background:none;box-shadow:inset 0 0 0 2px var(--alerts-icons-error,#ff4136)}
+.nk-check[disabled],.nk-sel.disabled .nk-check{background:var(--surface-03-pearl,#e5e5e6);box-shadow:none;color:var(--surface-10-ink,#070808)}
+.nk-check[disabled] .nk-ico{opacity:.5}
+.nk-switch{width:32px;height:16px;padding:2px;border:0;box-sizing:border-box;border-radius:999px;background:var(--surface-04-mist,#cbcccd);align-items:center}
+.nk-switch i{width:16px;height:12px;border-radius:999px;background:var(--surface-01-white,#fff);transition:transform .2s cubic-bezier(.2,.8,.2,1)}
+/* MD / LR measured from the Switch variants' own geometry (18 Nov 2026): MD track 42 x 21 with a 24 x 18 knob, LR track 54 x 27 with a 32 x 24
+   knob, the knob 2 in from the edge and 1.5 from the top; label to track gap 8 (SM) and 12 (MD, LR). */
+.nk-sel.md .nk-switch{width:42px;height:21px;padding:1.5px 2px}.nk-sel.md .nk-switch i{width:24px;height:18px}
+.nk-sel.lr .nk-switch{width:54px;height:27px;padding:1.5px 2px}.nk-sel.lr .nk-switch i{width:32px;height:24px}
+.nk-switch.on{background:var(--surface-10-ink,#070808)}
+.nk-switch.on i{transform:translateX(12px)}[dir=rtl] .nk-switch.on i{transform:translateX(-12px)}
+.nk-sel.md .nk-switch.on i{transform:translateX(14px)}[dir=rtl] .nk-sel.md .nk-switch.on i{transform:translateX(-14px)}
+.nk-sel.lr .nk-switch.on i{transform:translateX(18px)}[dir=rtl] .nk-sel.lr .nk-switch.on i{transform:translateX(-18px)}
+.nk-switch.err{background:var(--alerts-surface-solid-error,#ff4136)}
+.nk-switch[disabled]{background:var(--surface-03-pearl,#e5e5e6)}.nk-switch[disabled] i{background:var(--surface-04-mist,#cbcccd)}
+.nk-sel.error{color:var(--text-content)}
+/* Checkbox and Radio measured from the variants' own geometry (18 Nov 2026): the box sits on the top line of the row (not centred) with the
+   label 8 (SM) or 12 (MD, LR) from it; SM and MD boxes are 18 with a 12 tick and a 10 round dot, LR boxes are 24 with a 16 tick and a 13.3 dot. */
+.nk-sel:has(>.nk-check),.nk-sel:has(>.nk-radio){align-items:flex-start}
+/* White button = black content (18 Nov 2026, Moha). In the dark themes the Primary fill turns white (--button-primary-surface #fff) but its
+   content token was left white, so the label and icon vanished; the same holds wherever a Primary sits on a dark parent in a light theme.
+   Whenever the fill is white, the text and the icon are Ink. Dark-theme on-dark buttons (Ink fill) keep white content. */
+[data-theme$="-dark"]{--button-primary-content:#070808}
+[data-theme$="-light"],:root:not([data-theme]){--button-primary-content-on-dark:#070808}
+.nk-btn.primary.glass,.nk-btn.primary.glass .nk-ico{color:#070808}
+.nk-sel.lr .nk-check,.nk-sel.lr .nk-radio{width:24px;height:24px}
+.nk-sel.lr .nk-check .nk-ico{width:16px;height:16px}
+.nk-radio i,.nk-sel.lr .nk-radio i{border-radius:50%}.nk-sel.lr .nk-radio i{width:13.33px;height:13.33px}
+/* DayPicker — 📅 Date & Time › Day Picker, re-read 18 Nov 2026 (replaces the gold-ring today, the 50% disabled and the 4 dot) */
+.nk-day{width:40px;height:40px;padding:0;box-sizing:border-box;border:0;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:transparent;color:var(--text-heading);opacity:1;box-shadow:none;cursor:pointer;font:inherit}
+.nk-day .mk{width:12px;height:12px;flex:none;color:var(--surface-10-ink,#070808)}
+.nk-day .n{line-height:18px}
+.nk-day>i.av{display:block;width:3px;height:3px;border-radius:50%;flex:none;background:var(--alerts-icons-success,#5db364)}
+.nk-day>i.av.warn{background:var(--alerts-icons-warning,#ff6d01)}.nk-day>i.av.err{background:var(--alerts-icons-error,#ff4136)}.nk-day>i.av.none{background:var(--surface-05-smoke,#97999b)}
+.nk-day.today{background:var(--surface-02-ivory,#f5f5f5);box-shadow:none}
+.nk-day.selected{background:var(--surface-10-ink,#070808);color:var(--text-inverse,#fff);box-shadow:-6px 9px 30px -9px rgba(7,8,8,.05)}
+.nk-day.selected .mk{color:var(--surface-illumination,#d99726)}
+.nk-day.disabled{color:var(--text-note);opacity:1;cursor:not-allowed}
+/* Positions as Figma sets them: only the day and the dot are in the auto layout (centred, gap 4: day at 9, dot at 31); the moon is absolute,
+   centred, at -5.5 from the top so it rides over the cell's top edge; the dot is the 2-wide line with a 3 round stroke, a 5 x 3 dash. */
+.nk-day{position:relative;overflow:visible}
+.nk-day .mk{position:absolute;top:-5.5px;left:50%;margin-left:-6px}
+.nk-day>i.av{width:5px;height:3px;border-radius:3px;margin:-1.5px 0}
+/* Toolbar Header Effect (18 Nov 2026, Moha): ⚡️ Animation › Header Effect, a breathing gradient that never stops. Two theme-coloured ellipses
+   under a 204 layer blur drift through Stage 1 > 2 > 3 > 4 > 1, each step Smart Animate, ease-out, 3 s (a 12 s loop), over a 400 high field
+   behind the toolbar. Colours follow the theme (Illumination, Longing, shade 1, shade 2). Off with effect={false} and in darkmode; frozen on
+   Stage 1 under prefers-reduced-motion. */
+.nk-tb-fx{position:absolute;inset:0 0 auto;height:400px;overflow:hidden;z-index:-2;pointer-events:none}
+.nk-tb-fx i{position:absolute;display:block;border-radius:50%;transform-origin:0 0;filter:blur(102px);animation:12s ease-out infinite}
+.nk-tb-fx i:first-child{animation-name:nk-hfx-a}.nk-tb-fx i+i{animation-name:nk-hfx-b}
+@keyframes nk-hfx-a{0%{left:16.17%;top:-379px;width:53.23%;height:352px;transform:rotate(0deg);background:var(--surface-illumination,#d99726)}25%{left:46.02%;top:-329px;width:68.16%;height:352px;transform:rotate(0deg);background:var(--surface-illumination,#d99726)}50%{left:31.09%;top:-229px;width:53.23%;height:352px;transform:rotate(0deg);background:var(--surface-shade-2,#fad89e)}75%{left:-41.54%;top:-159px;width:53.23%;height:352px;transform:rotate(-41deg);background:var(--surface-illumination,#d99726)}100%{left:16.17%;top:-379px;width:53.23%;height:352px;transform:rotate(0deg);background:var(--surface-illumination,#d99726)}}
+@keyframes nk-hfx-b{0%{left:80.85%;top:-461px;width:18.66%;height:625px;transform:rotate(30deg);background:var(--surface-longing,#f5b13d)}25%{left:125.62%;top:-411px;width:18.66%;height:625px;transform:rotate(30deg);background:var(--surface-illumination,#d99726)}50%{left:95.77%;top:-311px;width:18.66%;height:625px;transform:rotate(30deg);background:var(--surface-shade-1,#f7c56e)}75%{left:-6.22%;top:-391px;width:18.66%;height:625px;transform:rotate(-11deg);background:var(--surface-illumination,#d99726)}100%{left:80.85%;top:-461px;width:18.66%;height:625px;transform:rotate(30deg);background:var(--surface-longing,#f5b13d)}}
+@media (prefers-reduced-motion:reduce){.nk-tb-fx i{animation-play-state:paused!important;animation-delay:0s!important}}
 .nk-bnav .row>.nk-hind{position:absolute;inset:auto 0 0;height:26px;padding-top:13px}
 .nk-bnav .bar{flex:1;min-width:0;display:flex;align-items:center;height:62px;padding:4px;box-sizing:border-box}
 .nk-bnav .bar>.nk-ntab{flex:1;min-width:0;margin-inline-start:-10px}
@@ -954,6 +1029,12 @@ button.nk-tb-hello{cursor:pointer}
 .nk-bookpill .meta{display:flex;align-items:center;gap:var(--space-xxs);color:var(--text-note);white-space:nowrap;overflow:hidden}
 .nk-bookpill .meta i{width:var(--scale-02);height:var(--scale-02);border-radius:var(--radius-full);background:currentColor;flex:none}
 .nk-glass.dark.nk-bookpill,.nk-glass.dark.nk-bookpill .meta{color:var(--text-inverse)}
+/* _Almatar Booking (19 Nov 2026): a 44 Glass BG pill, padding 0 / 18, the route (flag + city, arrow-left-right 16, flag + city; Notes 2, gap 4)
+   centred over the meta line (Notes 2 Light, Text/Note, 2 dots between, gap 4), bottom padding 4 */
+.nk-bookpill{height:44px;padding:0 18px;justify-content:center}
+.nk-bookpill .txt{flex:1;align-items:center;padding-bottom:4px}
+.nk-tb.light .nk-tb-wave.steps{background-image:none}
+.nk-bookpill .route,.nk-bookpill .meta{gap:4px}.nk-bookpill .route .nk-ico{width:16px;height:16px}.nk-bookpill .meta i{width:2px;height:2px}
 .nk-field-pair{display:flex;gap:var(--space-xs)}.nk-field-pair>.nk-field-box{flex:1;min-width:0}
 .nk-hw.logo{width:234px;min-height:212px;padding:26px 20px;gap:18px}.nk-hw.logo .lg{width:48px;height:48px;display:grid;place-items:center;border-radius:var(--radius-full);overflow:hidden}.nk-hw.logo .lg img,.nk-hw.logo .lg .nk-ico{width:48px;height:48px;object-fit:contain}.nk-hw.logo .cnt{display:flex;flex-direction:column;gap:4px;color:var(--text-heading)}.nk-hw.logo .cnt p{margin:0;color:var(--text-content)}
 /* Selection controls — 📻 Switches, Checkbox and Radio (read 14 November 2026). Sizes from _Switches Setup (control-*), colours from the Figma bindings. */
@@ -1404,6 +1485,20 @@ button.nk-tb-hello{cursor:pointer}
 .nk-sechead.complex .tt{flex:1;min-width:0;display:flex;flex-direction:column}
 .nk-sechead.complex .ov{color:var(--text-subtle)}
 .nk-sechead.complex .pick{flex:none;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text-subtle)}
+/* Headers re-read 18 Nov 2026: Nusuk Bot in the Right slot (38 x 43, glow as in Figma), Complex / Headline only, Complex actions on the start edge */
+.nk-bot{display:inline-block;flex:none;width:38px;height:43px;line-height:0;overflow:visible}.nk-bot svg{display:block;width:100%;height:100%;overflow:visible}
+.nk-bot.makkah svg{filter:drop-shadow(0 0 5px rgba(247,197,110,.9))}.nk-bot.madina svg{filter:drop-shadow(0 0 5px rgba(40,138,66,.4))}
+.nk-sechead .rt{flex:none;display:flex;align-items:center}
+.nk-sechead.complex,.nk-sechead.complex-headline{padding:32px 18px 18px;gap:18px;align-items:center}
+.nk-sechead.complex-headline .tt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.nk-sechead .ov{color:var(--text-subtle)}
+.nk-sechead .hl{display:flex;align-items:center;gap:8px}.nk-sechead .hl .t{flex:none}
+.nk-sechead.complex .pick{align-items:flex-start}.nk-sechead.complex .pick .pl{color:var(--text-subtle)}
+.nk-sechead.family{gap:12px}
+/* TabBar glass bars (Content Share, Filters, Cart Empty; 18 Nov 2026, Moha): only the container is glass — the tabs, the total and any chip or
+   button inside carry no fill, ring or shadow of their own. */
+.nk-pillbar.glassbar :is(button,.tot,.nk-chip,.nk-btn,.nk-ntab){background:none!important;box-shadow:none!important}
+.nk-pillbar.glassbar :is(button,.tot,.nk-chip,.nk-btn,.nk-ntab)::before{display:none!important}
 
 .nk-sheet>.sheet-body{display:flex;flex-direction:column;gap:var(--space-nr);padding:var(--space-xs) var(--space-nr) var(--space-xxl)}
 .nk-sheet>.sheet-body>.sheet-title{margin:0}
@@ -1466,3 +1561,210 @@ button.nk-tb-hello{cursor:pointer}
 .nk-opt .flag::before,.nk-dsheet .icon:not(.success):not(.info):not(.warning):not(.error):not(.brand):not(.gold)::before{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--surface-02-ivory);mix-blend-mode:multiply;pointer-events:none}
 @supports (mix-blend-mode:plus-darker){.nk-opt .flag::before,.nk-dsheet .icon:not(.success):not(.info):not(.warning):not(.error):not(.brand):not(.gold)::before{mix-blend-mode:plus-darker}}
 .nk-opt .flag>*,.nk-dsheet .icon>*{position:relative}
+/* Selection controls, final word (19 Nov 2026, Moha): the indicator sits 8 px from its label at every size (SM, MD, LR) for Switch, Checkbox
+   and Radio; and the Switch track (the toggle) is always drawn: explicit size, fill, knob and display, so no other rule or missing token can
+   collapse or hide it. SM 32 x 16 / knob 16 x 12, MD 42 x 21 / 24 x 18, LR 54 x 27 / 32 x 24; off Mist, on Ink, Disabled Pearl + Mist knob, Error. */
+.nk-sel,.nk-sel.sm,.nk-sel.md,.nk-sel.lr{display:inline-flex!important;gap:8px!important}
+.nk-sel>.nk-switch{display:flex!important;flex:none!important;align-items:center!important;justify-content:flex-start!important;box-sizing:border-box!important;width:32px!important;height:16px!important;min-width:32px;padding:2px!important;border:0!important;border-radius:999px!important;background:var(--surface-04-mist,#cbcccd)!important;opacity:1!important;visibility:visible!important;overflow:visible}
+.nk-sel>.nk-switch>i{display:block!important;flex:none;width:16px!important;height:12px!important;border-radius:999px!important;background:var(--surface-01-white,#fff)!important;opacity:1!important}
+.nk-sel.md>.nk-switch{width:42px!important;height:21px!important;min-width:42px;padding:1.5px 2px!important}.nk-sel.md>.nk-switch>i{width:24px!important;height:18px!important}
+.nk-sel.lr>.nk-switch{width:54px!important;height:27px!important;min-width:54px;padding:1.5px 2px!important}.nk-sel.lr>.nk-switch>i{width:32px!important;height:24px!important}
+.nk-sel>.nk-switch.on{background:var(--surface-10-ink,#070808)!important}
+.nk-sel>.nk-switch.err{background:var(--alerts-surface-solid-error,#ff4136)!important}
+.nk-sel>.nk-switch[disabled]{background:var(--surface-03-pearl,#e5e5e6)!important}.nk-sel>.nk-switch[disabled]>i{background:var(--surface-04-mist,#cbcccd)!important}
+.nk-sel>.nk-switch.on>i{transform:translateX(12px)}[dir=rtl] .nk-sel>.nk-switch.on>i,.nk-sel:dir(rtl)>.nk-switch.on>i{transform:translateX(-12px)}
+.nk-sel.md>.nk-switch.on>i{transform:translateX(14px)}[dir=rtl] .nk-sel.md>.nk-switch.on>i,.nk-sel.md:dir(rtl)>.nk-switch.on>i{transform:translateX(-14px)}
+.nk-sel.lr>.nk-switch.on>i{transform:translateX(18px)}[dir=rtl] .nk-sel.lr>.nk-switch.on>i,.nk-sel.lr:dir(rtl)>.nk-switch.on>i{transform:translateX(-18px)}
+
+/* ⌨️ Inputs › Input, read 24 November 2026: the label inside the field, Ivory line, the new types, Disabled fill */
+.nk-field-box{border-color:var(--surface-02-ivory);padding-inline:var(--space-nr);gap:var(--space-sm)}
+.nk-field-box .sub{display:flex;flex-direction:column;justify-content:center;flex:1;min-width:0;}
+.nk-field-box .sub>.lb{color:var(--inputs-text-placeholder);line-height:18px}
+.nk-field-box .sub>input{flex:none;width:100%;height:20px;line-height:20px;padding:0}
+.nk-field-box:not(:focus-within) .sub:has(>.lb)>input:placeholder-shown{height:0;opacity:0}
+.nk-field-box .nk-ico.md{width:24px;height:24px;flex:none}
+.nk-field.error .nk-field-box,.nk-field.error .nk-field-box.cc{border-color:var(--inputs-icons-error)}
+.nk-field.error .nk-field-box .sub>.lb,.nk-field.error .nk-field-box input{color:var(--inputs-text-error)}
+.nk-field.disabled .nk-field-box{background:var(--inputs-surface-disabled);border-color:var(--inputs-surface-disabled);color:var(--inputs-text-disabled)}
+.nk-field.disabled .nk-field-box .nk-ico{color:var(--inputs-text-disabled)}
+.nk-field.disabled .nk-field-box input{color:var(--inputs-text-disabled)}
+.nk-field-box.act{padding-inline-end:10px}
+.nk-field-box.ctr{padding-inline:10px}
+.nk-field-box.ctr .sub{align-items:center;text-align:center}
+.nk-field-box.ctr .sub>input{text-align:center}
+.nk-field-box.av{gap:12px}
+.nk-field-box.lg{padding-inline-end:10px}
+.nk-field-box .logo{display:inline-flex;flex:none;width:42px;height:24px}
+.nk-field-box .logo svg,.nk-field-box .logo img{width:100%;height:100%;object-fit:contain}
+.nk-field-box .eye{display:grid;place-items:center;flex:none;width:24px;height:24px;padding:0;border:0;background:none;color:inherit;cursor:pointer;border-radius:var(--radius-full)}
+.nk-field-box .eye .nk-ico{color:var(--inputs-icons-default)}
+.nk-field.error .nk-field-box .eye .nk-ico{color:var(--inputs-icons-error)}
+.nk-field-mobile{display:flex;gap:var(--space-xs)}
+.nk-field-mobile>.nk-field-box:first-child{flex:1;min-width:0}
+.nk-field-box.cc{flex:none;width:106px;justify-content:space-between;gap:var(--space-sm);color:var(--inputs-text-placeholder);cursor:pointer;font:inherit}
+.nk-field-box.cc:disabled{cursor:default}
+.nk-field-box.card{flex-direction:column;align-items:stretch;gap:0;padding:0}
+.nk-field-box.card .row{display:flex;align-items:center;min-height:62px;padding-inline:var(--space-nr)}
+.nk-field-box.card .row+.row{border-top:var(--border-thin) solid var(--surface-02-ivory)}
+.nk-field-box.card .row.two{padding:0}
+.nk-field-box.card .row.two>label{flex:1;min-width:0;display:flex;align-items:center;min-height:62px;padding-inline:var(--space-nr)}
+.nk-field-box.card .sep{flex:none;width:1px;align-self:center;height:29px;background:var(--surface-02-ivory)}
+.nk-field-box.area{min-height:124px;padding-block:12px}
+.nk-otp{gap:var(--space-xs)}
+.nk-otp span{flex:1 1 0;width:auto;min-width:0;border-color:var(--surface-02-ivory)}
+.nk-field.error .nk-otp span{border-color:var(--inputs-icons-error);color:var(--inputs-text-error)}
+.nk-field.disabled .nk-otp span{background:var(--inputs-surface-disabled);border-color:var(--inputs-surface-disabled);color:var(--inputs-text-disabled)}
+.nk-field-foot{display:flex;justify-content:space-between;gap:var(--space-xs)}
+.nk-field-foot>.nk-hint{flex:1}
+.nk-hint{min-height:20px}
+.nk-hint .nk-ico{flex:none}
+.nk-pw-rules{display:flex;flex-direction:column;gap:var(--space-xs)}
+.nk-pw-rules .rule.err .nk-sel{color:var(--inputs-text-error)}
+/* ResendTimer and LoginForm — ⌨️ Inputs › ✨ Standered Forms, 24 November 2026 */
+.nk-resend{display:flex;align-items:center;justify-content:center;gap:var(--space-xs);min-height:20px;color:var(--text-heading)}
+.nk-resend .nk-ico{color:var(--icons-black)}
+.nk-resend .lnk{padding:0;border:0;background:none;color:inherit;text-decoration:underline;text-underline-offset:4px;cursor:pointer;font:inherit}
+.nk-login{display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:var(--space-nr);border-radius:22px;background:var(--surface-01-white);box-shadow:-6px 6px 30px -12px rgba(7,8,8,.05)}
+.nk-login>.nk-htabs{align-self:center}
+.nk-login>.ttl{margin:0;text-align:center;color:var(--text-heading)}
+.nk-login>.ctas{display:flex;flex-direction:column;align-items:center}
+.nk-login>.ctas>.nk-resend{min-height:54px}
+/* 🍟 Chips › Chips, read 24 November 2026 (_Chips Setup): side padding 8 / 10 / 12 / 14, 6 / 8 / 10 / 12 on the icon side; Solid exists for Gold only */
+.nk-chip.lr{--chip-pad:14px;--chip-pad-icon:12px}
+.nk-chip.md{--chip-pad:12px;--chip-pad-icon:10px}
+.nk-chip.sm{--chip-pad:10px;--chip-pad-icon:8px}
+.nk-chip.xs,.nk-chip.mini,.nk-chip.st{--chip-pad:8px;--chip-pad-icon:6px}
+/* 🎹 Tabs › Header Tabs, read 24 November 2026: the track is padded 4 all round and fills its container, tabs share it equally; fill={false} hugs */
+.nk-htabs{padding:var(--space-xxs)}
+.nk-field-box input[dir=ltr]{text-align:right}
+.nk-field-box input[dir=ltr]:placeholder-shown{direction:rtl}
+
+/* 🧭 Navigation › Tab Bar Player and AI, Toolbar Connected Shorts — read 24 November 2026 */
+.nk-bar-player{width:100%;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 18px 26px}
+.nk-bar-player .pair{display:flex;gap:18px}
+.nk-bar-player .nk-pillbar.round{width:40px;height:40px;padding:0;justify-content:center;border-radius:var(--radius-full)}
+.nk-bar-player .nk-pillbar button{display:grid;place-items:center;width:44px;height:38px;padding:0;border:0;background:none;color:var(--icons-black);cursor:pointer;border-radius:var(--radius-full)}
+.nk-bar-player .nk-pillbar.round button{width:38px}
+.nk-bar-ai{width:100%;box-sizing:border-box;padding:18px 8px 0}
+.nk-bar-ai .nk-glass{display:flex;align-items:center;height:56px;padding:4px 18px 4px 8px;border-radius:var(--radius-full)}
+.nk-bar-ai input{flex:1;min-width:0;border:0;background:none;font:inherit;color:var(--text-heading);outline:none}
+.nk-bar-ai input::placeholder{color:var(--text-heading)}
+.nk-bar-ai .mic{display:grid;place-items:center;width:56px;height:48px;border:0;background:none;color:var(--icons-black);cursor:pointer;border-radius:var(--radius-full)}
+.nk-tb-shorts{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0}
+.nk-tb-shorts>.nk-procbar,.nk-tb-shorts>*:last-child{width:139px}
+/* 🧭 Navigation › Support Bottom Sheet (Default, SOS) */
+.nk-supsheet{position:relative;display:flex;flex-direction:column;gap:8px;margin:8px;padding:26px 18px 18px;border-radius:42px 42px var(--radius-ios,54px) var(--radius-ios,54px);background:var(--surface-01-white);box-shadow:var(--glass-full)}
+.nk-supsheet>.grab{position:absolute;top:5px;inset-inline:0;display:flex;justify-content:center}
+.nk-supsheet>.grab i{width:36px;height:5px;border-radius:100px;background:var(--surface-04-mist)}
+.nk-supsheet .tiles{display:flex;gap:8px}
+.nk-supsheet .tile{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;height:72px;padding:12px 18px;border:0;border-radius:22px;background:var(--surface-02-ivory);color:var(--text-heading);cursor:pointer;font:inherit}
+.nk-supsheet .tile.fate{background:var(--alerts-surface-error);color:var(--alerts-text-error)}
+.nk-supsheet .tile .nk-ico{width:20px;height:20px}
+.nk-supsheet .card{display:flex;flex-direction:column;align-items:flex-start;gap:18px;margin:10px -18px -18px;padding:32px 18px;border-radius:42px 42px var(--radius-ios,54px) var(--radius-ios,54px);background:var(--surface-01-white);box-shadow:0 -10px 30px -12px rgba(7,8,8,.08)}
+.nk-supsheet .card>.ttl{margin:0;color:var(--text-heading)}
+.nk-supsheet .card>.nk-htabs{max-width:100%;overflow-x:auto;scrollbar-width:none}
+.nk-supsheet .faqs{display:flex;flex-direction:column;gap:4px;width:100%}
+.nk-supsheet .faqs .nk-coll.bg{border-radius:12px;background:var(--surface-02-ivory)}
+.nk-supsheet .ai{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:18px;width:100%;padding:0;border-radius:22px}
+.nk-supsheet .ai p{margin:0;color:var(--text-heading)}
+.nk-supsheet .aipill{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 12px;border:0;border-radius:var(--radius-full);background:var(--surface-02-ivory);color:var(--text-heading);cursor:pointer}
+.nk-supsheet .aipill .dots{display:inline-flex;gap:3px}.nk-supsheet .aipill .dots i{width:5px;height:5px;border-radius:50%;background:currentColor}
+.nk-supsheet .spons{display:flex;align-items:center;justify-content:space-between;width:100%;padding-top:12px}
+.nk-supsheet .spons .logos{display:flex;gap:20px;height:35px}.nk-supsheet .spons img{height:35px;width:auto}
+.nk-supsheet.sos{padding:18px 18px 32px;gap:8px;background:var(--surface-02-ivory)}
+.nk-supsheet .shead{display:flex;align-items:center;gap:12px;padding:12px 0}
+.nk-supsheet .help{display:flex;flex-direction:column;align-items:center;gap:18px;padding:18px;border-radius:var(--radius-md);background:var(--surface-01-white);box-shadow:var(--glass-full);text-align:center}
+.nk-supsheet .help p{margin:0;max-width:250px;color:var(--text-heading)}
+.nk-supsheet .rings{position:relative;width:250px;height:125px;overflow:hidden}
+.nk-supsheet .rings i{position:absolute;left:50%;top:100%;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--surface-longing,#f5b13d) 0%,rgba(245,177,61,0) 70%)}
+.nk-supsheet .rings .r3{width:250px;height:250px;opacity:.1}.nk-supsheet .rings .r2{width:203px;height:203px;opacity:.2}.nk-supsheet .rings .r1{width:151px;height:151px;opacity:.3}
+.nk-supsheet .rings .pin{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:grid;place-items:center;width:45px;height:45px;border-radius:50%;background:var(--surface-longing,#f5b13d);color:var(--icons-black);box-shadow:-6px 6px 30px -12px rgba(7,8,8,.05)}
+.nk-supsheet .nums{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.nk-supsheet .num{display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-height:114px;padding:18px;box-sizing:border-box;border-radius:22px;background:var(--surface-01-white);box-shadow:var(--glass-full);color:var(--text-heading);text-decoration:none}
+.nk-supsheet .num>span{margin-top:auto;margin-bottom:-8px;color:var(--text-content)}
+/* 🃏 Cards › Nusuk Cards */
+.nk-ncard{position:relative;box-sizing:border-box;overflow:hidden;color:var(--text-heading)}
+.nk-ncard img{display:block}
+.nk-ncard.bank{width:386px;max-width:100%;height:226px;padding:12px;border-radius:12px;background:#070808;color:#fff;display:flex;flex-direction:column;gap:18px}
+.nk-ncard.bank>.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nk-ncard.bank>*:not(.bg){position:relative}
+.nk-ncard.bank .top{display:flex;justify-content:space-between;align-items:center;height:24px}
+.nk-ncard.bank .nlogo{height:24px;width:56px}.nk-ncard.bank .bank{height:24px;width:23px}
+.nk-ncard.bank .num{display:flex;justify-content:space-between;align-items:center;height:20px;margin-top:auto}
+.nk-ncard.bank .pan{display:flex;align-items:center;gap:8px}
+.nk-ncard.bank .dots{display:flex;gap:4px}.nk-ncard.bank .dots i{width:4px;height:4px;border-radius:50%;background:#fff}
+.nk-ncard.bank .mada{height:18px;width:54px}
+.nk-ncard.bank .who{display:flex;gap:48px}.nk-ncard.bank .who .l{margin-bottom:4px}
+.nk-ncard.bank .brand{display:flex;justify-content:flex-end}.nk-ncard.bank .mc{width:32px;height:20px}
+.nk-ncard.mini{width:164px;height:172px;padding:12px 18px 12px 8px;border-radius:18px;background:var(--surface-01-white);box-shadow:var(--glass-full);display:flex;flex-direction:column;align-items:flex-start;gap:18px;text-decoration:none}
+.nk-ncard.mini .lbl{align-self:stretch;line-height:18px}
+.nk-ncard.mini .types{align-self:flex-start;display:flex;gap:8px;align-items:center}.nk-ncard.mini .types .mc{width:23px;height:14px}.nk-ncard.mini .types .mada{width:42px;height:14px}
+.nk-ncard.mini .bal{display:flex;flex-direction:column;gap:8px}.nk-ncard.mini .bal .l{color:var(--text-note)}
+.nk-ncard.mini .amt{display:flex;align-items:center;gap:4px}
+.nk-ncard.wallet{justify-content:flex-end;padding-top:0}
+.nk-ncard.wallet .ill{position:absolute;top:0;left:0;width:164px;height:auto}
+.nk-ncard.wallet .cta{position:relative;display:flex;align-items:center;gap:8px;padding-top:8px;color:var(--text-heading)}
+.nk-ncard.mini.id{padding-bottom:12px}
+.nk-ncard.mini.id>*{position:relative}
+.nk-ncard.mini.id .av{position:relative;width:56px;height:56px}
+.nk-ncard.mini.id .pri{position:absolute;inset-inline-start:-1px;top:40px}.nk-ncard.mini.id .pri .nk-chip{width:20px;height:20px;padding:4px;justify-content:center;border:1px solid #fff;background:var(--surface-longing,#f5b13d);color:#fff}
+.nk-ncard.mini.id .meta{display:flex;flex-direction:column;gap:0;padding-top:4px}
+.nk-ncard.mini.s-rawdah{background:radial-gradient(120% 70% at 85% 105%,rgba(40,138,66,.18),rgba(40,138,66,0) 70%),var(--surface-01-white)}
+.nk-ncard.mini.s-hajj-card>.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nk-ncard.mini.s-hajj-card>.tag{position:absolute;top:8px;inset-inline-end:8px;width:37px;height:47px}
+.nk-ncard .nat{display:flex;align-items:center;gap:4px}.nk-ncard .nat .flag{display:inline-grid;place-items:center;width:16px;height:12px;overflow:hidden;font-size:12px;line-height:1}.nk-ncard .nat .flag img{width:16px;height:12px;object-fit:cover}
+.nk-ncard.id:not(.mini){width:386px;max-width:100%;display:flex;flex-direction:column;border-radius:18px;background:var(--nc-head);box-shadow:var(--glass-full)}
+.nk-ncard.id .head{display:flex;justify-content:center;align-items:flex-start;height:43px;padding:4px 20px 26px;box-sizing:border-box;color:#fff;font-size:10px}
+.nk-ncard.id .body{position:relative;display:flex;flex-direction:column;gap:12px;margin-top:-21px;padding:12px;border-radius:18px;background:var(--surface-01-white);overflow:hidden}
+.nk-ncard.id .body>.bg,.nk-ncard.id .body>.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.nk-ncard.id .body>*:not(.bg):not(.hbg){position:relative}
+.nk-ncard.id .logos{display:flex;align-items:center;justify-content:space-between;gap:16px;height:24px}
+.nk-ncard.id .logos .nlogo{width:56px;height:24px}.nk-ncard.id .logos .moh{width:78px;height:34px}.nk-ncard.id .logos .co{flex:1;text-align:center}
+.nk-ncard.id .person{display:flex;justify-content:space-between;gap:20px}
+.nk-ncard.id .who{display:flex;flex-direction:column;gap:12px;flex:1;min-width:0}
+.nk-ncard.id .ph{position:relative;width:82px;height:82px}
+.nk-ncard.id .ph>img:first-child,.nk-ncard.id .ph-empty{width:82px;height:82px;border-radius:14px;object-fit:cover;display:grid;place-items:center;background:var(--surface-02-ivory)}
+.nk-ncard.id .ph>.tag{position:absolute;inset-inline-start:calc(100% + 4px);top:18px;width:37px;height:47px}
+.nk-ncard.id .nm{display:flex;flex-direction:column;gap:4px}
+.nk-ncard.id .idl{display:flex;align-items:center;gap:8px}
+.nk-ncard.id .qr{display:flex;flex-direction:column;align-items:flex-start;gap:8px;width:124px}
+.nk-ncard.id .qr-box{display:grid;place-items:center;width:95px;height:95px;border-radius:18px;background:#fff;box-shadow:var(--glass-full)}
+.nk-ncard.id .qr-box img{width:72px;height:72px}
+.nk-ncard.id .nid{display:flex;align-items:center;gap:4px}
+.nk-ncard .copy{display:grid;place-items:center;width:16px;height:16px;padding:0;border:0;background:none;color:var(--icons-black);cursor:pointer}.nk-ncard .copy .nk-ico{width:12px;height:12px}
+/* 🃏 Cards › Quote Widget */
+.nk-quote{display:flex;flex-direction:column;gap:12px;width:243px;margin:0;padding:26px 18px;box-sizing:border-box;border-radius:var(--radius-md);background:var(--surface-01-white);box-shadow:var(--glass-full)}
+.nk-quote .qi{color:var(--surface-longing,#d99726)}.nk-quote .qi .nk-ico{width:24px;height:24px;color:#d99726}
+.nk-quote .q{margin:0;font:400 24px/1.2 "29LT Idris VF","29LT Idris",var(--font-sans);color:var(--text-heading)}
+.nk-quote .cap{display:flex;flex-direction:column;align-items:flex-start;gap:8px}.nk-quote .src{color:var(--text-heading)}
+/* 🃏 Cards › Hints Widget, read 24 November 2026: Emerald (Direction4) with the white fade, a 44 logo */
+.nk-hw.emerald{background:var(--quran-emerald-shade);color:#070808}
+.nk-hw.logo.emerald{background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.59) 59%,#fff 100%),var(--quran-emerald-shade)}
+.nk-hw.logo .lg,.nk-hw.logo .lg img,.nk-hw.logo .lg .nk-ico{width:44px;height:44px}
+.nk-dsheet .options>.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-bottom:12px}.nk-dsheet .options>.pair>.nk-selcard{width:auto;min-width:0}
+
+/* Status bar battery percentage (27 Nov 2026) */
+.nk-sb .pct{font:700 8.6px/1 -apple-system,"SF Pro Text",system-ui,sans-serif;fill:var(--surface-01-white,#fff)}
+.nk-sb.white .pct{fill:#070808}
+/* Device: the iPhone frame for prototypes and mockups (27 Nov 2026). 402 × 874, screen corners radius-ios (54), 12 bezel. */
+.nk-device{--dev-w:402px;--dev-h:874px;box-sizing:content-box;width:var(--dev-w);height:var(--dev-h);padding:12px;border-radius:calc(var(--radius-ios,54px) + 12px);background:#070808;box-shadow:inset 0 0 0 2px #2b2d30,0 30px 60px -30px rgba(7,8,8,.45);flex:none;position:relative}
+.nk-device.bare{padding:0;background:none;box-shadow:none}
+.nk-device-screen{position:relative;width:100%;height:100%;border-radius:var(--radius-ios,54px);overflow:hidden;background:var(--surface-screen-bk,#fff);isolation:isolate;transform:translateZ(0)}
+.nk-device-body{position:absolute;inset:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+.nk-device-body::-webkit-scrollbar{display:none}
+.nk-device-sb{position:absolute;inset:0 0 auto;z-index:60;pointer-events:none}
+.nk-device-hi{position:absolute;inset:auto 0 0;height:34px;box-sizing:border-box;display:flex;justify-content:center;align-items:flex-end;padding-bottom:8px;z-index:60;pointer-events:none}
+.nk-device-hi i{width:134px;height:5px;border-radius:100px;background:var(--surface-10-ink,#070808)}
+.nk-device-hi.white i{background:#fff}
+.nk-device:has(.nk-device-body .nk-sb) .nk-device-sb,.nk-device:has(.nk-device-body .nk-hind) .nk-device-hi{display:none}
+/* Reduce Transparency, and browsers without backdrop-filter (27 Nov 2026): the navigation bars' progressive blur becomes a soft solid fade
+   in the screen colour, so content never shows through unreadably. Native: UIAccessibility.isReduceTransparencyEnabled / no blur below API 31. */
+@media (prefers-reduced-transparency:reduce){
+.nk-tb::before,.nk-tabbar::before,.nk-bottombar::before,.nk-bnav .haze::before{-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask:none;mask:none}
+.nk-tb::after,.nk-tabbar::after,.nk-bottombar::after,.nk-bnav .haze::after{display:none}
+.nk-tb::before{background:linear-gradient(to bottom,var(--surface-screen-bk,#fff) 55%,transparent)}
+.nk-tabbar::before,.nk-bottombar::before,.nk-bnav .haze::before{background:linear-gradient(to top,var(--surface-screen-bk,#fff) 55%,transparent)}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+.nk-tb::after,.nk-tabbar::after,.nk-bottombar::after,.nk-bnav .haze::after{display:none}
+.nk-tb::before{-webkit-mask:none;mask:none;background:linear-gradient(to bottom,var(--surface-screen-bk,#fff) 55%,transparent)}
+.nk-tabbar::before,.nk-bottombar::before,.nk-bnav .haze::before{-webkit-mask:none;mask:none;background:linear-gradient(to top,var(--surface-screen-bk,#fff) 55%,transparent)}}

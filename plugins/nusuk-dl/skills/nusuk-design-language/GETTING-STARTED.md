@@ -1,9 +1,9 @@
 # Nusuk Design Language · getting started
 
-The Nusuk DL reaches Claude as one plugin, `nusuk-dl` (DL-42, 17 November 2026). It carries fifteen skills and the whole DL library:
+The Nusuk DL reaches Claude as one plugin, `nusuk-dl` (DL-42, 17 November 2026). It carries seventeen skills and the whole DL library:
 
 - **Nusuk skills:** `nusuk-design-language` (this skill: `SKILL.md`, the full `DESIGN.md`, tokens, every component card, the 20 template contracts, the patterns, the Nusuk AI chat, the native token files and the coded components), `nusuk-dx`, `nusuk-ux`, `nusuk-content-writer`, `nusuk-voice-rules`, `nusuk-visual-system` (with its 18 reference paintings) and `nusuk-feature-handoff`.
-- **General method skills (MIT, credited in each folder):** `accessibility-audit`, `design-critique`, `ux-writing` and `humanizer`; and from Emil Kowalski (18 November 2026) `apple-design`, `mobile-native`, `break-ui` and `review-animations`. Where they and a Nusuk rule disagree, the Nusuk rule wins.
+- **General method skills (MIT, credited in each folder):** `accessibility-audit`, `design-critique`, `ux-writing` and `humanizer`; and from Emil Kowalski `apple-design`, `mobile-native`, `break-ui` and `review-animations` (18 November 2026), `gestures` and `learn-taste` (27 November 2026). Where they and a Nusuk rule disagree, the Nusuk rule wins.
 - **Skills outside the plugin that set their own look** (frontend-design, impeccable, the taste-skill family, brand-guidelines) never set Nusuk tokens, type, colour or motion: `nusuk-design-language` §10 › Who wins.
 - **`library/`:** the full DL tree: one folder per component with its preview page, the coded package, patterns and templates, the chat lane, every migration, the iOS and Android files and the developer handoff.
 
@@ -11,7 +11,7 @@ The only other download is the **developer handoff** (`nusuk-dl-developer-handof
 
 ## For the whole organization (Owners, once)
 
-The GitHub repository https://github.com/ByMoha/NusukDL is a Claude plugin marketplace. In claude.ai: Organization settings › Plugins & skills (https://claude.ai/admin-settings/skills?tab=inventory) › **Add** › **Sync from GitHub** › https://github.com/ByMoha/NusukDL, with **Sync automatically** on. Then set `nusuk-dl` to *Installed by default* or *Required*. Members get it in chat, Cowork and Claude Code signed in with the same account, and every DL release reaches them when it is pushed.
+The GitHub repository https://github.com/ByMoha/NDL is a Claude plugin marketplace. In claude.ai: Organization settings › Plugins & skills (https://claude.ai/admin-settings/skills?tab=inventory) › **Add** › **Sync from GitHub** › https://github.com/ByMoha/NDL, with **Sync automatically** on. Then set `nusuk-dl` to *Installed by default* or *Required*. Members get it in chat, Cowork and Claude Code signed in with the same account, and every DL release reaches them when it is pushed.
 
 ## For yourself
 
@@ -19,11 +19,11 @@ The GitHub repository https://github.com/ByMoha/NusukDL is a Claude plugin marke
 2. In claude.ai or the desktop app: Customize › Plugins (https://claude.ai/customize/plugins) › **Add** › **Upload plugin**, and choose the file as it is. Don't unzip it.
 3. Remove any Nusuk skill you uploaded by hand earlier, so it doesn't load twice.
 
-With access to the GitHub repository you can instead use **Add** › **Add marketplace** with https://github.com/ByMoha/NusukDL; then it updates itself.
+With access to the GitHub repository you can instead use **Add** › **Add marketplace** with https://github.com/ByMoha/NDL; then it updates itself.
 
 ## Claude Code
 
-A plugin on your claude.ai account loads in Claude Code when you sign in with the same account (run `/reload-plugins` or start a new session). Without that account: `/plugin marketplace add https://github.com/ByMoha/NusukDL`, then `/plugin install nusuk-dl@nusuk-dl` (with your own GitHub access).
+A plugin on your claude.ai account loads in Claude Code when you sign in with the same account (run `/reload-plugins` or start a new session). Without that account: `/plugin marketplace add https://github.com/ByMoha/NDL`, then `/plugin install nusuk-dl@nusuk-dl` (with your own GitHub access).
 
 ## Use it
 

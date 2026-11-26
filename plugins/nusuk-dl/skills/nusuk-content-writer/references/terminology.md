@@ -13,7 +13,7 @@
 | السعي | Sa'i | — |
 | ضيف الرحمن | Pilgrim / Guest of Allah | للخطاب الرسمي والإيماني |
 | المصحف | Quran / Quran App | — |
-| الذكر | Dhikr | — |
+| الذكر | Thikr | Nusuk's house spelling, not Dhikr; plural Athkar |
 | الدعاء | Du'a | — |
 
 ---

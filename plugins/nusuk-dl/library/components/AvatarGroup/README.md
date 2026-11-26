@@ -4,6 +4,8 @@ Overlapping avatars for groups and companions.
 
 **Figma source:** 🧭 Navigation › Group Users · 🛎️ Notifications › Group Users · 🏖️ Travel › User Group (read 14 November 2026). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**19 November 2026 (the DL Advisor's comments on the design system page):** the last avatar is on top of the stack, as Figma draws it. Avatars without a picture take the Quran colours in turn (mint, sky, sand, rose, peach, orchid, citrine, fog, lavender); `colors={false}` keeps them white.
+
 ## Props
 
 | Prop | Type | Notes |
@@ -19,6 +21,7 @@ Overlapping avatars for groups and companions.
 | `caption` | `string` | Travel: a `body-2-regular` row above the group with the XS icon avatar, 8 apart. Figma's sample is «%s، و%s مرافقين»; write the count with the Arabic plural rules (one, two, few, many) |
 | `ring` | `'ink' \| 'white'` |  |
 | `state` | `'positive' \| 'negative'` |  |
+| `colors` | `boolean` | `false` keeps avatars without a picture white; by default they take the Quran colours in turn (19 November 2026) |
 
 ## Use
 

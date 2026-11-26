@@ -2,7 +2,7 @@
 
 Every coded component card in one file; search `# <Name>` (for example `# StatusSheet`). Each card is its own folder, with a preview page, in the GitHub repo (components/<Name>/) and the packages.
 
-Contents: AddToCartCTA · Alert · AppNotification · Avatar · AvatarGroup · BentoGrid · BottomNav · BottomSheet · Button · CardsList · CardsSlider · Categories · CategoryChips · CategoryTile · ChatMessage · Checkbox · Chip · CircularProgress · CollapsedSection · CountBadge · CustomerFeedback · DateRange · DayPicker · DayTab · DetailsListItem · DirectionSheet · DropdownItem · EmptyState · FaceTile · FeatureBox · FeaturedAirport · FeaturedHeader · FeedbackEmojis · FileUploader · FlightTicket · FromTo · Glass · GlassBG · Guide · HeaderTabs · Hint · HintWidget · HotelCard · Icon · InfoTile · Leaderboard · ListSideBySide · MapPin · MediaCard · MemberCard · NoticeBar · NpsScale · Nudge · OptionCard · Page · Pagination · PaymentDetails · PlaylistCard · PlaylistRow · PrayCard · PrayerLiveActivity · PriceOptions · ProductTile · ProgressRing · QRCodeStatus · Radio · RatingBar · ReasonSelection · RequestCard · ReviewCard · ReviewSummary · Ribbon · SectionError · SectionHeader · SectionTitle · SelectCard · ServicesBox · SoundPlayer · StartJourney · StatusChip · StatusSheet · StepCard · Steps · Switch · TabBar · TextField · TimeSlot · Toolbar · UpcomingRequests · VerticalStepper · VisaUserBlock
+Contents: AddToCartCTA · Alert · AppNotification · Avatar · AvatarGroup · BentoGrid · BottomNav · BottomSheet · Button · CardsList · CardsSlider · Categories · CategoryChips · CategoryTile · ChatMessage · Checkbox · Chip · CircularProgress · CollapsedSection · CountBadge · CustomerFeedback · DateRange · DayPicker · DayTab · DetailsListItem · Device · DirectionSheet · DropdownItem · EmptyState · FaceTile · FeatureBox · FeaturedAirport · FeaturedHeader · FeedbackEmojis · FileUploader · FlightTicket · FromTo · Glass · GlassBG · Guide · HeaderTabs · Hint · HintWidget · HotelCard · Icon · InfoTile · Leaderboard · ListSideBySide · LoginForm · MapPin · MediaCard · MemberCard · NoticeBar · NpsScale · Nudge · NusukCard · OptionCard · Page · Pagination · PaymentDetails · PlaylistCard · PlaylistRow · PrayCard · PrayerLiveActivity · PriceOptions · ProductTile · ProgressRing · QRCodeStatus · QuoteWidget · Radio · RatingBar · ReasonSelection · RequestCard · ReviewCard · ReviewSummary · Ribbon · SectionError · SectionHeader · SectionTitle · SelectCard · ServicesBox · SoundPlayer · StartJourney · StatusChip · StatusSheet · StepCard · Steps · SupportSheet · Switch · TabBar · TextField · TimeSlot · Toolbar · UpcomingRequests · VerticalStepper · VisaUserBlock
 
 
 ---
@@ -12,6 +12,8 @@ Contents: AddToCartCTA · Alert · AppNotification · Avatar · AvatarGroup · B
 The cart control on product cards and rows: add, a quantity stepper, remove, or notify me.
 
 **Figma source:** [🃏 Cards › Add to Cart CTA](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70399-6858) (Status: arrow, cart, Status7, one, many, Remove, Notify me). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**19 November 2026 (the DL Advisor's comments on the design system page):** icons follow Figma: buy and remove at the right of the label, notify at the left.
 
 **17 November 2026, 21:35, rebuilt:** every status is now an instance of CTA Secondary XS, so the sizes are the CTA's. `arrow` and `cart` are 42 (cart takes `shopping-basket-add-01` 18); `one` and `many` are 138 on Glass BG, `one` with a destructive icon-only `delete-01` 18; `remove` puts `shopping-basket-remove-01` 16 before «إزالة» (70); `notify-me` puts `notification-02` 16 after «نبهني عند التوفر» (138); `buy` (Status7) is unchanged (71).
 
@@ -148,6 +150,8 @@ A person or account: initials, icon, picture or emoji, five sizes.
 
 **Figma source:** 👩🏻‍💻 Avatar › Avatar (Kind × Size × State). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**19 November 2026 (the DL Advisor's comments on the design system page):** Kind × Size × State as Figma has it: initials, icon (`kind: 'icon'`, `iconName`), picture (`src`) and emojis (`emoji`). An avatar without a picture can take a Quran colour (`color`: mint, sky, sand, rose, peach, orchid, citrine, fog, lavender). Previews use real photos wherever Figma has one.
+
 ## Props
 
 | Prop | Type | Notes |
@@ -161,6 +165,10 @@ A person or account: initials, icon, picture or emoji, five sizes.
 | `ink` | `boolean` | Ink fill, white icon (the Icon avatar in Group Users) |
 | `ring` | `'ink' \| 'white'` | 1.36px ring, used for the +N avatar |
 | `name` | `string` |  |
+| `kind` | `'initials' \| 'icon' \| 'picture' \| 'emojis'` | Figma Kind (19 November 2026). `'icon'` draws `iconName`; a picture comes from `src` and an emoji from `emoji`, whatever `kind` says |
+| `iconName` | `string` | `kind: 'icon'` or `icon`: the DL icon, default `user-03` |
+| `emoji` | `string` | An emoji, or the URL of a rendered emoji image |
+| `color` | `string` | A Quran colour (`mint`, `sky`, `sand`, `rose`, `peach`, `orchid`, `citrine`, `fog`, `lavender`) or any CSS colour, for avatars without a picture |
 
 ## Use
 
@@ -196,6 +204,8 @@ Overlapping avatars for groups and companions.
 
 **Figma source:** 🧭 Navigation › Group Users · 🛎️ Notifications › Group Users · 🏖️ Travel › User Group (read 14 November 2026). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**19 November 2026 (the DL Advisor's comments on the design system page):** the last avatar is on top of the stack, as Figma draws it. Avatars without a picture take the Quran colours in turn (mint, sky, sand, rose, peach, orchid, citrine, fog, lavender); `colors={false}` keeps them white.
+
 ## Props
 
 | Prop | Type | Notes |
@@ -211,6 +221,7 @@ Overlapping avatars for groups and companions.
 | `caption` | `string` | Travel: a `body-2-regular` row above the group with the XS icon avatar, 8 apart. Figma's sample is «%s، و%s مرافقين»; write the count with the Arabic plural rules (one, two, few, many) |
 | `ring` | `'ink' \| 'white'` |  |
 | `state` | `'positive' \| 'negative'` |  |
+| `colors` | `boolean` | `false` keeps avatars without a picture white; by default they take the Quran colours in turn (19 November 2026) |
 
 ## Use
 
@@ -275,6 +286,8 @@ The floating bottom navigation: a glass capsule of destinations with one optiona
 - `screen="journey"` still works and means `travel`.
 
 **Figma source:** 🧭 Navigation › Tab Bar (Active Landing, Travel, Content, Market/Cart +) on `_BottomTab master` and `_Tab`. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**19 November 2026 (the DL Advisor's comments on the design system page):** only the container is glass; the tabs and buttons inside it draw no background of their own and follow the bar's dark mode.
 
 **15 November 2026, evening:** new screen `inner-pages` (Figma Tab Bar › Inner Pages on `_BottomTab master` Mode=InnerPage): a 40-high glass pill with four icon actions (44 × 38) at the end and the 40 Nusuk AI circle at the start; pass `actions` (`{icon, label, onClick}`). `_Tab` and `_BottomTab master` now have `Darkmode` (labels Text/Inverse in dark, text style Notes 2, IBM Plex): the dark recipe code used is now Figma's (N22 closed). The bar carries no shadow of its own; only Glass BG's (N7 closed). Figma: unpublished edits in 🧭 Navigation.
 
@@ -399,6 +412,7 @@ The call to action. Primary for the one main action, Secondary for the alternati
 | `onClick` | `() => void` |  |
 | `trailingIconName` | `string` | Trailing glyph when icon='both' (default: iconName mirrored). |
 | `type` | `'button' \| 'submit' \| 'reset'` |  |
+| `label` | `string` | Older name for `ariaLabel` on icon-only buttons |
 
 Labels use `body-2-regular` (16px) at every size, as in Figma.
 
@@ -665,6 +679,8 @@ Select any number of options, or confirm one statement.
 
 **Figma source:** 📻 Switches, Checkbox and Radio › Checkbox (Status × Size). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**19 November 2026 (the DL Advisor's comments on the design system page):** 8 between the box and its label at every size; the box aligns with the top of the label's first line, so a two-line label keeps it at the top; LR is 24. The preview is a Status × Size matrix, right to left by default.
+
 **14 November 2026 (read from Figma):** 18 / 18 / 24 (`control-checkbox-*`), radius 4. Empty: no fill and a 1 px `surface-longing` line. Ticked: `surface-illumination` (gold) with a white `tick-02` 12 / 12 / 18 (was Ink). Disabled: `surface-03-pearl`, and when ticked an Ink tick at 50%. Error: a 2 px `alerts-icons-error` line, no fill. Label 14 / 16 / 18, gap 8 / 12 / 12. New `size` prop: `sm` (default), `md`, `lr`.
 
 ## Props
@@ -698,7 +714,9 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 A short status or category label: Default, Pending, Success, Info, Error, Gold or White, soft or solid.
 
-**Figma source:** 🍟 Chips › Chips (128 variants: State × Size × Icon × Solid × Background). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** [🍟 Chips › Chips](https://www.figma.com/design/VVGHy0fAHuPqL6dhBD5Ai6/?node-id=72392-427) (128 variants: State × Size × Icon × Solid × Background). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**24 November 2026 (Figma re-read):** Solid On exists for **Gold only** (16 of the 128 variants); `solid` on any other state now draws the soft chip. The default icon is `arrow-left-02` for every state, at the start (right in RTL), as `_Chips Master Souce` Icon=Right draws it. The side padding below is now in the code too: until today `bundle.css` still had 12 / 14 / 14 / 16 (icon side 10 / 12 / 12 / 14), although this card already listed the new values. White is a white fill with Default text. Figma note for the DL Manager: Pending SM with an icon has 8 / 10 where every other SM has 10 / 8.
 
 **15 November 2026, evening:** side padding follows `_Chips Setup` as published: 8 / 10 / 12 / 14 (`Glob Whitespace`), 6 / 8 / 10 / 12 on the icon side (`Icon-Side Whitespace`); was 12 / 14 / 14 / 16 and 10 / 12 / 12 / 14. Heights 18 / 20 / 24 / 28, text 10 / 12 / 12 / 14, gaps and icons unchanged (tokens 3.9).
 
@@ -708,9 +726,9 @@ A short status or category label: Default, Pending, Success, Info, Error, Gold o
 |---|---|---|
 | `state` | `'default' \| 'pending' \| 'success' \| 'info' \| 'error' \| 'gold' \| 'white'` |  |
 | `size` | `'xs' \| 'sm' \| 'md' \| 'lr'` | 18 / 20 / 24 / 28px; text 10 / 12 / 12 / 14; side padding 8 / 10 / 12 / 14, 6 / 8 / 10 / 12 on the icon side (15 Nov 2026); gap 4 / 4 / 4 / 6; icon 12 / 14 / 14 / 16 (Chips `_Chips Setup`, 9 November 2026). Cards use `xs` |
-| `iconName` | `string` | Any icon name |
+| `iconName` | `string` | Any DL icon. Default `arrow-left-02` (24 Nov 2026) |
 | `icon` | `boolean` | Show the status icon |
-| `solid` | `boolean` | Solid fill for emphasis |
+| `solid` | `boolean` | Solid fill. Gold only (Figma has no other Solid variants, 24 Nov 2026) |
 | `background` | `boolean \| 'bare'` | false = outline; `'bare'` = Figma Background Off (no fill, no padding) |
 | `children` | `React.ReactNode` |  |
 
@@ -940,14 +958,18 @@ A calendar day cell with availability dot.
 
 **Figma source:** 📅 Date & Time › Day Picker (State × Indicator × Moon), Date Picker (Calendar, Year, Month), Availability Status. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**19 November 2026 (rebuilt from [📅 Date & Time › Day Picker](https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU/?node-id=74392-1944)):** 40 × 40, radius 14. The moon mark sits at the top (`icon`, `iconName`, default `moon-02`), the day in Body 2 under it and the availability dot under the day: available (green), filling (orange), almost full and full (red), not available (grey). Today is Ivory, the selected day Ink with white text. Figma draws the cell 40 × 48 (known issue).
+
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
 | `day` | `string` |  |
 | `state` | `'unselected' \| 'current' \| 'selected' \| 'disabled'` |  |
-| `availability` | `'available' \| 'filling' \| 'almost' \| 'none'` | Dot colour; always add a legend |
+| `availability` | `'available' \| 'filling' \| 'almost' \| 'full' \| 'none'` | Dot colour; always add a legend. Figma's names `filling-up`, `almost-full` and `not-available` also work |
 | `ariaLabel` | `string` |  |
+| `icon` | `boolean` | `false` hides the moon mark at the top |
+| `iconName` | `string` | The mark's DL icon, default `moon-02` |
 
 ## Use
 
@@ -1029,11 +1051,67 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 ---
 
+# Device
+
+The iPhone frame every Nusuk prototype and mockup sits in: 402 × 874 (iPhone 16 Pro), the screen corners at `radius-ios` (54), the status bar at **02:22** with the battery percentage, the Dynamic Island and the home indicator. New in the DL on 27 November 2026.
+
+**Rule:** the DL Advisor, 18 November 2026: every experience the DL replicates or builds includes the `_Status Bar` and is shown in an iPhone mockup (DESIGN.md › M13 › Prototypes). This component is that mockup, so no prototype hand-builds a phone, a status bar or an island again (a hand-built bar put the island off centre in right-to-left).
+
+**Figma source:** [🧭 Navigation › `_Status Bar`](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/) (Color Black, White) and Bars/Home Indicator. Figma boards carry no device mockup: a Figma screen is the 402 × 874 auto layout itself (M13 › Figma boards). The frame is for code prototypes, decks and handoff pages.
+
+## Anatomy
+
+| Part | Spec |
+|---|---|
+| Frame | 12 bezel in Ink `#070808`, outer corner 66, a 2 px inner rim |
+| Screen | 402 × 874, corners `radius-ios` (54), `surface-screen-bk`; the content scrolls inside it with no visible scrollbar |
+| Status bar | the DL `StatusBar`, 62 high, over the content: 02:22 (Western digits, left to right), signal, Wi-Fi and the battery with its percentage (default 100); white with `dark` |
+| Dynamic Island | 125 × 37, black, centred 11 from the top, in every theme |
+| Home indicator | 134 × 5 Ink bar, 8 from the bottom; white with `dark` |
+
+A Toolbar or FeaturedHeader drawn with `statusBar` keeps its own status bar, and a TabBar or BottomNav keeps its own home indicator: the frame hides its layer when one is inside, so a screen never shows two. The Toolbar always keeps the 62 status-bar area above the bar either way.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `children` | node | The screen: Toolbar, content, TabBar |
+| `dark` | `boolean` | White status bar and home indicator, for dark or photo screens |
+| `time` | `string` | Default `02:22`; keep it |
+| `battery` | `number` | Battery percentage, default 100 |
+| `statusBar` / `homeIndicator` | `boolean` | `false` hides the layer |
+| `bezel` | `boolean` | `false` draws the screen only (for a handoff page that already frames it) |
+| `width` / `height` | `number` | Default 402 × 874 |
+| `dir` / `lang` | | Set `rtl` / `ar` for Arabic screens |
+| `label` | `string` | Names the frame for screen readers (`role="group"`) |
+| `className` / `style` | | Passed to the frame |
+
+## Use
+
+- Wrap every prototype screen in `Device`, in Arabic and right to left unless the brief says English.
+- Put the Toolbar first: its 62 safe area sits under the status bar.
+- Keep native iOS transitions inside the screen (M13 › Native motion).
+
+## Don't
+
+- Do not draw a second status bar or island by hand.
+- Do not change the time: 02:22 is the DL's prototype time.
+- Do not use the frame in native apps: they use the system status bar.
+
+## iOS and Android
+
+Not built in the apps: the system draws the status bar, island and home indicator. Keep content inside the safe areas (`safeAreaInset`, `WindowInsets.systemBars`).
+
+
+---
+
 # DirectionSheet
 
 A bottom sheet that asks the person to choose a direction: restore an account, pick an option, filter.
 
 **Figma source:** 🧭 Navigation › Direction Sheet (Options: Restore, Login Sheet, 2 Options, Details, Session timeout, Filter).
+
+**24 November 2026:** re-read, no change to the sheet. The card now shows all four Options as Figma composes them: Restore (Option Cards LR Icon with Action), 2 Options (two Select Cards in a `.pair` row, Primary MD and Ghost MD), Details (Option Cards with Icon) and Filter (Dropdown item, Radio).
 
 **15 November 2026, evening:** Options are Restore, 2 Options, Details and Filter; Login Sheet and Session timeout are removed (N4 closed).
 
@@ -1289,6 +1367,7 @@ The top of a destination landing: photo, search bar, title and four quick action
 | `statusBar` | `boolean` |  |
 | `supportLabel` | `string` |  |
 | `title` | `string` |  |
+| `actionsLabel` | `string` | Names the actions row for screen readers (default: the title) |
 
 ## Anatomy
 
@@ -1427,6 +1506,8 @@ A flight option as a two-part ticket: route and times, a notched dashed tear lin
 | `logos` | `{tone, src}[]` | tone: saudia, flynas, egyptair |
 | `logosImage` | `string` | One image for the logo group (the preview uses the Figma group) |
 | `seats, price, per` | `string` |  |
+| `ariaLabel` | `string` | Names the ticket for screen readers |
+| `logosAlt` | `string` | Alt text of `logosImage` |
 
 ## Use
 
@@ -1464,6 +1545,7 @@ Departure and arrival pickers with the trip-type tabs and a swap button.
 | `from, to` | `{label, value, sub, iconName}` |  |
 | `active` | `boolean` | Both ends chosen |
 | `onSwap` | `fn` |  |
+| `swapLabel` | `string` | Name of the swap button, default «تبديل المغادرة والوصول» |
 
 ## Use
 
@@ -1485,6 +1567,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 The glass surface a component draws inside itself: one element with a Glass BG recipe already chosen. Use it when you build a floating control, a field on imagery or a tile that must look like the DL's own; use `GlassBG` when you need the full Figma variant (Mode × Dark × Glass) with its layer switches.
 
 **Figma source:** [⚙️ Foundation › 🎨 Colors › Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296), as component instances use it (each recipe is a set of layers the instance keeps). The recipes and their layers are documented on the GlassBG card.
+
+**19 November 2026 (the DL Advisor's comments on the design system page):** on a glass bar only the container is glass: the buttons and fields inside it draw no background of their own. A white-fill button on glass takes black text and icon, and every button follows its bar's dark mode.
 
 **18 November 2026:** card written (the plugin health check found Glass had a preview but no card).
 
@@ -1646,6 +1730,8 @@ Segmented tabs for switching views inside one screen, with optional icons, count
 
 **Figma source:** [🎹 Tabs › Header Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2883) (Size SM, LR × Background On, Off), on `_Header Tabs` (Darkmode, Show Item 3–8) and `_Tab_Master_Status` (Status × Icon Off, On, Icon Only × Show Number × White × Updates), with Number Notification. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**24 November 2026 (Figma re-read):** Header Tabs now fills its container by default and every tab takes an equal share (`_Tab_Master_Status` is Fill in all four variants); `fill={false}` hugs the labels, as the Login Form does. The track is padded 4 all round (was 4 / 8). Tab, label, icon (20, Figma log: "updated icon size"), count and updates are unchanged.
+
 **18 November 2026 (Golf Carts review, GC-R11):** on a page the tabs span the full width and share it equally (two tabs 50/50), grey track and white pill: pass `fill`. Keep the track on white cards; `background={false}` is for tabs over the page background only.
 
 **17 November 2026, 21:00 (rebuilt as a replica):** the track is padded 4 / 8 (code had 4 all round); its fill reaches 2 outside the track, as Glass BG does in Figma; LR tabs are 40 high (code had 38); the chosen tab's shadow is −6 6 30 −12 Ink 5%, the style Tabs uses (F104); new `darkmode` (Smoke track, white labels), and per tab `icon`, `iconOnly` and `updates`. The count stays Smoke on the chosen tab, as Figma draws it (code turned it white).
@@ -1654,7 +1740,7 @@ Segmented tabs for switching views inside one screen, with optional icons, count
 
 | Part | SM | LR | Token |
 |---|---|---|---|
-| Track | 38 high, padding 4 / 8, tabs 8 apart | 48 high | `space-xxs`, `space-xs` |
+| Track | 38 high, padding 4, tabs 8 apart; fills its container | 48 high | `space-xxs`, `space-xs` |
 | Track fill (2 outside the track) | Ivory; Darkmode Smoke | same | `surface-02-ivory`, `surface-05-smoke` |
 | Tab | 30 high, padding 8 / 20, 18 on the icon side | 40 high | `space-xs`, `space-md`, `radius-full` |
 | Label | Notes 1 Regular, 2 above the bottom | same | `text-heading` (Darkmode `text-inverse`) |
@@ -1673,9 +1759,10 @@ Segmented tabs for switching views inside one screen, with optional icons, count
 | `background` | `boolean` | `false` = Background Off: no track |
 | `darkmode` | `boolean` | `_Header Tabs` Darkmode On, for imagery |
 | `light` | `boolean` | The glass toolbar tabs (GlassBG `field`, Dark On), not this set |
-| `fill` | `boolean` | Span the container, every tab an equal share (two tabs 50/50). Use on a page (18 Nov 2026) |
+| `fill` | `boolean` | Default `true` (24 Nov 2026): span the container, every tab an equal share. `false` hugs the labels |
 | `onChange` | `(index) => void` | Called when the person picks a tab |
 | `ariaLabel` | `string` | Names the tab list |
+| `dark` | `boolean` | Older name for `darkmode` |
 
 ## Use
 
@@ -1698,7 +1785,7 @@ The content (labels, counts, icons from the DL set) and the container. Colour, t
 
 One line of help, information, warning, error or success under a field or block.
 
-**Figma source:** ⌨️ Inputs › Hint (Hint, Error, Info, Warning, Success; Success added 11 November 2026, with the `clapping-02` icon). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** [⌨️ Inputs › Hint](https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR/?node-id=68416-100008) (Hint, Error, Info, Warning, Success; Success added 11 November 2026, with the `clapping-02` icon). Icons (re-read 24 November 2026): Hint and Info `information-circle`, Warning `spam`, Error `alert-circle`, Success `clapping-02`, 20 at the start; text Notes 2 (12) in the type colour; 20 high. Code drew Warning with `alert-circle` until today. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
 ## Props
 
@@ -1728,6 +1815,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 A preparation tip people can tick off: icon, title, details and a link chip.
 
 **Figma source:** Hints Widget (Direction Vertical, Horizontal) in 🃏 Cards › Partials (`mg7egvNbr2ciMP04Ig2XDl`). Read 9 November 2026.
+
+**24 November 2026 (Figma re-read):** the Vertical, Horizontal and Direction3 examples use the Amethyst shade (`tone="amethyst"`, #f0e5fa); Direction4 (`direction="logo"`) is Emerald with a white fade from 59% (`tone="emerald"`) and a 44 logo (was 48). Figma note: `Direction3` and `Direction4` are placeholder names and Direction3 duplicates Horizontal with a second icon slot (`Icon2`).
 
 **14 November 2026:** Figma has 4 directions. `Direction3` is Horizontal again with the icon in a second slot (`Icon2`), so code keeps `horizontal`. `Direction4` is new and becomes `direction="logo"`: 234 × 212, padding 26 / 20, gap 18, a partner logo 48 (Cards › Logo Icons), title `body-1-regular` (18), details `notes-1-regular` (14), no tick box. Its sample text names an airline: use it for a real service the person is booking, never as an advert (known issue F5).
 
@@ -1795,6 +1884,8 @@ A hotel result: photo, name, distance, rating, room features and price.
 | `features` | `{label, iconName}[]` |  |
 | `nights, hot` | `string` | `hot: false` hides the note |
 | `price, oldPrice, discount` | `string` |  |
+| `favouriteLabel` | `string` | Name of the favourite toggle, default «المفضلة» |
+| `imageAlt` | `string` | Alt text of the photo |
 
 ## Use
 
@@ -1943,6 +2034,66 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 ---
 
+# LoginForm
+
+The standard sign-in card: email or mobile, the one-time code, and the password with its criteria. New in the DL on 24 November 2026.
+
+**Figma source:** [⌨️ Inputs › ✨ Standered Forms › Login Form](https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR/?node-id=69471-5284) (Type Email, Mobile, OTP, Password × Status Default, Filled, Error, Setup; 12 variants) on `Login Master Form` (Status Default, Error), with ResendTimer (Resend OTP Off, On). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+## Anatomy
+
+| Part | Spec | DL |
+|---|---|---|
+| Card | white, radius 22, padding 18, items 12 apart, soft shadow | `surface-01-white`, `space-nr` |
+| Method tabs | Header Tabs SM, hugging, centred: «البريد الإلكتروني» · «رقم الجوال» | HeaderTabs `fill={false}` |
+| Title | Body 2 (16), centred: «أدخل رمز التحقق», «أدخل كلمة المرور» | OTP and Password |
+| Field | TextField input (email), mobile, otp or password with criteria | TextField |
+| Continue | Primary MD, full width, «المتابعة» with `arrow-left-02`; disabled while empty or in error | Button |
+| Help | Ghost LR «لديك مشكلة في الدخول لحسابك؟» | Button |
+| Resend (OTP) | ResendTimer: `time-04` «يمكنك طلب رمز جديد بعد» 00:59, then `alert-02` «لم يصلك الرمز؟» «أعد الإرسال» | ResendTimer |
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `type` | `'email' \| 'mobile' \| 'otp' \| 'password'` | |
+| `status` | `'default' \| 'filled' \| 'error' \| 'setup'` | Setup = password creation with criteria in error |
+| `value` / `placeholder` / `error` | `string` | Field content and error text (defaults from Figma) |
+| `rules` | `(string \| { label, met })[]` | Password criteria |
+| `tabs` | `boolean` | Show the method tabs. Default: Email and Mobile only |
+| `canContinue` | `boolean` | Override the Continue state |
+| `time` / `onResend` | `string` / `() => void` | OTP timer and resend |
+| `onTab`, `onContinue`, `onHelp` | functions | |
+| `title` | `string` | The form's title (OTP «أدخل رمز التحقق», Password «أدخل كلمة المرور») |
+| `tabLabels` | `[string, string]` | The method tabs, default «البريد الإلكتروني» and «رقم الجوال» |
+| `continueLabel` / `helpLabel` | `string` | The Continue button («المتابعة») and the help link («لديك مشكلة في الدخول لحسابك؟») |
+| `ariaLabel` | `string` | Names the form, default «تسجيل الدخول» |
+
+`ResendTimer` is exported too: `resend` (boolean), `time`, `label`, `prompt`, `resendLabel`, `onResend`.
+
+## Use
+
+- Keep Continue disabled until the field holds a valid value; say what is wrong under the field with an Error Messages Content text.
+- Start the resend timer when the code is sent; offer «أعد الإرسال» only when it ends.
+
+## Don't
+
+- Do not add social sign-in or marketing to this card.
+- Do not clear what the person typed when you show an error.
+
+## Figma notes for the DL Manager
+
+- The OTP error variant is named `Type=OTP, Status=Filled` (a duplicate name); it should be `Status=Error`.
+- Mobile Default and Filled show the email tab as chosen; code chooses the mobile tab.
+- The method tabs appear on the OTP Error and Password Setup variants but not their Default and Filled ones; code shows them for Email and Mobile only (`tabs` overrides).
+
+## iOS and Android
+
+A VStack / Column, spacing 12, padding 18, corner 22. The OTP field uses the system one-time-code content type (`.oneTimeCode`, `autofillHints = SMS_OTP_CODE`); the password field uses `.newPassword` in Setup.
+
+
+---
+
 # MapPin
 
 A map pin for places and events.
@@ -2053,6 +2204,7 @@ A 250 × 330 content or commerce card: a full-bleed photo with a type pill on to
 | `layout` | `'list' \| 'grid'` | Marketplace cards: 'list' is 268 wide, 'grid' 189 |
 | `playLabel` | `string` |  |
 | `width` | `number \| string` |  |
+| `tagIcon` | `string` | DL icon in the tag chip when `tag` is a string |
 
 ## Use
 
@@ -2103,6 +2255,7 @@ A person in a booking: the main pilgrim or a companion. Full width with an actio
 | `selectable, selected` | `boolean` | Secondary XS tick |
 | `disabled` | `boolean` | Pearl, 70% |
 | `src, initials, people` | `…` | Avatar 42px with the `_Card Avatar` shadow (−6, 6, blur 30, spread −12, Ink 5%); `people: 2` shows two |
+| `horizontal` | `'Horizontal' \| 'Vertical'` | Figma's property name; `'Horizontal'` = `layout: 'compact'` |
 
 ## Use
 
@@ -2234,6 +2387,63 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 ---
 
+# NusukCard
+
+The person's Nusuk identity and payment cards: Nusuk ID (seven sub-categories), the small ID tiles (Nusuk ID, Rawdah permit, Hajj permit), the Nusuk mada card and the wallet prompt. New in the DL on 24 November 2026.
+
+**Figma source:** [🃏 Cards › Nusuk Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70838-7738) (Cards Nusuk ID, Wallet, Card × Small Off, On × Sub Category; 13 variants) on Nusuk ID Master (Priority, Hajj Card), Bank Card and Nusuk Cards Mini.
+
+## Anatomy
+
+| Part | Spec |
+|---|---|
+| Nusuk ID | 386 × 226. A 43 header in the sub-category colour with the card name (10, white, centred); the white body (radius 18, padding 12, items 12 apart) sits 21 over it |
+| Header colours | Default `#cbcccd` بطاقة مستخدم نسك · Tour Guide `#636669` بطاقة مرشد سياحى · Hajj Emp `#070808` بطاقة منسوبى وزارة الحج · Charity `#1c664b` بطاقة متطوع · Work `#7f26d9` بطاقة عمل · Hajj `#d99726` بطاقة تصريح حج (with the company name, the Hajj guilloché and the 1447 tag) · Umrah `#573d1c` بطاقة تصريح عمرة |
+| Body | Logos row (Nusuk at the start, MoH at the end); photo 82, radius 14; name Body 2 (16); flag, nationality and document number Notes 2 (12); QR 95 with the Nusuk ID and copy at the end |
+| Small ID | 164 × 172, radius 18, padding 12 / 18 / 12 / 8, 18 apart: label (14), a 56 avatar with an optional Gold XS `disability-02` chip (`priority`), nationality and number. Rawdah: green glow; Hajj Card: guilloché and the tag |
+| Card | 386 × 226 black mada card, left to right: Nusuk and bank logos, •••• + last four and mada, NAME and EXPIRY DATE, Mastercard. Small: white, mada and Mastercard, «الرصيد الحالي» and the balance with the riyal sign |
+| Wallet | small: the card illustration and «أكمل بياناتك لتفعيل محفظة نُسك» with the arrow |
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `cards` | `'Nusuk ID' \| 'Wallet' \| 'Card'` | Figma Cards |
+| `small` | `boolean` | Figma Small |
+| `subCategory` | `'Default' \| 'Tour Guide' \| 'Hajj Emp' \| 'Charity' \| 'Work' \| 'Hajj' \| 'Umrah'`; small: `'Default' \| 'Rawdah' \| 'Hajj Card'` | |
+| `photo`, `name`, `nationality`, `flag` / `flagSrc`, `documentNumber`, `nusukId`, `qr` | | The person's data; `qr` is the real code image (the sample QR is for mockups) |
+| `company`, `title`, `headColor`, `label` | | Hajj company; override the header or label |
+| `priority` | `boolean` | Small ID: the gold accessibility chip |
+| `last4`, `holder`, `expiry`, `balance` | | Card |
+| `onCopy`, `onClick`, `href` | | |
+| `bankName` | `string` | Card: alt text of the bank mark |
+| `nameLabel`, `expiryLabel` | `string` | Card: the NAME and EXPIRY DATE captions |
+| `balanceLabel` | `string` | Small card: the balance caption, default «الرصيد الحالي» |
+| `copyLabel`, `qrLabel`, `tagAlt` | `string` | Names of the copy button and the QR image; alt text of the Hajj permit tag |
+| `ariaLabel` | `string` | Names the card, default «بطاقة نسك» |
+| `kind`, `sub` | `string` | Older names for `cards` and `subCategory` |
+
+## Use
+
+- Show the real QR from the service; never a static image in production.
+- The ID is a document: no marketing, no badges beyond the Figma ones.
+
+## Don't
+
+- Do not recolour the header outside the seven sub-categories.
+
+## iOS and Android
+
+Build as a card view with the header as a separate layer under the body (body offset −21). Logos and the guilloché are bundled assets; the QR is generated on device (CIQRCodeGenerator / ZXing). Card numbers and IDs are left to right.
+
+## Known issues
+
+- The Hajj variant's photo overflows the card's end edge in Figma; code keeps it inside.
+- Assets (logos, sample QR, backgrounds) are rendered from Figma into the bundle (about 60 KB).
+
+
+---
+
 # OptionCard
 
 A choice or setting in a list: with an action, a counter, an icon on top, or a requirement.
@@ -2347,6 +2557,7 @@ Dots for carousels and stories. The current item is a short bar.
 | `size` | `'default' \| 'sm'` | 4px or 3px |
 | `white` | `boolean` | Figma Darkmode=On, on media and Ink |
 | `progress` | `number` | 0–1. Fills the current bar, for stories |
+| `label` | `string` | Accessible name, default «page n of m» in the page's language |
 
 ## Use
 
@@ -2384,6 +2595,8 @@ The order summary and the refund summary: a card that opens to a list of priced 
 | `iconName` | `string` | Refund: the header icon |
 | `open, onToggle, toggleLabel` | `boolean, fn, string` | Collapse On / Off; default open |
 | `note, policyLabel, policyHref` | `string` | Refund: the warning hint |
+| `actionIcon` | `string` | The toggle's DL icon, default `arrow-left-02` |
+| `headerTotal` | `string` | The amount in the header, when it differs from `total` |
 
 ## Use
 
@@ -2530,6 +2743,7 @@ The lock-screen live activity for prayer times.
 | `prayer` | `string` |  |
 | `times` | `[name, time][]` |  |
 | `current` | `number` |  |
+| `label` | `string` | Accessible name of the card |
 
 ## Use
 
@@ -2551,6 +2765,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 The price block of a product card: "from", the price and the cart control.
 
 **Figma source:** [🃏 Cards › Price Options](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=2402-18252) (Vertical False / True · Show Price, Show Add To Cart, Show CTA, Discount). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**19 November 2026 (the DL Advisor's comments on the design system page):** the old price comes before the tag, the component hugs its content, and only Figma's variants are offered.
 
 **18 November 2026 (review comments of 17 Nov):** in Vertical=True the Add to Cart CTA hugs its content and sits at the start (right in Arabic), under the price, as Figma's Bottom frame does. In the discount row the struck-through earlier price comes first (right in Arabic), then the «خصم 25%» pill. The preview shows only Figma's variants: Horizontal and Vertical, each with and without Discount; the Notify me and Buy cases are gone, since Figma only puts the cart icon here.
 
@@ -2705,11 +2921,42 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 ---
 
+# QuoteWidget
+
+A short supplication or quote on a white card, with its source and a gold tag. New in the DL on 24 November 2026.
+
+**Figma source:** [🃏 Cards › Quote Widget](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70337-6095) (243 × 224).
+
+## Anatomy
+
+White, radius 18, padding 26 / 18, items 12 apart, Glass/Full. `quote-up` 24 in gold; the text in **29LT Idris** 24 (line 120%); the source in Notes 2 (12); a Gold XS chip.
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `text` | `string` | The quote, exactly as the approved source writes it |
+| `source` | `string \| false` | Default «دعاء» |
+| `tag`, `tagState` | `string \| false`, chip state | Default «دعاء», gold |
+
+## Use
+
+- Quran and hadith text only from the approved translation databases; never paraphrase.
+
+## Known issues
+
+- 29LT Idris is not a DL font token; the card falls back to IBM Plex Sans Arabic where the font is not loaded.
+
+
+---
+
 # Radio
 
 Choose exactly one option from a short visible list.
 
 **Figma source:** 📻 Switches, Checkbox and Radio › Radio (Status × Size). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**19 November 2026 (the DL Advisor's comments on the design system page):** 8 between the ring and its label at every size; the ring aligns with the top of the label's first line; LR is 24. The preview is a Status × Size matrix, right to left by default.
 
 **14 November 2026 (read from Figma):** 18 / 18 / 24 (`control-radio-*`). Off `surface-04-mist`; on `surface-illumination` (gold; was Ink). The centre is a white rounded square 10 × 10 (13 × 13 at LR), radius 4, with the avatar shadow, in both states (code drew a smaller circle when on). Disabled: `surface-03-pearl` with an Ivory centre, Mist when chosen. Error: solid `alerts-surface-solid-error`. New `size` prop: `sm` (default), `md`, `lr`.
 
@@ -2827,6 +3074,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 A booking in "My bookings": what it is, its status, when, and who it is for. Every Figma type is a preset you can override.
 
 **Figma source:** 🃏 Cards › Request Cards (12 types) on `_Request Card Master` (Active, Empty State), with Request Card Status (46). Read 8 November 2026, re-read 17:20.
+
+**24 November 2026 (Figma re-read):** Request Cards has 12 types. New preset `message` (alias `wellness`): «موعد استجمامك», tag «الاستجمام» with the new `wellness` icon. Figma note: the type is named `Message` but draws a wellness booking.
 
 **10 November 2026:** 11 types. `sim` left Figma and is deprecated.
 
@@ -3011,6 +3260,8 @@ Titles for heroes, sections, legends and grouped lists, with an optional tag, ac
 
 **Figma source:** 🔌 Misc › Headers. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**19 November 2026 (re-read from [🔌 Misc › Headers](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj/?node-id=2402-18252)):** the end slot shows the **NusukBot** (`location`: Makkah or Madina) unless `right` replaces it (`false` hides it). New levels: `complex-headline` (the headline with a `count` chip) and `family` (the people with a user-edit avatar at the end, `edit`, `editLabel`). `cta: false` hides the CTA icon button, `separator: false` the legend's rule, and `actions` replaces the complex pick button. SectionTitle maps its hero, legend, complex, complex-headline and family variants to this component.
+
 **17 November 2026, evening — re-read:** Headers has 14 locations, but 7 sit at 10% opacity in Figma (XL Header, Seperate Icon, Widget Header, Simple Title, XS Legend, Section Title With Devider, Filter / Search); they are retired and not built. The 7 live ones:
 
 | `level` | Figma location | Anatomy |
@@ -3039,6 +3290,13 @@ Old values still work: `xl` → `hero`, `simple` → `section`, `divider` → `l
 | `people, more` | `string[], string` | `family` |
 | `as` | `string` | Heading tag; default h1 for hero, h2 otherwise |
 | `action, divider` | `string, boolean` | Older names: `action` is `tag`, `divider` is `level: 'legend'` |
+| `right` | node or `false` | The end slot; `false` hides it. Default: the NusukBot (19 November 2026, 🔌 Misc › Headers) |
+| `location` | `'makkah' \| 'madina'` | The NusukBot drawn in the end slot |
+| `cta` | `boolean` | `false` hides the CTA icon button |
+| `separator` | `boolean` | Legend: `false` hides the rule |
+| `actions` | node | Complex: replaces the pick button |
+| `count` | `string \| number` | Complex headline: a chip after the headline |
+| `edit` / `editLabel` | `boolean` / `string` | Family: `false` hides the user-edit avatar; its name, default «تعديل» |
 
 ## Use
 
@@ -3062,6 +3320,8 @@ The header every section starts with: a title, an optional tag (#المحتوى)
 
 **Figma source:** [🔌 Misc › Headers](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj/?node-id=2402-18252) (Location 02 Section Title, 02 Section Title / Centered, 03 Collaps · Actions slot). Read 9 November 2026; re-read 17 November 2026.
 
+**19 November 2026:** the hero, legend, complex, complex-headline and family variants render through SectionHeader (with the NusukBot and the new props); section, centred and collapse are drawn here. `level` is accepted as an older name for `variant`.
+
 **17 November 2026:** 02 Section Title is now 32 top, 18 sides and bottom (Space/XL, Space/NR; it was 48 / 18 / 26), so every pattern header is 24 shorter. New Location **02 Section Title / Centered** (`variant="centered"`): the title centred over the Actions slot, 12 apart, 26 / 18 / 18. The tag and arrow now sit in Figma's **Actions** slot; pass `actions` to put other content there.
 
 ## Props
@@ -3078,6 +3338,8 @@ The header every section starts with: a title, an optional tag (#المحتوى)
 | `tight` | `boolean` |  |
 | `title` | `string` |  |
 | `variant` | `'section' \| 'collapse' \| 'centered'` |  |
+| `level` | `string` | Older name for `variant`; hero, legend, complex, complex-headline and family render through SectionHeader |
+| `ariaLabel` | `string` | Name of the action button when there is no `actionLabel` |
 
 ## Anatomy
 
@@ -3195,6 +3457,7 @@ Audio player for Quran recitation, lessons and Athkar.
 | `playing` | `boolean` |  |
 | `duration` | `string` |  |
 | `elapsed` | `string` |  |
+| `label` | `string` | Accessible name of the player |
 
 ## Use
 
@@ -3258,6 +3521,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 The status of a request. 48 statuses with their colour and icon, exactly as Figma (`approved`, مقبول, added 14 November 2026; `confirmed-booking`, حجز مؤكد with `document-validation`, added 17 November 2026).
 
 **Figma source:** 🃏 Cards › Request Card Status (48 variants): Chips XS, 18 high, text 10, icon 12 (9 November 2026).
+
+**24 November 2026 (Figma re-read, 49 variants):** `rejected` is «مرفوض» with `alert-02` (code had «مرفوضة» with `cancel-circle`). Figma added `Status49`, «مرفوضة» with `alert-02`; code accepts `status49` and `rejected-f` until the DL Manager names it.
 
 ## Props
 
@@ -3459,11 +3724,58 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 ---
 
+# SupportSheet
+
+The help sheet of a service: quick actions (maps, lost and found, emergency), the service FAQ, Nusuk AI, sponsors, and the SOS view with medical help and emergency numbers. New in code on 24 November 2026.
+
+**Figma source:** [🧭 Navigation › Support Bottom Sheet](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=69401-7457) (Status Default, SOS) on `_Support Bottom Sheet Master`.
+
+## Anatomy
+
+| Part | Spec |
+|---|---|
+| Sheet | Bottom Sheet BG, padding 8, grabber 36 × 5 Mist |
+| Action tiles | three 72-high tiles, radius 22, Ivory; Emergency in Alerts/Surface/Error with `ambulance` in the error colour; 20 icon over Notes 1 |
+| FAQ card | white, padding 32 / 18, 18 apart: title (18), Header Tabs LR without track (icons `zap`, `menu-circle`), Collapsed Sections (Ivory, radius 12, 4 apart), Secondary SM «عرض الكل», Nusuk AI prompt, sponsors row «برعاية» |
+| SOS | back row (Secondary XS `arrow-left-02`, «العودة»), the help card (gold location rings, 45 avatar, Headline 20, Secondary SM `arrow-right-02`), two number tiles (`cardiogram-02` Red Crescent, `police-badge` police, 1966) and the WhatsApp Option Card (`whatsapp`, `message-edit-02`) |
+
+## Props
+
+| Prop | Type | Notes |
+|---|---|---|
+| `status` | `'default' \| 'sos'` | |
+| `actions` | `{ icon, label, fate?, onClick }[]` | Default maps, lost and found, emergency (`onSos`) |
+| `title`, `tabs`, `faqs`, `onAll` | `faqs`: `{ q, a }[]` | FAQ |
+| `aiText`, `aiLabel`, `onAi` | | Nusuk AI prompt |
+| `sponsors` | `{ src, alt }[]` | Sponsor logos |
+| `helpTitle`, `helpAction`, `onHelp`, `numbers`, `whatsapp`, `onBack` | | SOS |
+| `allLabel` | `string` | The FAQ's «عرض الكل» button |
+| `sponsorLabel` | `string` | The sponsors caption, default «برعاية» |
+| `onSos` | `() => void` | The emergency tile in Default (opens SOS) |
+| `whatsappTitle` / `whatsappAction` | `string` | SOS: the WhatsApp card's title and action |
+| `backLabel` | `string` | SOS: the back button, default «العودة» |
+| `ariaLabel` | `string` | Names the sheet |
+| `sos` | `boolean` | Older name for `status: 'sos'` |
+
+## Use
+
+- Numbers are tappable (`tel:`); keep them left to right.
+- Emergency opens SOS in one tap; never put it behind a menu.
+
+## Don't
+
+- Do not add urgency or alarm styling beyond the Error tile; the SOS view is calm and direct.
+
+
+---
+
 # Switch
 
 Turns a setting on or off immediately.
 
 **Figma source:** 📻 Switches, Checkbox and Radio › Switch (Status × Size). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**19 November 2026 (the DL Advisor's comments on the design system page):** 8 between the switch and its label at every size. SM 32 × 16, MD 42 × 21, LR 54 × 27, with the knob 16 × 12, 24 × 18 and 32 × 24; on turns the knob toward the trailing side, so in right to left it travels left and starts on the right. The preview is a Status × Size matrix, right to left by default.
 
 **14 November 2026 (read from Figma):** sizes SM / MD / LR = track 32 × 16 / 42 × 21 / 54 × 27 with a knob 16 × 12 / 24 × 18 / 32 × 24 (`control-toggle-*`, `control-toggle-icon-*`; MD was 40 with a 20 knob in code). Off `surface-04-mist`, on `surface-10-ink`, white knob. Disabled: `surface-03-pearl` track with a `surface-04-mist` knob and a `text-note` label (was 38% opacity). Error: the track is solid `alerts-surface-solid-error` and the label `alerts-text-error` (was a red outline). Label 14 / 16 / 18 (`control-text-*`), gap 8 / 12 / 12 (`control-gap-*`).
 
@@ -3500,6 +3812,10 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 **Figma source:** 🧭 Navigation › Tab Bar (18 variants: Active × RTL), Home Item, Marketplace Cart and `_Shop CTA`, read 8 November 2026.
 
+**19 November 2026 (the DL Advisor's comments on the design system page):** no solid background, only the two-layer progressive blur; the bar's children draw no background of their own (only the container is glass); a white-fill button takes black text and icon; buttons follow the bar's dark mode.
+
+**24 November 2026 (Figma re-read):** Tab Bar now has 20 Active values. New: **Player** (`type="player"`: a glass group of `play` / `pause`, `go-backward-5-sec` and `1x-faster` at the end, two 40 glass circles `arrow-right-02` and `arrow-left-02` at the start; `onPlay`, `onBack`, `onSpeed`, `onNext`, `onPrev`, `playing`), **AI** (`type="ai"`: the Chat UI AI Tab Bar in its Text state, a 56 glass field «اسأل نُسك AI..» with `mic-01` at the end) and **Keyboard** (the iOS system keyboard: nothing is drawn above the home indicator). `Landing Today` renders the home bar. Figma notes: `Active19` is an unnamed copy of Landing Today, and the set has a new `Slot` property with no content yet ([Figma](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=68392-25296)).
+
 **17 November 2026, later — deprecated home bar removed:** the white home tab bar (Home Item row + «نسك AI» pill, 95 high, top radius 18) and `habits` are deprecated in 🧭 Navigation. Tab Bar's home actives (Landing, Travel, Content, Market/Cart +, Inner Pages) are the glass `_BottomTab master`, so `type` `landing`, `journey`/`travel`, `content`, `market` and `inner-pages` now render **BottomNav** (sliding selected glass, Haramain tab). The action bars stay. The card shows only the current Figma actives.
 
 **17 November 2026:** the glass parts (Inner Pages actions, the Nusuk AI circle) use the GlassBG engine; see BottomNav and GlassBG.
@@ -3535,6 +3851,13 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 | `label` | `string` |  |
 | `placeholder` | `string` |  |
 | `progressLabel` | `string` |  |
+| `active2` | `string` | Figma's property name for `type` |
+| `actionIcon`, `actionLabel` | `string` | Action Input: the field's action button (default `arrow-left-02`) |
+| `standalone` | `boolean` | Market: the floating cart without the bar |
+| `onCart`, `cartLabel`, `quantityLabel`, `addLabel` | | Cart and counter types: the handlers and accessible names |
+| `playing`, `onPlay`, `onBack`, `onSpeed`, `onPrev`, `onNext` | | Player (24 November 2026): state and handlers |
+| `playLabel`, `pauseLabel`, `backLabel`, `speedLabel`, `prevLabel`, `nextLabel` | `string` | Player: names of the controls (Arabic defaults) |
+| `onMic`, `micLabel`, `ariaLabel` | | AI (24 November 2026): the composer's microphone and the field's name |
 
 ### Parts
 
@@ -3570,46 +3893,76 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 
 # TextField
 
-A labelled input with every Nusuk field type: text, text area, search, select, mobile, password, OTP, action and credit card.
+A field with every Nusuk input type: input, text area, search, select, multi select, mobile, password, OTP, action, credit card, avatar, counter and with logo.
 
-**Figma source:** ⌨️ Inputs › Input (12 types: Counter, Text Area, OTP, Multi Select, Search, Select, Action, Password, Input, Mobile, Credit Card, Avatar). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+**Figma source:** [⌨️ Inputs › Input](https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR/?node-id=68394-7766) (Type 13 × Status Default, Error, Dissabled [sic] × Filled Off, On = 78 variants) on `_Input_Master`, with Hint and Error Messages Content. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
-**18 November 2026 (Golf Carts review, F116):** `type="action"` draws a Ghost XS link. The Payment Box code field in Golf Carts ends in a 38 glass pill «تطبيق» instead; until the DL Manager says which one Input Type=Action is, compose that field with a Secondary SM button.
+**24 November 2026 (Figma re-read, rebuilt):**
 
-**14 November 2026:** Figma's Input is now 12 types × Status (Default, Error, Dissabled [sic]) × Filled (Off, On), 72 variants on the private `_Input_Master Trail` (Status Default / Error / Filled × Disabled). Error adds the 20-high Hint (Type=Error) 8 under the field; Error and Disabled keep the default field fill (`inputs-surface-default`; code used the error and disabled fills until now): Error has the `inputs-icons-error` border, Disabled the `surface-04-mist` border and `inputs-text-disabled` text. Two types were missing in code and are added: `multi-select` (two selects side by side, gap 8, each with its chevron) and `avatar` (a 42 picture at the end of the field).
+- **The label sits inside the field.** It is Notes 1 (14) in `inputs-text-placeholder` above the value in Body 2 (16). When the field is empty and not focused, the label stands alone, centred (Filled Off). Code had the label above the field; only Text Area keeps it there.
+- **Field line** is 1 px Ivory (`surface-02-ivory`), was Pearl.
+- **Error** turns the line, label and value to the error colour, with the Error hint 8 below. There is no alert icon inside the field any more.
+- **Disabled** uses the `inputs-surface-disabled` fill and line and `inputs-text-disabled` (14 November had kept the default fill).
+- **New type `logo`** (Figma "with logo"): a partner mark at the end, SPL by default, 42 × 24.
+- **Mobile** is now two parts, 8 apart: the field, and a 106-wide country-code box («+966» and `arrow-down-01`) at the end.
+- **Password** has the eye at the end (`view`; `view-off` while the password is shown) and the criteria under the field as Checkbox SM. In Error, the criteria not met turn red under an Error hint.
+- **Action** ends in a Secondary SM icon-only button (`arrow-left-02`), padding 10 on that side. This replaces the Ghost XS link and settles F116.
+- **Counter** is a capsule with Secondary SM `remove-01` at the start and `add-01` at the end, the value centred, padding 10.
+- **Credit Card** is two rows divided by an Ivory line: card number, then expiry | security code.
+- **Avatar** puts the 42 picture with its Positive badge at the start.
+- **OTP** boxes share the width, 8 apart.
+- **Error Messages Content** (27 approved Arabic errors) ships as `NusukDL.ERROR_MESSAGES`; pass `errorType` (Figma name, e.g. `"Name Min10"`, `"ID Length"` with `errorValue`).
 
-**12 November 2026:** fields are radius 18 (`radius-md`, Figma Radius/MD) with `shadow-xs`; Search and Counter are capsules (`radius-full`); the label above the field is `notes-1-regular` in `inputs-text-placeholder`, inset 18. OTP boxes follow (radius 18). The Hint icon is 20.
+**14 November 2026:** 12 types × Status × Filled; Error adds the 20-high Hint 8 under the field.
 
 ## Props
 
 | Prop | Type | Notes |
 |---|---|---|
-| `type` | `'input' \| 'text-area' \| 'search' \| 'select' \| 'multi-select' \| 'mobile' \| 'password' \| 'otp' \| 'action' \| 'credit-card' \| 'avatar' \| 'calendar' \| 'counter'` | `counter` draws the capsule field; the stepper is DL OptionCard Counter |  |
-| `label` | `string` | Always visible above the field. It is the field's accessible name; the hint is its description |
-| `placeholder` | `string` | An example, never the label |
-| `value` | `string` |  |
-| `state` | `'default' \| 'focused' \| 'error' \| 'success' \| 'disabled'` |  |
+| `type` | `'input' \| 'text-area' \| 'search' \| 'select' \| 'multi-select' \| 'mobile' \| 'password' \| 'otp' \| 'action' \| 'credit-card' \| 'avatar' \| 'counter' \| 'logo' \| 'calendar'` | Figma Type; `'with logo'` also works |
+| `label` | `string` | Inside the field (above it for Text Area). It is the field's accessible name |
+| `placeholder` | `string` | An example, shown when the field is focused and empty, never the label |
+| `value` | `string` | |
+| `state` | `'default' \| 'focused' \| 'error' \| 'success' \| 'disabled'` | `status` and Figma's `Dissabled` also work |
 | `hint` | `string` | Help or error text under the field |
-| `maxLength` | `number` | Shows a counter |
+| `errorType` / `errorValue` | `string` | One of the 27 Error Messages Content types; `errorValue` fills `%s` |
+| `maxLength` | `number` | Text Area counter |
 | `length` | `number` | OTP digits (default 4) |
-| `values / placeholders / fieldLabels` | `[string, string]` | `multi-select`: the two halves. Give each half its own accessible name |
-| `avatar / initials` | `string` | `avatar`: the picture at the end of the field |
-| `ariaLabel` | `string` | The name when a field has no visible label (search). Without it the placeholder is read |
-| `actionLabel` | `string` |  |
-| `prefix` | `string` |  |
+| `values / placeholders / fieldLabels` | `string[]` | Multi Select (2) and Credit Card (3) parts |
+| `prefix` / `onCode` | `string` / `() => void` | Mobile country code (default +966) |
+| `rules` | `(string \| { label, met })[] \| false` | Password criteria (default the three Figma rules) |
+| `revealed` | `boolean` | Password starts shown |
+| `actionIcon` / `actionLabel` / `onAction` | | Action button; the label is its accessible name |
+| `onDecrease` / `onIncrease` | `() => void` | Counter |
+| `avatar / initials / avatarState` | `string` | Avatar picture |
+| `logo` / `logoLabel` | `string` | Logo type: an image URL instead of SPL, and its name |
+| `ariaLabel` | `string` | The name when there is no visible label |
+| `status` | `'default' \| 'error' \| 'disabled'` | Figma's property name for `state` |
+| `error` | `string` | Error text shown in the Error state (or use `errorType`) |
+| `hintType` | `'hint' \| 'info' \| 'warning' \| 'error' \| 'success'` | The Hint under the field |
+| `rulesLabel` | `string` | Password: names the criteria list, default «معايير كلمة المرور» |
+| `codeLabel` | `string` | Mobile: names the country-code box, default «رمز الدولة» |
+| `increaseLabel` / `decreaseLabel` | `string` | Counter: the add and remove buttons («زيادة», «إنقاص») |
+| `ltr` | `boolean` | Left-to-right input (Mobile is always LTR) |
 
 ## Use
 
 - Label every field. Put the format in the placeholder or hint ("5X XXX XXXX").
-- Errors say what happened and how to fix it, in one line under the field.
+- Take error text from Error Messages Content before writing a new one.
 - Numbers, phone numbers and OTP are always Western digits 0–9, left to right.
 
 ## Don't
 
 - Do not use placeholder text as the label.
 - Do not validate on every keystroke; validate on blur or submit.
-- Do not shrink the field to fit; the 62px height is the touch target.
+- Do not shrink the field; 62 is the touch target.
 - `type="otp"` draws the boxes only, for mockups; build the real field with the system one-time-code input.
+
+## iOS and Android
+
+- The in-field label is not a floating Material label: no animation, the label is static at the top when filled and centred when empty.
+- Mobile: two fields in an HStack / Row, spacing 8, the country picker 106 wide at the trailing side.
+- Password criteria: read-only checkmarks bound to the live rule check, not tappable.
 
 ## You provide
 
@@ -3664,7 +4017,11 @@ The top app bar. It is transparent and floats over the screen; controls sit on g
 
 **Figma source:** 🧭 Navigation › Toolbar (40 variants: Type [16] × Status × Light), read 8 November 2026. Built from `_Icon Block`, `_Search-bar`, `_DatePicker`, `_Profile`, `_Nusuk AI` and `Glass BG` (Foundation).
 
-**18 November 2026 (Golf Carts review, GC-R8, GC-R10, F119):** content scrolls under the bar behind a progressive blur from the top; the bar is never solid. Every page under a Toolbar carries Figma's Header Effect (402 × 572: a warm glow over a white blurred circle), not coded yet (F117). The `Timer` type is a white LR chip with a 14 ring before the time, as Figma draws it (F119, fixed 17 Nov). Prototypes draw the iOS status bar above it at 02:22 with the battery percentage (DL-44).
+**24 November 2026 (Figma re-read):** new type **Connected Shorts** (`type="Connected Shorts"`, also `connected-shorts`): the stepper widget at the start, «4 من 8» in Headline 2 over the `_Progress Bar` (`step`, `steps`), and a glass group at the end with `cancel-01` and two `arrow-right-01`, as Figma draws them (`icons`, `labels` to override). Toolbar is now 24 types. Figma note: the two arrows are the same glyph; the DL Manager should say which is previous and which is next ([Figma](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=70356-11383)).
+
+**19–23 November 2026 (the DL Advisor's comments on the design system page):** the 23 types are previewed in three groups, each with Darkmode, right to left by default. The **Header Effect** is coded ([⚡️ Animation › Header Effect](https://www.figma.com/design/LbeMBujAsmfjZ4NCezrY1b/)): two ellipses blurred 102 px, in Illumination and Shade 2, drift behind the bar on a 12 s loop; `effect={false}` turns it off and Reduce Motion holds the first frame (settles F117; the endless loop is an open question against M8, see Known issues). The 62 status-bar area is always kept above the bar (`safeArea`, `.nk-tb-safe`). Profile's row is an Avatar 56 Positive and a Primary SM share button; Companion shows the people and a user-edit avatar, at most 6; the Almatar booking pill is 44 high and its «…» shows only with `onMore`. On the bar only the container is glass: its buttons draw no background of their own, a white-fill button takes black text and icon, and every button follows the bar's dark mode.
+
+**18 November 2026 (Golf Carts review, GC-R8, GC-R10, F119):** content scrolls under the bar behind a progressive blur from the top; the bar is never solid. Every page under a Toolbar carries Figma's Header Effect (402 × 572: a warm glow over a white blurred circle), coded since 19 November (above). The `Timer` type is a white LR chip with a 14 ring before the time, as Figma draws it (F119, fixed 17 Nov). Prototypes draw the iOS status bar above it at 02:22 with the battery percentage (DL-44).
 
 **17 November 2026 — glass as Figma builds it:** every control now draws [Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296) with the layers its Figma instance keeps. Icon blocks, the logo, Wallet, the date and booking pills are `control` glass: OS shadows and the Glass Effect carrying a white sheen (50% at the bottom → clear), no Default Fill. The search bar and Top Tabs are `field` glass (OS shadows, the radial fill, the Glass Effect). Secondary Pages / Tabs sits on a flat Ivory track (Glass Off, fill only). The old recipe (white 62% → 34%, a white outline, `saturate(1.4)`) is gone. `glass={false}` (or `data-glass="off"` on an ancestor) draws Glass Off for Android. In dark themes the controls take Dark=On. See GlassBG.
 
@@ -3718,6 +4075,11 @@ The top app bar. It is transparent and floats over the screen; controls sit on g
 | `shareLabel` | `string` |  |
 | `time` | `string` |  |
 | `glass` | `boolean` | `false` = Glass BG Glass=Off on every control (Android). Same as `data-glass="off"` on an ancestor (17 November 2026) |
+| `safeArea` | `boolean` | The 62 status-bar area is always kept above the bar (19 November 2026); `false` only for an embedded bar |
+| `effect` | `boolean` | The Header Effect breathing gradient behind the bar; `false` turns it off |
+| `icons`, `labels` | `string[]` | Connected Shorts: the end glass group's icons and names |
+| `cartIcon` | `string` | Market types: the cart icon, default `shopping-basket-01` |
+| `edit` / `editLabel` | `boolean` / `string` | Companion: `false` hides the user-edit avatar; its name, default «تعديل» |
 
 ### Parts you can use on their own
 
@@ -3838,6 +4200,8 @@ The content (labels, values, images from Visual Assets) and the container. Colou
 A traveller tile for visa and booking lists.
 
 **Figma source:** 🏖️ Travel › Visa User Block. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
+
+**19 November 2026 (the DL Advisor's comments on the design system page):** right to left with Arabic names by default, as Figma draws it.
 
 **18 November 2026 (review comments of 17 Nov: RTL everywhere):** the name starts on the start side (right in Arabic) and wraps to two lines before the ellipsis; the check sits at the top end corner (left in Arabic), mirroring Figma. The default name is Arabic («أحمد محمد علي»).
 

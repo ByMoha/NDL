@@ -5,9 +5,9 @@ description: "Nusuk Design Language: use for any Nusuk concept, deck, design, pr
 
 # Nusuk Design Language (DL) · skill
 
-Version 3.7.3 · 18 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.8.0 · 27 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
-You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
+You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, thikr, charity). Nusuk is a trust instrument, not a consumer app.
 
 **What this skill holds:** this file is the root of DESIGN.md (always read). `DESIGN.md` in this folder is the full text: this root, modules M1–M13 (open only the one the task needs: search its heading, e.g. `## M9S`) and Appendix A (the 53 services) and Appendix B (every journey step), which are data to look up, not read end to end. `reference/tokens.json` holds every exact value, `reference/components.d.ts` every component and section prop, `reference/rawdah-landing.json` the page models, `reference/templates/index.json` and `reference/templates/contracts/<id>.json` the template contracts, `reference/patterns-index.json` the layout patterns.
 
@@ -91,6 +91,8 @@ Principles (Intuitive, Engaging, Intelligent) · intent/desire and realm · beha
 
 Any session that publishes to the design system page outside the release chat (a comment-thread fix, a chat-lane round, a quick code change) adds an entry to `project/UNRELEASED.md` in the same publish: date and time, what changed and why, every file it touched, the Figma file, and the iOS and Android impact. It does not edit the change log, release notes, the DESIGN.md version or the migrations: the next release reads `UNRELEASED.md`, ships those changes to every output and empties it. A release does not start while an edit is missing from it. The entry is part of the same publish (`files`: `project/UNRELEASED.md` with the changed files).
 
+A new component is typed in `index.d.ts` and its card lists every prop the code reads, in the same publish (plugin health fails otherwise). A correction the DL Advisor confirms in a working chat goes in as a `Learnings` entry (one line per rule; `learn-taste` explains the method). A developer handoff zip shipped between releases is uploaded beside the one the guide links; never trash that one, only a release does.
+
 ## 7 · How to answer
 
 - Concepts and decks: open with the classification, show the design with DL components, patterns and tokens, then the pattern, metric and guardrail, then the gate check. Arabic and English side by side where copy matters.
@@ -139,7 +141,7 @@ A **template contract** says what one kind of screen may hold: spaces in a fixed
 
 **Worked examples:** "Booking page for a museum ticket" → `booking-details`, five states; the ticket is `pass-sheet`. · "Pick a visit day and an exact time" → `date-slot` (valid all day: `date-period`). · "Offer above the QR on the pass" → refuse. · "Move invoices above people when permits are issued" → refuse: states never reorder spaces. · "Use the Marketplace cart rules for the hotel cart" → use the `cart` contract, not the example. · "A screen for giving to a cause" → no contract fits: Proposed, with a draft contract.
 
-## 9 · Prototypes: Figma fidelity, native motion and the status bar (17–18 November 2026)
+## 9 · Prototypes: Figma fidelity, native motion, the status bar and the Device frame (17–27 November 2026)
 
 Every prototype simulates native iOS motion and shows the status bar at 02:22 (the two bullets below). When the brief is a Figma file, the prototype is also a mirror, not a redesign. The fidelity rules come from the DL Advisor's 20 comments and 4 rulings on the Golf Carts v2 prototype; the evidence and the method are in `LEARNINGS.md` › Prototype fidelity, the defects in `reference/known-issues.md` › Golf Carts review (GC).
 
@@ -153,12 +155,13 @@ Every prototype simulates native iOS motion and shows the status bar at 02:22 (t
 - **Never `all:unset` a DL component**: its tap-padding layer needs `position: relative` and would cover its neighbours (a builder rule from the Golf Carts review).
 - **Native iOS motion in every prototype (DL Advisor, 18 November 2026).** Simulate Apple's own transitions: a pushed screen slides in from the trailing edge (from the left in Arabic) while the previous screen shifts part of the way and dims, and back swipes from the leading edge; sheets rise from the bottom over a dimmed backdrop and drag down to close; a full-screen cover rises from the bottom; tabs switch without a slide; alerts fade in with a slight scale; a large title collapses into the bar on scroll. Use a spring with no bounce, close to iOS's default (check it against the iOS Simulator rather than guessing). With reduced motion, cross-fade instead. Values that matched iOS in the Nusuk Charity example (`nusuk-feature-handoff` › examples): the screen beneath moves 30% and dims 10%, the edge swipe commits at 35% or on a flick, sheets rise in 500 ms, easing `cubic-bezier(.32,.72,0,1)`. Only the Toolbar's first row sticks; keep progressive-blur layers at full opacity and fade only the tint. DL motion tokens (M8) stay for component interactions such as press and toggle.
 - **The iOS status bar is always drawn, at 02:22.** Every prototype screen shows the status bar with the time fixed at **02:22**, the signal and Wi-Fi icons, and the battery with its percentage, drawn with the DL `StatusBar` (a hand-built bar puts the island off centre in RTL). The digits are Western and left to right in both languages. Native apps use the system status bar; this rule is for prototypes and mockups.
+- **Every prototype screen sits in the DL `Device` (DL-45, 27 November 2026).** `<Device>` draws the 402 × 874 iPhone frame, the 02:22 status bar with the battery percentage (`battery`, default 100) and the home indicator; put the screen's Toolbar, content and Tab Bar inside it and never draw a phone or a status bar by hand. `dark` for a dark screen, `bezel={false}` to drop the frame in a full-bleed preview. Figma boards are the opposite: no device mockups there (M13 › Figma boards).
 - **Measure, don't eyeball:** compare section bounding boxes and dark-pixel rows with the Figma render (within 2px) and sample background colours. A coded component that differs from Figma is logged as a GC issue and overridden locally with a note.
 - **Use the plugin's bundle.** A prototype built from an older standalone copy of this skill drew a radio in Select Card and 26 padding in Option Card, both fixed in the coded DL before the review. Turn off standalone copies of the Nusuk skills.
 
 ## 10 · Skills that work with this one
 
-This skill ships inside the `nusuk-dl` plugin with fourteen other skills, and the plugin is the only way it is distributed (DL-42, 17 November 2026). They cover what the DL does not; the DL still decides tokens, components, placement and the never-ship list, and where a general skill and a Nusuk rule disagree, the Nusuk rule wins. The plugin's `library/` folder (two levels up from this file: `../../library/`) holds the whole DL tree: every component folder with its preview, the coded package, every migration and the developer handoff.
+This skill ships inside the `nusuk-dl` plugin with sixteen other skills, and the plugin is the only way it is distributed (DL-42, 17 November 2026). They cover what the DL does not; the DL still decides tokens, components, placement and the never-ship list, and where a general skill and a Nusuk rule disagree, the Nusuk rule wins. The plugin's `library/` folder (two levels up from this file: `../../library/`) holds the whole DL tree: every component folder with its preview, the coded package, every migration and the developer handoff.
 
 | Task | Use with this skill | What it adds |
 |---|---|---|
@@ -175,6 +178,8 @@ This skill ships inside the `nusuk-dl` plugin with fourteen other skills, and th
 | A prototype that feels installed on a phone | `mobile-native` | Safe areas, `dvh`, 16 px inputs, no tap highlight, overscroll; with the DL `StatusBar` at 02:22 and right-to-left by default |
 | Stress-testing a screen or component | `break-ui` | Worst-case data behind a toggle, with Nusuk's cases: four-part Arabic names, Hijri dates, riyal amounts, long permit names, every status |
 | Reviewing motion code | `review-animations` | A strict motion review; the DL's native values are deliberate and are not findings |
+| Drags, swipes and sheets in a prototype | `gestures` | Tracking 1:1, velocity-seeded release, interruptible sheets; the DL-44 sheet motion (500 ms, `cubic-bezier(.32,.72,0,1)`) and mirrored directions in Arabic win |
+| Capturing Moha's corrections as rules | `learn-taste` | Only his own corrections (this account); approved rules go to the design system page's `UNRELEASED.md` › Learnings, and the next release folds them into DESIGN.md, the cards and `LEARNINGS.md` |
 | Native iOS code (SwiftUI) for a handoff | `swift-ios-skills` (not in this plugin; install it separately) and `figma-swiftui` | `ios-localization` (right-to-left, String Catalogs), `ios-accessibility`, `swiftui-liquid-glass`, `swiftui-navigation`, `activitykit` (PrayerLiveActivity), `widgetkit`. The DL tokens (`NusukTokens.swift`) and M11 win |
 
 ### Skills that set a look: who wins
@@ -199,7 +204,7 @@ The chat is one aspect of this skill, a **Proposed lane** of the DL built from F
 1. **Classify first (§3).** Chat answers are mostly logistics intents: fast, one step, one primary action. A spiritual question gets a calm text answer with its source; the bot never issues rulings (M4).
 2. **Use a chat export before drawing.** `reference/chat/components.md` lists the 41 exports: 4 are DL components as they are, 23 are variants of DL components (ChatMessage, TextField, SelectCard, Chip, TabBar, FlightTicket, OptionCard) and 14 are new. Configure them; don't restyle them.
 3. **Values come from DL tokens.** The only exceptions are the proposed `chat-*` tokens in `reference/chat/tokens.proposed.json`; never add a raw value.
-4. **One question per bubble, one bubble per answer.** A question is a Question container with its own primary Button MD; suggestions are Chips: a wrapping row of DL CTA Primary SM, Icon=Right (XS in ErrorMsg), or Mixed when the follow-ups belong to a question (Primary SM without an icon, outside the bubble, under its time and actions). Replies offered in the input area use the tab bar's Status=Actions. Once answered, the question bubble is dismissed and the answer becomes one user bubble with the question as its header row (pass `question` on the answer) and "Edit answer". Replies to suggestions after a result have no header (M9C).
+4. **One question per bubble, one bubble per answer.** A question is a Question container with its own primary Button MD; suggestions are Chips (or DL Button MD with `buttons: true`). Once answered, the question bubble is dismissed and the answer becomes one user bubble with the question as its header row (pass `question` on the answer) and "Edit answer". Replies to suggestions after a result have no header (M9C).
 5. **Load order in code:** `tokens.css` → `bundle.css` → `nk-chat.tokens.css` → `nk-chat.css`, then React 18 → `bundle.js` → `nk-chat.js`. `NusukChat.setLang('en')` for English; Arabic is the default.
 6. **Something new for the chat** follows §4 rule 5: build it locally with DL tokens, label it Proposed, and add it to `manifest.proposed.json` with its Figma node.
 
@@ -212,7 +217,7 @@ The chat is one aspect of this skill, a **Proposed lane** of the DL built from F
 | `reference/templates/index.json`, `reference/templates/contracts/<id>.json` | Designing or reviewing a screen of a known kind (§8) |
 | `reference/patterns-index.json` | Choosing the layout pattern for a space |
 | `reference/templates-and-patterns.md`, `reference/template-contracts.md` | The method for templates and patterns, and the full text of every contract |
-| `reference/chat/README.md`, `reference/chat/components.md`, `reference/chat/` | The Nusuk AI chat (Proposed lane, NusukChat 2.8.7): how to use it, the 41 exports with their Figma nodes and DL parents, code, proposed tokens, icons and manifest; every card in `reference/chat/cards.md`, every chat migration in `reference/chat/migrations.json`; the rules are DESIGN.md › M9C |
+| `reference/chat/README.md`, `reference/chat/components.md`, `reference/chat/` | The Nusuk AI chat (Proposed lane, NusukChat 2.8.5): how to use it, the 41 exports with their Figma nodes and DL parents, code, proposed tokens, icons and manifest; every card in `reference/chat/cards.md`, every chat migration in `reference/chat/migrations.json`; the rules are DESIGN.md › M9C |
 | `reference/known-issues.md` | A value looks wrong: it may be a logged Figma defect that code copies on purpose |
 | `reference/component-inventory.md`, `reference/library.md` | Finding a Figma set, its variants, or a library file key |
 | `reference/native/NusukTokens.swift`, `reference/native/NusukTokens.kt`, `reference/native/tokens-native.json`, `reference/native-handoff.md` | Any iOS or Android work: the tokens as Swift and Kotlin constants, the name map, units and the pull-request checks |
@@ -224,5 +229,5 @@ The chat is one aspect of this skill, a **Proposed lane** of the DL built from F
 | `assets/logos/` | The Nusuk logo in ink, white and gold (SVG); clear space and misuse rules are in `reference/brand.md` |
 | `assets/bundle.js`, `assets/bundle.css`, `assets/tokens.css`, `assets/starter.html` | Building a prototype with the coded components (React 18, `window.NusukDL`) |
 | `scripts/figma-count-behind.js`, `scripts/figma-accept-updates.js` | Carrying a library update into other Figma files, safely |
-| `../../library/` (the plugin's library folder; also on GitHub https://github.com/ByMoha/NusukDL › plugins/nusuk-dl/library) | The full DL tree this skill condenses: one folder per component with its preview page, the coded package, every migration and the developer handoff. The skill carries the cards, chat cards and migrations as one file each so it stays light to load |
+| `../../library/` (the plugin's library folder; also on GitHub https://github.com/ByMoha/NDL › plugins/nusuk-dl/library) | The full DL tree this skill condenses: one folder per component with its preview page, the coded package, every migration and the developer handoff. The skill carries the cards, chat cards and migrations as one file each so it stays light to load |
 

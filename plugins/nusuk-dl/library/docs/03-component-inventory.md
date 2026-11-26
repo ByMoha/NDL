@@ -16,15 +16,16 @@ Built from private masters: `_Button_Master Of Masters/Default` (layout, label, 
 
 | Set | Variants | Properties | Card |
 |---|---|---|---|
-| Input | 72 | Type [Counter, Text Area, OTP, Multi Select, Search, Select, Action, Password, Input, Mobile, Credit Card, Avatar] × Status [Default, Error, Dissabled] × Filled [Off, On] (14 Nov), on `_Input_Master Trail` (Status [Default, Error, Filled] × Disabled); fields radius 18 (Radius/MD) with Shadow/XS | TextField |
-| Hint | 5 | Type [Hint, Error, Info, Warning, Success] (Success added 11 Nov 2026) | Hint |
-| Error Messages Content | 23 | Type [Name Min2, Name Max15/50/100, IBAN Format, ID Length, Email Format, Mobile Format, Invalid OTP, Passport Length, English Only …] (new 11 Nov 2026) | Figma only (Hint copy) |
+| Input | 72+ | Type [Counter, Text Area, OTP, Multi Select, Search, Select, Action, Password, Input, Mobile, Credit Card, Avatar, with logo (new 24 Nov 2026)] × Status [Default, Error, Dissabled] × Filled [Off, On] (14 Nov), on `_Input_Master Trail` (Status [Default, Error, Filled] × Disabled); fields radius 18 (Radius/MD) with Shadow/XS | TextField |
+| Hint | 5 | Type [Hint, Error, Info, Warning, Success] (Success added 11 Nov 2026); Warning icon `spam` (24 Nov) | Hint |
+| Login Form | 12 | Type [Email, Mobile, OTP, Password] × Status [Default, Filled, Error; Password has Setup in place of Error] (new 24 Nov 2026, 391 wide; Figma names the OTP error variant Status=Filled) with Resend OTP [Off, On] | LoginForm, ResendTimer |
+| Error Messages Content | 27 | Type [Name Min2, Name Max15/50/100, IBAN Format, ID Length, Email Format, Mobile Format, Invalid OTP, Passport Length, English Only …] (new 11 Nov 2026) | `ERROR_MESSAGES` and TextField `errorType` (24 Nov 2026) |
 | File Uploader | 8 | Type [Defualt, Loading, Uploaded, View] × Status [Default, Error, Dissabled] on `_Uploader_Master` (re-read 16 Nov 2026) | FileUploader (`type`, `status`) |
 | Multiple File Uploader | 2 | Status [00, 01] | FileUploader |
 | File Uploader Sheet | 1 | — | FileUploader + BottomSheet |
 | Dropdown item | 16 | Type [Icon, Text Only, Flag, Avatar] · Selector [Radio, Toggle, Checkbox, Download], on `_Dropdown item list/On`. Re-read 14 Nov 2026: Radio and Checkbox are a solid check in Icons/Longing (F19) | DropdownItem |
 | List Screen | 4 | Status [Default, Empty State, Language, Nationality] · Show NoticeBar? · Show History? · Content and Content2 slots. Re-read 14 Nov 2026 | DropdownItem + TextField (search) |
-| Chips | 128 | State [Pending, Error, Success, Info, Default, Gold, White] · Size [LR, MD, SM, XS] · Icon · Solid · Background | Chip |
+| Chips | 128 | State [Pending, Error, Success, Info, Default, Gold, White] · Size [LR, MD, SM, XS] · Icon · Solid (Gold only, 16 variants) · Background; default icon `arrow-left-02` (re-read 24 Nov 2026) | Chip |
 | Switch | 15 | Status [Default (spelt `Defualt` in Figma), Selected, Disabled, Error, Disabled Selected] · Size [SM, MD, LR]; on `_Switch Icon Master` (5, one named `State5`) and `_Switch Master Trail`. Re-read 14 Nov 2026: MD is 42 × 21, error is a solid red track | Switch |
 | Checkbox | 15 | Status [Default (`Defualt`), Selected, Disabled, Error, Disabled Selected] · Size [SM, MD, LR]. Re-read 14 Nov 2026: chosen is gold (`surface-illumination`), empty is a 1 px Longing line, error a 2 px red line | Checkbox |
 | Checkbox Icon Master | 4 | Status [Default, Selected, Error, Disabled] | Checkbox |
@@ -35,24 +36,24 @@ Built from private masters: `_Button_Master Of Masters/Default` (layout, label, 
 
 | Set | Variants | Properties | Card |
 |---|---|---|---|
-| Toolbar | 46 | Process uses the new `_Progress Bar` (90 × 20, 16 Nov 2026) · Type [Secondary Pages / Full Search (new 15 Nov 2026), Profile, TopTabs, Companion MGM, Nusuk AI, Process, DatePicker&Close, Timer, Landings / Search, Landings / LoggedIn, Landings / Guest, Primary Pages / Default, Primary Pages / Search, Primary Pages / Title (new 14 Nov), Primary Pages / URLs (was Primary Pages / Tabs), Secondary Pages / Default, Secondary Pages / No Actions, Secondary Pages / Search, Secondary Pages / Tabs, Modal / Default, Modal / Search, Marketplace Prodcut, Almatar] × Darkmode [Off, On] (22 types, read 14 Nov 2026) | Toolbar |
-| Tab Bar | 16 | Actions on `_BottomTab master` has a Text slot, the terms line and a side button (16 Nov 2026) · Active [Landing, Travel, Content, Market/Cart +, Content Share, Actions, Action & Input, Loading, Filters, Floating Cart Empty, with Price, Cart, Floating Profile, Empty, Keyboard, Inner Pages (new 15 Nov 2026; BottomNav `inner-pages`)] · RTL · Primary Action? · Ghost Action? · Show Text? · Text and Slot slots (14 Nov: the bottom navigation screens moved in here) | TabBar, BottomNav (Landing, Travel, Content, Market) |
+| Toolbar | 48 | Process uses the new `_Progress Bar` (90 × 20, 16 Nov 2026) · Type [Connected Shorts (new 24 Nov 2026: stepper widget and a glass group), Secondary Pages / Full Search (new 15 Nov 2026), Profile, TopTabs, Companion MGM, Nusuk AI, Process, DatePicker&Close, Timer, Landings / Search, Landings / LoggedIn, Landings / Guest, Primary Pages / Default, Primary Pages / Search, Primary Pages / Title (new 14 Nov), Primary Pages / URLs (was Primary Pages / Tabs), Secondary Pages / Default, Secondary Pages / No Actions, Secondary Pages / Search, Secondary Pages / Tabs, Modal / Default, Modal / Search, Marketplace Prodcut, Almatar] × Darkmode [Off, On] (24 types, re-read 24 Nov 2026) | Toolbar |
+| Tab Bar | 20 | Actions on `_BottomTab master` has a Text slot, the terms line and a side button (16 Nov 2026) · Active [Landing, Travel, Content, Market/Cart +, Content Share, Actions, Action & Input, Loading, Filters, Floating Cart Empty, with Price, Cart, Floating Profile, Empty, Keyboard, Inner Pages (new 15 Nov 2026; BottomNav `inner-pages`), Player, AI and Landing Today (new 24 Nov 2026), Active19 (an unnamed copy of Landing Today)] · RTL · Primary Action? · Ghost Action? · Show Text? · Text and Slot slots (Slot empty, 24 Nov) (14 Nov: the bottom navigation screens moved in here) | TabBar, BottomNav (Landing, Travel, Content, Market) |
 | `_Tab` (private, replaces Tab on 14 Nov) | 8 | Style [Default, Current, Icon Only, Pill] × Darkmode [Off, On] | NavTab |
 | `_BottomTab master` (private; Buttom Navigation removed 14 Nov) | 12 | Mode [Primary, Primary/Small, InnerPage, Marketplace, Interactions, Actions] × Darkmode [Off, On] · Nudge slot | BottomNav |
 | Nudges (new 10 Nov) | 2 | Expand [On, Off], on `_Nudges Master` | Nudge |
 | Haramin Icon (new 14 Nov) | 2 | Darkmode [Off, On]: Kaaba, Masjid and Maqam cross-fading on a 6 s loop in the prototype (coded 17 Nov 2026; Q-D40) | HaramainIcon (BottomNav special tab) |
 | ~~Toolbar - Bottom - iPhone~~ | — | Removed from 🧭 Navigation on 14 Nov 2026, night (was 5 types built from Apple's iOS kit, F7 closed) | Use the system toolbar |
 | Home Item, Marketplace Cart, Tab, Buttom Navigation | — | Removed from Figma on 14 Nov 2026 (HomeItem and TabBar `market` still render in code) | — |
-| _Status Bar (private since 8 November) | 2 | Color [Black, White] | StatusBar (mockups) |
+| _Status Bar (private since 8 November) | 2 | Color [Black, White]; inside every Toolbar variant at 0,0 (62 high) | StatusBar (prototypes: 02:22 with the battery percentage) and Device (the prototype iPhone frame, code only, 27 Nov 2026) |
 | Progress | 1 | RTL, on `_Form Progress Indicator` (Status P20, P40, P60, P80, P100 · Show Check Mark) and `_Master Progress Indicator`; rebuilt in code 17 Nov 2026 (F93) | ProgressRing |
 | Circular progress indicator (new 17 Nov 2026) | 10 | Progress [0, 10, 30, 50, 80] × Darkmode [Off, On]; edited during the read, labels and drawings disagree (F92) | CircularProgress (Proposed) |
 | `_Progress Bar` (private, 17 Nov 2026) | 6 | Step [01, 02, 03] × Darkmode [Off, On, Darkmode3, Darkmode5, Darkmode6] (F91), on `.Building Blocks` (Full On, Off) | Toolbar `process` (`step`) |
 | Group Users | 2 | RTL | AvatarGroup |
 | Direction Sheet | 4 | Options [Restore, 2 Options, Details, Filter] (Login Sheet and Session timeout removed 15 Nov 2026) · Show Icon? · Show subtitle? · re-read 14 Nov 2026: Bottom Sheet BG corners 42 / 54, Glass/Full, content 32 / 26 / 48 (F23) | DirectionSheet |
-| Support Bottom Sheet | 2 | Status [Default, SOS], on `_Support Bottom Sheet Master`: an Ivory quick-actions sheet behind a white questions sheet (gap −130); SOS: instant help and numbers. Re-read 14 Nov 2026 | BottomSheet |
+| Support Bottom Sheet | 2 | Status [Default, SOS], on `_Support Bottom Sheet Master`: an Ivory quick-actions sheet behind a white questions sheet (gap −130); SOS: instant help and numbers. Re-read 24 Nov 2026 | SupportSheet (new in code 24 Nov 2026) |
 | Marketplace Cart | 2 | With Items [Off, On] | TabBar (`market`, floating carts) |
 | Pagination | 6 | Direction [Vertical, Horizontal] · White · Size [Default, SM]; item master has Default, Active, Filled | Pagination |
-| Header Tabs | 4 | Size [LR, SM] · Background [On, Off]; chosen tab white (re-read 15 Nov 2026) | HeaderTabs |
+| Header Tabs | 4 | Size [LR, SM] · Background [On, Off]; chosen tab white; fills its container, tabs in equal shares, track padding 4 (re-read 24 Nov 2026) | HeaderTabs |
 | Number Notification | 5 | Status [Default, Alert, Success, Gold, White] | CountBadge |
 | Vertical Stepper Mobile | 9 | State [Done, Current, Next] · Step [Start, Middle, Last], on `_Stepper Step Master Mobile` (booleans Status, Description, Last Update, Alerts, CTAs), `_Stepper Point` (Done, Current; Number) and `_Tracker Status` (1–3 chips). Re-read 14 Nov 2026, night: code rebuilt as a replica (F33–F37) | VerticalStepper |
 | Headers | 14 | 17 Nov 2026: new Location 02 Section Title / Centered and an Actions slot (02 Section Title now 32 / 18 / 18) · Location [Widget Header, 02 Section Title, 02 Section Title / Centered, 01 Hero, XL Header, Separate Icon, 03 Collapse, 03 Family, Section Title With Divider, Simple Title, Filter / Search, XS Legend, 04 Legend, 05 Complex] · RTL · Show CTA? · Show Description? · Show Separator? | SectionHeader |
@@ -96,13 +97,15 @@ These Notifications components currently sit on a page named *Playground*; see *
 | Member Card / Actionable | 2 | Swaped · Active | MemberCard (`actionable`, `swiped`) |
 | Member Card / Selection | 2 | Selected | MemberCard (`selectable`) |
 | _Badge Type, _Card Avatar (private) | 2 + 2 | Type [Contact, Absher] · Avatar [1, 2] | MemberCard (`badge`, `people`) |
-| Request Card Status | 48 | 46 statuses + Approved (new 14 Nov, مقبول, `document-validation`) + Confirmed Booking (new 17 Nov, حجز مؤكد, `document-validation`); full list in DESIGN.md › M9 › StatusChip | StatusChip |
-| Request Cards | 12 | Type [Electric Cart, Flight, HHR, Hair Cut, Hotel, Rawdah, Ticket, Umrah, Marketplace, Umrah Package, Hajj, Message (a copy of Hair Cut, F96)] (SIM removed 10 Nov 2026); built on `_Request Card Master` (Status [Active, Empty State] · Upcoming? · Past? · Show Market Order? · Alert? · Content slot) | RequestCard (all 12 + Empty State) |
+| Request Card Status | 49 | 46 statuses + Approved (new 14 Nov, مقبول, `document-validation`) + Confirmed Booking (new 17 Nov, حجز مؤكد, `document-validation`); + Status49 (new 24 Nov, مرفوضة, placeholder name); Rejected is مرفوض with `alert-02`; full list in DESIGN.md › M9 › StatusChip | StatusChip |
+| Request Cards | 12 | Type [Electric Cart, Flight, HHR, Hair Cut, Hotel, Rawdah, Ticket, Umrah, Marketplace, Umrah Package, Hajj, Message (draws a wellness booking since 24 Nov 2026; coded as `message`, alias `wellness`)] (SIM removed 10 Nov 2026); built on `_Request Card Master` (Status [Active, Empty State] · Upcoming? · Past? · Show Market Order? · Alert? · Content slot) | RequestCard (all 12 + Empty State) |
 | Option Cards | 13 | Type [Default, with Icon, Simple list, with Action, Icon with Action, 2 Actions, 2 Actions On, Counter, LR Icon with Action, LR Icon, Top Icon, Requirement Item, Product] (renamed 17 Nov 2026); built on `_Master Card` (Mode [Default, Transprent, Gray] · Partner Logo? · Title? · Status? · Left and Right slots) | OptionCard (all 13; Figma names accepted) |
 | Media Cards | 23 | Type [Marketplace Grid, Marketplace List / Out of stock, Marketplace Grid / out of stock (15 Nov 2026), Streem, Athkar, Flight, Ticket, Train, Resturants, Activitie, Article, Video, Sound, Attraction, More, Marketplace / List, Marketplace (was Marketplace / Grid), Marketplace / out of stock, ADS, Short, Image, Hotel, Package, Author, Museum (new 14 Nov, night)]; built on `_Media-Card` (Group × Solid BK), `_Highlight-Icons` (21 types, Out of stock added) and `_Highlight-Author`; `_Highlight Master Component` is gone (F42). Moved here from 🏠 Landing Experience V2 | MediaCard (Museum not coded yet) |
 | Add to Cart CTA (new 10 Nov) | 7 | Status [cart, one, many, Remove, Notify me, arrow, Status7 (17 Nov, «اشتر», F99)] | AddToCartCTA (`buy` = Status7) |
 | Price Options (new 10 Nov) | 2 | Vertical [False, True] · Show Price? · Show Add To Cart? · Show CTA? · Discount? (17 Nov 2026; F97, F98) | PriceOptions |
 | Siblings in the same file | — | Option Card_Master (Image, SM, LR, XS) · Faces (Group) · Playlist (Vertical) · Hints Widget (Vertical, Horizontal, Direction3, Direction4 = HintWidget `logo`, 14 Nov) · Logo Icons (7 entities) · City Logo · Logos Group | CategoryTile · FaceTile · PlaylistCard · HintWidget (coded 9 November 2026); logos Figma only |
+| Nusuk Cards (new 24 Nov 2026) | 13 | Cards [Nusuk ID, Wallet, Card] × Small [Off, On] × Sub Category [Default, Tour Guide, Hajj Emp, Charity, Work, Hajj, Umrah; small: Default, Rawdah, Hajj Card], on Nusuk ID Master (Priority, Hajj Card), Bank Card and Nusuk Cards Mini | NusukCard |
+| Quote Widget (new 24 Nov 2026) | 1 | 243 × 224: quote-up, text in 29LT Idris 24, source, Gold XS chip | QuoteWidget |
 | Layout patterns | 10 | Categories (2), Cards Slider, Playlist, Leaderboard, Guide, Services Box, List Side by Side, Bento Grid (3 slots), Cards List | Categories, CategoryChips, CardsSlider (`layout` row, grid), PlaylistRow, Leaderboard, Guide (`variant` card, plain), ServicesBox, ListSideBySide, BentoGrid, CardsList (coded 9 November 2026) |
 
 ## Market — 🛍️ Market (new 10 November 2026; re-read 17 November 2026: 15 public sets, 5 private)
@@ -142,7 +145,7 @@ Section model, composition rules and metrics: *DESIGN.md › M9P Patterns and te
 
 | Set | Variants | Properties | Card |
 |---|---|---|---|
-| Avatar | 30 | Kind [Initials, Icon, Picture, Emojis] · Size [xs, sm, md, lg, xl] · State [Negative, Positive] | Avatar |
+| Avatar | 30 | Kind [Initials, Icon, Picture, Emojis] · Size [xs, sm, md, lg, xl] · State [Negative, Positive]; without a picture, a Quran colour (19 Nov 2026) | Avatar |
 | Rating Bar | 11 | Rating [Unrated, 0.5 … 5], on `_Star` (State Full, Half, Half/RTL, Empty; private). Re-read 17 Nov 2026: code rebuilt (F80, F81) | RatingBar |
 | Ratings | 3 | Status [Box, Mini, Standard] · Reviews? (Box's count string, F78) | RatingBar `variant`, `count` |
 | Customer Feedback Emojis | 10 | Type [Dissatisfied, Unsatisfied, Neutral, Satisfied, Very Satisfied] · Active, on Smiles (re-read 16 Nov 2026) | FeedbackEmojis |
@@ -157,7 +160,7 @@ Section model, composition rules and metrics: *DESIGN.md › M9P Patterns and te
 | Date Picker | 3 | View [Calendar, Year, Month] | DayPicker in BottomSheet |
 | Months_Interaction | 3 | Months [Yesterday, Today, Tomorrow] | Figma only |
 | Month Picker Master | 3 | Status [Default, Selected, Disabled] | Figma only |
-| Day Picker | 4 | State [Unselected, Current Date, Selected Date, Disabled] · Indicator? · Moon? | DayPicker |
+| Day Picker | 4 | State [Unselected, Current Date, Selected Date, Disabled] · Indicator? · Moon? · 40 × 40, radius 14 (rebuilt in code 19 Nov 2026; checked 27 Nov) | DayPicker |
 | Year Picker | 2 | Selected | Figma only |
 | Time slot card | 3 | Selected [Default, Selected, Disabled] | TimeSlot |
 | Time & Slots section | 4 | Active · Type [Normal, Skeleton, Gender Unavailable] | TimeSlot |

@@ -241,7 +241,7 @@ same concept: `تفعيل التنبيهات` (التنبيهات is not the reg
 | Duaa | الدعاء / أدعية | Never "Prayers" for أدعية — "Prayers" in English means Salah |
 | Quran | القرآن الكريم / القرآن | EN: **Quran** only. AR: القرآن الكريم in general content; مصحف for the Quran-reading feature |
 | Sunnah, Hadith | السنة، الحديث / الأحاديث | |
-| Dhikr, Tasbih | الذكر / الأذكار، التسبيح | |
+| Thikr, Tasbih | الذكر / الأذكار، التسبيح | Thikr is Nusuk's house spelling (not Dhikr); plural Athkar; Tasbih is the counting act |
 
 ## Pilgrimage rites
 

@@ -21,7 +21,7 @@ Every pattern is documented in five parts: **Why** (mechanism), **What** (behavi
 - **What:** "I’ll read Quran later." The intent is real; follow-through collapses.
 - **How:** Present bias awareness · Immediate rewards, with meaning over dopamine · Timely prompts
 - **Where in Nusuk:**
-  - Micro-actions under 30 seconds: one ayah, one dhikr set
+  - Micro-actions under 30 seconds: one ayah, one thikr set
   - Instant, calm closure that confirms the action counted
   - Context prompts: after prayer, before sleep, on the commute
 - **Validate:** Same-day repeat rate · 7-day retention tied to micro-actions
@@ -144,7 +144,7 @@ Habits form by cycling through trigger, action, variable reward and investment. 
 | Stage | Question | In Nusuk |
 |---|---|---|
 | Trigger | What brings them back? | External (a notification) or internal (a routine, a feeling): context prompts after prayer, before sleep, on the commute |
-| Action | The simplest step | Micro-actions under 30 seconds, such as one ayah or one dhikr set |
+| Action | The simplest step | Micro-actions under 30 seconds, such as one ayah or one thikr set |
 | Reward | Fulfilled, gently | Calm closure and the feeling of meaning, not slot-machine surprises |
 | Investment | Stored value | A chosen focus and an if–then plan the user owns |
 

@@ -20,7 +20,7 @@ Latest Rawdah revisions:
 |---|---|
 | Rawdah visa update | تم تحديث رقم التأشيرة بنجاح. |
 | Rawdah calendar addition | أضفنا حجزك إلى التقويم بنجاح. |
-| Individual Dhikr settings saved | تم حفظ الإعدادات بنجاح / Settings saved successfully |
+| Thikr settings saved | تم حفظ الإعدادات بنجاح / Settings saved successfully |
 | Rawdah cancellation requested by user | تم إلغاء الزيارة بناءً على طلبك |
 | Rawdah maintenance cancellation | تم إلغاء الزيارة بسبب أعمال الصيانة |
 
@@ -35,7 +35,7 @@ Latest Rawdah uses تعذّر إتمام الزيارة, لم تتم زيارة 
 | Flow/context | Before | Revised wording |
 |---|---|---|
 | Mutawif, return to Tawaf | توجه إلى صحن الطواف | العودة إلى الطواف / Return to Tawaf |
-| Individual Dhikr, restart counter | أعد التعيين | ابدأ من جديد / Start over |
+| Thikr, restart counter | أعد التعيين | ابدأ من جديد / Start over |
 | Carts, confirm cancellation | الموافقة والمتابعة للإلغاء | تأكيد الإلغاء / Cancel booking |
 | Umrah permits, defer prompt | ذكرني لاحقًا | ليس الآن / Not now |
 

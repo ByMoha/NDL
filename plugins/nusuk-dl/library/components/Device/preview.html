@@ -1,0 +1,23 @@
+<!doctype html>
+<html data-theme="gold-light" lang="ar">
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>Device — preview</title></head>
+<body style="margin:0">
+<div id="root" class="nk nk-stage" dir="rtl" style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start"></div>
+<script>
+  var N = window.NusukDL, h = React.createElement;
+  function F(label, el){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:8}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), el); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    F('Light · Toolbar, cards and an action bar', h(N.Device,{dir:'rtl',lang:'ar',label:'نموذج شاشة'},
+      h('div',{style:{minHeight:'100%',display:'flex',flexDirection:'column'}},
+        h(N.Toolbar,{type:'Secondary Pages / Default',title:'تفاصيل الحجز'}),
+        h('div',{style:{padding:'0 8px',display:'grid',gap:12,flex:1}},
+          h(N.OptionCard,{type:'with-icon',iconName:'calendar-04',title:'تاريخ الزيارة',description:'22 نوفمبر 2026'}),
+          h(N.OptionCard,{type:'with-icon',iconName:'time-04',title:'وقت الزيارة',description:'10:20 م'}),
+          h(N.OptionCard,{type:'with-icon',iconName:'user-group-02',title:'المرافقون',description:'3 أشخاص'})),
+        h(N.TabBar,{type:'actions',primary:'المتابعة',secondary:'إلغاء'})))),
+    F('Dark · battery 42%', h(N.Device,{dark:true,battery:42,dir:'rtl',lang:'ar'},
+      h('div',{style:{minHeight:'100%',background:'var(--surface-10-ink)',color:'#fff',display:'grid',placeItems:'center'}},
+        h('p',{className:'headline-2-regular',style:{margin:0}},'شاشة داكنة'))))));
+</script>
+</body>
+</html>

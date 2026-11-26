@@ -4,6 +4,8 @@ The cart control on product cards and rows: add, a quantity stepper, remove, or 
 
 **Figma source:** [🃏 Cards › Add to Cart CTA](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70399-6858) (Status: arrow, cart, Status7, one, many, Remove, Notify me). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**19 November 2026 (the DL Advisor's comments on the design system page):** icons follow Figma: buy and remove at the right of the label, notify at the left.
+
 **17 November 2026, 21:35, rebuilt:** every status is now an instance of CTA Secondary XS, so the sizes are the CTA's. `arrow` and `cart` are 42 (cart takes `shopping-basket-add-01` 18); `one` and `many` are 138 on Glass BG, `one` with a destructive icon-only `delete-01` 18; `remove` puts `shopping-basket-remove-01` 16 before «إزالة» (70); `notify-me` puts `notification-02` 16 after «نبهني عند التوفر» (138); `buy` (Status7) is unchanged (71).
 
 ## Props

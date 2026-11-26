@@ -14,6 +14,7 @@ Audio player for Quran recitation, lessons and Athkar.
 | `playing` | `boolean` |  |
 | `duration` | `string` |  |
 | `elapsed` | `string` |  |
+| `label` | `string` | Accessible name of the player |
 
 ## Use
 

@@ -4,6 +4,8 @@ A person or account: initials, icon, picture or emoji, five sizes.
 
 **Figma source:** 👩🏻‍💻 Avatar › Avatar (Kind × Size × State). Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**19 November 2026 (the DL Advisor's comments on the design system page):** Kind × Size × State as Figma has it: initials, icon (`kind: 'icon'`, `iconName`), picture (`src`) and emojis (`emoji`). An avatar without a picture can take a Quran colour (`color`: mint, sky, sand, rose, peach, orchid, citrine, fog, lavender). Previews use real photos wherever Figma has one.
+
 ## Props
 
 | Prop | Type | Notes |
@@ -17,6 +19,10 @@ A person or account: initials, icon, picture or emoji, five sizes.
 | `ink` | `boolean` | Ink fill, white icon (the Icon avatar in Group Users) |
 | `ring` | `'ink' \| 'white'` | 1.36px ring, used for the +N avatar |
 | `name` | `string` |  |
+| `kind` | `'initials' \| 'icon' \| 'picture' \| 'emojis'` | Figma Kind (19 November 2026). `'icon'` draws `iconName`; a picture comes from `src` and an emoji from `emoji`, whatever `kind` says |
+| `iconName` | `string` | `kind: 'icon'` or `icon`: the DL icon, default `user-03` |
+| `emoji` | `string` | An emoji, or the URL of a rendered emoji image |
+| `color` | `string` | A Quran colour (`mint`, `sky`, `sand`, `rose`, `peach`, `orchid`, `citrine`, `fog`, `lavender`) or any CSS colour, for avatars without a picture |
 
 ## Use
 

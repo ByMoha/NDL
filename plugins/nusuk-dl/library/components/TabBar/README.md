@@ -4,6 +4,10 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 
 **Figma source:** 🧭 Navigation › Tab Bar (18 variants: Active × RTL), Home Item, Marketplace Cart and `_Shop CTA`, read 8 November 2026.
 
+**19 November 2026 (the DL Advisor's comments on the design system page):** no solid background, only the two-layer progressive blur; the bar's children draw no background of their own (only the container is glass); a white-fill button takes black text and icon; buttons follow the bar's dark mode.
+
+**24 November 2026 (Figma re-read):** Tab Bar now has 20 Active values. New: **Player** (`type="player"`: a glass group of `play` / `pause`, `go-backward-5-sec` and `1x-faster` at the end, two 40 glass circles `arrow-right-02` and `arrow-left-02` at the start; `onPlay`, `onBack`, `onSpeed`, `onNext`, `onPrev`, `playing`), **AI** (`type="ai"`: the Chat UI AI Tab Bar in its Text state, a 56 glass field «اسأل نُسك AI..» with `mic-01` at the end) and **Keyboard** (the iOS system keyboard: nothing is drawn above the home indicator). `Landing Today` renders the home bar. Figma notes: `Active19` is an unnamed copy of Landing Today, and the set has a new `Slot` property with no content yet ([Figma](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=68392-25296)).
+
 **17 November 2026, later — deprecated home bar removed:** the white home tab bar (Home Item row + «نسك AI» pill, 95 high, top radius 18) and `habits` are deprecated in 🧭 Navigation. Tab Bar's home actives (Landing, Travel, Content, Market/Cart +, Inner Pages) are the glass `_BottomTab master`, so `type` `landing`, `journey`/`travel`, `content`, `market` and `inner-pages` now render **BottomNav** (sliding selected glass, Haramain tab). The action bars stay. The card shows only the current Figma actives.
 
 **17 November 2026:** the glass parts (Inner Pages actions, the Nusuk AI circle) use the GlassBG engine; see BottomNav and GlassBG.
@@ -39,6 +43,13 @@ Everything that sits at the bottom of a phone screen: the home tab bar with Nusu
 | `label` | `string` |  |
 | `placeholder` | `string` |  |
 | `progressLabel` | `string` |  |
+| `active2` | `string` | Figma's property name for `type` |
+| `actionIcon`, `actionLabel` | `string` | Action Input: the field's action button (default `arrow-left-02`) |
+| `standalone` | `boolean` | Market: the floating cart without the bar |
+| `onCart`, `cartLabel`, `quantityLabel`, `addLabel` | | Cart and counter types: the handlers and accessible names |
+| `playing`, `onPlay`, `onBack`, `onSpeed`, `onPrev`, `onNext` | | Player (24 November 2026): state and handlers |
+| `playLabel`, `pauseLabel`, `backLabel`, `speedLabel`, `prevLabel`, `nextLabel` | `string` | Player: names of the controls (Arabic defaults) |
+| `onMic`, `micLabel`, `ariaLabel` | | AI (24 November 2026): the composer's microphone and the field's name |
 
 ### Parts
 

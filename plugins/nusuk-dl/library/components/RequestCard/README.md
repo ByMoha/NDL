@@ -4,6 +4,8 @@ A booking in "My bookings": what it is, its status, when, and who it is for. Eve
 
 **Figma source:** 🃏 Cards › Request Cards (12 types) on `_Request Card Master` (Active, Empty State), with Request Card Status (46). Read 8 November 2026, re-read 17:20.
 
+**24 November 2026 (Figma re-read):** Request Cards has 12 types. New preset `message` (alias `wellness`): «موعد استجمامك», tag «الاستجمام» with the new `wellness` icon. Figma note: the type is named `Message` but draws a wellness booking.
+
 **10 November 2026:** 11 types. `sim` left Figma and is deprecated.
 
 ## Props

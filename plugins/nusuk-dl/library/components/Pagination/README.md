@@ -16,6 +16,7 @@ Dots for carousels and stories. The current item is a short bar.
 | `size` | `'default' \| 'sm'` | 4px or 3px |
 | `white` | `boolean` | Figma Darkmode=On, on media and Ink |
 | `progress` | `number` | 0–1. Fills the current bar, for stories |
+| `label` | `string` | Accessible name, default «page n of m» in the page's language |
 
 ## Use
 

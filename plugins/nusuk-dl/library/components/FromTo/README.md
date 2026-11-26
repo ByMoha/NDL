@@ -17,6 +17,7 @@ Departure and arrival pickers with the trip-type tabs and a swap button.
 | `from, to` | `{label, value, sub, iconName}` |  |
 | `active` | `boolean` | Both ends chosen |
 | `onSwap` | `fn` |  |
+| `swapLabel` | `string` | Name of the swap button, default «تبديل المغادرة والوصول» |
 
 ## Use
 

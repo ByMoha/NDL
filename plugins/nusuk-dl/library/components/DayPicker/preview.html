@@ -1,11 +1,17 @@
 <!doctype html>
 <html data-theme="gold-light" lang="ar">
-<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>DayPicker — preview</title></head>
+<head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>DayPicker — preview</title>
+<style>.dp{display:grid;grid-template-columns:repeat(4,max-content);gap:14px 18px;align-items:center;justify-items:center}.dp .h{font-size:11px;line-height:14px;color:var(--text-note);direction:ltr;white-space:nowrap}</style></head>
 <body style="margin:0">
-<div id="root" class="nk nk-stage white" dir="ltr"></div>
+<div id="root" class="nk nk-stage white" dir="rtl"></div>
 <script>
   var N = window.NusukDL, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h(N.DayPicker,{day:'11',availability:'available'}),h(N.DayPicker,{day:'12',state:'current',availability:'filling'}),h(N.DayPicker,{day:'13',state:'selected',availability:'almost'}),h(N.DayPicker,{day:'14',state:'disabled'})));
+  var st = [['Unselected', 'unselected'], ['Disabled', 'disabled'], ['Current Date', 'current'], ['Selected Date', 'selected']];
+  var av = ['almost-full', 'available', 'filling-up', 'not-available'];
+  var cells = st.map(function (s) { return h('span', { key: 'h' + s[1], className: 'h' }, s[0]); });
+  st.forEach(function (s) { cells.push(h(N.DayPicker, { key: 'a' + s[1], day: '1', state: s[1], availability: 'almost-full' })); });
+  av.forEach(function (a, i) { cells.push(h(N.DayPicker, { key: 'b' + a, day: String(12 + i), state: i === 2 ? 'current' : i === 0 ? 'selected' : 'unselected', availability: a })); });
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'dp' }, cells));
 </script>
 </body>
 </html>

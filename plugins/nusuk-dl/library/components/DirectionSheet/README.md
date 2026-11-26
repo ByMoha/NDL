@@ -4,6 +4,8 @@ A bottom sheet that asks the person to choose a direction: restore an account, p
 
 **Figma source:** 🧭 Navigation › Direction Sheet (Options: Restore, Login Sheet, 2 Options, Details, Session timeout, Filter).
 
+**24 November 2026:** re-read, no change to the sheet. The card now shows all four Options as Figma composes them: Restore (Option Cards LR Icon with Action), 2 Options (two Select Cards in a `.pair` row, Primary MD and Ghost MD), Details (Option Cards with Icon) and Filter (Dropdown item, Radio).
+
 **15 November 2026, evening:** Options are Restore, 2 Options, Details and Filter; Login Sheet and Session timeout are removed (N4 closed).
 
 ## Props

@@ -4,6 +4,8 @@ The status of a request. 48 statuses with their colour and icon, exactly as Figm
 
 **Figma source:** 🃏 Cards › Request Card Status (48 variants): Chips XS, 18 high, text 10, icon 12 (9 November 2026).
 
+**24 November 2026 (Figma re-read, 49 variants):** `rejected` is «مرفوض» with `alert-02` (code had «مرفوضة» with `cancel-circle`). Figma added `Status49`, «مرفوضة» with `alert-02`; code accepts `status49` and `rejected-f` until the DL Manager names it.
+
 ## Props
 
 | Prop | Type | Notes |

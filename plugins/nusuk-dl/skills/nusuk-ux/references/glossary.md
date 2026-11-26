@@ -62,8 +62,8 @@ These are inherited Nusuk terminology defaults for new copy where the latest app
 | Quran | القرآن الكريم / القرآن | EN: "Quran" only. Never Koran, Qur'an, Holy Quran. AR: القرآن الكريم in general content; مصحف for the Nusuk Quran-reading feature. |
 | Sunnah | السنة | |
 | Hadith | الحديث / الأحاديث (pl.) | |
-| Individual Dhikr | الذكر / الأذكار (pl.) | Use **Individual Dhikr** for the feature formerly called Thikr. Use **Dhikr** for the concept and **Adhkar** for the plural, not Athkar or Athakr. Do not use “remember Allah” as a translation of Dhikr: it does not capture the intended meaning. Do not call this feature Tasbeeh or Tasbih. |
-| Tasbih | التسبيح | Use only when the supplied content specifically means التسبيح, not as a substitute for Dhikr or the Individual Dhikr feature. |
+| Thikr | الذكر / الأذكار (pl.) | **Thikr** is Nusuk's house spelling for the remembrance-counter feature and the concept (capitalised; decided by the DL Advisor, it replaces “Individual Dhikr” and “Dhikr”). Use **Athkar** for the plural, not Adhkar or Athakr. Do not use “remember Allah” as a translation of Thikr: it does not capture the intended meaning. Do not call this feature Tasbeeh or Tasbih. |
+| Tasbih | التسبيح | The counting act. Use only when the supplied content specifically means التسبيح, not as a substitute for Thikr or the Thikr feature. |
 | Harwalah | الهرولة | Jogging between the green markers during Saee. Keep Arabic term. |
 
 ## Fiqh & Ruling Terms

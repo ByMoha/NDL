@@ -28,6 +28,7 @@ Script: `scripts/figma-accept-updates.js` (resumable; set `START`). Count first 
 - Typical reasons to leave one alone: the variant model changed (Toolbar lost `Status`), a property was renamed, or an override type the script will not guess (text style, variable modes, aspect ratio).
 - When a set's properties change, write the old-to-new map in the release (see `reference/CHANGES-2026-11-10.md`) so instances can be re-picked or remapped.
 - 10 November result: 237 instances updated and 68 left alone across nine files.
+- 23 November result (🚙 Golf Carts): 47 of 53 behind instances swapped. Left alone and listed for the file owner: instances whose main component dropped properties (Visit Details Master List and Tabs) and nested Toolbars with sizing overrides. A flow the Figma file added after the brief (the discount) is built as drawn and logged against the scope as a design question.
 
 ## 4 · The release audit
 
@@ -287,3 +288,26 @@ From the DL Advisor's 20 artifact comments and 4 chat rulings on the Golf Carts 
 7. **Keep Figma artwork in code.** When an asset can't be downloaded from Figma, render the node and crop it. Keep it as Figma artwork; never redraw it.
 
 ---
+
+## Figma boards, the Device frame and the working log (19–27 November 2026)
+
+From this account only (RELEASE.md › 1.7): Moha's complaints-flow and Golf Carts chats, his comments on the design system page and his memory. Rules in DESIGN.md › M13 (Figma boards, Prototypes, Keeping this file true) and the `Device` card.
+
+**Figma boards (complaints flow, 23 November).**
+- A board holds only DL instances, Proposed components and three wrappers: the screen, the navbar and Content. No plain frames and no loose groups; a leftover group becomes a Proposed component.
+- A screen is one vertical auto layout, 402 × 874, with Last on top: the navbar (the Toolbar and the Header Effect, absolute at 0,0, locked, not clipped), then Content, then the Tab Bar. Sheets and backdrops stay absolute on top.
+- No device mockups on Figma boards. The iPhone frame belongs to coded prototypes, drawn with the DL `Device`.
+- No separate progressive-blur layer in Figma: the Toolbar and the Tab Bar carry it. Chat screens use Toolbar Type=Nusuk AI.
+- Anything the DL does not have becomes its own Proposed component, and an element repeated inside a widget becomes a component first (memory, 18 November).
+
+**The design system page (Moha's comments, 19 November).** The Toolbar always keeps the status-bar area above it; Avatar groups without pictures take the Quran colours in turn; selection controls keep 8 between the indicator and the label at every size; previews use real photos wherever Figma has one; on glass bars only the container is glass, never its children.
+
+**Prototypes (memory, 18 November).** Every prototype shows the iOS status bar at 02:22 with the battery percentage and simulates native transitions, inside an iPhone frame. The frame is now the DL `Device` component (402 × 874, the status bar with the battery percentage, the home indicator), so no prototype draws its own.
+
+**The working log.** `project/UNRELEASED.md` did its job: nine entries from two chats between 18 and 26 November, and the release folded them all in. One entry was back-filled a week late, so the release still compares every live file (`drift`) rather than trusting the log alone. Corrections Moha confirms in a working chat (the `learn-taste` method) go under `### Learnings` in that file; working chats never edit DESIGN.md, the skills or the plugin.
+
+**What broke, so it is not repeated.**
+- The chat lane uploaded a new developer handoff zip on 26 November and trashed the old one, which the guide still linked, so the guide's download failed until this release. A zip shipped between releases leaves the linked one in place; only a release points the guide at a new zip and trashes the old ones. Each release opens the linked file first (RELEASE.md › 1.8) and plugin health fails while the guide links a file that is not live.
+- The chat lane also pushed four plugin builds to GitHub between releases. The release fast-forwards the local mirror to the remote before it builds, so its push does not fail or undo them.
+- New components reached the page without types in `index.d.ts` (NusukCard, QuoteWidget, SupportSheet, LoginForm, ResendTimer), so their API cards lagged. A component published between releases adds its types in the same publish.
+

@@ -4,6 +4,8 @@ Titles for heroes, sections, legends and grouped lists, with an optional tag, ac
 
 **Figma source:** 🔌 Misc › Headers. Insert the component from the library in Figma; this card mirrors it for concepts, decks and code.
 
+**19 November 2026 (re-read from [🔌 Misc › Headers](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj/?node-id=2402-18252)):** the end slot shows the **NusukBot** (`location`: Makkah or Madina) unless `right` replaces it (`false` hides it). New levels: `complex-headline` (the headline with a `count` chip) and `family` (the people with a user-edit avatar at the end, `edit`, `editLabel`). `cta: false` hides the CTA icon button, `separator: false` the legend's rule, and `actions` replaces the complex pick button. SectionTitle maps its hero, legend, complex, complex-headline and family variants to this component.
+
 **17 November 2026, evening — re-read:** Headers has 14 locations, but 7 sit at 10% opacity in Figma (XL Header, Seperate Icon, Widget Header, Simple Title, XS Legend, Section Title With Devider, Filter / Search); they are retired and not built. The 7 live ones:
 
 | `level` | Figma location | Anatomy |
@@ -32,6 +34,13 @@ Old values still work: `xl` → `hero`, `simple` → `section`, `divider` → `l
 | `people, more` | `string[], string` | `family` |
 | `as` | `string` | Heading tag; default h1 for hero, h2 otherwise |
 | `action, divider` | `string, boolean` | Older names: `action` is `tag`, `divider` is `level: 'legend'` |
+| `right` | node or `false` | The end slot; `false` hides it. Default: the NusukBot (19 November 2026, 🔌 Misc › Headers) |
+| `location` | `'makkah' \| 'madina'` | The NusukBot drawn in the end slot |
+| `cta` | `boolean` | `false` hides the CTA icon button |
+| `separator` | `boolean` | Legend: `false` hides the rule |
+| `actions` | node | Complex: replaces the pick button |
+| `count` | `string \| number` | Complex headline: a chip after the headline |
+| `edit` / `editLabel` | `boolean` / `string` | Family: `false` hides the user-edit avatar; its name, default «تعديل» |
 
 ## Use
 

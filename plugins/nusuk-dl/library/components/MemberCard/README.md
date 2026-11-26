@@ -19,6 +19,7 @@ A person in a booking: the main pilgrim or a companion. Full width with an actio
 | `selectable, selected` | `boolean` | Secondary XS tick |
 | `disabled` | `boolean` | Pearl, 70% |
 | `src, initials, people` | `…` | Avatar 42px with the `_Card Avatar` shadow (−6, 6, blur 30, spread −12, Ink 5%); `people: 2` shows two |
+| `horizontal` | `'Horizontal' \| 'Vertical'` | Figma's property name; `'Horizontal'` = `layout: 'compact'` |
 
 ## Use
 

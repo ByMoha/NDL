@@ -21,7 +21,7 @@ Every new task runs the intake in `nusuk-design-language` §0 before any design 
 
 ## House terminology (read first)
 
-- **Spell it "Thikr", not "Dhikr"** — Nusuk's house transliteration for الذكر in all English copy (e.g. "Daily Thikr", "Continue Thikr"). This **supersedes the `glossary.md` entry**, which still reads "Dhikr" until that reference file is updated. Keep "Athkar" (plural) and "Tasbih" as they are.
+- **Spell it "Thikr", not "Dhikr"** — Nusuk's house transliteration for الذكر in all English copy (e.g. "Daily Thikr", "Continue Thikr"). The glossaries of this skill, `nusuk-ux` and `nusuk-content-writer` carry the same rule (27 November 2026). Keep "Athkar" (plural) and "Tasbih" as they are.
 
 ---
 

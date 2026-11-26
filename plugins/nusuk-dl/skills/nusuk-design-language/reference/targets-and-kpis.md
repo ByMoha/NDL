@@ -4,7 +4,7 @@
 
 ## North Star Metric: Weekly Meaningful Actions per Active User (WMA/WAU)
 
-Validated meaningful actions per active user per week. **Behavioural outcomes, not taps:** an on-time prayer check-in, a Quran session over a threshold, a dhikr set, a charity action, family outreach, a learning module, a booking milestone, a permit confirmed, a guidance step, a resolved issue. Every action has a minimum threshold so it can't be gamed.
+Validated meaningful actions per active user per week. **Behavioural outcomes, not taps:** an on-time prayer check-in, a Quran session over a threshold, a thikr set, a charity action, family outreach, a learning module, a booking milestone, a permit confirmed, a guidance step, a resolved issue. Every action has a minimum threshold so it can't be gamed.
 
 **Active user:** completes a meaningful action (preferred), starts a core workflow step (booking, payment, help), or views a key detail screen and acts on it (save, share, filter). **Login alone doesn't count.**
 

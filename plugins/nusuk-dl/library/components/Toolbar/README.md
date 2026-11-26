@@ -4,7 +4,11 @@ The top app bar. It is transparent and floats over the screen; controls sit on g
 
 **Figma source:** 🧭 Navigation › Toolbar (40 variants: Type [16] × Status × Light), read 8 November 2026. Built from `_Icon Block`, `_Search-bar`, `_DatePicker`, `_Profile`, `_Nusuk AI` and `Glass BG` (Foundation).
 
-**18 November 2026 (Golf Carts review, GC-R8, GC-R10, F119):** content scrolls under the bar behind a progressive blur from the top; the bar is never solid. Every page under a Toolbar carries Figma's Header Effect (402 × 572: a warm glow over a white blurred circle), not coded yet (F117). The `Timer` type is a white LR chip with a 14 ring before the time, as Figma draws it (F119, fixed 17 Nov). Prototypes draw the iOS status bar above it at 02:22 with the battery percentage (DL-44).
+**24 November 2026 (Figma re-read):** new type **Connected Shorts** (`type="Connected Shorts"`, also `connected-shorts`): the stepper widget at the start, «4 من 8» in Headline 2 over the `_Progress Bar` (`step`, `steps`), and a glass group at the end with `cancel-01` and two `arrow-right-01`, as Figma draws them (`icons`, `labels` to override). Toolbar is now 24 types. Figma note: the two arrows are the same glyph; the DL Manager should say which is previous and which is next ([Figma](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=70356-11383)).
+
+**19–23 November 2026 (the DL Advisor's comments on the design system page):** the 23 types are previewed in three groups, each with Darkmode, right to left by default. The **Header Effect** is coded ([⚡️ Animation › Header Effect](https://www.figma.com/design/LbeMBujAsmfjZ4NCezrY1b/)): two ellipses blurred 102 px, in Illumination and Shade 2, drift behind the bar on a 12 s loop; `effect={false}` turns it off and Reduce Motion holds the first frame (settles F117; the endless loop is an open question against M8, see Known issues). The 62 status-bar area is always kept above the bar (`safeArea`, `.nk-tb-safe`). Profile's row is an Avatar 56 Positive and a Primary SM share button; Companion shows the people and a user-edit avatar, at most 6; the Almatar booking pill is 44 high and its «…» shows only with `onMore`. On the bar only the container is glass: its buttons draw no background of their own, a white-fill button takes black text and icon, and every button follows the bar's dark mode.
+
+**18 November 2026 (Golf Carts review, GC-R8, GC-R10, F119):** content scrolls under the bar behind a progressive blur from the top; the bar is never solid. Every page under a Toolbar carries Figma's Header Effect (402 × 572: a warm glow over a white blurred circle), coded since 19 November (above). The `Timer` type is a white LR chip with a 14 ring before the time, as Figma draws it (F119, fixed 17 Nov). Prototypes draw the iOS status bar above it at 02:22 with the battery percentage (DL-44).
 
 **17 November 2026 — glass as Figma builds it:** every control now draws [Glass BG](https://www.figma.com/design/avzbRTP9CgpbbO8NgU5Ymo?node-id=65346-1296) with the layers its Figma instance keeps. Icon blocks, the logo, Wallet, the date and booking pills are `control` glass: OS shadows and the Glass Effect carrying a white sheen (50% at the bottom → clear), no Default Fill. The search bar and Top Tabs are `field` glass (OS shadows, the radial fill, the Glass Effect). Secondary Pages / Tabs sits on a flat Ivory track (Glass Off, fill only). The old recipe (white 62% → 34%, a white outline, `saturate(1.4)`) is gone. `glass={false}` (or `data-glass="off"` on an ancestor) draws Glass Off for Android. In dark themes the controls take Dark=On. See GlassBG.
 
@@ -58,6 +62,11 @@ The top app bar. It is transparent and floats over the screen; controls sit on g
 | `shareLabel` | `string` |  |
 | `time` | `string` |  |
 | `glass` | `boolean` | `false` = Glass BG Glass=Off on every control (Android). Same as `data-glass="off"` on an ancestor (17 November 2026) |
+| `safeArea` | `boolean` | The 62 status-bar area is always kept above the bar (19 November 2026); `false` only for an embedded bar |
+| `effect` | `boolean` | The Header Effect breathing gradient behind the bar; `false` turns it off |
+| `icons`, `labels` | `string[]` | Connected Shorts: the end glass group's icons and names |
+| `cartIcon` | `string` | Market types: the cart icon, default `shopping-basket-01` |
+| `edit` / `editLabel` | `boolean` / `string` | Companion: `false` hides the user-edit avatar; its name, default «تعديل» |
 
 ### Parts you can use on their own
 

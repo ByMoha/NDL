@@ -1,354 +1,4 @@
 {
- "2026-11-26-nusuk-chat-closure.json": {
-  "date": "2026-11-26",
-  "name": "NusukChat 2.9.2: Closure",
-  "status": "proposed",
-  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80835-63106",
-  "source": "The DL Advisor's update to 💬 Chat UI on 25–26 November 2026: AI Chat Messages › User=Nusuk, Style=Clouser and a Clouser frame in _Chat Container.",
-  "chat": {
-   "version": {
-    "from": "2.9.1",
-    "to": "2.9.2"
-   },
-   "added": [
-    {
-     "component": "Closure",
-     "figma": {
-      "message": "80835:63106",
-      "_Chat Container": "80453:2664"
-     },
-     "what": "Type=Nusuk/Mixed: Body › Clouser (Surface/02 Ivory, Radius/MD, Space/NR top/bottom and gap; Regular/Body/Two, Text/Content, centred; CTA Primary SM Icon=Left نعم thumbs-up, لا thumbs-down, gap 8, centred) › Content No BG (padding-top 18, gap 18; Regular/Body/One lead; CTA Primary SM no icon, wrap 8 × 8). Upper and Lower Footer hidden."
-    }
-   ],
-   "changed": [
-    {
-     "component": "Message",
-     "change": "feedback (block after the bubble) and belowLead (18 above and between in the content outside the bubble)."
-    }
-   ]
-  },
-  "openDL": [
-   "🎨 Icons: add thumbs-down (also earth, global, mail-01 from 2.9.0).",
-   "Figma: add Show Clouser and Show Badge booleans to _Chat Container; both layers are visible by default and hidden by hand.",
-   "Figma: rename Style=Clouser to Style=Closure before code maps to it."
-  ],
-  "native": {
-   "ios": "VStack(spacing 12) { bubble; VStack(spacing 18) { Text(.body2).multilineTextAlignment(.center); HStack(spacing 8) { primary .small Yes (hand.thumbsup); primary .small No (hand.thumbsdown) } }.padding(.vertical, 18).background(ivory, radius 18); VStack(alignment: .leading, spacing 18) { Text(.body1); FlowLayout(8) } .padding(.top, 18) }. After a vote, replace the buttons with a thank-you line and announce it.",
-   "android": "Column(spacedBy(12.dp)) { bubble; Column(Modifier.background(Ivory, RoundedCornerShape(18.dp)).padding(vertical = 18.dp), horizontalAlignment = CenterHorizontally, spacedBy(18.dp)) { Text(body2); Row(spacedBy(8.dp)) { PrimaryButton(Sm, leading thumbs_up) ; PrimaryButton(Sm, leading thumbs_down) } }; Column(Modifier.padding(top = 18.dp), spacedBy(18.dp)) { Text(body1); FlowRow(8, 8) } }."
-  },
-  "tokens": {
-   "added": [],
-   "changed": [],
-   "removed": []
-  },
-  "breaking": []
- },
- "2026-11-25b-nusuk-chat-badge.json": {
-  "date": "2026-11-25",
-  "name": "NusukChat 2.9.1: Badge",
-  "status": "proposed",
-  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80840-63916",
-  "source": "The DL Advisor's change to 💬 Chat UI on 25 November 2026: a new local Badge set (Color × Status) placed first in the _Chat Container Body.",
-  "chat": {
-   "version": {
-    "from": "2.9.0",
-    "to": "2.9.1"
-   },
-   "added": [
-    {
-     "component": "Badge",
-     "figma": {
-      "set": "80840:63916",
-      "in _Chat Container": "80841:64026"
-     },
-     "what": "50 × 50. success: rosette + tick-02 24 at 13,13; failure: rounded triangle (48 × 42 at 1,4) + unavailable 20 at 15,22; alert: hexagon (43.3 × 49.4 at 3.65,0.3) + alert-02 38 at 6,6. light: Alerts/Surface/Success · Error · Warning with Alerts/Icons/*; dark: Alerts/Surface/Solid * with Alerts/Icons/White."
-    }
-   ],
-   "changed": [
-    {
-     "component": "Question",
-     "change": "badge prop: first in the bubble at the start edge."
-    }
-   ]
-  },
-  "openDL": [
-   "Figma: rename the solid variants to Color=Dark (they duplicate Color=Light, Status=Faliure / Alert), and Faliure → Failure.",
-   "Figma: alert-02 is 38 inside a 43 hexagon; 24 would match the other badges.",
-   "Figma: add a Show Badge boolean on _Chat Container; today the layer is shown or hidden by hand."
-  ],
-  "native": {
-   "ios": "A 50 × 50 ZStack: the shape as a Path filled with the Alerts surface token, the DL icon on top at the Figma offset; accessibilityLabel from the status.",
-   "android": "Box(Modifier.size(50.dp)) { Icon(shape vector, tint = Alerts surface); Icon(DL icon, tint = Alerts icon or White) }; contentDescription from the status."
-  },
-  "tokens": {
-   "added": [
-    "--nkc-badge-size 50px"
-   ],
-   "changed": [],
-   "removed": []
-  },
-  "breaking": []
- },
- "2026-11-25-nusuk-chat-mixed-loading-tabactions.json": {
-  "date": "2026-11-25",
-  "name": "NusukChat 2.9.0: Mixed messages, Loading Text, tab bar actions",
-  "status": "proposed",
-  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18766",
-  "source": "The DL Advisor's major update to 💬 Chat UI, 25 November 2026: _Chat Container Master (8 states), AI Chat Messages (37 variants), AI Tab Bar (8 statuses, light and dark master).",
-  "chat": {
-   "version": {
-    "from": "2.8.8",
-    "to": "2.9.0"
-   },
-   "added": [
-    {
-     "component": "Mixed",
-     "figma": {
-      "Nusuk": "80835:33795",
-      "User": "80835:31779",
-      "container Nusuk/Mixed": "80835:28996",
-      "container User/Mixed": "80835:29699"
-     },
-     "what": "Nusuk: Body › Upper Footer (time + copy/up/down) › Content No BG with DL CTA Primary SM, Icon=No Icon, wrap 8 × 8, start edge. User: Body › Content No BG › Lower Footer (time)."
-    },
-    {
-     "component": "TabBar status actions",
-     "figma": "80821:18082",
-     "what": "Actions Only: Regular/Body/Two with 18 inline padding, 12 above one non-wrapping row of CTA Primary SM, no icon, gap 8; the row scrolls sideways."
-    }
-   ],
-   "changed": [
-    {
-     "component": "Message",
-     "change": "New below prop (Mixed). The footer is the Upper Footer between bubble and below for Nusuk, the Lower Footer last for user."
-    },
-    {
-     "component": "Loading",
-     "change": "DL Loading Text (80700:13922) replaces the fading dots: 23 × 13, dots 3.66 on a 9 pitch, the active dot scales ×1.6, 150 ms a step, ease-out, from the start edge. AI Chat Messages Style=Loading: Nusuk 80835:33952, User 80392:4524."
-    },
-    {
-     "component": "Text",
-     "change": "User text is 80835:30455; 80392:4524 now holds User / Loading."
-    },
-    {
-     "component": "TabBar",
-     "change": "Master is now _AI Tab Bar Master with Darkmode=Off (80392:4168) and On (80821:21830); Status=Default shows the home indicator only."
-    },
-    {
-     "component": "FigIcon",
-     "change": "Adds earth, global and mail-01 from Figma (not in the DL icon set). NationalitySearch uses global from here; it rendered blank before."
-    }
-   ]
-  },
-  "openDL": [
-   "earth, global and mail-01 are used by the chat but missing from the DL icon set: request them for 🎨 Icons.",
-   "Loading Text is a remote library component: confirm it is published in the DL and named for code (LoadingDots?)."
-  ],
-  "native": {
-   "ios": "Mixed: VStack(spacing 12) { bubble; HStack { time; Spacer; actions } (Nusuk); FlowLayout(spacing 8) of the DL primary .small buttons }. Loading: three 3.66 circles, scaleEffect 1.6 on the active one, 0.15 s steps, easeOut, honouring accessibilityReduceMotion. Tab bar actions: ScrollView(.horizontal, showsIndicators: false) of .small primary buttons, spacing 8, 18 leading/trailing content margins.",
-   "android": "Mixed: Column(spacedBy(12.dp)) { bubble; Row { time; Spacer; actions } (Nusuk); FlowRow(spacedBy(8.dp), spacedBy(8.dp)) of PrimaryButton(size = Sm) }. Loading: three 3.66.dp circles, scale 1.6 on the active one, 150 ms steps, FastOutSlowIn/EaseOut, off when animations are disabled. Tab bar actions: LazyRow(horizontalArrangement = spacedBy(8.dp), contentPadding = PaddingValues(horizontal = 18.dp))."
-  },
-  "tokens": {
-   "added": [
-    "--nkc-loading-w 23px",
-    "--nkc-loading-h 13px",
-    "--nkc-loading-dot 3.66px",
-    "--nkc-loading-gap 5.34px"
-   ],
-   "changed": [],
-   "removed": []
-  },
-  "breaking": [
-   "NusukChat.Text user figma node changed to 80835:30455.",
-   "Loading no longer fades; it scales one dot at a time (respects reduced motion)."
-  ]
- },
- "2026-11-23-nusuk-chat-default-error-ctas.json": {
-  "date": "2026-11-23",
-  "name": "NusukChat 2.8.8: AI Chat Messages Default and Error use DL CTAs",
-  "status": "proposed",
-  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4523",
-  "source": "The DL Advisor's update to 💬 Chat UI › AI Chat Messages, Style=Default (80392:4581) and Style=Error (80392:4595), 23 November 2026.",
-  "chat": {
-   "version": {
-    "from": "2.8.7",
-    "to": "2.8.8"
-   },
-   "added": [],
-   "changed": [
-    {
-     "component": "Chips",
-     "figma": "80392:4581",
-     "change": "Follow-up actions are DL CTA Kind=Primary, Size=SM, State=Default, Icon=Right with arrow-right-02 (mirrored in RTL), replacing Chip White LR. Tags row: wrap, 8 between and 8 between rows, from the start edge, 12 below. Content No BG with 18 inline padding, help-circle on, footer timestamp only."
-    },
-    {
-     "component": "ErrorMsg",
-     "figma": "80392:4595",
-     "change": "DL Alerts Type=Error (alert-02) at full width, 18 above the actions; actions are CTA Primary XS, Icon=Right, arrow-right-02, same wrap, 12 below."
-    }
-   ]
-  },
-  "openDL": [
-   "DL Chip proposal for chat answers is withdrawn: Chips is now proposed as a use of DL Button, not a Chip variant."
-  ],
-  "native": {
-   "ios": "Follow-ups: a wrapping flow (spacing 8, line spacing 8) of the DL primary button at .small (38) or .xSmall (26 for Error) with a trailing arrow.right that flips with layoutDirection; 12 bottom padding.",
-   "android": "Follow-ups: FlowRow(horizontalArrangement = spacedBy(8.dp), verticalArrangement = spacedBy(8.dp)) of DL PrimaryButton(size = Sm or Xs, trailingIcon = arrow_right_02, autoMirrored = true); padding(bottom = 12.dp)."
-  },
-  "tokens": {
-   "added": [],
-   "changed": [],
-   "removed": []
-  },
-  "breaking": [
-   "Chips and ErrorMsg render DL Buttons by default; pass chip: true for the old chip. The buttons prop is removed (it is now the default).",
-   "Chip clicks no longer set aria-pressed; selection state is the flow's job."
-  ]
- },
- "2026-11-19-nusuk-chat-figma-round.json": {
-  "date": "2026-11-19",
-  "name": "NusukChat 2.8.7: Figma round of 19 November, new General Error",
-  "status": "proposed",
-  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80759-6908",
-  "source": "The DL Advisor's updates to 💬 Chat UI on 18–19 November 2026 (AI Chat Messages now 25 variants; 7 sets, 55 variants, 3 masters). Read variant by variant and measured against the code at the Figma width (552).",
-  "chat": {
-   "version": {
-    "from": "2.8.6",
-    "to": "2.8.7"
-   },
-   "added": [
-    {
-     "component": "GeneralError",
-     "figma": "80759:6908",
-     "change": "A Nusuk/BG question that stops the flow: type row, the 72 error mark (Alerts/Surface/Error, alert-01 38 in Alerts/Icons/Error), 18 below the message in Body 1 Regular (318 column), one Primary MD CTA. No footer actions."
-    }
-   ],
-   "changed": [
-    {
-     "component": "Voice",
-     "change": "42 Ink play button (was 30); waveform of 3-wide round bars on Surface/Longing, 8 pitch, played 100% and the rest 30%; no timer (the duration moves into the play button's label)."
-    },
-    {
-     "component": "Transparent messages (Chips, ErrorMsg, HotelChoose, FlightsSelection)",
-     "change": "Content No BG keeps 18 inline padding (a later rule had set it to 0). Hotel and Flights: the question card stays full width and the list sits 12 below it."
-    },
-    {
-     "component": "DaysAnswer",
-     "change": "the date is Display 1 Regular 32 (was Display 2 Light 28)."
-    },
-    {
-     "component": "Days",
-     "change": "Months_Interaction: Ivory pill 52, 18 start / 4 end, month in Headline 2 with a 24 calendar icon, the switch as two 42 white round buttons; weekday labels 48 high in text-subtle; calendar 8 in; month and calendar flush."
-    },
-    {
-     "component": "Slots",
-     "change": "the blocks sit flush; the note row is 18 all round, Notes 12 Regular in Alerts/Text/Default with the muslim icon."
-    },
-    {
-     "component": "Otp (Confirmation)",
-     "change": "the email and Edit sit in the question block, 8 below the title (were in the content, 20 below)."
-    },
-    {
-     "component": "PasswordField",
-     "change": "three criteria, as Figma lists them (was five)."
-    },
-    {
-     "component": "SelCard",
-     "change": "12 between the icon row and the text (was 18); title 14 and description 16, 4 apart."
-    },
-    {
-     "component": "BorderNumber, IbanField",
-     "change": "8 between the cards and the field; 12 between IBAN fields."
-    },
-    {
-     "component": "Liveness (FaceScan)",
-     "change": "the 86 scan sits in a 134 photo frame (24 in); copy and hint in a 318 column, 12 apart; the CTA sits below the content like every question."
-    },
-    {
-     "component": "LocationGuide",
-     "change": "steps in Body 2 (was Notes 1); the image glows (the image again, 12 in, 18 down, blur 40, 40%); cards 120 high, 12 apart, 12 below the steps."
-    },
-    {
-     "component": "SingleChoose",
-     "change": "option cards drop the 1 px line (white with Glass/Full), 66 high."
-    }
-   ]
-  },
-  "openDL": [
-   "📅 Day Picker is 40×48 in Figma; the DL DayPicker renders 40×40 (Days is 40 shorter than Figma).",
-   "Pray Card is 110×90 in Figma; the DL PrayCard renders 113 high (Slots is 23 taller).",
-   "_Master Select Card has 12 between the icon row and the text; the DL SelectCard card says 18.",
-   "Hotel Offer is 318×515 and Flight Ticket Full 259 high in this file; the chat's HotelCard (316×424) and FlightTicketFull (≈234) still differ (AI9: move to the DL HotelCard and FlightTicket)."
-  ],
-  "native": {
-   "ios": "Voice: Circle 42 Ink + an HStack(spacing: 5) of Capsule(width: 3) bars on surfaceLonging (opacity 0.3 until played). GeneralError: Circle 72 alertsSurfaceError with alert-01 at 38, 18 above a Body 1 Text, then the Primary MD button. Bubble paddings unchanged.",
-   "android": "Voice: Box(42.dp, CircleShape, surface10Ink) + Row(spacedBy(5.dp)) of 3.dp RoundedCornerShape bars. GeneralError: Box(72.dp, CircleShape, alertsSurfaceError) { Icon(38.dp) }, Spacer(18.dp), Text(body1), Button(primary, md)."
-  },
-  "tokens": {
-   "added": [
-    "nkc-type-display-1-regular",
-    "nkc-voice-bar 3px",
-    "nkc-glow-blur 40px",
-    "nkc-live-copy-width 318px",
-    "nkc-lg-card-height 120px",
-    "nkc-error-mark 72px"
-   ],
-   "changed": [],
-   "removed": []
-  },
-  "breaking": [
-   "Voice no longer renders a timer element (.nkc-timer inside .nkc-voice); read the duration from the play button's aria-label.",
-   "PasswordField checks three rules, not five."
-  ]
- },
- "2026-11-18-nusuk-chat-container-states.json": {
-  "date": "2026-11-18",
-  "name": "NusukChat 2.8.6: the six _Chat Container Master states, as Figma draws them",
-  "status": "proposed",
-  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18763",
-  "source": "The DL Advisor's walkthrough of _Chat Container Master (80451:18766) on 18 November 2026.",
-  "states": {
-   "Status=Chat, Type=Nusuk/BG (80451:18764) and Nusuk/Transprent (80578:5431)": "Nusuk owns the message or question and the user has not answered yet. 24×27 bot at the start, aligned to the top of the bubble, 12 apart; Body radius Radius/MD with Radius/XS at the top-start corner (next to the bot); footer: time at the start, Actions (copy, helpful, not helpful) at the end when shown.",
-   "Status=Chat, Type=User/BG (80451:18765) and User/Transprent (80578:5289)": "The user has answered. The question moves to the top as a header row (the 12×14 Nusuk mark without eyes, then the question in Notes 14 Regular, text-heading, 12 apart, at the start); 18 below it the answer bubble with the 24 user avatar at the end, aligned to the bottom; Radius/XS at the bottom-end corner; time at the end, beside the avatar.",
-   "Status=Loading, Type=Nusuk (80451:18763) and Type=User (80501:2248)": "One side has sent and the other is working, or something runs in the background. Nusuk: the bot at the start with the three dots beside it; User: the avatar at the end with the dots beside it; centred, Space/SM apart, no bubble."
-  },
-  "chat": {
-   "version": {
-    "from": "2.8.5",
-    "to": "2.8.6"
-   },
-   "changed": [
-    {
-     "component": "Message (from: nusuk)",
-     "change": "bot aligned to the top (was the bottom); tail corner top-start (was bottom-start)."
-    },
-    {
-     "component": "Message (question)",
-     "change": "the header row with the 12×14 mark is for answered (user) messages only. On a Nusuk message, question is the bubble's first line (Body 1), and the bot stays."
-    },
-    {
-     "component": "Message footer",
-     "change": "time follows the reading direction: start for Nusuk, end for the user (it was pinned left-to-right, which put both on the wrong side in Arabic). Time and question header: Notes 14 Regular (was Light)."
-    },
-    {
-     "component": "Loading",
-     "change": "bot or avatar and dots centred on each other (row class nkc-loading)."
-    }
-   ]
-  },
-  "native": {
-   "ios": "Nusuk row: HStack(alignment: .top, spacing: 12) { bot; bubble }; bubble UnevenRoundedRectangle(topLeading: 8, others 18). User row: VStack(spacing: 18) { question header; HStack(alignment: .bottom, spacing: 12) { bubble; avatar } } with bottomTrailing 8. Footer time .leading for Nusuk, .trailing for the user.",
-   "android": "Nusuk row: Row(verticalAlignment = Alignment.Top, horizontalArrangement = spacedBy(12.dp)); RoundedCornerShape(topStart = 8.dp, others 18.dp). User: Column(spacedBy(18.dp)) { header; Row(verticalAlignment = Alignment.Bottom) }, bottomEnd = 8.dp. Time TextAlign.Start (Nusuk) / TextAlign.End (user)."
-  },
-  "tokens": {
-   "added": [],
-   "changed": [],
-   "removed": []
-  },
-  "breaking": [
-   "Message with from: 'nusuk' and question no longer renders the header row; the question is inside the bubble."
-  ]
- },
  "2026-11-11-nusuk-chat-proposal.json": {
   "date": "2026-11-11",
   "name": "NusukChat proposal (Nusuk AI chat, registration, travel cards)",
@@ -1505,6 +1155,356 @@
   "native": {
    "ios": "In the thread list, pass showsBot = (next item is not from Nusuk) to each Nusuk row; when false, keep a 24 pt leading spacer for bubbles, none for the insight note.",
    "android": "In the LazyColumn, showBot = items.getOrNull(i + 1)?.from != Nusuk; Spacer(Modifier.width(24.dp)) in its place for bubbles."
+  },
+  "tokens": {
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "breaking": []
+ },
+ "2026-11-18-nusuk-chat-container-states.json": {
+  "date": "2026-11-18",
+  "name": "NusukChat 2.8.6: the six _Chat Container Master states, as Figma draws them",
+  "status": "proposed",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18763",
+  "source": "The DL Advisor's walkthrough of _Chat Container Master (80451:18766) on 18 November 2026.",
+  "states": {
+   "Status=Chat, Type=Nusuk/BG (80451:18764) and Nusuk/Transprent (80578:5431)": "Nusuk owns the message or question and the user has not answered yet. 24×27 bot at the start, aligned to the top of the bubble, 12 apart; Body radius Radius/MD with Radius/XS at the top-start corner (next to the bot); footer: time at the start, Actions (copy, helpful, not helpful) at the end when shown.",
+   "Status=Chat, Type=User/BG (80451:18765) and User/Transprent (80578:5289)": "The user has answered. The question moves to the top as a header row (the 12×14 Nusuk mark without eyes, then the question in Notes 14 Regular, text-heading, 12 apart, at the start); 18 below it the answer bubble with the 24 user avatar at the end, aligned to the bottom; Radius/XS at the bottom-end corner; time at the end, beside the avatar.",
+   "Status=Loading, Type=Nusuk (80451:18763) and Type=User (80501:2248)": "One side has sent and the other is working, or something runs in the background. Nusuk: the bot at the start with the three dots beside it; User: the avatar at the end with the dots beside it; centred, Space/SM apart, no bubble."
+  },
+  "chat": {
+   "version": {
+    "from": "2.8.5",
+    "to": "2.8.6"
+   },
+   "changed": [
+    {
+     "component": "Message (from: nusuk)",
+     "change": "bot aligned to the top (was the bottom); tail corner top-start (was bottom-start)."
+    },
+    {
+     "component": "Message (question)",
+     "change": "the header row with the 12×14 mark is for answered (user) messages only. On a Nusuk message, question is the bubble's first line (Body 1), and the bot stays."
+    },
+    {
+     "component": "Message footer",
+     "change": "time follows the reading direction: start for Nusuk, end for the user (it was pinned left-to-right, which put both on the wrong side in Arabic). Time and question header: Notes 14 Regular (was Light)."
+    },
+    {
+     "component": "Loading",
+     "change": "bot or avatar and dots centred on each other (row class nkc-loading)."
+    }
+   ]
+  },
+  "native": {
+   "ios": "Nusuk row: HStack(alignment: .top, spacing: 12) { bot; bubble }; bubble UnevenRoundedRectangle(topLeading: 8, others 18). User row: VStack(spacing: 18) { question header; HStack(alignment: .bottom, spacing: 12) { bubble; avatar } } with bottomTrailing 8. Footer time .leading for Nusuk, .trailing for the user.",
+   "android": "Nusuk row: Row(verticalAlignment = Alignment.Top, horizontalArrangement = spacedBy(12.dp)); RoundedCornerShape(topStart = 8.dp, others 18.dp). User: Column(spacedBy(18.dp)) { header; Row(verticalAlignment = Alignment.Bottom) }, bottomEnd = 8.dp. Time TextAlign.Start (Nusuk) / TextAlign.End (user)."
+  },
+  "tokens": {
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "breaking": [
+   "Message with from: 'nusuk' and question no longer renders the header row; the question is inside the bubble."
+  ]
+ },
+ "2026-11-19-nusuk-chat-figma-round.json": {
+  "date": "2026-11-19",
+  "name": "NusukChat 2.8.7: Figma round of 19 November, new General Error",
+  "status": "proposed",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80759-6908",
+  "source": "The DL Advisor's updates to 💬 Chat UI on 18–19 November 2026 (AI Chat Messages now 25 variants; 7 sets, 55 variants, 3 masters). Read variant by variant and measured against the code at the Figma width (552).",
+  "chat": {
+   "version": {
+    "from": "2.8.6",
+    "to": "2.8.7"
+   },
+   "added": [
+    {
+     "component": "GeneralError",
+     "figma": "80759:6908",
+     "change": "A Nusuk/BG question that stops the flow: type row, the 72 error mark (Alerts/Surface/Error, alert-01 38 in Alerts/Icons/Error), 18 below the message in Body 1 Regular (318 column), one Primary MD CTA. No footer actions."
+    }
+   ],
+   "changed": [
+    {
+     "component": "Voice",
+     "change": "42 Ink play button (was 30); waveform of 3-wide round bars on Surface/Longing, 8 pitch, played 100% and the rest 30%; no timer (the duration moves into the play button's label)."
+    },
+    {
+     "component": "Transparent messages (Chips, ErrorMsg, HotelChoose, FlightsSelection)",
+     "change": "Content No BG keeps 18 inline padding (a later rule had set it to 0). Hotel and Flights: the question card stays full width and the list sits 12 below it."
+    },
+    {
+     "component": "DaysAnswer",
+     "change": "the date is Display 1 Regular 32 (was Display 2 Light 28)."
+    },
+    {
+     "component": "Days",
+     "change": "Months_Interaction: Ivory pill 52, 18 start / 4 end, month in Headline 2 with a 24 calendar icon, the switch as two 42 white round buttons; weekday labels 48 high in text-subtle; calendar 8 in; month and calendar flush."
+    },
+    {
+     "component": "Slots",
+     "change": "the blocks sit flush; the note row is 18 all round, Notes 12 Regular in Alerts/Text/Default with the muslim icon."
+    },
+    {
+     "component": "Otp (Confirmation)",
+     "change": "the email and Edit sit in the question block, 8 below the title (were in the content, 20 below)."
+    },
+    {
+     "component": "PasswordField",
+     "change": "three criteria, as Figma lists them (was five)."
+    },
+    {
+     "component": "SelCard",
+     "change": "12 between the icon row and the text (was 18); title 14 and description 16, 4 apart."
+    },
+    {
+     "component": "BorderNumber, IbanField",
+     "change": "8 between the cards and the field; 12 between IBAN fields."
+    },
+    {
+     "component": "Liveness (FaceScan)",
+     "change": "the 86 scan sits in a 134 photo frame (24 in); copy and hint in a 318 column, 12 apart; the CTA sits below the content like every question."
+    },
+    {
+     "component": "LocationGuide",
+     "change": "steps in Body 2 (was Notes 1); the image glows (the image again, 12 in, 18 down, blur 40, 40%); cards 120 high, 12 apart, 12 below the steps."
+    },
+    {
+     "component": "SingleChoose",
+     "change": "option cards drop the 1 px line (white with Glass/Full), 66 high."
+    }
+   ]
+  },
+  "openDL": [
+   "📅 Day Picker is 40×48 in Figma; the DL DayPicker renders 40×40 (Days is 40 shorter than Figma).",
+   "Pray Card is 110×90 in Figma; the DL PrayCard renders 113 high (Slots is 23 taller).",
+   "_Master Select Card has 12 between the icon row and the text; the DL SelectCard card says 18.",
+   "Hotel Offer is 318×515 and Flight Ticket Full 259 high in this file; the chat's HotelCard (316×424) and FlightTicketFull (≈234) still differ (AI9: move to the DL HotelCard and FlightTicket)."
+  ],
+  "native": {
+   "ios": "Voice: Circle 42 Ink + an HStack(spacing: 5) of Capsule(width: 3) bars on surfaceLonging (opacity 0.3 until played). GeneralError: Circle 72 alertsSurfaceError with alert-01 at 38, 18 above a Body 1 Text, then the Primary MD button. Bubble paddings unchanged.",
+   "android": "Voice: Box(42.dp, CircleShape, surface10Ink) + Row(spacedBy(5.dp)) of 3.dp RoundedCornerShape bars. GeneralError: Box(72.dp, CircleShape, alertsSurfaceError) { Icon(38.dp) }, Spacer(18.dp), Text(body1), Button(primary, md)."
+  },
+  "tokens": {
+   "added": [
+    "nkc-type-display-1-regular",
+    "nkc-voice-bar 3px",
+    "nkc-glow-blur 40px",
+    "nkc-live-copy-width 318px",
+    "nkc-lg-card-height 120px",
+    "nkc-error-mark 72px"
+   ],
+   "changed": [],
+   "removed": []
+  },
+  "breaking": [
+   "Voice no longer renders a timer element (.nkc-timer inside .nkc-voice); read the duration from the play button's aria-label.",
+   "PasswordField checks three rules, not five."
+  ]
+ },
+ "2026-11-23-nusuk-chat-default-error-ctas.json": {
+  "date": "2026-11-23",
+  "name": "NusukChat 2.8.8: AI Chat Messages Default and Error use DL CTAs",
+  "status": "proposed",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4523",
+  "source": "The DL Advisor's update to 💬 Chat UI › AI Chat Messages, Style=Default (80392:4581) and Style=Error (80392:4595), 23 November 2026.",
+  "chat": {
+   "version": {
+    "from": "2.8.7",
+    "to": "2.8.8"
+   },
+   "added": [],
+   "changed": [
+    {
+     "component": "Chips",
+     "figma": "80392:4581",
+     "change": "Follow-up actions are DL CTA Kind=Primary, Size=SM, State=Default, Icon=Right with arrow-right-02 (mirrored in RTL), replacing Chip White LR. Tags row: wrap, 8 between and 8 between rows, from the start edge, 12 below. Content No BG with 18 inline padding, help-circle on, footer timestamp only."
+    },
+    {
+     "component": "ErrorMsg",
+     "figma": "80392:4595",
+     "change": "DL Alerts Type=Error (alert-02) at full width, 18 above the actions; actions are CTA Primary XS, Icon=Right, arrow-right-02, same wrap, 12 below."
+    }
+   ]
+  },
+  "openDL": [
+   "DL Chip proposal for chat answers is withdrawn: Chips is now proposed as a use of DL Button, not a Chip variant."
+  ],
+  "native": {
+   "ios": "Follow-ups: a wrapping flow (spacing 8, line spacing 8) of the DL primary button at .small (38) or .xSmall (26 for Error) with a trailing arrow.right that flips with layoutDirection; 12 bottom padding.",
+   "android": "Follow-ups: FlowRow(horizontalArrangement = spacedBy(8.dp), verticalArrangement = spacedBy(8.dp)) of DL PrimaryButton(size = Sm or Xs, trailingIcon = arrow_right_02, autoMirrored = true); padding(bottom = 12.dp)."
+  },
+  "tokens": {
+   "added": [],
+   "changed": [],
+   "removed": []
+  },
+  "breaking": [
+   "Chips and ErrorMsg render DL Buttons by default; pass chip: true for the old chip. The buttons prop is removed (it is now the default).",
+   "Chip clicks no longer set aria-pressed; selection state is the flow's job."
+  ]
+ },
+ "2026-11-25-nusuk-chat-mixed-loading-tabactions.json": {
+  "date": "2026-11-25",
+  "name": "NusukChat 2.9.0: Mixed messages, Loading Text, tab bar actions",
+  "status": "proposed",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18766",
+  "source": "The DL Advisor's major update to 💬 Chat UI, 25 November 2026: _Chat Container Master (8 states), AI Chat Messages (37 variants), AI Tab Bar (8 statuses, light and dark master).",
+  "chat": {
+   "version": {
+    "from": "2.8.8",
+    "to": "2.9.0"
+   },
+   "added": [
+    {
+     "component": "Mixed",
+     "figma": {
+      "Nusuk": "80835:33795",
+      "User": "80835:31779",
+      "container Nusuk/Mixed": "80835:28996",
+      "container User/Mixed": "80835:29699"
+     },
+     "what": "Nusuk: Body › Upper Footer (time + copy/up/down) › Content No BG with DL CTA Primary SM, Icon=No Icon, wrap 8 × 8, start edge. User: Body › Content No BG › Lower Footer (time)."
+    },
+    {
+     "component": "TabBar status actions",
+     "figma": "80821:18082",
+     "what": "Actions Only: Regular/Body/Two with 18 inline padding, 12 above one non-wrapping row of CTA Primary SM, no icon, gap 8; the row scrolls sideways."
+    }
+   ],
+   "changed": [
+    {
+     "component": "Message",
+     "change": "New below prop (Mixed). The footer is the Upper Footer between bubble and below for Nusuk, the Lower Footer last for user."
+    },
+    {
+     "component": "Loading",
+     "change": "DL Loading Text (80700:13922) replaces the fading dots: 23 × 13, dots 3.66 on a 9 pitch, the active dot scales ×1.6, 150 ms a step, ease-out, from the start edge. AI Chat Messages Style=Loading: Nusuk 80835:33952, User 80392:4524."
+    },
+    {
+     "component": "Text",
+     "change": "User text is 80835:30455; 80392:4524 now holds User / Loading."
+    },
+    {
+     "component": "TabBar",
+     "change": "Master is now _AI Tab Bar Master with Darkmode=Off (80392:4168) and On (80821:21830); Status=Default shows the home indicator only."
+    },
+    {
+     "component": "FigIcon",
+     "change": "Adds earth, global and mail-01 from Figma (not in the DL icon set). NationalitySearch uses global from here; it rendered blank before."
+    }
+   ]
+  },
+  "openDL": [
+   "earth, global and mail-01 are used by the chat but missing from the DL icon set: request them for 🎨 Icons.",
+   "Loading Text is a remote library component: confirm it is published in the DL and named for code (LoadingDots?)."
+  ],
+  "native": {
+   "ios": "Mixed: VStack(spacing 12) { bubble; HStack { time; Spacer; actions } (Nusuk); FlowLayout(spacing 8) of the DL primary .small buttons }. Loading: three 3.66 circles, scaleEffect 1.6 on the active one, 0.15 s steps, easeOut, honouring accessibilityReduceMotion. Tab bar actions: ScrollView(.horizontal, showsIndicators: false) of .small primary buttons, spacing 8, 18 leading/trailing content margins.",
+   "android": "Mixed: Column(spacedBy(12.dp)) { bubble; Row { time; Spacer; actions } (Nusuk); FlowRow(spacedBy(8.dp), spacedBy(8.dp)) of PrimaryButton(size = Sm) }. Loading: three 3.66.dp circles, scale 1.6 on the active one, 150 ms steps, FastOutSlowIn/EaseOut, off when animations are disabled. Tab bar actions: LazyRow(horizontalArrangement = spacedBy(8.dp), contentPadding = PaddingValues(horizontal = 18.dp))."
+  },
+  "tokens": {
+   "added": [
+    "--nkc-loading-w 23px",
+    "--nkc-loading-h 13px",
+    "--nkc-loading-dot 3.66px",
+    "--nkc-loading-gap 5.34px"
+   ],
+   "changed": [],
+   "removed": []
+  },
+  "breaking": [
+   "NusukChat.Text user figma node changed to 80835:30455.",
+   "Loading no longer fades; it scales one dot at a time (respects reduced motion)."
+  ]
+ },
+ "2026-11-25b-nusuk-chat-badge.json": {
+  "date": "2026-11-25",
+  "name": "NusukChat 2.9.1: Badge",
+  "status": "proposed",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80840-63916",
+  "source": "The DL Advisor's change to 💬 Chat UI on 25 November 2026: a new local Badge set (Color × Status) placed first in the _Chat Container Body.",
+  "chat": {
+   "version": {
+    "from": "2.9.0",
+    "to": "2.9.1"
+   },
+   "added": [
+    {
+     "component": "Badge",
+     "figma": {
+      "set": "80840:63916",
+      "in _Chat Container": "80841:64026"
+     },
+     "what": "50 × 50. success: rosette + tick-02 24 at 13,13; failure: rounded triangle (48 × 42 at 1,4) + unavailable 20 at 15,22; alert: hexagon (43.3 × 49.4 at 3.65,0.3) + alert-02 38 at 6,6. light: Alerts/Surface/Success · Error · Warning with Alerts/Icons/*; dark: Alerts/Surface/Solid * with Alerts/Icons/White."
+    }
+   ],
+   "changed": [
+    {
+     "component": "Question",
+     "change": "badge prop: first in the bubble at the start edge."
+    }
+   ]
+  },
+  "openDL": [
+   "Figma: rename the solid variants to Color=Dark (they duplicate Color=Light, Status=Faliure / Alert), and Faliure → Failure.",
+   "Figma: alert-02 is 38 inside a 43 hexagon; 24 would match the other badges.",
+   "Figma: add a Show Badge boolean on _Chat Container; today the layer is shown or hidden by hand."
+  ],
+  "native": {
+   "ios": "A 50 × 50 ZStack: the shape as a Path filled with the Alerts surface token, the DL icon on top at the Figma offset; accessibilityLabel from the status.",
+   "android": "Box(Modifier.size(50.dp)) { Icon(shape vector, tint = Alerts surface); Icon(DL icon, tint = Alerts icon or White) }; contentDescription from the status."
+  },
+  "tokens": {
+   "added": [
+    "--nkc-badge-size 50px"
+   ],
+   "changed": [],
+   "removed": []
+  },
+  "breaking": []
+ },
+ "2026-11-26-nusuk-chat-closure.json": {
+  "date": "2026-11-26",
+  "name": "NusukChat 2.9.2: Closure",
+  "status": "proposed",
+  "figma": "https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80835-63106",
+  "source": "The DL Advisor's update to 💬 Chat UI on 25–26 November 2026: AI Chat Messages › User=Nusuk, Style=Clouser and a Clouser frame in _Chat Container.",
+  "chat": {
+   "version": {
+    "from": "2.9.1",
+    "to": "2.9.2"
+   },
+   "added": [
+    {
+     "component": "Closure",
+     "figma": {
+      "message": "80835:63106",
+      "_Chat Container": "80453:2664"
+     },
+     "what": "Type=Nusuk/Mixed: Body › Clouser (Surface/02 Ivory, Radius/MD, Space/NR top/bottom and gap; Regular/Body/Two, Text/Content, centred; CTA Primary SM Icon=Left نعم thumbs-up, لا thumbs-down, gap 8, centred) › Content No BG (padding-top 18, gap 18; Regular/Body/One lead; CTA Primary SM no icon, wrap 8 × 8). Upper and Lower Footer hidden."
+    }
+   ],
+   "changed": [
+    {
+     "component": "Message",
+     "change": "feedback (block after the bubble) and belowLead (18 above and between in the content outside the bubble)."
+    }
+   ]
+  },
+  "openDL": [
+   "🎨 Icons: add thumbs-down (also earth, global, mail-01 from 2.9.0).",
+   "Figma: add Show Clouser and Show Badge booleans to _Chat Container; both layers are visible by default and hidden by hand.",
+   "Figma: rename Style=Clouser to Style=Closure before code maps to it."
+  ],
+  "native": {
+   "ios": "VStack(spacing 12) { bubble; VStack(spacing 18) { Text(.body2).multilineTextAlignment(.center); HStack(spacing 8) { primary .small Yes (hand.thumbsup); primary .small No (hand.thumbsdown) } }.padding(.vertical, 18).background(ivory, radius 18); VStack(alignment: .leading, spacing 18) { Text(.body1); FlowLayout(8) } .padding(.top, 18) }. After a vote, replace the buttons with a thank-you line and announce it.",
+   "android": "Column(spacedBy(12.dp)) { bubble; Column(Modifier.background(Ivory, RoundedCornerShape(18.dp)).padding(vertical = 18.dp), horizontalAlignment = CenterHorizontally, spacedBy(18.dp)) { Text(body2); Row(spacedBy(8.dp)) { PrimaryButton(Sm, leading thumbs_up) ; PrimaryButton(Sm, leading thumbs_down) } }; Column(Modifier.padding(top = 18.dp), spacedBy(18.dp)) { Text(body1); FlowRow(8, 8) } }."
   },
   "tokens": {
    "added": [],

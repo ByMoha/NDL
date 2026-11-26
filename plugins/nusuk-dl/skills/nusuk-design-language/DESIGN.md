@@ -1,8 +1,8 @@
 # DESIGN.md — Nusuk Design Language
 
-Version 3.7.3 · 18 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
+Version 3.8.0 · 27 November 2026 · Owner: DL Manager (Sara), DL Advisor (Mohamed Auf).
 
-You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, dhikr, charity). Nusuk is a trust instrument, not a consumer app.
+You are designing for Nusuk, the faith companion for every Muslim: Hajj, Umrah, Rawdah visits, permits and bookings, and the daily practice around them (prayer, Quran, thikr, charity). Nusuk is a trust instrument, not a consumer app.
 
 **One file holds everything:** this root (always read), then modules M1–M13 (read the one the task needs), then Appendix A (the 53 services) and Appendix B (every journey step). The appendices are data: look a service or a step up, don't read them end to end.
 
@@ -91,10 +91,10 @@ Read the module the task needs (router in §1).
 
 Load when: framing a concept, a deck or a strategy question.
 
-- Nusuk serves Muslims globally through two forces: **fulfilling intention** (Hajj, Umrah, permits, bookings: goal-driven) and **enlightening desire** (daily habits, Quran, prayer, dhikr, charity: identity-driven).
+- Nusuk serves Muslims globally through two forces: **fulfilling intention** (Hajj, Umrah, permits, bookings: goal-driven) and **enlightening desire** (daily habits, Quran, prayer, thikr, charity: identity-driven).
 - Target: **200M engaged users**, not installs. That needs a repeatable growth and habit engine that delivers value fast, repeats reliably, keeps trust and monetises without damaging the mission.
 - Nusuk holds a sacred place in each Muslim's life. Business goals are balanced with religious feeling. It is a trust instrument, not a consumer app.
-- Contexts: before the journey (planning, permits, visas, packages), during it (rites, navigation, crowds, transport, health), after it (memory, return, giving), and every day (prayer, Quran, dhikr, charity).
+- Contexts: before the journey (planning, permits, visas, packages), during it (rites, navigation, crowds, transport, health), after it (memory, return, giving), and every day (prayer, Quran, thikr, charity).
 - Audiences: pilgrims from abroad, residents and citizens, families travelling together, first-timers and returners, older people and people with access needs, in 35 languages, Arabic first.
 
 ---
@@ -159,7 +159,7 @@ Choice architecture ✓ · commitment devices ✓ (never a pledge to the app) ·
 
 ### Hook, Nusuk version
 
-Trigger (contextual) → action (one ayah, one dhikr set) → reward (calm closure, meaning) → investment (a focus and plan the person owns). The habit serves the person's intention, never the app's.
+Trigger (contextual) → action (one ayah, one thikr set) → reward (calm closure, meaning) → investment (a focus and plan the person owns). The habit serves the person's intention, never the app's.
 
 ### Patterns and templates in the DL
 
@@ -212,7 +212,7 @@ A booking hold timer appears only when inventory is truly held: lenient, the rea
 
 Load when: defining success for a feature, section or template.
 
-- **North Star:** Weekly Meaningful Actions per Active User (WMA/WAU). Meaningful actions are validated behavioural outcomes with thresholds (prayer check-in, Quran session ≥ X, dhikr set, charity, booking milestone, permit confirmed), never taps. Login alone is not active.
+- **North Star:** Weekly Meaningful Actions per Active User (WMA/WAU). Meaningful actions are validated behavioural outcomes with thresholds (prayer check-in, Quran session ≥ X, thikr set, charity, booking milestone, permit confirmed), never taps. Login alone is not active.
 - **Active user:** completes a meaningful action (preferred), starts a core workflow step, or views a key detail and acts on it.
 - **A · Adoption:** A0 first value moment in the first session · A1 activation within 24 h · A2 commitment within 7 days. Supporting: time to first meaningful action, drop-off points.
 - **B · Engagement:** WAU/MAU, meaningful actions per WAU, loop repeat (3+ a week), routine stability, return after lapse within 48 h (the mercy loop), feature → D7/D30 retention uplift.
@@ -417,16 +417,17 @@ Load when: choosing or configuring a component. Each component card in the desig
 ### Inventory (by family)
 
 - **Actions:** Button (CTA: Kind Primary/Secondary/Ghost × Size LR/MD/SM/XS × State × Icon × Fate; `onDark`; `tone="green"`). One Primary per screen.
-- **Inputs:** TextField (12 Figma types × Status × Filled since 14 Nov, 13 in code with calendar; radius 18, `Shadow/XS`; search and counter are capsules), Hint (5 types: Hint, Info, Warning, Error, Success), FileUploader, Chip, StatusChip (48), Switch, Checkbox, Radio, SelectCard, DropdownItem.
-- **Navigation:** Toolbar (23 types × Darkmode), BottomNav (6 screens, `inner-pages` since 15 Nov), NavTab, Nudge, TabBar (12 action bars; its home types render BottomNav since 17 Nov), HeaderTabs, CountBadge, Pagination, ProgressRing, CircularProgress (new 17 Nov), VerticalStepper, Steps, SectionHeader, SectionTitle, IconBlock, SearchBar, HomeItem, Glass (`kind`: control, field, bar, flat, card), GlassBG (the 12 Glass BG variants with layer switches, 17 Nov).
-- **Overlays:** BottomSheet (Top Action Grabber, Arrow, Static), DirectionSheet, StatusSheet (Bottom Sheet's 7 statuses; 15 of the 19 General Bottom Sheet types as `template`, 17 Nov), ReasonSelection, CollapsedSection.
+- **Inputs:** TextField (13 Figma types × Status × Filled since 24 Nov, with logo added; 14 in code with calendar; the label sits inside the field; radius 18, `Shadow/XS`; search and counter are capsules), Hint (5 types: Hint, Info, Warning, Error, Success), FileUploader, Chip, StatusChip (48), Switch, Checkbox, Radio, SelectCard, DropdownItem, LoginForm (Email, Mobile, OTP, Password × Default, Filled, Error, Setup; 24 Nov) with ResendTimer, and `ERROR_MESSAGES` (the 27 Figma error texts).
+- **Navigation:** Toolbar (24 types × Darkmode; Connected Shorts since 24 Nov), BottomNav (6 screens, `inner-pages` since 15 Nov), NavTab, Nudge, TabBar (12 action bars, plus Player, AI and Keyboard since 24 Nov; its home types render BottomNav since 17 Nov), HeaderTabs, CountBadge, Pagination, ProgressRing, CircularProgress (new 17 Nov), VerticalStepper, Steps, SectionHeader, SectionTitle, IconBlock, SearchBar, HomeItem, Glass (`kind`: control, field, bar, flat, card), GlassBG (the 12 Glass BG variants with layer switches, 17 Nov).
+- **Overlays:** BottomSheet (Top Action Grabber, Arrow, Static), DirectionSheet, SupportSheet (Default and SOS, 24 Nov), StatusSheet (Bottom Sheet's 7 statuses; 15 of the 19 General Bottom Sheet types as `template`, 17 Nov), ReasonSelection, CollapsedSection.
 - **Feedback:** NoticeBar (CTA, Close, Description; `hug` for NoticeBar Location), Alert (`stacked` = System Update), EmptyState (Full Page, List), SectionError, AppNotification; live activities and Dynamic Island.
-- **Cards:** MemberCard, RequestCard (11 types; Figma has 12 since 11 Nov), OptionCard (13), MediaCard (Figma 24 types; coded with `layout`, `outOfStock`, `type: 'ad'` and `type: 'charity'` (Charity Card, 17 Nov); Museum not coded: F42; ADS must carry an ad label: F46), AddToCartCTA, PriceOptions, CategoryTile, ProductTile, FaceTile, PlaylistCard, HintWidget.
+- **Cards:** MemberCard, RequestCard (11 types; Figma has 12 since 11 Nov), OptionCard (13), MediaCard (Figma 24 types; coded with `layout`, `outOfStock`, `type: 'ad'` and `type: 'charity'` (Charity Card, 17 Nov); Museum not coded: F42; ADS must carry an ad label: F46), AddToCartCTA, PriceOptions, CategoryTile, ProductTile, FaceTile, PlaylistCard, HintWidget, NusukCard (Nusuk ID × 7, the small IDs, the mada card and the wallet prompt; 24 Nov), QuoteWidget (24 Nov).
 - **Data display:** Avatar, AvatarGroup, RatingBar (Rating Bar and Ratings Box, Mini, Standard; a 1–5 input), ReviewCard, ReviewSummary, FeedbackEmojis, DayPicker, DayTab, TimeSlot, PrayCard, InfoTile.
 - **Travel (17 Nov, from 🏖️ Travel › Travel):** FlightTicket (rebuilt: Full, Mini, Selected, Skeleton), Ribbon, FromTo, DateRange, FeaturedAirport, FeatureBox, VisaUserBlock, HotelCard.
+- **Prototype chrome:** StatusBar (02:22 with the battery percentage), HomeIndicator and **Device**, the iPhone frame every coded prototype sits in (27 Nov, DL-45). Native apps draw none of them.
 - **Features:** PaymentDetails, SoundPlayer, ChatMessage, StepCard, QRCodeStatus, DetailsListItem, StartJourney, PrayerLiveActivity, MapPin.
 - **Market (🛍️ Market library, new 10 November):** 15 public sets and 5 private in Figma on 17 November (was 17 public: Breathing Effect left the file and Select Location became a set); not coded yet apart from the shared parts above (see Market below).
-- **Nusuk AI chat (Proposed lane, 11 November 2026; counts of 14 November):** 41 exports from 💬 Chat UI in `chat/` (NusukChat 2.8.5, 17 November: on DL 3.10, one bot per run of Nusuk messages, with English labels via `setLang` and suggestions as DL Button MD via `buttons`): 4 DL, 23 variants of ChatMessage, TextField, SelectCard, Chip, TabBar, FlightTicket and OptionCard, and 14 new (Bot, BotNote, BookingTicket, LogosGroup, HotelCard and the chat answers). Every value comes from a DL token except the proposed `chat-*` values: 35 in the stylesheet, 43 in `tokens.proposed.json`, 12 of them type aliases. A chat component becomes DL when its Figma set is published and the DL Manager accepts its card; M9C lists the Figma source and status of each.
+- **Nusuk AI chat (Proposed lane, 11 November 2026; counts of 26 November):** 45 exports from 💬 Chat UI in `chat/` (NusukChat 2.9.2, 26 November: eight container states with Mixed, follow-ups as DL CTA Primary, General Error, Loading Text, tab bar Actions, Badge and Closure): 4 DL, 25 variants of ChatMessage, TextField, SelectCard, Chip, TabBar, FlightTicket and OptionCard, and 16 new (Bot, BotNote, Badge, GeneralError, BookingTicket, LogosGroup, HotelCard and the chat answers). Every value comes from a DL token except the 54 proposed `chat-*` values in `tokens.proposed.json`. A chat component becomes DL when its Figma set is published and the DL Manager accepts its card; M9C lists the Figma source and status of each.
 - **Patterns and templates:** see M9P.
 
 ### Cross-cutting logic
@@ -522,9 +523,9 @@ Why: an icon carries its own optical margin, so the side that holds it needs 6 l
 
 #### Toolbar (top bar)
 
-- Transparent and floating; every control sits on Glass BG (M8). Never give the bar a background colour. Content scrolls under it, behind a progressive blur from the top (GC-R8), and every page under a Toolbar carries Figma's **Header Effect** (402 × 572: a warm glow over a large white blurred circle; over `surface-screen-bk` it reads #F7F7F8 below the glow), not yet in the coded bundle (GC-R10, F117).
+- Transparent and floating; every control sits on Glass BG (M8). Never give the bar a background colour. Content scrolls under it, behind a progressive blur from the top (GC-R8), and every page under a Toolbar carries Figma's **Header Effect** (402 × 572: a warm glow over a large white blurred circle; over `surface-screen-bk` it reads #F7F7F8 below the glow) (GC-R10). Coded since 19 November from [⚡️ Animation › Header Effect](https://www.figma.com/design/LbeMBujAsmfjZ4NCezrY1b/): two ellipses blurred 102 px, in Illumination and Shade 2, drift behind the bar on a 12 s loop; `effect={false}` turns it off and Reduce Motion holds the first frame. The endless loop is an open question against M8 (no resting loops; Known issues).
 - Glass per control (17 November 2026, read from the instances): icon blocks, the logo, Wallet, the date and booking pills are `control` glass (OS shadows + the Glass Effect with a white sheen, no Default Fill); the search bar and Top Tabs are `field` glass; the Secondary Pages / Tabs track is `flat` Ivory. Darkmode=On is Dark=On (Ink radial, dark rim).
-- **22 types × Darkmode (14 November; 20 on 10 November).** The `Status` property is gone: what was a status is now a type. `Light` is renamed `Darkmode` (same meaning: dark glass and white content over photos, video or Ink). Code takes the Figma name as `type` and `darkmode`; the old names and `light` still work.
+- **24 types × Darkmode** (Connected Shorts 24 November, Secondary Pages / Full Search 15 November; 22 on 14 November, 20 on 10 November). The `Status` property is gone: what was a status is now a type. `Light` is renamed `Darkmode` (same meaning: dark glass and white content over photos, video or Ink). Code takes the Figma name as `type` and `darkmode`; the old names and `light` still work.
 
 | Figma type | Height | Row 1 (leading → trailing) | Row 2 | Old name in code |
 |---|---|---|---|---|
@@ -537,15 +538,18 @@ Why: an icon carries its own optical margin, so the side that holds it needs 6 l
 | Primary Pages / Title (new 14 Nov) | 188 | Same | Headline 42 (`headline-2-regular`) | `primary` + `with-title` |
 | Secondary Pages / Default | 146 | Back + title `headline-2-regular` · icon block (3) | — | `inner` |
 | Secondary Pages / No Actions | 146 | Back + title | — | `back` |
-| Secondary Pages / Search | 146 | Back · search bar · one action | — | `search` + `leading-trailing` |
+| Secondary Pages / Search | 142, 18 below | Back + title · icon block (3) | Search bar, full width | `inner` + `with-search` |
+| Secondary Pages / Full Search (15 Nov) | 84, 32 below | Back · search field 254 · one action | — | `search` + `leading-trailing` |
 | Secondary Pages / Tabs | 184 | Back + title · icon block (3) | Glass tabs 38 | `inner` + `with-tabs` |
 | Modal / Default | 146 | Title + gold chip LR · close | — | `close` |
 | Modal / Search | 146 | Search bar · close | — | `search` |
 | Marketplace Prodcut | 146 | Back + product name · icon block (3) + cart with count badge | — | `market-product` |
 | TopTabs · Companion MGM · Nusuk AI · Process · DatePicker&Close · Timer | 146 | Unchanged | — | same |
 | Profile | 202 | Icon block (1) · icon block (3) | Avatar 56, name `headline-2-light`, Nusuk ID, share button | `profile` |
+| Connected Shorts (24 November) | 146 | Glass group 140 × 44 (`cancel-01`, two `arrow-right-01`) · stepper widget 214: «4 من 8» Headline 2 over the 139 `_Progress Bar` | — | `connected-shorts` |
 | Almatar (12 November) | 146 | Back · booking pill 44 (route `notes-2-regular` with `arrow-left-right` 16, trip facts `notes-2-light` split by 2 px dots, Primary XS more button) · currency button (riyal) | — | `booking` |
 
+- **Status-bar area and glass (19 November 2026, the DL Advisor's comments):** the 62 status-bar area is always kept above the bar (`safeArea`); only the container is glass, so its buttons draw no background of their own, a white-fill button takes black text and icon, and every button follows the bar's dark mode. Profile's row is an Avatar 56 Positive and a Primary SM share button; Companion shows the people and a user-edit avatar, at most 6; the Almatar booking pill is 44 high and its «…» shows only with `onMore`.
 - The Figma type is named after a partner (Almatar). Code calls it `booking` and accepts `Almatar`; the pill holds the trip the person is booking, never an offer (R3).
 - Left Figma on 10 November: MarketPlace Landing and MarketPlace Category. `market-landing` and `market-category` still render in code for one release and are deprecated: use Landings / Search and Primary Pages / Tabs.
 - Parts (all follow `Buttons/MD`, 44 on phones): **IconBlock** glass capsule 44 high holding 1–4 buttons of 44 × 38 with 24 icons; **SearchBar** 44 high, 18 icon, `body-2-light`, with Default and Filled states and optional cycling suggestions; **DatePicker** 44 high, padding 18, 16 icons; the toolbar row is 44; **GlassTabs** 38 high, padding 4, gap 8; title `headline-2-regular`, one line, ellipsis.
@@ -610,8 +614,9 @@ Figma: 🧭 Navigation › Nudges (Expand On 316 × 58, Off 279 × 58). One anno
 - Home tab bar (10 November reading; since 14 November the home bars are Tab Bar › Landing, Travel, Content and Market, coded as BottomNav above): 95 high, `surface-01-white`, top corners 18, shadow 0 −6 30 −12 Ink 5%. Four tabs (اليوم, رحلتي, المحتوى, المتجر) plus Nusuk AI. Tab item 56 × 46, icon 24, label `notes-2-regular`. Current tab: solid icon in `surface-longing` with a soft glow, label `text-heading`; others `text-subtle`.
 - Action bars: actions, action & input, loading, filters, content share, habits, floating cart (empty and full), with price, Cart with Count (renamed from Cart, 17 November 2026), Payment (new 17 November 2026), floating profile, empty. Cart with Count and Payment share `_Shop CTA`: Primary LR whose label leads, then the total and the riyal (20); Cart with Count puts the counter (Glass BG field, padding 12 / 18, minus · count · plus, 18 apart, 110 wide) 18 from it at the start, Payment's CTA fills the row. Code: `type="cart-with-count"` (`cart` still works) and `type="payment"`, with `total`. They fade from transparent to white 80% so content scrolls under them.
 - Every Tab Bar floats: content scrolls under a progressive blur from the bottom up plus a light gradient, never a solid fill (GC-R9). When a screen ends with a section and no action bar, the section sits flush on the empty Tab Bar with no gap (GC-R7; Golf Carts booking 80451:41304: package box 443–836, Tab Bar 836–874). In an RTL row with a counter and a main button, the counter is on the right and the button on the left (GC-R14).
-- **Navigation bars have no solid fill (18 November 2026, Moha).** BottomNav, TabBar (bottom edge) and Toolbar (top edge) blur what scrolls under them progressively: a 4 px blur masked over most of the band and a 16 px blur on the outer half, strongest at the screen edge and fading to nothing toward the content, reaching 24 past the bar. The bar's own glass is unchanged. Native: a variable blur material behind the bar, never a tinted fill.
+- **Navigation bars have no solid fill (18 November 2026, Moha).** BottomNav, TabBar (bottom edge) and Toolbar (top edge) blur what scrolls under them progressively: a 4 px blur masked over most of the band and a 16 px blur on the outer half, strongest at the screen edge and fading to nothing toward the content, reaching 24 past the bar. The bar's own glass is unchanged. Native: a variable blur material behind the bar, never a tinted fill. **Reduce Transparency (27 November 2026):** with the setting on, or where the browser has no `backdrop-filter`, the blur layers become a fade to `surface-screen-bk`, so text never sits on a half-drawn blur (WCAG 1.4.3); iOS does the same for its materials when the setting is on.
 - **Payment Box (Figma 86074:14231, not coded yet, F114; GC-R17):** one piece, never two stacked cards. The code field (62 high, radius 18, a 38 glass pill «تطبيق») sits 12 above a white widget (radius 18, `Shadow/XS`): its top section has padding 26 / 18 / 48 (the 48 is safe space), gap 26 and the Header Effect turned 180° at the bottom, and overlaps the cards section by −26; the cards section has padding 26 / 18, gap 26, a header row (26 above, 18 below, a separator), Bank Cards (padding 8, gap 12, radius 18, a 1 inside line), a 30 glass pill to add a card, the terms, then the 44 pay button.
+- **Player, AI and Keyboard (24 November 2026, [🧭 Navigation › Tab Bar](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=68392-25296)):** Tab Bar has 20 Active values. `player` puts two 40 glass circles (next `arrow-right-02`, previous `arrow-left-02`) at the start and a glass group (play or pause, `go-backward-5-sec`, `1x-faster`) at the end; `ai` is the 💬 Chat UI AI Tab Bar in its Text state, a 56 glass field «اسأل نُسك AI..» with `mic-01` at the end; `keyboard` draws nothing above the home indicator, because the system keyboard is the bar. Landing Today and Figma's unnamed Active19 copy render the home bar; the set's new `Slot` property has no content yet. The chat's newer Status=Actions is not in the DL TabBar yet.
 - Home indicator: use the system one. Keyboard and Screen Controller in Figma are not components to build.
 
 #### Other Navigation changes
@@ -624,7 +629,9 @@ Figma: 🧭 Navigation › Nudges (Expand On 316 × 58, Off 279 × 58). One anno
 - **HeaderTabs (rebuilt as a replica 17 November 2026,** 🎹 Tabs › Header Tabs, Size SM / LR × Background On / Off, on `_Header Tabs` (Darkmode, Show Item 3–8) and `_Tab_Master_Status` (Status × Icon Off / On / Icon Only × Show Number × White × Updates)**):** the track is 38 high (LR 48), padding 4 / 8, tabs 8 apart; its Ivory fill (Glass BG Default, Glass Off; Smoke `surface-05-smoke` in Darkmode) reaches 2 outside the track. A tab is 30 high (LR 40), padding 8 / 20 (18 on the icon side), label `notes-1-regular` `text-heading` (`text-inverse` in Darkmode) 2 above the bottom, an optional 20 icon at the start, a Number Notification 12 after the label (Smoke; white with a shadow in Darkmode) and Updates, a 6 `alerts-surface-solid-error` dot 8 from the end and 4 from the top. The chosen tab is `surface-01-white` with −6 6 30 −12 Ink 5%: Tabs uses a remote style named Shadow/XS that is not Foundation's Shadow/XS (F104). 2 to 8 tabs. Background Off drops the track. **On a page (18 November 2026, GC-R11):** the tabs span the full width and share it equally (two tabs 50/50), grey track and white pill: `fill`. Code: `darkmode`, `fill`, and per tab `icon`, `iconOnly`, `count`, `updates`; `light` stays the glass toolbar tabs. Until this release code padded the track 4 all round, drew LR tabs 38 high and used Foundation's `shadow-xs`.
 - Toolbar `Secondary Pages / Full Search` (15 November): back, search and one action in one row (84, 32 below); `Secondary Pages / Search` is a title row over a full-width search row (142, 18 below).
 - BottomNav `inner-pages` (15 November): a 40 glass pill with four 44 × 38 icon actions and the 40 Nusuk AI circle; no bar shadow (only Glass BG's).
-- New parts: DirectionSheet, HomeItem, IconBlock, SearchBar, Glass.
+- **HeaderTabs (24 November 2026, [🎹 Tabs › Header Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2880)):** fills its container by default, each tab an equal share (`fill={false}` hugs); the track padding is 4 all round (was 4 / 8). Breaking: HeaderTabs fill by default.
+- **SectionHeader (19 November 2026, [🔌 Misc › Headers](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj/?node-id=2402-18252)):** the end slot shows the **NusukBot** (Makkah or Madina, `location`) unless `right` replaces or hides it; new levels `complex-headline` (headline with a `count` chip) and `family` (people with a user-edit avatar at the end); `cta`, `separator` and `actions` switch the parts Figma switches. SectionTitle sends its hero, legend, complex, complex-headline and family variants to SectionHeader.
+- New parts: DirectionSheet, HomeItem, IconBlock, SearchBar, Glass; SupportSheet (24 November), NusukBot (19 November), Device (27 November).
 
 ### Cards
 
@@ -648,6 +655,24 @@ Figma: 🧭 Navigation › Nudges (Expand On 316 × 58, Off 279 × 58). One anno
 - **8 November:** the 24 footer avatar has a white inside ring 1.5; Marketplace order avatars are 38, Positive (Ivory) `+2` then two pictures, white inside ring 1.4.
 - Preset icons match Figma: Electric Cart tag `umrah` (K7), Marketplace footer `package-moving`.
 - Sizes on 10 November: 387 wide; Hajj 183, Umrah Package 227, Marketplace 176, the rest 221 high.
+- **24 November 2026 ([Figma](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=69244-4281)):** 12 types again with the new preset `message` (alias `wellness`): «موعد استجمامك», tag «الاستجمام» with the `wellness` icon. Figma names the type Message but draws a wellness booking (known issue).
+
+#### NusukCard (new 24 November 2026)
+
+Figma: [🃏 Cards › Nusuk Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70838-7738) (13 variants). The person's own credentials and cards; nothing in them is an offer.
+
+- **Nusuk ID** (386 × 226): a 43 header in the sub-category's colour with the card's name, under a white body (radius 18, padding 12) that sits 21 over it: the Nusuk and ministry logos, an 82 photo (radius 14), the name in Body 2, flag, nationality and document number in Notes 2, and the 95 QR with the Nusuk ID and a copy button. Seven sub-categories: Default, Tour Guide, Hajj Emp, Charity, Work, Hajj (company name, guilloché, the 1447 tag) and Umrah.
+- **Small ID** (164 × 172): Default, Rawdah and Hajj Card, with a Gold XS `disability-02` chip for priority access. **Card:** the Nusuk mada card and its small balance tile; **Wallet:** the prompt to add a card.
+- The QR shown is the one the service returns (`qr`); the sample QR, logos, the Hajj tag and the backgrounds are Figma artwork rendered into the bundle (about 60 KB) and are for mockups only. Figma: the Hajj ID photo overflows the card edge (known issue).
+- Native: the header layer sits under the body, offset −21; the QR is generated from the code the service returns (`CIQRCodeGenerator` on iOS, ZXing on Android).
+
+#### QuoteWidget (new 24 November 2026)
+
+Figma: [🃏 Cards › Quote Widget](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70337-6095) (243 × 224). White, radius 18, padding 26 / 18, items 12 apart, Glass/Full; `quote-up` 24 in gold, the text in 29LT Idris 24, the source in Notes 2 and a Gold XS chip. A verse or hadith follows M6 › Faith text: the content team's approved wording with its source, one per card.
+
+#### HintWidget (re-read 24 November 2026)
+
+Figma: [🃏 Cards › Hints Widget](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70306-7523). The examples use the Amethyst shade; Direction4 (`direction="logo"`) is Emerald with a white fade from 59% and a 44 logo (was 48). Figma: Direction3 and Direction4 are placeholder names and Direction3 duplicates Horizontal (known issue).
 
 #### OptionCard (13 types)
 
@@ -671,11 +696,15 @@ Figma: [🃏 Cards › Add to Cart CTA](https://www.figma.com/design/mg7egvNbr2c
 | `remove` | Destructive, icon **left** `shopping-basket-remove-01` 16 (was a trailing `delete-03`), «إزالة» | 70 |
 | `notify-me` | «نبهني عند التوفر», then `notification-02` 16 at the **end** (was a leading `notification-01`) | 138 |
 
+**19 November 2026 (the DL Advisor's comments, previews in Arabic):** the buy and remove icons sit at the right of their label and notify's at the left, as Figma draws them in Arabic.
+
 The stepper reads left to right in every language (minus or remove, number, plus). The plus and minus are 16 drawn; they answer a 48 touch (DL-20). Inside a card the control may be stretched (Price Options Vertical, Marketplace Grid); the button keeps its own width at the start of the stretched box.
 
 #### PriceOptions (new 10 November)
 
 Figma: 🃏 Cards › Price Options (the master for price on product cards). "ابتداءً من" in `notes-2-light` `text-note`, then the price (riyal 12 × 14 + amount at 20, `text-heading`) and the Add to Cart CTA. `Vertical=False`: price and control on one row (269 × 61). `Vertical=True`: stacked, gap 8 (grid cards). Top padding 8. Show "from" only when the price really varies.
+
+**19 November 2026 (the DL Advisor's comments):** only Figma's variants are offered; the earlier price comes before the discount tag and the component hugs its content.
 
 **18 November 2026 (review comments):** in Vertical the Add to Cart CTA hugs and sits at the start under the price; in the discount row the struck-through earlier price comes first, then the pill.
 
@@ -718,7 +747,7 @@ Rules for Market screens:
 - Udhiya and Hady are worship bought through a shop: no upsell, no countdown, no "frequently bought together" on those products.
 - **Udhiya details** (17 November): one collapsible card per sacrifice: the name of the person it is offered for ("[اسم المُضحى عنه]") and its type ("نوع الأضحية"); open, it asks for the name and, behind a switch, contact details other than the buyer's. The name is the person's own wording and is never edited for them. The copy and the chevrons need fixing before it ships (F100).
 
-#### StatusChip (Request Card Status, 48)
+#### StatusChip (Request Card Status, 49 since 24 November)
 
 Chips XS: 18 high, text 10, icon 12, padding 8 (6 on the icon side, since 15 November), gap 4. Colours from the Chip state: success, pending, error, default, gold.
 
@@ -747,7 +776,8 @@ Chips XS: 18 high, text 10, icon 12, padding 8 (6 on the icon side, since 15 Nov
 | In Progress | `in-progress` | pending | جاري التنفيذ | `hourglass` |
 | Executed | `executed` | success | تم التنفيذ | `tick-double-02` |
 | Refund Failed | `refund-failed` | error | فشل استرداد المبلغ | `cancel-01` |
-| Rejected | `rejected` | error | مرفوضة | `cancel-circle` |
+| Rejected (24 Nov) | `rejected` | error | مرفوض | `alert-02` (was «مرفوضة» with `cancel-circle`) |
+| Status49 (24 Nov, Figma's placeholder name) | `status49`, `rejected-f` | error | مرفوضة | `alert-02` |
 | Active permit | `active-permit` | success | موعد فعال | `tick-double-02` |
 | Visa Issued | `visa-issued` | success | تم الإصدار | `tick-double-02` |
 | Visa Issued 02 | `visa-issued-02` | success | أُصدرت التأشيرة | `tick-double-02` |
@@ -776,6 +806,7 @@ Chips XS: 18 high, text 10, icon 12, padding 8 (6 on the icon side, since 15 Nov
 
 #### Date & Time and QR Code Status (15 November 2026)
 
+- **DayPicker (rebuilt 19 November 2026, [📅 Date & Time › Day Picker](https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU/?node-id=74392-1944)):** 40 × 40 (the four Figma states measure 40 × 40, checked 27 November), radius 14. The moon mark at the top (`moon-02`), the day in Body 2 and the availability dot under it: available green, filling orange, almost full and full red, not available grey. Today is Ivory, the selected day Ink with white text.
 - **DayTab:** 80 × 78, radius 14, padding 12 / 8 / 8. Weekday `notes-2-regular` `text-subtle` over the date `headline-1-regular`; 14 corner icon (moon-01, or `unavailable`); availability bar 8 × 4 (green, orange, red, Smoke). Selected: `surface-shade-6`, 1.5 `surface-longing` line, `text-link`; Unavailable: Ivory, Pearl line, `text-note`. Today chip: Gold solid XS on the top edge.
 - **TimeSlot (replica, re-read 17 November 2026, 21:10,** 📅 Date & Time › Time slot card, Selected Default / Selected / Disabled on `_Time slot card Master`**):** built as Figma builds it: a 12 band top and bottom (an 18 corner piece at the start, the 17 ticket with the notch, the rest) and a 32 middle with side lines only, overlapping by 1: 54 high, padding 18 at the sides. Corners Radius/MD, which the 12 band clamps to 12. The notch is a shallow bite 11.3 wide at the edge and 4.2 deep, its tip 27 from the **start** edge (right in Arabic), on the opposite side from the markers; the line follows it. Markers: 20 circles (12 icon, 4 padding, 1 line inside), overlapping by 7, the first on top, from −3 / −3 at the end corner, in the order soon (Ivory, Pearl line), instant (shade 5, shade 2 line, `icons-illumination`) and prayer (white, Pearl line). Text: time Body 1 Regular and period Body 2 Light, 4 apart. Default white + Pearl; Selected shade 2 + Longing, every marker Longing with a white icon; Disabled Ivory + Pearl with `text-note`, and nothing else: no «مكتمل» or other added text (GC-R13). With the master's Show Icon (24, at the start) and Crowd (Chips Pending MD, at the end) the text fills the middle. Until this release code put the notch on the markers' side as a 17 semicircle and drew 22 markers.
 - **PrayCard (17 November 2026):** 110 × 90, radius 18. One 24 icon (sunrise), the day in `body-1-light` and the men's and women's icons 16, nothing else: the «رجال / نساء» text line is gone and `note` is spoken only. Off Ivory, padding 26, `text-subtle`; On `surface-shade-6` with a 1.5 Illumination line, padding 18, `text-link`.
@@ -793,7 +824,7 @@ Read from [🏖️ Travel › Travel](https://www.figma.com/design/ozi4A2gUbVXbz
 - **Ribbon** («الارخص»), **FromTo** (Destination: trip tabs, two fields and the swap), **DateRange** (Duration: Default, Active, Disabled), **FeaturedAirport** (Off, On), **FeatureBox**, **VisaUserBlock** (name as on the passport, gender, flag, Selected) and **HotelCard** (photo with dots, specs, favourite, distance, rating, features, nights, price with an optional old price and discount).
 - Rules: routes read from the start side; times and codes stay left to right. The ribbon only when true for the current results, never for paid placement. Seat counts only from live inventory. The airline logo group in the preview is a 1x export; use the brand files.
 
-#### Icons (152 in the coded set)
+#### Icons (195 in the coded set, 27 November 2026)
 
 Use the Figma names as asset names. Export each from Figma (🧭 Navigation, 🃏 Cards and the icon library) as vector (PDF or SVG for iOS asset catalogs, Vector Drawable for Android), single colour, tinted with the icon token (`icons-black`, `icons-gray`, `icons-white` or the text colour of the component). Directional icons mirror in RTL.
 
@@ -809,7 +840,11 @@ Added 15 November for Date & Time and QR Code Status (8, 151 in the coded set): 
 
 Added 16 November for File Uploader (152): `upload-04`.
 
-Short names used in older code (`search`, `close`, `calendar`, `plus`…) map to these; see `ALIAS` in `bundle.js`.
+By DESIGN.md 3.7.3 (18 November) the coded set held 178; the additions after 16 November were not logged here.
+
+Added 19–25 November from 🎨 Icons (17, 195 in the coded set): `moon-02` (Day Picker) and `user-edit-01` (Companion, family headers); `view-off`, `add-01`, `time-04`, `award-04` (Inputs: password, counter, resend timer; the Header Tabs examples); `navigation-03`, `job-search`, `ambulance`, `cardiogram-02`, `police-badge`, `whatsapp`, `message-edit-02` (Support Bottom Sheet); `go-backward-5-sec`, `1x-faster` (Player tab bar); `disability-02` (the Nusuk ID priority chip) and `wellness` (Request Cards). Missing from 🎨 Icons and carried by the chat lane only: `earth`, `global`, `mail-01`, `thumbs-down` (Known issues).
+
+The full list is the icon map in `bundle.js`; the lines above log what was added and when. Short names used in older code (`search`, `close`, `calendar`, `plus`…) and legacy names map to these; see `ALIAS` in `bundle.js`. Use DL icons only.
 
 #### Avatar
 
@@ -817,7 +852,7 @@ Short names used in older code (`search`, `close`, `calendar`, `plus`…) map to
 |---|---|---|---|---|---|
 | px | 24 | 42 | 56 | 72 | 100 |
 
-Circle. State Negative = `surface-01-white`, Positive = `surface-02-ivory`. Kinds: Icon, Initials, Emojis, Picture. Cards resize avatars to 38 (`px` in code). Groups overlap by 15 (5 for entity logos), later items on top.
+Circle. State Negative = `surface-01-white`, Positive = `surface-02-ivory`. Kinds: Icon, Initials, Emojis, Picture (Kind × Size × State in code since 19 November: `kind`, `iconName`, `emoji`). Cards resize avatars to 38 (`px` in code). Groups overlap by 15 (5 for entity logos), later items on top, the last one on top of all. An avatar without a picture can take a **Quran colour** (`color`: mint, sky, sand, rose, peach, orchid, citrine, fog, lavender); in a group they take them in turn (19 November 2026, the DL Advisor's comments; `colors={false}` keeps them white).
 
 #### Chip
 
@@ -833,7 +868,17 @@ Read from 🍟 Chips › `_Chips Setup` on 15 November 2026 (published): one var
 - Text: Headline family, Regular, line height 1.28, no letter spacing. Figma pads the label 2 at the bottom, so it sits 1 above the centre; code does the same.
 - The icon leads (right in Arabic, left in English) and takes the smaller padding on its side. Background Off (`background="bare"`) drops the fill and the side padding; height, gap and text stay.
 - **Cards use XS.** Every chip in 🃏 Cards renders 18 high with 10 text, including the ones set to SM or MD there (Media Cards, Member Card): build them as XS (CH1).
-- States: default, pending, success, info, error, gold, white; `solid` uses the solid alert fills (Figma has Solid for Gold only).
+- States: default, pending, success, info, error, gold, white; Solid exists for Gold only (`solid` on any other state draws the soft chip since 24 November). The default icon is `arrow-left-02` at the start.
+- **24 November 2026 ([🍟 Chips](https://www.figma.com/design/VVGHy0fAHuPqL6dhBD5Ai6/?node-id=72392-427)):** the coded side padding now matches the table (the CSS still had 12 / 14 / 14 / 16 until then). Figma: Pending SM with an icon pads 8 / 10 where the other states pad 10 / 8 (known issue).
+
+#### Inputs: TextField, Hint, LoginForm (re-read 24 November 2026)
+
+Figma: [⌨️ Inputs › Input](https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR/?node-id=68394-7766), Error Messages Content (69305-8177), Login Form (69471-5284).
+
+- **TextField:** the label sits inside the field (Filled Off shows the label alone, centred); the line is Ivory; Error draws no icon inside the field; Disabled uses `inputs-surface-disabled`. New type `logo` (Figma «with logo», the SPL mark). Mobile is the field plus a 106-wide country-code box; Password has the eye at the end and Checkbox SM criteria under it; Action is a Secondary SM `arrow-left-02` button (settles F116); Counter is Secondary SM remove and add in a capsule; Credit Card is two rows; the Avatar sits at the start; OTP boxes share the width. Breaking: no label above the field (except Text Area); `type="action"` is an icon button named by `actionLabel`.
+- **ERROR_MESSAGES:** the 27 texts of Figma's Error Messages Content, exported from the bundle; `errorType` (and `errorValue`) on TextField picks one, so the words come from Figma, not from each screen.
+- **Hint:** the Warning icon is `spam` (was `alert-circle`).
+- **LoginForm (new):** Email, Mobile, OTP and Password × Default, Filled, Error and Setup, in a card (padding 18, gap 12, radius 22); the method tabs are Header Tabs; Continue is Primary LR; OTP shows the **ResendTimer** (Resend OTP Off, On). Native: `.oneTimeCode` and `.newPassword` content types on iOS, `autofillHints` SMS_OTP_CODE on Android.
 
 #### Selection controls: Switch, Checkbox, Radio, SelectCard (read 14 November 2026)
 
@@ -844,7 +889,7 @@ Figma: 📻 Switches (`zhcTb4a0XbF3YeYF9XI6zw`), Status [Default, Selected, Disa
 | Switch track, knob | 32 × 16, 16 × 12 | 42 × 21, 24 × 18 | 54 × 27, 32 × 24 | Off `surface-04-mist`, on `surface-10-ink`, white knob; disabled Pearl track and Mist knob; error solid `alerts-surface-solid-error` |
 | Checkbox | 18 | 18 | 24, tick 18 | Empty: 1 px `surface-longing` line; ticked `surface-illumination` with a white `tick-02`; disabled Pearl (Ink tick at 50% when ticked); error 2 px `alerts-icons-error` line |
 | Radio | 18 | 18 | 24, centre 13 | Off Mist, on `surface-illumination`; white rounded-square centre 10, radius 4, avatar shadow; disabled Pearl with an Ivory centre (Mist when chosen); error solid red |
-| Label, gap | 14, 8 | 16, 12 | 18, 12 | `text-content`; disabled `text-note`; error `alerts-text-error` |
+| Label, gap | 14, 8 | 16, 8 | 18, 8 | `text-content`; disabled `text-note`; error `alerts-text-error`. The gap is 8 at every size since 19 November (the DL Advisor's comments; was 12 at MD and LR); Checkbox and Radio align with the top of the label's first line |
 
 SelectCard (re-read 16 November 2026): 308 wide, radius 14 (`radius-s`), padding and gap 18. Active `surface-01-white` with a 1 px Ivory line and the OS shadow; Selected `surface-shade-5` with a 1 px `surface-illumination` line; Disabled Ivory with a Pearl line at full opacity, description `text-note`, gap 20. Title 14 `text-content`, description 16 `text-heading` (as Figma). The icon sits alone in the top row. There is no radio: the selected state alone shows the choice (GC-R12; prototypes built from an older standalone skill drew one).
 
@@ -855,7 +900,7 @@ Until 14 November code drew the chosen checkbox and radio in Ink, the MD switch 
 #### Lists, sheets, steps and widgets (read 14 November 2026)
 
 - **DropdownItem** (⬇️ Dropdown list › Dropdown item on `_Dropdown item list/On`): padding 12 above and below, gap 18, a 1 px `surface-03-pearl` line under; title `body-2-regular` (`text-heading`), details `notes-2-light` (`text-content`) 4 below; lead icon 20, flag 20 × 15, avatar SM 42. Radio and Checkbox: the row is the control, a 24 solid check (`checkmark-circle-02` Solid, named `checkmark-circle-02-solid` in code; `checkmark-square-02`) in `icons-longing` when chosen (F19). Toggle: the MD Switch. Download: `download-04`. Rows 61 tall, 66 with an avatar.
-- **Sheets** (Bottom Sheet BG): inset 8, corners 42 at the top and 54 (`radius-ios`) at the bottom, `glass-full`, grabber 36 × 5 Mist in a 26 band. DirectionSheet: content 32 / 26 / 48, gap 26, title `headline-1-regular`, subtitle `body-2-light`, options as DropdownItem rows without gaps (4 above and below), actions 4 apart (Ghost MD). Support Bottom Sheet: an Ivory sheet with three quick actions (Ivory tiles, radius 22, padding 12 / 18, icon 20, `notes-1-regular`; emergency in `alerts-surface-error` with `alerts-text-error`) over a white sheet with the questions list.
+- **Sheets** (Bottom Sheet BG): inset 8, corners 42 at the top and 54 (`radius-ios`) at the bottom, `glass-full`, grabber 36 × 5 Mist in a 26 band. DirectionSheet: content 32 / 26 / 48, gap 26, title `headline-1-regular`, subtitle `body-2-light`, options as DropdownItem rows without gaps (4 above and below), actions 4 apart (Ghost MD). Support Bottom Sheet, coded as **SupportSheet** on 24 November ([Figma](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=69401-7457)): Default holds the action tiles (maps, lost and found, emergency), the FAQ (Header Tabs LR over Collapsed Sections), the Nusuk AI prompt and the sponsors; SOS holds instant help (share location, ask for medical help), the emergency numbers and WhatsApp; numbers are `tel:` links in the apps. Before that it was read as an Ivory sheet with three quick actions (Ivory tiles, radius 22, padding 12 / 18, icon 20, `notes-1-regular`; emergency in `alerts-surface-error` with `alerts-text-error`) over a white sheet with the questions list.
 - **Steps** (🔦 Tracker › Steps, replica 14 November, night): columns hug their labels; a 20 point 18 in from the start (Previous Ink dot 12, Current the stage icon 20 in `icons-illumination` over the Breathing Effect glow, Next a 1 px `surface-05-smoke` ring 12), 18, then a 1 px line to the end of the step (`surface-07-slate` behind; on the current step Slate fading to clear, ahead `surface-04-mist` fading the same way; none on the final step); label 12 below, 18 in from the start and 32 at the end, `notes-1-regular`, Next at 40%; details `notes-2-light` (`text-note`) on the current step. The glow breathes once (4 s) and rests. The bar scrolls sideways.
 - **StartJourney** (🎫 Widgets › Start Journey): SM card 80 tall (padding 18, gap 12, radius 18, `surface-01-white` to `surface-white-shine`, `shadow-xs`; «ابدأ رحلة» + the journey word and icon in `headline-2-light`; Secondary SM icon button), XS three 80 × 80 tiles (icon 24 in a 60 square, `body-2-light`), LR section title over three 92-tall cards (`body-1-light`; Umrah icon in `icons-longing`).
 - **AvatarGroup, Travel** (🏖️ Travel › User Group): Active Off 42 · 42 · 42 · 56 · 42 · 42 · 42, Active On 24 · 42 · 56 · 72 · 56 · 42 · 24, overlap 9, 1.5 white ring, the middle on top; caption `body-2-regular` with the XS icon avatar, 8 apart.
@@ -1826,9 +1871,11 @@ Format: ID · date · ruling · consequence.
 - **DL-40** · 14 Nov 2026 · Effects on iOS: Glass, Noise and Treatment apply; the effect styles Shadow XS to UP and Glass Top, Bottom and Full ship natively, and Glass BG stacks several effects as M8 describes. Answered by UX (iOS review #13 and #14).
 - **DL-41** · Proposed · 14 Nov 2026 · Disabled states: a component's own disabled colours where Figma draws them (fields, the 14 November switches, Select Card); `opacity-disabled` (0.38) where it draws none; buttons 0.4. Reconciles Android audit F13 (0.38, buttons 0.4) with Figma (Q-X19).
 - **DL-30** · 11 Nov 2026 · The Nusuk AI chat joins the DL as a Proposed lane (`chat/`), not as approved components. Every value is taken from a DL file first (Foundation, Buttons, Chips, Switches, Inputs); only values no DL file defines stay proposed as `chat-*`. A chat component becomes DL when its Figma set is published and the DL Manager accepts it. Decided by the DL Advisor.
-- **DL-42** · 17 Nov 2026 · The DL is distributed two ways only: the **`nusuk-dl` plugin** (eleven skills: the seven Nusuk skills and four MIT-licensed general method skills, `accessibility-audit`, `design-critique`, `ux-writing` and `humanizer`; and the whole DL library in `library/`) and the **developer handoff** (`nusuk-dl-developer-handoff.zip`), which is also inside the plugin. Google Drive keeps the latest of each and nothing else; GitHub keeps the plugin folder and the handoff. Where a general skill and a Nusuk rule disagree, the Nusuk rule wins. The DL skill no longer carries copies of the other Nusuk skills. Decided by the DL Advisor; supersedes DL-15. *Amended 18 November 2026 (3.7.2): fifteen skills, adding apple-design, mobile-native, break-ui and review-animations (MIT, Emil Kowalski) after the plugin health check.*
+- **DL-42** · 17 Nov 2026 · The DL is distributed two ways only: the **`nusuk-dl` plugin** (eleven skills: the seven Nusuk skills and four MIT-licensed general method skills, `accessibility-audit`, `design-critique`, `ux-writing` and `humanizer`; and the whole DL library in `library/`) and the **developer handoff** (`nusuk-dl-developer-handoff.zip`), which is also inside the plugin. Google Drive keeps the latest of each and nothing else; GitHub keeps the plugin folder and the handoff. Where a general skill and a Nusuk rule disagree, the Nusuk rule wins. The DL skill no longer carries copies of the other Nusuk skills. Decided by the DL Advisor; supersedes DL-15. *Amended 18 November 2026 (3.7.2): fifteen skills, adding apple-design, mobile-native, break-ui and review-animations (MIT, Emil Kowalski) after the plugin health check. Amended 27 November 2026 (3.8.0): seventeen skills, adding gestures and learn-taste from the same source.*
 - **DL-43** · 18 Nov 2026 · Every new task starts with the intake (M13): clarifications; the objectives and purpose in the Notion DX Tracker's fields (read the task's row first, ask only for empty fields); an internal benchmark against Nusuk's contracts, patterns and flows; Mobbin and Dribbble for structure only, never visuals; then the flow and the screen structure from DL components. Decided by the DL Advisor.
 - **DL-44** · 18 Nov 2026 · Every prototype simulates native iOS transitions (push, back swipe, sheet, cover, alert, large title; no-bounce spring; cross-fade under reduced motion) and draws the iOS status bar with the time fixed at 02:22 and the battery percentage. Prototypes of an existing Figma flow mirror the file and raise conflicts as questions (Golf Carts review, GC-R1 to GC-R18). Decided by the DL Advisor.
+- **DL-45** · 23 Nov 2026 (recorded 27 Nov) · Figma boards hold only DL instances, Proposed components and three wrappers (screen, navbar, Content): no plain frames, no loose groups, no device mockups. A screen is one vertical auto layout, 402 × 874, Last on top: the navbar (Toolbar and Header Effect, absolute at 0,0, locked, not clipped), then Content, then the Tab Bar. Coded prototypes draw the phone with the DL `Device` component (the 02:22 status bar with the battery percentage, the home indicator), never their own. Decided by the DL Advisor in the complaints-flow work; extends DL-44.
+- **DL-46** · recorded 27 Nov 2026 · The remembrance-counter feature and the concept are spelled **Thikr** in English, not Dhikr (plural **Athkar**; **Tasbih** is the counting act), and these documents follow it. Decided by the DL Advisor; the glossaries of `nusuk-ux`, `nusuk-content-writer` and `nusuk-dx` carry it.
 - **DL-23** · 9 Nov 2026 · Code follows the C3 workaround everywhere: text and icons on a fill that inverts use a token that inverts. Token values themselves stay exact as Figma (DL-01), so C7 is still open.
 
 ### Trade-off Register
@@ -1874,13 +1921,23 @@ When nobody can answer (a scheduled or unattended run), write your assumptions f
 From the DL Advisor's rulings: two on every prototype, the rest from his review of the Golf Carts v2 prototype (`LEARNINGS.md` › Prototype fidelity; defects F114–F119 in Known issues).
 
 - **Native iOS motion in every prototype (DL Advisor, 18 November 2026).** Simulate Apple's own transitions: a pushed screen slides in from the trailing edge (from the left in Arabic) while the previous screen shifts part of the way and dims, and back swipes from the leading edge; sheets rise from the bottom over a dimmed backdrop and drag down to close; a full-screen cover rises from the bottom; tabs switch without a slide; alerts fade in with a slight scale; a large title collapses into the bar on scroll. Use a spring with no bounce, close to iOS's default (check it against the iOS Simulator rather than guessing). With reduced motion, cross-fade instead. DL motion tokens (M8) stay for component interactions such as press and toggle.
-- **The iOS status bar is always drawn, at 02:22.** Every prototype screen shows the status bar with the time fixed at **02:22**, the signal and Wi-Fi icons, and the battery with its percentage. The digits are Western and left to right in both languages. Native apps use the system status bar; this rule is for prototypes and mockups.
+- **The iOS status bar is always drawn, at 02:22.** Every prototype screen shows the status bar with the time fixed at **02:22**, the signal and Wi-Fi icons, and the battery with its percentage. The digits are Western and left to right in both languages. Native apps use the system status bar; this rule is for prototypes and mockups. Draw the phone with the DL **`Device`** component (27 November 2026, DL-45): the 402 × 874 frame, this status bar and the home indicator; a prototype never draws its own phone or status bar.
 - **A prototype of an existing Figma flow mirrors it.** One stage per frame, each with its node id; nothing outside the file or the DL; validation sheets and toasts copied as drawn; placeholders take sample values inside Figma's own sentence. Re-list the page's frames before every publish (GC-R1 to GC-R5).
 - **Conflicts are questions, not fixes.** Where Figma meets M4, M6, the release scope or a placeholder, keep the Figma version and raise a numbered design question (FQ) in the handoff; a genuine never-ship item is a blocker at the top of the handoff (GC-R2).
 - **Measure, don't eyeball.** List the frames (`get_metadata`), read values (`get_design_context`), compare each section's bounding box and the rendered rows with the Figma render within 2px, sample about ten background points, and click every path. Reply to each review comment with the numbers.
 - **Keep Figma artwork.** When an asset can't be downloaded, render the node and crop it; never redraw it.
-- **Motion values that matched iOS** (Nusuk Charity example, 18 November 2026): the screen beneath moves 30% and dims 10%; the edge swipe commits at 35% or on a flick; sheets rise in 500 ms; easing `cubic-bezier(.32,.72,0,1)`. Only the Toolbar's first row sticks; progressive-blur layers stay at full opacity; draw the status bar with the DL `StatusBar`.
+- **Motion values that matched iOS** (Nusuk Charity example, 18 November 2026): the screen beneath moves 30% and dims 10%; the edge swipe commits at 35% or on a flick; sheets rise in 500 ms; easing `cubic-bezier(.32,.72,0,1)`. Only the Toolbar's first row sticks; progressive-blur layers stay at full opacity; draw the phone with the DL `Device` (its `StatusBar` and home indicator included).
 - **Worked examples:** Support-in-Chat (from a brief) and Nusuk Charity (from a Figma file, kept as is), in `nusuk-feature-handoff` › examples.
+
+### Figma boards (23 November 2026, DL-45)
+
+From the DL Advisor's rulings in the complaints-flow work. They apply to any Nusuk screen built in Figma.
+
+- **Only DL parts.** A board holds DL instances, Proposed components and three wrappers: the screen, the navbar and Content. No plain frames and no loose groups: a leftover group becomes a Proposed component. Anything the DL does not have is made as its own Proposed component, and an element used several times inside a widget is made one component first.
+- **One screen, one auto layout.** A screen is a vertical auto layout, 402 × 874, with Last on top: the navbar (the Toolbar and the Header Effect, absolute at 0,0, locked, not clipped), then Content, then the Tab Bar. Sheets and backdrops stay absolute on top of the screen.
+- **No device mockups on boards.** The phone frame is for coded prototypes, drawn with the DL `Device`. Figma screens still include the library's _Status Bar (DL-44).
+- **The bars carry the blur.** No separate progressive-blur layer: the Toolbar and the Tab Bar draw it. A chat screen uses Toolbar Type=Nusuk AI.
+- **Accepting library updates.** Swap a clone of each instance that is behind and keep the swap only when no text, property or override is lost; leave and list for the file owner the instances whose main component dropped properties and nested Toolbars with sizing overrides (🚙 Golf Carts, 23 November: 47 of 53 swapped). A flow the file added after the brief is built as drawn and raised as a design question against the scope.
 
 ### Research before design
 
@@ -1920,8 +1977,10 @@ How a screen, flow or concept is reviewed against the DL. It takes the DX team's
 
 ### Keeping this file true
 
-- **One release, every output.** Any DL change (a Figma read, a token, a component, a pattern, a rule) ships in one release that updates all of: this DESIGN.md (design system `project/DESIGN.md`, Nusuk project `claude/DESIGN.md`, coded package), the `nusuk-dl` plugin (its skills and `library/`; at most 5,000 files and 200 MB, claude.ai's limit) and the developer handoff, on Google Drive (the latest of each only) and on GitHub (ByMoha/NusukDL › plugins/nusuk-dl and downloads/) (DL-42), the onboarding guide (its downloads and any section the change touches), the design system cards and docs, the template contracts and their index when a template changes (M9T), the native token files for iOS and Android (M11), release notes, known issues, a change-log entry with its Figma file and its iOS and Android sections, and a migration file. Nothing ships in one place only.
+- **One release, every output.** Any DL change (a Figma read, a token, a component, a pattern, a rule) ships in one release that updates all of: this DESIGN.md (design system `project/DESIGN.md`, Nusuk project `claude/DESIGN.md`, coded package), the `nusuk-dl` plugin (its skills and `library/`; at most 5,000 files and 200 MB, claude.ai's limit) and the developer handoff, on Google Drive (the latest of each only) and on GitHub (ByMoha/NDL › plugins/nusuk-dl and downloads/) (DL-42), the onboarding guide (its downloads and any section the change touches), the design system cards and docs, the template contracts and their index when a template changes (M9T), the native token files for iOS and Android (M11), release notes, known issues, a change-log entry with its Figma file and its iOS and Android sections, and a migration file. Nothing ships in one place only.
 - **Edits between releases go in `UNRELEASED.md` (18 November 2026).** Any session that publishes to the design system page outside the release chat (a comment-thread fix, a chat-lane round, a quick code change) adds an entry to `project/UNRELEASED.md` in the same publish: date and time, what changed and why, every file it touched, the Figma file, and the iOS and Android impact. It does not edit the change log, release notes, the DESIGN.md version or the migrations: the next release reads `UNRELEASED.md`, ships those changes to every output and empties it. A release does not start while an edit is missing from it.
+- **Learnings go in the same log (27 November 2026).** A correction the DL Advisor confirms in a working chat (the `learn-taste` method) is written as one line under `### Learnings` in `project/UNRELEASED.md`; the release folds it into `LEARNINGS.md`, this module or a component card. Working chats never edit DESIGN.md, the skills or the plugin.
+- **The guide's download stays live (27 November 2026).** Only a release points the guide at a new developer handoff zip on Drive and trashes the old ones. A session that ships a zip between releases (at the DL Advisor's request) uploads it beside the linked one and trashes nothing; the next release keeps the newest. Every release opens the linked file first.
 
 - **Release audit (DL-22).** Before publishing, render every preview in the six themes and measure: text contrast per text run, target size per control, names from the browser's accessibility tree, and a pixel comparison with the last release. The numbers go in the release notes and in M10 › Measured baseline; an unplanned pixel change stops the release.
 - **Generated files.** The design system page rebuilds `tokens.css`, the API cards and `manifest.json` only when someone saves on the page. After a release published by tools, make one save there, then check that `tokens.css` matches `tokens.json` and the card index lists every component (DS1).

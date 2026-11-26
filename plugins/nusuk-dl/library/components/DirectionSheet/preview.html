@@ -2,10 +2,22 @@
 <html data-theme="gold-light" lang="ar">
 <head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap"><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../../components/bundle.css"><script src="../../vendor/react.production.min.js"></script><script src="../../vendor/react-dom.production.min.js"></script><script src="../../components/bundle.js"></script><meta charset="utf-8"><title>DirectionSheet — preview</title></head>
 <body style="margin:0">
-<div id="root" class="nk nk-stage col" dir="rtl"></div>
+<div id="root" class="nk nk-stage" dir="rtl" style="display:grid;grid-template-columns:repeat(auto-fill,402px);gap:18px;align-items:start"></div>
 <script>
   var N = window.NusukDL, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{maxWidth:402}},h(N.DirectionSheet,{icon:'user-story',title:'استرجع حسابك',subtitle:'إذا سجلت الدخول سابقًا بهوية خليجية أو دولية، جرّب إحدى الطرق التالية.',secondary:'لاحقًا'},h(N.OptionCard,{type:'lr-icon-with-action',title:'هوية خليجية',description:'سجّل برقم الهوية',flag:'🇸🇦'}),h(N.OptionCard,{type:'lr-icon-with-action',title:'جواز سفر',description:'سجّل برقم الجواز',iconName:'passport-01'}))));
+  function W(el){ return h('div',{style:{width:402}},el); }
+  var sub = 'هنا وصف مختصر يوضح السياق ويشرح ما حدث.';
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    W(h(N.DirectionSheet,{icon:'user-story',title:'استرجع حسابك',subtitle:'إذا سجلت الدخول سابقًا بهوية خليجية أو دولية، جرّب تسجيل الدخول بها',secondary:'إغلاق'},
+      h(N.OptionCard,{type:'lr-icon-with-action',title:'رقم الهوية أو الإقامة',description:'مواطن أو مقيم في السعودية',flag:'🇸🇦'}),
+      h(N.OptionCard,{type:'lr-icon-with-action',title:'لمواطني دول الخليج فقط',description:'مواطن خليجي',iconName:'user'}),
+      h(N.OptionCard,{type:'lr-icon-with-action',title:'لجميع الجنسيات الأخرى',description:'زائر دولي',iconName:'location-01'}))),
+    W(h(N.DirectionSheet,{title:'العنوان',subtitle:sub,primary:'تأكيد',secondary:'إغلاق'},
+      h('div',{className:'pair'},h(N.SelectCard,{status:'active',iconName:'alert-circle',title:'العنوان',description:'الشرح المختصر'}),h(N.SelectCard,{status:'selected',iconName:'alert-circle',title:'العنوان',description:'الشرح المختصر'})))),
+    W(h(N.DirectionSheet,{icon:'bank',title:'العنوان',subtitle:sub,secondary:'إغلاق'},
+      [0,1,2,3,4].map(function(i){ return h(N.OptionCard,{key:i,type:i?'with-icon':'with-icon',iconName:i?'copy-01':'alert-circle',title:'العنوان',description:'الشرح المختصر'}); }))),
+    W(h(N.DirectionSheet,{title:'فرز بواسطة',subtitle:sub,secondary:'إغلاق'},
+      ['الأحدث','الأقدم','الأعلى تقييمًا','الأقرب','السعر: من الأقل','السعر: من الأعلى','الأكثر حجزًا','أبجديًا'].map(function(t,i){ return h(N.DropdownItem,{key:i,title:t,selector:'radio',checked:i===0}); })))));
 </script>
 </body>
 </html>

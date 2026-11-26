@@ -4,6 +4,82 @@ For developers and coding agents. Newest first. Figma is the source of truth; re
 
 Sizes are pt on iOS and dp on Android: 1 Figma px = 1 pt = 1 dp; text is sp on Android. The values are also shipped as code: `native/NusukTokens.swift` and `native/NusukTokens.kt`. How to use them: *iOS and Android handoff*.
 
+## 27 November 2026, 02:30 (the 19–26 November rounds: Navigation, Cards, Chips, Inputs, Tabs and Chat UI; NusukCard, QuoteWidget, SupportSheet, LoginForm, Device; seventeen skills) · DESIGN.md 3.8.0 · tokens 3.12 unchanged
+
+**Figma:** [🧭 Navigation](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=68392-24950) (Toolbar, Connected Shorts [70356-11383](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=70356-11383), [Tab Bar](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=68392-25296), [Support Bottom Sheet](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=69401-7457), [Direction Sheet](https://www.figma.com/design/7qHX6LqdotAU59Jr5UIsfw/?node-id=68392-25104)) · [🃏 Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70838-7738) (Nusuk Cards; [Quote Widget](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70337-6095), [Hints Widget](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=70306-7523), [Request Card Status](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=68492-1271), [Request Cards](https://www.figma.com/design/mg7egvNbr2ciMP04Ig2XDl/?node-id=69244-4281)) · [🍟 Chips](https://www.figma.com/design/VVGHy0fAHuPqL6dhBD5Ai6/?node-id=72392-427) · [⌨️ Inputs](https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR/?node-id=68394-7766) (Input; [Error Messages Content](https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR/?node-id=69305-8177), [Login Form](https://www.figma.com/design/DATayAnynnSQqdJQLAi7DR/?node-id=69471-5284)) · [🎹 Tabs › Header Tabs](https://www.figma.com/design/t4vGzLmqSgIwWuQPrsRyFY/?node-id=68411-2880) · [📻 Switches](https://www.figma.com/design/zhcTb4a0XbF3YeYF9XI6zw/) · [📅 Date & Time › Day Picker](https://www.figma.com/design/A7Jna80Khqc6WMQicRfLwU/?node-id=74392-1944) · [⚡️ Animation › Header Effect](https://www.figma.com/design/LbeMBujAsmfjZ4NCezrY1b/) · [🔌 Misc › Headers](https://www.figma.com/design/ZpduRx4IDZO8eLHTq9nXbj/?node-id=2402-18252) · [👩🏻‍💻 Avatar](https://www.figma.com/design/doe7J5GzfjwD9ysWHZuVIG/) · [💬 Chat UI](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80451-18766) (_Chat Container, [AI Chat Messages](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4523), [General Error](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80759-6908), [Badge](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80840-63916), [Closure](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80835-63106), [Loading Text](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80700-13922), [AI Tab Bar](https://www.figma.com/design/b2JRq5iuFo8rvl354ggpjR/?node-id=80392-4481)).
+
+The changes were published to the design system page between 18 and 26 November by the DL Advisor comments chat and the Chat UI chat, each logged in `UNRELEASED.md` (one entry back-filled); this release ships them to every output and adds what the check found.
+
+### Changed: navigation
+
+- **Toolbar, 24 types:** new **Connected Shorts** (146: a glass group 140 × 44 with `cancel-01` and two `arrow-right-01`, and the stepper widget «4 من 8» over the 139 `_Progress Bar`); Secondary Pages / Full Search (15 November) and the two-row Secondary Pages / Search now in M9's table. The **Header Effect** is coded: two ellipses blurred 102 px, in Illumination and Shade 2, drifting behind the bar on a 12 s loop (`effect={false}` turns it off; Reduce Motion holds the first frame; settles F117, the endless loop is F130). The 62 status-bar area is always kept (`safeArea`). Profile: Avatar 56 Positive and a Primary SM share; Companion: people and a user-edit avatar, at most 6; Almatar's booking pill 44 high, its «…» only with `onMore`.
+- **TabBar, 20 Active values:** **Player** (two 40 glass circles at the start, a glass group of play or pause, `go-backward-5-sec` and `1x-faster` at the end), **AI** (the Chat UI composer in its Text state, a 56 glass field with `mic-01`) and **Keyboard** (nothing drawn: the system keyboard is the bar); Landing Today and the unnamed Active19 render the home bar.
+- **Glass bars:** only the container is glass; buttons and fields on a bar draw no background of their own, a white-fill button takes black text and icon, and every button follows the bar's dark mode (Toolbar, TabBar, BottomNav).
+- **Reduce Transparency (this release):** with the setting on, or where the browser has no `backdrop-filter`, the bars' progressive-blur layers become a fade to `surface-screen-bk`.
+- **HeaderTabs** fill their container by default, each tab an equal share (`fill={false}` hugs); track padding 4 all round.
+- **SectionHeader** (🔌 Misc › Headers): the **NusukBot** (Makkah, Madina) in the end slot, new levels `complex-headline` and `family`, and `right`, `location`, `cta`, `separator`, `actions`, `count`; SectionTitle maps to it.
+- **SupportSheet (new):** Default (action tiles, the FAQ with Header Tabs LR and Collapsed Sections, Nusuk AI, sponsors) and SOS (instant help, emergency numbers, WhatsApp). DirectionSheet re-read: no change.
+
+### Changed: inputs, chips and controls
+
+- **TextField:** the label sits inside the field (Filled Off shows it alone, centred); Ivory line; no icon inside an Error field; Disabled on `inputs-surface-disabled`; new type `logo` (with logo, the SPL mark); Mobile is the field and a 106 country-code box; Password the eye and Checkbox SM criteria; Action a Secondary SM `arrow-left-02` (settles F116); Counter Secondary SM remove and add in a capsule; Credit Card two rows; OTP boxes share the width. **`ERROR_MESSAGES`** exports Figma's 27 error texts (`errorType`, `errorValue`).
+- **LoginForm (new)** with **ResendTimer**: Email, Mobile, OTP and Password × Default, Filled, Error (Password: Setup), 12 Figma variants. Icons `view-off`, `add-01`, `time-04`, `award-04`.
+- **Hint:** the Warning icon is `spam`. **Chip:** the coded side padding now matches Figma (8 / 10 / 12 / 14, icon side 6 / 8 / 10 / 12); Solid for Gold only; default icon `arrow-left-02` at the start.
+- **Switch, Checkbox, Radio:** 8 between the control and its label at every size; Switch SM 32 × 16, MD 42 × 21, LR 54 × 27 with the knob travelling the right way in right to left; Checkbox and Radio align with the label's first line, LR 24.
+- **DayPicker** rebuilt: 40 × 40, radius 14, the moon mark at the top, the availability dot under the day, Ivory today, Ink selected.
+
+### Changed: cards and data display
+
+- **NusukCard (new):** Nusuk ID in seven sub-categories with their header colours, the small IDs (Default, Rawdah, Hajj Card, the priority chip), the mada card and its balance tile, the wallet prompt; Figma's logos, sample QR, Hajj tag and backgrounds rendered into the bundle (about 60 KB). **QuoteWidget (new):** white card, gold `quote-up`, 29LT Idris 24, source and a Gold XS chip.
+- **HintWidget:** Emerald with a white fade for Direction4, logo 44 (was 48); the examples use Amethyst. **StatusChip:** `rejected` is «مرفوض» with `alert-02` (was «مرفوضة» with `cancel-circle`); Figma's Status49 «مرفوضة» is `status49` / `rejected-f`. **RequestCard:** preset `message` (alias `wellness`), «موعد استجمامك».
+- **Avatar:** Kind × Size × State (`kind`, `iconName`, `emoji`); without a picture an avatar takes a Quran colour (`color`); groups stack the last on top and colour in turn (`colors={false}` keeps them white).
+- **AddToCartCTA** icons as Figma draws them in Arabic (buy and remove at the right, notify at the left); **PriceOptions** only Figma's variants, earlier price before the tag, hugging; **VisaUserBlock** and the Travel parts default to Arabic.
+- **Icons:** 17 added from 🎨 Icons (195 in the coded set): `moon-02`, `user-edit-01`, `view-off`, `add-01`, `time-04`, `award-04`, `navigation-03`, `job-search`, `ambulance`, `cardiogram-02`, `police-badge`, `whatsapp`, `message-edit-02`, `go-backward-5-sec`, `1x-faster`, `disability-02`, `wellness`; legacy names map through `ALIAS`. Previews open right to left, with real photos where Figma has one.
+
+### Changed: the prototype frame and the API (this release)
+
+- **Device (new):** the 402 × 874 iPhone frame for coded prototypes, with the 02:22 status bar and the home indicator; it hides its own layers when a Toolbar or TabBar inside draws them (DL-45). **StatusBar** draws the battery percentage (`battery`, default 100); on dark screens the island stays black.
+- **`index.d.ts`:** types for NusukCard, QuoteWidget, SupportSheet, LoginForm, ResendTimer, NusukBot, `ERROR_MESSAGES` and Device; the props that 21 components already read but did not type (TabBar's player and AI handlers, SectionHeader's end slot, NusukCard's captions, DayPicker's long availability names, among others); `window.NusukDL` now lists all 109 exports (42 were missing). 24 component cards gained the matching rows, so card, type and code agree (plugin health checks all three now).
+
+### Changed: Nusuk AI chat (NusukChat 2.8.6 → 2.9.2, the Chat UI chat)
+
+- **2.8.6 (18 Nov):** the six `_Chat Container Master` states: the Nusuk bot at the top of the bubble with the tail corner top-start, time on the reading side, Notes 14 Regular for time and header, the answered question as the bubble's first line.
+- **2.8.7 (19 Nov):** **General Error** (72 Error circle with `alert-01` 38, Body 1 text, Primary MD); Voice redesigned (42 play, Longing bars, no timer); the 55 variants measured at 552 and corrected.
+- **2.8.8 (23 Nov):** follow-ups in Default and Error are DL CTA Primary (SM, XS in Error) with a trailing `arrow-right-02`, in a wrapping 8 × 8 row.
+- **2.9.0 (25 Nov):** eight container states (Nusuk and User **Mixed**), 37 AI Chat Messages variants, **Loading Text** (three dots, the active one ×1.6), AI Tab Bar **Actions** and a dark master.
+- **2.9.1 (25 Nov):** **Badge** (success rosette, failure triangle, alert hexagon; 50 × 50). **2.9.2 (26 Nov):** **Closure** (an Ivory card with a «was this helpful?» question and two Primary SM buttons, then a thank-you line).
+- 45 exports (4 DL, 25 variants, 16 new) and 54 proposed values; the open Figma points are F127–F129 and F134.
+
+### Changed: DESIGN.md, skills and process
+
+- **M9:** the inventory, Toolbar (24 types), TabBar, a new Inputs section, NusukCard, QuoteWidget, HintWidget, StatusChip (49), DayPicker, Avatar, Chip, the selection-control gap, icons (195) and Reduce Transparency. **M12:** DL-45 (Figma boards and the Device frame), DL-46 (Thikr), DL-42 amended (seventeen skills). **M13:** *Figma boards* (only DL parts; one 402 × 874 auto layout per screen, Last on top; no device mockups; clone-swap when accepting library updates), the `Device` rule, learnings go in `UNRELEASED.md`, and the guide's download stays live.
+- **Thikr:** the house spelling (not dhikr) in M1, M3, M5, the DESIGN.md opening, Behaviour, Targets and KPIs, the guide, and the `nusuk-ux`, `nusuk-content-writer` and `nusuk-dx` glossaries (DL-46).
+- **Plugin, seventeen skills:** `gestures` and `learn-taste` from [emilkowalski/skills](https://github.com/emilkowalski/skills) (MIT, commit 64eb3de), each with a Nusuk section (DL motion values win; corrections come from Moha's own account only and go to `UNRELEASED.md`). `break-ui`, `mobile-native` and `review-animations` no longer point to skills the plugin does not ship. The upstream sources were checked: no other change.
+- **DL skill §9:** every prototype screen sits in `Device`. **LEARNINGS.md:** Figma boards, the Device frame, the working log, and what broke (the trashed handoff zip, chat-lane builds, untyped components).
+- **Release:** RELEASE.md 1.8 (open the guide's handoff file before building) and 1.9 (fast-forward the GitHub mirror over chat-lane builds); plugin health adds five rows (code ↔ types, the `window.NusukDL` type, the prototype chrome, the guide's download is live, learnings folded). The repository is [ByMoha/NDL](https://github.com/ByMoha/NDL) everywhere.
+
+### Breaking
+
+- TextField draws no label above the field (except Text Area); `type="action"` is an icon button named by `actionLabel`.
+- HeaderTabs fill their container by default (`fill={false}` for the old hug).
+- Chip `solid` on a state other than Gold draws the soft chip. StatusChip `rejected` reads «مرفوض» with `alert-02`.
+- NusukChat: the User Text node is 80835:30455; Loading scales one dot instead of fading; Voice has no `.nkc-timer`; PasswordField checks three rules; Chips and ErrorMsg render DL Buttons (`buttons` removed, `chip: true` for the old chip); a Nusuk Message with a question renders it inside the bubble.
+
+### iOS
+
+- **Bars:** progressive blur = `UIVisualEffectView` under a gradient mask; with `UIAccessibility.isReduceTransparencyEnabled` use a solid `surface-screen-bk` fade. Header Effect: two animated blurred ellipses behind the toolbar, stopped when Reduce Motion is on. Player row: a glass HStack. AI bar: the chat composer.
+- **Switch:** SM 32 × 16, MD 42 × 21, LR 54 × 27, the knob leading in right to left. **Text fields:** the label inside the field (static, no float animation); Mobile = HStack(spacing: 8) with a 106 country picker; password criteria as read-only checkmarks; Header Tabs `.frame(maxWidth: .infinity)` per tab. **LoginForm:** VStack(spacing: 12), padding 18, corner 22; `.oneTimeCode` and `.newPassword` content types.
+- **SupportSheet:** a sheet with `.presentationDetents`; numbers as `tel:` links. **NusukCard:** the header layer under the body, offset −21; the QR from the service with `CIQRCodeGenerator`.
+- **Chat:** Nusuk row HStack(alignment: .top, spacing: 12), bubble corners topLeading 8, 18 elsewhere; Mixed = VStack(12) { bubble; time and actions; FlowLayout(8) of `.small` primary buttons }; Loading three 3.66 circles, active ×1.6 in 0.15 s steps, off with Reduce Motion; GeneralError Circle 72 + `alert-01` 38, 18 above a Body 1 Text, Primary MD; Badge a 50 × 50 ZStack; Closure an Ivory card (radius 18, 18 vertical padding) with two `.small` primary buttons.
+- **Device:** not built; the system draws the status bar, island and home indicator. Keep content in the safe areas.
+
+### Android
+
+- **Bars:** blur with `RenderEffect` and a gradient alpha mask (API 31+), a solid fallback below and when the user turns transparency down; the switch knob offset mirrored with `LocalLayoutDirection`.
+- **Text fields:** the same layout with `Row(Arrangement.spacedBy(8.dp))`; tabs `Modifier.weight(1f)`; OTP `autofillHints` SMS_OTP_CODE. **SupportSheet:** `ModalBottomSheet`; numbers through `Intent.ACTION_DIAL`. **NusukCard:** the QR with ZXing. **Player:** a Row with `Arrangement.SpaceBetween`.
+- **Chat:** Nusuk Row(verticalAlignment = Alignment.Top, spacedBy(12.dp)), RoundedCornerShape(topStart = 8.dp, 18.dp elsewhere); Mixed = Column(spacedBy 12) { bubble; Row(time, actions); FlowRow(8, 8) of PrimaryButton(Sm) }; follow-ups FlowRow of PrimaryButton(Sm / Xs, trailingIcon arrow_right_02, autoMirrored); Loading scale 1.6 on the active dot, 150 ms steps; GeneralError Box(72.dp, CircleShape) + Icon(38.dp); Badge Box(50.dp); Closure Column(Ivory, RoundedCornerShape(18.dp), padding(vertical = 18.dp), spacedBy(18.dp)).
+- **Device:** not built; use `WindowInsets.systemBars`.
+
 ## 18 November 2026, 13:00 (edits between releases go in UNRELEASED.md; the release process) · DESIGN.md 3.7.3 · tokens 3.12 unchanged
 
 **Figma:** no library file changed. The rule comes from the plugin health review of 18 November: the navigation bars' progressive blur reached the design system page from another session with no docs, and only the release's file comparison found it.

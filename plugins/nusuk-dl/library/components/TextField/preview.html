@@ -5,7 +5,25 @@
 <div id="root" class="nk nk-stage col" dir="rtl"></div>
 <script>
   var N = window.NusukDL, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h(N.TextField,{label:'الاسم الكامل',placeholder:'اكتب اسمك كما في الجواز'}),h(N.TextField,{type:'mobile',label:'رقم الجوال',placeholder:'5X XXX XXXX'}),h(N.TextField,{type:'select',label:'الجنسية',value:'مصر'}),h(N.TextField,{type:'search',placeholder:'ابحث عن خدمة'}),h(N.TextField,{label:'رقم الجواز',value:'A12',state:'error',hint:'رقم الجواز غير مكتمل. تحقق منه وأعد المحاولة.'}),h(N.TextField,{type:'otp',value:'48'}),h(N.TextField,{type:'multi-select',label:'تاريخ الميلاد',placeholders:['الشهر','السنة'],fieldLabels:['الشهر','السنة']}),h(N.TextField,{type:'avatar',label:'المرافق',value:'ليال محمد',initials:'ل'})));
+  function F(label, el){ return h('figure',{style:{margin:0,display:'flex',flexDirection:'column',gap:6}}, h('figcaption',{className:'notes-2-regular',style:{color:'var(--text-note)',direction:'ltr',textAlign:'left'}},label), el); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    F('Input · Filled Off', h(N.TextField,{label:'الاسم الكامل',placeholder:'اكتب اسمك كما في الجواز'})),
+    F('Input · Filled On', h(N.TextField,{label:'الاسم الكامل',value:'ليال محمد'})),
+    F('Input · Error (Error Messages Content › Name Min10)', h(N.TextField,{label:'الاسم الكامل',value:'ليال',state:'error',errorType:'Name Min10'})),
+    F('Input · Disabled', h(N.TextField,{label:'رقم الهوية',value:'1012345678',state:'disabled'})),
+    F('Search', h(N.TextField,{type:'search',label:'البحث',placeholder:'ابحث عن خدمة'})),
+    F('Select', h(N.TextField,{type:'select',label:'الجنسية',value:'مصر'})),
+    F('Action', h(N.TextField,{type:'action',label:'رمز الخصم',value:'NUSUK10',actionLabel:'تطبيق الرمز'})),
+    F('Mobile', h(N.TextField,{type:'mobile',label:'رقم الجوال',value:'512345678'})),
+    F('Credit Card', h(N.TextField,{type:'credit-card',values:['4242 4242 4242 4242','08/28','']})),
+    F('Password · criteria', h(N.TextField,{type:'password',label:'كلمة المُرور',value:'Nusuk2026',rules:[{label:'8 أحرف على الأقل',met:true},'حرف صغير واحد على الأقل','حرف كبير واحد على الأقل']})),
+    F('Password · Error', h(N.TextField,{type:'password',label:'كلمة المُرور',value:'EST1234',state:'error',hint:'يرجى الإلتزام بالمعايير التالية:',rules:[{label:'8 أحرف على الأقل',met:true},'حرف صغير واحد على الأقل','حرف كبير واحد على الأقل']})),
+    F('Multi Select', h(N.TextField,{type:'multi-select',fieldLabels:['الشهر','السنة'],values:['رمضان','1448']})),
+    F('Avatar', h(N.TextField,{type:'avatar',label:'المرافق',value:'ليال محمد',initials:'ل'})),
+    F('Text Area', h(N.TextField,{type:'text-area',label:'ملاحظات',placeholder:'اكتب هنا…',maxLength:500})),
+    F('Counter', h(N.TextField,{type:'counter',value:'2',ariaLabel:'عدد الأشخاص'})),
+    F('OTP', h(N.TextField,{type:'otp',value:'48'})),
+    F('With logo (SPL)', h(N.TextField,{type:'logo',label:'العنوان الوطني',value:'RRRD2929'}))));
 </script>
 </body>
 </html>
